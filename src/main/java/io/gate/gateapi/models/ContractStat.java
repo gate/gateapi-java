@@ -76,6 +76,10 @@ public class ContractStat {
     @SerializedName(SERIALIZED_NAME_TOP_LSR_SIZE)
     private Double topLsrSize;
 
+    public static final String SERIALIZED_NAME_MARK_PRICE = "mark_price";
+    @SerializedName(SERIALIZED_NAME_MARK_PRICE)
+    private Double markPrice;
+
 
     public ContractStat time(Long time) {
         
@@ -336,6 +340,26 @@ public class ContractStat {
     public void setTopLsrSize(Double topLsrSize) {
         this.topLsrSize = topLsrSize;
     }
+
+    public ContractStat markPrice(Double markPrice) {
+        
+        this.markPrice = markPrice;
+        return this;
+    }
+
+     /**
+     * Mark price
+     * @return markPrice
+    **/
+    @javax.annotation.Nullable
+    public Double getMarkPrice() {
+        return markPrice;
+    }
+
+
+    public void setMarkPrice(Double markPrice) {
+        this.markPrice = markPrice;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -357,12 +381,13 @@ public class ContractStat {
                 Objects.equals(this.openInterest, contractStat.openInterest) &&
                 Objects.equals(this.openInterestUsd, contractStat.openInterestUsd) &&
                 Objects.equals(this.topLsrAccount, contractStat.topLsrAccount) &&
-                Objects.equals(this.topLsrSize, contractStat.topLsrSize);
+                Objects.equals(this.topLsrSize, contractStat.topLsrSize) &&
+                Objects.equals(this.markPrice, contractStat.markPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, lsrTaker, lsrAccount, longLiqSize, longLiqAmount, longLiqUsd, shortLiqSize, shortLiqAmount, shortLiqUsd, openInterest, openInterestUsd, topLsrAccount, topLsrSize);
+        return Objects.hash(time, lsrTaker, lsrAccount, longLiqSize, longLiqAmount, longLiqUsd, shortLiqSize, shortLiqAmount, shortLiqUsd, openInterest, openInterestUsd, topLsrAccount, topLsrSize, markPrice);
     }
 
 
@@ -383,6 +408,7 @@ public class ContractStat {
         sb.append("      openInterestUsd: ").append(toIndentedString(openInterestUsd)).append("\n");
         sb.append("      topLsrAccount: ").append(toIndentedString(topLsrAccount)).append("\n");
         sb.append("      topLsrSize: ").append(toIndentedString(topLsrSize)).append("\n");
+        sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
         sb.append("}");
         return sb.toString();
     }

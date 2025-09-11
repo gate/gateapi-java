@@ -583,7 +583,7 @@ null (empty response body)
 
 <a name="findCoin"></a>
 # **findCoin**
-> List&lt;String&gt; findCoin(findCoin)
+> Object findCoin(findCoin)
 
 Staking coins
 
@@ -610,7 +610,7 @@ public class Example {
         EarnApi apiInstance = new EarnApi(defaultClient);
         FindCoin findCoin = new FindCoin(); // FindCoin | 
         try {
-            List<String> result = apiInstance.findCoin(findCoin);
+            Object result = apiInstance.findCoin(findCoin);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List&lt;String&gt;**
+**Object**
 
 ### Authorization
 

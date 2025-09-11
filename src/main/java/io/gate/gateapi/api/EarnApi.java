@@ -1224,7 +1224,7 @@ public class EarnApi {
      * Staking coins
      * 
      * @param findCoin  (required)
-     * @return List&lt;String&gt;
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1232,8 +1232,8 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public List<String> findCoin(FindCoin findCoin) throws ApiException {
-        ApiResponse<List<String>> localVarResp = findCoinWithHttpInfo(findCoin);
+    public Object findCoin(FindCoin findCoin) throws ApiException {
+        ApiResponse<Object> localVarResp = findCoinWithHttpInfo(findCoin);
         return localVarResp.getData();
     }
 
@@ -1241,7 +1241,7 @@ public class EarnApi {
      * Staking coins
      * 
      * @param findCoin  (required)
-     * @return ApiResponse&lt;List&lt;String&gt;&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1249,9 +1249,9 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<String>> findCoinWithHttpInfo(FindCoin findCoin) throws ApiException {
+    public ApiResponse<Object> findCoinWithHttpInfo(FindCoin findCoin) throws ApiException {
         okhttp3.Call localVarCall = findCoinValidateBeforeCall(findCoin, null);
-        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1268,9 +1268,9 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findCoinAsync(FindCoin findCoin, final ApiCallback<List<String>> _callback) throws ApiException {
+    public okhttp3.Call findCoinAsync(FindCoin findCoin, final ApiCallback<Object> _callback) throws ApiException {
         okhttp3.Call localVarCall = findCoinValidateBeforeCall(findCoin, _callback);
-        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

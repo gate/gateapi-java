@@ -166,7 +166,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set orderType
-         * @param orderType Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)
+         * @param orderType Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)
          * @return APIlistMultiCollateralOrdersRequest
          */
         public APIlistMultiCollateralOrdersRequest orderType(String orderType) {

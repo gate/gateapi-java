@@ -56,6 +56,10 @@ public class FuturesAccount {
     @SerializedName(SERIALIZED_NAME_IN_DUAL_MODE)
     private Boolean inDualMode;
 
+    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
+    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
+    private String positionMode;
+
     public static final String SERIALIZED_NAME_ENABLE_CREDIT = "enable_credit";
     @SerializedName(SERIALIZED_NAME_ENABLE_CREDIT)
     private Boolean enableCredit;
@@ -287,6 +291,26 @@ public class FuturesAccount {
 
     public void setInDualMode(Boolean inDualMode) {
         this.inDualMode = inDualMode;
+    }
+
+    public FuturesAccount positionMode(String positionMode) {
+        
+        this.positionMode = positionMode;
+        return this;
+    }
+
+     /**
+     * Position mode: single - one-way, dual - dual-side, split - sub-positions (in_dual_mode is deprecated)
+     * @return positionMode
+    **/
+    @javax.annotation.Nullable
+    public String getPositionMode() {
+        return positionMode;
+    }
+
+
+    public void setPositionMode(String positionMode) {
+        this.positionMode = positionMode;
     }
 
     public FuturesAccount enableCredit(Boolean enableCredit) {
@@ -665,6 +689,7 @@ public class FuturesAccount {
                 Objects.equals(this.point, futuresAccount.point) &&
                 Objects.equals(this.currency, futuresAccount.currency) &&
                 Objects.equals(this.inDualMode, futuresAccount.inDualMode) &&
+                Objects.equals(this.positionMode, futuresAccount.positionMode) &&
                 Objects.equals(this.enableCredit, futuresAccount.enableCredit) &&
                 Objects.equals(this.positionInitialMargin, futuresAccount.positionInitialMargin) &&
                 Objects.equals(this.maintenanceMargin, futuresAccount.maintenanceMargin) &&
@@ -687,7 +712,7 @@ public class FuturesAccount {
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, crossOrderMargin, crossInitialMargin, crossMaintenanceMargin, crossUnrealisedPnl, crossAvailable, crossMarginBalance, crossMmr, crossImr, isolatedPositionMargin, enableNewDualMode, marginMode, enableTieredMm, history);
+        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, positionMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, crossOrderMargin, crossInitialMargin, crossMaintenanceMargin, crossUnrealisedPnl, crossAvailable, crossMarginBalance, crossMmr, crossImr, isolatedPositionMargin, enableNewDualMode, marginMode, enableTieredMm, history);
     }
 
 
@@ -703,6 +728,7 @@ public class FuturesAccount {
         sb.append("      point: ").append(toIndentedString(point)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      inDualMode: ").append(toIndentedString(inDualMode)).append("\n");
+        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
         sb.append("      enableCredit: ").append(toIndentedString(enableCredit)).append("\n");
         sb.append("      positionInitialMargin: ").append(toIndentedString(positionInitialMargin)).append("\n");
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");

@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **openTime** | **Long** | First Open Time |  [optional]
 **riskLimitTable** | **String** | Risk limit table ID |  [optional] [readonly]
 **averageMaintenanceRate** | **String** | Average maintenance margin rate |  [optional] [readonly]
+**pid** | **Long** | Sub-account position ID |  [optional] [readonly]
 
 ## Enum: ModeEnum
 

@@ -35,6 +35,10 @@ public class FuturesOrderAmendment {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
 
     public FuturesOrderAmendment size(Long size) {
         
@@ -95,6 +99,26 @@ public class FuturesOrderAmendment {
     public void setAmendText(String amendText) {
         this.amendText = amendText;
     }
+
+    public FuturesOrderAmendment text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * Internal users can modify information in the text field.
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -106,12 +130,13 @@ public class FuturesOrderAmendment {
         FuturesOrderAmendment futuresOrderAmendment = (FuturesOrderAmendment) o;
         return Objects.equals(this.size, futuresOrderAmendment.size) &&
                 Objects.equals(this.price, futuresOrderAmendment.price) &&
-                Objects.equals(this.amendText, futuresOrderAmendment.amendText);
+                Objects.equals(this.amendText, futuresOrderAmendment.amendText) &&
+                Objects.equals(this.text, futuresOrderAmendment.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, price, amendText);
+        return Objects.hash(size, price, amendText, text);
     }
 
 
@@ -122,6 +147,7 @@ public class FuturesOrderAmendment {
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

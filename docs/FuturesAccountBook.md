@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **time** | **Double** | Change time |  [optional]
 **change** | **String** | Change amount |  [optional]
 **balance** | **String** | Balance after change |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) | Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction |  [optional]
+**type** | [**TypeEnum**](#TypeEnum) | Change types:  - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates - bonus_offset: Trial fund deduction |  [optional]
 **text** | **String** | Comment |  [optional]
 **contract** | **String** | Futures contract, the field is only available for data after 2023-10-30 |  [optional]
 **tradeId** | **String** | trade id |  [optional]

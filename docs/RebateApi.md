@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 <a name="agencyCommissionsHistory"></a>
 # **agencyCommissionsHistory**
-> List&lt;AgencyCommissionHistory&gt; agencyCommissionsHistory().currency(currency).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
+> List&lt;AgencyCommissionHistory&gt; agencyCommissionsHistory().currency(currency).commissionType(commissionType).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
 Broker obtains rebate history of recommended users
 
@@ -132,6 +132,7 @@ public class Example {
 
         RebateApi apiInstance = new RebateApi(defaultClient);
         String currency = "BTC"; // String | Specify the currency. If not specified, returns all currencies
+        Integer commissionType = 1; // Integer | Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate
         Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
         Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
@@ -140,6 +141,7 @@ public class Example {
         try {
             List<AgencyCommissionHistory> result = apiInstance.agencyCommissionsHistory()
                         .currency(currency)
+                        .commissionType(commissionType)
                         .userId(userId)
                         .from(from)
                         .to(to)
@@ -165,6 +167,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| Specify the currency. If not specified, returns all currencies | [optional]
+ **commissionType** | **Integer**| Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate | [optional]
  **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
  **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]

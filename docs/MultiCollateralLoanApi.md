@@ -48,7 +48,7 @@ public class Example {
         Integer page = 1; // Integer | Page number
         Integer limit = 10; // Integer | Maximum number of records returned in a single list
         String sort = "ltv_asc"; // String | Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
-        String orderType = "current"; // String | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
+        String orderType = "current"; // String | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         try {
             List<MultiCollateralOrder> result = apiInstance.listMultiCollateralOrders()
                         .page(page)
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 10]
  **sort** | **String**| Sort type: &#x60;time_desc&#x60; - Created time descending (default), &#x60;ltv_asc&#x60; - Collateral ratio ascending, &#x60;ltv_desc&#x60; - Collateral ratio descending. | [optional]
- **orderType** | **String**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specifiedOrder type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
+ **orderType** | **String**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
 
 ### Return type
 

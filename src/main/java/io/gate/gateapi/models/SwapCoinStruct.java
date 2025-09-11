@@ -191,7 +191,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * 子类型
+     * SubType
      * @return subtype
     **/
     @javax.annotation.Nullable
@@ -271,7 +271,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * 更新时间戳
+     * UpdateTimestamp
      * @return updateStamp
     **/
     @javax.annotation.Nullable

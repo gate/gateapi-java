@@ -26,4 +26,9 @@ Name | Type | Description | Notes
 **lowestSize** | **String** | The latest seller&#39;s lowest price order quantity |  [optional]
 **highestBid** | **String** | Recent highest bid |  [optional]
 **highestSize** | **String** | The latest buyer&#39;s highest price order volume |  [optional]
+**changeUtc0** | **String** | Percentage change at utc0. Negative values indicate a drop, e.g., -7.45% |  [optional]
+**changeUtc8** | **String** | Percentage change at utc8. Negative values indicate a drop, e.g., -7.45% |  [optional]
+**changePrice** | **String** | 24h change amount. Negative values indicate a drop, e.g., -7.45 |  [optional]
+**changeUtc0Price** | **String** | Change amount at utc0. Negative values indicate a drop, e.g., -7.45 |  [optional]
+**changeUtc8Price** | **String** | Change amount at utc8. Negative values indicate a drop, e.g., -7.45 |  [optional]
 

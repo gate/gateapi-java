@@ -931,7 +931,7 @@ public class SpotApi {
 
         /**
          * Set lastId
-         * @param lastId Specify the currency name to query in batches, and support up to 100 pass parameters at a time (optional)
+         * @param lastId Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used (optional)
          * @return APIlistTradesRequest
          */
         public APIlistTradesRequest lastId(String lastId) {

@@ -35,6 +35,10 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private Double createTime;
 
+    public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
+    @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
+    private Double updateTime;
+
     public static final String SERIALIZED_NAME_FINISH_TIME = "finish_time";
     @SerializedName(SERIALIZED_NAME_FINISH_TIME)
     private Double finishTime;
@@ -384,6 +388,14 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_LIMIT_VIP = "limit_vip";
+    @SerializedName(SERIALIZED_NAME_LIMIT_VIP)
+    private Long limitVip;
+
+    public static final String SERIALIZED_NAME_PID = "pid";
+    @SerializedName(SERIALIZED_NAME_PID)
+    private Long pid;
+
 
      /**
      * Futures order ID
@@ -412,6 +424,16 @@ public class FuturesOrder {
     @javax.annotation.Nullable
     public Double getCreateTime() {
         return createTime;
+    }
+
+
+     /**
+     * OrderUpdateTime
+     * @return updateTime
+    **/
+    @javax.annotation.Nullable
+    public Double getUpdateTime() {
+        return updateTime;
     }
 
 
@@ -742,6 +764,46 @@ public class FuturesOrder {
         return amendText;
     }
 
+
+    public FuturesOrder limitVip(Long limitVip) {
+        
+        this.limitVip = limitVip;
+        return this;
+    }
+
+     /**
+     * Counterparty user&#39;s VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0
+     * @return limitVip
+    **/
+    @javax.annotation.Nullable
+    public Long getLimitVip() {
+        return limitVip;
+    }
+
+
+    public void setLimitVip(Long limitVip) {
+        this.limitVip = limitVip;
+    }
+
+    public FuturesOrder pid(Long pid) {
+        
+        this.pid = pid;
+        return this;
+    }
+
+     /**
+     * Position ID
+     * @return pid
+    **/
+    @javax.annotation.Nullable
+    public Long getPid() {
+        return pid;
+    }
+
+
+    public void setPid(Long pid) {
+        this.pid = pid;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -754,6 +816,7 @@ public class FuturesOrder {
         return Objects.equals(this.id, futuresOrder.id) &&
                 Objects.equals(this.user, futuresOrder.user) &&
                 Objects.equals(this.createTime, futuresOrder.createTime) &&
+                Objects.equals(this.updateTime, futuresOrder.updateTime) &&
                 Objects.equals(this.finishTime, futuresOrder.finishTime) &&
                 Objects.equals(this.finishAs, futuresOrder.finishAs) &&
                 Objects.equals(this.status, futuresOrder.status) &&
@@ -776,12 +839,14 @@ public class FuturesOrder {
                 Objects.equals(this.autoSize, futuresOrder.autoSize) &&
                 Objects.equals(this.stpId, futuresOrder.stpId) &&
                 Objects.equals(this.stpAct, futuresOrder.stpAct) &&
-                Objects.equals(this.amendText, futuresOrder.amendText);
+                Objects.equals(this.amendText, futuresOrder.amendText) &&
+                Objects.equals(this.limitVip, futuresOrder.limitVip) &&
+                Objects.equals(this.pid, futuresOrder.pid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText);
+        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, limitVip, pid);
     }
 
 
@@ -792,6 +857,7 @@ public class FuturesOrder {
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      user: ").append(toIndentedString(user)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("      finishTime: ").append(toIndentedString(finishTime)).append("\n");
         sb.append("      finishAs: ").append(toIndentedString(finishAs)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
@@ -815,6 +881,8 @@ public class FuturesOrder {
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      limitVip: ").append(toIndentedString(limitVip)).append("\n");
+        sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("}");
         return sb.toString();
     }

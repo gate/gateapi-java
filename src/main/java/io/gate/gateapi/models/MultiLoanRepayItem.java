@@ -86,7 +86,6 @@ public class MultiLoanRepayItem {
      * Repayment method, set to true for full repayment, false for partial repayment
      * @return repaidAll
     **/
-    @javax.annotation.Nullable
     public Boolean getRepaidAll() {
         return repaidAll;
     }

@@ -107,6 +107,26 @@ public class FuturesTicker {
     @SerializedName(SERIALIZED_NAME_HIGHEST_SIZE)
     private String highestSize;
 
+    public static final String SERIALIZED_NAME_CHANGE_UTC0 = "change_utc0";
+    @SerializedName(SERIALIZED_NAME_CHANGE_UTC0)
+    private String changeUtc0;
+
+    public static final String SERIALIZED_NAME_CHANGE_UTC8 = "change_utc8";
+    @SerializedName(SERIALIZED_NAME_CHANGE_UTC8)
+    private String changeUtc8;
+
+    public static final String SERIALIZED_NAME_CHANGE_PRICE = "change_price";
+    @SerializedName(SERIALIZED_NAME_CHANGE_PRICE)
+    private String changePrice;
+
+    public static final String SERIALIZED_NAME_CHANGE_UTC0_PRICE = "change_utc0_price";
+    @SerializedName(SERIALIZED_NAME_CHANGE_UTC0_PRICE)
+    private String changeUtc0Price;
+
+    public static final String SERIALIZED_NAME_CHANGE_UTC8_PRICE = "change_utc8_price";
+    @SerializedName(SERIALIZED_NAME_CHANGE_UTC8_PRICE)
+    private String changeUtc8Price;
+
 
     public FuturesTicker contract(String contract) {
         
@@ -527,6 +547,106 @@ public class FuturesTicker {
     public void setHighestSize(String highestSize) {
         this.highestSize = highestSize;
     }
+
+    public FuturesTicker changeUtc0(String changeUtc0) {
+        
+        this.changeUtc0 = changeUtc0;
+        return this;
+    }
+
+     /**
+     * Percentage change at utc0. Negative values indicate a drop, e.g., -7.45%
+     * @return changeUtc0
+    **/
+    @javax.annotation.Nullable
+    public String getChangeUtc0() {
+        return changeUtc0;
+    }
+
+
+    public void setChangeUtc0(String changeUtc0) {
+        this.changeUtc0 = changeUtc0;
+    }
+
+    public FuturesTicker changeUtc8(String changeUtc8) {
+        
+        this.changeUtc8 = changeUtc8;
+        return this;
+    }
+
+     /**
+     * Percentage change at utc8. Negative values indicate a drop, e.g., -7.45%
+     * @return changeUtc8
+    **/
+    @javax.annotation.Nullable
+    public String getChangeUtc8() {
+        return changeUtc8;
+    }
+
+
+    public void setChangeUtc8(String changeUtc8) {
+        this.changeUtc8 = changeUtc8;
+    }
+
+    public FuturesTicker changePrice(String changePrice) {
+        
+        this.changePrice = changePrice;
+        return this;
+    }
+
+     /**
+     * 24h change amount. Negative values indicate a drop, e.g., -7.45
+     * @return changePrice
+    **/
+    @javax.annotation.Nullable
+    public String getChangePrice() {
+        return changePrice;
+    }
+
+
+    public void setChangePrice(String changePrice) {
+        this.changePrice = changePrice;
+    }
+
+    public FuturesTicker changeUtc0Price(String changeUtc0Price) {
+        
+        this.changeUtc0Price = changeUtc0Price;
+        return this;
+    }
+
+     /**
+     * Change amount at utc0. Negative values indicate a drop, e.g., -7.45
+     * @return changeUtc0Price
+    **/
+    @javax.annotation.Nullable
+    public String getChangeUtc0Price() {
+        return changeUtc0Price;
+    }
+
+
+    public void setChangeUtc0Price(String changeUtc0Price) {
+        this.changeUtc0Price = changeUtc0Price;
+    }
+
+    public FuturesTicker changeUtc8Price(String changeUtc8Price) {
+        
+        this.changeUtc8Price = changeUtc8Price;
+        return this;
+    }
+
+     /**
+     * Change amount at utc8. Negative values indicate a drop, e.g., -7.45
+     * @return changeUtc8Price
+    **/
+    @javax.annotation.Nullable
+    public String getChangeUtc8Price() {
+        return changeUtc8Price;
+    }
+
+
+    public void setChangeUtc8Price(String changeUtc8Price) {
+        this.changeUtc8Price = changeUtc8Price;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -556,12 +676,17 @@ public class FuturesTicker {
                 Objects.equals(this.lowestAsk, futuresTicker.lowestAsk) &&
                 Objects.equals(this.lowestSize, futuresTicker.lowestSize) &&
                 Objects.equals(this.highestBid, futuresTicker.highestBid) &&
-                Objects.equals(this.highestSize, futuresTicker.highestSize);
+                Objects.equals(this.highestSize, futuresTicker.highestSize) &&
+                Objects.equals(this.changeUtc0, futuresTicker.changeUtc0) &&
+                Objects.equals(this.changeUtc8, futuresTicker.changeUtc8) &&
+                Objects.equals(this.changePrice, futuresTicker.changePrice) &&
+                Objects.equals(this.changeUtc0Price, futuresTicker.changeUtc0Price) &&
+                Objects.equals(this.changeUtc8Price, futuresTicker.changeUtc8Price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, lowestAsk, lowestSize, highestBid, highestSize);
+        return Objects.hash(contract, last, changePercentage, totalSize, low24h, high24h, volume24h, volume24hBtc, volume24hUsd, volume24hBase, volume24hQuote, volume24hSettle, markPrice, fundingRate, fundingRateIndicative, indexPrice, quantoBaseRate, lowestAsk, lowestSize, highestBid, highestSize, changeUtc0, changeUtc8, changePrice, changeUtc0Price, changeUtc8Price);
     }
 
 
@@ -590,6 +715,11 @@ public class FuturesTicker {
         sb.append("      lowestSize: ").append(toIndentedString(lowestSize)).append("\n");
         sb.append("      highestBid: ").append(toIndentedString(highestBid)).append("\n");
         sb.append("      highestSize: ").append(toIndentedString(highestSize)).append("\n");
+        sb.append("      changeUtc0: ").append(toIndentedString(changeUtc0)).append("\n");
+        sb.append("      changeUtc8: ").append(toIndentedString(changeUtc8)).append("\n");
+        sb.append("      changePrice: ").append(toIndentedString(changePrice)).append("\n");
+        sb.append("      changeUtc0Price: ").append(toIndentedString(changeUtc0Price)).append("\n");
+        sb.append("      changeUtc8Price: ").append(toIndentedString(changeUtc8Price)).append("\n");
         sb.append("}");
         return sb.toString();
     }

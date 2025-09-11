@@ -23,34 +23,10 @@ import java.io.IOException;
  * FindCoin
  */
 public class FindCoin {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
-
     public static final String SERIALIZED_NAME_COINTYPE = "cointype";
     @SerializedName(SERIALIZED_NAME_COINTYPE)
     private String cointype;
 
-
-    public FindCoin coin(String coin) {
-        
-        this.coin = coin;
-        return this;
-    }
-
-     /**
-     * Currency
-     * @return coin
-    **/
-    @javax.annotation.Nullable
-    public String getCoin() {
-        return coin;
-    }
-
-
-    public void setCoin(String coin) {
-        this.coin = coin;
-    }
 
     public FindCoin cointype(String cointype) {
         
@@ -59,7 +35,7 @@ public class FindCoin {
     }
 
      /**
-     * Token Type: swap-Voucher, lock-Locked
+     * Currency type: swap - voucher; lock - locked position; debt - US Treasury bond.
      * @return cointype
     **/
     @javax.annotation.Nullable
@@ -80,13 +56,12 @@ public class FindCoin {
             return false;
         }
         FindCoin findCoin = (FindCoin) o;
-        return Objects.equals(this.coin, findCoin.coin) &&
-                Objects.equals(this.cointype, findCoin.cointype);
+        return Objects.equals(this.cointype, findCoin.cointype);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, cointype);
+        return Objects.hash(cointype);
     }
 
 
@@ -94,7 +69,6 @@ public class FindCoin {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class FindCoin {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
         sb.append("      cointype: ").append(toIndentedString(cointype)).append("\n");
         sb.append("}");
         return sb.toString();

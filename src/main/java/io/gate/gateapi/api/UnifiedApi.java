@@ -1828,7 +1828,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Query unified account tiered discount
+     * Query unified account tiered
      * 
      * @return List&lt;UnifiedDiscount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1844,7 +1844,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Query unified account tiered discount
+     * Query unified account tiered
      * 
      * @return ApiResponse&lt;List&lt;UnifiedDiscount&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1861,7 +1861,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Query unified account tiered discount (asynchronously)
+     * Query unified account tiered (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

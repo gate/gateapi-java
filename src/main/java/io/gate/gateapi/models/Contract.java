@@ -269,6 +269,14 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_LAUNCH_TIME)
     private Long launchTime;
 
+    public static final String SERIALIZED_NAME_DELISTING_TIME = "delisting_time";
+    @SerializedName(SERIALIZED_NAME_DELISTING_TIME)
+    private Long delistingTime;
+
+    public static final String SERIALIZED_NAME_DELISTED_TIME = "delisted_time";
+    @SerializedName(SERIALIZED_NAME_DELISTED_TIME)
+    private Long delistedTime;
+
 
     public Contract name(String name) {
         
@@ -997,7 +1005,7 @@ public class Contract {
     }
 
      /**
-     * Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted)
+     * Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted), circuit_breaker (circuit breaker)
      * @return status
     **/
     @javax.annotation.Nullable
@@ -1028,6 +1036,46 @@ public class Contract {
 
     public void setLaunchTime(Long launchTime) {
         this.launchTime = launchTime;
+    }
+
+    public Contract delistingTime(Long delistingTime) {
+        
+        this.delistingTime = delistingTime;
+        return this;
+    }
+
+     /**
+     * Timestamp when contract enters reduce-only state
+     * @return delistingTime
+    **/
+    @javax.annotation.Nullable
+    public Long getDelistingTime() {
+        return delistingTime;
+    }
+
+
+    public void setDelistingTime(Long delistingTime) {
+        this.delistingTime = delistingTime;
+    }
+
+    public Contract delistedTime(Long delistedTime) {
+        
+        this.delistedTime = delistedTime;
+        return this;
+    }
+
+     /**
+     * Contract delisting time
+     * @return delistedTime
+    **/
+    @javax.annotation.Nullable
+    public Long getDelistedTime() {
+        return delistedTime;
+    }
+
+
+    public void setDelistedTime(Long delistedTime) {
+        this.delistedTime = delistedTime;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1075,12 +1123,14 @@ public class Contract {
                 Objects.equals(this.createTime, contract.createTime) &&
                 Objects.equals(this.fundingCapRatio, contract.fundingCapRatio) &&
                 Objects.equals(this.status, contract.status) &&
-                Objects.equals(this.launchTime, contract.launchTime);
+                Objects.equals(this.launchTime, contract.launchTime) &&
+                Objects.equals(this.delistingTime, contract.delistingTime) &&
+                Objects.equals(this.delistedTime, contract.delistedTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime);
     }
 
 
@@ -1126,6 +1176,8 @@ public class Contract {
         sb.append("      fundingCapRatio: ").append(toIndentedString(fundingCapRatio)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      launchTime: ").append(toIndentedString(launchTime)).append("\n");
+        sb.append("      delistingTime: ").append(toIndentedString(delistingTime)).append("\n");
+        sb.append("      delistedTime: ").append(toIndentedString(delistedTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

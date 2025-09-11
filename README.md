@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.104.3
-- SDK version: 6.104.3
+- API version: v4.105.7
+- SDK version: 7.1.7
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>6.104.3</version>
+    <version>7.1.7</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:6.104.3"
+compile "io.gate:gate-api:7.1.7"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-6.104.3.jar`
+* `target/gate-api-7.1.7.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -389,7 +389,7 @@ Class | Method | HTTP request | Description
 *UnifiedApi* | [**getUnifiedMode**](docs/UnifiedApi.md#getUnifiedMode) | **GET** /unified/unified_mode | Query mode of the unified account
 *UnifiedApi* | [**setUnifiedMode**](docs/UnifiedApi.md#setUnifiedMode) | **PUT** /unified/unified_mode | Set unified account mode
 *UnifiedApi* | [**getUnifiedEstimateRate**](docs/UnifiedApi.md#getUnifiedEstimateRate) | **GET** /unified/estimate_rate | Query unified account estimated interest rate
-*UnifiedApi* | [**listCurrencyDiscountTiers**](docs/UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered discount
+*UnifiedApi* | [**listCurrencyDiscountTiers**](docs/UnifiedApi.md#listCurrencyDiscountTiers) | **GET** /unified/currency_discount_tiers | Query unified account tiered
 *UnifiedApi* | [**listLoanMarginTiers**](docs/UnifiedApi.md#listLoanMarginTiers) | **GET** /unified/loan_margin_tiers | Query unified account tiered loan margin
 *UnifiedApi* | [**calculatePortfolioMargin**](docs/UnifiedApi.md#calculatePortfolioMargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
 *UnifiedApi* | [**getUserLeverageCurrencyConfig**](docs/UnifiedApi.md#getUserLeverageCurrencyConfig) | **GET** /unified/leverage/user_currency_config | Maximum and minimum currency leverage that can be set

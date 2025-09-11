@@ -588,7 +588,7 @@ public class DeliveryApi {
 
         /**
          * Set lastId
-         * @param lastId 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 &#x60;from&#x60; 和 &#x60;to&#x60; 字段来限定时间范围 (optional)
+         * @param lastId Use the ID of the last record in the previous list as the starting point for the next list.This field is no longer supported. For new requests, please use the fromand tofields to specify the time rang (optional)
          * @return APIlistDeliveryTradesRequest
          */
         public APIlistDeliveryTradesRequest lastId(String lastId) {
@@ -817,7 +817,7 @@ public class DeliveryApi {
 
         /**
          * Set interval
-         * @param interval Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeTime interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time (optional, default to 5m)
+         * @param interval Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial time (optional, default to 5m)
          * @return APIlistDeliveryCandlesticksRequest
          */
         public APIlistDeliveryCandlesticksRequest interval(String interval) {
@@ -1427,7 +1427,7 @@ public class DeliveryApi {
 
         /**
          * Set type
-         * @param type Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)
+         * @param type Change types: - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates (optional)
          * @return APIlistDeliveryAccountBookRequest
          */
         public APIlistDeliveryAccountBookRequest type(String type) {
@@ -2259,7 +2259,7 @@ public class DeliveryApi {
 
         /**
          * Set lastId
-         * @param lastId Specify the currency name to query in batches, and support up to 100 pass parameters at a time (optional)
+         * @param lastId Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used (optional)
          * @return APIlistDeliveryOrdersRequest
          */
         public APIlistDeliveryOrdersRequest lastId(String lastId) {
@@ -2969,7 +2969,7 @@ public class DeliveryApi {
 
         /**
          * Set lastId
-         * @param lastId Specify the currency name to query in batches, and support up to 100 pass parameters at a time (optional)
+         * @param lastId Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used (optional)
          * @return APIgetMyDeliveryTradesRequest
          */
         public APIgetMyDeliveryTradesRequest lastId(String lastId) {
@@ -3762,7 +3762,7 @@ public class DeliveryApi {
 
     /**
      * Query risk limit tiers
-     * When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.
+     * When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets. &#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.
      * @param settle Settle currency (required)
      * @return APIlistDeliveryRiskLimitTiersRequest
      * @http.response.details

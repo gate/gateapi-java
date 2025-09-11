@@ -273,7 +273,7 @@ public class RebateApi {
         return new APIagencyTransactionHistoryRequest();
     }
 
-    private okhttp3.Call agencyCommissionsHistoryCall(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call agencyCommissionsHistoryCall(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -283,6 +283,10 @@ public class RebateApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currency != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (commissionType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("commission_type", commissionType));
         }
 
         if (userId != null) {
@@ -327,20 +331,20 @@ public class RebateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call agencyCommissionsHistoryValidateBeforeCall(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = agencyCommissionsHistoryCall(currency, userId, from, to, limit, offset, _callback);
+    private okhttp3.Call agencyCommissionsHistoryValidateBeforeCall(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = agencyCommissionsHistoryCall(currency, commissionType, userId, from, to, limit, offset, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<AgencyCommissionHistory>> agencyCommissionsHistoryWithHttpInfo(String currency, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, userId, from, to, limit, offset, null);
+    private ApiResponse<List<AgencyCommissionHistory>> agencyCommissionsHistoryWithHttpInfo(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, commissionType, userId, from, to, limit, offset, null);
         Type localVarReturnType = new TypeToken<List<AgencyCommissionHistory>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call agencyCommissionsHistoryAsync(String currency, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, userId, from, to, limit, offset, _callback);
+    private okhttp3.Call agencyCommissionsHistoryAsync(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, commissionType, userId, from, to, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<List<AgencyCommissionHistory>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -348,6 +352,7 @@ public class RebateApi {
 
     public class APIagencyCommissionsHistoryRequest {
         private String currency;
+        private Integer commissionType;
         private Long userId;
         private Long from;
         private Long to;
@@ -364,6 +369,16 @@ public class RebateApi {
          */
         public APIagencyCommissionsHistoryRequest currency(String currency) {
             this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set commissionType
+         * @param commissionType Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate (optional)
+         * @return APIagencyCommissionsHistoryRequest
+         */
+        public APIagencyCommissionsHistoryRequest commissionType(Integer commissionType) {
+            this.commissionType = commissionType;
             return this;
         }
 
@@ -429,7 +444,7 @@ public class RebateApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return agencyCommissionsHistoryCall(currency, userId, from, to, limit, offset, _callback);
+            return agencyCommissionsHistoryCall(currency, commissionType, userId, from, to, limit, offset, _callback);
         }
 
         /**
@@ -443,7 +458,7 @@ public class RebateApi {
          </table>
          */
         public List<AgencyCommissionHistory> execute() throws ApiException {
-            ApiResponse<List<AgencyCommissionHistory>> localVarResp = agencyCommissionsHistoryWithHttpInfo(currency, userId, from, to, limit, offset);
+            ApiResponse<List<AgencyCommissionHistory>> localVarResp = agencyCommissionsHistoryWithHttpInfo(currency, commissionType, userId, from, to, limit, offset);
             return localVarResp.getData();
         }
 
@@ -458,7 +473,7 @@ public class RebateApi {
          </table>
          */
         public ApiResponse<List<AgencyCommissionHistory>> executeWithHttpInfo() throws ApiException {
-            return agencyCommissionsHistoryWithHttpInfo(currency, userId, from, to, limit, offset);
+            return agencyCommissionsHistoryWithHttpInfo(currency, commissionType, userId, from, to, limit, offset);
         }
 
         /**
@@ -473,7 +488,7 @@ public class RebateApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
-            return agencyCommissionsHistoryAsync(currency, userId, from, to, limit, offset, _callback);
+            return agencyCommissionsHistoryAsync(currency, commissionType, userId, from, to, limit, offset, _callback);
         }
     }
 

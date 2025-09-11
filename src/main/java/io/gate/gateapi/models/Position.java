@@ -205,6 +205,10 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_AVERAGE_MAINTENANCE_RATE)
     private String averageMaintenanceRate;
 
+    public static final String SERIALIZED_NAME_PID = "pid";
+    @SerializedName(SERIALIZED_NAME_PID)
+    private Long pid;
+
 
      /**
      * User ID
@@ -605,6 +609,16 @@ public class Position {
         return averageMaintenanceRate;
     }
 
+
+     /**
+     * Sub-account position ID
+     * @return pid
+    **/
+    @javax.annotation.Nullable
+    public Long getPid() {
+        return pid;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -646,12 +660,13 @@ public class Position {
                 Objects.equals(this.updateId, position.updateId) &&
                 Objects.equals(this.openTime, position.openTime) &&
                 Objects.equals(this.riskLimitTable, position.riskLimitTable) &&
-                Objects.equals(this.averageMaintenanceRate, position.averageMaintenanceRate);
+                Objects.equals(this.averageMaintenanceRate, position.averageMaintenanceRate) &&
+                Objects.equals(this.pid, position.pid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, updateId, openTime, riskLimitTable, averageMaintenanceRate);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, updateId, openTime, riskLimitTable, averageMaintenanceRate, pid);
     }
 
 
@@ -692,6 +707,7 @@ public class Position {
         sb.append("      openTime: ").append(toIndentedString(openTime)).append("\n");
         sb.append("      riskLimitTable: ").append(toIndentedString(riskLimitTable)).append("\n");
         sb.append("      averageMaintenanceRate: ").append(toIndentedString(averageMaintenanceRate)).append("\n");
+        sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("}");
         return sb.toString();
     }
