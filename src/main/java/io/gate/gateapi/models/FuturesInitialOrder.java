@@ -176,7 +176,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close&#x3D;false
+     * In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close&#x3D;false
      * @return close
     **/
     @javax.annotation.Nullable
@@ -256,7 +256,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * Single position mode: auto_size is not required Dual position mode full closing (size&#x3D;0): auto_size must be set, close_long for closing long positions, close_short for closing short positions Dual position mode partial closing (size≠0): auto_size is not required
+     * One-way Mode: auto_size is not required Hedge Mode full closing (size&#x3D;0): auto_size must be set, close_long for closing long positions, close_short for closing short positions Hedge Mode partial closing (size≠0): auto_size is not required
      * @return autoSize
     **/
     @javax.annotation.Nullable

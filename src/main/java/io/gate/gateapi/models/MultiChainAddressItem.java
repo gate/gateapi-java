@@ -43,6 +43,10 @@ public class MultiChainAddressItem {
     @SerializedName(SERIALIZED_NAME_OBTAIN_FAILED)
     private Integer obtainFailed;
 
+    public static final String SERIALIZED_NAME_MIN_CONFIRMS = "min_confirms";
+    @SerializedName(SERIALIZED_NAME_MIN_CONFIRMS)
+    private Integer minConfirms;
+
 
     public MultiChainAddressItem chain(String chain) {
         
@@ -143,6 +147,26 @@ public class MultiChainAddressItem {
     public void setObtainFailed(Integer obtainFailed) {
         this.obtainFailed = obtainFailed;
     }
+
+    public MultiChainAddressItem minConfirms(Integer minConfirms) {
+        
+        this.minConfirms = minConfirms;
+        return this;
+    }
+
+     /**
+     * Minimum Confirmation Count
+     * @return minConfirms
+    **/
+    @javax.annotation.Nullable
+    public Integer getMinConfirms() {
+        return minConfirms;
+    }
+
+
+    public void setMinConfirms(Integer minConfirms) {
+        this.minConfirms = minConfirms;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -156,12 +180,13 @@ public class MultiChainAddressItem {
                 Objects.equals(this.address, multiChainAddressItem.address) &&
                 Objects.equals(this.paymentId, multiChainAddressItem.paymentId) &&
                 Objects.equals(this.paymentName, multiChainAddressItem.paymentName) &&
-                Objects.equals(this.obtainFailed, multiChainAddressItem.obtainFailed);
+                Objects.equals(this.obtainFailed, multiChainAddressItem.obtainFailed) &&
+                Objects.equals(this.minConfirms, multiChainAddressItem.minConfirms);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(chain, address, paymentId, paymentName, obtainFailed);
+        return Objects.hash(chain, address, paymentId, paymentName, obtainFailed, minConfirms);
     }
 
 
@@ -174,6 +199,7 @@ public class MultiChainAddressItem {
         sb.append("      paymentId: ").append(toIndentedString(paymentId)).append("\n");
         sb.append("      paymentName: ").append(toIndentedString(paymentName)).append("\n");
         sb.append("      obtainFailed: ").append(toIndentedString(obtainFailed)).append("\n");
+        sb.append("      minConfirms: ").append(toIndentedString(minConfirms)).append("\n");
         sb.append("}");
         return sb.toString();
     }

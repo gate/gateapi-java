@@ -27,10 +27,10 @@ Method | HTTP request | Description
 [**updateDualCompPositionCrossMode**](FuturesApi.md#updateDualCompPositionCrossMode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | Switch Between Cross and Isolated Margin Modes Under Hedge Mode
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
 [**setDualMode**](FuturesApi.md#setDualMode) | **POST** /futures/{settle}/dual_mode | Set position mode
-[**getDualModePosition**](FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Get position information in dual mode
-[**updateDualModePositionMargin**](FuturesApi.md#updateDualModePositionMargin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in dual mode
-[**updateDualModePositionLeverage**](FuturesApi.md#updateDualModePositionLeverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in dual mode
-[**updateDualModePositionRiskLimit**](FuturesApi.md#updateDualModePositionRiskLimit) | **POST** /futures/{settle}/dual_comp/positions/{contract}/risk_limit | Update position risk limit in dual mode
+[**getDualModePosition**](FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Get position information in Hedge Mode
+[**updateDualModePositionMargin**](FuturesApi.md#updateDualModePositionMargin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in Hedge Mode
+[**updateDualModePositionLeverage**](FuturesApi.md#updateDualModePositionLeverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in Hedge Mode
+[**updateDualModePositionRiskLimit**](FuturesApi.md#updateDualModePositionRiskLimit) | **POST** /futures/{settle}/dual_comp/positions/{contract}/risk_limit | Update position risk limit in Hedge Mode
 [**listFuturesOrders**](FuturesApi.md#listFuturesOrders) | **GET** /futures/{settle}/orders | Query futures order list
 [**createFuturesOrder**](FuturesApi.md#createFuturesOrder) | **POST** /futures/{settle}/orders | Place futures order
 [**cancelFuturesOrders**](FuturesApi.md#cancelFuturesOrders) | **DELETE** /futures/{settle}/orders | Cancel all orders with &#39;open&#39; status
@@ -49,10 +49,12 @@ Method | HTTP request | Description
 [**cancelBatchFutureOrders**](FuturesApi.md#cancelBatchFutureOrders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel batch orders by specified ID list
 [**amendBatchFutureOrders**](FuturesApi.md#amendBatchFutureOrders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders by specified IDs
 [**getFuturesRiskLimitTable**](FuturesApi.md#getFuturesRiskLimitTable) | **GET** /futures/{settle}/risk_limit_table | Query risk limit table by table_id
+[**createFuturesBBOOrder**](FuturesApi.md#createFuturesBBOOrder) | **POST** /futures/{settle}/bbo_orders | Level-based BBO Contract Order Placement
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | Query auto order list
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
+[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/{order_id} | Modify a Single Auto Order
 [**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
 
 
@@ -1699,7 +1701,7 @@ Name | Type | Description  | Notes
 
 Set position mode
 
-The prerequisite for changing mode is that all positions have no holdings and no pending orders
+The prerequisite for changing mode is that there are no open positions and no open orders
 
 ### Example
 
@@ -1723,7 +1725,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Boolean dualMode = true; // Boolean | Whether to enable dual mode
+        Boolean dualMode = true; // Boolean | Whether to enable Hedge Mode
         try {
             FuturesAccount result = apiInstance.setDualMode(settle, dualMode);
             System.out.println(result);
@@ -1745,7 +1747,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **dualMode** | **Boolean**| Whether to enable dual mode |
+ **dualMode** | **Boolean**| Whether to enable Hedge Mode |
 
 ### Return type
 
@@ -1769,7 +1771,7 @@ Name | Type | Description  | Notes
 # **getDualModePosition**
 > List&lt;Position&gt; getDualModePosition(settle, contract).execute();
 
-Get position information in dual mode
+Get position information in Hedge Mode
 
 ### Example
 
@@ -1840,7 +1842,7 @@ Name | Type | Description  | Notes
 # **updateDualModePositionMargin**
 > List&lt;Position&gt; updateDualModePositionMargin(settle, contract, change, dualSide)
 
-Update position margin in dual mode
+Update position margin in Hedge Mode
 
 ### Example
 
@@ -1914,7 +1916,7 @@ Name | Type | Description  | Notes
 # **updateDualModePositionLeverage**
 > List&lt;Position&gt; updateDualModePositionLeverage(settle, contract, leverage, crossLeverageLimit)
 
-Update position leverage in dual mode
+Update position leverage in Hedge Mode
 
 ### Example
 
@@ -1988,7 +1990,7 @@ Name | Type | Description  | Notes
 # **updateDualModePositionRiskLimit**
 > List&lt;Position&gt; updateDualModePositionRiskLimit(settle, contract, riskLimit)
 
-Update position risk limit in dual mode
+Update position risk limit in Hedge Mode
 
 ### Example
 
@@ -3468,6 +3470,80 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Query successful |  -  |
 
+<a name="createFuturesBBOOrder"></a>
+# **createFuturesBBOOrder**
+> FuturesOrder createFuturesBBOOrder(settle, futuresBBOOrder, xGateExptime)
+
+Level-based BBO Contract Order Placement
+
+Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        FuturesBBOOrder futuresBBOOrder = new FuturesBBOOrder(); // FuturesBBOOrder | 
+        String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        try {
+            FuturesOrder result = apiInstance.createFuturesBBOOrder(settle, futuresBBOOrder, xGateExptime);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#createFuturesBBOOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **futuresBBOOrder** | [**FuturesBBOOrder**](FuturesBBOOrder.md)|  |
+ **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+
+### Return type
+
+[**FuturesOrder**](FuturesOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Order details |  -  |
+
 <a name="listPriceTriggeredOrders"></a>
 # **listPriceTriggeredOrders**
 > List&lt;FuturesPriceTriggeredOrder&gt; listPriceTriggeredOrders(settle, status).contract(contract).limit(limit).offset(offset).execute();
@@ -3757,6 +3833,78 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Auto order details |  -  |
+
+<a name="updatePriceTriggeredOrder"></a>
+# **updatePriceTriggeredOrder**
+> TriggerOrderResponse updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder)
+
+Modify a Single Auto Order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String orderId = "orderId_example"; // String | ID returned when order is successfully created
+        FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = new FuturesUpdatePriceTriggeredOrder(); // FuturesUpdatePriceTriggeredOrder | 
+        try {
+            TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#updatePriceTriggeredOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **orderId** | **String**| ID returned when order is successfully created |
+ **futuresUpdatePriceTriggeredOrder** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  |
+
+### Return type
+
+[**TriggerOrderResponse**](TriggerOrderResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order created successfully |  -  |
 
 <a name="cancelPriceTriggeredOrder"></a>
 # **cancelPriceTriggeredOrder**

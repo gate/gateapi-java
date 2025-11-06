@@ -55,6 +55,10 @@ public class CurrencyChain {
     @SerializedName(SERIALIZED_NAME_DECIMAL)
     private String decimal;
 
+    public static final String SERIALIZED_NAME_IS_TAG = "is_tag";
+    @SerializedName(SERIALIZED_NAME_IS_TAG)
+    private Integer isTag;
+
 
     public CurrencyChain chain(String chain) {
         
@@ -215,6 +219,26 @@ public class CurrencyChain {
     public void setDecimal(String decimal) {
         this.decimal = decimal;
     }
+
+    public CurrencyChain isTag(Integer isTag) {
+        
+        this.isTag = isTag;
+        return this;
+    }
+
+     /**
+     * Whether to Include Tag
+     * @return isTag
+    **/
+    @javax.annotation.Nullable
+    public Integer getIsTag() {
+        return isTag;
+    }
+
+
+    public void setIsTag(Integer isTag) {
+        this.isTag = isTag;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -231,12 +255,13 @@ public class CurrencyChain {
                 Objects.equals(this.isDisabled, currencyChain.isDisabled) &&
                 Objects.equals(this.isDepositDisabled, currencyChain.isDepositDisabled) &&
                 Objects.equals(this.isWithdrawDisabled, currencyChain.isWithdrawDisabled) &&
-                Objects.equals(this.decimal, currencyChain.decimal);
+                Objects.equals(this.decimal, currencyChain.decimal) &&
+                Objects.equals(this.isTag, currencyChain.isTag);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(chain, nameCn, nameEn, contractAddress, isDisabled, isDepositDisabled, isWithdrawDisabled, decimal);
+        return Objects.hash(chain, nameCn, nameEn, contractAddress, isDisabled, isDepositDisabled, isWithdrawDisabled, decimal, isTag);
     }
 
 
@@ -252,6 +277,7 @@ public class CurrencyChain {
         sb.append("      isDepositDisabled: ").append(toIndentedString(isDepositDisabled)).append("\n");
         sb.append("      isWithdrawDisabled: ").append(toIndentedString(isWithdrawDisabled)).append("\n");
         sb.append("      decimal: ").append(toIndentedString(decimal)).append("\n");
+        sb.append("      isTag: ").append(toIndentedString(isTag)).append("\n");
         sb.append("}");
         return sb.toString();
     }

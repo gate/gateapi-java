@@ -34,6 +34,10 @@ public class DepositAddress {
     @SerializedName(SERIALIZED_NAME_ADDRESS)
     private String address;
 
+    public static final String SERIALIZED_NAME_MIN_DEPOSIT_AMOUNT = "min_deposit_amount";
+    @SerializedName(SERIALIZED_NAME_MIN_DEPOSIT_AMOUNT)
+    private String minDepositAmount;
+
     public static final String SERIALIZED_NAME_MULTICHAIN_ADDRESSES = "multichain_addresses";
     @SerializedName(SERIALIZED_NAME_MULTICHAIN_ADDRESSES)
     private List<MultiChainAddressItem> multichainAddresses = null;
@@ -77,6 +81,26 @@ public class DepositAddress {
         this.address = address;
     }
 
+    public DepositAddress minDepositAmount(String minDepositAmount) {
+        
+        this.minDepositAmount = minDepositAmount;
+        return this;
+    }
+
+     /**
+     * Minimum Deposit Amount
+     * @return minDepositAmount
+    **/
+    @javax.annotation.Nullable
+    public String getMinDepositAmount() {
+        return minDepositAmount;
+    }
+
+
+    public void setMinDepositAmount(String minDepositAmount) {
+        this.minDepositAmount = minDepositAmount;
+    }
+
     public DepositAddress multichainAddresses(List<MultiChainAddressItem> multichainAddresses) {
         
         this.multichainAddresses = multichainAddresses;
@@ -115,12 +139,13 @@ public class DepositAddress {
         DepositAddress depositAddress = (DepositAddress) o;
         return Objects.equals(this.currency, depositAddress.currency) &&
                 Objects.equals(this.address, depositAddress.address) &&
+                Objects.equals(this.minDepositAmount, depositAddress.minDepositAmount) &&
                 Objects.equals(this.multichainAddresses, depositAddress.multichainAddresses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, address, multichainAddresses);
+        return Objects.hash(currency, address, minDepositAmount, multichainAddresses);
     }
 
 
@@ -130,6 +155,7 @@ public class DepositAddress {
         sb.append("class DepositAddress {\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      address: ").append(toIndentedString(address)).append("\n");
+        sb.append("      minDepositAmount: ").append(toIndentedString(minDepositAmount)).append("\n");
         sb.append("      multichainAddresses: ").append(toIndentedString(multichainAddresses)).append("\n");
         sb.append("}");
         return sb.toString();

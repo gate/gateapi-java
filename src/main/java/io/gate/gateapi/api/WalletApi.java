@@ -126,7 +126,7 @@ public class WalletApi {
 
     /**
      * Query chains supported for specified currency
-     * 
+     * API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
      * @param currency Currency name (required)
      * @return List&lt;CurrencyChain&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,7 +143,7 @@ public class WalletApi {
 
     /**
      * Query chains supported for specified currency
-     * 
+     * API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
      * @param currency Currency name (required)
      * @return ApiResponse&lt;List&lt;CurrencyChain&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -161,7 +161,7 @@ public class WalletApi {
 
     /**
      * Query chains supported for specified currency (asynchronously)
-     * 
+     * API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
      * @param currency Currency name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1554,7 +1554,7 @@ public class WalletApi {
 
     /**
      * Query withdrawal status
-     * 
+     * API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
      * @return APIlistWithdrawStatusRequest
      * @http.response.details
      <table summary="Response Details" border="1">

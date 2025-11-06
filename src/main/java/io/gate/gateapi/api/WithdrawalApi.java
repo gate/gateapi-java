@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.LedgerRecord;
 import io.gate.gateapi.models.UidPushWithdrawal;
 import io.gate.gateapi.models.UidPushWithdrawalResp;
+import io.gate.gateapi.models.WithdrawalsDel;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -320,7 +321,7 @@ public class WithdrawalApi {
      * Cancel withdrawal with specified ID
      * 
      * @param withdrawalId  (required)
-     * @return LedgerRecord
+     * @return WithdrawalsDel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -328,8 +329,8 @@ public class WithdrawalApi {
         <tr><td> 202 </td><td> Cancellation request accepted. Check record status for cancellation result </td><td>  -  </td></tr>
      </table>
      */
-    public LedgerRecord cancelWithdrawal(String withdrawalId) throws ApiException {
-        ApiResponse<LedgerRecord> localVarResp = cancelWithdrawalWithHttpInfo(withdrawalId);
+    public WithdrawalsDel cancelWithdrawal(String withdrawalId) throws ApiException {
+        ApiResponse<WithdrawalsDel> localVarResp = cancelWithdrawalWithHttpInfo(withdrawalId);
         return localVarResp.getData();
     }
 
@@ -337,7 +338,7 @@ public class WithdrawalApi {
      * Cancel withdrawal with specified ID
      * 
      * @param withdrawalId  (required)
-     * @return ApiResponse&lt;LedgerRecord&gt;
+     * @return ApiResponse&lt;WithdrawalsDel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -345,9 +346,9 @@ public class WithdrawalApi {
         <tr><td> 202 </td><td> Cancellation request accepted. Check record status for cancellation result </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LedgerRecord> cancelWithdrawalWithHttpInfo(String withdrawalId) throws ApiException {
+    public ApiResponse<WithdrawalsDel> cancelWithdrawalWithHttpInfo(String withdrawalId) throws ApiException {
         okhttp3.Call localVarCall = cancelWithdrawalValidateBeforeCall(withdrawalId, null);
-        Type localVarReturnType = new TypeToken<LedgerRecord>(){}.getType();
+        Type localVarReturnType = new TypeToken<WithdrawalsDel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -364,9 +365,9 @@ public class WithdrawalApi {
         <tr><td> 202 </td><td> Cancellation request accepted. Check record status for cancellation result </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelWithdrawalAsync(String withdrawalId, final ApiCallback<LedgerRecord> _callback) throws ApiException {
+    public okhttp3.Call cancelWithdrawalAsync(String withdrawalId, final ApiCallback<WithdrawalsDel> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelWithdrawalValidateBeforeCall(withdrawalId, _callback);
-        Type localVarReturnType = new TypeToken<LedgerRecord>(){}.getType();
+        Type localVarReturnType = new TypeToken<WithdrawalsDel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

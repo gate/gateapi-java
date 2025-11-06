@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * DepositRecord
+ * WithdrawalsDel
  */
-public class DepositRecord {
+public class WithdrawalsDel {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
@@ -90,7 +90,7 @@ public class DepositRecord {
     }
 
 
-    public DepositRecord amount(String amount) {
+    public WithdrawalsDel amount(String amount) {
         
         this.amount = amount;
         return this;
@@ -109,7 +109,7 @@ public class DepositRecord {
         this.amount = amount;
     }
 
-    public DepositRecord currency(String currency) {
+    public WithdrawalsDel currency(String currency) {
         
         this.currency = currency;
         return this;
@@ -128,7 +128,7 @@ public class DepositRecord {
         this.currency = currency;
     }
 
-    public DepositRecord address(String address) {
+    public WithdrawalsDel address(String address) {
         
         this.address = address;
         return this;
@@ -148,7 +148,7 @@ public class DepositRecord {
         this.address = address;
     }
 
-    public DepositRecord memo(String memo) {
+    public WithdrawalsDel memo(String memo) {
         
         this.memo = memo;
         return this;
@@ -169,7 +169,7 @@ public class DepositRecord {
     }
 
      /**
-     * Transaction Status  - BLOCKED: Deposit Blocked - DEP_CREDITED: Deposit Credited, Withdrawal Pending Unlock - DONE: Awaiting Fund Unlock - FINAL: Funds Credited to Spot Account - INVALID: Invalid Transaction - MANUAL: Manual Review Required - PEND: Processing - REVIEW: Under Compliance Review - TRACK: Tracking Block Confirmations, Pending Spot Account Credit
+     * 交易状态  - BCODE: 充值码操作 - CANCEL: 已取消 - CANCELPEND: 取消提现中 - DMOVE: 待人工审核 - DONE: 完成 (block_number &gt; 0 才算真的上链完成) - EXTPEND: 已经发送等待确认 - FAIL: 链上失败等待确认 - FVERIFY: 人脸审核处理中 - LOCKED: 钱包侧锁单 - MANUAL: 待人工审核 - REJECT: 拒绝 - REQUEST: 请求中 - REVIEW: 审核中
      * @return status
     **/
     @javax.annotation.Nullable
@@ -178,7 +178,7 @@ public class DepositRecord {
     }
 
 
-    public DepositRecord chain(String chain) {
+    public WithdrawalsDel chain(String chain) {
         
         this.chain = chain;
         return this;
@@ -204,16 +204,16 @@ public class DepositRecord {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DepositRecord depositRecord = (DepositRecord) o;
-        return Objects.equals(this.id, depositRecord.id) &&
-                Objects.equals(this.txid, depositRecord.txid) &&
-                Objects.equals(this.timestamp, depositRecord.timestamp) &&
-                Objects.equals(this.amount, depositRecord.amount) &&
-                Objects.equals(this.currency, depositRecord.currency) &&
-                Objects.equals(this.address, depositRecord.address) &&
-                Objects.equals(this.memo, depositRecord.memo) &&
-                Objects.equals(this.status, depositRecord.status) &&
-                Objects.equals(this.chain, depositRecord.chain);
+        WithdrawalsDel withdrawalsDel = (WithdrawalsDel) o;
+        return Objects.equals(this.id, withdrawalsDel.id) &&
+                Objects.equals(this.txid, withdrawalsDel.txid) &&
+                Objects.equals(this.timestamp, withdrawalsDel.timestamp) &&
+                Objects.equals(this.amount, withdrawalsDel.amount) &&
+                Objects.equals(this.currency, withdrawalsDel.currency) &&
+                Objects.equals(this.address, withdrawalsDel.address) &&
+                Objects.equals(this.memo, withdrawalsDel.memo) &&
+                Objects.equals(this.status, withdrawalsDel.status) &&
+                Objects.equals(this.chain, withdrawalsDel.chain);
     }
 
     @Override
@@ -225,7 +225,7 @@ public class DepositRecord {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DepositRecord {\n");
+        sb.append("class WithdrawalsDel {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
         sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");

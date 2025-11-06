@@ -30,6 +30,7 @@ import io.gate.gateapi.models.FutureCancelOrderResult;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
 import io.gate.gateapi.models.FuturesAutoDeleverage;
+import io.gate.gateapi.models.FuturesBBOOrder;
 import io.gate.gateapi.models.FuturesCandlestick;
 import io.gate.gateapi.models.FuturesFee;
 import io.gate.gateapi.models.FuturesIndexConstituents;
@@ -45,6 +46,7 @@ import io.gate.gateapi.models.FuturesPriceTriggeredOrder;
 import io.gate.gateapi.models.FuturesRiskLimitTier;
 import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
+import io.gate.gateapi.models.FuturesUpdatePriceTriggeredOrder;
 import io.gate.gateapi.models.InlineObject;
 import io.gate.gateapi.models.InsuranceRecord;
 import io.gate.gateapi.models.MyFuturesTrade;
@@ -3713,7 +3715,7 @@ public class FuturesApi {
     /**
      * Build call for setDualMode
      * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * @param dualMode Whether to enable Hedge Mode (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3775,9 +3777,9 @@ public class FuturesApi {
 
     /**
      * Set position mode
-     * The prerequisite for changing mode is that all positions have no holdings and no pending orders
+     * The prerequisite for changing mode is that there are no open positions and no open orders
      * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * @param dualMode Whether to enable Hedge Mode (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3793,9 +3795,9 @@ public class FuturesApi {
 
     /**
      * Set position mode
-     * The prerequisite for changing mode is that all positions have no holdings and no pending orders
+     * The prerequisite for changing mode is that there are no open positions and no open orders
      * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * @param dualMode Whether to enable Hedge Mode (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3812,9 +3814,9 @@ public class FuturesApi {
 
     /**
      * Set position mode (asynchronously)
-     * The prerequisite for changing mode is that all positions have no holdings and no pending orders
+     * The prerequisite for changing mode is that there are no open positions and no open orders
      * @param settle Settle currency (required)
-     * @param dualMode Whether to enable dual mode (required)
+     * @param dualMode Whether to enable Hedge Mode (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3962,7 +3964,7 @@ public class FuturesApi {
     }
 
     /**
-     * Get position information in dual mode
+     * Get position information in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4058,7 +4060,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin in dual mode
+     * Update position margin in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4078,7 +4080,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin in dual mode
+     * Update position margin in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4099,7 +4101,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position margin in dual mode (asynchronously)
+     * Update position margin in Hedge Mode (asynchronously)
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4197,7 +4199,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage in dual mode
+     * Update position leverage in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4217,7 +4219,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage in dual mode
+     * Update position leverage in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4238,7 +4240,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position leverage in dual mode (asynchronously)
+     * Update position leverage in Hedge Mode (asynchronously)
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4331,7 +4333,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit in dual mode
+     * Update position risk limit in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4350,7 +4352,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit in dual mode
+     * Update position risk limit in Hedge Mode
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -4370,7 +4372,7 @@ public class FuturesApi {
     }
 
     /**
-     * Update position risk limit in dual mode (asynchronously)
+     * Update position risk limit in Hedge Mode (asynchronously)
      * 
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
@@ -7369,6 +7371,131 @@ public class FuturesApi {
         return localVarCall;
     }
 
+    /**
+     * Build call for createFuturesBBOOrder
+     * @param settle Settle currency (required)
+     * @param futuresBBOOrder  (required)
+     * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFuturesBBOOrderCall(String settle, FuturesBBOOrder futuresBBOOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = futuresBBOOrder;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/bbo_orders"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xGateExptime != null) {
+            localVarHeaderParams.put("x-gate-exptime", localVarApiClient.parameterToString(xGateExptime));
+        }
+
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFuturesBBOOrderValidateBeforeCall(String settle, FuturesBBOOrder futuresBBOOrder, String xGateExptime, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling createFuturesBBOOrder(Async)");
+        }
+
+        // verify the required parameter 'futuresBBOOrder' is set
+        if (futuresBBOOrder == null) {
+            throw new ApiException("Missing the required parameter 'futuresBBOOrder' when calling createFuturesBBOOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createFuturesBBOOrderCall(settle, futuresBBOOrder, xGateExptime, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Level-based BBO Contract Order Placement
+     * Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
+     * @param settle Settle currency (required)
+     * @param futuresBBOOrder  (required)
+     * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @return FuturesOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public FuturesOrder createFuturesBBOOrder(String settle, FuturesBBOOrder futuresBBOOrder, String xGateExptime) throws ApiException {
+        ApiResponse<FuturesOrder> localVarResp = createFuturesBBOOrderWithHttpInfo(settle, futuresBBOOrder, xGateExptime);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Level-based BBO Contract Order Placement
+     * Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
+     * @param settle Settle currency (required)
+     * @param futuresBBOOrder  (required)
+     * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @return ApiResponse&lt;FuturesOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesOrder> createFuturesBBOOrderWithHttpInfo(String settle, FuturesBBOOrder futuresBBOOrder, String xGateExptime) throws ApiException {
+        okhttp3.Call localVarCall = createFuturesBBOOrderValidateBeforeCall(settle, futuresBBOOrder, xGateExptime, null);
+        Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Level-based BBO Contract Order Placement (asynchronously)
+     * Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
+     * @param settle Settle currency (required)
+     * @param futuresBBOOrder  (required)
+     * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFuturesBBOOrderAsync(String settle, FuturesBBOOrder futuresBBOOrder, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createFuturesBBOOrderValidateBeforeCall(settle, futuresBBOOrder, xGateExptime, _callback);
+        Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
     private okhttp3.Call listPriceTriggeredOrdersCall(String settle, String status, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -7910,6 +8037,133 @@ public class FuturesApi {
     public okhttp3.Call getPriceTriggeredOrderAsync(String settle, String orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = getPriceTriggeredOrderValidateBeforeCall(settle, orderId, _callback);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updatePriceTriggeredOrder
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @param futuresUpdatePriceTriggeredOrder  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = futuresUpdatePriceTriggeredOrder;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/price_orders/{order_id}"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling updatePriceTriggeredOrder(Async)");
+        }
+
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling updatePriceTriggeredOrder(Async)");
+        }
+
+        // verify the required parameter 'futuresUpdatePriceTriggeredOrder' is set
+        if (futuresUpdatePriceTriggeredOrder == null) {
+            throw new ApiException("Missing the required parameter 'futuresUpdatePriceTriggeredOrder' when calling updatePriceTriggeredOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = updatePriceTriggeredOrderCall(settle, orderId, futuresUpdatePriceTriggeredOrder, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Modify a Single Auto Order
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @param futuresUpdatePriceTriggeredOrder  (required)
+     * @return TriggerOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+        ApiResponse<TriggerOrderResponse> localVarResp = updatePriceTriggeredOrderWithHttpInfo(settle, orderId, futuresUpdatePriceTriggeredOrder);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Modify a Single Auto Order
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @param futuresUpdatePriceTriggeredOrder  (required)
+     * @return ApiResponse&lt;TriggerOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+        okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, null);
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Modify a Single Auto Order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @param futuresUpdatePriceTriggeredOrder  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, _callback);
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

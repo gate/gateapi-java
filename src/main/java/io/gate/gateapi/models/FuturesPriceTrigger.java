@@ -237,7 +237,6 @@ public class FuturesPriceTrigger {
      * Price value for price trigger, or spread value for spread trigger
      * @return price
     **/
-    @javax.annotation.Nullable
     public String getPrice() {
         return price;
     }
@@ -257,7 +256,6 @@ public class FuturesPriceTrigger {
      * Price Condition Type  - 1: Trigger when the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60;, while Trigger.Price must &gt; last_price - 2: Trigger when the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60;, and Trigger.Price must &lt; last_price
      * @return rule
     **/
-    @javax.annotation.Nullable
     public RuleEnum getRule() {
         return rule;
     }

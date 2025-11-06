@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.AccountDetail;
 import io.gate.gateapi.models.AccountRateLimit;
 import io.gate.gateapi.models.DebitFee;
+import io.gate.gateapi.models.Key;
 import io.gate.gateapi.models.StpGroup;
 import io.gate.gateapi.models.StpGroupUser;
 
@@ -145,6 +146,104 @@ public class AccountApi {
     public okhttp3.Call getAccountDetailAsync(final ApiCallback<AccountDetail> _callback) throws ApiException {
         okhttp3.Call localVarCall = getAccountDetailValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<AccountDetail>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAccountMainKeys
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAccountMainKeysCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/main_keys";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAccountMainKeysValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getAccountMainKeysCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Query All Main Account Key Information
+     * 
+     * @return Key
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public Key getAccountMainKeys() throws ApiException {
+        ApiResponse<Key> localVarResp = getAccountMainKeysWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query All Main Account Key Information
+     * 
+     * @return ApiResponse&lt;Key&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Key> getAccountMainKeysWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAccountMainKeysValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<Key>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query All Main Account Key Information (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAccountMainKeysAsync(final ApiCallback<Key> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getAccountMainKeysValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<Key>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

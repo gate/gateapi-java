@@ -258,7 +258,7 @@ public class CurrencyPair {
     }
 
      /**
-     * Trading fee rate
+     * Trading fee rate(deprecated)
      * @return fee
     **/
     @javax.annotation.Nullable

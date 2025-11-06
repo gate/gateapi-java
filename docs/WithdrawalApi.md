@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelWithdrawal"></a>
 # **cancelWithdrawal**
-> LedgerRecord cancelWithdrawal(withdrawalId)
+> WithdrawalsDel cancelWithdrawal(withdrawalId)
 
 Cancel withdrawal with specified ID
 
@@ -178,7 +178,7 @@ public class Example {
         WithdrawalApi apiInstance = new WithdrawalApi(defaultClient);
         String withdrawalId = "210496"; // String | 
         try {
-            LedgerRecord result = apiInstance.cancelWithdrawal(withdrawalId);
+            WithdrawalsDel result = apiInstance.cancelWithdrawal(withdrawalId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LedgerRecord**](LedgerRecord.md)
+[**WithdrawalsDel**](WithdrawalsDel.md)
 
 ### Authorization
 

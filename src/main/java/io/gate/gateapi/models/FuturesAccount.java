@@ -220,7 +220,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Available balance for transferring or trading (including bonus. Bonus cannot be withdrawn, so transfer amount needs to deduct bonus)
+     * Refers to the available withdrawal or trading amount in per-position, specifically the per-position available balance under the unified account that includes the credit line (which incorporates trial funds; since trial funds cannot be withdrawn, the actual withdrawal amount needs to deduct the trial fund portion when processing withdrawals)
      * @return available
     **/
     @javax.annotation.Nullable
@@ -280,7 +280,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Whether dual mode is enabled
+     * Whether Hedge Mode is enabled
      * @return inDualMode
     **/
     @javax.annotation.Nullable

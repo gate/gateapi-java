@@ -3446,7 +3446,7 @@ public class SpotApi {
 
         /**
          * Set account
-         * @param account Specify query account (optional)
+         * @param account The accountparameter has been deprecated. The interface supports querying all transaction records of the account. (optional)
          * @return APIlistMyTradesRequest
          */
         public APIlistMyTradesRequest account(String account) {

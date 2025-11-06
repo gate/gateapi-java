@@ -1695,7 +1695,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000
         Integer page = 1; // Integer | Page number
         String orderId = "12345"; // String | Filter trades with specified order ID. `currency_pair` is also required if this field is present
-        String account = "spot"; // String | Specify query account
+        String account = "spot"; // String | The accountparameter has been deprecated. The interface supports querying all transaction records of the account.
         Long from = 1627706330L; // Long | Start timestamp for the query
         Long to = 1635329650L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
@@ -1730,7 +1730,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Maximum number of items returned in list. Default: 100, minimum: 1, maximum: 1000 | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
  **orderId** | **String**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional]
- **account** | **String**| Specify query account | [optional]
+ **account** | **String**| The accountparameter has been deprecated. The interface supports querying all transaction records of the account. | [optional]
  **from** | **Long**| Start timestamp for the query | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
 

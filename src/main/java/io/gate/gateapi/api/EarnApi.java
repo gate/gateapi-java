@@ -20,11 +20,13 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.AwardListStruct;
 import io.gate.gateapi.models.DualGetOrders;
 import io.gate.gateapi.models.DualGetPlans;
 import io.gate.gateapi.models.Eth2RateList;
 import io.gate.gateapi.models.Eth2Swap;
 import io.gate.gateapi.models.FindCoin;
+import io.gate.gateapi.models.OrderListStruct;
 import io.gate.gateapi.models.PlaceDualInvestmentOrder;
 import io.gate.gateapi.models.StructuredBuy;
 import io.gate.gateapi.models.StructuredGetProjectList;
@@ -110,7 +112,7 @@ public class EarnApi {
     }
 
     /**
-     * ETH2 swap
+     * ETH swap
      * 
      * @param eth2Swap  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -125,7 +127,7 @@ public class EarnApi {
     }
 
     /**
-     * ETH2 swap
+     * ETH swap
      * 
      * @param eth2Swap  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -142,7 +144,7 @@ public class EarnApi {
     }
 
     /**
-     * ETH2 swap (asynchronously)
+     * ETH swap (asynchronously)
      * 
      * @param eth2Swap  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -207,7 +209,7 @@ public class EarnApi {
     }
 
     /**
-     * ETH2 historical return rate query
+     * GTETH historical return rate query
      * Query ETH earnings rate records for the last 31 days
      * @return List&lt;Eth2RateList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -223,7 +225,7 @@ public class EarnApi {
     }
 
     /**
-     * ETH2 historical return rate query
+     * GTETH historical return rate query
      * Query ETH earnings rate records for the last 31 days
      * @return ApiResponse&lt;List&lt;Eth2RateList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -240,7 +242,7 @@ public class EarnApi {
     }
 
     /**
-     * ETH2 historical return rate query (asynchronously)
+     * GTETH historical return rate query (asynchronously)
      * Query ETH earnings rate records for the last 31 days
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1224,7 +1226,7 @@ public class EarnApi {
      * Staking coins
      * 
      * @param findCoin  (required)
-     * @return Object
+     * @return List&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1232,8 +1234,8 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public Object findCoin(FindCoin findCoin) throws ApiException {
-        ApiResponse<Object> localVarResp = findCoinWithHttpInfo(findCoin);
+    public List<Object> findCoin(FindCoin findCoin) throws ApiException {
+        ApiResponse<List<Object>> localVarResp = findCoinWithHttpInfo(findCoin);
         return localVarResp.getData();
     }
 
@@ -1241,7 +1243,7 @@ public class EarnApi {
      * Staking coins
      * 
      * @param findCoin  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;List&lt;Object&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1249,9 +1251,9 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> findCoinWithHttpInfo(FindCoin findCoin) throws ApiException {
+    public ApiResponse<List<Object>> findCoinWithHttpInfo(FindCoin findCoin) throws ApiException {
         okhttp3.Call localVarCall = findCoinValidateBeforeCall(findCoin, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1268,9 +1270,9 @@ public class EarnApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findCoinAsync(FindCoin findCoin, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call findCoinAsync(FindCoin findCoin, final ApiCallback<List<Object>> _callback) throws ApiException {
         okhttp3.Call localVarCall = findCoinValidateBeforeCall(findCoin, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1380,6 +1382,510 @@ public class EarnApi {
         Type localVarReturnType = new TypeToken<SwapCoinStruct>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call orderListCall(Integer pid, String coin, Integer type, Integer page, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/staking/order_list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (pid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pid", pid));
+        }
+
+        if (coin != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("coin", coin));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call orderListValidateBeforeCall(Integer pid, String coin, Integer type, Integer page, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = orderListCall(pid, coin, type, page, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<OrderListStruct> orderListWithHttpInfo(Integer pid, String coin, Integer type, Integer page) throws ApiException {
+        okhttp3.Call localVarCall = orderListValidateBeforeCall(pid, coin, type, page, null);
+        Type localVarReturnType = new TypeToken<OrderListStruct>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call orderListAsync(Integer pid, String coin, Integer type, Integer page, final ApiCallback<OrderListStruct> _callback) throws ApiException {
+        okhttp3.Call localVarCall = orderListValidateBeforeCall(pid, coin, type, page, _callback);
+        Type localVarReturnType = new TypeToken<OrderListStruct>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIorderListRequest {
+        private Integer pid;
+        private String coin;
+        private Integer type;
+        private Integer page;
+
+        private APIorderListRequest() {
+        }
+
+        /**
+         * Set pid
+         * @param pid Product ID (optional)
+         * @return APIorderListRequest
+         */
+        public APIorderListRequest pid(Integer pid) {
+            this.pid = pid;
+            return this;
+        }
+
+        /**
+         * Set coin
+         * @param coin Currency name (optional)
+         * @return APIorderListRequest
+         */
+        public APIorderListRequest coin(String coin) {
+            this.coin = coin;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Type 0-staking 1-redemption (optional)
+         * @return APIorderListRequest
+         */
+        public APIorderListRequest type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIorderListRequest
+         */
+        public APIorderListRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Build call for orderList
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return orderListCall(pid, coin, type, page, _callback);
+        }
+
+        /**
+         * Execute orderList request
+         * @return OrderListStruct
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public OrderListStruct execute() throws ApiException {
+            ApiResponse<OrderListStruct> localVarResp = orderListWithHttpInfo(pid, coin, type, page);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute orderList request with HTTP info returned
+         * @return ApiResponse&lt;OrderListStruct&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<OrderListStruct> executeWithHttpInfo() throws ApiException {
+            return orderListWithHttpInfo(pid, coin, type, page);
+        }
+
+        /**
+         * Execute orderList request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OrderListStruct> _callback) throws ApiException {
+            return orderListAsync(pid, coin, type, page, _callback);
+        }
+    }
+
+    /**
+     * List of on-chain coin-earning orders
+     * 
+     * @return APIorderListRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIorderListRequest orderList() {
+        return new APIorderListRequest();
+    }
+
+    private okhttp3.Call awardListCall(Integer pid, String coin, Integer page, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/staking/award_list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (pid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pid", pid));
+        }
+
+        if (coin != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("coin", coin));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call awardListValidateBeforeCall(Integer pid, String coin, Integer page, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = awardListCall(pid, coin, page, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<AwardListStruct> awardListWithHttpInfo(Integer pid, String coin, Integer page) throws ApiException {
+        okhttp3.Call localVarCall = awardListValidateBeforeCall(pid, coin, page, null);
+        Type localVarReturnType = new TypeToken<AwardListStruct>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call awardListAsync(Integer pid, String coin, Integer page, final ApiCallback<AwardListStruct> _callback) throws ApiException {
+        okhttp3.Call localVarCall = awardListValidateBeforeCall(pid, coin, page, _callback);
+        Type localVarReturnType = new TypeToken<AwardListStruct>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIawardListRequest {
+        private Integer pid;
+        private String coin;
+        private Integer page;
+
+        private APIawardListRequest() {
+        }
+
+        /**
+         * Set pid
+         * @param pid Product ID (optional)
+         * @return APIawardListRequest
+         */
+        public APIawardListRequest pid(Integer pid) {
+            this.pid = pid;
+            return this;
+        }
+
+        /**
+         * Set coin
+         * @param coin Currency name (optional)
+         * @return APIawardListRequest
+         */
+        public APIawardListRequest coin(String coin) {
+            this.coin = coin;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIawardListRequest
+         */
+        public APIawardListRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Build call for awardList
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return awardListCall(pid, coin, page, _callback);
+        }
+
+        /**
+         * Execute awardList request
+         * @return AwardListStruct
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public AwardListStruct execute() throws ApiException {
+            ApiResponse<AwardListStruct> localVarResp = awardListWithHttpInfo(pid, coin, page);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute awardList request with HTTP info returned
+         * @return ApiResponse&lt;AwardListStruct&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AwardListStruct> executeWithHttpInfo() throws ApiException {
+            return awardListWithHttpInfo(pid, coin, page);
+        }
+
+        /**
+         * Execute awardList request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AwardListStruct> _callback) throws ApiException {
+            return awardListAsync(pid, coin, page, _callback);
+        }
+    }
+
+    /**
+     * On-chain coin-earning dividend records
+     * 
+     * @return APIawardListRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIawardListRequest awardList() {
+        return new APIawardListRequest();
+    }
+
+    private okhttp3.Call assetListCall(String coin, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/staking/assets";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (coin != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("coin", coin));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call assetListValidateBeforeCall(String coin, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = assetListCall(coin, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<Object>> assetListWithHttpInfo(String coin) throws ApiException {
+        okhttp3.Call localVarCall = assetListValidateBeforeCall(coin, null);
+        Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call assetListAsync(String coin, final ApiCallback<List<Object>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = assetListValidateBeforeCall(coin, _callback);
+        Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIassetListRequest {
+        private String coin;
+
+        private APIassetListRequest() {
+        }
+
+        /**
+         * Set coin
+         * @param coin Currency name (optional)
+         * @return APIassetListRequest
+         */
+        public APIassetListRequest coin(String coin) {
+            this.coin = coin;
+            return this;
+        }
+
+        /**
+         * Build call for assetList
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return assetListCall(coin, _callback);
+        }
+
+        /**
+         * Execute assetList request
+         * @return List&lt;Object&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<Object> execute() throws ApiException {
+            ApiResponse<List<Object>> localVarResp = assetListWithHttpInfo(coin);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute assetList request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Object&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<Object>> executeWithHttpInfo() throws ApiException {
+            return assetListWithHttpInfo(coin);
+        }
+
+        /**
+         * Execute assetList request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Object>> _callback) throws ApiException {
+            return assetListAsync(coin, _callback);
+        }
+    }
+
+    /**
+     * On-chain coin-earning assets
+     * 
+     * @return APIassetListRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIassetListRequest assetList() {
+        return new APIassetListRequest();
     }
 
 }

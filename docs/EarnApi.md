@@ -4,8 +4,8 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH2 swap
-[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical return rate query
+[**swapETH2**](EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH swap
+[**rateListETH2**](EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | GTETH historical return rate query
 [**listDualInvestmentPlans**](EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 [**listDualOrders**](EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 [**placeDualOrder**](EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
@@ -14,13 +14,16 @@ Method | HTTP request | Description
 [**placeStructuredOrder**](EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
 [**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking coins
 [**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain token swap for earned coins
+[**orderList**](EarnApi.md#orderList) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
+[**awardList**](EarnApi.md#awardList) | **GET** /earn/staking/award_list | On-chain coin-earning dividend records
+[**assetList**](EarnApi.md#assetList) | **GET** /earn/staking/assets | On-chain coin-earning assets
 
 
 <a name="swapETH2"></a>
 # **swapETH2**
 > swapETH2(eth2Swap)
 
-ETH2 swap
+ETH swap
 
 ### Example
 
@@ -87,7 +90,7 @@ null (empty response body)
 # **rateListETH2**
 > List&lt;Eth2RateList&gt; rateListETH2()
 
-ETH2 historical return rate query
+GTETH historical return rate query
 
 Query ETH earnings rate records for the last 31 days
 
@@ -583,7 +586,7 @@ null (empty response body)
 
 <a name="findCoin"></a>
 # **findCoin**
-> Object findCoin(findCoin)
+> List&lt;Object&gt; findCoin(findCoin)
 
 Staking coins
 
@@ -610,7 +613,7 @@ public class Example {
         EarnApi apiInstance = new EarnApi(defaultClient);
         FindCoin findCoin = new FindCoin(); // FindCoin | 
         try {
-            Object result = apiInstance.findCoin(findCoin);
+            List<Object> result = apiInstance.findCoin(findCoin);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -633,7 +636,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**List&lt;Object&gt;**
 
 ### Authorization
 
@@ -716,4 +719,229 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Swap successful |  -  |
+
+<a name="orderList"></a>
+# **orderList**
+> OrderListStruct orderList().pid(pid).coin(coin).type(type).page(page).execute();
+
+List of on-chain coin-earning orders
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        Integer pid = 7; // Integer | Product ID
+        String coin = "ETH"; // String | Currency name
+        Integer type = 0; // Integer | Type 0-staking 1-redemption
+        Integer page = 1; // Integer | Page number
+        try {
+            OrderListStruct result = apiInstance.orderList()
+                        .pid(pid)
+                        .coin(coin)
+                        .type(type)
+                        .page(page)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#orderList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pid** | **Integer**| Product ID | [optional]
+ **coin** | **String**| Currency name | [optional]
+ **type** | **Integer**| Type 0-staking 1-redemption | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+
+### Return type
+
+[**OrderListStruct**](OrderListStruct.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="awardList"></a>
+# **awardList**
+> AwardListStruct awardList().pid(pid).coin(coin).page(page).execute();
+
+On-chain coin-earning dividend records
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        Integer pid = 7; // Integer | Product ID
+        String coin = "ETH"; // String | Currency name
+        Integer page = 1; // Integer | Page number
+        try {
+            AwardListStruct result = apiInstance.awardList()
+                        .pid(pid)
+                        .coin(coin)
+                        .page(page)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#awardList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pid** | **Integer**| Product ID | [optional]
+ **coin** | **String**| Currency name | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+
+### Return type
+
+[**AwardListStruct**](AwardListStruct.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="assetList"></a>
+# **assetList**
+> List&lt;Object&gt; assetList().coin(coin).execute();
+
+On-chain coin-earning assets
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        String coin = "ETH"; // String | Currency name
+        try {
+            List<Object> result = apiInstance.assetList()
+                        .coin(coin)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#assetList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coin** | **String**| Currency name | [optional]
+
+### Return type
+
+**List&lt;Object&gt;**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
 

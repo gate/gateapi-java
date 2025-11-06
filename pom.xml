@@ -5,13 +5,13 @@
     <artifactId>gate-api</artifactId>
     <packaging>jar</packaging>
     <name>gate-api</name>
-    <version>7.1.8</version>
-    <url>https://github.com/gateio/gateapi-java.git</url>
+    <version>7.1.25</version>
+    <url>https://github.com/gate/gateapi-java.git</url>
     <description>Java client for gateapi</description>
     <scm>
-        <connection>scm:git:https://github.com/gateio/gateapi-java.git</connection>
-        <developerConnection>scm:git:git@github.com:gateio/gateapi-java.git</developerConnection>
-        <url>https://github.com/gateio/gateapi-java.git</url>
+        <connection>scm:git:https://github.com/gate/gateapi-java.git</connection>
+        <developerConnection>scm:git:git@github.com:gate/gateapi-java.git</developerConnection>
+        <url>https://github.com/gate/gateapi-java.git</url>
     </scm>
 
     <licenses>

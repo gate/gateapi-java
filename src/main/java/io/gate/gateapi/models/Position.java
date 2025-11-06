@@ -129,7 +129,7 @@ public class Position {
     private PositionCloseOrder closeOrder;
 
     /**
-     * Position mode, including:  - &#x60;single&#x60;: Single position mode - &#x60;dual_long&#x60;: Long position in dual position mode - &#x60;dual_short&#x60;: Short position in dual position mode
+     * Position mode, including:  - &#x60;single&#x60;: One-way Mode - &#x60;dual_long&#x60;: Long position in Hedge Mode - &#x60;dual_short&#x60;: Short position in Hedge Mode
      */
     @JsonAdapter(ModeEnum.Adapter.class)
     public enum ModeEnum {
@@ -517,7 +517,7 @@ public class Position {
     }
 
      /**
-     * Position mode, including:  - &#x60;single&#x60;: Single position mode - &#x60;dual_long&#x60;: Long position in dual position mode - &#x60;dual_short&#x60;: Short position in dual position mode
+     * Position mode, including:  - &#x60;single&#x60;: One-way Mode - &#x60;dual_long&#x60;: Long position in Hedge Mode - &#x60;dual_short&#x60;: Short position in Hedge Mode
      * @return mode
     **/
     @javax.annotation.Nullable

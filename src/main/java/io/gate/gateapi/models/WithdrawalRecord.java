@@ -59,6 +59,10 @@ public class WithdrawalRecord {
     @SerializedName(SERIALIZED_NAME_ADDRESS)
     private String address;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
     public static final String SERIALIZED_NAME_FAIL_REASON = "fail_reason";
     @SerializedName(SERIALIZED_NAME_FAIL_REASON)
     private String failReason;
@@ -208,6 +212,26 @@ public class WithdrawalRecord {
         this.address = address;
     }
 
+    public WithdrawalRecord type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * Business Type
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public WithdrawalRecord failReason(String failReason) {
         
         this.failReason = failReason;
@@ -269,7 +293,7 @@ public class WithdrawalRecord {
     }
 
      /**
-     * Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - REVIEW: Under review
+     * Transaction Status  - BCODE: Deposit Code Operation - CANCEL: Cancelled - CANCELPEND: Withdrawal Cancellation Pending - DONE: Completed (Only considered truly on-chain when block_number &gt; 0) - EXTPEND: Sent and Waiting for Confirmation - FAIL: On-Chain Failure Pending Confirmation - FVERIFY: Facial Verification in Progress - LOCKED: Wallet-Side Order Locked - MANUAL: Pending Manual Review - REJECT: Rejected - REQUEST: Request in Progress - REVIEW: Under Review 
      * @return status
     **/
     @javax.annotation.Nullable
@@ -314,6 +338,7 @@ public class WithdrawalRecord {
                 Objects.equals(this.fee, withdrawalRecord.fee) &&
                 Objects.equals(this.currency, withdrawalRecord.currency) &&
                 Objects.equals(this.address, withdrawalRecord.address) &&
+                Objects.equals(this.type, withdrawalRecord.type) &&
                 Objects.equals(this.failReason, withdrawalRecord.failReason) &&
                 Objects.equals(this.timestamp2, withdrawalRecord.timestamp2) &&
                 Objects.equals(this.memo, withdrawalRecord.memo) &&
@@ -323,7 +348,7 @@ public class WithdrawalRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, txid, blockNumber, withdrawOrderId, timestamp, amount, fee, currency, address, failReason, timestamp2, memo, status, chain);
+        return Objects.hash(id, txid, blockNumber, withdrawOrderId, timestamp, amount, fee, currency, address, type, failReason, timestamp2, memo, status, chain);
     }
 
 
@@ -340,6 +365,7 @@ public class WithdrawalRecord {
         sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      address: ").append(toIndentedString(address)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      failReason: ").append(toIndentedString(failReason)).append("\n");
         sb.append("      timestamp2: ").append(toIndentedString(timestamp2)).append("\n");
         sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
