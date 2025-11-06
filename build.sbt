@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.gate",
     name := "gate-api",
-    version := "7.1.25",
+    version := "7.1.26",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **currency** | **String** | Currency name | 
 **address** | **String** | Withdrawal address. Required for withdrawals |  [optional]
 **memo** | **String** | Additional remarks with regards to the withdrawal |  [optional]
-**status** | **String** | Transaction Status  - BLOCKED: Deposit Blocked - DEP_CREDITED: Deposit Credited, Withdrawal Pending Unlock - DONE: Awaiting Fund Unlock - FINAL: Funds Credited to Spot Account - INVALID: Invalid Transaction - MANUAL: Manual Review Required - PEND: Processing - REVIEW: Under Compliance Review - TRACK: Tracking Block Confirmations, Pending Spot Account Credit |  [optional] [readonly]
+**status** | **String** | Transaction Status  - BLOCKED: Deposit Blocked - DEP_CREDITED: Deposit Credited, Withdrawal Pending Unlock - DONE: Funds Credited to Spot Account - INVALID: Invalid Transaction - MANUAL: Manual Review Required - PEND: Processing - REVIEW: Under Compliance Review - TRACK: Tracking Block Confirmations, Pending Spot Account Credit |  [optional] [readonly]
 **chain** | **String** | Name of the chain used in withdrawals | 
 
