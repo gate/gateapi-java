@@ -1,5 +1,5 @@
 
-# KeyPerms
+# AccountKeyInfoPerms
 
 ## Properties
 

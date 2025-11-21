@@ -82,7 +82,7 @@ This endpoint does not need any parameter.
 
 <a name="getAccountMainKeys"></a>
 # **getAccountMainKeys**
-> Key getAccountMainKeys()
+> AccountKeyInfo getAccountMainKeys()
 
 Query All Main Account Key Information
 
@@ -108,7 +108,7 @@ public class Example {
 
         AccountApi apiInstance = new AccountApi(defaultClient);
         try {
-            Key result = apiInstance.getAccountMainKeys();
+            AccountKeyInfo result = apiInstance.getAccountMainKeys();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -128,7 +128,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Key**](Key.md)
+[**AccountKeyInfo**](AccountKeyInfo.md)
 
 ### Authorization
 
