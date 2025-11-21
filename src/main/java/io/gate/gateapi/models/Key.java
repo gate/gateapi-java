@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.AccountDetailKey;
-import io.gate.gateapi.models.AccountKeyInfoPerms;
+import io.gate.gateapi.models.KeyPerms;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Main Account API Key Information
  */
-public class AccountKeyInfo {
+public class Key {
     public static final String SERIALIZED_NAME_STATE = "state";
     @SerializedName(SERIALIZED_NAME_STATE)
     private Integer state;
@@ -53,7 +53,7 @@ public class AccountKeyInfo {
 
     public static final String SERIALIZED_NAME_PERMS = "perms";
     @SerializedName(SERIALIZED_NAME_PERMS)
-    private List<AccountKeyInfoPerms> perms = null;
+    private List<KeyPerms> perms = null;
 
     public static final String SERIALIZED_NAME_KEY = "key";
     @SerializedName(SERIALIZED_NAME_KEY)
@@ -72,7 +72,7 @@ public class AccountKeyInfo {
     private String lastAccess;
 
 
-    public AccountKeyInfo state(Integer state) {
+    public Key state(Integer state) {
         
         this.state = state;
         return this;
@@ -92,7 +92,7 @@ public class AccountKeyInfo {
         this.state = state;
     }
 
-    public AccountKeyInfo mode(Integer mode) {
+    public Key mode(Integer mode) {
         
         this.mode = mode;
         return this;
@@ -112,13 +112,13 @@ public class AccountKeyInfo {
         this.mode = mode;
     }
 
-    public AccountKeyInfo name(List<String> name) {
+    public Key name(List<String> name) {
         
         this.name = name;
         return this;
     }
 
-    public AccountKeyInfo addNameItem(String nameItem) {
+    public Key addNameItem(String nameItem) {
         if (this.name == null) {
             this.name = new ArrayList<>();
         }
@@ -140,13 +140,13 @@ public class AccountKeyInfo {
         this.name = name;
     }
 
-    public AccountKeyInfo currencyPairs(List<String> currencyPairs) {
+    public Key currencyPairs(List<String> currencyPairs) {
         
         this.currencyPairs = currencyPairs;
         return this;
     }
 
-    public AccountKeyInfo addCurrencyPairsItem(String currencyPairsItem) {
+    public Key addCurrencyPairsItem(String currencyPairsItem) {
         if (this.currencyPairs == null) {
             this.currencyPairs = new ArrayList<>();
         }
@@ -168,7 +168,7 @@ public class AccountKeyInfo {
         this.currencyPairs = currencyPairs;
     }
 
-    public AccountKeyInfo userId(Long userId) {
+    public Key userId(Long userId) {
         
         this.userId = userId;
         return this;
@@ -188,13 +188,13 @@ public class AccountKeyInfo {
         this.userId = userId;
     }
 
-    public AccountKeyInfo ipWhitelist(List<String> ipWhitelist) {
+    public Key ipWhitelist(List<String> ipWhitelist) {
         
         this.ipWhitelist = ipWhitelist;
         return this;
     }
 
-    public AccountKeyInfo addIpWhitelistItem(String ipWhitelistItem) {
+    public Key addIpWhitelistItem(String ipWhitelistItem) {
         if (this.ipWhitelist == null) {
             this.ipWhitelist = new ArrayList<>();
         }
@@ -216,13 +216,13 @@ public class AccountKeyInfo {
         this.ipWhitelist = ipWhitelist;
     }
 
-    public AccountKeyInfo perms(List<AccountKeyInfoPerms> perms) {
+    public Key perms(List<KeyPerms> perms) {
         
         this.perms = perms;
         return this;
     }
 
-    public AccountKeyInfo addPermsItem(AccountKeyInfoPerms permsItem) {
+    public Key addPermsItem(KeyPerms permsItem) {
         if (this.perms == null) {
             this.perms = new ArrayList<>();
         }
@@ -235,16 +235,16 @@ public class AccountKeyInfo {
      * @return perms
     **/
     @javax.annotation.Nullable
-    public List<AccountKeyInfoPerms> getPerms() {
+    public List<KeyPerms> getPerms() {
         return perms;
     }
 
 
-    public void setPerms(List<AccountKeyInfoPerms> perms) {
+    public void setPerms(List<KeyPerms> perms) {
         this.perms = perms;
     }
 
-    public AccountKeyInfo key(AccountDetailKey key) {
+    public Key key(AccountDetailKey key) {
         
         this.key = key;
         return this;
@@ -301,18 +301,18 @@ public class AccountKeyInfo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountKeyInfo accountKeyInfo = (AccountKeyInfo) o;
-        return Objects.equals(this.state, accountKeyInfo.state) &&
-                Objects.equals(this.mode, accountKeyInfo.mode) &&
-                Objects.equals(this.name, accountKeyInfo.name) &&
-                Objects.equals(this.currencyPairs, accountKeyInfo.currencyPairs) &&
-                Objects.equals(this.userId, accountKeyInfo.userId) &&
-                Objects.equals(this.ipWhitelist, accountKeyInfo.ipWhitelist) &&
-                Objects.equals(this.perms, accountKeyInfo.perms) &&
-                Objects.equals(this.key, accountKeyInfo.key) &&
-                Objects.equals(this.createdAt, accountKeyInfo.createdAt) &&
-                Objects.equals(this.updatedAt, accountKeyInfo.updatedAt) &&
-                Objects.equals(this.lastAccess, accountKeyInfo.lastAccess);
+        Key key = (Key) o;
+        return Objects.equals(this.state, key.state) &&
+                Objects.equals(this.mode, key.mode) &&
+                Objects.equals(this.name, key.name) &&
+                Objects.equals(this.currencyPairs, key.currencyPairs) &&
+                Objects.equals(this.userId, key.userId) &&
+                Objects.equals(this.ipWhitelist, key.ipWhitelist) &&
+                Objects.equals(this.perms, key.perms) &&
+                Objects.equals(this.key, key.key) &&
+                Objects.equals(this.createdAt, key.createdAt) &&
+                Objects.equals(this.updatedAt, key.updatedAt) &&
+                Objects.equals(this.lastAccess, key.lastAccess);
     }
 
     @Override
@@ -324,7 +324,7 @@ public class AccountKeyInfo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountKeyInfo {\n");
+        sb.append("class Key {\n");
         sb.append("      state: ").append(toIndentedString(state)).append("\n");
         sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("      name: ").append(toIndentedString(name)).append("\n");

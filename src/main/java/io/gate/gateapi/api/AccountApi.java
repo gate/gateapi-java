@@ -21,9 +21,9 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.AccountDetail;
-import io.gate.gateapi.models.AccountKeyInfo;
 import io.gate.gateapi.models.AccountRateLimit;
 import io.gate.gateapi.models.DebitFee;
+import io.gate.gateapi.models.Key;
 import io.gate.gateapi.models.StpGroup;
 import io.gate.gateapi.models.StpGroupUser;
 
@@ -199,7 +199,7 @@ public class AccountApi {
     /**
      * Query All Main Account Key Information
      * 
-     * @return AccountKeyInfo
+     * @return Key
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -207,15 +207,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public AccountKeyInfo getAccountMainKeys() throws ApiException {
-        ApiResponse<AccountKeyInfo> localVarResp = getAccountMainKeysWithHttpInfo();
+    public Key getAccountMainKeys() throws ApiException {
+        ApiResponse<Key> localVarResp = getAccountMainKeysWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Query All Main Account Key Information
      * 
-     * @return ApiResponse&lt;AccountKeyInfo&gt;
+     * @return ApiResponse&lt;Key&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -223,9 +223,9 @@ public class AccountApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountKeyInfo> getAccountMainKeysWithHttpInfo() throws ApiException {
+    public ApiResponse<Key> getAccountMainKeysWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAccountMainKeysValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<AccountKeyInfo>(){}.getType();
+        Type localVarReturnType = new TypeToken<Key>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -241,9 +241,9 @@ public class AccountApi {
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountMainKeysAsync(final ApiCallback<AccountKeyInfo> _callback) throws ApiException {
+    public okhttp3.Call getAccountMainKeysAsync(final ApiCallback<Key> _callback) throws ApiException {
         okhttp3.Call localVarCall = getAccountMainKeysValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<AccountKeyInfo>(){}.getType();
+        Type localVarReturnType = new TypeToken<Key>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

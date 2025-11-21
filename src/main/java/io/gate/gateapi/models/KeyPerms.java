@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * AccountKeyInfoPerms
+ * KeyPerms
  */
-public class AccountKeyInfoPerms {
+public class KeyPerms {
     public static final String SERIALIZED_NAME_NAME = "name";
     @SerializedName(SERIALIZED_NAME_NAME)
     private String name;
@@ -32,7 +32,7 @@ public class AccountKeyInfoPerms {
     private Boolean readOnly;
 
 
-    public AccountKeyInfoPerms name(String name) {
+    public KeyPerms name(String name) {
         
         this.name = name;
         return this;
@@ -52,7 +52,7 @@ public class AccountKeyInfoPerms {
         this.name = name;
     }
 
-    public AccountKeyInfoPerms readOnly(Boolean readOnly) {
+    public KeyPerms readOnly(Boolean readOnly) {
         
         this.readOnly = readOnly;
         return this;
@@ -79,9 +79,9 @@ public class AccountKeyInfoPerms {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountKeyInfoPerms accountKeyInfoPerms = (AccountKeyInfoPerms) o;
-        return Objects.equals(this.name, accountKeyInfoPerms.name) &&
-                Objects.equals(this.readOnly, accountKeyInfoPerms.readOnly);
+        KeyPerms keyPerms = (KeyPerms) o;
+        return Objects.equals(this.name, keyPerms.name) &&
+                Objects.equals(this.readOnly, keyPerms.readOnly);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class AccountKeyInfoPerms {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountKeyInfoPerms {\n");
+        sb.append("class KeyPerms {\n");
         sb.append("      name: ").append(toIndentedString(name)).append("\n");
         sb.append("      readOnly: ").append(toIndentedString(readOnly)).append("\n");
         sb.append("}");
