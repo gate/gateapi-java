@@ -28,7 +28,7 @@ public class SpotPriceTrigger {
     private String price;
 
     /**
-     * 价格条件类型 - 大于等于: 表示市场价格大于等于 price 时触发 - 小于等于: 表示市场价格小于等于 price 时触发
+     * Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price is greater than or equal to &#x60;price&#x60; - &#x60;&lt;&#x3D;&#x60;: triggered when market price is less than or equal to &#x60;price&#x60; 
      */
     @JsonAdapter(RuleEnum.Adapter.class)
     public enum RuleEnum {
@@ -109,7 +109,7 @@ public class SpotPriceTrigger {
     }
 
      /**
-     * 价格条件类型 - 大于等于: 表示市场价格大于等于 price 时触发 - 小于等于: 表示市场价格小于等于 price 时触发
+     * Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price is greater than or equal to &#x60;price&#x60; - &#x60;&lt;&#x3D;&#x60;: triggered when market price is less than or equal to &#x60;price&#x60; 
      * @return rule
     **/
     public RuleEnum getRule() {
