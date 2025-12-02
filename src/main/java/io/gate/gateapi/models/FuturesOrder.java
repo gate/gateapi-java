@@ -165,11 +165,11 @@ public class FuturesOrder {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_ICEBERG = "iceberg";
     @SerializedName(SERIALIZED_NAME_ICEBERG)
-    private Long iceberg;
+    private String iceberg;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -252,7 +252,7 @@ public class FuturesOrder {
 
     public static final String SERIALIZED_NAME_LEFT = "left";
     @SerializedName(SERIALIZED_NAME_LEFT)
-    private Long left;
+    private String left;
 
     public static final String SERIALIZED_NAME_FILL_PRICE = "fill_price";
     @SerializedName(SERIALIZED_NAME_FILL_PRICE)
@@ -396,6 +396,14 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_PID)
     private Long pid;
 
+    public static final String SERIALIZED_NAME_ORDER_VALUE = "order_value";
+    @SerializedName(SERIALIZED_NAME_ORDER_VALUE)
+    private String orderValue;
+
+    public static final String SERIALIZED_NAME_TRADE_VALUE = "trade_value";
+    @SerializedName(SERIALIZED_NAME_TRADE_VALUE)
+    private String tradeValue;
+
 
      /**
      * Futures order ID
@@ -486,7 +494,7 @@ public class FuturesOrder {
         this.contract = contract;
     }
 
-    public FuturesOrder size(Long size) {
+    public FuturesOrder size(String size) {
         
         this.size = size;
         return this;
@@ -496,16 +504,16 @@ public class FuturesOrder {
      * Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.
      * @return size
     **/
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public FuturesOrder iceberg(Long iceberg) {
+    public FuturesOrder iceberg(String iceberg) {
         
         this.iceberg = iceberg;
         return this;
@@ -516,12 +524,12 @@ public class FuturesOrder {
      * @return iceberg
     **/
     @javax.annotation.Nullable
-    public Long getIceberg() {
+    public String getIceberg() {
         return iceberg;
     }
 
 
-    public void setIceberg(Long iceberg) {
+    public void setIceberg(String iceberg) {
         this.iceberg = iceberg;
     }
 
@@ -532,10 +540,9 @@ public class FuturesOrder {
     }
 
      /**
-     * Order price. Price of 0 with &#x60;tif&#x60; set to &#x60;ioc&#x60; represents a market order.
+     * Required. Order Price; a price of 0 with &#x60;tif&#x60; as &#x60;ioc&#x60; represents a market order.
      * @return price
     **/
-    @javax.annotation.Nullable
     public String getPrice() {
         return price;
     }
@@ -640,7 +647,7 @@ public class FuturesOrder {
      * @return left
     **/
     @javax.annotation.Nullable
-    public Long getLeft() {
+    public String getLeft() {
         return left;
     }
 
@@ -804,6 +811,46 @@ public class FuturesOrder {
     public void setPid(Long pid) {
         this.pid = pid;
     }
+
+    public FuturesOrder orderValue(String orderValue) {
+        
+        this.orderValue = orderValue;
+        return this;
+    }
+
+     /**
+     * order&#39;s value
+     * @return orderValue
+    **/
+    @javax.annotation.Nullable
+    public String getOrderValue() {
+        return orderValue;
+    }
+
+
+    public void setOrderValue(String orderValue) {
+        this.orderValue = orderValue;
+    }
+
+    public FuturesOrder tradeValue(String tradeValue) {
+        
+        this.tradeValue = tradeValue;
+        return this;
+    }
+
+     /**
+     * trade value
+     * @return tradeValue
+    **/
+    @javax.annotation.Nullable
+    public String getTradeValue() {
+        return tradeValue;
+    }
+
+
+    public void setTradeValue(String tradeValue) {
+        this.tradeValue = tradeValue;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -841,12 +888,14 @@ public class FuturesOrder {
                 Objects.equals(this.stpAct, futuresOrder.stpAct) &&
                 Objects.equals(this.amendText, futuresOrder.amendText) &&
                 Objects.equals(this.limitVip, futuresOrder.limitVip) &&
-                Objects.equals(this.pid, futuresOrder.pid);
+                Objects.equals(this.pid, futuresOrder.pid) &&
+                Objects.equals(this.orderValue, futuresOrder.orderValue) &&
+                Objects.equals(this.tradeValue, futuresOrder.tradeValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, limitVip, pid);
+        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, limitVip, pid, orderValue, tradeValue);
     }
 
 
@@ -883,6 +932,8 @@ public class FuturesOrder {
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("      limitVip: ").append(toIndentedString(limitVip)).append("\n");
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
+        sb.append("      orderValue: ").append(toIndentedString(orderValue)).append("\n");
+        sb.append("      tradeValue: ").append(toIndentedString(tradeValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

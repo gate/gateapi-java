@@ -174,7 +174,7 @@ public class AccountDetail {
     }
 
      /**
-     * User role: 0 - Normal user, 1 - Copy trading leader, 2 - Follower, 3 - Both leader and follower
+     * User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower
      * @return copyTradingRole
     **/
     @javax.annotation.Nullable

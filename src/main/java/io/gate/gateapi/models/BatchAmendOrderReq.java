@@ -33,7 +33,7 @@ public class BatchAmendOrderReq {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -84,7 +84,7 @@ public class BatchAmendOrderReq {
         this.text = text;
     }
 
-    public BatchAmendOrderReq size(Long size) {
+    public BatchAmendOrderReq size(String size) {
         
         this.size = size;
         return this;
@@ -95,12 +95,12 @@ public class BatchAmendOrderReq {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

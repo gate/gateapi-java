@@ -25,7 +25,7 @@ import java.io.IOException;
 public class FuturesOrderAmendment {
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -40,7 +40,7 @@ public class FuturesOrderAmendment {
     private String text;
 
 
-    public FuturesOrderAmendment size(Long size) {
+    public FuturesOrderAmendment size(String size) {
         
         this.size = size;
         return this;
@@ -51,12 +51,12 @@ public class FuturesOrderAmendment {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

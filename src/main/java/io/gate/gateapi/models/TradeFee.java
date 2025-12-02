@@ -35,6 +35,10 @@ public class TradeFee {
     @SerializedName(SERIALIZED_NAME_MAKER_FEE)
     private String makerFee;
 
+    public static final String SERIALIZED_NAME_RPI_MAKER_FEE = "rpi_maker_fee";
+    @SerializedName(SERIALIZED_NAME_RPI_MAKER_FEE)
+    private String rpiMakerFee;
+
     public static final String SERIALIZED_NAME_GT_DISCOUNT = "gt_discount";
     @SerializedName(SERIALIZED_NAME_GT_DISCOUNT)
     private Boolean gtDiscount;
@@ -63,6 +67,10 @@ public class TradeFee {
     @SerializedName(SERIALIZED_NAME_FUTURES_MAKER_FEE)
     private String futuresMakerFee;
 
+    public static final String SERIALIZED_NAME_FUTURES_RPI_MAKER_FEE = "futures_rpi_maker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURES_RPI_MAKER_FEE)
+    private String futuresRpiMakerFee;
+
     public static final String SERIALIZED_NAME_DELIVERY_TAKER_FEE = "delivery_taker_fee";
     @SerializedName(SERIALIZED_NAME_DELIVERY_TAKER_FEE)
     private String deliveryTakerFee;
@@ -74,6 +82,10 @@ public class TradeFee {
     public static final String SERIALIZED_NAME_DEBIT_FEE = "debit_fee";
     @SerializedName(SERIALIZED_NAME_DEBIT_FEE)
     private Integer debitFee;
+
+    public static final String SERIALIZED_NAME_RPI_MM = "rpi_mm";
+    @SerializedName(SERIALIZED_NAME_RPI_MM)
+    private Integer rpiMm;
 
 
     public TradeFee userId(Long userId) {
@@ -103,7 +115,7 @@ public class TradeFee {
     }
 
      /**
-     * taker fee rate
+     * spot taker fee rate
      * @return takerFee
     **/
     @javax.annotation.Nullable
@@ -123,7 +135,7 @@ public class TradeFee {
     }
 
      /**
-     * maker fee rate
+     * spot maker fee rate
      * @return makerFee
     **/
     @javax.annotation.Nullable
@@ -134,6 +146,26 @@ public class TradeFee {
 
     public void setMakerFee(String makerFee) {
         this.makerFee = makerFee;
+    }
+
+    public TradeFee rpiMakerFee(String rpiMakerFee) {
+        
+        this.rpiMakerFee = rpiMakerFee;
+        return this;
+    }
+
+     /**
+     * spot RPI MM maker fee rate
+     * @return rpiMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getRpiMakerFee() {
+        return rpiMakerFee;
+    }
+
+
+    public void setRpiMakerFee(String rpiMakerFee) {
+        this.rpiMakerFee = rpiMakerFee;
     }
 
     public TradeFee gtDiscount(Boolean gtDiscount) {
@@ -276,6 +308,26 @@ public class TradeFee {
         this.futuresMakerFee = futuresMakerFee;
     }
 
+    public TradeFee futuresRpiMakerFee(String futuresRpiMakerFee) {
+        
+        this.futuresRpiMakerFee = futuresRpiMakerFee;
+        return this;
+    }
+
+     /**
+     * contract RPI MM maker fee rate
+     * @return futuresRpiMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getFuturesRpiMakerFee() {
+        return futuresRpiMakerFee;
+    }
+
+
+    public void setFuturesRpiMakerFee(String futuresRpiMakerFee) {
+        this.futuresRpiMakerFee = futuresRpiMakerFee;
+    }
+
     public TradeFee deliveryTakerFee(String deliveryTakerFee) {
         
         this.deliveryTakerFee = deliveryTakerFee;
@@ -335,6 +387,26 @@ public class TradeFee {
     public void setDebitFee(Integer debitFee) {
         this.debitFee = debitFee;
     }
+
+    public TradeFee rpiMm(Integer rpiMm) {
+        
+        this.rpiMm = rpiMm;
+        return this;
+    }
+
+     /**
+     * RPI MM Level
+     * @return rpiMm
+    **/
+    @javax.annotation.Nullable
+    public Integer getRpiMm() {
+        return rpiMm;
+    }
+
+
+    public void setRpiMm(Integer rpiMm) {
+        this.rpiMm = rpiMm;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -347,6 +419,7 @@ public class TradeFee {
         return Objects.equals(this.userId, tradeFee.userId) &&
                 Objects.equals(this.takerFee, tradeFee.takerFee) &&
                 Objects.equals(this.makerFee, tradeFee.makerFee) &&
+                Objects.equals(this.rpiMakerFee, tradeFee.rpiMakerFee) &&
                 Objects.equals(this.gtDiscount, tradeFee.gtDiscount) &&
                 Objects.equals(this.gtTakerFee, tradeFee.gtTakerFee) &&
                 Objects.equals(this.gtMakerFee, tradeFee.gtMakerFee) &&
@@ -354,14 +427,16 @@ public class TradeFee {
                 Objects.equals(this.pointType, tradeFee.pointType) &&
                 Objects.equals(this.futuresTakerFee, tradeFee.futuresTakerFee) &&
                 Objects.equals(this.futuresMakerFee, tradeFee.futuresMakerFee) &&
+                Objects.equals(this.futuresRpiMakerFee, tradeFee.futuresRpiMakerFee) &&
                 Objects.equals(this.deliveryTakerFee, tradeFee.deliveryTakerFee) &&
                 Objects.equals(this.deliveryMakerFee, tradeFee.deliveryMakerFee) &&
-                Objects.equals(this.debitFee, tradeFee.debitFee);
+                Objects.equals(this.debitFee, tradeFee.debitFee) &&
+                Objects.equals(this.rpiMm, tradeFee.rpiMm);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, futuresTakerFee, futuresMakerFee, deliveryTakerFee, deliveryMakerFee, debitFee);
+        return Objects.hash(userId, takerFee, makerFee, rpiMakerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, futuresTakerFee, futuresMakerFee, futuresRpiMakerFee, deliveryTakerFee, deliveryMakerFee, debitFee, rpiMm);
     }
 
 
@@ -372,6 +447,7 @@ public class TradeFee {
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      takerFee: ").append(toIndentedString(takerFee)).append("\n");
         sb.append("      makerFee: ").append(toIndentedString(makerFee)).append("\n");
+        sb.append("      rpiMakerFee: ").append(toIndentedString(rpiMakerFee)).append("\n");
         sb.append("      gtDiscount: ").append(toIndentedString(gtDiscount)).append("\n");
         sb.append("      gtTakerFee: ").append(toIndentedString(gtTakerFee)).append("\n");
         sb.append("      gtMakerFee: ").append(toIndentedString(gtMakerFee)).append("\n");
@@ -379,9 +455,11 @@ public class TradeFee {
         sb.append("      pointType: ").append(toIndentedString(pointType)).append("\n");
         sb.append("      futuresTakerFee: ").append(toIndentedString(futuresTakerFee)).append("\n");
         sb.append("      futuresMakerFee: ").append(toIndentedString(futuresMakerFee)).append("\n");
+        sb.append("      futuresRpiMakerFee: ").append(toIndentedString(futuresRpiMakerFee)).append("\n");
         sb.append("      deliveryTakerFee: ").append(toIndentedString(deliveryTakerFee)).append("\n");
         sb.append("      deliveryMakerFee: ").append(toIndentedString(deliveryMakerFee)).append("\n");
         sb.append("      debitFee: ").append(toIndentedString(debitFee)).append("\n");
+        sb.append("      rpiMm: ").append(toIndentedString(rpiMm)).append("\n");
         sb.append("}");
         return sb.toString();
     }

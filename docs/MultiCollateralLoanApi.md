@@ -47,7 +47,7 @@ public class Example {
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
         Integer page = 1; // Integer | Page number
         Integer limit = 10; // Integer | Maximum number of records returned in a single list
-        String sort = "ltv_asc"; // String | Sort type: `time_desc` - Created time descending (default), `ltv_asc` - Collateral ratio ascending, `ltv_desc` - Collateral ratio descending.
+        String sort = "ltv_asc"; // String | Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio
         String orderType = "current"; // String | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified
         try {
             List<MultiCollateralOrder> result = apiInstance.listMultiCollateralOrders()
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional] [default to 1]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 10]
- **sort** | **String**| Sort type: &#x60;time_desc&#x60; - Created time descending (default), &#x60;ltv_asc&#x60; - Collateral ratio ascending, &#x60;ltv_desc&#x60; - Collateral ratio descending. | [optional]
+ **sort** | **String**| Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio | [optional]
  **orderType** | **String**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional]
 
 ### Return type
@@ -563,7 +563,7 @@ public class Example {
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
         String type = "collateral"; // String | Currency type: collateral - Collateral currency, borrow - Borrowing currency
-        String currency = "BTC"; // String | When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided.
+        String currency = "BTC"; // String | When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed
         try {
             List<CurrencyQuota> result = apiInstance.listUserCurrencyQuota(type, currency);
             System.out.println(result);
@@ -585,7 +585,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| Currency type: collateral - Collateral currency, borrow - Borrowing currency |
- **currency** | **String**| When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. |
+ **currency** | **String**| When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed |
 
 ### Return type
 
@@ -793,7 +793,7 @@ No authorization required
 
 Query currency&#39;s current interest rate
 
-Query currency&#39;s current interest rate for the previous hour, current interest rate updates hourly
+Query the current interest rate of the currency in the previous hour, the current interest rate is updated every hour
 
 ### Example
 

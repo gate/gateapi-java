@@ -34,7 +34,7 @@ public class Position {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
@@ -235,7 +235,7 @@ public class Position {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 

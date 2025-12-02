@@ -29,7 +29,7 @@ public class FuturesOrderBookItem {
 
     public static final String SERIALIZED_NAME_S = "s";
     @SerializedName(SERIALIZED_NAME_S)
-    private Long s;
+    private String s;
 
 
     public FuturesOrderBookItem p(String p) {
@@ -52,7 +52,7 @@ public class FuturesOrderBookItem {
         this.p = p;
     }
 
-    public FuturesOrderBookItem s(Long s) {
+    public FuturesOrderBookItem s(String s) {
         
         this.s = s;
         return this;
@@ -63,12 +63,12 @@ public class FuturesOrderBookItem {
      * @return s
     **/
     @javax.annotation.Nullable
-    public Long getS() {
+    public String getS() {
         return s;
     }
 
 
-    public void setS(Long s) {
+    public void setS(String s) {
         this.s = s;
     }
     @Override

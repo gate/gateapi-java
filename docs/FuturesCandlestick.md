@@ -8,7 +8,7 @@ data point in every timestamp
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **t** | **Double** | Unix timestamp in seconds |  [optional]
-**v** | **Long** | size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed |  [optional]
+**v** | **String** | size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed |  [optional]
 **c** | **String** | Close price (quote currency) |  [optional]
 **h** | **String** | Highest price (quote currency) |  [optional]
 **l** | **String** | Lowest price (quote currency) |  [optional]

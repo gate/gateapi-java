@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.105.30
-- SDK version: 7.1.30
+- API version: v4.106.0
+- SDK version: 7.2.0
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.1.30</version>
+    <version>7.2.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.1.30"
+compile "io.gate:gate-api:7.2.0"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.1.30.jar`
+* `target/gate-api-7.2.0.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -487,10 +487,20 @@ Class | Method | HTTP request | Description
  - [CurrencyPair](docs/CurrencyPair.md)
  - [CurrencyQuota](docs/CurrencyQuota.md)
  - [DebitFee](docs/DebitFee.md)
+ - [DeliveryAccount](docs/DeliveryAccount.md)
+ - [DeliveryAccountBook](docs/DeliveryAccountBook.md)
  - [DeliveryCandlestick](docs/DeliveryCandlestick.md)
  - [DeliveryContract](docs/DeliveryContract.md)
+ - [DeliveryLimitRiskTiers](docs/DeliveryLimitRiskTiers.md)
+ - [DeliveryLiquidate](docs/DeliveryLiquidate.md)
+ - [DeliveryMyTrade](docs/DeliveryMyTrade.md)
+ - [DeliveryOrder](docs/DeliveryOrder.md)
+ - [DeliveryOrderBook](docs/DeliveryOrderBook.md)
+ - [DeliveryPosition](docs/DeliveryPosition.md)
+ - [DeliveryPositionClose](docs/DeliveryPositionClose.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
  - [DeliveryTicker](docs/DeliveryTicker.md)
+ - [DeliveryTrade](docs/DeliveryTrade.md)
  - [DepositAddress](docs/DepositAddress.md)
  - [DepositRecord](docs/DepositRecord.md)
  - [DualGetOrders](docs/DualGetOrders.md)
@@ -523,6 +533,7 @@ Class | Method | HTTP request | Description
  - [FuturesOrderAmendment](docs/FuturesOrderAmendment.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
+ - [FuturesOrderBookItem1](docs/FuturesOrderBookItem1.md)
  - [FuturesPositionCrossMode](docs/FuturesPositionCrossMode.md)
  - [FuturesPremiumIndex](docs/FuturesPremiumIndex.md)
  - [FuturesPriceTrigger](docs/FuturesPriceTrigger.md)

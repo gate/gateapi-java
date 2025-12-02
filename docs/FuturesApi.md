@@ -1103,7 +1103,7 @@ Name | Type | Description  | Notes
 
 Query futures account change history
 
-If the contract field is passed, only records containing this field after 2023-10-30 can be filtered.
+If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。
 
 ### Example
 
@@ -1413,6 +1413,8 @@ Name | Type | Description  | Notes
 
 Update position leverage
 
+⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
+
 ### Example
 
 ```java
@@ -1701,7 +1703,7 @@ Name | Type | Description  | Notes
 
 Set position mode
 
-The prerequisite for changing mode is that there are no open positions and no open orders
+The prerequisite for changing mode is that all positions have no holdings and no pending orders
 
 ### Example
 
@@ -2219,7 +2221,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelFuturesOrders"></a>
 # **cancelFuturesOrders**
-> List&lt;FuturesOrder&gt; cancelFuturesOrders(settle, contract, xGateExptime, side, excludeReduceOnly, text)
+> List&lt;FuturesOrder&gt; cancelFuturesOrders(settle, xGateExptime, contract, side, excludeReduceOnly, text)
 
 Cancel all orders with &#39;open&#39; status
 
@@ -2247,13 +2249,13 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String contract = "BTC_USDT"; // String | Futures contract
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String contract = "BTC_USDT"; // String | Contract Identifier; if specified, only cancel pending orders related to this contract
         String side = "ask"; // String | Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
         Boolean excludeReduceOnly = false; // Boolean | Whether to exclude reduce-only orders
         String text = "cancel by user"; // String | Remark for order cancellation
         try {
-            List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, contract, xGateExptime, side, excludeReduceOnly, text);
+            List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, xGateExptime, contract, side, excludeReduceOnly, text);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -2273,8 +2275,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **contract** | **String**| Futures contract |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **contract** | **String**| Contract Identifier; if specified, only cancel pending orders related to this contract | [optional]
  **side** | **String**| Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders | [optional]
  **excludeReduceOnly** | **Boolean**| Whether to exclude reduce-only orders | [optional] [default to false]
  **text** | **String**| Remark for order cancellation | [optional]
@@ -3260,7 +3262,7 @@ Name | Type | Description  | Notes
 
 Cancel batch orders by specified ID list
 
-Multiple different order IDs can be specified, maximum 20 records per request
+Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
 
 ### Example
 
@@ -3334,7 +3336,7 @@ Name | Type | Description  | Notes
 
 Batch modify orders by specified IDs
 
-Multiple different order IDs can be specified, maximum 10 orders per request
+Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
 
 ### Example
 

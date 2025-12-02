@@ -41,11 +41,11 @@ public class MyFuturesTradeTimeRange {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_CLOSE_SIZE = "close_size";
     @SerializedName(SERIALIZED_NAME_CLOSE_SIZE)
-    private Long closeSize;
+    private String closeSize;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -195,7 +195,7 @@ public class MyFuturesTradeTimeRange {
         this.orderId = orderId;
     }
 
-    public MyFuturesTradeTimeRange size(Long size) {
+    public MyFuturesTradeTimeRange size(String size) {
         
         this.size = size;
         return this;
@@ -206,16 +206,16 @@ public class MyFuturesTradeTimeRange {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public MyFuturesTradeTimeRange closeSize(Long closeSize) {
+    public MyFuturesTradeTimeRange closeSize(String closeSize) {
         
         this.closeSize = closeSize;
         return this;
@@ -226,12 +226,12 @@ public class MyFuturesTradeTimeRange {
      * @return closeSize
     **/
     @javax.annotation.Nullable
-    public Long getCloseSize() {
+    public String getCloseSize() {
         return closeSize;
     }
 
 
-    public void setCloseSize(Long closeSize) {
+    public void setCloseSize(String closeSize) {
         this.closeSize = closeSize;
     }
 

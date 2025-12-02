@@ -57,11 +57,11 @@ public class FuturesAutoDeleverage {
 
     public static final String SERIALIZED_NAME_TRADE_SIZE = "trade_size";
     @SerializedName(SERIALIZED_NAME_TRADE_SIZE)
-    private Long tradeSize;
+    private String tradeSize;
 
     public static final String SERIALIZED_NAME_POSITION_SIZE = "position_size";
     @SerializedName(SERIALIZED_NAME_POSITION_SIZE)
-    private Long positionSize;
+    private String positionSize;
 
 
      /**
@@ -149,7 +149,7 @@ public class FuturesAutoDeleverage {
      * @return tradeSize
     **/
     @javax.annotation.Nullable
-    public Long getTradeSize() {
+    public String getTradeSize() {
         return tradeSize;
     }
 
@@ -159,7 +159,7 @@ public class FuturesAutoDeleverage {
      * @return positionSize
     **/
     @javax.annotation.Nullable
-    public Long getPositionSize() {
+    public String getPositionSize() {
         return positionSize;
     }
 

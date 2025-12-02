@@ -2728,7 +2728,7 @@ public class FuturesApi {
 
     /**
      * Query futures account change history
-     * If the contract field is passed, only records containing this field after 2023-10-30 can be filtered.
+     * If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。
      * @param settle Settle currency (required)
      * @return APIlistFuturesAccountBookRequest
      * @http.response.details
@@ -3282,7 +3282,7 @@ public class FuturesApi {
 
     /**
      * Update position leverage
-     * 
+     * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
@@ -3303,7 +3303,7 @@ public class FuturesApi {
 
     /**
      * Update position leverage
-     * 
+     * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
@@ -3325,7 +3325,7 @@ public class FuturesApi {
 
     /**
      * Update position leverage (asynchronously)
-     * 
+     * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
@@ -3777,7 +3777,7 @@ public class FuturesApi {
 
     /**
      * Set position mode
-     * The prerequisite for changing mode is that there are no open positions and no open orders
+     * The prerequisite for changing mode is that all positions have no holdings and no pending orders
      * @param settle Settle currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @return FuturesAccount
@@ -3795,7 +3795,7 @@ public class FuturesApi {
 
     /**
      * Set position mode
-     * The prerequisite for changing mode is that there are no open positions and no open orders
+     * The prerequisite for changing mode is that all positions have no holdings and no pending orders
      * @param settle Settle currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
@@ -3814,7 +3814,7 @@ public class FuturesApi {
 
     /**
      * Set position mode (asynchronously)
-     * The prerequisite for changing mode is that there are no open positions and no open orders
+     * The prerequisite for changing mode is that all positions have no holdings and no pending orders
      * @param settle Settle currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4730,8 +4730,8 @@ public class FuturesApi {
     /**
      * Build call for cancelFuturesOrders
      * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -4744,7 +4744,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrdersCall(String settle, String contract, String xGateExptime, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrdersCall(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4795,18 +4795,13 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelFuturesOrdersValidateBeforeCall(String settle, String contract, String xGateExptime, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelFuturesOrdersValidateBeforeCall(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelFuturesOrders(Async)");
         }
 
-        // verify the required parameter 'contract' is set
-        if (contract == null) {
-            throw new ApiException("Missing the required parameter 'contract' when calling cancelFuturesOrders(Async)");
-        }
-
-        okhttp3.Call localVarCall = cancelFuturesOrdersCall(settle, contract, xGateExptime, side, excludeReduceOnly, text, _callback);
+        okhttp3.Call localVarCall = cancelFuturesOrdersCall(settle, xGateExptime, contract, side, excludeReduceOnly, text, _callback);
         return localVarCall;
     }
 
@@ -4814,8 +4809,8 @@ public class FuturesApi {
      * Cancel all orders with &#39;open&#39; status
      * Zero-fill orders cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -4827,8 +4822,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public List<FuturesOrder> cancelFuturesOrders(String settle, String contract, String xGateExptime, String side, Boolean excludeReduceOnly, String text) throws ApiException {
-        ApiResponse<List<FuturesOrder>> localVarResp = cancelFuturesOrdersWithHttpInfo(settle, contract, xGateExptime, side, excludeReduceOnly, text);
+    public List<FuturesOrder> cancelFuturesOrders(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text) throws ApiException {
+        ApiResponse<List<FuturesOrder>> localVarResp = cancelFuturesOrdersWithHttpInfo(settle, xGateExptime, contract, side, excludeReduceOnly, text);
         return localVarResp.getData();
     }
 
@@ -4836,8 +4831,8 @@ public class FuturesApi {
      * Cancel all orders with &#39;open&#39; status
      * Zero-fill orders cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -4849,8 +4844,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String contract, String xGateExptime, String side, Boolean excludeReduceOnly, String text) throws ApiException {
-        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, contract, xGateExptime, side, excludeReduceOnly, text, null);
+    public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text) throws ApiException {
+        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, xGateExptime, contract, side, excludeReduceOnly, text, null);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4859,8 +4854,8 @@ public class FuturesApi {
      * Cancel all orders with &#39;open&#39; status (asynchronously)
      * Zero-fill orders cannot be retrieved 10 minutes after order cancellation
      * @param settle Settle currency (required)
-     * @param contract Futures contract (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -4873,8 +4868,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrdersAsync(String settle, String contract, String xGateExptime, String side, Boolean excludeReduceOnly, String text, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, contract, xGateExptime, side, excludeReduceOnly, text, _callback);
+    public okhttp3.Call cancelFuturesOrdersAsync(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, xGateExptime, contract, side, excludeReduceOnly, text, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7066,7 +7061,7 @@ public class FuturesApi {
 
     /**
      * Cancel batch orders by specified ID list
-     * Multiple different order IDs can be specified, maximum 20 records per request
+     * Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
      * @param settle Settle currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -7085,7 +7080,7 @@ public class FuturesApi {
 
     /**
      * Cancel batch orders by specified ID list
-     * Multiple different order IDs can be specified, maximum 20 records per request
+     * Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
      * @param settle Settle currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -7105,7 +7100,7 @@ public class FuturesApi {
 
     /**
      * Cancel batch orders by specified ID list (asynchronously)
-     * Multiple different order IDs can be specified, maximum 20 records per request
+     * Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
      * @param settle Settle currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -7191,7 +7186,7 @@ public class FuturesApi {
 
     /**
      * Batch modify orders by specified IDs
-     * Multiple different order IDs can be specified, maximum 10 orders per request
+     * Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
      * @param settle Settle currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -7210,7 +7205,7 @@ public class FuturesApi {
 
     /**
      * Batch modify orders by specified IDs
-     * Multiple different order IDs can be specified, maximum 10 orders per request
+     * Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
      * @param settle Settle currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -7230,7 +7225,7 @@ public class FuturesApi {
 
     /**
      * Batch modify orders by specified IDs (asynchronously)
-     * Multiple different order IDs can be specified, maximum 10 orders per request
+     * Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
      * @param settle Settle currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)

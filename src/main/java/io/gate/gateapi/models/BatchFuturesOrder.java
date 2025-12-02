@@ -173,11 +173,11 @@ public class BatchFuturesOrder {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_ICEBERG = "iceberg";
     @SerializedName(SERIALIZED_NAME_ICEBERG)
-    private Long iceberg;
+    private String iceberg;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -260,7 +260,7 @@ public class BatchFuturesOrder {
 
     public static final String SERIALIZED_NAME_LEFT = "left";
     @SerializedName(SERIALIZED_NAME_LEFT)
-    private Long left;
+    private String left;
 
     public static final String SERIALIZED_NAME_FILL_PRICE = "fill_price";
     @SerializedName(SERIALIZED_NAME_FILL_PRICE)
@@ -533,7 +533,7 @@ public class BatchFuturesOrder {
         this.contract = contract;
     }
 
-    public BatchFuturesOrder size(Long size) {
+    public BatchFuturesOrder size(String size) {
         
         this.size = size;
         return this;
@@ -544,16 +544,16 @@ public class BatchFuturesOrder {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public BatchFuturesOrder iceberg(Long iceberg) {
+    public BatchFuturesOrder iceberg(String iceberg) {
         
         this.iceberg = iceberg;
         return this;
@@ -564,12 +564,12 @@ public class BatchFuturesOrder {
      * @return iceberg
     **/
     @javax.annotation.Nullable
-    public Long getIceberg() {
+    public String getIceberg() {
         return iceberg;
     }
 
 
-    public void setIceberg(Long iceberg) {
+    public void setIceberg(String iceberg) {
         this.iceberg = iceberg;
     }
 
@@ -688,7 +688,7 @@ public class BatchFuturesOrder {
      * @return left
     **/
     @javax.annotation.Nullable
-    public Long getLeft() {
+    public String getLeft() {
         return left;
     }
 

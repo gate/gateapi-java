@@ -651,7 +651,7 @@ public class AccountApi {
 
     /**
      * Query users in the STP user group
-     * Only the main account that created this STP group can query the account ID list in the current STP group
+     * Only the main account that created this STP group can query the account ID list of the current STP group
      * @param stpId STP Group ID (required)
      * @return List&lt;StpGroupUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -668,7 +668,7 @@ public class AccountApi {
 
     /**
      * Query users in the STP user group
-     * Only the main account that created this STP group can query the account ID list in the current STP group
+     * Only the main account that created this STP group can query the account ID list of the current STP group
      * @param stpId STP Group ID (required)
      * @return ApiResponse&lt;List&lt;StpGroupUser&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -686,7 +686,7 @@ public class AccountApi {
 
     /**
      * Query users in the STP user group (asynchronously)
-     * Only the main account that created this STP group can query the account ID list in the current STP group
+     * Only the main account that created this STP group can query the account ID list of the current STP group
      * @param stpId STP Group ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

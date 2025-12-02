@@ -811,7 +811,7 @@ public class SpotApi {
 
     /**
      * Get market depth information
-     * Market depth buy orders are sorted by price from high to low, sell orders are sorted from low to high
+     * Market depth buy orders are sorted by price from high to low, sell orders are reversed
      * @param currencyPair Currency pair (required)
      * @return APIlistOrderBookRequest
      * @http.response.details

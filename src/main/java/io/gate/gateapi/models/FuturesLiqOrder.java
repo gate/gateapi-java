@@ -33,11 +33,11 @@ public class FuturesLiqOrder {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_ORDER_SIZE = "order_size";
     @SerializedName(SERIALIZED_NAME_ORDER_SIZE)
-    private Long orderSize;
+    private String orderSize;
 
     public static final String SERIALIZED_NAME_ORDER_PRICE = "order_price";
     @SerializedName(SERIALIZED_NAME_ORDER_PRICE)
@@ -49,7 +49,7 @@ public class FuturesLiqOrder {
 
     public static final String SERIALIZED_NAME_LEFT = "left";
     @SerializedName(SERIALIZED_NAME_LEFT)
-    private Long left;
+    private String left;
 
 
      /**
@@ -77,7 +77,7 @@ public class FuturesLiqOrder {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
@@ -87,7 +87,7 @@ public class FuturesLiqOrder {
      * @return orderSize
     **/
     @javax.annotation.Nullable
-    public Long getOrderSize() {
+    public String getOrderSize() {
         return orderSize;
     }
 
@@ -117,7 +117,7 @@ public class FuturesLiqOrder {
      * @return left
     **/
     @javax.annotation.Nullable
-    public Long getLeft() {
+    public String getLeft() {
         return left;
     }
 

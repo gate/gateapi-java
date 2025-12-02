@@ -37,7 +37,7 @@ public class FuturesLiquidate {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_MARGIN = "margin";
     @SerializedName(SERIALIZED_NAME_MARGIN)
@@ -69,7 +69,7 @@ public class FuturesLiquidate {
 
     public static final String SERIALIZED_NAME_LEFT = "left";
     @SerializedName(SERIALIZED_NAME_LEFT)
-    private Long left;
+    private String left;
 
 
      /**
@@ -107,7 +107,7 @@ public class FuturesLiquidate {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
@@ -187,7 +187,7 @@ public class FuturesLiquidate {
      * @return left
     **/
     @javax.annotation.Nullable
-    public Long getLeft() {
+    public String getLeft() {
         return left;
     }
 

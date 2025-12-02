@@ -156,7 +156,7 @@ public class MultiCollateralLoanApi {
 
         /**
          * Set sort
-         * @param sort Sort type: &#x60;time_desc&#x60; - Created time descending (default), &#x60;ltv_asc&#x60; - Collateral ratio ascending, &#x60;ltv_desc&#x60; - Collateral ratio descending. (optional)
+         * @param sort Sort type: time_desc - Default descending by creation time, ltv_asc - Ascending by LTV ratio, ltv_desc - Descending by LTV ratio (optional)
          * @return APIlistMultiCollateralOrdersRequest
          */
         public APIlistMultiCollateralOrdersRequest sort(String sort) {
@@ -1098,7 +1098,7 @@ public class MultiCollateralLoanApi {
     /**
      * Build call for listUserCurrencyQuota
      * @param type Currency type: collateral - Collateral currency, borrow - Borrowing currency (required)
-     * @param currency When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1165,7 +1165,7 @@ public class MultiCollateralLoanApi {
      * Query user&#39;s collateral and borrowing currency quota information
      * 
      * @param type Currency type: collateral - Collateral currency, borrow - Borrowing currency (required)
-     * @param currency When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed (required)
      * @return List&lt;CurrencyQuota&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1183,7 +1183,7 @@ public class MultiCollateralLoanApi {
      * Query user&#39;s collateral and borrowing currency quota information
      * 
      * @param type Currency type: collateral - Collateral currency, borrow - Borrowing currency (required)
-     * @param currency When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed (required)
      * @return ApiResponse&lt;List&lt;CurrencyQuota&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1202,7 +1202,7 @@ public class MultiCollateralLoanApi {
      * Query user&#39;s collateral and borrowing currency quota information (asynchronously)
      * 
      * @param type Currency type: collateral - Collateral currency, borrow - Borrowing currency (required)
-     * @param currency When it is a collateral currency, multiple currencies can be provided separated by commas; when it is a borrowing currency, only one currency can be provided. (required)
+     * @param currency When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passed (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1655,7 +1655,7 @@ public class MultiCollateralLoanApi {
 
     /**
      * Query currency&#39;s current interest rate
-     * Query currency&#39;s current interest rate for the previous hour, current interest rate updates hourly
+     * Query the current interest rate of the currency in the previous hour, the current interest rate is updated every hour
      * @param currencies Specify currency name query array, separated by commas, maximum 100 items (required)
      * @return APIgetMultiCollateralCurrentRateRequest
      * @http.response.details

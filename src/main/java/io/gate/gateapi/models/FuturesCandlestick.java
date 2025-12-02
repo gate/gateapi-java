@@ -29,7 +29,7 @@ public class FuturesCandlestick {
 
     public static final String SERIALIZED_NAME_V = "v";
     @SerializedName(SERIALIZED_NAME_V)
-    private Long v;
+    private String v;
 
     public static final String SERIALIZED_NAME_C = "c";
     @SerializedName(SERIALIZED_NAME_C)
@@ -72,7 +72,7 @@ public class FuturesCandlestick {
         this.t = t;
     }
 
-    public FuturesCandlestick v(Long v) {
+    public FuturesCandlestick v(String v) {
         
         this.v = v;
         return this;
@@ -83,12 +83,12 @@ public class FuturesCandlestick {
      * @return v
     **/
     @javax.annotation.Nullable
-    public Long getV() {
+    public String getV() {
         return v;
     }
 
 
-    public void setV(Long v) {
+    public void setV(String v) {
         this.v = v;
     }
 

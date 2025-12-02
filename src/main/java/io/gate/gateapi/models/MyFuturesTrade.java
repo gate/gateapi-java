@@ -41,11 +41,11 @@ public class MyFuturesTrade {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_CLOSE_SIZE = "close_size";
     @SerializedName(SERIALIZED_NAME_CLOSE_SIZE)
-    private Long closeSize;
+    private String closeSize;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -113,6 +113,10 @@ public class MyFuturesTrade {
     public static final String SERIALIZED_NAME_POINT_FEE = "point_fee";
     @SerializedName(SERIALIZED_NAME_POINT_FEE)
     private String pointFee;
+
+    public static final String SERIALIZED_NAME_TRADE_VALUE = "trade_value";
+    @SerializedName(SERIALIZED_NAME_TRADE_VALUE)
+    private String tradeValue;
 
 
     public MyFuturesTrade id(Long id) {
@@ -195,7 +199,7 @@ public class MyFuturesTrade {
         this.orderId = orderId;
     }
 
-    public MyFuturesTrade size(Long size) {
+    public MyFuturesTrade size(String size) {
         
         this.size = size;
         return this;
@@ -206,16 +210,16 @@ public class MyFuturesTrade {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public MyFuturesTrade closeSize(Long closeSize) {
+    public MyFuturesTrade closeSize(String closeSize) {
         
         this.closeSize = closeSize;
         return this;
@@ -226,12 +230,12 @@ public class MyFuturesTrade {
      * @return closeSize
     **/
     @javax.annotation.Nullable
-    public Long getCloseSize() {
+    public String getCloseSize() {
         return closeSize;
     }
 
 
-    public void setCloseSize(Long closeSize) {
+    public void setCloseSize(String closeSize) {
         this.closeSize = closeSize;
     }
 
@@ -334,6 +338,26 @@ public class MyFuturesTrade {
     public void setPointFee(String pointFee) {
         this.pointFee = pointFee;
     }
+
+    public MyFuturesTrade tradeValue(String tradeValue) {
+        
+        this.tradeValue = tradeValue;
+        return this;
+    }
+
+     /**
+     * trade value
+     * @return tradeValue
+    **/
+    @javax.annotation.Nullable
+    public String getTradeValue() {
+        return tradeValue;
+    }
+
+
+    public void setTradeValue(String tradeValue) {
+        this.tradeValue = tradeValue;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -353,12 +377,13 @@ public class MyFuturesTrade {
                 Objects.equals(this.role, myFuturesTrade.role) &&
                 Objects.equals(this.text, myFuturesTrade.text) &&
                 Objects.equals(this.fee, myFuturesTrade.fee) &&
-                Objects.equals(this.pointFee, myFuturesTrade.pointFee);
+                Objects.equals(this.pointFee, myFuturesTrade.pointFee) &&
+                Objects.equals(this.tradeValue, myFuturesTrade.tradeValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, contract, orderId, size, closeSize, price, role, text, fee, pointFee);
+        return Objects.hash(id, createTime, contract, orderId, size, closeSize, price, role, text, fee, pointFee, tradeValue);
     }
 
 
@@ -377,6 +402,7 @@ public class MyFuturesTrade {
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      pointFee: ").append(toIndentedString(pointFee)).append("\n");
+        sb.append("      tradeValue: ").append(toIndentedString(tradeValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

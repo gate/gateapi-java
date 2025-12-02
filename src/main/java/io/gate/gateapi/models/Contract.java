@@ -199,11 +199,11 @@ public class Contract {
 
     public static final String SERIALIZED_NAME_ORDER_SIZE_MIN = "order_size_min";
     @SerializedName(SERIALIZED_NAME_ORDER_SIZE_MIN)
-    private Long orderSizeMin;
+    private String orderSizeMin;
 
     public static final String SERIALIZED_NAME_ORDER_SIZE_MAX = "order_size_max";
     @SerializedName(SERIALIZED_NAME_ORDER_SIZE_MAX)
-    private Long orderSizeMax;
+    private String orderSizeMax;
 
     public static final String SERIALIZED_NAME_ORDER_PRICE_DEVIATE = "order_price_deviate";
     @SerializedName(SERIALIZED_NAME_ORDER_PRICE_DEVIATE)
@@ -227,11 +227,11 @@ public class Contract {
 
     public static final String SERIALIZED_NAME_TRADE_SIZE = "trade_size";
     @SerializedName(SERIALIZED_NAME_TRADE_SIZE)
-    private Long tradeSize;
+    private String tradeSize;
 
     public static final String SERIALIZED_NAME_POSITION_SIZE = "position_size";
     @SerializedName(SERIALIZED_NAME_POSITION_SIZE)
-    private Long positionSize;
+    private String positionSize;
 
     public static final String SERIALIZED_NAME_CONFIG_CHANGE_TIME = "config_change_time";
     @SerializedName(SERIALIZED_NAME_CONFIG_CHANGE_TIME)
@@ -678,7 +678,7 @@ public class Contract {
         this.riskLimitMax = riskLimitMax;
     }
 
-    public Contract orderSizeMin(Long orderSizeMin) {
+    public Contract orderSizeMin(String orderSizeMin) {
         
         this.orderSizeMin = orderSizeMin;
         return this;
@@ -689,16 +689,16 @@ public class Contract {
      * @return orderSizeMin
     **/
     @javax.annotation.Nullable
-    public Long getOrderSizeMin() {
+    public String getOrderSizeMin() {
         return orderSizeMin;
     }
 
 
-    public void setOrderSizeMin(Long orderSizeMin) {
+    public void setOrderSizeMin(String orderSizeMin) {
         this.orderSizeMin = orderSizeMin;
     }
 
-    public Contract orderSizeMax(Long orderSizeMax) {
+    public Contract orderSizeMax(String orderSizeMax) {
         
         this.orderSizeMax = orderSizeMax;
         return this;
@@ -709,12 +709,12 @@ public class Contract {
      * @return orderSizeMax
     **/
     @javax.annotation.Nullable
-    public Long getOrderSizeMax() {
+    public String getOrderSizeMax() {
         return orderSizeMax;
     }
 
 
-    public void setOrderSizeMax(Long orderSizeMax) {
+    public void setOrderSizeMax(String orderSizeMax) {
         this.orderSizeMax = orderSizeMax;
     }
 
@@ -818,7 +818,7 @@ public class Contract {
         this.tradeId = tradeId;
     }
 
-    public Contract tradeSize(Long tradeSize) {
+    public Contract tradeSize(String tradeSize) {
         
         this.tradeSize = tradeSize;
         return this;
@@ -829,16 +829,16 @@ public class Contract {
      * @return tradeSize
     **/
     @javax.annotation.Nullable
-    public Long getTradeSize() {
+    public String getTradeSize() {
         return tradeSize;
     }
 
 
-    public void setTradeSize(Long tradeSize) {
+    public void setTradeSize(String tradeSize) {
         this.tradeSize = tradeSize;
     }
 
-    public Contract positionSize(Long positionSize) {
+    public Contract positionSize(String positionSize) {
         
         this.positionSize = positionSize;
         return this;
@@ -849,12 +849,12 @@ public class Contract {
      * @return positionSize
     **/
     @javax.annotation.Nullable
-    public Long getPositionSize() {
+    public String getPositionSize() {
         return positionSize;
     }
 
 
-    public void setPositionSize(Long positionSize) {
+    public void setPositionSize(String positionSize) {
         this.positionSize = positionSize;
     }
 

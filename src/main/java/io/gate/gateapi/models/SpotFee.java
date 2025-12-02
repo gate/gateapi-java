@@ -35,6 +35,10 @@ public class SpotFee {
     @SerializedName(SERIALIZED_NAME_MAKER_FEE)
     private String makerFee;
 
+    public static final String SERIALIZED_NAME_RPI_MAKER_FEE = "rpi_maker_fee";
+    @SerializedName(SERIALIZED_NAME_RPI_MAKER_FEE)
+    private String rpiMakerFee;
+
     public static final String SERIALIZED_NAME_GT_DISCOUNT = "gt_discount";
     @SerializedName(SERIALIZED_NAME_GT_DISCOUNT)
     private Boolean gtDiscount;
@@ -62,6 +66,10 @@ public class SpotFee {
     public static final String SERIALIZED_NAME_DEBIT_FEE = "debit_fee";
     @SerializedName(SERIALIZED_NAME_DEBIT_FEE)
     private Integer debitFee;
+
+    public static final String SERIALIZED_NAME_RPI_MM = "rpi_mm";
+    @SerializedName(SERIALIZED_NAME_RPI_MM)
+    private Integer rpiMm;
 
 
     public SpotFee userId(Long userId) {
@@ -122,6 +130,26 @@ public class SpotFee {
 
     public void setMakerFee(String makerFee) {
         this.makerFee = makerFee;
+    }
+
+    public SpotFee rpiMakerFee(String rpiMakerFee) {
+        
+        this.rpiMakerFee = rpiMakerFee;
+        return this;
+    }
+
+     /**
+     * RPI MM maker fee rate
+     * @return rpiMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getRpiMakerFee() {
+        return rpiMakerFee;
+    }
+
+
+    public void setRpiMakerFee(String rpiMakerFee) {
+        this.rpiMakerFee = rpiMakerFee;
     }
 
     public SpotFee gtDiscount(Boolean gtDiscount) {
@@ -263,6 +291,26 @@ public class SpotFee {
     public void setDebitFee(Integer debitFee) {
         this.debitFee = debitFee;
     }
+
+    public SpotFee rpiMm(Integer rpiMm) {
+        
+        this.rpiMm = rpiMm;
+        return this;
+    }
+
+     /**
+     * RPI MM Level
+     * @return rpiMm
+    **/
+    @javax.annotation.Nullable
+    public Integer getRpiMm() {
+        return rpiMm;
+    }
+
+
+    public void setRpiMm(Integer rpiMm) {
+        this.rpiMm = rpiMm;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -275,18 +323,20 @@ public class SpotFee {
         return Objects.equals(this.userId, spotFee.userId) &&
                 Objects.equals(this.takerFee, spotFee.takerFee) &&
                 Objects.equals(this.makerFee, spotFee.makerFee) &&
+                Objects.equals(this.rpiMakerFee, spotFee.rpiMakerFee) &&
                 Objects.equals(this.gtDiscount, spotFee.gtDiscount) &&
                 Objects.equals(this.gtTakerFee, spotFee.gtTakerFee) &&
                 Objects.equals(this.gtMakerFee, spotFee.gtMakerFee) &&
                 Objects.equals(this.loanFee, spotFee.loanFee) &&
                 Objects.equals(this.pointType, spotFee.pointType) &&
                 Objects.equals(this.currencyPair, spotFee.currencyPair) &&
-                Objects.equals(this.debitFee, spotFee.debitFee);
+                Objects.equals(this.debitFee, spotFee.debitFee) &&
+                Objects.equals(this.rpiMm, spotFee.rpiMm);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, takerFee, makerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, currencyPair, debitFee);
+        return Objects.hash(userId, takerFee, makerFee, rpiMakerFee, gtDiscount, gtTakerFee, gtMakerFee, loanFee, pointType, currencyPair, debitFee, rpiMm);
     }
 
 
@@ -297,6 +347,7 @@ public class SpotFee {
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      takerFee: ").append(toIndentedString(takerFee)).append("\n");
         sb.append("      makerFee: ").append(toIndentedString(makerFee)).append("\n");
+        sb.append("      rpiMakerFee: ").append(toIndentedString(rpiMakerFee)).append("\n");
         sb.append("      gtDiscount: ").append(toIndentedString(gtDiscount)).append("\n");
         sb.append("      gtTakerFee: ").append(toIndentedString(gtTakerFee)).append("\n");
         sb.append("      gtMakerFee: ").append(toIndentedString(gtMakerFee)).append("\n");
@@ -304,6 +355,7 @@ public class SpotFee {
         sb.append("      pointType: ").append(toIndentedString(pointType)).append("\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
         sb.append("      debitFee: ").append(toIndentedString(debitFee)).append("\n");
+        sb.append("      rpiMm: ").append(toIndentedString(rpiMm)).append("\n");
         sb.append("}");
         return sb.toString();
     }

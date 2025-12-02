@@ -33,7 +33,7 @@ public class FuturesBatchAmendOrderRequest {
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    private String size;
 
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
@@ -84,7 +84,7 @@ public class FuturesBatchAmendOrderRequest {
         this.text = text;
     }
 
-    public FuturesBatchAmendOrderRequest size(Long size) {
+    public FuturesBatchAmendOrderRequest size(String size) {
         
         this.size = size;
         return this;
@@ -95,12 +95,12 @@ public class FuturesBatchAmendOrderRequest {
      * @return size
     **/
     @javax.annotation.Nullable
-    public Long getSize() {
+    public String getSize() {
         return size;
     }
 
 
-    public void setSize(Long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

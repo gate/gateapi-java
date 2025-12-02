@@ -167,7 +167,7 @@ No authorization required
 
 <a name="listDeliveryOrderBook"></a>
 # **listDeliveryOrderBook**
-> FuturesOrderBook listDeliveryOrderBook(settle, contract).interval(interval).limit(limit).withId(withId).execute();
+> DeliveryOrderBook listDeliveryOrderBook(settle, contract).interval(interval).limit(limit).withId(withId).execute();
 
 Query futures market depth information
 
@@ -196,7 +196,7 @@ public class Example {
         Integer limit = 10; // Integer | Number of depth levels
         Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time the depth changes
         try {
-            FuturesOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract)
+            DeliveryOrderBook result = apiInstance.listDeliveryOrderBook(settle, contract)
                         .interval(interval)
                         .limit(limit)
                         .withId(withId)
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrderBook**](FuturesOrderBook.md)
+[**DeliveryOrderBook**](DeliveryOrderBook.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ No authorization required
 
 <a name="listDeliveryTrades"></a>
 # **listDeliveryTrades**
-> List&lt;FuturesTrade&gt; listDeliveryTrades(settle, contract).limit(limit).lastId(lastId).from(from).to(to).execute();
+> List&lt;DeliveryTrade&gt; listDeliveryTrades(settle, contract).limit(limit).lastId(lastId).from(from).to(to).execute();
 
 Futures market transaction records
 
@@ -273,7 +273,7 @@ public class Example {
         Long from = 1546905600L; // Long | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned. 
         Long to = 1546935600L; // Long | Specify end time in Unix seconds, default to current time.
         try {
-            List<FuturesTrade> result = apiInstance.listDeliveryTrades(settle, contract)
+            List<DeliveryTrade> result = apiInstance.listDeliveryTrades(settle, contract)
                         .limit(limit)
                         .lastId(lastId)
                         .from(from)
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesTrade&gt;**](FuturesTrade.md)
+[**List&lt;DeliveryTrade&gt;**](DeliveryTrade.md)
 
 ### Authorization
 
@@ -541,7 +541,7 @@ No authorization required
 
 <a name="listDeliveryAccounts"></a>
 # **listDeliveryAccounts**
-> FuturesAccount listDeliveryAccounts(settle)
+> DeliveryAccount listDeliveryAccounts(settle)
 
 Get futures account
 
@@ -568,7 +568,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         try {
-            FuturesAccount result = apiInstance.listDeliveryAccounts(settle);
+            DeliveryAccount result = apiInstance.listDeliveryAccounts(settle);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesAccount**](FuturesAccount.md)
+[**DeliveryAccount**](DeliveryAccount.md)
 
 ### Authorization
 
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeliveryAccountBook"></a>
 # **listDeliveryAccountBook**
-> List&lt;FuturesAccountBook&gt; listDeliveryAccountBook(settle).limit(limit).from(from).to(to).type(type).execute();
+> List&lt;DeliveryAccountBook&gt; listDeliveryAccountBook(settle).limit(limit).from(from).to(to).type(type).execute();
 
 Query futures account change history
 
@@ -640,7 +640,7 @@ public class Example {
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String type = "dnw"; // String | Change types: - dnw: Deposit and withdrawal - pnl: Profit and loss from position reduction - fee: Trading fees - refr: Referrer rebates - fund: Funding fees - point_dnw: Point card deposit and withdrawal - point_fee: Point card trading fees - point_refr: Point card referrer rebates
         try {
-            List<FuturesAccountBook> result = apiInstance.listDeliveryAccountBook(settle)
+            List<DeliveryAccountBook> result = apiInstance.listDeliveryAccountBook(settle)
                         .limit(limit)
                         .from(from)
                         .to(to)
@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesAccountBook&gt;**](FuturesAccountBook.md)
+[**List&lt;DeliveryAccountBook&gt;**](DeliveryAccountBook.md)
 
 ### Authorization
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeliveryPositions"></a>
 # **listDeliveryPositions**
-> List&lt;Position&gt; listDeliveryPositions(settle)
+> List&lt;DeliveryPosition&gt; listDeliveryPositions(settle)
 
 Get user position list
 
@@ -717,7 +717,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         try {
-            List<Position> result = apiInstance.listDeliveryPositions(settle);
+            List<DeliveryPosition> result = apiInstance.listDeliveryPositions(settle);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Position&gt;**](Position.md)
+[**List&lt;DeliveryPosition&gt;**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -758,7 +758,7 @@ Name | Type | Description  | Notes
 
 <a name="getDeliveryPosition"></a>
 # **getDeliveryPosition**
-> Position getDeliveryPosition(settle, contract)
+> DeliveryPosition getDeliveryPosition(settle, contract)
 
 Get single position information
 
@@ -786,7 +786,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         try {
-            Position result = apiInstance.getDeliveryPosition(settle, contract);
+            DeliveryPosition result = apiInstance.getDeliveryPosition(settle, contract);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -810,7 +810,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -828,7 +828,7 @@ Name | Type | Description  | Notes
 
 <a name="updateDeliveryPositionMargin"></a>
 # **updateDeliveryPositionMargin**
-> Position updateDeliveryPositionMargin(settle, contract, change)
+> DeliveryPosition updateDeliveryPositionMargin(settle, contract, change)
 
 Update position margin
 
@@ -857,7 +857,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         String change = "0.01"; // String | Margin change amount, positive number increases, negative number decreases
         try {
-            Position result = apiInstance.updateDeliveryPositionMargin(settle, contract, change);
+            DeliveryPosition result = apiInstance.updateDeliveryPositionMargin(settle, contract, change);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -882,7 +882,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -900,7 +900,7 @@ Name | Type | Description  | Notes
 
 <a name="updateDeliveryPositionLeverage"></a>
 # **updateDeliveryPositionLeverage**
-> Position updateDeliveryPositionLeverage(settle, contract, leverage)
+> DeliveryPosition updateDeliveryPositionLeverage(settle, contract, leverage)
 
 Update position leverage
 
@@ -929,7 +929,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         String leverage = "10"; // String | New position leverage
         try {
-            Position result = apiInstance.updateDeliveryPositionLeverage(settle, contract, leverage);
+            DeliveryPosition result = apiInstance.updateDeliveryPositionLeverage(settle, contract, leverage);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -954,7 +954,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -972,7 +972,7 @@ Name | Type | Description  | Notes
 
 <a name="updateDeliveryPositionRiskLimit"></a>
 # **updateDeliveryPositionRiskLimit**
-> Position updateDeliveryPositionRiskLimit(settle, contract, riskLimit)
+> DeliveryPosition updateDeliveryPositionRiskLimit(settle, contract, riskLimit)
 
 Update position risk limit
 
@@ -1001,7 +1001,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         String riskLimit = "10"; // String | New position risk limit
         try {
-            Position result = apiInstance.updateDeliveryPositionRiskLimit(settle, contract, riskLimit);
+            DeliveryPosition result = apiInstance.updateDeliveryPositionRiskLimit(settle, contract, riskLimit);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Position**](Position.md)
+[**DeliveryPosition**](DeliveryPosition.md)
 
 ### Authorization
 
@@ -1044,7 +1044,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeliveryOrders"></a>
 # **listDeliveryOrders**
-> List&lt;FuturesOrder&gt; listDeliveryOrders(settle, status).contract(contract).limit(limit).offset(offset).lastId(lastId).countTotal(countTotal).execute();
+> List&lt;DeliveryOrder&gt; listDeliveryOrders(settle, status).contract(contract).limit(limit).offset(offset).lastId(lastId).countTotal(countTotal).execute();
 
 Query futures order list
 
@@ -1079,7 +1079,7 @@ public class Example {
         String lastId = "12345"; // String | Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         Integer countTotal = 0; // Integer | Whether to return total number matched, defaults to 0 (no return)
         try {
-            List<FuturesOrder> result = apiInstance.listDeliveryOrders(settle, status)
+            List<DeliveryOrder> result = apiInstance.listDeliveryOrders(settle, status)
                         .contract(contract)
                         .limit(limit)
                         .offset(offset)
@@ -1114,7 +1114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesOrder&gt;**](FuturesOrder.md)
+[**List&lt;DeliveryOrder&gt;**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1132,7 +1132,7 @@ Name | Type | Description  | Notes
 
 <a name="createDeliveryOrder"></a>
 # **createDeliveryOrder**
-> FuturesOrder createDeliveryOrder(settle, futuresOrder)
+> DeliveryOrder createDeliveryOrder(settle, deliveryOrder)
 
 Place futures order
 
@@ -1160,9 +1160,9 @@ public class Example {
 
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
+        DeliveryOrder deliveryOrder = new DeliveryOrder(); // DeliveryOrder | 
         try {
-            FuturesOrder result = apiInstance.createDeliveryOrder(settle, futuresOrder);
+            DeliveryOrder result = apiInstance.createDeliveryOrder(settle, deliveryOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1182,11 +1182,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: usdt]
- **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  |
+ **deliveryOrder** | [**DeliveryOrder**](DeliveryOrder.md)|  |
 
 ### Return type
 
-[**FuturesOrder**](FuturesOrder.md)
+[**DeliveryOrder**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1204,7 +1204,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelDeliveryOrders"></a>
 # **cancelDeliveryOrders**
-> List&lt;FuturesOrder&gt; cancelDeliveryOrders(settle, contract, side)
+> List&lt;DeliveryOrder&gt; cancelDeliveryOrders(settle, contract, side)
 
 Cancel all orders with &#39;open&#39; status
 
@@ -1235,7 +1235,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         String side = "ask"; // String | Specify all bids or all asks, both included if not specified
         try {
-            List<FuturesOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
+            List<DeliveryOrder> result = apiInstance.cancelDeliveryOrders(settle, contract, side);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1260,7 +1260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesOrder&gt;**](FuturesOrder.md)
+[**List&lt;DeliveryOrder&gt;**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1278,7 +1278,7 @@ Name | Type | Description  | Notes
 
 <a name="getDeliveryOrder"></a>
 # **getDeliveryOrder**
-> FuturesOrder getDeliveryOrder(settle, orderId)
+> DeliveryOrder getDeliveryOrder(settle, orderId)
 
 Query single order details
 
@@ -1308,7 +1308,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String orderId = "12345"; // String | ID returned when order is successfully created
         try {
-            FuturesOrder result = apiInstance.getDeliveryOrder(settle, orderId);
+            DeliveryOrder result = apiInstance.getDeliveryOrder(settle, orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1332,7 +1332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrder**](FuturesOrder.md)
+[**DeliveryOrder**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1350,7 +1350,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelDeliveryOrder"></a>
 # **cancelDeliveryOrder**
-> FuturesOrder cancelDeliveryOrder(settle, orderId)
+> DeliveryOrder cancelDeliveryOrder(settle, orderId)
 
 Cancel single order
 
@@ -1378,7 +1378,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String orderId = "12345"; // String | ID returned when order is successfully created
         try {
-            FuturesOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
+            DeliveryOrder result = apiInstance.cancelDeliveryOrder(settle, orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1402,7 +1402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrder**](FuturesOrder.md)
+[**DeliveryOrder**](DeliveryOrder.md)
 
 ### Authorization
 
@@ -1420,7 +1420,7 @@ Name | Type | Description  | Notes
 
 <a name="getMyDeliveryTrades"></a>
 # **getMyDeliveryTrades**
-> List&lt;MyFuturesTrade&gt; getMyDeliveryTrades(settle).contract(contract).order(order).limit(limit).offset(offset).lastId(lastId).countTotal(countTotal).execute();
+> List&lt;DeliveryMyTrade&gt; getMyDeliveryTrades(settle).contract(contract).order(order).limit(limit).offset(offset).lastId(lastId).countTotal(countTotal).execute();
 
 Query personal trading records
 
@@ -1453,7 +1453,7 @@ public class Example {
         String lastId = "12345"; // String | Use the ID of the last record in the previous list as the starting point for the next list  Operations based on custom IDs can only be checked when orders are pending. After orders are completed (filled/cancelled), they can be checked within 1 hour after completion. After expiration, only order IDs can be used
         Integer countTotal = 0; // Integer | Whether to return total number matched, defaults to 0 (no return)
         try {
-            List<MyFuturesTrade> result = apiInstance.getMyDeliveryTrades(settle)
+            List<DeliveryMyTrade> result = apiInstance.getMyDeliveryTrades(settle)
                         .contract(contract)
                         .order(order)
                         .limit(limit)
@@ -1489,7 +1489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;MyFuturesTrade&gt;**](MyFuturesTrade.md)
+[**List&lt;DeliveryMyTrade&gt;**](DeliveryMyTrade.md)
 
 ### Authorization
 
@@ -1507,7 +1507,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeliveryPositionClose"></a>
 # **listDeliveryPositionClose**
-> List&lt;PositionClose&gt; listDeliveryPositionClose(settle).contract(contract).limit(limit).execute();
+> List&lt;DeliveryPositionClose&gt; listDeliveryPositionClose(settle).contract(contract).limit(limit).execute();
 
 Query position close history
 
@@ -1536,7 +1536,7 @@ public class Example {
         String contract = "BTC_USDT_20200814"; // String | Futures contract
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         try {
-            List<PositionClose> result = apiInstance.listDeliveryPositionClose(settle)
+            List<DeliveryPositionClose> result = apiInstance.listDeliveryPositionClose(settle)
                         .contract(contract)
                         .limit(limit)
                         .execute();
@@ -1564,7 +1564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;PositionClose&gt;**](PositionClose.md)
+[**List&lt;DeliveryPositionClose&gt;**](DeliveryPositionClose.md)
 
 ### Authorization
 
@@ -1582,7 +1582,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeliveryLiquidates"></a>
 # **listDeliveryLiquidates**
-> List&lt;FuturesLiquidate&gt; listDeliveryLiquidates(settle).contract(contract).limit(limit).at(at).execute();
+> List&lt;DeliveryLiquidate&gt; listDeliveryLiquidates(settle).contract(contract).limit(limit).at(at).execute();
 
 Query liquidation history
 
@@ -1612,7 +1612,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer at = 0; // Integer | Specify liquidation timestamp
         try {
-            List<FuturesLiquidate> result = apiInstance.listDeliveryLiquidates(settle)
+            List<DeliveryLiquidate> result = apiInstance.listDeliveryLiquidates(settle)
                         .contract(contract)
                         .limit(limit)
                         .at(at)
@@ -1642,7 +1642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
+[**List&lt;DeliveryLiquidate&gt;**](DeliveryLiquidate.md)
 
 ### Authorization
 
@@ -1738,7 +1738,7 @@ Name | Type | Description  | Notes
 
 <a name="listDeliveryRiskLimitTiers"></a>
 # **listDeliveryRiskLimitTiers**
-> List&lt;FuturesLimitRiskTiers&gt; listDeliveryRiskLimitTiers(settle).contract(contract).limit(limit).offset(offset).execute();
+> List&lt;DeliveryLimitRiskTiers&gt; listDeliveryRiskLimitTiers(settle).contract(contract).limit(limit).offset(offset).execute();
 
 Query risk limit tiers
 
@@ -1766,7 +1766,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
-            List<FuturesLimitRiskTiers> result = apiInstance.listDeliveryRiskLimitTiers(settle)
+            List<DeliveryLimitRiskTiers> result = apiInstance.listDeliveryRiskLimitTiers(settle)
                         .contract(contract)
                         .limit(limit)
                         .offset(offset)
@@ -1796,7 +1796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesLimitRiskTiers&gt;**](FuturesLimitRiskTiers.md)
+[**List&lt;DeliveryLimitRiskTiers&gt;**](DeliveryLimitRiskTiers.md)
 
 ### Authorization
 
