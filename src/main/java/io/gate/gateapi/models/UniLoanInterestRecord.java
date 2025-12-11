@@ -103,7 +103,7 @@ public class UniLoanInterestRecord {
 
 
      /**
-     * Type: platform - Platform borrowing, margin - Margin borrowing
+     * Loan Type margin: margin borrowing
      * @return type
     **/
     @javax.annotation.Nullable

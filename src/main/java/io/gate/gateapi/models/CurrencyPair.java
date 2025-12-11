@@ -150,6 +150,14 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_ST_TAG)
     private Boolean stTag;
 
+    public static final String SERIALIZED_NAME_UP_RATE = "up_rate";
+    @SerializedName(SERIALIZED_NAME_UP_RATE)
+    private String upRate;
+
+    public static final String SERIALIZED_NAME_DOWN_RATE = "down_rate";
+    @SerializedName(SERIALIZED_NAME_DOWN_RATE)
+    private String downRate;
+
 
     public CurrencyPair id(String id) {
         
@@ -530,6 +538,46 @@ public class CurrencyPair {
     public void setStTag(Boolean stTag) {
         this.stTag = stTag;
     }
+
+    public CurrencyPair upRate(String upRate) {
+        
+        this.upRate = upRate;
+        return this;
+    }
+
+     /**
+     * Maximum Quote Rise Percentage
+     * @return upRate
+    **/
+    @javax.annotation.Nullable
+    public String getUpRate() {
+        return upRate;
+    }
+
+
+    public void setUpRate(String upRate) {
+        this.upRate = upRate;
+    }
+
+    public CurrencyPair downRate(String downRate) {
+        
+        this.downRate = downRate;
+        return this;
+    }
+
+     /**
+     * Maximum Quote Decline Percentage
+     * @return downRate
+    **/
+    @javax.annotation.Nullable
+    public String getDownRate() {
+        return downRate;
+    }
+
+
+    public void setDownRate(String downRate) {
+        this.downRate = downRate;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -557,12 +605,14 @@ public class CurrencyPair {
                 Objects.equals(this.delistingTime, currencyPair.delistingTime) &&
                 Objects.equals(this.type, currencyPair.type) &&
                 Objects.equals(this.tradeUrl, currencyPair.tradeUrl) &&
-                Objects.equals(this.stTag, currencyPair.stTag);
+                Objects.equals(this.stTag, currencyPair.stTag) &&
+                Objects.equals(this.upRate, currencyPair.upRate) &&
+                Objects.equals(this.downRate, currencyPair.downRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl, stTag);
+        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl, stTag, upRate, downRate);
     }
 
 
@@ -589,6 +639,8 @@ public class CurrencyPair {
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      tradeUrl: ").append(toIndentedString(tradeUrl)).append("\n");
         sb.append("      stTag: ").append(toIndentedString(stTag)).append("\n");
+        sb.append("      upRate: ").append(toIndentedString(upRate)).append("\n");
+        sb.append("      downRate: ").append(toIndentedString(downRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

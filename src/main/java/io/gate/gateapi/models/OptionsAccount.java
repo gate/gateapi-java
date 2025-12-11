@@ -52,7 +52,7 @@ public class OptionsAccount {
     private Boolean liqTriggered;
 
     /**
-     * ｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式
+     * 此字段表示统一账户所使用的保证金模式：  - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式 - 3: 表示为单币种保证金模式
      */
     @JsonAdapter(MarginModeEnum.Adapter.class)
     public enum MarginModeEnum {
@@ -60,7 +60,9 @@ public class OptionsAccount {
         
         NUMBER_1(1),
         
-        NUMBER_2(2);
+        NUMBER_2(2),
+        
+        NUMBER_3(3);
 
         private Integer value;
 
@@ -176,7 +178,7 @@ public class OptionsAccount {
     }
 
      /**
-     * Account Balance
+     * Account balance, invalid for unified account
      * @return total
     **/
     @javax.annotation.Nullable
@@ -216,7 +218,7 @@ public class OptionsAccount {
     }
 
      /**
-     * Account equity, the sum of account balance and position value
+     * Account equity &#x3D; balance + option position value, invalid for unified account
      * @return equity
     **/
     @javax.annotation.Nullable
@@ -276,7 +278,7 @@ public class OptionsAccount {
     }
 
      /**
-     * Whether to trigger position liquidation
+     * Whether the account is in a liquidation state
      * @return liqTriggered
     **/
     @javax.annotation.Nullable
@@ -296,7 +298,7 @@ public class OptionsAccount {
     }
 
      /**
-     * ｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式
+     * 此字段表示统一账户所使用的保证金模式：  - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式 - 3: 表示为单币种保证金模式
      * @return marginMode
     **/
     @javax.annotation.Nullable
@@ -316,7 +318,7 @@ public class OptionsAccount {
     }
 
      /**
-     * Unrealized PNL
+     * Unrealised PnL &#x3D; (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.
      * @return unrealisedPnl
     **/
     @javax.annotation.Nullable

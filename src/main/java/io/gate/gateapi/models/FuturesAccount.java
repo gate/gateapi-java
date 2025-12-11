@@ -140,7 +140,7 @@ public class FuturesAccount {
     }
 
      /**
-     * total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund)
+     * Balance, only applicable to classic contract account.The balance is the sum of all historical fund flows, including historical transfers in and out, closing settlements, and transaction fee expenses, but does not include upl of positions.total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund)
      * @return total
     **/
     @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Position margin
+     * Deprecated
      * @return positionMargin
     **/
     @javax.annotation.Nullable
@@ -200,7 +200,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Order margin of unfinished orders
+     * initial margin of all open orders
      * @return orderMargin
     **/
     @javax.annotation.Nullable
@@ -400,7 +400,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Classic account margin mode, true-new mode, false-old mode
+     * Deprecated
      * @return enableEvolvedClassic
     **/
     @javax.annotation.Nullable
@@ -600,7 +600,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Whether to open a new two-way position mode
+     * Deprecated
      * @return enableNewDualMode
     **/
     @javax.annotation.Nullable
@@ -620,7 +620,7 @@ public class FuturesAccount {
     }
 
      /**
-     * Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode
+     * Margin mode of the account 0: classic future account or Classic Spot Margin Mode of unified account; 1:  Multi-Currency Margin Mode; 2:  Portoforlio Margin Mode; 3:  Single-Currency Margin Mode
      * @return marginMode
     **/
     @javax.annotation.Nullable

@@ -455,7 +455,7 @@ public class FuturesTicker {
     }
 
      /**
-     * Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types
+     * Deprecated
      * @return quantoBaseRate
     **/
     @javax.annotation.Nullable

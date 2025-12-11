@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **fundingRate** | **String** | Funding rate |  [optional]
 **fundingRateIndicative** | **String** | Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;) |  [optional]
 **indexPrice** | **String** | Index price |  [optional]
-**quantoBaseRate** | **String** | Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types |  [optional]
+**quantoBaseRate** | **String** | Deprecated |  [optional]
 **lowestAsk** | **String** | Recent lowest ask |  [optional]
 **lowestSize** | **String** | The latest seller&#39;s lowest price order quantity |  [optional]
 **highestBid** | **String** | Recent highest bid |  [optional]

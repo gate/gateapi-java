@@ -119,7 +119,7 @@ public class FuturesLimitRiskTiers {
     }
 
      /**
-     * Maintenance margin rate
+     * The maintenance margin rate of the first tier of risk limit sheet
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable

@@ -2461,7 +2461,7 @@ public class FuturesApi {
 
     /**
      * Get futures account
-     * 
+     * Query account information for classic future account and unified account
      * @param settle Settle currency (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2478,7 +2478,7 @@ public class FuturesApi {
 
     /**
      * Get futures account
-     * 
+     * Query account information for classic future account and unified account
      * @param settle Settle currency (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2496,7 +2496,7 @@ public class FuturesApi {
 
     /**
      * Get futures account (asynchronously)
-     * 
+     * Query account information for classic future account and unified account
      * @param settle Settle currency (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3055,7 +3055,7 @@ public class FuturesApi {
 
     /**
      * Get single position information
-     * 
+     * Get single position information from a contract. If you hold two postions in one contract market, please use this API: /futures/{settle}/dual_comp/positions/{contract}
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @return APIgetPositionRequest
@@ -3141,7 +3141,7 @@ public class FuturesApi {
 
     /**
      * Update position margin
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
@@ -3160,7 +3160,7 @@ public class FuturesApi {
 
     /**
      * Update position margin
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
@@ -3180,7 +3180,7 @@ public class FuturesApi {
 
     /**
      * Update position margin (asynchronously)
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
@@ -3204,8 +3204,8 @@ public class FuturesApi {
      * Build call for updatePositionLeverage
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
+     * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
      * @param pid Product ID (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3285,8 +3285,8 @@ public class FuturesApi {
      * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
+     * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
      * @param pid Product ID (optional)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3306,8 +3306,8 @@ public class FuturesApi {
      * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
+     * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
      * @param pid Product ID (optional)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3328,8 +3328,8 @@ public class FuturesApi {
      * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @param leverage New position leverage (required)
-     * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
+     * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
+     * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
      * @param pid Product ID (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3653,7 +3653,7 @@ public class FuturesApi {
 
     /**
      * Update position risk limit
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
@@ -3672,7 +3672,7 @@ public class FuturesApi {
 
     /**
      * Update position risk limit
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
@@ -3692,7 +3692,7 @@ public class FuturesApi {
 
     /**
      * Update position risk limit (asynchronously)
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
@@ -4334,7 +4334,7 @@ public class FuturesApi {
 
     /**
      * Update position risk limit in Hedge Mode
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
@@ -4353,7 +4353,7 @@ public class FuturesApi {
 
     /**
      * Update position risk limit in Hedge Mode
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
@@ -4373,7 +4373,7 @@ public class FuturesApi {
 
     /**
      * Update position risk limit in Hedge Mode (asynchronously)
-     * 
+     * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)

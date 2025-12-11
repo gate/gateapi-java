@@ -388,10 +388,6 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
-    public static final String SERIALIZED_NAME_LIMIT_VIP = "limit_vip";
-    @SerializedName(SERIALIZED_NAME_LIMIT_VIP)
-    private Long limitVip;
-
     public static final String SERIALIZED_NAME_PID = "pid";
     @SerializedName(SERIALIZED_NAME_PID)
     private Long pid;
@@ -669,7 +665,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Custom order information. If not empty, must follow the rules below:  1. Prefixed with &#x60;t-&#x60; 2. No longer than 28 bytes without &#x60;t-&#x60; prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance
+     * Custom order information. If not empty, must follow the rules below:  1. Prefixed with &#x60;t-&#x60; 2. No longer than 28 bytes without &#x60;t-&#x60; prefix 3. Can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  In addition to user-defined information, the following are internal reserved fields that identify the order source:  - web: Web - api: API call - app: Mobile app - auto_deleveraging: Automatic deleveraging - liquidation: Forced liquidation of positions under the old classic mode - liq-xxx: a. Forced liquidation of positions under the new classic mode, including isolated margin, one-way cross margin, and non-hedged positions under two-way cross margin. b. Forced liquidation of isolated positions under the unified account single-currency margin mode - hedge-liq-xxx: Forced liquidation of hedged positions under the new classic mode two-way cross margin, i.e., simultaneously closing long and short positions - pm_liquidate: Forced liquidation under unified account multi-currency margin mode - comb_margin_liquidate: Forced liquidation under unified account portfolio margin mode - scm_liquidate: Forced liquidation of positions under unified account single-currency margin mode - insurance: Insurance - clear: Contract delisting withdrawal
      * @return text
     **/
     @javax.annotation.Nullable
@@ -772,26 +768,6 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder limitVip(Long limitVip) {
-        
-        this.limitVip = limitVip;
-        return this;
-    }
-
-     /**
-     * Counterparty user&#39;s VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0
-     * @return limitVip
-    **/
-    @javax.annotation.Nullable
-    public Long getLimitVip() {
-        return limitVip;
-    }
-
-
-    public void setLimitVip(Long limitVip) {
-        this.limitVip = limitVip;
-    }
-
     public FuturesOrder pid(Long pid) {
         
         this.pid = pid;
@@ -887,7 +863,6 @@ public class FuturesOrder {
                 Objects.equals(this.stpId, futuresOrder.stpId) &&
                 Objects.equals(this.stpAct, futuresOrder.stpAct) &&
                 Objects.equals(this.amendText, futuresOrder.amendText) &&
-                Objects.equals(this.limitVip, futuresOrder.limitVip) &&
                 Objects.equals(this.pid, futuresOrder.pid) &&
                 Objects.equals(this.orderValue, futuresOrder.orderValue) &&
                 Objects.equals(this.tradeValue, futuresOrder.tradeValue);
@@ -895,7 +870,7 @@ public class FuturesOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, limitVip, pid, orderValue, tradeValue);
+        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, orderValue, tradeValue);
     }
 
 
@@ -930,7 +905,6 @@ public class FuturesOrder {
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
-        sb.append("      limitVip: ").append(toIndentedString(limitVip)).append("\n");
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("      orderValue: ").append(toIndentedString(orderValue)).append("\n");
         sb.append("      tradeValue: ").append(toIndentedString(tradeValue)).append("\n");

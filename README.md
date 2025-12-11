@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.0
-- SDK version: 7.2.0
+- API version: v4.106.4
+- SDK version: 7.2.4
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.0</version>
+    <version>7.2.4</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.0"
+compile "io.gate:gate-api:7.2.4"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.0.jar`
+* `target/gate-api-7.2.4.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -425,6 +425,7 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**convertSmallBalance**](docs/WalletApi.md#convertSmallBalance) | **POST** /wallet/small_balance | Convert small balance currency
 *WalletApi* | [**listSmallBalanceHistory**](docs/WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | Get convertible small balance currency history
 *WalletApi* | [**listPushOrders**](docs/WalletApi.md#listPushOrders) | **GET** /wallet/push | Get UID transfer history
+*WalletApi* | [**getLowCapExchangeList**](docs/WalletApi.md#getLowCapExchangeList) | **GET** /wallet/getLowCapExchangeList | Retrieve the list of low-liquidity or low-cap tokens
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 *WithdrawalApi* | [**withdrawPushOrder**](docs/WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer
 *WithdrawalApi* | [**cancelWithdrawal**](docs/WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID

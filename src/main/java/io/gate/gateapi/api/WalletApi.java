@@ -3231,4 +3231,102 @@ public class WalletApi {
         return new APIlistPushOrdersRequest();
     }
 
+    /**
+     * Build call for getLowCapExchangeList
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns a string array on success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLowCapExchangeListCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallet/getLowCapExchangeList";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getLowCapExchangeListValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getLowCapExchangeListCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Retrieve the list of low-liquidity or low-cap tokens
+     * 
+     * @return List&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns a string array on success </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<String> getLowCapExchangeList() throws ApiException {
+        ApiResponse<List<String>> localVarResp = getLowCapExchangeListWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve the list of low-liquidity or low-cap tokens
+     * 
+     * @return ApiResponse&lt;List&lt;String&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns a string array on success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<String>> getLowCapExchangeListWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getLowCapExchangeListValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the list of low-liquidity or low-cap tokens (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns a string array on success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLowCapExchangeListAsync(final ApiCallback<List<String>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getLowCapExchangeListValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
 }

@@ -1035,6 +1035,8 @@ No authorization required
 
 Get futures account
 
+Query account information for classic future account and unified account
+
 ### Example
 
 ```java
@@ -1270,6 +1272,8 @@ Name | Type | Description  | Notes
 
 Get single position information
 
+Get single position information from a contract. If you hold two postions in one contract market, please use this API: /futures/{settle}/dual_comp/positions/{contract}
+
 ### Example
 
 ```java
@@ -1340,6 +1344,8 @@ Name | Type | Description  | Notes
 > Position updatePositionMargin(settle, contract, change)
 
 Update position margin
+
+Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
 
 ### Example
 
@@ -1438,8 +1444,8 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT"; // String | Futures contract
-        String leverage = "10"; // String | New position leverage
-        String crossLeverageLimit = "10"; // String | Cross margin leverage (valid only when `leverage` is 0)
+        String leverage = "10"; // String | Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty.
+        String crossLeverageLimit = "10"; // String | Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0.
         Integer pid = 1; // Integer | Product ID
         try {
             Position result = apiInstance.updatePositionLeverage(settle, contract, leverage, crossLeverageLimit, pid);
@@ -1463,8 +1469,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **leverage** | **String**| New position leverage |
- **crossLeverageLimit** | **String**| Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) | [optional]
+ **leverage** | **String**| Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. |
+ **crossLeverageLimit** | **String**| Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. | [optional]
  **pid** | **Integer**| Product ID | [optional]
 
 ### Return type
@@ -1630,6 +1636,8 @@ Name | Type | Description  | Notes
 > Position updatePositionRiskLimit(settle, contract, riskLimit)
 
 Update position risk limit
+
+Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
 
 ### Example
 
@@ -1993,6 +2001,8 @@ Name | Type | Description  | Notes
 > List&lt;Position&gt; updateDualModePositionRiskLimit(settle, contract, riskLimit)
 
 Update position risk limit in Hedge Mode
+
+Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
 
 ### Example
 

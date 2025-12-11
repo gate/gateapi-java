@@ -105,7 +105,7 @@ public class FuturesAutoDeleverage {
 
 
      /**
-     * Position leverage
+     *  leverage for isolated margin. 0 means cross margin. For leverage of cross margin, please refer to &#x60;cross_leverage_limit&#x60;.
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class FuturesAutoDeleverage {
 
 
      /**
-     * Cross margin leverage (valid only when &#x60;leverage&#x60; is 0)
+     * leverage for cross margin
      * @return crossLeverageLimit
     **/
     @javax.annotation.Nullable

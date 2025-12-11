@@ -95,7 +95,7 @@ public class Contract {
     private String maintenanceRate;
 
     /**
-     * Mark price type: internal - internal trading price, index - external index price
+     * Deprecated
      */
     @JsonAdapter(MarkTypeEnum.Adapter.class)
     public enum MarkTypeEnum {
@@ -277,6 +277,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_DELISTED_TIME)
     private Long delistedTime;
 
+    public static final String SERIALIZED_NAME_FUNDING_RATE_LIMIT = "funding_rate_limit";
+    @SerializedName(SERIALIZED_NAME_FUNDING_RATE_LIMIT)
+    private String fundingRateLimit;
+
 
     public Contract name(String name) {
         
@@ -325,7 +329,7 @@ public class Contract {
     }
 
      /**
-     * Multiplier used in converting from invoicing to settlement currency
+     * The contract multiplier indicates how many units of the underlying asset the face value of one contract represents.
      * @return quantoMultiplier
     **/
     @javax.annotation.Nullable
@@ -385,7 +389,7 @@ public class Contract {
     }
 
      /**
-     * Maintenance rate of margin
+     * The maintenance margin rate of the first tier of risk limit sheet
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable
@@ -405,7 +409,7 @@ public class Contract {
     }
 
      /**
-     * Mark price type: internal - internal trading price, index - external index price
+     * Deprecated
      * @return markType
     **/
     @javax.annotation.Nullable
@@ -985,7 +989,7 @@ public class Contract {
     }
 
      /**
-     * The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio
+     * Deprecated
      * @return fundingCapRatio
     **/
     @javax.annotation.Nullable
@@ -1077,6 +1081,26 @@ public class Contract {
     public void setDelistedTime(Long delistedTime) {
         this.delistedTime = delistedTime;
     }
+
+    public Contract fundingRateLimit(String fundingRateLimit) {
+        
+        this.fundingRateLimit = fundingRateLimit;
+        return this;
+    }
+
+     /**
+     * Upper and lower limits of funding rate
+     * @return fundingRateLimit
+    **/
+    @javax.annotation.Nullable
+    public String getFundingRateLimit() {
+        return fundingRateLimit;
+    }
+
+
+    public void setFundingRateLimit(String fundingRateLimit) {
+        this.fundingRateLimit = fundingRateLimit;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1125,12 +1149,13 @@ public class Contract {
                 Objects.equals(this.status, contract.status) &&
                 Objects.equals(this.launchTime, contract.launchTime) &&
                 Objects.equals(this.delistingTime, contract.delistingTime) &&
-                Objects.equals(this.delistedTime, contract.delistedTime);
+                Objects.equals(this.delistedTime, contract.delistedTime) &&
+                Objects.equals(this.fundingRateLimit, contract.fundingRateLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, fundingRateLimit);
     }
 
 
@@ -1178,6 +1203,7 @@ public class Contract {
         sb.append("      launchTime: ").append(toIndentedString(launchTime)).append("\n");
         sb.append("      delistingTime: ").append(toIndentedString(delistingTime)).append("\n");
         sb.append("      delistedTime: ").append(toIndentedString(delistedTime)).append("\n");
+        sb.append("      fundingRateLimit: ").append(toIndentedString(fundingRateLimit)).append("\n");
         sb.append("}");
         return sb.toString();
     }

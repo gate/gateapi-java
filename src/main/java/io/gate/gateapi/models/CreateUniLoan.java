@@ -28,7 +28,7 @@ public class CreateUniLoan {
     private String currency;
 
     /**
-     * Type: &#x60;borrow&#x60; - borrow, &#x60;repay&#x60; - repay
+     * Loan Type margin: margin borrowing
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -117,7 +117,7 @@ public class CreateUniLoan {
     }
 
      /**
-     * Type: &#x60;borrow&#x60; - borrow, &#x60;repay&#x60; - repay
+     * Loan Type margin: margin borrowing
      * @return type
     **/
     public TypeEnum getType() {

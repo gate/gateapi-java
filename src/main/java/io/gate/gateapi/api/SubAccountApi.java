@@ -818,7 +818,7 @@ public class SubAccountApi {
 
     /**
      * Update sub-account API key pair
-     * 
+     * Modify Sub-account API Key Pair (Note: This interface cannot modify the mode account type attribute)
      * @param userId Sub-account user ID (required)
      * @param key Sub-account API key (required)
      * @param subAccountKey  (required)
@@ -835,7 +835,7 @@ public class SubAccountApi {
 
     /**
      * Update sub-account API key pair
-     * 
+     * Modify Sub-account API Key Pair (Note: This interface cannot modify the mode account type attribute)
      * @param userId Sub-account user ID (required)
      * @param key Sub-account API key (required)
      * @param subAccountKey  (required)
@@ -854,7 +854,7 @@ public class SubAccountApi {
 
     /**
      * Update sub-account API key pair (asynchronously)
-     * 
+     * Modify Sub-account API Key Pair (Note: This interface cannot modify the mode account type attribute)
      * @param userId Sub-account user ID (required)
      * @param key Sub-account API key (required)
      * @param subAccountKey  (required)

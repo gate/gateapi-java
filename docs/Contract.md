@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Futures contract |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Contract type: inverse - inverse contract, direct - direct contract |  [optional]
-**quantoMultiplier** | **String** | Multiplier used in converting from invoicing to settlement currency |  [optional]
+**quantoMultiplier** | **String** | The contract multiplier indicates how many units of the underlying asset the face value of one contract represents. |  [optional]
 **leverageMin** | **String** | Minimum leverage |  [optional]
 **leverageMax** | **String** | Maximum leverage |  [optional]
-**maintenanceRate** | **String** | Maintenance rate of margin |  [optional]
-**markType** | [**MarkTypeEnum**](#MarkTypeEnum) | Mark price type: internal - internal trading price, index - external index price |  [optional]
+**maintenanceRate** | **String** | The maintenance margin rate of the first tier of risk limit sheet |  [optional]
+**markType** | [**MarkTypeEnum**](#MarkTypeEnum) | Deprecated |  [optional]
 **markPrice** | **String** | Current mark price |  [optional]
 **indexPrice** | **String** | Current index price |  [optional]
 **lastPrice** | **String** | Last trading price |  [optional]
@@ -42,11 +42,12 @@ Name | Type | Description | Notes
 **enableBonus** | **Boolean** | Whether bonus is enabled |  [optional]
 **enableCredit** | **Boolean** | Whether portfolio margin account is enabled |  [optional]
 **createTime** | **Double** | Created time of the contract |  [optional]
-**fundingCapRatio** | **String** | The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio |  [optional]
+**fundingCapRatio** | **String** | Deprecated |  [optional]
 **status** | **String** | Contract status types include: prelaunch (pre-launch), trading (active), delisting (delisting), delisted (delisted), circuit_breaker (circuit breaker) |  [optional]
 **launchTime** | **Long** | Contract expiry timestamp |  [optional]
 **delistingTime** | **Long** | Timestamp when contract enters reduce-only state |  [optional]
 **delistedTime** | **Long** | Contract delisting time |  [optional]
+**fundingRateLimit** | **String** | Upper and lower limits of funding rate |  [optional]
 
 ## Enum: TypeEnum
 

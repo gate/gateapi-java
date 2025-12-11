@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **String** | total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund) |  [optional]
+**total** | **String** | Balance, only applicable to classic contract account.The balance is the sum of all historical fund flows, including historical transfers in and out, closing settlements, and transaction fee expenses, but does not include upl of positions.total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund) |  [optional]
 **unrealisedPnl** | **String** | Unrealized PNL |  [optional]
-**positionMargin** | **String** | Position margin |  [optional]
-**orderMargin** | **String** | Order margin of unfinished orders |  [optional]
+**positionMargin** | **String** | Deprecated |  [optional]
+**orderMargin** | **String** | initial margin of all open orders |  [optional]
 **available** | **String** | Refers to the available withdrawal or trading amount in per-position, specifically the per-position available balance under the unified account that includes the credit line (which incorporates trial funds; since trial funds cannot be withdrawn, the actual withdrawal amount needs to deduct the trial fund portion when processing withdrawals) |  [optional]
 **point** | **String** | Point card amount |  [optional]
 **currency** | **String** | Settlement currency |  [optional]
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **positionInitialMargin** | **String** | Initial margin occupied by positions, applicable to unified account mode |  [optional]
 **maintenanceMargin** | **String** | Maintenance margin occupied by positions, applicable to new classic account margin mode and unified account mode |  [optional]
 **bonus** | **String** | Bonus |  [optional]
-**enableEvolvedClassic** | **Boolean** | Classic account margin mode, true-new mode, false-old mode |  [optional]
+**enableEvolvedClassic** | **Boolean** | Deprecated |  [optional]
 **crossOrderMargin** | **String** | Cross margin order margin, applicable to new classic account margin mode |  [optional]
 **crossInitialMargin** | **String** | Cross margin initial margin, applicable to new classic account margin mode |  [optional]
 **crossMaintenanceMargin** | **String** | Cross margin maintenance margin, applicable to new classic account margin mode |  [optional]
@@ -28,8 +28,8 @@ Name | Type | Description | Notes
 **crossMmr** | **String** | Cross margin maintenance margin rate, applicable to new classic account margin mode |  [optional]
 **crossImr** | **String** | Cross margin initial margin rate, applicable to new classic account margin mode |  [optional]
 **isolatedPositionMargin** | **String** | Isolated position margin, applicable to new classic account margin mode |  [optional]
-**enableNewDualMode** | **Boolean** | Whether to open a new two-way position mode |  [optional]
-**marginMode** | **Integer** | Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode |  [optional]
+**enableNewDualMode** | **Boolean** | Deprecated |  [optional]
+**marginMode** | **Integer** | Margin mode of the account 0: classic future account or Classic Spot Margin Mode of unified account; 1:  Multi-Currency Margin Mode; 2:  Portoforlio Margin Mode; 3:  Single-Currency Margin Mode |  [optional]
 **enableTieredMm** | **Boolean** | Whether to enable tiered maintenance margin calculation |  [optional]
 **history** | [**FuturesAccountHistory**](FuturesAccountHistory.md) |  |  [optional]
 

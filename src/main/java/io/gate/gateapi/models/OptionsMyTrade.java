@@ -230,7 +230,7 @@ public class OptionsMyTrade {
     }
 
      /**
-     * Underlying price (quote currency)
+     * The forward futures price corresponding to the delivery date
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable

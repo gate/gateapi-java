@@ -84,7 +84,7 @@ public class MarginAccount {
     }
 
      /**
-     * Account type: risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+     * Account Type  mmr: maintenance margin rate account;inactive: market not activated
      * @return accountType
     **/
     @javax.annotation.Nullable
@@ -144,7 +144,7 @@ public class MarginAccount {
     }
 
      /**
-     * Current risk rate of the margin account (returned when the account is a risk rate account)
+     * Deprecated
      * @return risk
     **/
     @javax.annotation.Nullable
@@ -164,7 +164,7 @@ public class MarginAccount {
     }
 
      /**
-     * Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)
+     * Current Maintenance Margin Rate of the account
      * @return mmr
     **/
     @javax.annotation.Nullable

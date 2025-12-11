@@ -2157,7 +2157,7 @@ public class OptionsApi {
 
     /**
      * Query account information
-     * 
+     * Query account information for classic option account and unified account
      * @return OptionsAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2173,7 +2173,7 @@ public class OptionsApi {
 
     /**
      * Query account information
-     * 
+     * Query account information for classic option account and unified account
      * @return ApiResponse&lt;OptionsAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2190,7 +2190,7 @@ public class OptionsApi {
 
     /**
      * Query account information (asynchronously)
-     * 
+     * Query account information for classic option account and unified account
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

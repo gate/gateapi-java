@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **type** | **String** | Trading pair type, normal: normal, premarket: pre-market |  [optional]
 **tradeUrl** | **String** | Transaction link |  [optional]
 **stTag** | **Boolean** | Whether the trading pair is in ST risk assessment, false - No, true - Yes |  [optional]
+**upRate** | **String** | Maximum Quote Rise Percentage |  [optional]
+**downRate** | **String** | Maximum Quote Decline Percentage |  [optional]
 
 ## Enum: TradeStatusEnum
 

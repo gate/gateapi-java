@@ -151,7 +151,7 @@ public class OptionsContract {
     }
 
      /**
-     * Tag
+     * Expiry periods include day, week, and month.
      * @return tag
     **/
     @javax.annotation.Nullable
@@ -231,7 +231,7 @@ public class OptionsContract {
     }
 
      /**
-     * Multiplier used in converting from invoicing to settlement currency
+     * The option contract multiplier indicates how many units of the underlying asset the face value of one contract represents.
      * @return multiplier
     **/
     @javax.annotation.Nullable
@@ -271,7 +271,7 @@ public class OptionsContract {
     }
 
      /**
-     * Underlying price (quote currency)
+     * The forward futures price corresponding to the delivery date
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable
@@ -471,7 +471,7 @@ public class OptionsContract {
     }
 
      /**
-     * The positive and negative offset allowed between the order price and the current mark price, that &#x60;order_price&#x60; must meet the following conditions:  order_price is within the range of mark_price +/- order_price_deviate * underlying_price and does not distinguish between buy and sell orders
+     * Deprecated
      * @return orderPriceDeviate
     **/
     @javax.annotation.Nullable
@@ -551,7 +551,7 @@ public class OptionsContract {
     }
 
      /**
-     * Current trade ID
+     * Deprecated
      * @return tradeId
     **/
     @javax.annotation.Nullable
@@ -611,7 +611,7 @@ public class OptionsContract {
     }
 
      /**
-     * Maximum number of pending orders
+     * The maximum number of open orders each user can place in this order book.
      * @return ordersLimit
     **/
     @javax.annotation.Nullable

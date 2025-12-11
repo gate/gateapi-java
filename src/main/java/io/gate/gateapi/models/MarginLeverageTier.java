@@ -43,7 +43,7 @@ public class MarginLeverageTier {
     }
 
      /**
-     * Maximum loan limit
+     * Maximum borrowing limit. Determined by the leverage you set; the lower the leverage, the larger the borrowing limit.
      * @return upperLimit
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class MarginLeverageTier {
     }
 
      /**
-     * Maintenance margin rate
+     * Maintenance margin rate.Under tiered margin requirements(https://www.gate.com/en/help/trade/margin-trading/42357), the maintenance margin rate is a composite value.
      * @return mmr
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class MarginLeverageTier {
     }
 
      /**
-     * Maximum leverage multiple
+     * the maximum permissible leverage given to the current debt level; the higher the debt level, the lower the maximum leverage.
      * @return leverage
     **/
     @javax.annotation.Nullable

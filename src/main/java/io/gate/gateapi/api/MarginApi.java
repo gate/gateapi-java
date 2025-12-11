@@ -996,7 +996,7 @@ public class MarginApi {
 
     /**
      * Query user&#39;s own leverage lending tiers in current market
-     * 
+     * Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
      * @param currencyPair Currency pair (required)
      * @return List&lt;MarginLeverageTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1013,7 +1013,7 @@ public class MarginApi {
 
     /**
      * Query user&#39;s own leverage lending tiers in current market
-     * 
+     * Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
      * @param currencyPair Currency pair (required)
      * @return ApiResponse&lt;List&lt;MarginLeverageTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1031,7 +1031,7 @@ public class MarginApi {
 
     /**
      * Query user&#39;s own leverage lending tiers in current market (asynchronously)
-     * 
+     * Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
      * @param currencyPair Currency pair (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1107,7 +1107,7 @@ public class MarginApi {
 
     /**
      * Query current market leverage lending tiers
-     * 
+     * Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
      * @param currencyPair Currency pair (required)
      * @return List&lt;MarginLeverageTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1124,7 +1124,7 @@ public class MarginApi {
 
     /**
      * Query current market leverage lending tiers
-     * 
+     * Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
      * @param currencyPair Currency pair (required)
      * @return ApiResponse&lt;List&lt;MarginLeverageTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1142,7 +1142,7 @@ public class MarginApi {
 
     /**
      * Query current market leverage lending tiers (asynchronously)
-     * 
+     * Query the borrowing tier margin requirements of a specific spot market.For more details about borrowing tier margin requirements, please refer to Underlying Logic of the New Isolated Margin System（https://www.gate.com/en/help/trade/margin-trading/42357）
      * @param currencyPair Currency pair (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

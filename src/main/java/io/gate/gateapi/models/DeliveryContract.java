@@ -154,7 +154,7 @@ public class DeliveryContract {
     private String maintenanceRate;
 
     /**
-     * Mark price type: internal - internal trading price, index - external index price
+     * Deprecated
      */
     @JsonAdapter(MarkTypeEnum.Adapter.class)
     public enum MarkTypeEnum {
@@ -408,7 +408,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Multiplier used in converting from invoicing to settlement currency
+     * The contract multiplier indicates how many units of the underlying asset the face value of one contract represents.
      * @return quantoMultiplier
     **/
     @javax.annotation.Nullable
@@ -468,7 +468,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maintenance rate of margin
+     * The maintenance margin rate of the first tier of risk limit sheet
      * @return maintenanceRate
     **/
     @javax.annotation.Nullable
@@ -488,7 +488,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Mark price type: internal - internal trading price, index - external index price
+     * Deprecated
      * @return markType
     **/
     @javax.annotation.Nullable

@@ -110,7 +110,7 @@ public class OptionsPosition {
 
 
      /**
-     * Underlying price (quote currency)
+     * The forward futures price corresponding to the delivery date
      * @return underlyingPrice
     **/
     @javax.annotation.Nullable
@@ -180,7 +180,7 @@ public class OptionsPosition {
 
 
      /**
-     * Unrealized PNL
+     * Unrealised PnL &#x3D; (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only.
      * @return unrealisedPnl
     **/
     @javax.annotation.Nullable
