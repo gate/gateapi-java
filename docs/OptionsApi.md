@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 <a name="listOptionsOrderBook"></a>
 # **listOptionsOrderBook**
-> FuturesOrderBook listOptionsOrderBook(contract).interval(interval).limit(limit).withId(withId).execute();
+> OptionsOrderBook listOptionsOrderBook(contract).interval(interval).limit(limit).withId(withId).execute();
 
 Query options contract order book
 
@@ -549,7 +549,7 @@ public class Example {
         Integer limit = 10; // Integer | Number of depth levels
         Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time the depth changes
         try {
-            FuturesOrderBook result = apiInstance.listOptionsOrderBook(contract)
+            OptionsOrderBook result = apiInstance.listOptionsOrderBook(contract)
                         .interval(interval)
                         .limit(limit)
                         .withId(withId)
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FuturesOrderBook**](FuturesOrderBook.md)
+[**OptionsOrderBook**](OptionsOrderBook.md)
 
 ### Authorization
 
@@ -802,7 +802,7 @@ No authorization required
 
 <a name="listOptionsUnderlyingCandlesticks"></a>
 # **listOptionsUnderlyingCandlesticks**
-> List&lt;FuturesCandlestick&gt; listOptionsUnderlyingCandlesticks(underlying).limit(limit).from(from).to(to).interval(interval).execute();
+> List&lt;OptionsCandlestick&gt; listOptionsUnderlyingCandlesticks(underlying).limit(limit).from(from).to(to).interval(interval).execute();
 
 Underlying index price candlestick chart
 
@@ -829,7 +829,7 @@ public class Example {
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         String interval = "5m"; // String | Time interval between data points
         try {
-            List<FuturesCandlestick> result = apiInstance.listOptionsUnderlyingCandlesticks(underlying)
+            List<OptionsCandlestick> result = apiInstance.listOptionsUnderlyingCandlesticks(underlying)
                         .limit(limit)
                         .from(from)
                         .to(to)
@@ -861,7 +861,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesCandlestick&gt;**](FuturesCandlestick.md)
+[**List&lt;OptionsCandlestick&gt;**](OptionsCandlestick.md)
 
 ### Authorization
 
@@ -879,7 +879,7 @@ No authorization required
 
 <a name="listOptionsTrades"></a>
 # **listOptionsTrades**
-> List&lt;FuturesTrade&gt; listOptionsTrades().contract(contract).type(type).limit(limit).offset(offset).from(from).to(to).execute();
+> List&lt;OptionsTrade&gt; listOptionsTrades().contract(contract).type(type).limit(limit).offset(offset).from(from).to(to).execute();
 
 Market trade records
 
@@ -907,7 +907,7 @@ public class Example {
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
         try {
-            List<FuturesTrade> result = apiInstance.listOptionsTrades()
+            List<OptionsTrade> result = apiInstance.listOptionsTrades()
                         .contract(contract)
                         .type(type)
                         .limit(limit)
@@ -942,7 +942,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesTrade&gt;**](FuturesTrade.md)
+[**List&lt;OptionsTrade&gt;**](OptionsTrade.md)
 
 ### Authorization
 

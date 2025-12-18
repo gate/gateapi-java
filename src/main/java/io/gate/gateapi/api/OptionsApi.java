@@ -21,9 +21,6 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.CountdownCancelAllOptionsTask;
-import io.gate.gateapi.models.FuturesCandlestick;
-import io.gate.gateapi.models.FuturesOrderBook;
-import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.OptionsAccount;
 import io.gate.gateapi.models.OptionsAccountBook;
 import io.gate.gateapi.models.OptionsCandlestick;
@@ -33,10 +30,12 @@ import io.gate.gateapi.models.OptionsMMPReset;
 import io.gate.gateapi.models.OptionsMySettlements;
 import io.gate.gateapi.models.OptionsMyTrade;
 import io.gate.gateapi.models.OptionsOrder;
+import io.gate.gateapi.models.OptionsOrderBook;
 import io.gate.gateapi.models.OptionsPosition;
 import io.gate.gateapi.models.OptionsPositionClose;
 import io.gate.gateapi.models.OptionsSettlement;
 import io.gate.gateapi.models.OptionsTicker;
+import io.gate.gateapi.models.OptionsTrade;
 import io.gate.gateapi.models.OptionsUnderlying;
 import io.gate.gateapi.models.OptionsUnderlyingTicker;
 import io.gate.gateapi.models.TriggerTime;
@@ -1144,15 +1143,15 @@ public class OptionsApi {
     }
 
 
-    private ApiResponse<FuturesOrderBook> listOptionsOrderBookWithHttpInfo(String contract, String interval, Integer limit, Boolean withId) throws ApiException {
+    private ApiResponse<OptionsOrderBook> listOptionsOrderBookWithHttpInfo(String contract, String interval, Integer limit, Boolean withId) throws ApiException {
         okhttp3.Call localVarCall = listOptionsOrderBookValidateBeforeCall(contract, interval, limit, withId, null);
-        Type localVarReturnType = new TypeToken<FuturesOrderBook>(){}.getType();
+        Type localVarReturnType = new TypeToken<OptionsOrderBook>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOptionsOrderBookAsync(String contract, String interval, Integer limit, Boolean withId, final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
+    private okhttp3.Call listOptionsOrderBookAsync(String contract, String interval, Integer limit, Boolean withId, final ApiCallback<OptionsOrderBook> _callback) throws ApiException {
         okhttp3.Call localVarCall = listOptionsOrderBookValidateBeforeCall(contract, interval, limit, withId, _callback);
-        Type localVarReturnType = new TypeToken<FuturesOrderBook>(){}.getType();
+        Type localVarReturnType = new TypeToken<OptionsOrderBook>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1214,7 +1213,7 @@ public class OptionsApi {
 
         /**
          * Execute listOptionsOrderBook request
-         * @return FuturesOrderBook
+         * @return OptionsOrderBook
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1222,14 +1221,14 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
          </table>
          */
-        public FuturesOrderBook execute() throws ApiException {
-            ApiResponse<FuturesOrderBook> localVarResp = listOptionsOrderBookWithHttpInfo(contract, interval, limit, withId);
+        public OptionsOrderBook execute() throws ApiException {
+            ApiResponse<OptionsOrderBook> localVarResp = listOptionsOrderBookWithHttpInfo(contract, interval, limit, withId);
             return localVarResp.getData();
         }
 
         /**
          * Execute listOptionsOrderBook request with HTTP info returned
-         * @return ApiResponse&lt;FuturesOrderBook&gt;
+         * @return ApiResponse&lt;OptionsOrderBook&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1237,7 +1236,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FuturesOrderBook> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<OptionsOrderBook> executeWithHttpInfo() throws ApiException {
             return listOptionsOrderBookWithHttpInfo(contract, interval, limit, withId);
         }
 
@@ -1252,7 +1251,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Depth query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FuturesOrderBook> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<OptionsOrderBook> _callback) throws ApiException {
             return listOptionsOrderBookAsync(contract, interval, limit, withId, _callback);
         }
     }
@@ -1752,15 +1751,15 @@ public class OptionsApi {
     }
 
 
-    private ApiResponse<List<FuturesCandlestick>> listOptionsUnderlyingCandlesticksWithHttpInfo(String underlying, Integer limit, Long from, Long to, String interval) throws ApiException {
+    private ApiResponse<List<OptionsCandlestick>> listOptionsUnderlyingCandlesticksWithHttpInfo(String underlying, Integer limit, Long from, Long to, String interval) throws ApiException {
         okhttp3.Call localVarCall = listOptionsUnderlyingCandlesticksValidateBeforeCall(underlying, limit, from, to, interval, null);
-        Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OptionsCandlestick>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOptionsUnderlyingCandlesticksAsync(String underlying, Integer limit, Long from, Long to, String interval, final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+    private okhttp3.Call listOptionsUnderlyingCandlesticksAsync(String underlying, Integer limit, Long from, Long to, String interval, final ApiCallback<List<OptionsCandlestick>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listOptionsUnderlyingCandlesticksValidateBeforeCall(underlying, limit, from, to, interval, _callback);
-        Type localVarReturnType = new TypeToken<List<FuturesCandlestick>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OptionsCandlestick>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1833,7 +1832,7 @@ public class OptionsApi {
 
         /**
          * Execute listOptionsUnderlyingCandlesticks request
-         * @return List&lt;FuturesCandlestick&gt;
+         * @return List&lt;OptionsCandlestick&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1841,14 +1840,14 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public List<FuturesCandlestick> execute() throws ApiException {
-            ApiResponse<List<FuturesCandlestick>> localVarResp = listOptionsUnderlyingCandlesticksWithHttpInfo(underlying, limit, from, to, interval);
+        public List<OptionsCandlestick> execute() throws ApiException {
+            ApiResponse<List<OptionsCandlestick>> localVarResp = listOptionsUnderlyingCandlesticksWithHttpInfo(underlying, limit, from, to, interval);
             return localVarResp.getData();
         }
 
         /**
          * Execute listOptionsUnderlyingCandlesticks request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;FuturesCandlestick&gt;&gt;
+         * @return ApiResponse&lt;List&lt;OptionsCandlestick&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1856,7 +1855,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<FuturesCandlestick>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<OptionsCandlestick>> executeWithHttpInfo() throws ApiException {
             return listOptionsUnderlyingCandlesticksWithHttpInfo(underlying, limit, from, to, interval);
         }
 
@@ -1871,7 +1870,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesCandlestick>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<OptionsCandlestick>> _callback) throws ApiException {
             return listOptionsUnderlyingCandlesticksAsync(underlying, limit, from, to, interval, _callback);
         }
     }
@@ -1951,15 +1950,15 @@ public class OptionsApi {
     }
 
 
-    private ApiResponse<List<FuturesTrade>> listOptionsTradesWithHttpInfo(String contract, String type, Integer limit, Integer offset, Long from, Long to) throws ApiException {
+    private ApiResponse<List<OptionsTrade>> listOptionsTradesWithHttpInfo(String contract, String type, Integer limit, Integer offset, Long from, Long to) throws ApiException {
         okhttp3.Call localVarCall = listOptionsTradesValidateBeforeCall(contract, type, limit, offset, from, to, null);
-        Type localVarReturnType = new TypeToken<List<FuturesTrade>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OptionsTrade>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOptionsTradesAsync(String contract, String type, Integer limit, Integer offset, Long from, Long to, final ApiCallback<List<FuturesTrade>> _callback) throws ApiException {
+    private okhttp3.Call listOptionsTradesAsync(String contract, String type, Integer limit, Integer offset, Long from, Long to, final ApiCallback<List<OptionsTrade>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listOptionsTradesValidateBeforeCall(contract, type, limit, offset, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<FuturesTrade>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OptionsTrade>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2052,7 +2051,7 @@ public class OptionsApi {
 
         /**
          * Execute listOptionsTrades request
-         * @return List&lt;FuturesTrade&gt;
+         * @return List&lt;OptionsTrade&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2060,14 +2059,14 @@ public class OptionsApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public List<FuturesTrade> execute() throws ApiException {
-            ApiResponse<List<FuturesTrade>> localVarResp = listOptionsTradesWithHttpInfo(contract, type, limit, offset, from, to);
+        public List<OptionsTrade> execute() throws ApiException {
+            ApiResponse<List<OptionsTrade>> localVarResp = listOptionsTradesWithHttpInfo(contract, type, limit, offset, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute listOptionsTrades request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;FuturesTrade&gt;&gt;
+         * @return ApiResponse&lt;List&lt;OptionsTrade&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2075,7 +2074,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<FuturesTrade>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<OptionsTrade>> executeWithHttpInfo() throws ApiException {
             return listOptionsTradesWithHttpInfo(contract, type, limit, offset, from, to);
         }
 
@@ -2090,7 +2089,7 @@ public class OptionsApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesTrade>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<OptionsTrade>> _callback) throws ApiException {
             return listOptionsTradesAsync(contract, type, limit, offset, from, to, _callback);
         }
     }
