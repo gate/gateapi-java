@@ -400,6 +400,10 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_TRADE_VALUE)
     private String tradeValue;
 
+    public static final String SERIALIZED_NAME_MARKET_ORDER_SLIP_RATIO = "market_order_slip_ratio";
+    @SerializedName(SERIALIZED_NAME_MARKET_ORDER_SLIP_RATIO)
+    private String marketOrderSlipRatio;
+
 
      /**
      * Futures order ID
@@ -827,6 +831,26 @@ public class FuturesOrder {
     public void setTradeValue(String tradeValue) {
         this.tradeValue = tradeValue;
     }
+
+    public FuturesOrder marketOrderSlipRatio(String marketOrderSlipRatio) {
+        
+        this.marketOrderSlipRatio = marketOrderSlipRatio;
+        return this;
+    }
+
+     /**
+     * Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used
+     * @return marketOrderSlipRatio
+    **/
+    @javax.annotation.Nullable
+    public String getMarketOrderSlipRatio() {
+        return marketOrderSlipRatio;
+    }
+
+
+    public void setMarketOrderSlipRatio(String marketOrderSlipRatio) {
+        this.marketOrderSlipRatio = marketOrderSlipRatio;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -865,12 +889,13 @@ public class FuturesOrder {
                 Objects.equals(this.amendText, futuresOrder.amendText) &&
                 Objects.equals(this.pid, futuresOrder.pid) &&
                 Objects.equals(this.orderValue, futuresOrder.orderValue) &&
-                Objects.equals(this.tradeValue, futuresOrder.tradeValue);
+                Objects.equals(this.tradeValue, futuresOrder.tradeValue) &&
+                Objects.equals(this.marketOrderSlipRatio, futuresOrder.marketOrderSlipRatio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, orderValue, tradeValue);
+        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, orderValue, tradeValue, marketOrderSlipRatio);
     }
 
 
@@ -908,6 +933,7 @@ public class FuturesOrder {
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("      orderValue: ").append(toIndentedString(orderValue)).append("\n");
         sb.append("      tradeValue: ").append(toIndentedString(tradeValue)).append("\n");
+        sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
         sb.append("}");
         return sb.toString();
     }

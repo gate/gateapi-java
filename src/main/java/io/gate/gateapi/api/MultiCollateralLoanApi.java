@@ -1522,7 +1522,7 @@ public class MultiCollateralLoanApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currencies != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "currencies", currencies));
         }
 
         if (vipLevel != null) {

@@ -277,6 +277,14 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_DELISTED_TIME)
     private Long delistedTime;
 
+    public static final String SERIALIZED_NAME_MARKET_ORDER_SLIP_RATIO = "market_order_slip_ratio";
+    @SerializedName(SERIALIZED_NAME_MARKET_ORDER_SLIP_RATIO)
+    private String marketOrderSlipRatio;
+
+    public static final String SERIALIZED_NAME_MARKET_ORDER_SIZE_MAX = "market_order_size_max";
+    @SerializedName(SERIALIZED_NAME_MARKET_ORDER_SIZE_MAX)
+    private String marketOrderSizeMax;
+
     public static final String SERIALIZED_NAME_FUNDING_RATE_LIMIT = "funding_rate_limit";
     @SerializedName(SERIALIZED_NAME_FUNDING_RATE_LIMIT)
     private String fundingRateLimit;
@@ -1082,6 +1090,46 @@ public class Contract {
         this.delistedTime = delistedTime;
     }
 
+    public Contract marketOrderSlipRatio(String marketOrderSlipRatio) {
+        
+        this.marketOrderSlipRatio = marketOrderSlipRatio;
+        return this;
+    }
+
+     /**
+     * The maximum slippage allowed for market orders, with the slippage rate calculated based on the latest market price
+     * @return marketOrderSlipRatio
+    **/
+    @javax.annotation.Nullable
+    public String getMarketOrderSlipRatio() {
+        return marketOrderSlipRatio;
+    }
+
+
+    public void setMarketOrderSlipRatio(String marketOrderSlipRatio) {
+        this.marketOrderSlipRatio = marketOrderSlipRatio;
+    }
+
+    public Contract marketOrderSizeMax(String marketOrderSizeMax) {
+        
+        this.marketOrderSizeMax = marketOrderSizeMax;
+        return this;
+    }
+
+     /**
+     * The maximum number of contracts supported for market orders, with a default value of 0. When the default value is used, the maximum number of contracts is limited by the &#x60;order_size_max&#x60; field
+     * @return marketOrderSizeMax
+    **/
+    @javax.annotation.Nullable
+    public String getMarketOrderSizeMax() {
+        return marketOrderSizeMax;
+    }
+
+
+    public void setMarketOrderSizeMax(String marketOrderSizeMax) {
+        this.marketOrderSizeMax = marketOrderSizeMax;
+    }
+
     public Contract fundingRateLimit(String fundingRateLimit) {
         
         this.fundingRateLimit = fundingRateLimit;
@@ -1150,12 +1198,14 @@ public class Contract {
                 Objects.equals(this.launchTime, contract.launchTime) &&
                 Objects.equals(this.delistingTime, contract.delistingTime) &&
                 Objects.equals(this.delistedTime, contract.delistedTime) &&
+                Objects.equals(this.marketOrderSlipRatio, contract.marketOrderSlipRatio) &&
+                Objects.equals(this.marketOrderSizeMax, contract.marketOrderSizeMax) &&
                 Objects.equals(this.fundingRateLimit, contract.fundingRateLimit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, fundingRateLimit);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit);
     }
 
 
@@ -1203,6 +1253,8 @@ public class Contract {
         sb.append("      launchTime: ").append(toIndentedString(launchTime)).append("\n");
         sb.append("      delistingTime: ").append(toIndentedString(delistingTime)).append("\n");
         sb.append("      delistedTime: ").append(toIndentedString(delistedTime)).append("\n");
+        sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
+        sb.append("      marketOrderSizeMax: ").append(toIndentedString(marketOrderSizeMax)).append("\n");
         sb.append("      fundingRateLimit: ").append(toIndentedString(fundingRateLimit)).append("\n");
         sb.append("}");
         return sb.toString();

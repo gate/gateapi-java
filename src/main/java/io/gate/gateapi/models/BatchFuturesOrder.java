@@ -392,6 +392,10 @@ public class BatchFuturesOrder {
     @SerializedName(SERIALIZED_NAME_STP_ID)
     private Integer stpId;
 
+    public static final String SERIALIZED_NAME_MARKET_ORDER_SLIP_RATIO = "market_order_slip_ratio";
+    @SerializedName(SERIALIZED_NAME_MARKET_ORDER_SLIP_RATIO)
+    private String marketOrderSlipRatio;
+
 
     public BatchFuturesOrder succeeded(Boolean succeeded) {
         
@@ -802,6 +806,26 @@ public class BatchFuturesOrder {
         return stpId;
     }
 
+
+    public BatchFuturesOrder marketOrderSlipRatio(String marketOrderSlipRatio) {
+        
+        this.marketOrderSlipRatio = marketOrderSlipRatio;
+        return this;
+    }
+
+     /**
+     * The maximum slippage ratio
+     * @return marketOrderSlipRatio
+    **/
+    @javax.annotation.Nullable
+    public String getMarketOrderSlipRatio() {
+        return marketOrderSlipRatio;
+    }
+
+
+    public void setMarketOrderSlipRatio(String marketOrderSlipRatio) {
+        this.marketOrderSlipRatio = marketOrderSlipRatio;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -838,12 +862,13 @@ public class BatchFuturesOrder {
                 Objects.equals(this.refu, batchFuturesOrder.refu) &&
                 Objects.equals(this.autoSize, batchFuturesOrder.autoSize) &&
                 Objects.equals(this.stpAct, batchFuturesOrder.stpAct) &&
-                Objects.equals(this.stpId, batchFuturesOrder.stpId);
+                Objects.equals(this.stpId, batchFuturesOrder.stpId) &&
+                Objects.equals(this.marketOrderSlipRatio, batchFuturesOrder.marketOrderSlipRatio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(succeeded, label, detail, id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpAct, stpId);
+        return Objects.hash(succeeded, label, detail, id, user, createTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpAct, stpId, marketOrderSlipRatio);
     }
 
 
@@ -879,6 +904,7 @@ public class BatchFuturesOrder {
         sb.append("      autoSize: ").append(toIndentedString(autoSize)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
+        sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
         sb.append("}");
         return sb.toString();
     }

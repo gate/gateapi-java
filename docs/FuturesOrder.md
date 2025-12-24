@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **pid** | **Long** | Position ID |  [optional]
 **orderValue** | **String** | order&#39;s value |  [optional]
 **tradeValue** | **String** | trade value |  [optional]
+**marketOrderSlipRatio** | **String** | Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used |  [optional]
 
 ## Enum: FinishAsEnum
 

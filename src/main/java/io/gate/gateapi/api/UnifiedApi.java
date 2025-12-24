@@ -580,7 +580,7 @@ public class UnifiedApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currencies != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "currencies", currencies));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1691,7 +1691,7 @@ public class UnifiedApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (currencies != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "currencies", currencies));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "currencies", currencies));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
