@@ -28,6 +28,9 @@ Name | Type | Description | Notes
 **stTag** | **Boolean** | Whether the trading pair is in ST risk assessment, false - No, true - Yes |  [optional]
 **upRate** | **String** | Maximum Quote Rise Percentage |  [optional]
 **downRate** | **String** | Maximum Quote Decline Percentage |  [optional]
+**slippage** | **String** | Currency Slippage |  [optional]
+**marketOrderMaxStock** | **String** | Maximum Market Order Quantity |  [optional]
+**marketOrderMaxMoney** | **String** | Maximum Market Order Amount |  [optional]
 
 ## Enum: TradeStatusEnum
 

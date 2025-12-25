@@ -520,6 +520,10 @@ public class BatchOrder {
     @SerializedName(SERIALIZED_NAME_FINISH_AS)
     private FinishAsEnum finishAs;
 
+    public static final String SERIALIZED_NAME_SLIPPAGE = "slippage";
+    @SerializedName(SERIALIZED_NAME_SLIPPAGE)
+    private String slippage;
+
 
     public BatchOrder orderId(String orderId) {
         
@@ -1060,6 +1064,26 @@ public class BatchOrder {
         return finishAs;
     }
 
+
+    public BatchOrder slippage(String slippage) {
+        
+        this.slippage = slippage;
+        return this;
+    }
+
+     /**
+     * Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions
+     * @return slippage
+    **/
+    @javax.annotation.Nullable
+    public String getSlippage() {
+        return slippage;
+    }
+
+
+    public void setSlippage(String slippage) {
+        this.slippage = slippage;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1105,12 +1129,13 @@ public class BatchOrder {
                 Objects.equals(this.rebatedFeeCurrency, batchOrder.rebatedFeeCurrency) &&
                 Objects.equals(this.stpId, batchOrder.stpId) &&
                 Objects.equals(this.stpAct, batchOrder.stpAct) &&
-                Objects.equals(this.finishAs, batchOrder.finishAs);
+                Objects.equals(this.finishAs, batchOrder.finishAs) &&
+                Objects.equals(this.slippage, batchOrder.slippage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, amendText, text, succeeded, label, message, id, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs);
+        return Objects.hash(orderId, amendText, text, succeeded, label, message, id, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, slippage);
     }
 
 
@@ -1155,6 +1180,7 @@ public class BatchOrder {
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      finishAs: ").append(toIndentedString(finishAs)).append("\n");
+        sb.append("      slippage: ").append(toIndentedString(slippage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

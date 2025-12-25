@@ -479,6 +479,10 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_ACTION_MODE)
     private String actionMode;
 
+    public static final String SERIALIZED_NAME_SLIPPAGE = "slippage";
+    @SerializedName(SERIALIZED_NAME_SLIPPAGE)
+    private String slippage;
+
 
      /**
      * Order ID
@@ -966,6 +970,26 @@ public class Order {
     public void setActionMode(String actionMode) {
         this.actionMode = actionMode;
     }
+
+    public Order slippage(String slippage) {
+        
+        this.slippage = slippage;
+        return this;
+    }
+
+     /**
+     * Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions
+     * @return slippage
+    **/
+    @javax.annotation.Nullable
+    public String getSlippage() {
+        return slippage;
+    }
+
+
+    public void setSlippage(String slippage) {
+        this.slippage = slippage;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1010,12 +1034,13 @@ public class Order {
                 Objects.equals(this.stpId, order.stpId) &&
                 Objects.equals(this.stpAct, order.stpAct) &&
                 Objects.equals(this.finishAs, order.finishAs) &&
-                Objects.equals(this.actionMode, order.actionMode);
+                Objects.equals(this.actionMode, order.actionMode) &&
+                Objects.equals(this.slippage, order.slippage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, actionMode);
+        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, actionMode, slippage);
     }
 
 
@@ -1059,6 +1084,7 @@ public class Order {
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      finishAs: ").append(toIndentedString(finishAs)).append("\n");
         sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
+        sb.append("      slippage: ").append(toIndentedString(slippage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

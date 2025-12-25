@@ -158,6 +158,18 @@ public class CurrencyPair {
     @SerializedName(SERIALIZED_NAME_DOWN_RATE)
     private String downRate;
 
+    public static final String SERIALIZED_NAME_SLIPPAGE = "slippage";
+    @SerializedName(SERIALIZED_NAME_SLIPPAGE)
+    private String slippage;
+
+    public static final String SERIALIZED_NAME_MARKET_ORDER_MAX_STOCK = "market_order_max_stock";
+    @SerializedName(SERIALIZED_NAME_MARKET_ORDER_MAX_STOCK)
+    private String marketOrderMaxStock;
+
+    public static final String SERIALIZED_NAME_MARKET_ORDER_MAX_MONEY = "market_order_max_money";
+    @SerializedName(SERIALIZED_NAME_MARKET_ORDER_MAX_MONEY)
+    private String marketOrderMaxMoney;
+
 
     public CurrencyPair id(String id) {
         
@@ -578,6 +590,66 @@ public class CurrencyPair {
     public void setDownRate(String downRate) {
         this.downRate = downRate;
     }
+
+    public CurrencyPair slippage(String slippage) {
+        
+        this.slippage = slippage;
+        return this;
+    }
+
+     /**
+     * Currency Slippage
+     * @return slippage
+    **/
+    @javax.annotation.Nullable
+    public String getSlippage() {
+        return slippage;
+    }
+
+
+    public void setSlippage(String slippage) {
+        this.slippage = slippage;
+    }
+
+    public CurrencyPair marketOrderMaxStock(String marketOrderMaxStock) {
+        
+        this.marketOrderMaxStock = marketOrderMaxStock;
+        return this;
+    }
+
+     /**
+     * Maximum Market Order Quantity
+     * @return marketOrderMaxStock
+    **/
+    @javax.annotation.Nullable
+    public String getMarketOrderMaxStock() {
+        return marketOrderMaxStock;
+    }
+
+
+    public void setMarketOrderMaxStock(String marketOrderMaxStock) {
+        this.marketOrderMaxStock = marketOrderMaxStock;
+    }
+
+    public CurrencyPair marketOrderMaxMoney(String marketOrderMaxMoney) {
+        
+        this.marketOrderMaxMoney = marketOrderMaxMoney;
+        return this;
+    }
+
+     /**
+     * Maximum Market Order Amount
+     * @return marketOrderMaxMoney
+    **/
+    @javax.annotation.Nullable
+    public String getMarketOrderMaxMoney() {
+        return marketOrderMaxMoney;
+    }
+
+
+    public void setMarketOrderMaxMoney(String marketOrderMaxMoney) {
+        this.marketOrderMaxMoney = marketOrderMaxMoney;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -607,12 +679,15 @@ public class CurrencyPair {
                 Objects.equals(this.tradeUrl, currencyPair.tradeUrl) &&
                 Objects.equals(this.stTag, currencyPair.stTag) &&
                 Objects.equals(this.upRate, currencyPair.upRate) &&
-                Objects.equals(this.downRate, currencyPair.downRate);
+                Objects.equals(this.downRate, currencyPair.downRate) &&
+                Objects.equals(this.slippage, currencyPair.slippage) &&
+                Objects.equals(this.marketOrderMaxStock, currencyPair.marketOrderMaxStock) &&
+                Objects.equals(this.marketOrderMaxMoney, currencyPair.marketOrderMaxMoney);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl, stTag, upRate, downRate);
+        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl, stTag, upRate, downRate, slippage, marketOrderMaxStock, marketOrderMaxMoney);
     }
 
 
@@ -641,6 +716,9 @@ public class CurrencyPair {
         sb.append("      stTag: ").append(toIndentedString(stTag)).append("\n");
         sb.append("      upRate: ").append(toIndentedString(upRate)).append("\n");
         sb.append("      downRate: ").append(toIndentedString(downRate)).append("\n");
+        sb.append("      slippage: ").append(toIndentedString(slippage)).append("\n");
+        sb.append("      marketOrderMaxStock: ").append(toIndentedString(marketOrderMaxStock)).append("\n");
+        sb.append("      marketOrderMaxMoney: ").append(toIndentedString(marketOrderMaxMoney)).append("\n");
         sb.append("}");
         return sb.toString();
     }
