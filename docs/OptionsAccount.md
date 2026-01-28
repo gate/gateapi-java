@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **shortEnabled** | **Boolean** | If the account is allowed to short |  [optional]
 **mmpEnabled** | **Boolean** | Whether to enable MMP |  [optional]
 **liqTriggered** | **Boolean** | Whether the account is in a liquidation state |  [optional]
-**marginMode** | [**MarginModeEnum**](#MarginModeEnum) | 此字段表示统一账户所使用的保证金模式：  - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式 - 3: 表示为单币种保证金模式 |  [optional]
+**marginMode** | [**MarginModeEnum**](#MarginModeEnum) | This field indicates the margin mode used by the unified account:  - 0: Classic Spot Margin Mode - 1: Cross-Currency Margin Mode - 2: Portfolio Margin Mode - 3: Single-Currency Margin Mode |  [optional]
 **unrealisedPnl** | **String** | Unrealised PnL &#x3D; (mark price - entry price) * position size. For long postion, size is positive; for short positon, size is negative.This value is for reference only. |  [optional]
 **initMargin** | **String** | Initial position margin |  [optional]
 **maintMargin** | **String** | Position maintenance margin |  [optional]

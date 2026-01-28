@@ -8,13 +8,13 @@ Spot order details
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Order ID |  [optional] [readonly]
-**text** | **String** | User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4  |  [optional]
+**text** | **String** | User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 pm_liquidate, comb_margin_liquidate, and scm_liquidate represent cross-margin liquidation orders liquidate represents isolated-margin liquidation orders |  [optional]
 **amendText** | **String** | The custom data that the user remarked when amending the order |  [optional] [readonly]
 **createTime** | **String** | Creation time of order |  [optional] [readonly]
 **updateTime** | **String** | Last modification time of order |  [optional] [readonly]
 **createTimeMs** | **Long** | Creation time of order (in milliseconds) |  [optional] [readonly]
 **updateTimeMs** | **Long** | Last modification time of order (in milliseconds) |  [optional] [readonly]
-**status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled |  [optional] [readonly]
+**status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled |  [optional] [readonly]
 **currencyPair** | **String** | Currency pair | 
 **type** | [**TypeEnum**](#TypeEnum) | Order Type   - limit : Limit Order - market : Market Order |  [optional]
 **account** | **String** | Account type, spot - spot account, margin - leveraged account, unified - unified account |  [optional]
@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **stpAct** | [**StpActEnum**](#StpActEnum) | Self-Trading Prevention Action. Users can use this field to set self-trade prevention strategies  1. After users join the &#x60;STP Group&#x60;, they can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevention strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy. 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter. 3. If the user did not use &#x60;stp_act&#x60; when placing the order, &#x60;stp_act&#x60; will return &#39;-&#39;  - cn: Cancel newest, cancel new orders and keep old ones - co: Cancel oldest, cancel old orders and keep new ones - cb: Cancel both, both old and new orders will be cancelled |  [optional]
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown |  [optional] [readonly]
 **actionMode** | **String** | Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default) |  [optional]
-**slippage** | **String** | Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions |  [optional]
+**slippage** | **String** | Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%) |  [optional]
 
 ## Enum: StatusEnum
 

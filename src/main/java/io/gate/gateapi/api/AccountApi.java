@@ -296,7 +296,7 @@ public class AccountApi {
 
     /**
      * Get user transaction rate limit information
-     * 
+     * This interface is not yet open for use
      * @return List&lt;AccountRateLimit&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -312,7 +312,7 @@ public class AccountApi {
 
     /**
      * Get user transaction rate limit information
-     * 
+     * This interface is not yet open for use
      * @return ApiResponse&lt;List&lt;AccountRateLimit&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -329,7 +329,7 @@ public class AccountApi {
 
     /**
      * Get user transaction rate limit information (asynchronously)
-     * 
+     * This interface is not yet open for use
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

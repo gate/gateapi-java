@@ -68,7 +68,7 @@ public class BatchOrder {
     private Long updateTimeMs;
 
     /**
-     * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled
+     * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -696,7 +696,7 @@ public class BatchOrder {
 
 
      /**
-     * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled
+     * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled
      * @return status
     **/
     @javax.annotation.Nullable
@@ -1072,7 +1072,7 @@ public class BatchOrder {
     }
 
      /**
-     * Slippage, default limit range 0.0001-0.05, converted to percentage is 0.01%-5%, indicating the acceptable price difference for market order transactions
+     * Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%)
      * @return slippage
     **/
     @javax.annotation.Nullable

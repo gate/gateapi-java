@@ -131,6 +131,7 @@ public class SpotPriceTrigger {
      * Maximum wait time for trigger condition (in seconds). Order will be cancelled if timeout
      * @return expiration
     **/
+    @javax.annotation.Nullable
     public Integer getExpiration() {
         return expiration;
     }

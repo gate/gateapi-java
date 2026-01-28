@@ -1357,7 +1357,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status retrieved successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Main-Sub Account Transfer Status Retrieval Successful </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1371,7 +1371,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status retrieved successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Main-Sub Account Transfer Status Retrieval Successful </td><td>  -  </td></tr>
          </table>
          */
         public TransferOrderStatus execute() throws ApiException {
@@ -1386,7 +1386,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status retrieved successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Main-Sub Account Transfer Status Retrieval Successful </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<TransferOrderStatus> executeWithHttpInfo() throws ApiException {
@@ -1401,7 +1401,7 @@ public class WalletApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Transfer status retrieved successfully </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Main-Sub Account Transfer Status Retrieval Successful </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<TransferOrderStatus> _callback) throws ApiException {
@@ -1410,13 +1410,13 @@ public class WalletApi {
     }
 
     /**
-     * Transfer status query
-     * Supports querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+     * Main-Sub Account Transfer Status Query
+     * Supports querying Main-Sub Account Transfer Status based on user-defined client_order_id or tx_id returned by the transfer interface
      * @return APIgetTransferOrderStatusRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Transfer status retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Main-Sub Account Transfer Status Retrieval Successful </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTransferOrderStatusRequest getTransferOrderStatus() {

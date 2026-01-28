@@ -21,12 +21,15 @@ Method | HTTP request | Description
 [**listFuturesAccountBook**](FuturesApi.md#listFuturesAccountBook) | **GET** /futures/{settle}/account_book | Query futures account change history
 [**listPositions**](FuturesApi.md#listPositions) | **GET** /futures/{settle}/positions | Get user position list
 [**getPosition**](FuturesApi.md#getPosition) | **GET** /futures/{settle}/positions/{contract} | Get single position information
+[**getLeverage**](FuturesApi.md#getLeverage) | **GET** /futures/{settle}/get_leverage/{contract} | Get Leverage Information for Specified Mode
 [**updatePositionMargin**](FuturesApi.md#updatePositionMargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin
 [**updatePositionLeverage**](FuturesApi.md#updatePositionLeverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage
+[**updateContractPositionLeverage**](FuturesApi.md#updateContractPositionLeverage) | **POST** /futures/{settle}/positions/{contract}/set_leverage | Update Leverage for Specified Mode
 [**updatePositionCrossMode**](FuturesApi.md#updatePositionCrossMode) | **POST** /futures/{settle}/positions/cross_mode | Switch Position Margin Mode
 [**updateDualCompPositionCrossMode**](FuturesApi.md#updateDualCompPositionCrossMode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | Switch Between Cross and Isolated Margin Modes Under Hedge Mode
 [**updatePositionRiskLimit**](FuturesApi.md#updatePositionRiskLimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
 [**setDualMode**](FuturesApi.md#setDualMode) | **POST** /futures/{settle}/dual_mode | Set position mode
+[**setPositionMode**](FuturesApi.md#setPositionMode) | **POST** /futures/{settle}/set_position_mode | Set Position Holding Mode, replacing the dual_mode interface
 [**getDualModePosition**](FuturesApi.md#getDualModePosition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Get position information in Hedge Mode
 [**updateDualModePositionMargin**](FuturesApi.md#updateDualModePositionMargin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in Hedge Mode
 [**updateDualModePositionLeverage**](FuturesApi.md#updateDualModePositionLeverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in Hedge Mode
@@ -1339,6 +1342,85 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Position information |  -  |
 
+<a name="getLeverage"></a>
+# **getLeverage**
+> FuturesLeverage getLeverage(settle, contract).posMarginMode(posMarginMode).dualSide(dualSide).execute();
+
+Get Leverage Information for Specified Mode
+
+Get Leverage Information for Specified Mode
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String contract = "BTC_USDT"; // String | Futures contract
+        String posMarginMode = "isolated"; // String | Position Margin Mode, required for split position mode, values: isolated/cross.
+        String dualSide = "dual_long"; // String | dual_long - Long, dual_short - Short
+        try {
+            FuturesLeverage result = apiInstance.getLeverage(settle, contract)
+                        .posMarginMode(posMarginMode)
+                        .dualSide(dualSide)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#getLeverage");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **contract** | **String**| Futures contract |
+ **posMarginMode** | **String**| Position Margin Mode, required for split position mode, values: isolated/cross. | [optional]
+ **dualSide** | **String**| dual_long - Long, dual_short - Short | [optional]
+
+### Return type
+
+[**FuturesLeverage**](FuturesLeverage.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | query leverage success |  -  |
+
 <a name="updatePositionMargin"></a>
 # **updatePositionMargin**
 > Position updatePositionMargin(settle, contract, change)
@@ -1472,6 +1554,84 @@ Name | Type | Description  | Notes
  **leverage** | **String**| Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. |
  **crossLeverageLimit** | **String**| Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. | [optional]
  **pid** | **Integer**| Product ID | [optional]
+
+### Return type
+
+[**Position**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Position information |  -  |
+
+<a name="updateContractPositionLeverage"></a>
+# **updateContractPositionLeverage**
+> Position updateContractPositionLeverage(settle, contract, leverage, marginMode, dualSide)
+
+Update Leverage for Specified Mode
+
+To simplify the complex logic of the leverage interface, added a new interface for modifying leverage
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String contract = "BTC_USDT"; // String | Futures contract
+        String leverage = "10"; // String | Position Leverage Multiple
+        String marginMode = "cross"; // String | Margin Mode isolated/cross
+        String dualSide = "dual_long"; // String | dual_long - Long, dual_short - Short
+        try {
+            Position result = apiInstance.updateContractPositionLeverage(settle, contract, leverage, marginMode, dualSide);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#updateContractPositionLeverage");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **contract** | **String**| Futures contract |
+ **leverage** | **String**| Position Leverage Multiple |
+ **marginMode** | **String**| Margin Mode isolated/cross |
+ **dualSide** | **String**| dual_long - Long, dual_short - Short | [optional]
 
 ### Return type
 
@@ -1758,6 +1918,78 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **dualMode** | **Boolean**| Whether to enable Hedge Mode |
+
+### Return type
+
+[**FuturesAccount**](FuturesAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated successfully |  -  |
+
+<a name="setPositionMode"></a>
+# **setPositionMode**
+> FuturesAccount setPositionMode(settle, positionMode)
+
+Set Position Holding Mode, replacing the dual_mode interface
+
+The prerequisite for changing mode is that all positions have no holdings and no pending orders
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String positionMode = "dual_plus"; // String | Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively
+        try {
+            FuturesAccount result = apiInstance.setPositionMode(settle, positionMode);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#setPositionMode");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **positionMode** | **String**| Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively |
 
 ### Return type
 

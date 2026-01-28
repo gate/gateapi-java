@@ -43,6 +43,14 @@ public class CurrencyQuota {
     @SerializedName(SERIALIZED_NAME_LEFT_QUOTE_USDT)
     private String leftQuoteUsdt;
 
+    public static final String SERIALIZED_NAME_LEFT_QUOTA_FIXED = "left_quota_fixed";
+    @SerializedName(SERIALIZED_NAME_LEFT_QUOTA_FIXED)
+    private String leftQuotaFixed;
+
+    public static final String SERIALIZED_NAME_LEFT_QUOTE_USDT_FIXED = "left_quote_usdt_fixed";
+    @SerializedName(SERIALIZED_NAME_LEFT_QUOTE_USDT_FIXED)
+    private String leftQuoteUsdtFixed;
+
 
     public CurrencyQuota currency(String currency) {
         
@@ -111,7 +119,7 @@ public class CurrencyQuota {
     }
 
      /**
-     * Remaining borrowing/collateral quota for the currency
+     * Remaining currency limit for &#x60;borrow/collateral&#x60; (when input parameter &#x60;type&#x60; is &#x60;borrow&#x60;, represents current currency)
      * @return leftQuota
     **/
     @javax.annotation.Nullable
@@ -131,7 +139,7 @@ public class CurrencyQuota {
     }
 
      /**
-     * Remaining currency limit converted to USDT
+     * Remaining currency limit converted to USDT (when input parameter &#x60;type&#x60; is &#x60;borrow&#x60;, represents current currency)
      * @return leftQuoteUsdt
     **/
     @javax.annotation.Nullable
@@ -142,6 +150,46 @@ public class CurrencyQuota {
 
     public void setLeftQuoteUsdt(String leftQuoteUsdt) {
         this.leftQuoteUsdt = leftQuoteUsdt;
+    }
+
+    public CurrencyQuota leftQuotaFixed(String leftQuotaFixed) {
+        
+        this.leftQuotaFixed = leftQuotaFixed;
+        return this;
+    }
+
+     /**
+     * Remaining &#x60;borrow/collateral&#x60; limit for fixed-term currency
+     * @return leftQuotaFixed
+    **/
+    @javax.annotation.Nullable
+    public String getLeftQuotaFixed() {
+        return leftQuotaFixed;
+    }
+
+
+    public void setLeftQuotaFixed(String leftQuotaFixed) {
+        this.leftQuotaFixed = leftQuotaFixed;
+    }
+
+    public CurrencyQuota leftQuoteUsdtFixed(String leftQuoteUsdtFixed) {
+        
+        this.leftQuoteUsdtFixed = leftQuoteUsdtFixed;
+        return this;
+    }
+
+     /**
+     * Remaining currency limit for fixed-term currency converted to USDT
+     * @return leftQuoteUsdtFixed
+    **/
+    @javax.annotation.Nullable
+    public String getLeftQuoteUsdtFixed() {
+        return leftQuoteUsdtFixed;
+    }
+
+
+    public void setLeftQuoteUsdtFixed(String leftQuoteUsdtFixed) {
+        this.leftQuoteUsdtFixed = leftQuoteUsdtFixed;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -156,12 +204,14 @@ public class CurrencyQuota {
                 Objects.equals(this.indexPrice, currencyQuota.indexPrice) &&
                 Objects.equals(this.minQuota, currencyQuota.minQuota) &&
                 Objects.equals(this.leftQuota, currencyQuota.leftQuota) &&
-                Objects.equals(this.leftQuoteUsdt, currencyQuota.leftQuoteUsdt);
+                Objects.equals(this.leftQuoteUsdt, currencyQuota.leftQuoteUsdt) &&
+                Objects.equals(this.leftQuotaFixed, currencyQuota.leftQuotaFixed) &&
+                Objects.equals(this.leftQuoteUsdtFixed, currencyQuota.leftQuoteUsdtFixed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, indexPrice, minQuota, leftQuota, leftQuoteUsdt);
+        return Objects.hash(currency, indexPrice, minQuota, leftQuota, leftQuoteUsdt, leftQuotaFixed, leftQuoteUsdtFixed);
     }
 
 
@@ -174,6 +224,8 @@ public class CurrencyQuota {
         sb.append("      minQuota: ").append(toIndentedString(minQuota)).append("\n");
         sb.append("      leftQuota: ").append(toIndentedString(leftQuota)).append("\n");
         sb.append("      leftQuoteUsdt: ").append(toIndentedString(leftQuoteUsdt)).append("\n");
+        sb.append("      leftQuotaFixed: ").append(toIndentedString(leftQuotaFixed)).append("\n");
+        sb.append("      leftQuoteUsdtFixed: ").append(toIndentedString(leftQuoteUsdtFixed)).append("\n");
         sb.append("}");
         return sb.toString();
     }

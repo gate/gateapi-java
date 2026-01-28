@@ -209,6 +209,14 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_PID)
     private Long pid;
 
+    public static final String SERIALIZED_NAME_POS_MARGIN_MODE = "pos_margin_mode";
+    @SerializedName(SERIALIZED_NAME_POS_MARGIN_MODE)
+    private String posMarginMode;
+
+    public static final String SERIALIZED_NAME_LEVER = "lever";
+    @SerializedName(SERIALIZED_NAME_LEVER)
+    private String lever;
+
 
      /**
      * User ID
@@ -619,6 +627,46 @@ public class Position {
         return pid;
     }
 
+
+    public Position posMarginMode(String posMarginMode) {
+        
+        this.posMarginMode = posMarginMode;
+        return this;
+    }
+
+     /**
+     * Position Margin Mode isolated - Isolated Margin, cross - Cross Margin
+     * @return posMarginMode
+    **/
+    @javax.annotation.Nullable
+    public String getPosMarginMode() {
+        return posMarginMode;
+    }
+
+
+    public void setPosMarginMode(String posMarginMode) {
+        this.posMarginMode = posMarginMode;
+    }
+
+    public Position lever(String lever) {
+        
+        this.lever = lever;
+        return this;
+    }
+
+     /**
+     * Indicates the current leverage of the position, applicable to both isolated and cross margin, gradually replacing the current leverage and cross_leverage_limit
+     * @return lever
+    **/
+    @javax.annotation.Nullable
+    public String getLever() {
+        return lever;
+    }
+
+
+    public void setLever(String lever) {
+        this.lever = lever;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -661,12 +709,14 @@ public class Position {
                 Objects.equals(this.openTime, position.openTime) &&
                 Objects.equals(this.riskLimitTable, position.riskLimitTable) &&
                 Objects.equals(this.averageMaintenanceRate, position.averageMaintenanceRate) &&
-                Objects.equals(this.pid, position.pid);
+                Objects.equals(this.pid, position.pid) &&
+                Objects.equals(this.posMarginMode, position.posMarginMode) &&
+                Objects.equals(this.lever, position.lever);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, updateId, openTime, riskLimitTable, averageMaintenanceRate, pid);
+        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, updateId, openTime, riskLimitTable, averageMaintenanceRate, pid, posMarginMode, lever);
     }
 
 
@@ -708,6 +758,8 @@ public class Position {
         sb.append("      riskLimitTable: ").append(toIndentedString(riskLimitTable)).append("\n");
         sb.append("      averageMaintenanceRate: ").append(toIndentedString(averageMaintenanceRate)).append("\n");
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
+        sb.append("      posMarginMode: ").append(toIndentedString(posMarginMode)).append("\n");
+        sb.append("      lever: ").append(toIndentedString(lever)).append("\n");
         sb.append("}");
         return sb.toString();
     }

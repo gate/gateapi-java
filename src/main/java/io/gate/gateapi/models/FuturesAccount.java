@@ -56,10 +56,6 @@ public class FuturesAccount {
     @SerializedName(SERIALIZED_NAME_IN_DUAL_MODE)
     private Boolean inDualMode;
 
-    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
-    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
-    private String positionMode;
-
     public static final String SERIALIZED_NAME_ENABLE_CREDIT = "enable_credit";
     @SerializedName(SERIALIZED_NAME_ENABLE_CREDIT)
     private Boolean enableCredit;
@@ -127,6 +123,14 @@ public class FuturesAccount {
     public static final String SERIALIZED_NAME_ENABLE_TIERED_MM = "enable_tiered_mm";
     @SerializedName(SERIALIZED_NAME_ENABLE_TIERED_MM)
     private Boolean enableTieredMm;
+
+    public static final String SERIALIZED_NAME_ENABLE_DUAL_PLUS = "enable_dual_plus";
+    @SerializedName(SERIALIZED_NAME_ENABLE_DUAL_PLUS)
+    private Boolean enableDualPlus;
+
+    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
+    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
+    private String positionMode;
 
     public static final String SERIALIZED_NAME_HISTORY = "history";
     @SerializedName(SERIALIZED_NAME_HISTORY)
@@ -291,26 +295,6 @@ public class FuturesAccount {
 
     public void setInDualMode(Boolean inDualMode) {
         this.inDualMode = inDualMode;
-    }
-
-    public FuturesAccount positionMode(String positionMode) {
-        
-        this.positionMode = positionMode;
-        return this;
-    }
-
-     /**
-     * Position mode: single - one-way, dual - dual-side, split - sub-positions (in_dual_mode is deprecated)
-     * @return positionMode
-    **/
-    @javax.annotation.Nullable
-    public String getPositionMode() {
-        return positionMode;
-    }
-
-
-    public void setPositionMode(String positionMode) {
-        this.positionMode = positionMode;
     }
 
     public FuturesAccount enableCredit(Boolean enableCredit) {
@@ -653,6 +637,46 @@ public class FuturesAccount {
         this.enableTieredMm = enableTieredMm;
     }
 
+    public FuturesAccount enableDualPlus(Boolean enableDualPlus) {
+        
+        this.enableDualPlus = enableDualPlus;
+        return this;
+    }
+
+     /**
+     * Whether to Support Split Position Mode
+     * @return enableDualPlus
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnableDualPlus() {
+        return enableDualPlus;
+    }
+
+
+    public void setEnableDualPlus(Boolean enableDualPlus) {
+        this.enableDualPlus = enableDualPlus;
+    }
+
+    public FuturesAccount positionMode(String positionMode) {
+        
+        this.positionMode = positionMode;
+        return this;
+    }
+
+     /**
+     * Position Holding Mode single - Single Direction Position, dual - Dual Direction Position, dual_plus - Split Position
+     * @return positionMode
+    **/
+    @javax.annotation.Nullable
+    public String getPositionMode() {
+        return positionMode;
+    }
+
+
+    public void setPositionMode(String positionMode) {
+        this.positionMode = positionMode;
+    }
+
     public FuturesAccount history(FuturesAccountHistory history) {
         
         this.history = history;
@@ -689,7 +713,6 @@ public class FuturesAccount {
                 Objects.equals(this.point, futuresAccount.point) &&
                 Objects.equals(this.currency, futuresAccount.currency) &&
                 Objects.equals(this.inDualMode, futuresAccount.inDualMode) &&
-                Objects.equals(this.positionMode, futuresAccount.positionMode) &&
                 Objects.equals(this.enableCredit, futuresAccount.enableCredit) &&
                 Objects.equals(this.positionInitialMargin, futuresAccount.positionInitialMargin) &&
                 Objects.equals(this.maintenanceMargin, futuresAccount.maintenanceMargin) &&
@@ -707,12 +730,14 @@ public class FuturesAccount {
                 Objects.equals(this.enableNewDualMode, futuresAccount.enableNewDualMode) &&
                 Objects.equals(this.marginMode, futuresAccount.marginMode) &&
                 Objects.equals(this.enableTieredMm, futuresAccount.enableTieredMm) &&
+                Objects.equals(this.enableDualPlus, futuresAccount.enableDualPlus) &&
+                Objects.equals(this.positionMode, futuresAccount.positionMode) &&
                 Objects.equals(this.history, futuresAccount.history);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, positionMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, crossOrderMargin, crossInitialMargin, crossMaintenanceMargin, crossUnrealisedPnl, crossAvailable, crossMarginBalance, crossMmr, crossImr, isolatedPositionMargin, enableNewDualMode, marginMode, enableTieredMm, history);
+        return Objects.hash(total, unrealisedPnl, positionMargin, orderMargin, available, point, currency, inDualMode, enableCredit, positionInitialMargin, maintenanceMargin, bonus, enableEvolvedClassic, crossOrderMargin, crossInitialMargin, crossMaintenanceMargin, crossUnrealisedPnl, crossAvailable, crossMarginBalance, crossMmr, crossImr, isolatedPositionMargin, enableNewDualMode, marginMode, enableTieredMm, enableDualPlus, positionMode, history);
     }
 
 
@@ -728,7 +753,6 @@ public class FuturesAccount {
         sb.append("      point: ").append(toIndentedString(point)).append("\n");
         sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("      inDualMode: ").append(toIndentedString(inDualMode)).append("\n");
-        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
         sb.append("      enableCredit: ").append(toIndentedString(enableCredit)).append("\n");
         sb.append("      positionInitialMargin: ").append(toIndentedString(positionInitialMargin)).append("\n");
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
@@ -746,6 +770,8 @@ public class FuturesAccount {
         sb.append("      enableNewDualMode: ").append(toIndentedString(enableNewDualMode)).append("\n");
         sb.append("      marginMode: ").append(toIndentedString(marginMode)).append("\n");
         sb.append("      enableTieredMm: ").append(toIndentedString(enableTieredMm)).append("\n");
+        sb.append("      enableDualPlus: ").append(toIndentedString(enableDualPlus)).append("\n");
+        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
         sb.append("      history: ").append(toIndentedString(history)).append("\n");
         sb.append("}");
         return sb.toString();

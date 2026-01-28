@@ -150,6 +150,8 @@ This endpoint does not need any parameter.
 
 Get user transaction rate limit information
 
+This interface is not yet open for use
+
 ### Example
 
 ```java

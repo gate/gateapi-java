@@ -29,11 +29,7 @@ public class FuturesUpdatePriceTriggeredOrder {
 
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private Integer orderId;
-
-    public static final String SERIALIZED_NAME_CONTACT = "contact";
-    @SerializedName(SERIALIZED_NAME_CONTACT)
-    private String contact;
+    private String orderId;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
@@ -104,6 +100,10 @@ public class FuturesUpdatePriceTriggeredOrder {
     @SerializedName(SERIALIZED_NAME_AUTO_SIZE)
     private String autoSize;
 
+    public static final String SERIALIZED_NAME_CLOSE = "close";
+    @SerializedName(SERIALIZED_NAME_CLOSE)
+    private Boolean close;
+
 
      /**
      * Settlement Currency (e.g., USDT, BTC)
@@ -115,34 +115,23 @@ public class FuturesUpdatePriceTriggeredOrder {
     }
 
 
-     /**
-     * ID of the Pending Take-Profit/Stop-Loss Trigger Order
-     * @return orderId
-    **/
-    @javax.annotation.Nullable
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-
-    public FuturesUpdatePriceTriggeredOrder contact(String contact) {
+    public FuturesUpdatePriceTriggeredOrder orderId(String orderId) {
         
-        this.contact = contact;
+        this.orderId = orderId;
         return this;
     }
 
      /**
      * The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.
-     * @return contact
+     * @return orderId
     **/
-    @javax.annotation.Nullable
-    public String getContact() {
-        return contact;
+    public String getOrderId() {
+        return orderId;
     }
 
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public FuturesUpdatePriceTriggeredOrder size(Long size) {
@@ -244,6 +233,26 @@ public class FuturesUpdatePriceTriggeredOrder {
     public void setAutoSize(String autoSize) {
         this.autoSize = autoSize;
     }
+
+    public FuturesUpdatePriceTriggeredOrder close(Boolean close) {
+        
+        this.close = close;
+        return this;
+    }
+
+     /**
+     * In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close&#x3D;false
+     * @return close
+    **/
+    @javax.annotation.Nullable
+    public Boolean getClose() {
+        return close;
+    }
+
+
+    public void setClose(Boolean close) {
+        this.close = close;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -255,17 +264,17 @@ public class FuturesUpdatePriceTriggeredOrder {
         FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = (FuturesUpdatePriceTriggeredOrder) o;
         return Objects.equals(this.settle, futuresUpdatePriceTriggeredOrder.settle) &&
                 Objects.equals(this.orderId, futuresUpdatePriceTriggeredOrder.orderId) &&
-                Objects.equals(this.contact, futuresUpdatePriceTriggeredOrder.contact) &&
                 Objects.equals(this.size, futuresUpdatePriceTriggeredOrder.size) &&
                 Objects.equals(this.price, futuresUpdatePriceTriggeredOrder.price) &&
                 Objects.equals(this.triggerPrice, futuresUpdatePriceTriggeredOrder.triggerPrice) &&
                 Objects.equals(this.priceType, futuresUpdatePriceTriggeredOrder.priceType) &&
-                Objects.equals(this.autoSize, futuresUpdatePriceTriggeredOrder.autoSize);
+                Objects.equals(this.autoSize, futuresUpdatePriceTriggeredOrder.autoSize) &&
+                Objects.equals(this.close, futuresUpdatePriceTriggeredOrder.close);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(settle, orderId, contact, size, price, triggerPrice, priceType, autoSize);
+        return Objects.hash(settle, orderId, size, price, triggerPrice, priceType, autoSize, close);
     }
 
 
@@ -275,12 +284,12 @@ public class FuturesUpdatePriceTriggeredOrder {
         sb.append("class FuturesUpdatePriceTriggeredOrder {\n");
         sb.append("      settle: ").append(toIndentedString(settle)).append("\n");
         sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
-        sb.append("      contact: ").append(toIndentedString(contact)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      triggerPrice: ").append(toIndentedString(triggerPrice)).append("\n");
         sb.append("      priceType: ").append(toIndentedString(priceType)).append("\n");
         sb.append("      autoSize: ").append(toIndentedString(autoSize)).append("\n");
+        sb.append("      close: ").append(toIndentedString(close)).append("\n");
         sb.append("}");
         return sb.toString();
     }

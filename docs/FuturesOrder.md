@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **orderValue** | **String** | order&#39;s value |  [optional]
 **tradeValue** | **String** | trade value |  [optional]
 **marketOrderSlipRatio** | **String** | Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used |  [optional]
+**posMarginMode** | **String** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin, only passed in simple split position mode |  [optional]
 
 ## Enum: FinishAsEnum
 
