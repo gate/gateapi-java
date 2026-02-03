@@ -814,7 +814,7 @@ No authorization required
 
 <a name="p2pMerchantBooksAdsDetail"></a>
 # **p2pMerchantBooksAdsDetail**
-> InlineResponse20019 p2pMerchantBooksAdsDetail(advNo, equal)
+> InlineResponse20019 p2pMerchantBooksAdsDetail(advNo)
 
 Query ad details
 
@@ -836,9 +836,8 @@ public class Example {
 
         P2PApi apiInstance = new P2PApi(defaultClient);
         String advNo = "advNo_example"; // String | 
-        Integer equal = 56; // Integer | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         try {
-            InlineResponse20019 result = apiInstance.p2pMerchantBooksAdsDetail(advNo, equal);
+            InlineResponse20019 result = apiInstance.p2pMerchantBooksAdsDetail(advNo);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -858,7 +857,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **advNo** | **String**|  |
- **equal** | **Integer**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
 
 ### Return type
 

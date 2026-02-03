@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **needReplenish** | **Integer** | Whether margin replenishment is needed | 
 **merchantInfo** | [**InlineResponse20013DataMerchantInfo**](InlineResponse20013DataMerchantInfo.md) |  | 
 **onlineStatus** | **Integer** | Merchant online status | 
-**workHours** | [**oas_any_type_not_mapped**](.md) | Merchant online status details | 
+**workHours** | [**Object**](.md) | Merchant online status details | 
 **transactionsMonth** | **Integer** | 30-day transaction volume | 
 **transactionsAll** | **Integer** | Total transaction volume | 
 **tradeVersatile** | **Boolean** | Single user or composite user | 

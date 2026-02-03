@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.InlineResponse20013DataMerchantInfo;
-import io.gate.gateapi.models.oas_any_type_not_mapped;
 import java.io.IOException;
 
 /**
@@ -135,7 +134,7 @@ public class InlineResponse20013Data {
 
     public static final String SERIALIZED_NAME_WORK_HOURS = "work_hours";
     @SerializedName(SERIALIZED_NAME_WORK_HOURS)
-    private oas_any_type_not_mapped workHours = null;
+    private Object workHours;
 
     public static final String SERIALIZED_NAME_TRANSACTIONS_MONTH = "transactions_month";
     @SerializedName(SERIALIZED_NAME_TRANSACTIONS_MONTH)
@@ -663,7 +662,7 @@ public class InlineResponse20013Data {
         this.onlineStatus = onlineStatus;
     }
 
-    public InlineResponse20013Data workHours(oas_any_type_not_mapped workHours) {
+    public InlineResponse20013Data workHours(Object workHours) {
         
         this.workHours = workHours;
         return this;
@@ -674,12 +673,12 @@ public class InlineResponse20013Data {
      * @return workHours
     **/
     @javax.annotation.Nullable
-    public oas_any_type_not_mapped getWorkHours() {
+    public Object getWorkHours() {
         return workHours;
     }
 
 
-    public void setWorkHours(oas_any_type_not_mapped workHours) {
+    public void setWorkHours(Object workHours) {
         this.workHours = workHours;
     }
 
