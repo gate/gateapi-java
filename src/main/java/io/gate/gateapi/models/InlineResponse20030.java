@@ -18,102 +18,57 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20030
  */
 public class InlineResponse20030 {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private BigDecimal orderId;
 
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
-
-    public static final String SERIALIZED_NAME_HOUR_INTEREST_RATE = "hour_interest_rate";
-    @SerializedName(SERIALIZED_NAME_HOUR_INTEREST_RATE)
-    private String hourInterestRate;
-
-    public static final String SERIALIZED_NAME_TIME = "time";
-    @SerializedName(SERIALIZED_NAME_TIME)
-    private String time;
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
 
 
-    public InlineResponse20030 coin(String coin) {
+    public InlineResponse20030 orderId(BigDecimal orderId) {
         
-        this.coin = coin;
+        this.orderId = orderId;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Get orderId
+     * @return orderId
     **/
-    public String getCoin() {
-        return coin;
+    public BigDecimal getOrderId() {
+        return orderId;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setOrderId(BigDecimal orderId) {
+        this.orderId = orderId;
     }
 
-    public InlineResponse20030 exchangeType(String exchangeType) {
+    public InlineResponse20030 text(String text) {
         
-        this.exchangeType = exchangeType;
+        this.text = text;
         return this;
     }
 
      /**
-     * Exchange
-     * @return exchangeType
+     * Get text
+     * @return text
     **/
-    public String getExchangeType() {
-        return exchangeType;
+    public String getText() {
+        return text;
     }
 
 
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
-    }
-
-    public InlineResponse20030 hourInterestRate(String hourInterestRate) {
-        
-        this.hourInterestRate = hourInterestRate;
-        return this;
-    }
-
-     /**
-     * Hourly Interest Rate
-     * @return hourInterestRate
-    **/
-    public String getHourInterestRate() {
-        return hourInterestRate;
-    }
-
-
-    public void setHourInterestRate(String hourInterestRate) {
-        this.hourInterestRate = hourInterestRate;
-    }
-
-    public InlineResponse20030 time(String time) {
-        
-        this.time = time;
-        return this;
-    }
-
-     /**
-     * Millisecond Timestamp
-     * @return time
-    **/
-    public String getTime() {
-        return time;
-    }
-
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setText(String text) {
+        this.text = text;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -124,15 +79,13 @@ public class InlineResponse20030 {
             return false;
         }
         InlineResponse20030 inlineResponse20030 = (InlineResponse20030) o;
-        return Objects.equals(this.coin, inlineResponse20030.coin) &&
-                Objects.equals(this.exchangeType, inlineResponse20030.exchangeType) &&
-                Objects.equals(this.hourInterestRate, inlineResponse20030.hourInterestRate) &&
-                Objects.equals(this.time, inlineResponse20030.time);
+        return Objects.equals(this.orderId, inlineResponse20030.orderId) &&
+                Objects.equals(this.text, inlineResponse20030.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, exchangeType, hourInterestRate, time);
+        return Objects.hash(orderId, text);
     }
 
 
@@ -140,10 +93,8 @@ public class InlineResponse20030 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20030 {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      hourInterestRate: ").append(toIndentedString(hourInterestRate)).append("\n");
-        sb.append("      time: ").append(toIndentedString(time)).append("\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

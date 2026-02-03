@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | 
-**message** | **String** |  | 
-**data** | [**InlineResponse2002Data**](InlineResponse2002Data.md) |  | 
+**code** | **Integer** | Status code, 0 means success |  [optional]
+**message** | **String** | Response message |  [optional]
+**data** | [**InlineResponse200**](InlineResponse200.md) |  |  [optional]
+**timestamp** | **Long** | Response timestamp (milliseconds) |  [optional]
 

@@ -23,7 +23,7 @@ import java.io.IOException;
  * InlineResponse20038
  */
 public class InlineResponse20038 {
-    public static final String SERIALIZED_NAME_USER_ID = "userId";
+    public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
 
@@ -31,41 +31,13 @@ public class InlineResponse20038 {
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_INTEREST_ID = "interest_id";
-    @SerializedName(SERIALIZED_NAME_INTEREST_ID)
-    private String interestId;
+    public static final String SERIALIZED_NAME_CROSSEX_ADL_RANK = "crossex_adl_rank";
+    @SerializedName(SERIALIZED_NAME_CROSSEX_ADL_RANK)
+    private String crossexAdlRank;
 
-    public static final String SERIALIZED_NAME_LIABILITY_ID = "liability_id";
-    @SerializedName(SERIALIZED_NAME_LIABILITY_ID)
-    private String liabilityId;
-
-    public static final String SERIALIZED_NAME_LIABILITY = "liability";
-    @SerializedName(SERIALIZED_NAME_LIABILITY)
-    private String liability;
-
-    public static final String SERIALIZED_NAME_LIABILITY_COIN = "liability_coin";
-    @SerializedName(SERIALIZED_NAME_LIABILITY_COIN)
-    private String liabilityCoin;
-
-    public static final String SERIALIZED_NAME_INTEREST = "interest";
-    @SerializedName(SERIALIZED_NAME_INTEREST)
-    private String interest;
-
-    public static final String SERIALIZED_NAME_INTEREST_RATE = "interest_rate";
-    @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
-    private String interestRate;
-
-    public static final String SERIALIZED_NAME_INTEREST_TYPE = "interest_type";
-    @SerializedName(SERIALIZED_NAME_INTEREST_TYPE)
-    private String interestType;
-
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private String createTime;
-
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
+    public static final String SERIALIZED_NAME_EXCHANGE_ADL_RANK = "exchange_adl_rank";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_ADL_RANK)
+    private String exchangeAdlRank;
 
 
     public InlineResponse20038 userId(String userId) {
@@ -94,7 +66,7 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Trading Pair
+     * Currency pair
      * @return symbol
     **/
     public String getSymbol() {
@@ -106,175 +78,42 @@ public class InlineResponse20038 {
         this.symbol = symbol;
     }
 
-    public InlineResponse20038 interestId(String interestId) {
+    public InlineResponse20038 crossexAdlRank(String crossexAdlRank) {
         
-        this.interestId = interestId;
+        this.crossexAdlRank = crossexAdlRank;
         return this;
     }
 
      /**
-     * Interest Deduction ID
-     * @return interestId
+     * CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher)
+     * @return crossexAdlRank
     **/
-    public String getInterestId() {
-        return interestId;
+    public String getCrossexAdlRank() {
+        return crossexAdlRank;
     }
 
 
-    public void setInterestId(String interestId) {
-        this.interestId = interestId;
+    public void setCrossexAdlRank(String crossexAdlRank) {
+        this.crossexAdlRank = crossexAdlRank;
     }
 
-    public InlineResponse20038 liabilityId(String liabilityId) {
+    public InlineResponse20038 exchangeAdlRank(String exchangeAdlRank) {
         
-        this.liabilityId = liabilityId;
+        this.exchangeAdlRank = exchangeAdlRank;
         return this;
     }
 
      /**
-     * Debt Source ID, can be Order ID or Position ID
-     * @return liabilityId
+     * Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)
+     * @return exchangeAdlRank
     **/
-    public String getLiabilityId() {
-        return liabilityId;
+    public String getExchangeAdlRank() {
+        return exchangeAdlRank;
     }
 
 
-    public void setLiabilityId(String liabilityId) {
-        this.liabilityId = liabilityId;
-    }
-
-    public InlineResponse20038 liability(String liability) {
-        
-        this.liability = liability;
-        return this;
-    }
-
-     /**
-     * Debt Quantity
-     * @return liability
-    **/
-    public String getLiability() {
-        return liability;
-    }
-
-
-    public void setLiability(String liability) {
-        this.liability = liability;
-    }
-
-    public InlineResponse20038 liabilityCoin(String liabilityCoin) {
-        
-        this.liabilityCoin = liabilityCoin;
-        return this;
-    }
-
-     /**
-     * Debt Currency
-     * @return liabilityCoin
-    **/
-    public String getLiabilityCoin() {
-        return liabilityCoin;
-    }
-
-
-    public void setLiabilityCoin(String liabilityCoin) {
-        this.liabilityCoin = liabilityCoin;
-    }
-
-    public InlineResponse20038 interest(String interest) {
-        
-        this.interest = interest;
-        return this;
-    }
-
-     /**
-     * Interest
-     * @return interest
-    **/
-    public String getInterest() {
-        return interest;
-    }
-
-
-    public void setInterest(String interest) {
-        this.interest = interest;
-    }
-
-    public InlineResponse20038 interestRate(String interestRate) {
-        
-        this.interestRate = interestRate;
-        return this;
-    }
-
-     /**
-     * interest rate
-     * @return interestRate
-    **/
-    public String getInterestRate() {
-        return interestRate;
-    }
-
-
-    public void setInterestRate(String interestRate) {
-        this.interestRate = interestRate;
-    }
-
-    public InlineResponse20038 interestType(String interestType) {
-        
-        this.interestType = interestType;
-        return this;
-    }
-
-     /**
-     * Interest deduction type (&#x60;PERIODIC_POSITION&#x60;: periodic position interest; &#x60;PERIODIC_OPEN_ORDER&#x60;: periodic open-order interest; &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged on order opening)
-     * @return interestType
-    **/
-    public String getInterestType() {
-        return interestType;
-    }
-
-
-    public void setInterestType(String interestType) {
-        this.interestType = interestType;
-    }
-
-    public InlineResponse20038 createTime(String createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Created time
-     * @return createTime
-    **/
-    public String getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public InlineResponse20038 exchangeType(String exchangeType) {
-        
-        this.exchangeType = exchangeType;
-        return this;
-    }
-
-     /**
-     * Exchange
-     * @return exchangeType
-    **/
-    public String getExchangeType() {
-        return exchangeType;
-    }
-
-
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
+    public void setExchangeAdlRank(String exchangeAdlRank) {
+        this.exchangeAdlRank = exchangeAdlRank;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -287,20 +126,13 @@ public class InlineResponse20038 {
         InlineResponse20038 inlineResponse20038 = (InlineResponse20038) o;
         return Objects.equals(this.userId, inlineResponse20038.userId) &&
                 Objects.equals(this.symbol, inlineResponse20038.symbol) &&
-                Objects.equals(this.interestId, inlineResponse20038.interestId) &&
-                Objects.equals(this.liabilityId, inlineResponse20038.liabilityId) &&
-                Objects.equals(this.liability, inlineResponse20038.liability) &&
-                Objects.equals(this.liabilityCoin, inlineResponse20038.liabilityCoin) &&
-                Objects.equals(this.interest, inlineResponse20038.interest) &&
-                Objects.equals(this.interestRate, inlineResponse20038.interestRate) &&
-                Objects.equals(this.interestType, inlineResponse20038.interestType) &&
-                Objects.equals(this.createTime, inlineResponse20038.createTime) &&
-                Objects.equals(this.exchangeType, inlineResponse20038.exchangeType);
+                Objects.equals(this.crossexAdlRank, inlineResponse20038.crossexAdlRank) &&
+                Objects.equals(this.exchangeAdlRank, inlineResponse20038.exchangeAdlRank);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, symbol, interestId, liabilityId, liability, liabilityCoin, interest, interestRate, interestType, createTime, exchangeType);
+        return Objects.hash(userId, symbol, crossexAdlRank, exchangeAdlRank);
     }
 
 
@@ -310,15 +142,8 @@ public class InlineResponse20038 {
         sb.append("class InlineResponse20038 {\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      interestId: ").append(toIndentedString(interestId)).append("\n");
-        sb.append("      liabilityId: ").append(toIndentedString(liabilityId)).append("\n");
-        sb.append("      liability: ").append(toIndentedString(liability)).append("\n");
-        sb.append("      liabilityCoin: ").append(toIndentedString(liabilityCoin)).append("\n");
-        sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
-        sb.append("      interestRate: ").append(toIndentedString(interestRate)).append("\n");
-        sb.append("      interestType: ").append(toIndentedString(interestType)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      crossexAdlRank: ").append(toIndentedString(crossexAdlRank)).append("\n");
+        sb.append("      exchangeAdlRank: ").append(toIndentedString(exchangeAdlRank)).append("\n");
         sb.append("}");
         return sb.toString();
     }

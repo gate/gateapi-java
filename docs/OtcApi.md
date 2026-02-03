@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="createOtcQuote"></a>
 # **createOtcQuote**
-> InlineResponse2002 createOtcQuote(inlineObject1)
+> InlineResponse2006 createOtcQuote(inlineObject1)
 
 Fiat and stablecoin quote
 
@@ -46,7 +46,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse2002 result = apiInstance.createOtcQuote(inlineObject1);
+            InlineResponse2006 result = apiInstance.createOtcQuote(inlineObject1);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 <a name="createOtcOrder"></a>
 # **createOtcOrder**
-> InlineResponse2003 createOtcOrder(inlineObject2)
+> InlineResponse2007 createOtcOrder(inlineObject2)
 
 Create fiat order
 
@@ -116,7 +116,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse2003 result = apiInstance.createOtcOrder(inlineObject2);
+            InlineResponse2007 result = apiInstance.createOtcOrder(inlineObject2);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 <a name="createStableCoinOrder"></a>
 # **createStableCoinOrder**
-> InlineResponse2004 createStableCoinOrder(inlineObject3)
+> InlineResponse2008 createStableCoinOrder(inlineObject3)
 
 Create stablecoin order
 
@@ -186,7 +186,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
         try {
-            InlineResponse2004 result = apiInstance.createStableCoinOrder(inlineObject3);
+            InlineResponse2008 result = apiInstance.createStableCoinOrder(inlineObject3);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserDefaultBank"></a>
 # **getUserDefaultBank**
-> InlineResponse2005 getUserDefaultBank()
+> InlineResponse2009 getUserDefaultBank()
 
 Get user&#39;s default bank account information
 
@@ -255,7 +255,7 @@ public class Example {
 
         OtcApi apiInstance = new OtcApi(defaultClient);
         try {
-            InlineResponse2005 result = apiInstance.getUserDefaultBank();
+            InlineResponse2009 result = apiInstance.getUserDefaultBank();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -275,7 +275,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ This endpoint does not need any parameter.
 
 <a name="markOtcOrderPaid"></a>
 # **markOtcOrderPaid**
-> InlineResponse2003 markOtcOrderPaid(inlineObject4)
+> InlineResponse2007 markOtcOrderPaid(inlineObject4)
 
 Mark fiat order as paid
 
@@ -322,7 +322,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
         try {
-            InlineResponse2003 result = apiInstance.markOtcOrderPaid(inlineObject4);
+            InlineResponse2007 result = apiInstance.markOtcOrderPaid(inlineObject4);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelOtcOrder"></a>
 # **cancelOtcOrder**
-> InlineResponse2003 cancelOtcOrder(orderId)
+> InlineResponse2007 cancelOtcOrder(orderId)
 
 Fiat order cancellation
 
@@ -392,7 +392,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         String orderId = "orderId_example"; // String | Order ID
         try {
-            InlineResponse2003 result = apiInstance.cancelOtcOrder(orderId);
+            InlineResponse2007 result = apiInstance.cancelOtcOrder(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 <a name="listOtcOrders"></a>
 # **listOtcOrders**
-> InlineResponse2006 listOtcOrders().type(type).fiatCurrency(fiatCurrency).cryptoCurrency(cryptoCurrency).startTime(startTime).endTime(endTime).status(status).pn(pn).ps(ps).execute();
+> InlineResponse20010 listOtcOrders().type(type).fiatCurrency(fiatCurrency).cryptoCurrency(cryptoCurrency).startTime(startTime).endTime(endTime).status(status).pn(pn).ps(ps).execute();
 
 Fiat order list
 
@@ -469,7 +469,7 @@ public class Example {
         String pn = "pn_example"; // String | Page number
         String ps = "ps_example"; // String | Number of items per page
         try {
-            InlineResponse2006 result = apiInstance.listOtcOrders()
+            InlineResponse20010 result = apiInstance.listOtcOrders()
                         .type(type)
                         .fiatCurrency(fiatCurrency)
                         .cryptoCurrency(cryptoCurrency)
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 
 <a name="listStableCoinOrders"></a>
 # **listStableCoinOrders**
-> InlineResponse2007 listStableCoinOrders().pageSize(pageSize).pageNumber(pageNumber).coinName(coinName).startTime(startTime).endTime(endTime).status(status).execute();
+> InlineResponse20011 listStableCoinOrders().pageSize(pageSize).pageNumber(pageNumber).coinName(coinName).startTime(startTime).endTime(endTime).status(status).execute();
 
 Stablecoin order list
 
@@ -560,7 +560,7 @@ public class Example {
         String endTime = "endTime_example"; // String | End time
         String status = "status_example"; // String | Status: PROCESSING: in progress / DONE：completed / FAILED: failed
         try {
-            InlineResponse2007 result = apiInstance.listStableCoinOrders()
+            InlineResponse20011 result = apiInstance.listStableCoinOrders()
                         .pageSize(pageSize)
                         .pageNumber(pageNumber)
                         .coinName(coinName)
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 
 <a name="getOtcOrderDetail"></a>
 # **getOtcOrderDetail**
-> InlineResponse2008 getOtcOrderDetail(orderId)
+> InlineResponse20012 getOtcOrderDetail(orderId)
 
 Fiat order details
 
@@ -642,7 +642,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         String orderId = "orderId_example"; // String | Order ID
         try {
-            InlineResponse2008 result = apiInstance.getOtcOrderDetail(orderId);
+            InlineResponse20012 result = apiInstance.getOtcOrderDetail(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 

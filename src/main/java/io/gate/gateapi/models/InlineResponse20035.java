@@ -17,609 +17,134 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20035SpecialFeeList;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20035
  */
 public class InlineResponse20035 {
-    public static final String SERIALIZED_NAME_USER_ID = "user_id";
-    @SerializedName(SERIALIZED_NAME_USER_ID)
-    private String userId;
+    public static final String SERIALIZED_NAME_SPOT_MAKER_FEE = "spot_maker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_MAKER_FEE)
+    private String spotMakerFee;
 
-    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
-    @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
+    public static final String SERIALIZED_NAME_SPOT_TAKER_FEE = "spot_taker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_TAKER_FEE)
+    private String spotTakerFee;
 
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
+    public static final String SERIALIZED_NAME_FUTURE_MAKER_FEE = "future_maker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_MAKER_FEE)
+    private String futureMakerFee;
 
-    public static final String SERIALIZED_NAME_STATE = "state";
-    @SerializedName(SERIALIZED_NAME_STATE)
-    private String state;
+    public static final String SERIALIZED_NAME_FUTURE_TAKER_FEE = "future_taker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_TAKER_FEE)
+    private String futureTakerFee;
 
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
-
-    public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
-    @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
-    private String attribute;
-
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
-
-    public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
-    @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-    private String businessType;
-
-    public static final String SERIALIZED_NAME_QTY = "qty";
-    @SerializedName(SERIALIZED_NAME_QTY)
-    private String qty;
-
-    public static final String SERIALIZED_NAME_QUOTE_QTY = "quote_qty";
-    @SerializedName(SERIALIZED_NAME_QUOTE_QTY)
-    private String quoteQty;
-
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
-
-    public static final String SERIALIZED_NAME_TIME_IN_FORCE = "time_in_force";
-    @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
-    private String timeInForce;
-
-    public static final String SERIALIZED_NAME_EXECUTED_QTY = "executed_qty";
-    @SerializedName(SERIALIZED_NAME_EXECUTED_QTY)
-    private String executedQty;
-
-    public static final String SERIALIZED_NAME_EXECUTED_AMOUNT = "executed_amount";
-    @SerializedName(SERIALIZED_NAME_EXECUTED_AMOUNT)
-    private String executedAmount;
-
-    public static final String SERIALIZED_NAME_EXECUTED_AVG_PRICE = "executed_avg_price";
-    @SerializedName(SERIALIZED_NAME_EXECUTED_AVG_PRICE)
-    private String executedAvgPrice;
-
-    public static final String SERIALIZED_NAME_FEE_COIN = "fee_coin";
-    @SerializedName(SERIALIZED_NAME_FEE_COIN)
-    private String feeCoin;
-
-    public static final String SERIALIZED_NAME_FEE = "fee";
-    @SerializedName(SERIALIZED_NAME_FEE)
-    private String fee;
-
-    public static final String SERIALIZED_NAME_REDUCE_ONLY = "reduce_only";
-    @SerializedName(SERIALIZED_NAME_REDUCE_ONLY)
-    private String reduceOnly;
-
-    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
-    @SerializedName(SERIALIZED_NAME_LEVERAGE)
-    private String leverage;
-
-    public static final String SERIALIZED_NAME_REASON = "reason";
-    @SerializedName(SERIALIZED_NAME_REASON)
-    private String reason;
-
-    public static final String SERIALIZED_NAME_LAST_EXECUTED_QTY = "last_executed_qty";
-    @SerializedName(SERIALIZED_NAME_LAST_EXECUTED_QTY)
-    private String lastExecutedQty;
-
-    public static final String SERIALIZED_NAME_LAST_EXECUTED_PRICE = "last_executed_price";
-    @SerializedName(SERIALIZED_NAME_LAST_EXECUTED_PRICE)
-    private String lastExecutedPrice;
-
-    public static final String SERIALIZED_NAME_LAST_EXECUTED_AMOUNT = "last_executed_amount";
-    @SerializedName(SERIALIZED_NAME_LAST_EXECUTED_AMOUNT)
-    private String lastExecutedAmount;
-
-    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
-    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
-    private String positionSide;
-
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private String createTime;
-
-    public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
-    @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
-    private String updateTime;
+    public static final String SERIALIZED_NAME_SPECIAL_FEE_LIST = "special_fee_list";
+    @SerializedName(SERIALIZED_NAME_SPECIAL_FEE_LIST)
+    private List<InlineResponse20035SpecialFeeList> specialFeeList = new ArrayList<>();
 
 
-    public InlineResponse20035 userId(String userId) {
+    public InlineResponse20035 spotMakerFee(String spotMakerFee) {
         
-        this.userId = userId;
+        this.spotMakerFee = spotMakerFee;
         return this;
     }
 
      /**
-     * User ID
-     * @return userId
+     * spotMakerfee rate
+     * @return spotMakerFee
     **/
-    public String getUserId() {
-        return userId;
+    public String getSpotMakerFee() {
+        return spotMakerFee;
     }
 
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setSpotMakerFee(String spotMakerFee) {
+        this.spotMakerFee = spotMakerFee;
     }
 
-    public InlineResponse20035 orderId(String orderId) {
+    public InlineResponse20035 spotTakerFee(String spotTakerFee) {
         
-        this.orderId = orderId;
+        this.spotTakerFee = spotTakerFee;
         return this;
     }
 
      /**
-     * Order ID
-     * @return orderId
+     * spotTakerfee rate
+     * @return spotTakerFee
     **/
-    public String getOrderId() {
-        return orderId;
+    public String getSpotTakerFee() {
+        return spotTakerFee;
     }
 
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setSpotTakerFee(String spotTakerFee) {
+        this.spotTakerFee = spotTakerFee;
     }
 
-    public InlineResponse20035 text(String text) {
+    public InlineResponse20035 futureMakerFee(String futureMakerFee) {
         
-        this.text = text;
+        this.futureMakerFee = futureMakerFee;
         return this;
     }
 
      /**
-     * Client Order ID
-     * @return text
+     * contractMakerfee rate
+     * @return futureMakerFee
     **/
-    public String getText() {
-        return text;
+    public String getFutureMakerFee() {
+        return futureMakerFee;
     }
 
 
-    public void setText(String text) {
-        this.text = text;
+    public void setFutureMakerFee(String futureMakerFee) {
+        this.futureMakerFee = futureMakerFee;
     }
 
-    public InlineResponse20035 state(String state) {
+    public InlineResponse20035 futureTakerFee(String futureTakerFee) {
         
-        this.state = state;
+        this.futureTakerFee = futureTakerFee;
         return this;
     }
 
      /**
-     * Order Status
-     * @return state
+     * contractTakerfee rate
+     * @return futureTakerFee
     **/
-    public String getState() {
-        return state;
+    public String getFutureTakerFee() {
+        return futureTakerFee;
     }
 
 
-    public void setState(String state) {
-        this.state = state;
+    public void setFutureTakerFee(String futureTakerFee) {
+        this.futureTakerFee = futureTakerFee;
     }
 
-    public InlineResponse20035 symbol(String symbol) {
+    public InlineResponse20035 specialFeeList(List<InlineResponse20035SpecialFeeList> specialFeeList) {
         
-        this.symbol = symbol;
+        this.specialFeeList = specialFeeList;
+        return this;
+    }
+
+    public InlineResponse20035 addSpecialFeeListItem(InlineResponse20035SpecialFeeList specialFeeListItem) {
+        this.specialFeeList.add(specialFeeListItem);
         return this;
     }
 
      /**
-     * Currency pair
-     * @return symbol
+     * Get specialFeeList
+     * @return specialFeeList
     **/
-    public String getSymbol() {
-        return symbol;
+    public List<InlineResponse20035SpecialFeeList> getSpecialFeeList() {
+        return specialFeeList;
     }
 
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public InlineResponse20035 attribute(String attribute) {
-        
-        this.attribute = attribute;
-        return this;
-    }
-
-     /**
-     * Attribute COMMON: Normal Order, LIQ: Liquidation Takeover Order, REDUCE: Liquidation Reduce Order, ADL: Auto-Reduce
-     * @return attribute
-    **/
-    public String getAttribute() {
-        return attribute;
-    }
-
-
-    public void setAttribute(String attribute) {
-        this.attribute = attribute;
-    }
-
-    public InlineResponse20035 exchangeType(String exchangeType) {
-        
-        this.exchangeType = exchangeType;
-        return this;
-    }
-
-     /**
-     * Exchange
-     * @return exchangeType
-    **/
-    public String getExchangeType() {
-        return exchangeType;
-    }
-
-
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
-    }
-
-    public InlineResponse20035 businessType(String businessType) {
-        
-        this.businessType = businessType;
-        return this;
-    }
-
-     /**
-     * Business Type
-     * @return businessType
-    **/
-    public String getBusinessType() {
-        return businessType;
-    }
-
-
-    public void setBusinessType(String businessType) {
-        this.businessType = businessType;
-    }
-
-    public InlineResponse20035 qty(String qty) {
-        
-        this.qty = qty;
-        return this;
-    }
-
-     /**
-     * Base Currency Quantity
-     * @return qty
-    **/
-    public String getQty() {
-        return qty;
-    }
-
-
-    public void setQty(String qty) {
-        this.qty = qty;
-    }
-
-    public InlineResponse20035 quoteQty(String quoteQty) {
-        
-        this.quoteQty = quoteQty;
-        return this;
-    }
-
-     /**
-     * Quote Currency Quantity
-     * @return quoteQty
-    **/
-    public String getQuoteQty() {
-        return quoteQty;
-    }
-
-
-    public void setQuoteQty(String quoteQty) {
-        this.quoteQty = quoteQty;
-    }
-
-    public InlineResponse20035 price(String price) {
-        
-        this.price = price;
-        return this;
-    }
-
-     /**
-     * Price
-     * @return price
-    **/
-    public String getPrice() {
-        return price;
-    }
-
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public InlineResponse20035 timeInForce(String timeInForce) {
-        
-        this.timeInForce = timeInForce;
-        return this;
-    }
-
-     /**
-     * Time in Force Strategy
-     * @return timeInForce
-    **/
-    public String getTimeInForce() {
-        return timeInForce;
-    }
-
-
-    public void setTimeInForce(String timeInForce) {
-        this.timeInForce = timeInForce;
-    }
-
-    public InlineResponse20035 executedQty(String executedQty) {
-        
-        this.executedQty = executedQty;
-        return this;
-    }
-
-     /**
-     * Filled Quantity
-     * @return executedQty
-    **/
-    public String getExecutedQty() {
-        return executedQty;
-    }
-
-
-    public void setExecutedQty(String executedQty) {
-        this.executedQty = executedQty;
-    }
-
-    public InlineResponse20035 executedAmount(String executedAmount) {
-        
-        this.executedAmount = executedAmount;
-        return this;
-    }
-
-     /**
-     * Filled Amount
-     * @return executedAmount
-    **/
-    public String getExecutedAmount() {
-        return executedAmount;
-    }
-
-
-    public void setExecutedAmount(String executedAmount) {
-        this.executedAmount = executedAmount;
-    }
-
-    public InlineResponse20035 executedAvgPrice(String executedAvgPrice) {
-        
-        this.executedAvgPrice = executedAvgPrice;
-        return this;
-    }
-
-     /**
-     * Average Filled Price
-     * @return executedAvgPrice
-    **/
-    public String getExecutedAvgPrice() {
-        return executedAvgPrice;
-    }
-
-
-    public void setExecutedAvgPrice(String executedAvgPrice) {
-        this.executedAvgPrice = executedAvgPrice;
-    }
-
-    public InlineResponse20035 feeCoin(String feeCoin) {
-        
-        this.feeCoin = feeCoin;
-        return this;
-    }
-
-     /**
-     * Fee currency
-     * @return feeCoin
-    **/
-    public String getFeeCoin() {
-        return feeCoin;
-    }
-
-
-    public void setFeeCoin(String feeCoin) {
-        this.feeCoin = feeCoin;
-    }
-
-    public InlineResponse20035 fee(String fee) {
-        
-        this.fee = fee;
-        return this;
-    }
-
-     /**
-     * fee
-     * @return fee
-    **/
-    public String getFee() {
-        return fee;
-    }
-
-
-    public void setFee(String fee) {
-        this.fee = fee;
-    }
-
-    public InlineResponse20035 reduceOnly(String reduceOnly) {
-        
-        this.reduceOnly = reduceOnly;
-        return this;
-    }
-
-     /**
-     * Reduce Position Only
-     * @return reduceOnly
-    **/
-    public String getReduceOnly() {
-        return reduceOnly;
-    }
-
-
-    public void setReduceOnly(String reduceOnly) {
-        this.reduceOnly = reduceOnly;
-    }
-
-    public InlineResponse20035 leverage(String leverage) {
-        
-        this.leverage = leverage;
-        return this;
-    }
-
-     /**
-     * leverage
-     * @return leverage
-    **/
-    public String getLeverage() {
-        return leverage;
-    }
-
-
-    public void setLeverage(String leverage) {
-        this.leverage = leverage;
-    }
-
-    public InlineResponse20035 reason(String reason) {
-        
-        this.reason = reason;
-        return this;
-    }
-
-     /**
-     * Reason
-     * @return reason
-    **/
-    public String getReason() {
-        return reason;
-    }
-
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public InlineResponse20035 lastExecutedQty(String lastExecutedQty) {
-        
-        this.lastExecutedQty = lastExecutedQty;
-        return this;
-    }
-
-     /**
-     * Latest Filled Quantity
-     * @return lastExecutedQty
-    **/
-    public String getLastExecutedQty() {
-        return lastExecutedQty;
-    }
-
-
-    public void setLastExecutedQty(String lastExecutedQty) {
-        this.lastExecutedQty = lastExecutedQty;
-    }
-
-    public InlineResponse20035 lastExecutedPrice(String lastExecutedPrice) {
-        
-        this.lastExecutedPrice = lastExecutedPrice;
-        return this;
-    }
-
-     /**
-     * Latest Filled Price
-     * @return lastExecutedPrice
-    **/
-    public String getLastExecutedPrice() {
-        return lastExecutedPrice;
-    }
-
-
-    public void setLastExecutedPrice(String lastExecutedPrice) {
-        this.lastExecutedPrice = lastExecutedPrice;
-    }
-
-    public InlineResponse20035 lastExecutedAmount(String lastExecutedAmount) {
-        
-        this.lastExecutedAmount = lastExecutedAmount;
-        return this;
-    }
-
-     /**
-     * Latest Filled Amount
-     * @return lastExecutedAmount
-    **/
-    public String getLastExecutedAmount() {
-        return lastExecutedAmount;
-    }
-
-
-    public void setLastExecutedAmount(String lastExecutedAmount) {
-        this.lastExecutedAmount = lastExecutedAmount;
-    }
-
-    public InlineResponse20035 positionSide(String positionSide) {
-        
-        this.positionSide = positionSide;
-        return this;
-    }
-
-     /**
-     * Position Direction
-     * @return positionSide
-    **/
-    public String getPositionSide() {
-        return positionSide;
-    }
-
-
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
-    }
-
-    public InlineResponse20035 createTime(String createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Created time
-     * @return createTime
-    **/
-    public String getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public InlineResponse20035 updateTime(String updateTime) {
-        
-        this.updateTime = updateTime;
-        return this;
-    }
-
-     /**
-     * Update time
-     * @return updateTime
-    **/
-    public String getUpdateTime() {
-        return updateTime;
-    }
-
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
+    public void setSpecialFeeList(List<InlineResponse20035SpecialFeeList> specialFeeList) {
+        this.specialFeeList = specialFeeList;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -630,37 +155,16 @@ public class InlineResponse20035 {
             return false;
         }
         InlineResponse20035 inlineResponse20035 = (InlineResponse20035) o;
-        return Objects.equals(this.userId, inlineResponse20035.userId) &&
-                Objects.equals(this.orderId, inlineResponse20035.orderId) &&
-                Objects.equals(this.text, inlineResponse20035.text) &&
-                Objects.equals(this.state, inlineResponse20035.state) &&
-                Objects.equals(this.symbol, inlineResponse20035.symbol) &&
-                Objects.equals(this.attribute, inlineResponse20035.attribute) &&
-                Objects.equals(this.exchangeType, inlineResponse20035.exchangeType) &&
-                Objects.equals(this.businessType, inlineResponse20035.businessType) &&
-                Objects.equals(this.qty, inlineResponse20035.qty) &&
-                Objects.equals(this.quoteQty, inlineResponse20035.quoteQty) &&
-                Objects.equals(this.price, inlineResponse20035.price) &&
-                Objects.equals(this.timeInForce, inlineResponse20035.timeInForce) &&
-                Objects.equals(this.executedQty, inlineResponse20035.executedQty) &&
-                Objects.equals(this.executedAmount, inlineResponse20035.executedAmount) &&
-                Objects.equals(this.executedAvgPrice, inlineResponse20035.executedAvgPrice) &&
-                Objects.equals(this.feeCoin, inlineResponse20035.feeCoin) &&
-                Objects.equals(this.fee, inlineResponse20035.fee) &&
-                Objects.equals(this.reduceOnly, inlineResponse20035.reduceOnly) &&
-                Objects.equals(this.leverage, inlineResponse20035.leverage) &&
-                Objects.equals(this.reason, inlineResponse20035.reason) &&
-                Objects.equals(this.lastExecutedQty, inlineResponse20035.lastExecutedQty) &&
-                Objects.equals(this.lastExecutedPrice, inlineResponse20035.lastExecutedPrice) &&
-                Objects.equals(this.lastExecutedAmount, inlineResponse20035.lastExecutedAmount) &&
-                Objects.equals(this.positionSide, inlineResponse20035.positionSide) &&
-                Objects.equals(this.createTime, inlineResponse20035.createTime) &&
-                Objects.equals(this.updateTime, inlineResponse20035.updateTime);
+        return Objects.equals(this.spotMakerFee, inlineResponse20035.spotMakerFee) &&
+                Objects.equals(this.spotTakerFee, inlineResponse20035.spotTakerFee) &&
+                Objects.equals(this.futureMakerFee, inlineResponse20035.futureMakerFee) &&
+                Objects.equals(this.futureTakerFee, inlineResponse20035.futureTakerFee) &&
+                Objects.equals(this.specialFeeList, inlineResponse20035.specialFeeList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, orderId, text, state, symbol, attribute, exchangeType, businessType, qty, quoteQty, price, timeInForce, executedQty, executedAmount, executedAvgPrice, feeCoin, fee, reduceOnly, leverage, reason, lastExecutedQty, lastExecutedPrice, lastExecutedAmount, positionSide, createTime, updateTime);
+        return Objects.hash(spotMakerFee, spotTakerFee, futureMakerFee, futureTakerFee, specialFeeList);
     }
 
 
@@ -668,32 +172,11 @@ public class InlineResponse20035 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20035 {\n");
-        sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
-        sb.append("      state: ").append(toIndentedString(state)).append("\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      attribute: ").append(toIndentedString(attribute)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      businessType: ").append(toIndentedString(businessType)).append("\n");
-        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
-        sb.append("      quoteQty: ").append(toIndentedString(quoteQty)).append("\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
-        sb.append("      executedQty: ").append(toIndentedString(executedQty)).append("\n");
-        sb.append("      executedAmount: ").append(toIndentedString(executedAmount)).append("\n");
-        sb.append("      executedAvgPrice: ").append(toIndentedString(executedAvgPrice)).append("\n");
-        sb.append("      feeCoin: ").append(toIndentedString(feeCoin)).append("\n");
-        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
-        sb.append("      reduceOnly: ").append(toIndentedString(reduceOnly)).append("\n");
-        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
-        sb.append("      reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("      lastExecutedQty: ").append(toIndentedString(lastExecutedQty)).append("\n");
-        sb.append("      lastExecutedPrice: ").append(toIndentedString(lastExecutedPrice)).append("\n");
-        sb.append("      lastExecutedAmount: ").append(toIndentedString(lastExecutedAmount)).append("\n");
-        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
+        sb.append("      spotMakerFee: ").append(toIndentedString(spotMakerFee)).append("\n");
+        sb.append("      spotTakerFee: ").append(toIndentedString(spotTakerFee)).append("\n");
+        sb.append("      futureMakerFee: ").append(toIndentedString(futureMakerFee)).append("\n");
+        sb.append("      futureTakerFee: ").append(toIndentedString(futureTakerFee)).append("\n");
+        sb.append("      specialFeeList: ").append(toIndentedString(specialFeeList)).append("\n");
         sb.append("}");
         return sb.toString();
     }

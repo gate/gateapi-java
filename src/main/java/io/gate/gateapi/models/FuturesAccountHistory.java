@@ -63,6 +63,10 @@ public class FuturesAccountHistory {
     @SerializedName(SERIALIZED_NAME_BONUS_OFFSET)
     private String bonusOffset;
 
+    public static final String SERIALIZED_NAME_CROSS_SETTLE = "cross_settle";
+    @SerializedName(SERIALIZED_NAME_CROSS_SETTLE)
+    private String crossSettle;
+
 
     public FuturesAccountHistory dnw(String dnw) {
         
@@ -263,6 +267,26 @@ public class FuturesAccountHistory {
     public void setBonusOffset(String bonusOffset) {
         this.bonusOffset = bonusOffset;
     }
+
+    public FuturesAccountHistory crossSettle(String crossSettle) {
+        
+        this.crossSettle = crossSettle;
+        return this;
+    }
+
+     /**
+     * Represents the value of profit settlement from the futures account to the spot account under Unified Account Mode. Negative values indicate settlement from futures to spot, while positive values indicate settlement from spot to futures. This value is cumulative.
+     * @return crossSettle
+    **/
+    @javax.annotation.Nullable
+    public String getCrossSettle() {
+        return crossSettle;
+    }
+
+
+    public void setCrossSettle(String crossSettle) {
+        this.crossSettle = crossSettle;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -281,12 +305,13 @@ public class FuturesAccountHistory {
                 Objects.equals(this.pointFee, futuresAccountHistory.pointFee) &&
                 Objects.equals(this.pointRefr, futuresAccountHistory.pointRefr) &&
                 Objects.equals(this.bonusDnw, futuresAccountHistory.bonusDnw) &&
-                Objects.equals(this.bonusOffset, futuresAccountHistory.bonusOffset);
+                Objects.equals(this.bonusOffset, futuresAccountHistory.bonusOffset) &&
+                Objects.equals(this.crossSettle, futuresAccountHistory.crossSettle);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dnw, pnl, fee, refr, fund, pointDnw, pointFee, pointRefr, bonusDnw, bonusOffset);
+        return Objects.hash(dnw, pnl, fee, refr, fund, pointDnw, pointFee, pointRefr, bonusDnw, bonusOffset, crossSettle);
     }
 
 
@@ -304,6 +329,7 @@ public class FuturesAccountHistory {
         sb.append("      pointRefr: ").append(toIndentedString(pointRefr)).append("\n");
         sb.append("      bonusDnw: ").append(toIndentedString(bonusDnw)).append("\n");
         sb.append("      bonusOffset: ").append(toIndentedString(bonusOffset)).append("\n");
+        sb.append("      crossSettle: ").append(toIndentedString(crossSettle)).append("\n");
         sb.append("}");
         return sb.toString();
     }

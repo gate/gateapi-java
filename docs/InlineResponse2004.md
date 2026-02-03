@@ -5,6 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | 
-**message** | **String** |  | 
+**time** | **Long** |  |  [optional]
+**value** | **String** |  |  [optional]
 

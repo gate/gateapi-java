@@ -23,97 +23,97 @@ import java.io.IOException;
  * InlineResponse20034
  */
 public class InlineResponse20034 {
-    public static final String SERIALIZED_NAME_USER_ID = "user_id";
-    @SerializedName(SERIALIZED_NAME_USER_ID)
-    private String userId;
+    public static final String SERIALIZED_NAME_COIN = "coin";
+    @SerializedName(SERIALIZED_NAME_COIN)
+    private String coin;
 
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
 
-    public static final String SERIALIZED_NAME_CROSSEX_ADL_RANK = "crossex_adl_rank";
-    @SerializedName(SERIALIZED_NAME_CROSSEX_ADL_RANK)
-    private String crossexAdlRank;
+    public static final String SERIALIZED_NAME_HOUR_INTEREST_RATE = "hour_interest_rate";
+    @SerializedName(SERIALIZED_NAME_HOUR_INTEREST_RATE)
+    private String hourInterestRate;
 
-    public static final String SERIALIZED_NAME_EXCHANGE_ADL_RANK = "exchange_adl_rank";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_ADL_RANK)
-    private String exchangeAdlRank;
+    public static final String SERIALIZED_NAME_TIME = "time";
+    @SerializedName(SERIALIZED_NAME_TIME)
+    private String time;
 
 
-    public InlineResponse20034 userId(String userId) {
+    public InlineResponse20034 coin(String coin) {
         
-        this.userId = userId;
+        this.coin = coin;
         return this;
     }
 
      /**
-     * User ID
-     * @return userId
+     * Currency
+     * @return coin
     **/
-    public String getUserId() {
-        return userId;
+    public String getCoin() {
+        return coin;
     }
 
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setCoin(String coin) {
+        this.coin = coin;
     }
 
-    public InlineResponse20034 symbol(String symbol) {
+    public InlineResponse20034 exchangeType(String exchangeType) {
         
-        this.symbol = symbol;
+        this.exchangeType = exchangeType;
         return this;
     }
 
      /**
-     * Currency pair
-     * @return symbol
+     * Exchange
+     * @return exchangeType
     **/
-    public String getSymbol() {
-        return symbol;
+    public String getExchangeType() {
+        return exchangeType;
     }
 
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
 
-    public InlineResponse20034 crossexAdlRank(String crossexAdlRank) {
+    public InlineResponse20034 hourInterestRate(String hourInterestRate) {
         
-        this.crossexAdlRank = crossexAdlRank;
+        this.hourInterestRate = hourInterestRate;
         return this;
     }
 
      /**
-     * CROSSEX position-reduction indicator ranking (1–5, higher value ranks higher)
-     * @return crossexAdlRank
+     * Hourly Interest Rate
+     * @return hourInterestRate
     **/
-    public String getCrossexAdlRank() {
-        return crossexAdlRank;
+    public String getHourInterestRate() {
+        return hourInterestRate;
     }
 
 
-    public void setCrossexAdlRank(String crossexAdlRank) {
-        this.crossexAdlRank = crossexAdlRank;
+    public void setHourInterestRate(String hourInterestRate) {
+        this.hourInterestRate = hourInterestRate;
     }
 
-    public InlineResponse20034 exchangeAdlRank(String exchangeAdlRank) {
+    public InlineResponse20034 time(String time) {
         
-        this.exchangeAdlRank = exchangeAdlRank;
+        this.time = time;
         return this;
     }
 
      /**
-     * Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)
-     * @return exchangeAdlRank
+     * Millisecond Timestamp
+     * @return time
     **/
-    public String getExchangeAdlRank() {
-        return exchangeAdlRank;
+    public String getTime() {
+        return time;
     }
 
 
-    public void setExchangeAdlRank(String exchangeAdlRank) {
-        this.exchangeAdlRank = exchangeAdlRank;
+    public void setTime(String time) {
+        this.time = time;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -124,15 +124,15 @@ public class InlineResponse20034 {
             return false;
         }
         InlineResponse20034 inlineResponse20034 = (InlineResponse20034) o;
-        return Objects.equals(this.userId, inlineResponse20034.userId) &&
-                Objects.equals(this.symbol, inlineResponse20034.symbol) &&
-                Objects.equals(this.crossexAdlRank, inlineResponse20034.crossexAdlRank) &&
-                Objects.equals(this.exchangeAdlRank, inlineResponse20034.exchangeAdlRank);
+        return Objects.equals(this.coin, inlineResponse20034.coin) &&
+                Objects.equals(this.exchangeType, inlineResponse20034.exchangeType) &&
+                Objects.equals(this.hourInterestRate, inlineResponse20034.hourInterestRate) &&
+                Objects.equals(this.time, inlineResponse20034.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, symbol, crossexAdlRank, exchangeAdlRank);
+        return Objects.hash(coin, exchangeType, hourInterestRate, time);
     }
 
 
@@ -140,10 +140,10 @@ public class InlineResponse20034 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20034 {\n");
-        sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      crossexAdlRank: ").append(toIndentedString(crossexAdlRank)).append("\n");
-        sb.append("      exchangeAdlRank: ").append(toIndentedString(exchangeAdlRank)).append("\n");
+        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      hourInterestRate: ").append(toIndentedString(hourInterestRate)).append("\n");
+        sb.append("      time: ").append(toIndentedString(time)).append("\n");
         sb.append("}");
         return sb.toString();
     }

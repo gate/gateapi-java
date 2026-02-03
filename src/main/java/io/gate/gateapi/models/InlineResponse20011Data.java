@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20011List;
+import io.gate.gateapi.models.InlineResponse20011DataList;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,101 +26,110 @@ import java.util.List;
  * InlineResponse20011Data
  */
 public class InlineResponse20011Data {
-    public static final String SERIALIZED_NAME_PAY_TYPE = "pay_type";
-    @SerializedName(SERIALIZED_NAME_PAY_TYPE)
-    private String payType;
+    public static final String SERIALIZED_NAME_TOTAL = "total";
+    @SerializedName(SERIALIZED_NAME_TOTAL)
+    private Integer total;
 
-    public static final String SERIALIZED_NAME_PAY_NAME = "pay_name";
-    @SerializedName(SERIALIZED_NAME_PAY_NAME)
-    private String payName;
+    public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
+    @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+    private Integer pageSize;
 
-    public static final String SERIALIZED_NAME_IDS = "ids";
-    @SerializedName(SERIALIZED_NAME_IDS)
-    private List<Integer> ids = null;
+    public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
+    @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
+    private Integer pageNumber;
+
+    public static final String SERIALIZED_NAME_TOTAL_PAGE = "total_page";
+    @SerializedName(SERIALIZED_NAME_TOTAL_PAGE)
+    private Integer totalPage;
 
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20011List> list = null;
+    private List<InlineResponse20011DataList> list = new ArrayList<>();
 
 
-    public InlineResponse20011Data payType(String payType) {
+    public InlineResponse20011Data total(Integer total) {
         
-        this.payType = payType;
+        this.total = total;
         return this;
     }
 
      /**
-     * Payment method type
-     * @return payType
+     * Get total
+     * @return total
     **/
-    @javax.annotation.Nullable
-    public String getPayType() {
-        return payType;
+    public Integer getTotal() {
+        return total;
     }
 
 
-    public void setPayType(String payType) {
-        this.payType = payType;
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
-    public InlineResponse20011Data payName(String payName) {
+    public InlineResponse20011Data pageSize(Integer pageSize) {
         
-        this.payName = payName;
+        this.pageSize = pageSize;
         return this;
     }
 
      /**
-     * Payment method name
-     * @return payName
+     * Get pageSize
+     * @return pageSize
     **/
-    @javax.annotation.Nullable
-    public String getPayName() {
-        return payName;
+    public Integer getPageSize() {
+        return pageSize;
     }
 
 
-    public void setPayName(String payName) {
-        this.payName = payName;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public InlineResponse20011Data ids(List<Integer> ids) {
+    public InlineResponse20011Data pageNumber(Integer pageNumber) {
         
-        this.ids = ids;
-        return this;
-    }
-
-    public InlineResponse20011Data addIdsItem(Integer idsItem) {
-        if (this.ids == null) {
-            this.ids = new ArrayList<>();
-        }
-        this.ids.add(idsItem);
+        this.pageNumber = pageNumber;
         return this;
     }
 
      /**
-     * User&#39;s currently bound payment method (primary key ID)
-     * @return ids
+     * Get pageNumber
+     * @return pageNumber
     **/
-    @javax.annotation.Nullable
-    public List<Integer> getIds() {
-        return ids;
+    public Integer getPageNumber() {
+        return pageNumber;
     }
 
 
-    public void setIds(List<Integer> ids) {
-        this.ids = ids;
+    public void setPageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
     }
 
-    public InlineResponse20011Data list(List<InlineResponse20011List> list) {
+    public InlineResponse20011Data totalPage(Integer totalPage) {
+        
+        this.totalPage = totalPage;
+        return this;
+    }
+
+     /**
+     * Get totalPage
+     * @return totalPage
+    **/
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public InlineResponse20011Data list(List<InlineResponse20011DataList> list) {
         
         this.list = list;
         return this;
     }
 
-    public InlineResponse20011Data addListItem(InlineResponse20011List listItem) {
-        if (this.list == null) {
-            this.list = new ArrayList<>();
-        }
+    public InlineResponse20011Data addListItem(InlineResponse20011DataList listItem) {
         this.list.add(listItem);
         return this;
     }
@@ -129,13 +138,12 @@ public class InlineResponse20011Data {
      * Get list
      * @return list
     **/
-    @javax.annotation.Nullable
-    public List<InlineResponse20011List> getList() {
+    public List<InlineResponse20011DataList> getList() {
         return list;
     }
 
 
-    public void setList(List<InlineResponse20011List> list) {
+    public void setList(List<InlineResponse20011DataList> list) {
         this.list = list;
     }
     @Override
@@ -147,15 +155,16 @@ public class InlineResponse20011Data {
             return false;
         }
         InlineResponse20011Data inlineResponse20011Data = (InlineResponse20011Data) o;
-        return Objects.equals(this.payType, inlineResponse20011Data.payType) &&
-                Objects.equals(this.payName, inlineResponse20011Data.payName) &&
-                Objects.equals(this.ids, inlineResponse20011Data.ids) &&
+        return Objects.equals(this.total, inlineResponse20011Data.total) &&
+                Objects.equals(this.pageSize, inlineResponse20011Data.pageSize) &&
+                Objects.equals(this.pageNumber, inlineResponse20011Data.pageNumber) &&
+                Objects.equals(this.totalPage, inlineResponse20011Data.totalPage) &&
                 Objects.equals(this.list, inlineResponse20011Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(payType, payName, ids, list);
+        return Objects.hash(total, pageSize, pageNumber, totalPage, list);
     }
 
 
@@ -163,9 +172,10 @@ public class InlineResponse20011Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20011Data {\n");
-        sb.append("      payType: ").append(toIndentedString(payType)).append("\n");
-        sb.append("      payName: ").append(toIndentedString(payName)).append("\n");
-        sb.append("      ids: ").append(toIndentedString(ids)).append("\n");
+        sb.append("      total: ").append(toIndentedString(total)).append("\n");
+        sb.append("      pageSize: ").append(toIndentedString(pageSize)).append("\n");
+        sb.append("      pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+        sb.append("      totalPage: ").append(toIndentedString(totalPage)).append("\n");
         sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();

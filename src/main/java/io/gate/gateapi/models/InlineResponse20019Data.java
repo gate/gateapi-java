@@ -18,33 +18,954 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20019Data
  */
 public class InlineResponse20019Data {
-    public static final String SERIALIZED_NAME_FILE_KEY = "file_key";
-    @SerializedName(SERIALIZED_NAME_FILE_KEY)
-    private String fileKey;
+    public static final String SERIALIZED_NAME_RATE = "rate";
+    @SerializedName(SERIALIZED_NAME_RATE)
+    private String rate;
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
+
+    public static final String SERIALIZED_NAME_MIN_AMOUNT = "min_amount";
+    @SerializedName(SERIALIZED_NAME_MIN_AMOUNT)
+    private String minAmount;
+
+    public static final String SERIALIZED_NAME_MAX_AMOUNT = "max_amount";
+    @SerializedName(SERIALIZED_NAME_MAX_AMOUNT)
+    private String maxAmount;
+
+    public static final String SERIALIZED_NAME_TOTAL = "total";
+    @SerializedName(SERIALIZED_NAME_TOTAL)
+    private String total;
+
+    public static final String SERIALIZED_NAME_PAY_ALI = "pay_ali";
+    @SerializedName(SERIALIZED_NAME_PAY_ALI)
+    private Integer payAli;
+
+    public static final String SERIALIZED_NAME_PAY_BANK = "pay_bank";
+    @SerializedName(SERIALIZED_NAME_PAY_BANK)
+    private Integer payBank;
+
+    public static final String SERIALIZED_NAME_PAY_PAYPAL = "pay_paypal";
+    @SerializedName(SERIALIZED_NAME_PAY_PAYPAL)
+    private Integer payPaypal;
+
+    public static final String SERIALIZED_NAME_PAY_WECHAT = "pay_wechat";
+    @SerializedName(SERIALIZED_NAME_PAY_WECHAT)
+    private Integer payWechat;
+
+    public static final String SERIALIZED_NAME_PAY_TYPE_NUM = "pay_type_num";
+    @SerializedName(SERIALIZED_NAME_PAY_TYPE_NUM)
+    private String payTypeNum;
+
+    public static final String SERIALIZED_NAME_PAY_TYPE_JSON = "pay_type_json";
+    @SerializedName(SERIALIZED_NAME_PAY_TYPE_JSON)
+    private String payTypeJson;
+
+    public static final String SERIALIZED_NAME_LOCKED_AMOUNT = "locked_amount";
+    @SerializedName(SERIALIZED_NAME_LOCKED_AMOUNT)
+    private String lockedAmount;
+
+    public static final String SERIALIZED_NAME_ORDERID = "orderid";
+    @SerializedName(SERIALIZED_NAME_ORDERID)
+    private Integer orderid;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
+
+    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currencyType";
+    @SerializedName(SERIALIZED_NAME_CURRENCY_TYPE)
+    private String currencyType;
+
+    public static final String SERIALIZED_NAME_WANT_TYPE = "want_type";
+    @SerializedName(SERIALIZED_NAME_WANT_TYPE)
+    private String wantType;
+
+    public static final String SERIALIZED_NAME_HIDE_RATE = "hide_rate";
+    @SerializedName(SERIALIZED_NAME_HIDE_RATE)
+    private String hideRate;
+
+    public static final String SERIALIZED_NAME_TRADE_TIPS = "trade_tips";
+    @SerializedName(SERIALIZED_NAME_TRADE_TIPS)
+    private String tradeTips;
+
+    public static final String SERIALIZED_NAME_AUTO_REPLY = "auto_reply";
+    @SerializedName(SERIALIZED_NAME_AUTO_REPLY)
+    private String autoReply;
+
+    public static final String SERIALIZED_NAME_NEW_HAND = "new_hand";
+    @SerializedName(SERIALIZED_NAME_NEW_HAND)
+    private String newHand;
+
+    public static final String SERIALIZED_NAME_RATE_REF_ID = "rate_ref_id";
+    @SerializedName(SERIALIZED_NAME_RATE_REF_ID)
+    private Integer rateRefId;
+
+    public static final String SERIALIZED_NAME_RATE_OFFSET = "rate_offset";
+    @SerializedName(SERIALIZED_NAME_RATE_OFFSET)
+    private BigDecimal rateOffset;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private String status;
+
+    public static final String SERIALIZED_NAME_RATE_FIXED = "rate_fixed";
+    @SerializedName(SERIALIZED_NAME_RATE_FIXED)
+    private Integer rateFixed;
+
+    public static final String SERIALIZED_NAME_FLOAT_TREND = "float_trend";
+    @SerializedName(SERIALIZED_NAME_FLOAT_TREND)
+    private Integer floatTrend;
+
+    public static final String SERIALIZED_NAME_EXPIRE_MIN = "expire_min";
+    @SerializedName(SERIALIZED_NAME_EXPIRE_MIN)
+    private Integer expireMin;
+
+    public static final String SERIALIZED_NAME_TIER_LIMIT = "tier_limit";
+    @SerializedName(SERIALIZED_NAME_TIER_LIMIT)
+    private Integer tierLimit;
+
+    public static final String SERIALIZED_NAME_REG_TIME_LIMIT = "reg_time_limit";
+    @SerializedName(SERIALIZED_NAME_REG_TIME_LIMIT)
+    private Integer regTimeLimit;
+
+    public static final String SERIALIZED_NAME_ADVERTISERS_LIMIT = "advertisers_limit";
+    @SerializedName(SERIALIZED_NAME_ADVERTISERS_LIMIT)
+    private Integer advertisersLimit;
+
+    public static final String SERIALIZED_NAME_VERIFIED_LIMIT = "verified_limit";
+    @SerializedName(SERIALIZED_NAME_VERIFIED_LIMIT)
+    private Integer verifiedLimit;
+
+    public static final String SERIALIZED_NAME_MIN_COMPLETED_LIMIT = "min_completed_limit";
+    @SerializedName(SERIALIZED_NAME_MIN_COMPLETED_LIMIT)
+    private Integer minCompletedLimit;
+
+    public static final String SERIALIZED_NAME_MAX_COMPLETED_LIMIT = "max_completed_limit";
+    @SerializedName(SERIALIZED_NAME_MAX_COMPLETED_LIMIT)
+    private Integer maxCompletedLimit;
+
+    public static final String SERIALIZED_NAME_USER_ORDERS_LIMIT = "user_orders_limit";
+    @SerializedName(SERIALIZED_NAME_USER_ORDERS_LIMIT)
+    private Integer userOrdersLimit;
+
+    public static final String SERIALIZED_NAME_COMPLETED_RATE_LIMIT = "completed_rate_limit";
+    @SerializedName(SERIALIZED_NAME_COMPLETED_RATE_LIMIT)
+    private Integer completedRateLimit;
+
+    public static final String SERIALIZED_NAME_USER_COUNTRY_LIMIT = "user_country_limit";
+    @SerializedName(SERIALIZED_NAME_USER_COUNTRY_LIMIT)
+    private Integer userCountryLimit;
+
+    public static final String SERIALIZED_NAME_LIMIT_COUNTRY_CN = "limit_country_cn";
+    @SerializedName(SERIALIZED_NAME_LIMIT_COUNTRY_CN)
+    private String limitCountryCn;
+
+    public static final String SERIALIZED_NAME_LIMIT_COUNTRY_EN = "limit_country_en";
+    @SerializedName(SERIALIZED_NAME_LIMIT_COUNTRY_EN)
+    private String limitCountryEn;
+
+    public static final String SERIALIZED_NAME_IS_HEDGE = "is_hedge";
+    @SerializedName(SERIALIZED_NAME_IS_HEDGE)
+    private Integer isHedge;
+
+    public static final String SERIALIZED_NAME_HIDE_PAYMENT = "hide_payment";
+    @SerializedName(SERIALIZED_NAME_HIDE_PAYMENT)
+    private Integer hidePayment;
+
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private Integer fee;
 
 
-    public InlineResponse20019Data fileKey(String fileKey) {
+    public InlineResponse20019Data rate(String rate) {
         
-        this.fileKey = fileKey;
+        this.rate = rate;
         return this;
     }
 
      /**
-     * File key
-     * @return fileKey
+     * Price
+     * @return rate
     **/
-    public String getFileKey() {
-        return fileKey;
+    public String getRate() {
+        return rate;
     }
 
 
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public InlineResponse20019Data type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * Buy/Sell order
+     * @return type
+    **/
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public InlineResponse20019Data amount(String amount) {
+        
+        this.amount = amount;
+        return this;
+    }
+
+     /**
+     * Cryptocurrency amount
+     * @return amount
+    **/
+    public String getAmount() {
+        return amount;
+    }
+
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public InlineResponse20019Data minAmount(String minAmount) {
+        
+        this.minAmount = minAmount;
+        return this;
+    }
+
+     /**
+     * Minimum limit
+     * @return minAmount
+    **/
+    public String getMinAmount() {
+        return minAmount;
+    }
+
+
+    public void setMinAmount(String minAmount) {
+        this.minAmount = minAmount;
+    }
+
+    public InlineResponse20019Data maxAmount(String maxAmount) {
+        
+        this.maxAmount = maxAmount;
+        return this;
+    }
+
+     /**
+     * Maximum limit
+     * @return maxAmount
+    **/
+    public String getMaxAmount() {
+        return maxAmount;
+    }
+
+
+    public void setMaxAmount(String maxAmount) {
+        this.maxAmount = maxAmount;
+    }
+
+    public InlineResponse20019Data total(String total) {
+        
+        this.total = total;
+        return this;
+    }
+
+     /**
+     * Fiat amount
+     * @return total
+    **/
+    public String getTotal() {
+        return total;
+    }
+
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public InlineResponse20019Data payAli(Integer payAli) {
+        
+        this.payAli = payAli;
+        return this;
+    }
+
+     /**
+     * Whether Alipay payment is supported
+     * @return payAli
+    **/
+    public Integer getPayAli() {
+        return payAli;
+    }
+
+
+    public void setPayAli(Integer payAli) {
+        this.payAli = payAli;
+    }
+
+    public InlineResponse20019Data payBank(Integer payBank) {
+        
+        this.payBank = payBank;
+        return this;
+    }
+
+     /**
+     * Whether bank payment is supported
+     * @return payBank
+    **/
+    public Integer getPayBank() {
+        return payBank;
+    }
+
+
+    public void setPayBank(Integer payBank) {
+        this.payBank = payBank;
+    }
+
+    public InlineResponse20019Data payPaypal(Integer payPaypal) {
+        
+        this.payPaypal = payPaypal;
+        return this;
+    }
+
+     /**
+     * Whether PayPal payment is supported
+     * @return payPaypal
+    **/
+    public Integer getPayPaypal() {
+        return payPaypal;
+    }
+
+
+    public void setPayPaypal(Integer payPaypal) {
+        this.payPaypal = payPaypal;
+    }
+
+    public InlineResponse20019Data payWechat(Integer payWechat) {
+        
+        this.payWechat = payWechat;
+        return this;
+    }
+
+     /**
+     * Whether WeChat payment is supported
+     * @return payWechat
+    **/
+    public Integer getPayWechat() {
+        return payWechat;
+    }
+
+
+    public void setPayWechat(Integer payWechat) {
+        this.payWechat = payWechat;
+    }
+
+    public InlineResponse20019Data payTypeNum(String payTypeNum) {
+        
+        this.payTypeNum = payTypeNum;
+        return this;
+    }
+
+     /**
+     * Payment method ID list
+     * @return payTypeNum
+    **/
+    public String getPayTypeNum() {
+        return payTypeNum;
+    }
+
+
+    public void setPayTypeNum(String payTypeNum) {
+        this.payTypeNum = payTypeNum;
+    }
+
+    public InlineResponse20019Data payTypeJson(String payTypeJson) {
+        
+        this.payTypeJson = payTypeJson;
+        return this;
+    }
+
+     /**
+     * Payment method list
+     * @return payTypeJson
+    **/
+    public String getPayTypeJson() {
+        return payTypeJson;
+    }
+
+
+    public void setPayTypeJson(String payTypeJson) {
+        this.payTypeJson = payTypeJson;
+    }
+
+    public InlineResponse20019Data lockedAmount(String lockedAmount) {
+        
+        this.lockedAmount = lockedAmount;
+        return this;
+    }
+
+     /**
+     * Locked amount
+     * @return lockedAmount
+    **/
+    public String getLockedAmount() {
+        return lockedAmount;
+    }
+
+
+    public void setLockedAmount(String lockedAmount) {
+        this.lockedAmount = lockedAmount;
+    }
+
+    public InlineResponse20019Data orderid(Integer orderid) {
+        
+        this.orderid = orderid;
+        return this;
+    }
+
+     /**
+     * Order ID
+     * @return orderid
+    **/
+    public Integer getOrderid() {
+        return orderid;
+    }
+
+
+    public void setOrderid(Integer orderid) {
+        this.orderid = orderid;
+    }
+
+    public InlineResponse20019Data timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Created time
+     * @return timestamp
+    **/
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public InlineResponse20019Data currencyType(String currencyType) {
+        
+        this.currencyType = currencyType;
+        return this;
+    }
+
+     /**
+     * Cryptocurrency type
+     * @return currencyType
+    **/
+    public String getCurrencyType() {
+        return currencyType;
+    }
+
+
+    public void setCurrencyType(String currencyType) {
+        this.currencyType = currencyType;
+    }
+
+    public InlineResponse20019Data wantType(String wantType) {
+        
+        this.wantType = wantType;
+        return this;
+    }
+
+     /**
+     * Fiat type
+     * @return wantType
+    **/
+    public String getWantType() {
+        return wantType;
+    }
+
+
+    public void setWantType(String wantType) {
+        this.wantType = wantType;
+    }
+
+    public InlineResponse20019Data hideRate(String hideRate) {
+        
+        this.hideRate = hideRate;
+        return this;
+    }
+
+     /**
+     * Hidden price
+     * @return hideRate
+    **/
+    public String getHideRate() {
+        return hideRate;
+    }
+
+
+    public void setHideRate(String hideRate) {
+        this.hideRate = hideRate;
+    }
+
+    public InlineResponse20019Data tradeTips(String tradeTips) {
+        
+        this.tradeTips = tradeTips;
+        return this;
+    }
+
+     /**
+     * Trading terms
+     * @return tradeTips
+    **/
+    public String getTradeTips() {
+        return tradeTips;
+    }
+
+
+    public void setTradeTips(String tradeTips) {
+        this.tradeTips = tradeTips;
+    }
+
+    public InlineResponse20019Data autoReply(String autoReply) {
+        
+        this.autoReply = autoReply;
+        return this;
+    }
+
+     /**
+     * Auto reply
+     * @return autoReply
+    **/
+    public String getAutoReply() {
+        return autoReply;
+    }
+
+
+    public void setAutoReply(String autoReply) {
+        this.autoReply = autoReply;
+    }
+
+    public InlineResponse20019Data newHand(String newHand) {
+        
+        this.newHand = newHand;
+        return this;
+    }
+
+     /**
+     * Merchant-friendly order
+     * @return newHand
+    **/
+    public String getNewHand() {
+        return newHand;
+    }
+
+
+    public void setNewHand(String newHand) {
+        this.newHand = newHand;
+    }
+
+    public InlineResponse20019Data rateRefId(Integer rateRefId) {
+        
+        this.rateRefId = rateRefId;
+        return this;
+    }
+
+     /**
+     * Floating price reference ID: 1&#x3D;Platform reference price, 3&#x3D;Spot reference price (≤0 means fixed price, &gt;0 means floating price)
+     * @return rateRefId
+    **/
+    public Integer getRateRefId() {
+        return rateRefId;
+    }
+
+
+    public void setRateRefId(Integer rateRefId) {
+        this.rateRefId = rateRefId;
+    }
+
+    public InlineResponse20019Data rateOffset(BigDecimal rateOffset) {
+        
+        this.rateOffset = rateOffset;
+        return this;
+    }
+
+     /**
+     * Floating ratio (absolute value)
+     * @return rateOffset
+    **/
+    public BigDecimal getRateOffset() {
+        return rateOffset;
+    }
+
+
+    public void setRateOffset(BigDecimal rateOffset) {
+        this.rateOffset = rateOffset;
+    }
+
+    public InlineResponse20019Data status(String status) {
+        
+        this.status = status;
+        return this;
+    }
+
+     /**
+     * Status
+     * @return status
+    **/
+    public String getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public InlineResponse20019Data rateFixed(Integer rateFixed) {
+        
+        this.rateFixed = rateFixed;
+        return this;
+    }
+
+     /**
+     * 0&#x3D;Floating, 1&#x3D;Fixed
+     * @return rateFixed
+    **/
+    public Integer getRateFixed() {
+        return rateFixed;
+    }
+
+
+    public void setRateFixed(Integer rateFixed) {
+        this.rateFixed = rateFixed;
+    }
+
+    public InlineResponse20019Data floatTrend(Integer floatTrend) {
+        
+        this.floatTrend = floatTrend;
+        return this;
+    }
+
+     /**
+     * 0&#x3D;Upward float, 1&#x3D;Downward float
+     * @return floatTrend
+    **/
+    public Integer getFloatTrend() {
+        return floatTrend;
+    }
+
+
+    public void setFloatTrend(Integer floatTrend) {
+        this.floatTrend = floatTrend;
+    }
+
+    public InlineResponse20019Data expireMin(Integer expireMin) {
+        
+        this.expireMin = expireMin;
+        return this;
+    }
+
+     /**
+     * Timeout (minutes)
+     * @return expireMin
+    **/
+    public Integer getExpireMin() {
+        return expireMin;
+    }
+
+
+    public void setExpireMin(Integer expireMin) {
+        this.expireMin = expireMin;
+    }
+
+    public InlineResponse20019Data tierLimit(Integer tierLimit) {
+        
+        this.tierLimit = tierLimit;
+        return this;
+    }
+
+     /**
+     * Tier limit
+     * @return tierLimit
+    **/
+    public Integer getTierLimit() {
+        return tierLimit;
+    }
+
+
+    public void setTierLimit(Integer tierLimit) {
+        this.tierLimit = tierLimit;
+    }
+
+    public InlineResponse20019Data regTimeLimit(Integer regTimeLimit) {
+        
+        this.regTimeLimit = regTimeLimit;
+        return this;
+    }
+
+     /**
+     * Registration time limit
+     * @return regTimeLimit
+    **/
+    public Integer getRegTimeLimit() {
+        return regTimeLimit;
+    }
+
+
+    public void setRegTimeLimit(Integer regTimeLimit) {
+        this.regTimeLimit = regTimeLimit;
+    }
+
+    public InlineResponse20019Data advertisersLimit(Integer advertisersLimit) {
+        
+        this.advertisersLimit = advertisersLimit;
+        return this;
+    }
+
+     /**
+     * Do not trade with advertisers, advertiser limit: 0&#x3D;No limit, 1&#x3D;Limit
+     * @return advertisersLimit
+    **/
+    public Integer getAdvertisersLimit() {
+        return advertisersLimit;
+    }
+
+
+    public void setAdvertisersLimit(Integer advertisersLimit) {
+        this.advertisersLimit = advertisersLimit;
+    }
+
+    public InlineResponse20019Data verifiedLimit(Integer verifiedLimit) {
+        
+        this.verifiedLimit = verifiedLimit;
+        return this;
+    }
+
+     /**
+     * kyclimit
+     * @return verifiedLimit
+    **/
+    public Integer getVerifiedLimit() {
+        return verifiedLimit;
+    }
+
+
+    public void setVerifiedLimit(Integer verifiedLimit) {
+        this.verifiedLimit = verifiedLimit;
+    }
+
+    public InlineResponse20019Data minCompletedLimit(Integer minCompletedLimit) {
+        
+        this.minCompletedLimit = minCompletedLimit;
+        return this;
+    }
+
+     /**
+     * Minimum limit of completed orders
+     * @return minCompletedLimit
+    **/
+    public Integer getMinCompletedLimit() {
+        return minCompletedLimit;
+    }
+
+
+    public void setMinCompletedLimit(Integer minCompletedLimit) {
+        this.minCompletedLimit = minCompletedLimit;
+    }
+
+    public InlineResponse20019Data maxCompletedLimit(Integer maxCompletedLimit) {
+        
+        this.maxCompletedLimit = maxCompletedLimit;
+        return this;
+    }
+
+     /**
+     * Maximum limit of completed orders
+     * @return maxCompletedLimit
+    **/
+    public Integer getMaxCompletedLimit() {
+        return maxCompletedLimit;
+    }
+
+
+    public void setMaxCompletedLimit(Integer maxCompletedLimit) {
+        this.maxCompletedLimit = maxCompletedLimit;
+    }
+
+    public InlineResponse20019Data userOrdersLimit(Integer userOrdersLimit) {
+        
+        this.userOrdersLimit = userOrdersLimit;
+        return this;
+    }
+
+     /**
+     * Order count limit
+     * @return userOrdersLimit
+    **/
+    public Integer getUserOrdersLimit() {
+        return userOrdersLimit;
+    }
+
+
+    public void setUserOrdersLimit(Integer userOrdersLimit) {
+        this.userOrdersLimit = userOrdersLimit;
+    }
+
+    public InlineResponse20019Data completedRateLimit(Integer completedRateLimit) {
+        
+        this.completedRateLimit = completedRateLimit;
+        return this;
+    }
+
+     /**
+     * 30-day completion rate limit
+     * @return completedRateLimit
+    **/
+    public Integer getCompletedRateLimit() {
+        return completedRateLimit;
+    }
+
+
+    public void setCompletedRateLimit(Integer completedRateLimit) {
+        this.completedRateLimit = completedRateLimit;
+    }
+
+    public InlineResponse20019Data userCountryLimit(Integer userCountryLimit) {
+        
+        this.userCountryLimit = userCountryLimit;
+        return this;
+    }
+
+     /**
+     * KYC nationality restriction
+     * @return userCountryLimit
+    **/
+    public Integer getUserCountryLimit() {
+        return userCountryLimit;
+    }
+
+
+    public void setUserCountryLimit(Integer userCountryLimit) {
+        this.userCountryLimit = userCountryLimit;
+    }
+
+    public InlineResponse20019Data limitCountryCn(String limitCountryCn) {
+        
+        this.limitCountryCn = limitCountryCn;
+        return this;
+    }
+
+     /**
+     * Restricted nationality (Chinese)
+     * @return limitCountryCn
+    **/
+    public String getLimitCountryCn() {
+        return limitCountryCn;
+    }
+
+
+    public void setLimitCountryCn(String limitCountryCn) {
+        this.limitCountryCn = limitCountryCn;
+    }
+
+    public InlineResponse20019Data limitCountryEn(String limitCountryEn) {
+        
+        this.limitCountryEn = limitCountryEn;
+        return this;
+    }
+
+     /**
+     * Restricted nationality (English)
+     * @return limitCountryEn
+    **/
+    public String getLimitCountryEn() {
+        return limitCountryEn;
+    }
+
+
+    public void setLimitCountryEn(String limitCountryEn) {
+        this.limitCountryEn = limitCountryEn;
+    }
+
+    public InlineResponse20019Data isHedge(Integer isHedge) {
+        
+        this.isHedge = isHedge;
+        return this;
+    }
+
+     /**
+     * Whether auto delegation
+     * @return isHedge
+    **/
+    public Integer getIsHedge() {
+        return isHedge;
+    }
+
+
+    public void setIsHedge(Integer isHedge) {
+        this.isHedge = isHedge;
+    }
+
+    public InlineResponse20019Data hidePayment(Integer hidePayment) {
+        
+        this.hidePayment = hidePayment;
+        return this;
+    }
+
+     /**
+     * Whether to hide payment method
+     * @return hidePayment
+    **/
+    public Integer getHidePayment() {
+        return hidePayment;
+    }
+
+
+    public void setHidePayment(Integer hidePayment) {
+        this.hidePayment = hidePayment;
+    }
+
+    public InlineResponse20019Data fee(Integer fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * fee
+     * @return fee
+    **/
+    public Integer getFee() {
+        return fee;
+    }
+
+
+    public void setFee(Integer fee) {
+        this.fee = fee;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +976,52 @@ public class InlineResponse20019Data {
             return false;
         }
         InlineResponse20019Data inlineResponse20019Data = (InlineResponse20019Data) o;
-        return Objects.equals(this.fileKey, inlineResponse20019Data.fileKey);
+        return Objects.equals(this.rate, inlineResponse20019Data.rate) &&
+                Objects.equals(this.type, inlineResponse20019Data.type) &&
+                Objects.equals(this.amount, inlineResponse20019Data.amount) &&
+                Objects.equals(this.minAmount, inlineResponse20019Data.minAmount) &&
+                Objects.equals(this.maxAmount, inlineResponse20019Data.maxAmount) &&
+                Objects.equals(this.total, inlineResponse20019Data.total) &&
+                Objects.equals(this.payAli, inlineResponse20019Data.payAli) &&
+                Objects.equals(this.payBank, inlineResponse20019Data.payBank) &&
+                Objects.equals(this.payPaypal, inlineResponse20019Data.payPaypal) &&
+                Objects.equals(this.payWechat, inlineResponse20019Data.payWechat) &&
+                Objects.equals(this.payTypeNum, inlineResponse20019Data.payTypeNum) &&
+                Objects.equals(this.payTypeJson, inlineResponse20019Data.payTypeJson) &&
+                Objects.equals(this.lockedAmount, inlineResponse20019Data.lockedAmount) &&
+                Objects.equals(this.orderid, inlineResponse20019Data.orderid) &&
+                Objects.equals(this.timestamp, inlineResponse20019Data.timestamp) &&
+                Objects.equals(this.currencyType, inlineResponse20019Data.currencyType) &&
+                Objects.equals(this.wantType, inlineResponse20019Data.wantType) &&
+                Objects.equals(this.hideRate, inlineResponse20019Data.hideRate) &&
+                Objects.equals(this.tradeTips, inlineResponse20019Data.tradeTips) &&
+                Objects.equals(this.autoReply, inlineResponse20019Data.autoReply) &&
+                Objects.equals(this.newHand, inlineResponse20019Data.newHand) &&
+                Objects.equals(this.rateRefId, inlineResponse20019Data.rateRefId) &&
+                Objects.equals(this.rateOffset, inlineResponse20019Data.rateOffset) &&
+                Objects.equals(this.status, inlineResponse20019Data.status) &&
+                Objects.equals(this.rateFixed, inlineResponse20019Data.rateFixed) &&
+                Objects.equals(this.floatTrend, inlineResponse20019Data.floatTrend) &&
+                Objects.equals(this.expireMin, inlineResponse20019Data.expireMin) &&
+                Objects.equals(this.tierLimit, inlineResponse20019Data.tierLimit) &&
+                Objects.equals(this.regTimeLimit, inlineResponse20019Data.regTimeLimit) &&
+                Objects.equals(this.advertisersLimit, inlineResponse20019Data.advertisersLimit) &&
+                Objects.equals(this.verifiedLimit, inlineResponse20019Data.verifiedLimit) &&
+                Objects.equals(this.minCompletedLimit, inlineResponse20019Data.minCompletedLimit) &&
+                Objects.equals(this.maxCompletedLimit, inlineResponse20019Data.maxCompletedLimit) &&
+                Objects.equals(this.userOrdersLimit, inlineResponse20019Data.userOrdersLimit) &&
+                Objects.equals(this.completedRateLimit, inlineResponse20019Data.completedRateLimit) &&
+                Objects.equals(this.userCountryLimit, inlineResponse20019Data.userCountryLimit) &&
+                Objects.equals(this.limitCountryCn, inlineResponse20019Data.limitCountryCn) &&
+                Objects.equals(this.limitCountryEn, inlineResponse20019Data.limitCountryEn) &&
+                Objects.equals(this.isHedge, inlineResponse20019Data.isHedge) &&
+                Objects.equals(this.hidePayment, inlineResponse20019Data.hidePayment) &&
+                Objects.equals(this.fee, inlineResponse20019Data.fee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileKey);
+        return Objects.hash(rate, type, amount, minAmount, maxAmount, total, payAli, payBank, payPaypal, payWechat, payTypeNum, payTypeJson, lockedAmount, orderid, timestamp, currencyType, wantType, hideRate, tradeTips, autoReply, newHand, rateRefId, rateOffset, status, rateFixed, floatTrend, expireMin, tierLimit, regTimeLimit, advertisersLimit, verifiedLimit, minCompletedLimit, maxCompletedLimit, userOrdersLimit, completedRateLimit, userCountryLimit, limitCountryCn, limitCountryEn, isHedge, hidePayment, fee);
     }
 
 
@@ -68,7 +1029,47 @@ public class InlineResponse20019Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20019Data {\n");
-        sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
+        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      minAmount: ").append(toIndentedString(minAmount)).append("\n");
+        sb.append("      maxAmount: ").append(toIndentedString(maxAmount)).append("\n");
+        sb.append("      total: ").append(toIndentedString(total)).append("\n");
+        sb.append("      payAli: ").append(toIndentedString(payAli)).append("\n");
+        sb.append("      payBank: ").append(toIndentedString(payBank)).append("\n");
+        sb.append("      payPaypal: ").append(toIndentedString(payPaypal)).append("\n");
+        sb.append("      payWechat: ").append(toIndentedString(payWechat)).append("\n");
+        sb.append("      payTypeNum: ").append(toIndentedString(payTypeNum)).append("\n");
+        sb.append("      payTypeJson: ").append(toIndentedString(payTypeJson)).append("\n");
+        sb.append("      lockedAmount: ").append(toIndentedString(lockedAmount)).append("\n");
+        sb.append("      orderid: ").append(toIndentedString(orderid)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      currencyType: ").append(toIndentedString(currencyType)).append("\n");
+        sb.append("      wantType: ").append(toIndentedString(wantType)).append("\n");
+        sb.append("      hideRate: ").append(toIndentedString(hideRate)).append("\n");
+        sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
+        sb.append("      autoReply: ").append(toIndentedString(autoReply)).append("\n");
+        sb.append("      newHand: ").append(toIndentedString(newHand)).append("\n");
+        sb.append("      rateRefId: ").append(toIndentedString(rateRefId)).append("\n");
+        sb.append("      rateOffset: ").append(toIndentedString(rateOffset)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      rateFixed: ").append(toIndentedString(rateFixed)).append("\n");
+        sb.append("      floatTrend: ").append(toIndentedString(floatTrend)).append("\n");
+        sb.append("      expireMin: ").append(toIndentedString(expireMin)).append("\n");
+        sb.append("      tierLimit: ").append(toIndentedString(tierLimit)).append("\n");
+        sb.append("      regTimeLimit: ").append(toIndentedString(regTimeLimit)).append("\n");
+        sb.append("      advertisersLimit: ").append(toIndentedString(advertisersLimit)).append("\n");
+        sb.append("      verifiedLimit: ").append(toIndentedString(verifiedLimit)).append("\n");
+        sb.append("      minCompletedLimit: ").append(toIndentedString(minCompletedLimit)).append("\n");
+        sb.append("      maxCompletedLimit: ").append(toIndentedString(maxCompletedLimit)).append("\n");
+        sb.append("      userOrdersLimit: ").append(toIndentedString(userOrdersLimit)).append("\n");
+        sb.append("      completedRateLimit: ").append(toIndentedString(completedRateLimit)).append("\n");
+        sb.append("      userCountryLimit: ").append(toIndentedString(userCountryLimit)).append("\n");
+        sb.append("      limitCountryCn: ").append(toIndentedString(limitCountryCn)).append("\n");
+        sb.append("      limitCountryEn: ").append(toIndentedString(limitCountryEn)).append("\n");
+        sb.append("      isHedge: ").append(toIndentedString(isHedge)).append("\n");
+        sb.append("      hidePayment: ").append(toIndentedString(hidePayment)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("}");
         return sb.toString();
     }

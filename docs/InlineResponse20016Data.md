@@ -5,5 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lists** | [**List&lt;InlineResponse20016DataLists&gt;**](InlineResponse20016DataLists.md) |  | 
+**list** | [**List&lt;InlineResponse20016DataList&gt;**](InlineResponse20016DataList.md) |  | 
+**transTime** | [**List&lt;InlineResponse20016DataTransTime&gt;**](InlineResponse20016DataTransTime.md) | Countdown time | 
+**count** | **Integer** | Number of orders | 
+**exportedNum** | **Integer** | Export count | 
 

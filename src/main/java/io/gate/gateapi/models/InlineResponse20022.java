@@ -17,266 +17,151 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20022Data;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20022
  */
 public class InlineResponse20022 {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private BigDecimal timestamp;
 
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
+    public static final String SERIALIZED_NAME_METHOD = "method";
+    @SerializedName(SERIALIZED_NAME_METHOD)
+    private String method;
 
-    public static final String SERIALIZED_NAME_FROM_ACCOUNT_TYPE = "from_account_type";
-    @SerializedName(SERIALIZED_NAME_FROM_ACCOUNT_TYPE)
-    private String fromAccountType;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
 
-    public static final String SERIALIZED_NAME_TO_ACCOUNT_TYPE = "to_account_type";
-    @SerializedName(SERIALIZED_NAME_TO_ACCOUNT_TYPE)
-    private String toAccountType;
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse20022Data data;
 
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
-
-    public static final String SERIALIZED_NAME_ACTUAL_RECEIVE = "actual_receive";
-    @SerializedName(SERIALIZED_NAME_ACTUAL_RECEIVE)
-    private String actualReceive;
-
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
-
-    public static final String SERIALIZED_NAME_FAIL_REASON = "fail_reason";
-    @SerializedName(SERIALIZED_NAME_FAIL_REASON)
-    private String failReason;
-
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private Integer createTime;
-
-    public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
-    @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
-    private Integer updateTime;
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
 
 
-    public InlineResponse20022 id(String id) {
+    public InlineResponse20022 timestamp(BigDecimal timestamp) {
         
-        this.id = id;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Order ID
-     * @return id
+     * Get timestamp
+     * @return timestamp
     **/
-    public String getId() {
-        return id;
+    public BigDecimal getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTimestamp(BigDecimal timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public InlineResponse20022 text(String text) {
+    public InlineResponse20022 method(String method) {
         
-        this.text = text;
+        this.method = method;
         return this;
     }
 
      /**
-     * Client Custom ID
-     * @return text
+     * Get method
+     * @return method
     **/
-    public String getText() {
-        return text;
+    public String getMethod() {
+        return method;
     }
 
 
-    public void setText(String text) {
-        this.text = text;
+    public void setMethod(String method) {
+        this.method = method;
     }
 
-    public InlineResponse20022 fromAccountType(String fromAccountType) {
+    public InlineResponse20022 code(Integer code) {
         
-        this.fromAccountType = fromAccountType;
+        this.code = code;
         return this;
     }
 
      /**
-     * Source &#x60;from&#x60; account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)
-     * @return fromAccountType
+     * Get code
+     * @return code
     **/
-    public String getFromAccountType() {
-        return fromAccountType;
+    public Integer getCode() {
+        return code;
     }
 
 
-    public void setFromAccountType(String fromAccountType) {
-        this.fromAccountType = fromAccountType;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public InlineResponse20022 toAccountType(String toAccountType) {
+    public InlineResponse20022 message(String message) {
         
-        this.toAccountType = toAccountType;
+        this.message = message;
         return this;
     }
 
      /**
-     * Get toAccountType
-     * @return toAccountType
+     * Get message
+     * @return message
     **/
-    public String getToAccountType() {
-        return toAccountType;
+    public String getMessage() {
+        return message;
     }
 
 
-    public void setToAccountType(String toAccountType) {
-        this.toAccountType = toAccountType;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public InlineResponse20022 coin(String coin) {
+    public InlineResponse20022 data(InlineResponse20022Data data) {
         
-        this.coin = coin;
+        this.data = data;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Get data
+     * @return data
     **/
-    public String getCoin() {
-        return coin;
+    public InlineResponse20022Data getData() {
+        return data;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setData(InlineResponse20022Data data) {
+        this.data = data;
     }
 
-    public InlineResponse20022 amount(String amount) {
+    public InlineResponse20022 version(String version) {
         
-        this.amount = amount;
+        this.version = version;
         return this;
     }
 
      /**
-     * Transfer amount, the amount requested for the transfer
-     * @return amount
+     * Get version
+     * @return version
     **/
-    public String getAmount() {
-        return amount;
+    public String getVersion() {
+        return version;
     }
 
 
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public InlineResponse20022 actualReceive(String actualReceive) {
-        
-        this.actualReceive = actualReceive;
-        return this;
-    }
-
-     /**
-     * Actual credited amount (has a value when status &#x3D; SUCCESS; empty for other statuses)
-     * @return actualReceive
-    **/
-    @javax.annotation.Nullable
-    public String getActualReceive() {
-        return actualReceive;
-    }
-
-
-    public void setActualReceive(String actualReceive) {
-        this.actualReceive = actualReceive;
-    }
-
-    public InlineResponse20022 status(String status) {
-        
-        this.status = status;
-        return this;
-    }
-
-     /**
-     * Transfer Status - &#x60;FAIL&#x60;: Failed - &#x60;SUCCESS&#x60;: Successful - &#x60;PENDING&#x60;: Transfer in Progress
-     * @return status
-    **/
-    public String getStatus() {
-        return status;
-    }
-
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public InlineResponse20022 failReason(String failReason) {
-        
-        this.failReason = failReason;
-        return this;
-    }
-
-     /**
-     * Failure reason (has a value when status &#x3D; FAIL; empty for other statuses)
-     * @return failReason
-    **/
-    @javax.annotation.Nullable
-    public String getFailReason() {
-        return failReason;
-    }
-
-
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
-    }
-
-    public InlineResponse20022 createTime(Integer createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Creation time of order
-     * @return createTime
-    **/
-    public Integer getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public InlineResponse20022 updateTime(Integer updateTime) {
-        
-        this.updateTime = updateTime;
-        return this;
-    }
-
-     /**
-     * OrderUpdateTime
-     * @return updateTime
-    **/
-    public Integer getUpdateTime() {
-        return updateTime;
-    }
-
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
+    public void setVersion(String version) {
+        this.version = version;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -287,22 +172,17 @@ public class InlineResponse20022 {
             return false;
         }
         InlineResponse20022 inlineResponse20022 = (InlineResponse20022) o;
-        return Objects.equals(this.id, inlineResponse20022.id) &&
-                Objects.equals(this.text, inlineResponse20022.text) &&
-                Objects.equals(this.fromAccountType, inlineResponse20022.fromAccountType) &&
-                Objects.equals(this.toAccountType, inlineResponse20022.toAccountType) &&
-                Objects.equals(this.coin, inlineResponse20022.coin) &&
-                Objects.equals(this.amount, inlineResponse20022.amount) &&
-                Objects.equals(this.actualReceive, inlineResponse20022.actualReceive) &&
-                Objects.equals(this.status, inlineResponse20022.status) &&
-                Objects.equals(this.failReason, inlineResponse20022.failReason) &&
-                Objects.equals(this.createTime, inlineResponse20022.createTime) &&
-                Objects.equals(this.updateTime, inlineResponse20022.updateTime);
+        return Objects.equals(this.timestamp, inlineResponse20022.timestamp) &&
+                Objects.equals(this.method, inlineResponse20022.method) &&
+                Objects.equals(this.code, inlineResponse20022.code) &&
+                Objects.equals(this.message, inlineResponse20022.message) &&
+                Objects.equals(this.data, inlineResponse20022.data) &&
+                Objects.equals(this.version, inlineResponse20022.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, fromAccountType, toAccountType, coin, amount, actualReceive, status, failReason, createTime, updateTime);
+        return Objects.hash(timestamp, method, code, message, data, version);
     }
 
 
@@ -310,17 +190,12 @@ public class InlineResponse20022 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20022 {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
-        sb.append("      fromAccountType: ").append(toIndentedString(fromAccountType)).append("\n");
-        sb.append("      toAccountType: ").append(toIndentedString(toAccountType)).append("\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      actualReceive: ").append(toIndentedString(actualReceive)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      failReason: ").append(toIndentedString(failReason)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      method: ").append(toIndentedString(method)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,7 +17,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20032Assets;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20032
@@ -27,17 +30,13 @@ public class InlineResponse20032 {
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
 
-    public static final String SERIALIZED_NAME_POSITION_ID = "position_id";
-    @SerializedName(SERIALIZED_NAME_POSITION_ID)
-    private String positionId;
+    public static final String SERIALIZED_NAME_AVAILABLE_MARGIN = "available_margin";
+    @SerializedName(SERIALIZED_NAME_AVAILABLE_MARGIN)
+    private String availableMargin;
 
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
-
-    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
-    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
-    private String positionSide;
+    public static final String SERIALIZED_NAME_MARGIN_BALANCE = "margin_balance";
+    @SerializedName(SERIALIZED_NAME_MARGIN_BALANCE)
+    private String marginBalance;
 
     public static final String SERIALIZED_NAME_INITIAL_MARGIN = "initial_margin";
     @SerializedName(SERIALIZED_NAME_INITIAL_MARGIN)
@@ -47,53 +46,21 @@ public class InlineResponse20032 {
     @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN)
     private String maintenanceMargin;
 
-    public static final String SERIALIZED_NAME_POSITION_QTY = "position_qty";
-    @SerializedName(SERIALIZED_NAME_POSITION_QTY)
-    private String positionQty;
+    public static final String SERIALIZED_NAME_INITIAL_MARGIN_RATE = "initial_margin_rate";
+    @SerializedName(SERIALIZED_NAME_INITIAL_MARGIN_RATE)
+    private String initialMarginRate;
 
-    public static final String SERIALIZED_NAME_POSITION_VALUE = "position_value";
-    @SerializedName(SERIALIZED_NAME_POSITION_VALUE)
-    private String positionValue;
+    public static final String SERIALIZED_NAME_MAINTENANCE_MARGIN_RATE = "maintenance_margin_rate";
+    @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN_RATE)
+    private String maintenanceMarginRate;
 
-    public static final String SERIALIZED_NAME_UPNL = "upnl";
-    @SerializedName(SERIALIZED_NAME_UPNL)
-    private String upnl;
+    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
+    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
+    private String positionMode;
 
-    public static final String SERIALIZED_NAME_UPNL_RATE = "upnl_rate";
-    @SerializedName(SERIALIZED_NAME_UPNL_RATE)
-    private String upnlRate;
-
-    public static final String SERIALIZED_NAME_ENTRY_PRICE = "entry_price";
-    @SerializedName(SERIALIZED_NAME_ENTRY_PRICE)
-    private String entryPrice;
-
-    public static final String SERIALIZED_NAME_MARK_PRICE = "mark_price";
-    @SerializedName(SERIALIZED_NAME_MARK_PRICE)
-    private String markPrice;
-
-    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
-    @SerializedName(SERIALIZED_NAME_LEVERAGE)
-    private String leverage;
-
-    public static final String SERIALIZED_NAME_MAX_LEVERAGE = "max_leverage";
-    @SerializedName(SERIALIZED_NAME_MAX_LEVERAGE)
-    private String maxLeverage;
-
-    public static final String SERIALIZED_NAME_RISK_LIMIT = "risk_limit";
-    @SerializedName(SERIALIZED_NAME_RISK_LIMIT)
-    private String riskLimit;
-
-    public static final String SERIALIZED_NAME_FEE = "fee";
-    @SerializedName(SERIALIZED_NAME_FEE)
-    private String fee;
-
-    public static final String SERIALIZED_NAME_FUNDING_FEE = "funding_fee";
-    @SerializedName(SERIALIZED_NAME_FUNDING_FEE)
-    private String fundingFee;
-
-    public static final String SERIALIZED_NAME_FUNDING_TIME = "funding_time";
-    @SerializedName(SERIALIZED_NAME_FUNDING_TIME)
-    private String fundingTime;
+    public static final String SERIALIZED_NAME_ACCOUNT_LIMIT = "account_limit";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT_LIMIT)
+    private String accountLimit;
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
@@ -103,9 +70,17 @@ public class InlineResponse20032 {
     @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
     private String updateTime;
 
-    public static final String SERIALIZED_NAME_CLOSED_PNL = "closed_pnl";
-    @SerializedName(SERIALIZED_NAME_CLOSED_PNL)
-    private String closedPnl;
+    public static final String SERIALIZED_NAME_ACCOUNT_MODE = "account_mode";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT_MODE)
+    private String accountMode;
+
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
+
+    public static final String SERIALIZED_NAME_ASSETS = "assets";
+    @SerializedName(SERIALIZED_NAME_ASSETS)
+    private List<InlineResponse20032Assets> assets = new ArrayList<>();
 
 
     public InlineResponse20032 userId(String userId) {
@@ -118,7 +93,6 @@ public class InlineResponse20032 {
      * User ID
      * @return userId
     **/
-    @javax.annotation.Nullable
     public String getUserId() {
         return userId;
     }
@@ -128,64 +102,42 @@ public class InlineResponse20032 {
         this.userId = userId;
     }
 
-    public InlineResponse20032 positionId(String positionId) {
+    public InlineResponse20032 availableMargin(String availableMargin) {
         
-        this.positionId = positionId;
+        this.availableMargin = availableMargin;
         return this;
     }
 
      /**
-     * Position ID
-     * @return positionId
+     * Available Margin
+     * @return availableMargin
     **/
-    @javax.annotation.Nullable
-    public String getPositionId() {
-        return positionId;
+    public String getAvailableMargin() {
+        return availableMargin;
     }
 
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
+    public void setAvailableMargin(String availableMargin) {
+        this.availableMargin = availableMargin;
     }
 
-    public InlineResponse20032 symbol(String symbol) {
+    public InlineResponse20032 marginBalance(String marginBalance) {
         
-        this.symbol = symbol;
+        this.marginBalance = marginBalance;
         return this;
     }
 
      /**
-     * Currency pair
-     * @return symbol
+     * marginbalance
+     * @return marginBalance
     **/
-    @javax.annotation.Nullable
-    public String getSymbol() {
-        return symbol;
+    public String getMarginBalance() {
+        return marginBalance;
     }
 
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public InlineResponse20032 positionSide(String positionSide) {
-        
-        this.positionSide = positionSide;
-        return this;
-    }
-
-     /**
-     * Position Direction
-     * @return positionSide
-    **/
-    @javax.annotation.Nullable
-    public String getPositionSide() {
-        return positionSide;
-    }
-
-
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
+    public void setMarginBalance(String marginBalance) {
+        this.marginBalance = marginBalance;
     }
 
     public InlineResponse20032 initialMargin(String initialMargin) {
@@ -198,7 +150,6 @@ public class InlineResponse20032 {
      * Initial Margin
      * @return initialMargin
     **/
-    @javax.annotation.Nullable
     public String getInitialMargin() {
         return initialMargin;
     }
@@ -218,7 +169,6 @@ public class InlineResponse20032 {
      * Maintenance margin
      * @return maintenanceMargin
     **/
-    @javax.annotation.Nullable
     public String getMaintenanceMargin() {
         return maintenanceMargin;
     }
@@ -228,244 +178,81 @@ public class InlineResponse20032 {
         this.maintenanceMargin = maintenanceMargin;
     }
 
-    public InlineResponse20032 positionQty(String positionQty) {
+    public InlineResponse20032 initialMarginRate(String initialMarginRate) {
         
-        this.positionQty = positionQty;
+        this.initialMarginRate = initialMarginRate;
         return this;
     }
 
      /**
-     * Position Quantity
-     * @return positionQty
+     * Initial margin rate
+     * @return initialMarginRate
     **/
-    @javax.annotation.Nullable
-    public String getPositionQty() {
-        return positionQty;
+    public String getInitialMarginRate() {
+        return initialMarginRate;
     }
 
 
-    public void setPositionQty(String positionQty) {
-        this.positionQty = positionQty;
+    public void setInitialMarginRate(String initialMarginRate) {
+        this.initialMarginRate = initialMarginRate;
     }
 
-    public InlineResponse20032 positionValue(String positionValue) {
+    public InlineResponse20032 maintenanceMarginRate(String maintenanceMarginRate) {
         
-        this.positionValue = positionValue;
+        this.maintenanceMarginRate = maintenanceMarginRate;
         return this;
     }
 
      /**
-     * Position Value
-     * @return positionValue
+     * Maintenance margin rate
+     * @return maintenanceMarginRate
     **/
-    @javax.annotation.Nullable
-    public String getPositionValue() {
-        return positionValue;
+    public String getMaintenanceMarginRate() {
+        return maintenanceMarginRate;
     }
 
 
-    public void setPositionValue(String positionValue) {
-        this.positionValue = positionValue;
+    public void setMaintenanceMarginRate(String maintenanceMarginRate) {
+        this.maintenanceMarginRate = maintenanceMarginRate;
     }
 
-    public InlineResponse20032 upnl(String upnl) {
+    public InlineResponse20032 positionMode(String positionMode) {
         
-        this.upnl = upnl;
+        this.positionMode = positionMode;
         return this;
     }
 
      /**
-     * Unrealized P&amp;L
-     * @return upnl
+     * Contract Position Mode
+     * @return positionMode
     **/
-    @javax.annotation.Nullable
-    public String getUpnl() {
-        return upnl;
+    public String getPositionMode() {
+        return positionMode;
     }
 
 
-    public void setUpnl(String upnl) {
-        this.upnl = upnl;
+    public void setPositionMode(String positionMode) {
+        this.positionMode = positionMode;
     }
 
-    public InlineResponse20032 upnlRate(String upnlRate) {
+    public InlineResponse20032 accountLimit(String accountLimit) {
         
-        this.upnlRate = upnlRate;
+        this.accountLimit = accountLimit;
         return this;
     }
 
      /**
-     * Unrealized P&amp;L Ratio
-     * @return upnlRate
+     * Account limit
+     * @return accountLimit
     **/
     @javax.annotation.Nullable
-    public String getUpnlRate() {
-        return upnlRate;
+    public String getAccountLimit() {
+        return accountLimit;
     }
 
 
-    public void setUpnlRate(String upnlRate) {
-        this.upnlRate = upnlRate;
-    }
-
-    public InlineResponse20032 entryPrice(String entryPrice) {
-        
-        this.entryPrice = entryPrice;
-        return this;
-    }
-
-     /**
-     * Position Average Entry Price
-     * @return entryPrice
-    **/
-    @javax.annotation.Nullable
-    public String getEntryPrice() {
-        return entryPrice;
-    }
-
-
-    public void setEntryPrice(String entryPrice) {
-        this.entryPrice = entryPrice;
-    }
-
-    public InlineResponse20032 markPrice(String markPrice) {
-        
-        this.markPrice = markPrice;
-        return this;
-    }
-
-     /**
-     * Mark price
-     * @return markPrice
-    **/
-    @javax.annotation.Nullable
-    public String getMarkPrice() {
-        return markPrice;
-    }
-
-
-    public void setMarkPrice(String markPrice) {
-        this.markPrice = markPrice;
-    }
-
-    public InlineResponse20032 leverage(String leverage) {
-        
-        this.leverage = leverage;
-        return this;
-    }
-
-     /**
-     * Position Leverage
-     * @return leverage
-    **/
-    @javax.annotation.Nullable
-    public String getLeverage() {
-        return leverage;
-    }
-
-
-    public void setLeverage(String leverage) {
-        this.leverage = leverage;
-    }
-
-    public InlineResponse20032 maxLeverage(String maxLeverage) {
-        
-        this.maxLeverage = maxLeverage;
-        return this;
-    }
-
-     /**
-     * Maximum leverage
-     * @return maxLeverage
-    **/
-    @javax.annotation.Nullable
-    public String getMaxLeverage() {
-        return maxLeverage;
-    }
-
-
-    public void setMaxLeverage(String maxLeverage) {
-        this.maxLeverage = maxLeverage;
-    }
-
-    public InlineResponse20032 riskLimit(String riskLimit) {
-        
-        this.riskLimit = riskLimit;
-        return this;
-    }
-
-     /**
-     * Position risk limit
-     * @return riskLimit
-    **/
-    @javax.annotation.Nullable
-    public String getRiskLimit() {
-        return riskLimit;
-    }
-
-
-    public void setRiskLimit(String riskLimit) {
-        this.riskLimit = riskLimit;
-    }
-
-    public InlineResponse20032 fee(String fee) {
-        
-        this.fee = fee;
-        return this;
-    }
-
-     /**
-     * Position Fee
-     * @return fee
-    **/
-    @javax.annotation.Nullable
-    public String getFee() {
-        return fee;
-    }
-
-
-    public void setFee(String fee) {
-        this.fee = fee;
-    }
-
-    public InlineResponse20032 fundingFee(String fundingFee) {
-        
-        this.fundingFee = fundingFee;
-        return this;
-    }
-
-     /**
-     * Position Funding Fee
-     * @return fundingFee
-    **/
-    @javax.annotation.Nullable
-    public String getFundingFee() {
-        return fundingFee;
-    }
-
-
-    public void setFundingFee(String fundingFee) {
-        this.fundingFee = fundingFee;
-    }
-
-    public InlineResponse20032 fundingTime(String fundingTime) {
-        
-        this.fundingTime = fundingTime;
-        return this;
-    }
-
-     /**
-     * Position funding fee collection time (0 indicates it has not been collected yet)
-     * @return fundingTime
-    **/
-    @javax.annotation.Nullable
-    public String getFundingTime() {
-        return fundingTime;
-    }
-
-
-    public void setFundingTime(String fundingTime) {
-        this.fundingTime = fundingTime;
+    public void setAccountLimit(String accountLimit) {
+        this.accountLimit = accountLimit;
     }
 
     public InlineResponse20032 createTime(String createTime) {
@@ -475,10 +262,9 @@ public class InlineResponse20032 {
     }
 
      /**
-     * Position Creation Time
+     * Created time
      * @return createTime
     **/
-    @javax.annotation.Nullable
     public String getCreateTime() {
         return createTime;
     }
@@ -495,10 +281,9 @@ public class InlineResponse20032 {
     }
 
      /**
-     * Position Update Time
+     * Update time
      * @return updateTime
     **/
-    @javax.annotation.Nullable
     public String getUpdateTime() {
         return updateTime;
     }
@@ -508,24 +293,68 @@ public class InlineResponse20032 {
         this.updateTime = updateTime;
     }
 
-    public InlineResponse20032 closedPnl(String closedPnl) {
+    public InlineResponse20032 accountMode(String accountMode) {
         
-        this.closedPnl = closedPnl;
+        this.accountMode = accountMode;
         return this;
     }
 
      /**
-     * Realized PnL
-     * @return closedPnl
+     * Account mode. CROSS_EXCHANGE: cross-exchange mode. ISOLATED_EXCHANGE: isolated exchange mode
+     * @return accountMode
     **/
     @javax.annotation.Nullable
-    public String getClosedPnl() {
-        return closedPnl;
+    public String getAccountMode() {
+        return accountMode;
     }
 
 
-    public void setClosedPnl(String closedPnl) {
-        this.closedPnl = closedPnl;
+    public void setAccountMode(String accountMode) {
+        this.accountMode = accountMode;
+    }
+
+    public InlineResponse20032 exchangeType(String exchangeType) {
+        
+        this.exchangeType = exchangeType;
+        return this;
+    }
+
+     /**
+     * Exchange type. When account_mode is CROSS_EXCHANGE, this must be CROSSEX; otherwise, it represents a specific exchange
+     * @return exchangeType
+    **/
+    @javax.annotation.Nullable
+    public String getExchangeType() {
+        return exchangeType;
+    }
+
+
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
+    }
+
+    public InlineResponse20032 assets(List<InlineResponse20032Assets> assets) {
+        
+        this.assets = assets;
+        return this;
+    }
+
+    public InlineResponse20032 addAssetsItem(InlineResponse20032Assets assetsItem) {
+        this.assets.add(assetsItem);
+        return this;
+    }
+
+     /**
+     * Get assets
+     * @return assets
+    **/
+    public List<InlineResponse20032Assets> getAssets() {
+        return assets;
+    }
+
+
+    public void setAssets(List<InlineResponse20032Assets> assets) {
+        this.assets = assets;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -537,31 +366,24 @@ public class InlineResponse20032 {
         }
         InlineResponse20032 inlineResponse20032 = (InlineResponse20032) o;
         return Objects.equals(this.userId, inlineResponse20032.userId) &&
-                Objects.equals(this.positionId, inlineResponse20032.positionId) &&
-                Objects.equals(this.symbol, inlineResponse20032.symbol) &&
-                Objects.equals(this.positionSide, inlineResponse20032.positionSide) &&
+                Objects.equals(this.availableMargin, inlineResponse20032.availableMargin) &&
+                Objects.equals(this.marginBalance, inlineResponse20032.marginBalance) &&
                 Objects.equals(this.initialMargin, inlineResponse20032.initialMargin) &&
                 Objects.equals(this.maintenanceMargin, inlineResponse20032.maintenanceMargin) &&
-                Objects.equals(this.positionQty, inlineResponse20032.positionQty) &&
-                Objects.equals(this.positionValue, inlineResponse20032.positionValue) &&
-                Objects.equals(this.upnl, inlineResponse20032.upnl) &&
-                Objects.equals(this.upnlRate, inlineResponse20032.upnlRate) &&
-                Objects.equals(this.entryPrice, inlineResponse20032.entryPrice) &&
-                Objects.equals(this.markPrice, inlineResponse20032.markPrice) &&
-                Objects.equals(this.leverage, inlineResponse20032.leverage) &&
-                Objects.equals(this.maxLeverage, inlineResponse20032.maxLeverage) &&
-                Objects.equals(this.riskLimit, inlineResponse20032.riskLimit) &&
-                Objects.equals(this.fee, inlineResponse20032.fee) &&
-                Objects.equals(this.fundingFee, inlineResponse20032.fundingFee) &&
-                Objects.equals(this.fundingTime, inlineResponse20032.fundingTime) &&
+                Objects.equals(this.initialMarginRate, inlineResponse20032.initialMarginRate) &&
+                Objects.equals(this.maintenanceMarginRate, inlineResponse20032.maintenanceMarginRate) &&
+                Objects.equals(this.positionMode, inlineResponse20032.positionMode) &&
+                Objects.equals(this.accountLimit, inlineResponse20032.accountLimit) &&
                 Objects.equals(this.createTime, inlineResponse20032.createTime) &&
                 Objects.equals(this.updateTime, inlineResponse20032.updateTime) &&
-                Objects.equals(this.closedPnl, inlineResponse20032.closedPnl);
+                Objects.equals(this.accountMode, inlineResponse20032.accountMode) &&
+                Objects.equals(this.exchangeType, inlineResponse20032.exchangeType) &&
+                Objects.equals(this.assets, inlineResponse20032.assets);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, positionId, symbol, positionSide, initialMargin, maintenanceMargin, positionQty, positionValue, upnl, upnlRate, entryPrice, markPrice, leverage, maxLeverage, riskLimit, fee, fundingFee, fundingTime, createTime, updateTime, closedPnl);
+        return Objects.hash(userId, availableMargin, marginBalance, initialMargin, maintenanceMargin, initialMarginRate, maintenanceMarginRate, positionMode, accountLimit, createTime, updateTime, accountMode, exchangeType, assets);
     }
 
 
@@ -570,26 +392,19 @@ public class InlineResponse20032 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20032 {\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("      positionId: ").append(toIndentedString(positionId)).append("\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
+        sb.append("      availableMargin: ").append(toIndentedString(availableMargin)).append("\n");
+        sb.append("      marginBalance: ").append(toIndentedString(marginBalance)).append("\n");
         sb.append("      initialMargin: ").append(toIndentedString(initialMargin)).append("\n");
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
-        sb.append("      positionQty: ").append(toIndentedString(positionQty)).append("\n");
-        sb.append("      positionValue: ").append(toIndentedString(positionValue)).append("\n");
-        sb.append("      upnl: ").append(toIndentedString(upnl)).append("\n");
-        sb.append("      upnlRate: ").append(toIndentedString(upnlRate)).append("\n");
-        sb.append("      entryPrice: ").append(toIndentedString(entryPrice)).append("\n");
-        sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
-        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
-        sb.append("      maxLeverage: ").append(toIndentedString(maxLeverage)).append("\n");
-        sb.append("      riskLimit: ").append(toIndentedString(riskLimit)).append("\n");
-        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
-        sb.append("      fundingFee: ").append(toIndentedString(fundingFee)).append("\n");
-        sb.append("      fundingTime: ").append(toIndentedString(fundingTime)).append("\n");
+        sb.append("      initialMarginRate: ").append(toIndentedString(initialMarginRate)).append("\n");
+        sb.append("      maintenanceMarginRate: ").append(toIndentedString(maintenanceMarginRate)).append("\n");
+        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
+        sb.append("      accountLimit: ").append(toIndentedString(accountLimit)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
-        sb.append("      closedPnl: ").append(toIndentedString(closedPnl)).append("\n");
+        sb.append("      accountMode: ").append(toIndentedString(accountMode)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      assets: ").append(toIndentedString(assets)).append("\n");
         sb.append("}");
         return sb.toString();
     }

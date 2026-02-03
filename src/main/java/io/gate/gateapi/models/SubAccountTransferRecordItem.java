@@ -149,7 +149,7 @@ public class SubAccountTransferRecordItem {
     }
 
      /**
-     * Transfer amount
+     * Transfer Amount
      * @return amount
     **/
     public String getAmount() {

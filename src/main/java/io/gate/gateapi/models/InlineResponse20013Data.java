@@ -17,1104 +17,441 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20013DataMerchantInfo;
+import io.gate.gateapi.models.oas_any_type_not_mapped;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20013Data
  */
 public class InlineResponse20013Data {
-    public static final String SERIALIZED_NAME_IS_SELL = "is_sell";
-    @SerializedName(SERIALIZED_NAME_IS_SELL)
-    private Integer isSell;
+    public static final String SERIALIZED_NAME_IS_SELF = "is_self";
+    @SerializedName(SERIALIZED_NAME_IS_SELF)
+    private Boolean isSelf;
 
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
+    public static final String SERIALIZED_NAME_USER_TIMEST = "user_timest";
+    @SerializedName(SERIALIZED_NAME_USER_TIMEST)
+    private String userTimest;
 
-    public static final String SERIALIZED_NAME_ORDERID = "orderid";
-    @SerializedName(SERIALIZED_NAME_ORDERID)
-    private Integer orderid;
+    public static final String SERIALIZED_NAME_COUNTERPARTIES_NUM = "counterparties_num";
+    @SerializedName(SERIALIZED_NAME_COUNTERPARTIES_NUM)
+    private Integer counterpartiesNum;
 
-    public static final String SERIALIZED_NAME_TIMEST = "timest";
-    @SerializedName(SERIALIZED_NAME_TIMEST)
-    private Integer timest;
+    public static final String SERIALIZED_NAME_EMAIL_VERIFIED = "email_verified";
+    @SerializedName(SERIALIZED_NAME_EMAIL_VERIFIED)
+    private String emailVerified;
 
-    public static final String SERIALIZED_NAME_LAST_PAY_TIME = "last_pay_time";
-    @SerializedName(SERIALIZED_NAME_LAST_PAY_TIME)
-    private Integer lastPayTime;
+    public static final String SERIALIZED_NAME_VERIFIED = "verified";
+    @SerializedName(SERIALIZED_NAME_VERIFIED)
+    private String verified;
 
-    public static final String SERIALIZED_NAME_REMAIN_PAY_TIME = "remain_pay_time";
-    @SerializedName(SERIALIZED_NAME_REMAIN_PAY_TIME)
-    private Integer remainPayTime;
+    public static final String SERIALIZED_NAME_HAS_PHONE = "has_phone";
+    @SerializedName(SERIALIZED_NAME_HAS_PHONE)
+    private String hasPhone;
 
-    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currencyType";
-    @SerializedName(SERIALIZED_NAME_CURRENCY_TYPE)
-    private String currencyType;
+    public static final String SERIALIZED_NAME_USER_NAME = "user_name";
+    @SerializedName(SERIALIZED_NAME_USER_NAME)
+    private String userName;
 
-    public static final String SERIALIZED_NAME_WANT_TYPE = "want_type";
-    @SerializedName(SERIALIZED_NAME_WANT_TYPE)
-    private String wantType;
+    public static final String SERIALIZED_NAME_USER_NOTE = "user_note";
+    @SerializedName(SERIALIZED_NAME_USER_NOTE)
+    private String userNote;
 
-    public static final String SERIALIZED_NAME_RATE = "rate";
-    @SerializedName(SERIALIZED_NAME_RATE)
-    private String rate;
+    public static final String SERIALIZED_NAME_COMPLETE_TRANSACTIONS = "complete_transactions";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_TRANSACTIONS)
+    private String completeTransactions;
 
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
+    public static final String SERIALIZED_NAME_PAID_TRANSACTIONS = "paid_transactions";
+    @SerializedName(SERIALIZED_NAME_PAID_TRANSACTIONS)
+    private String paidTransactions;
 
-    public static final String SERIALIZED_NAME_TOTAL = "total";
-    @SerializedName(SERIALIZED_NAME_TOTAL)
-    private String total;
+    public static final String SERIALIZED_NAME_ACCEPTED_TRANSACTIONS = "accepted_transactions";
+    @SerializedName(SERIALIZED_NAME_ACCEPTED_TRANSACTIONS)
+    private String acceptedTransactions;
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
+    public static final String SERIALIZED_NAME_TRANSACTIONS_USED_TIME = "transactions_used_time";
+    @SerializedName(SERIALIZED_NAME_TRANSACTIONS_USED_TIME)
+    private String transactionsUsedTime;
 
-    public static final String SERIALIZED_NAME_REASON_ID = "reason_id";
-    @SerializedName(SERIALIZED_NAME_REASON_ID)
-    private String reasonId;
+    public static final String SERIALIZED_NAME_CANCELLED_USED_TIME_MONTH = "cancelled_used_time_month";
+    @SerializedName(SERIALIZED_NAME_CANCELLED_USED_TIME_MONTH)
+    private String cancelledUsedTimeMonth;
 
-    public static final String SERIALIZED_NAME_REASON_DESC = "reason_desc";
-    @SerializedName(SERIALIZED_NAME_REASON_DESC)
-    private String reasonDesc;
+    public static final String SERIALIZED_NAME_COMPLETE_TRANSACTIONS_MONTH = "complete_transactions_month";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_TRANSACTIONS_MONTH)
+    private String completeTransactionsMonth;
 
-    public static final String SERIALIZED_NAME_TOAST_ID = "toast_id";
-    @SerializedName(SERIALIZED_NAME_TOAST_ID)
-    private Integer toastId;
+    public static final String SERIALIZED_NAME_COMPLETE_RATE_MONTH = "complete_rate_month";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_RATE_MONTH)
+    private Integer completeRateMonth;
 
-    public static final String SERIALIZED_NAME_CANCEL_TIME = "cancel_time";
-    @SerializedName(SERIALIZED_NAME_CANCEL_TIME)
-    private String cancelTime;
-
-    public static final String SERIALIZED_NAME_SELLER_CONFIRM = "seller_confirm";
-    @SerializedName(SERIALIZED_NAME_SELLER_CONFIRM)
-    private Integer sellerConfirm;
-
-    public static final String SERIALIZED_NAME_IN_APPEAL = "in_appeal";
-    @SerializedName(SERIALIZED_NAME_IN_APPEAL)
-    private Integer inAppeal;
-
-    public static final String SERIALIZED_NAME_DISPUTE_TIME = "dispute_time";
-    @SerializedName(SERIALIZED_NAME_DISPUTE_TIME)
-    private Integer disputeTime;
-
-    public static final String SERIALIZED_NAME_CANCELABLE = "cancelable";
-    @SerializedName(SERIALIZED_NAME_CANCELABLE)
-    private Integer cancelable;
-
-    public static final String SERIALIZED_NAME_HIDE_PAYMENT = "hide_payment";
-    @SerializedName(SERIALIZED_NAME_HIDE_PAYMENT)
-    private Integer hidePayment;
-
-    public static final String SERIALIZED_NAME_TRADE_TIPS = "trade_tips";
-    @SerializedName(SERIALIZED_NAME_TRADE_TIPS)
-    private String tradeTips;
-
-    public static final String SERIALIZED_NAME_SHOW_BANK = "show_bank";
-    @SerializedName(SERIALIZED_NAME_SHOW_BANK)
-    private String showBank;
-
-    public static final String SERIALIZED_NAME_BANKNAME = "bankname";
-    @SerializedName(SERIALIZED_NAME_BANKNAME)
-    private String bankname;
-
-    public static final String SERIALIZED_NAME_BANKBRANCH = "bankbranch";
-    @SerializedName(SERIALIZED_NAME_BANKBRANCH)
-    private String bankbranch;
-
-    public static final String SERIALIZED_NAME_BANKID = "bankid";
-    @SerializedName(SERIALIZED_NAME_BANKID)
-    private String bankid;
-
-    public static final String SERIALIZED_NAME_BANK_HOLDER_REALNAME = "bank_holder_realname";
-    @SerializedName(SERIALIZED_NAME_BANK_HOLDER_REALNAME)
-    private String bankHolderRealname;
-
-    public static final String SERIALIZED_NAME_SHOW_ALI = "show_ali";
-    @SerializedName(SERIALIZED_NAME_SHOW_ALI)
-    private String showAli;
-
-    public static final String SERIALIZED_NAME_ALINAME = "aliname";
-    @SerializedName(SERIALIZED_NAME_ALINAME)
-    private String aliname;
-
-    public static final String SERIALIZED_NAME_IS_ALICODE = "is_alicode";
-    @SerializedName(SERIALIZED_NAME_IS_ALICODE)
-    private Integer isAlicode;
-
-    public static final String SERIALIZED_NAME_SHOW_WECHAT = "show_wechat";
-    @SerializedName(SERIALIZED_NAME_SHOW_WECHAT)
-    private String showWechat;
-
-    public static final String SERIALIZED_NAME_WENAME = "wename";
-    @SerializedName(SERIALIZED_NAME_WENAME)
-    private String wename;
-
-    public static final String SERIALIZED_NAME_SHOW_OTHERS = "show_others";
-    @SerializedName(SERIALIZED_NAME_SHOW_OTHERS)
-    private String showOthers;
-
-    public static final String SERIALIZED_NAME_PAY_OTHERS = "pay_others";
-    @SerializedName(SERIALIZED_NAME_PAY_OTHERS)
-    private List<String> payOthers = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_SEL_PAYTYPE = "sel_paytype";
-    @SerializedName(SERIALIZED_NAME_SEL_PAYTYPE)
-    private String selPaytype;
-
-    public static final String SERIALIZED_NAME_ITS_UID = "its_uid";
-    @SerializedName(SERIALIZED_NAME_ITS_UID)
-    private String itsUid;
-
-    public static final String SERIALIZED_NAME_ITS_IS_BLUE_VIP = "its_is_blue_vip";
-    @SerializedName(SERIALIZED_NAME_ITS_IS_BLUE_VIP)
-    private Integer itsIsBlueVip;
-
-    public static final String SERIALIZED_NAME_ITS_TIER = "its_tier";
-    @SerializedName(SERIALIZED_NAME_ITS_TIER)
-    private Integer itsTier;
-
-    public static final String SERIALIZED_NAME_ITS_AVATAR = "its_avatar";
-    @SerializedName(SERIALIZED_NAME_ITS_AVATAR)
-    private String itsAvatar;
-
-    public static final String SERIALIZED_NAME_ITS_NICKNAME = "its_nickname";
-    @SerializedName(SERIALIZED_NAME_ITS_NICKNAME)
-    private String itsNickname;
-
-    public static final String SERIALIZED_NAME_ITS_REALNAME = "its_realname";
-    @SerializedName(SERIALIZED_NAME_ITS_REALNAME)
-    private String itsRealname;
-
-    public static final String SERIALIZED_NAME_IS_FOLLOW = "is_follow";
-    @SerializedName(SERIALIZED_NAME_IS_FOLLOW)
-    private Integer isFollow;
+    public static final String SERIALIZED_NAME_ORDERS_BUY_RATE_MONTH = "orders_buy_rate_month";
+    @SerializedName(SERIALIZED_NAME_ORDERS_BUY_RATE_MONTH)
+    private Integer ordersBuyRateMonth;
 
     public static final String SERIALIZED_NAME_IS_BLACK = "is_black";
     @SerializedName(SERIALIZED_NAME_IS_BLACK)
     private Integer isBlack;
 
+    public static final String SERIALIZED_NAME_IS_FOLLOW = "is_follow";
+    @SerializedName(SERIALIZED_NAME_IS_FOLLOW)
+    private Integer isFollow;
+
     public static final String SERIALIZED_NAME_HAVE_TRADED = "have_traded";
     @SerializedName(SERIALIZED_NAME_HAVE_TRADED)
     private Integer haveTraded;
 
-    public static final String SERIALIZED_NAME_APPEAL_UNREAD = "appeal_unread";
-    @SerializedName(SERIALIZED_NAME_APPEAL_UNREAD)
-    private Integer appealUnread;
+    public static final String SERIALIZED_NAME_BIZ_UID = "biz_uid";
+    @SerializedName(SERIALIZED_NAME_BIZ_UID)
+    private String bizUid;
 
-    public static final String SERIALIZED_NAME_APPEAL_ALLOW_CANCEL = "appeal_allow_cancel";
-    @SerializedName(SERIALIZED_NAME_APPEAL_ALLOW_CANCEL)
-    private Integer appealAllowCancel;
+    public static final String SERIALIZED_NAME_BLUE_VIP = "blue_vip";
+    @SerializedName(SERIALIZED_NAME_BLUE_VIP)
+    private Integer blueVip;
 
-    public static final String SERIALIZED_NAME_APPEAL_VERDICT_HAS_OPEN = "appeal_verdict_has_open";
-    @SerializedName(SERIALIZED_NAME_APPEAL_VERDICT_HAS_OPEN)
-    private String appealVerdictHasOpen;
+    public static final String SERIALIZED_NAME_WORK_STATUS = "work_status";
+    @SerializedName(SERIALIZED_NAME_WORK_STATUS)
+    private Integer workStatus;
 
-    public static final String SERIALIZED_NAME_IM_UNREAD = "im_unread";
-    @SerializedName(SERIALIZED_NAME_IM_UNREAD)
-    private Integer imUnread;
+    public static final String SERIALIZED_NAME_REGISTRATION_DAYS = "registration_days";
+    @SerializedName(SERIALIZED_NAME_REGISTRATION_DAYS)
+    private Integer registrationDays;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
+    public static final String SERIALIZED_NAME_FIRST_TRADE_DAYS = "first_trade_days";
+    @SerializedName(SERIALIZED_NAME_FIRST_TRADE_DAYS)
+    private Integer firstTradeDays;
 
-    public static final String SERIALIZED_NAME_SCORE = "score";
-    @SerializedName(SERIALIZED_NAME_SCORE)
-    private String score;
+    public static final String SERIALIZED_NAME_NEED_REPLENISH = "need_replenish";
+    @SerializedName(SERIALIZED_NAME_NEED_REPLENISH)
+    private Integer needReplenish;
 
-    public static final String SERIALIZED_NAME_PAYMENT_VOUCHER_URL = "payment_voucher_url";
-    @SerializedName(SERIALIZED_NAME_PAYMENT_VOUCHER_URL)
-    private List<String> paymentVoucherUrl = new ArrayList<>();
+    public static final String SERIALIZED_NAME_MERCHANT_INFO = "merchant_info";
+    @SerializedName(SERIALIZED_NAME_MERCHANT_INFO)
+    private InlineResponse20013DataMerchantInfo merchantInfo;
 
-    public static final String SERIALIZED_NAME_COMPLETE_NUMBER = "complete_number";
-    @SerializedName(SERIALIZED_NAME_COMPLETE_NUMBER)
-    private Integer completeNumber;
+    public static final String SERIALIZED_NAME_ONLINE_STATUS = "online_status";
+    @SerializedName(SERIALIZED_NAME_ONLINE_STATUS)
+    private Integer onlineStatus;
 
-    public static final String SERIALIZED_NAME_COMPLETE_RATE_MONTH = "complete_rate_month";
-    @SerializedName(SERIALIZED_NAME_COMPLETE_RATE_MONTH)
-    private String completeRateMonth;
+    public static final String SERIALIZED_NAME_WORK_HOURS = "work_hours";
+    @SerializedName(SERIALIZED_NAME_WORK_HOURS)
+    private oas_any_type_not_mapped workHours = null;
 
-    public static final String SERIALIZED_NAME_CHECK_JOURNAL_ACCOUNT = "check_journal_account";
-    @SerializedName(SERIALIZED_NAME_CHECK_JOURNAL_ACCOUNT)
-    private Boolean checkJournalAccount;
+    public static final String SERIALIZED_NAME_TRANSACTIONS_MONTH = "transactions_month";
+    @SerializedName(SERIALIZED_NAME_TRANSACTIONS_MONTH)
+    private Integer transactionsMonth;
 
-    public static final String SERIALIZED_NAME_SHOW_JOURNAL_ACCOUNT = "show_journal_account";
-    @SerializedName(SERIALIZED_NAME_SHOW_JOURNAL_ACCOUNT)
-    private Boolean showJournalAccount;
+    public static final String SERIALIZED_NAME_TRANSACTIONS_ALL = "transactions_all";
+    @SerializedName(SERIALIZED_NAME_TRANSACTIONS_ALL)
+    private Integer transactionsAll;
 
-    public static final String SERIALIZED_NAME_IS_FREEZE_GUARANTEE = "is_freeze_guarantee";
-    @SerializedName(SERIALIZED_NAME_IS_FREEZE_GUARANTEE)
-    private Integer isFreezeGuarantee;
-
-    public static final String SERIALIZED_NAME_USDT_LEFT_GUARANTEE = "usdt_left_guarantee";
-    @SerializedName(SERIALIZED_NAME_USDT_LEFT_GUARANTEE)
-    private String usdtLeftGuarantee;
-
-    public static final String SERIALIZED_NAME_GUARANTEE_CURR_TYPE = "guarantee_curr_type";
-    @SerializedName(SERIALIZED_NAME_GUARANTEE_CURR_TYPE)
-    private String guaranteeCurrType;
-
-    public static final String SERIALIZED_NAME_TIMEST_PAID = "timest_paid";
-    @SerializedName(SERIALIZED_NAME_TIMEST_PAID)
-    private Integer timestPaid;
-
-    public static final String SERIALIZED_NAME_STATE = "state";
-    @SerializedName(SERIALIZED_NAME_STATE)
-    private String state;
-
-    public static final String SERIALIZED_NAME_RELEASE_COIN_SWITCH = "release_coin_switch";
-    @SerializedName(SERIALIZED_NAME_RELEASE_COIN_SWITCH)
-    private Integer releaseCoinSwitch;
-
-    public static final String SERIALIZED_NAME_OWN_REALNAME = "own_realname";
-    @SerializedName(SERIALIZED_NAME_OWN_REALNAME)
-    private String ownRealname;
-
-    public static final String SERIALIZED_NAME_CONFIRMATION_USE_TIME_MONTH = "confirmation_use_time_month";
-    @SerializedName(SERIALIZED_NAME_CONFIRMATION_USE_TIME_MONTH)
-    private Integer confirmationUseTimeMonth;
-
-    public static final String SERIALIZED_NAME_IS_RISK_USER = "is_risk_user";
-    @SerializedName(SERIALIZED_NAME_IS_RISK_USER)
-    private Integer isRiskUser;
-
-    public static final String SERIALIZED_NAME_IS_XT = "is_xt";
-    @SerializedName(SERIALIZED_NAME_IS_XT)
-    private Integer isXt;
-
-    public static final String SERIALIZED_NAME_ORDER_TYPE = "order_type";
-    @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
-    private Integer orderType;
-
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
-
-    public static final String SERIALIZED_NAME_IS_SHOW_RECEIVE = "is_show_receive";
-    @SerializedName(SERIALIZED_NAME_IS_SHOW_RECEIVE)
-    private Integer isShowReceive;
-
-    public static final String SERIALIZED_NAME_IS_TAKER = "is_taker";
-    @SerializedName(SERIALIZED_NAME_IS_TAKER)
-    private Integer isTaker;
-
-    public static final String SERIALIZED_NAME_IS_ONLINE = "is_online";
-    @SerializedName(SERIALIZED_NAME_IS_ONLINE)
-    private Integer isOnline;
-
-    public static final String SERIALIZED_NAME_SHOW_SELLER_CONTACT_INFO = "show_seller_contact_info";
-    @SerializedName(SERIALIZED_NAME_SHOW_SELLER_CONTACT_INFO)
-    private Boolean showSellerContactInfo;
-
-    public static final String SERIALIZED_NAME_SUPPORTED_PAY_TYPES = "supported_pay_types";
-    @SerializedName(SERIALIZED_NAME_SUPPORTED_PAY_TYPES)
-    private List<String> supportedPayTypes = new ArrayList<>();
+    public static final String SERIALIZED_NAME_TRADE_VERSATILE = "trade_versatile";
+    @SerializedName(SERIALIZED_NAME_TRADE_VERSATILE)
+    private Boolean tradeVersatile;
 
 
-    public InlineResponse20013Data isSell(Integer isSell) {
+    public InlineResponse20013Data isSelf(Boolean isSelf) {
         
-        this.isSell = isSell;
+        this.isSelf = isSelf;
         return this;
     }
 
      /**
-     * Whether sell order
-     * @return isSell
+     * Whether self
+     * @return isSelf
     **/
-    public Integer getIsSell() {
-        return isSell;
+    public Boolean getIsSelf() {
+        return isSelf;
     }
 
 
-    public void setIsSell(Integer isSell) {
-        this.isSell = isSell;
+    public void setIsSelf(Boolean isSelf) {
+        this.isSelf = isSelf;
     }
 
-    public InlineResponse20013Data txid(Integer txid) {
+    public InlineResponse20013Data userTimest(String userTimest) {
         
-        this.txid = txid;
+        this.userTimest = userTimest;
         return this;
     }
 
      /**
-     * Order ID
-     * @return txid
+     * User registration time (formatted string)
+     * @return userTimest
     **/
-    public Integer getTxid() {
-        return txid;
+    public String getUserTimest() {
+        return userTimest;
     }
 
 
-    public void setTxid(Integer txid) {
-        this.txid = txid;
+    public void setUserTimest(String userTimest) {
+        this.userTimest = userTimest;
     }
 
-    public InlineResponse20013Data orderid(Integer orderid) {
+    public InlineResponse20013Data counterpartiesNum(Integer counterpartiesNum) {
         
-        this.orderid = orderid;
+        this.counterpartiesNum = counterpartiesNum;
         return this;
     }
 
      /**
-     * Order ID
-     * @return orderid
+     * Number of counterparties
+     * @return counterpartiesNum
     **/
-    public Integer getOrderid() {
-        return orderid;
+    public Integer getCounterpartiesNum() {
+        return counterpartiesNum;
     }
 
 
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
+    public void setCounterpartiesNum(Integer counterpartiesNum) {
+        this.counterpartiesNum = counterpartiesNum;
     }
 
-    public InlineResponse20013Data timest(Integer timest) {
+    public InlineResponse20013Data emailVerified(String emailVerified) {
         
-        this.timest = timest;
+        this.emailVerified = emailVerified;
         return this;
     }
 
      /**
-     * Order creation timestamp
-     * @return timest
+     * Whether email is verified
+     * @return emailVerified
     **/
-    public Integer getTimest() {
-        return timest;
+    public String getEmailVerified() {
+        return emailVerified;
     }
 
 
-    public void setTimest(Integer timest) {
-        this.timest = timest;
+    public void setEmailVerified(String emailVerified) {
+        this.emailVerified = emailVerified;
     }
 
-    public InlineResponse20013Data lastPayTime(Integer lastPayTime) {
+    public InlineResponse20013Data verified(String verified) {
         
-        this.lastPayTime = lastPayTime;
+        this.verified = verified;
         return this;
     }
 
      /**
-     * Payment deadline
-     * @return lastPayTime
+     * Whether KYC verification is completed
+     * @return verified
     **/
-    public Integer getLastPayTime() {
-        return lastPayTime;
+    public String getVerified() {
+        return verified;
     }
 
 
-    public void setLastPayTime(Integer lastPayTime) {
-        this.lastPayTime = lastPayTime;
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 
-    public InlineResponse20013Data remainPayTime(Integer remainPayTime) {
+    public InlineResponse20013Data hasPhone(String hasPhone) {
         
-        this.remainPayTime = remainPayTime;
+        this.hasPhone = hasPhone;
         return this;
     }
 
      /**
-     * Remaining payment time
-     * @return remainPayTime
+     * Whether phone is bound
+     * @return hasPhone
     **/
-    public Integer getRemainPayTime() {
-        return remainPayTime;
+    public String getHasPhone() {
+        return hasPhone;
     }
 
 
-    public void setRemainPayTime(Integer remainPayTime) {
-        this.remainPayTime = remainPayTime;
+    public void setHasPhone(String hasPhone) {
+        this.hasPhone = hasPhone;
     }
 
-    public InlineResponse20013Data currencyType(String currencyType) {
+    public InlineResponse20013Data userName(String userName) {
         
-        this.currencyType = currencyType;
+        this.userName = userName;
         return this;
     }
 
      /**
-     * Cryptocurrency type
-     * @return currencyType
+     * Username
+     * @return userName
     **/
-    public String getCurrencyType() {
-        return currencyType;
+    public String getUserName() {
+        return userName;
     }
 
 
-    public void setCurrencyType(String currencyType) {
-        this.currencyType = currencyType;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public InlineResponse20013Data wantType(String wantType) {
+    public InlineResponse20013Data userNote(String userNote) {
         
-        this.wantType = wantType;
+        this.userNote = userNote;
         return this;
     }
 
      /**
-     * Fiat currency type
-     * @return wantType
+     * User note information
+     * @return userNote
     **/
-    public String getWantType() {
-        return wantType;
+    public String getUserNote() {
+        return userNote;
     }
 
 
-    public void setWantType(String wantType) {
-        this.wantType = wantType;
+    public void setUserNote(String userNote) {
+        this.userNote = userNote;
     }
 
-    public InlineResponse20013Data rate(String rate) {
+    public InlineResponse20013Data completeTransactions(String completeTransactions) {
         
-        this.rate = rate;
+        this.completeTransactions = completeTransactions;
         return this;
     }
 
      /**
-     * Price
-     * @return rate
+     * Total completed orders
+     * @return completeTransactions
     **/
-    public String getRate() {
-        return rate;
+    public String getCompleteTransactions() {
+        return completeTransactions;
     }
 
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setCompleteTransactions(String completeTransactions) {
+        this.completeTransactions = completeTransactions;
     }
 
-    public InlineResponse20013Data amount(String amount) {
+    public InlineResponse20013Data paidTransactions(String paidTransactions) {
         
-        this.amount = amount;
+        this.paidTransactions = paidTransactions;
         return this;
     }
 
      /**
-     * Size
-     * @return amount
+     * Number of completed buy orders
+     * @return paidTransactions
     **/
-    public String getAmount() {
-        return amount;
+    public String getPaidTransactions() {
+        return paidTransactions;
     }
 
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setPaidTransactions(String paidTransactions) {
+        this.paidTransactions = paidTransactions;
     }
 
-    public InlineResponse20013Data total(String total) {
+    public InlineResponse20013Data acceptedTransactions(String acceptedTransactions) {
         
-        this.total = total;
+        this.acceptedTransactions = acceptedTransactions;
         return this;
     }
 
      /**
-     * Fiat amount
-     * @return total
+     * Number of completed sell orders
+     * @return acceptedTransactions
     **/
-    public String getTotal() {
-        return total;
+    public String getAcceptedTransactions() {
+        return acceptedTransactions;
     }
 
 
-    public void setTotal(String total) {
-        this.total = total;
+    public void setAcceptedTransactions(String acceptedTransactions) {
+        this.acceptedTransactions = acceptedTransactions;
     }
 
-    public InlineResponse20013Data status(String status) {
+    public InlineResponse20013Data transactionsUsedTime(String transactionsUsedTime) {
         
-        this.status = status;
+        this.transactionsUsedTime = transactionsUsedTime;
         return this;
     }
 
      /**
-     * Order Status
-     * @return status
+     * Average time to confirm receipt
+     * @return transactionsUsedTime
     **/
-    public String getStatus() {
-        return status;
+    public String getTransactionsUsedTime() {
+        return transactionsUsedTime;
     }
 
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTransactionsUsedTime(String transactionsUsedTime) {
+        this.transactionsUsedTime = transactionsUsedTime;
     }
 
-    public InlineResponse20013Data reasonId(String reasonId) {
+    public InlineResponse20013Data cancelledUsedTimeMonth(String cancelledUsedTimeMonth) {
         
-        this.reasonId = reasonId;
+        this.cancelledUsedTimeMonth = cancelledUsedTimeMonth;
         return this;
     }
 
      /**
-     * Cancellation reason ID
-     * @return reasonId
+     * Cancellation time in last 30 days
+     * @return cancelledUsedTimeMonth
     **/
-    public String getReasonId() {
-        return reasonId;
+    public String getCancelledUsedTimeMonth() {
+        return cancelledUsedTimeMonth;
     }
 
 
-    public void setReasonId(String reasonId) {
-        this.reasonId = reasonId;
+    public void setCancelledUsedTimeMonth(String cancelledUsedTimeMonth) {
+        this.cancelledUsedTimeMonth = cancelledUsedTimeMonth;
     }
 
-    public InlineResponse20013Data reasonDesc(String reasonDesc) {
+    public InlineResponse20013Data completeTransactionsMonth(String completeTransactionsMonth) {
         
-        this.reasonDesc = reasonDesc;
+        this.completeTransactionsMonth = completeTransactionsMonth;
         return this;
     }
 
      /**
-     * Cancellation reason
-     * @return reasonDesc
+     * Number of completed orders in last 30 days
+     * @return completeTransactionsMonth
     **/
-    public String getReasonDesc() {
-        return reasonDesc;
+    public String getCompleteTransactionsMonth() {
+        return completeTransactionsMonth;
     }
 
 
-    public void setReasonDesc(String reasonDesc) {
-        this.reasonDesc = reasonDesc;
+    public void setCompleteTransactionsMonth(String completeTransactionsMonth) {
+        this.completeTransactionsMonth = completeTransactionsMonth;
     }
 
-    public InlineResponse20013Data toastId(Integer toastId) {
+    public InlineResponse20013Data completeRateMonth(Integer completeRateMonth) {
         
-        this.toastId = toastId;
+        this.completeRateMonth = completeRateMonth;
         return this;
     }
 
      /**
-     * Popup ID
-     * @return toastId
+     * Completion rate in last 30 days
+     * @return completeRateMonth
     **/
-    public Integer getToastId() {
-        return toastId;
+    public Integer getCompleteRateMonth() {
+        return completeRateMonth;
     }
 
 
-    public void setToastId(Integer toastId) {
-        this.toastId = toastId;
+    public void setCompleteRateMonth(Integer completeRateMonth) {
+        this.completeRateMonth = completeRateMonth;
     }
 
-    public InlineResponse20013Data cancelTime(String cancelTime) {
+    public InlineResponse20013Data ordersBuyRateMonth(Integer ordersBuyRateMonth) {
         
-        this.cancelTime = cancelTime;
+        this.ordersBuyRateMonth = ordersBuyRateMonth;
         return this;
     }
 
      /**
-     * Cancellation time
-     * @return cancelTime
+     * Buy order ratio in last 30 days
+     * @return ordersBuyRateMonth
     **/
-    public String getCancelTime() {
-        return cancelTime;
+    public Integer getOrdersBuyRateMonth() {
+        return ordersBuyRateMonth;
     }
 
 
-    public void setCancelTime(String cancelTime) {
-        this.cancelTime = cancelTime;
-    }
-
-    public InlineResponse20013Data sellerConfirm(Integer sellerConfirm) {
-        
-        this.sellerConfirm = sellerConfirm;
-        return this;
-    }
-
-     /**
-     * Whether seller confirmed the reason
-     * @return sellerConfirm
-    **/
-    public Integer getSellerConfirm() {
-        return sellerConfirm;
-    }
-
-
-    public void setSellerConfirm(Integer sellerConfirm) {
-        this.sellerConfirm = sellerConfirm;
-    }
-
-    public InlineResponse20013Data inAppeal(Integer inAppeal) {
-        
-        this.inAppeal = inAppeal;
-        return this;
-    }
-
-     /**
-     * Whether in dispute
-     * @return inAppeal
-    **/
-    public Integer getInAppeal() {
-        return inAppeal;
-    }
-
-
-    public void setInAppeal(Integer inAppeal) {
-        this.inAppeal = inAppeal;
-    }
-
-    public InlineResponse20013Data disputeTime(Integer disputeTime) {
-        
-        this.disputeTime = disputeTime;
-        return this;
-    }
-
-     /**
-     * Appeal time limit
-     * @return disputeTime
-    **/
-    public Integer getDisputeTime() {
-        return disputeTime;
-    }
-
-
-    public void setDisputeTime(Integer disputeTime) {
-        this.disputeTime = disputeTime;
-    }
-
-    public InlineResponse20013Data cancelable(Integer cancelable) {
-        
-        this.cancelable = cancelable;
-        return this;
-    }
-
-     /**
-     * Whether order cancellation is allowed
-     * @return cancelable
-    **/
-    public Integer getCancelable() {
-        return cancelable;
-    }
-
-
-    public void setCancelable(Integer cancelable) {
-        this.cancelable = cancelable;
-    }
-
-    public InlineResponse20013Data hidePayment(Integer hidePayment) {
-        
-        this.hidePayment = hidePayment;
-        return this;
-    }
-
-     /**
-     * Whether to hide payment method
-     * @return hidePayment
-    **/
-    public Integer getHidePayment() {
-        return hidePayment;
-    }
-
-
-    public void setHidePayment(Integer hidePayment) {
-        this.hidePayment = hidePayment;
-    }
-
-    public InlineResponse20013Data tradeTips(String tradeTips) {
-        
-        this.tradeTips = tradeTips;
-        return this;
-    }
-
-     /**
-     * Trading terms
-     * @return tradeTips
-    **/
-    public String getTradeTips() {
-        return tradeTips;
-    }
-
-
-    public void setTradeTips(String tradeTips) {
-        this.tradeTips = tradeTips;
-    }
-
-    public InlineResponse20013Data showBank(String showBank) {
-        
-        this.showBank = showBank;
-        return this;
-    }
-
-     /**
-     * Whether to display bank
-     * @return showBank
-    **/
-    public String getShowBank() {
-        return showBank;
-    }
-
-
-    public void setShowBank(String showBank) {
-        this.showBank = showBank;
-    }
-
-    public InlineResponse20013Data bankname(String bankname) {
-        
-        this.bankname = bankname;
-        return this;
-    }
-
-     /**
-     * Bank name
-     * @return bankname
-    **/
-    public String getBankname() {
-        return bankname;
-    }
-
-
-    public void setBankname(String bankname) {
-        this.bankname = bankname;
-    }
-
-    public InlineResponse20013Data bankbranch(String bankbranch) {
-        
-        this.bankbranch = bankbranch;
-        return this;
-    }
-
-     /**
-     * Bank branch name
-     * @return bankbranch
-    **/
-    public String getBankbranch() {
-        return bankbranch;
-    }
-
-
-    public void setBankbranch(String bankbranch) {
-        this.bankbranch = bankbranch;
-    }
-
-    public InlineResponse20013Data bankid(String bankid) {
-        
-        this.bankid = bankid;
-        return this;
-    }
-
-     /**
-     * Bank ID
-     * @return bankid
-    **/
-    public String getBankid() {
-        return bankid;
-    }
-
-
-    public void setBankid(String bankid) {
-        this.bankid = bankid;
-    }
-
-    public InlineResponse20013Data bankHolderRealname(String bankHolderRealname) {
-        
-        this.bankHolderRealname = bankHolderRealname;
-        return this;
-    }
-
-     /**
-     * Bank cardholder name
-     * @return bankHolderRealname
-    **/
-    public String getBankHolderRealname() {
-        return bankHolderRealname;
-    }
-
-
-    public void setBankHolderRealname(String bankHolderRealname) {
-        this.bankHolderRealname = bankHolderRealname;
-    }
-
-    public InlineResponse20013Data showAli(String showAli) {
-        
-        this.showAli = showAli;
-        return this;
-    }
-
-     /**
-     * Whether to display Alipay
-     * @return showAli
-    **/
-    public String getShowAli() {
-        return showAli;
-    }
-
-
-    public void setShowAli(String showAli) {
-        this.showAli = showAli;
-    }
-
-    public InlineResponse20013Data aliname(String aliname) {
-        
-        this.aliname = aliname;
-        return this;
-    }
-
-     /**
-     * Alipay account name
-     * @return aliname
-    **/
-    public String getAliname() {
-        return aliname;
-    }
-
-
-    public void setAliname(String aliname) {
-        this.aliname = aliname;
-    }
-
-    public InlineResponse20013Data isAlicode(Integer isAlicode) {
-        
-        this.isAlicode = isAlicode;
-        return this;
-    }
-
-     /**
-     * Whether Alipay QR code exists
-     * @return isAlicode
-    **/
-    public Integer getIsAlicode() {
-        return isAlicode;
-    }
-
-
-    public void setIsAlicode(Integer isAlicode) {
-        this.isAlicode = isAlicode;
-    }
-
-    public InlineResponse20013Data showWechat(String showWechat) {
-        
-        this.showWechat = showWechat;
-        return this;
-    }
-
-     /**
-     * Whether to display WeChat
-     * @return showWechat
-    **/
-    public String getShowWechat() {
-        return showWechat;
-    }
-
-
-    public void setShowWechat(String showWechat) {
-        this.showWechat = showWechat;
-    }
-
-    public InlineResponse20013Data wename(String wename) {
-        
-        this.wename = wename;
-        return this;
-    }
-
-     /**
-     * WeChat account name
-     * @return wename
-    **/
-    public String getWename() {
-        return wename;
-    }
-
-
-    public void setWename(String wename) {
-        this.wename = wename;
-    }
-
-    public InlineResponse20013Data showOthers(String showOthers) {
-        
-        this.showOthers = showOthers;
-        return this;
-    }
-
-     /**
-     * Whether to display other payment methods
-     * @return showOthers
-    **/
-    public String getShowOthers() {
-        return showOthers;
-    }
-
-
-    public void setShowOthers(String showOthers) {
-        this.showOthers = showOthers;
-    }
-
-    public InlineResponse20013Data payOthers(List<String> payOthers) {
-        
-        this.payOthers = payOthers;
-        return this;
-    }
-
-    public InlineResponse20013Data addPayOthersItem(String payOthersItem) {
-        this.payOthers.add(payOthersItem);
-        return this;
-    }
-
-     /**
-     * Other payment methods
-     * @return payOthers
-    **/
-    public List<String> getPayOthers() {
-        return payOthers;
-    }
-
-
-    public void setPayOthers(List<String> payOthers) {
-        this.payOthers = payOthers;
-    }
-
-    public InlineResponse20013Data selPaytype(String selPaytype) {
-        
-        this.selPaytype = selPaytype;
-        return this;
-    }
-
-     /**
-     * Payment type
-     * @return selPaytype
-    **/
-    public String getSelPaytype() {
-        return selPaytype;
-    }
-
-
-    public void setSelPaytype(String selPaytype) {
-        this.selPaytype = selPaytype;
-    }
-
-    public InlineResponse20013Data itsUid(String itsUid) {
-        
-        this.itsUid = itsUid;
-        return this;
-    }
-
-     /**
-     * Counterparty UID
-     * @return itsUid
-    **/
-    public String getItsUid() {
-        return itsUid;
-    }
-
-
-    public void setItsUid(String itsUid) {
-        this.itsUid = itsUid;
-    }
-
-    public InlineResponse20013Data itsIsBlueVip(Integer itsIsBlueVip) {
-        
-        this.itsIsBlueVip = itsIsBlueVip;
-        return this;
-    }
-
-     /**
-     * Whether counterparty is Blue V
-     * @return itsIsBlueVip
-    **/
-    public Integer getItsIsBlueVip() {
-        return itsIsBlueVip;
-    }
-
-
-    public void setItsIsBlueVip(Integer itsIsBlueVip) {
-        this.itsIsBlueVip = itsIsBlueVip;
-    }
-
-    public InlineResponse20013Data itsTier(Integer itsTier) {
-        
-        this.itsTier = itsTier;
-        return this;
-    }
-
-     /**
-     * Counterparty VIP tier
-     * @return itsTier
-    **/
-    public Integer getItsTier() {
-        return itsTier;
-    }
-
-
-    public void setItsTier(Integer itsTier) {
-        this.itsTier = itsTier;
-    }
-
-    public InlineResponse20013Data itsAvatar(String itsAvatar) {
-        
-        this.itsAvatar = itsAvatar;
-        return this;
-    }
-
-     /**
-     * Counterparty avatar
-     * @return itsAvatar
-    **/
-    public String getItsAvatar() {
-        return itsAvatar;
-    }
-
-
-    public void setItsAvatar(String itsAvatar) {
-        this.itsAvatar = itsAvatar;
-    }
-
-    public InlineResponse20013Data itsNickname(String itsNickname) {
-        
-        this.itsNickname = itsNickname;
-        return this;
-    }
-
-     /**
-     * Counterparty nickname
-     * @return itsNickname
-    **/
-    public String getItsNickname() {
-        return itsNickname;
-    }
-
-
-    public void setItsNickname(String itsNickname) {
-        this.itsNickname = itsNickname;
-    }
-
-    public InlineResponse20013Data itsRealname(String itsRealname) {
-        
-        this.itsRealname = itsRealname;
-        return this;
-    }
-
-     /**
-     * Counterparty username
-     * @return itsRealname
-    **/
-    public String getItsRealname() {
-        return itsRealname;
-    }
-
-
-    public void setItsRealname(String itsRealname) {
-        this.itsRealname = itsRealname;
-    }
-
-    public InlineResponse20013Data isFollow(Integer isFollow) {
-        
-        this.isFollow = isFollow;
-        return this;
-    }
-
-     /**
-     * Whether following
-     * @return isFollow
-    **/
-    public Integer getIsFollow() {
-        return isFollow;
-    }
-
-
-    public void setIsFollow(Integer isFollow) {
-        this.isFollow = isFollow;
+    public void setOrdersBuyRateMonth(Integer ordersBuyRateMonth) {
+        this.ordersBuyRateMonth = ordersBuyRateMonth;
     }
 
     public InlineResponse20013Data isBlack(Integer isBlack) {
@@ -1136,6 +473,25 @@ public class InlineResponse20013Data {
         this.isBlack = isBlack;
     }
 
+    public InlineResponse20013Data isFollow(Integer isFollow) {
+        
+        this.isFollow = isFollow;
+        return this;
+    }
+
+     /**
+     * Whether following
+     * @return isFollow
+    **/
+    public Integer getIsFollow() {
+        return isFollow;
+    }
+
+
+    public void setIsFollow(Integer isFollow) {
+        this.isFollow = isFollow;
+    }
+
     public InlineResponse20013Data haveTraded(Integer haveTraded) {
         
         this.haveTraded = haveTraded;
@@ -1143,7 +499,7 @@ public class InlineResponse20013Data {
     }
 
      /**
-     * Whether traded before
+     * Whether traded with self
      * @return haveTraded
     **/
     public Integer getHaveTraded() {
@@ -1155,546 +511,233 @@ public class InlineResponse20013Data {
         this.haveTraded = haveTraded;
     }
 
-    public InlineResponse20013Data appealUnread(Integer appealUnread) {
+    public InlineResponse20013Data bizUid(String bizUid) {
         
-        this.appealUnread = appealUnread;
+        this.bizUid = bizUid;
         return this;
     }
 
      /**
-     * Unread appeals
-     * @return appealUnread
+     * Encrypted UID
+     * @return bizUid
     **/
-    public Integer getAppealUnread() {
-        return appealUnread;
+    public String getBizUid() {
+        return bizUid;
     }
 
 
-    public void setAppealUnread(Integer appealUnread) {
-        this.appealUnread = appealUnread;
+    public void setBizUid(String bizUid) {
+        this.bizUid = bizUid;
     }
 
-    public InlineResponse20013Data appealAllowCancel(Integer appealAllowCancel) {
+    public InlineResponse20013Data blueVip(Integer blueVip) {
         
-        this.appealAllowCancel = appealAllowCancel;
+        this.blueVip = blueVip;
         return this;
     }
 
      /**
-     * Whether appeal cancellation is allowed
-     * @return appealAllowCancel
+     * Blue V Crown Shield
+     * @return blueVip
     **/
-    public Integer getAppealAllowCancel() {
-        return appealAllowCancel;
+    public Integer getBlueVip() {
+        return blueVip;
     }
 
 
-    public void setAppealAllowCancel(Integer appealAllowCancel) {
-        this.appealAllowCancel = appealAllowCancel;
+    public void setBlueVip(Integer blueVip) {
+        this.blueVip = blueVip;
     }
 
-    public InlineResponse20013Data appealVerdictHasOpen(String appealVerdictHasOpen) {
+    public InlineResponse20013Data workStatus(Integer workStatus) {
         
-        this.appealVerdictHasOpen = appealVerdictHasOpen;
+        this.workStatus = workStatus;
         return this;
     }
 
      /**
-     * Appeal result (including pending appeals)
-     * @return appealVerdictHasOpen
+     * Merchant work status
+     * @return workStatus
     **/
-    public String getAppealVerdictHasOpen() {
-        return appealVerdictHasOpen;
+    public Integer getWorkStatus() {
+        return workStatus;
     }
 
 
-    public void setAppealVerdictHasOpen(String appealVerdictHasOpen) {
-        this.appealVerdictHasOpen = appealVerdictHasOpen;
+    public void setWorkStatus(Integer workStatus) {
+        this.workStatus = workStatus;
     }
 
-    public InlineResponse20013Data imUnread(Integer imUnread) {
+    public InlineResponse20013Data registrationDays(Integer registrationDays) {
         
-        this.imUnread = imUnread;
+        this.registrationDays = registrationDays;
         return this;
     }
 
      /**
-     * IM unread
-     * @return imUnread
+     * Registration days
+     * @return registrationDays
     **/
-    public Integer getImUnread() {
-        return imUnread;
+    public Integer getRegistrationDays() {
+        return registrationDays;
     }
 
 
-    public void setImUnread(Integer imUnread) {
-        this.imUnread = imUnread;
+    public void setRegistrationDays(Integer registrationDays) {
+        this.registrationDays = registrationDays;
     }
 
-    public InlineResponse20013Data message(String message) {
+    public InlineResponse20013Data firstTradeDays(Integer firstTradeDays) {
         
-        this.message = message;
+        this.firstTradeDays = firstTradeDays;
         return this;
     }
 
      /**
-     * Review content
-     * @return message
+     * Days since first trade
+     * @return firstTradeDays
     **/
-    public String getMessage() {
-        return message;
+    public Integer getFirstTradeDays() {
+        return firstTradeDays;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setFirstTradeDays(Integer firstTradeDays) {
+        this.firstTradeDays = firstTradeDays;
     }
 
-    public InlineResponse20013Data score(String score) {
+    public InlineResponse20013Data needReplenish(Integer needReplenish) {
         
-        this.score = score;
+        this.needReplenish = needReplenish;
         return this;
     }
 
      /**
-     * Rating
-     * @return score
+     * Whether margin replenishment is needed
+     * @return needReplenish
     **/
-    public String getScore() {
-        return score;
+    public Integer getNeedReplenish() {
+        return needReplenish;
     }
 
 
-    public void setScore(String score) {
-        this.score = score;
+    public void setNeedReplenish(Integer needReplenish) {
+        this.needReplenish = needReplenish;
     }
 
-    public InlineResponse20013Data paymentVoucherUrl(List<String> paymentVoucherUrl) {
+    public InlineResponse20013Data merchantInfo(InlineResponse20013DataMerchantInfo merchantInfo) {
         
-        this.paymentVoucherUrl = paymentVoucherUrl;
-        return this;
-    }
-
-    public InlineResponse20013Data addPaymentVoucherUrlItem(String paymentVoucherUrlItem) {
-        this.paymentVoucherUrl.add(paymentVoucherUrlItem);
+        this.merchantInfo = merchantInfo;
         return this;
     }
 
      /**
-     * Payment voucher
-     * @return paymentVoucherUrl
+     * Get merchantInfo
+     * @return merchantInfo
     **/
-    public List<String> getPaymentVoucherUrl() {
-        return paymentVoucherUrl;
+    public InlineResponse20013DataMerchantInfo getMerchantInfo() {
+        return merchantInfo;
     }
 
 
-    public void setPaymentVoucherUrl(List<String> paymentVoucherUrl) {
-        this.paymentVoucherUrl = paymentVoucherUrl;
+    public void setMerchantInfo(InlineResponse20013DataMerchantInfo merchantInfo) {
+        this.merchantInfo = merchantInfo;
     }
 
-    public InlineResponse20013Data completeNumber(Integer completeNumber) {
+    public InlineResponse20013Data onlineStatus(Integer onlineStatus) {
         
-        this.completeNumber = completeNumber;
-        return this;
-    }
-
-     /**
-     * Counterparty transaction volume
-     * @return completeNumber
-    **/
-    public Integer getCompleteNumber() {
-        return completeNumber;
-    }
-
-
-    public void setCompleteNumber(Integer completeNumber) {
-        this.completeNumber = completeNumber;
-    }
-
-    public InlineResponse20013Data completeRateMonth(String completeRateMonth) {
-        
-        this.completeRateMonth = completeRateMonth;
-        return this;
-    }
-
-     /**
-     * Counterparty completion rate
-     * @return completeRateMonth
-    **/
-    public String getCompleteRateMonth() {
-        return completeRateMonth;
-    }
-
-
-    public void setCompleteRateMonth(String completeRateMonth) {
-        this.completeRateMonth = completeRateMonth;
-    }
-
-    public InlineResponse20013Data checkJournalAccount(Boolean checkJournalAccount) {
-        
-        this.checkJournalAccount = checkJournalAccount;
-        return this;
-    }
-
-     /**
-     * Whether transaction record is verified
-     * @return checkJournalAccount
-    **/
-    public Boolean getCheckJournalAccount() {
-        return checkJournalAccount;
-    }
-
-
-    public void setCheckJournalAccount(Boolean checkJournalAccount) {
-        this.checkJournalAccount = checkJournalAccount;
-    }
-
-    public InlineResponse20013Data showJournalAccount(Boolean showJournalAccount) {
-        
-        this.showJournalAccount = showJournalAccount;
-        return this;
-    }
-
-     /**
-     * Whether to display transaction records
-     * @return showJournalAccount
-    **/
-    public Boolean getShowJournalAccount() {
-        return showJournalAccount;
-    }
-
-
-    public void setShowJournalAccount(Boolean showJournalAccount) {
-        this.showJournalAccount = showJournalAccount;
-    }
-
-    public InlineResponse20013Data isFreezeGuarantee(Integer isFreezeGuarantee) {
-        
-        this.isFreezeGuarantee = isFreezeGuarantee;
-        return this;
-    }
-
-     /**
-     * Whether margin is frozen
-     * @return isFreezeGuarantee
-    **/
-    public Integer getIsFreezeGuarantee() {
-        return isFreezeGuarantee;
-    }
-
-
-    public void setIsFreezeGuarantee(Integer isFreezeGuarantee) {
-        this.isFreezeGuarantee = isFreezeGuarantee;
-    }
-
-    public InlineResponse20013Data usdtLeftGuarantee(String usdtLeftGuarantee) {
-        
-        this.usdtLeftGuarantee = usdtLeftGuarantee;
-        return this;
-    }
-
-     /**
-     * Remaining USDT margin
-     * @return usdtLeftGuarantee
-    **/
-    public String getUsdtLeftGuarantee() {
-        return usdtLeftGuarantee;
-    }
-
-
-    public void setUsdtLeftGuarantee(String usdtLeftGuarantee) {
-        this.usdtLeftGuarantee = usdtLeftGuarantee;
-    }
-
-    public InlineResponse20013Data guaranteeCurrType(String guaranteeCurrType) {
-        
-        this.guaranteeCurrType = guaranteeCurrType;
-        return this;
-    }
-
-     /**
-     * Margin currency type
-     * @return guaranteeCurrType
-    **/
-    public String getGuaranteeCurrType() {
-        return guaranteeCurrType;
-    }
-
-
-    public void setGuaranteeCurrType(String guaranteeCurrType) {
-        this.guaranteeCurrType = guaranteeCurrType;
-    }
-
-    public InlineResponse20013Data timestPaid(Integer timestPaid) {
-        
-        this.timestPaid = timestPaid;
-        return this;
-    }
-
-     /**
-     * Payment time
-     * @return timestPaid
-    **/
-    public Integer getTimestPaid() {
-        return timestPaid;
-    }
-
-
-    public void setTimestPaid(Integer timestPaid) {
-        this.timestPaid = timestPaid;
-    }
-
-    public InlineResponse20013Data state(String state) {
-        
-        this.state = state;
-        return this;
-    }
-
-     /**
-     * Order Status
-     * @return state
-    **/
-    public String getState() {
-        return state;
-    }
-
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public InlineResponse20013Data releaseCoinSwitch(Integer releaseCoinSwitch) {
-        
-        this.releaseCoinSwitch = releaseCoinSwitch;
-        return this;
-    }
-
-     /**
-     * Coin release switch configuration
-     * @return releaseCoinSwitch
-    **/
-    public Integer getReleaseCoinSwitch() {
-        return releaseCoinSwitch;
-    }
-
-
-    public void setReleaseCoinSwitch(Integer releaseCoinSwitch) {
-        this.releaseCoinSwitch = releaseCoinSwitch;
-    }
-
-    public InlineResponse20013Data ownRealname(String ownRealname) {
-        
-        this.ownRealname = ownRealname;
-        return this;
-    }
-
-     /**
-     * Username
-     * @return ownRealname
-    **/
-    public String getOwnRealname() {
-        return ownRealname;
-    }
-
-
-    public void setOwnRealname(String ownRealname) {
-        this.ownRealname = ownRealname;
-    }
-
-    public InlineResponse20013Data confirmationUseTimeMonth(Integer confirmationUseTimeMonth) {
-        
-        this.confirmationUseTimeMonth = confirmationUseTimeMonth;
-        return this;
-    }
-
-     /**
-     * Average confirmation time in last 30 days
-     * @return confirmationUseTimeMonth
-    **/
-    public Integer getConfirmationUseTimeMonth() {
-        return confirmationUseTimeMonth;
-    }
-
-
-    public void setConfirmationUseTimeMonth(Integer confirmationUseTimeMonth) {
-        this.confirmationUseTimeMonth = confirmationUseTimeMonth;
-    }
-
-    public InlineResponse20013Data isRiskUser(Integer isRiskUser) {
-        
-        this.isRiskUser = isRiskUser;
-        return this;
-    }
-
-     /**
-     * Whether risk user
-     * @return isRiskUser
-    **/
-    public Integer getIsRiskUser() {
-        return isRiskUser;
-    }
-
-
-    public void setIsRiskUser(Integer isRiskUser) {
-        this.isRiskUser = isRiskUser;
-    }
-
-    public InlineResponse20013Data isXt(Integer isXt) {
-        
-        this.isXt = isXt;
-        return this;
-    }
-
-     /**
-     * Whether XT order
-     * @return isXt
-    **/
-    public Integer getIsXt() {
-        return isXt;
-    }
-
-
-    public void setIsXt(Integer isXt) {
-        this.isXt = isXt;
-    }
-
-    public InlineResponse20013Data orderType(Integer orderType) {
-        
-        this.orderType = orderType;
-        return this;
-    }
-
-     /**
-     * Order Type
-     * @return orderType
-    **/
-    public Integer getOrderType() {
-        return orderType;
-    }
-
-
-    public void setOrderType(Integer orderType) {
-        this.orderType = orderType;
-    }
-
-    public InlineResponse20013Data symbol(String symbol) {
-        
-        this.symbol = symbol;
-        return this;
-    }
-
-     /**
-     * Fiat currency symbol
-     * @return symbol
-    **/
-    public String getSymbol() {
-        return symbol;
-    }
-
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public InlineResponse20013Data isShowReceive(Integer isShowReceive) {
-        
-        this.isShowReceive = isShowReceive;
-        return this;
-    }
-
-     /**
-     * Whether to show confirm receipt during appeal
-     * @return isShowReceive
-    **/
-    public Integer getIsShowReceive() {
-        return isShowReceive;
-    }
-
-
-    public void setIsShowReceive(Integer isShowReceive) {
-        this.isShowReceive = isShowReceive;
-    }
-
-    public InlineResponse20013Data isTaker(Integer isTaker) {
-        
-        this.isTaker = isTaker;
-        return this;
-    }
-
-     /**
-     * Whether regular user
-     * @return isTaker
-    **/
-    public Integer getIsTaker() {
-        return isTaker;
-    }
-
-
-    public void setIsTaker(Integer isTaker) {
-        this.isTaker = isTaker;
-    }
-
-    public InlineResponse20013Data isOnline(Integer isOnline) {
-        
-        this.isOnline = isOnline;
+        this.onlineStatus = onlineStatus;
         return this;
     }
 
      /**
      * Merchant online status
-     * @return isOnline
+     * @return onlineStatus
     **/
-    public Integer getIsOnline() {
-        return isOnline;
+    public Integer getOnlineStatus() {
+        return onlineStatus;
     }
 
 
-    public void setIsOnline(Integer isOnline) {
-        this.isOnline = isOnline;
+    public void setOnlineStatus(Integer onlineStatus) {
+        this.onlineStatus = onlineStatus;
     }
 
-    public InlineResponse20013Data showSellerContactInfo(Boolean showSellerContactInfo) {
+    public InlineResponse20013Data workHours(oas_any_type_not_mapped workHours) {
         
-        this.showSellerContactInfo = showSellerContactInfo;
+        this.workHours = workHours;
         return this;
     }
 
      /**
-     * Whether to display seller contact information
-     * @return showSellerContactInfo
+     * Merchant online status details
+     * @return workHours
     **/
-    public Boolean getShowSellerContactInfo() {
-        return showSellerContactInfo;
+    @javax.annotation.Nullable
+    public oas_any_type_not_mapped getWorkHours() {
+        return workHours;
     }
 
 
-    public void setShowSellerContactInfo(Boolean showSellerContactInfo) {
-        this.showSellerContactInfo = showSellerContactInfo;
+    public void setWorkHours(oas_any_type_not_mapped workHours) {
+        this.workHours = workHours;
     }
 
-    public InlineResponse20013Data supportedPayTypes(List<String> supportedPayTypes) {
+    public InlineResponse20013Data transactionsMonth(Integer transactionsMonth) {
         
-        this.supportedPayTypes = supportedPayTypes;
-        return this;
-    }
-
-    public InlineResponse20013Data addSupportedPayTypesItem(String supportedPayTypesItem) {
-        this.supportedPayTypes.add(supportedPayTypesItem);
+        this.transactionsMonth = transactionsMonth;
         return this;
     }
 
      /**
-     * Payment methods supported by current order
-     * @return supportedPayTypes
+     * 30-day transaction volume
+     * @return transactionsMonth
     **/
-    public List<String> getSupportedPayTypes() {
-        return supportedPayTypes;
+    public Integer getTransactionsMonth() {
+        return transactionsMonth;
     }
 
 
-    public void setSupportedPayTypes(List<String> supportedPayTypes) {
-        this.supportedPayTypes = supportedPayTypes;
+    public void setTransactionsMonth(Integer transactionsMonth) {
+        this.transactionsMonth = transactionsMonth;
+    }
+
+    public InlineResponse20013Data transactionsAll(Integer transactionsAll) {
+        
+        this.transactionsAll = transactionsAll;
+        return this;
+    }
+
+     /**
+     * Total transaction volume
+     * @return transactionsAll
+    **/
+    public Integer getTransactionsAll() {
+        return transactionsAll;
+    }
+
+
+    public void setTransactionsAll(Integer transactionsAll) {
+        this.transactionsAll = transactionsAll;
+    }
+
+    public InlineResponse20013Data tradeVersatile(Boolean tradeVersatile) {
+        
+        this.tradeVersatile = tradeVersatile;
+        return this;
+    }
+
+     /**
+     * Single user or composite user
+     * @return tradeVersatile
+    **/
+    public Boolean getTradeVersatile() {
+        return tradeVersatile;
+    }
+
+
+    public void setTradeVersatile(Boolean tradeVersatile) {
+        this.tradeVersatile = tradeVersatile;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1705,83 +748,42 @@ public class InlineResponse20013Data {
             return false;
         }
         InlineResponse20013Data inlineResponse20013Data = (InlineResponse20013Data) o;
-        return Objects.equals(this.isSell, inlineResponse20013Data.isSell) &&
-                Objects.equals(this.txid, inlineResponse20013Data.txid) &&
-                Objects.equals(this.orderid, inlineResponse20013Data.orderid) &&
-                Objects.equals(this.timest, inlineResponse20013Data.timest) &&
-                Objects.equals(this.lastPayTime, inlineResponse20013Data.lastPayTime) &&
-                Objects.equals(this.remainPayTime, inlineResponse20013Data.remainPayTime) &&
-                Objects.equals(this.currencyType, inlineResponse20013Data.currencyType) &&
-                Objects.equals(this.wantType, inlineResponse20013Data.wantType) &&
-                Objects.equals(this.rate, inlineResponse20013Data.rate) &&
-                Objects.equals(this.amount, inlineResponse20013Data.amount) &&
-                Objects.equals(this.total, inlineResponse20013Data.total) &&
-                Objects.equals(this.status, inlineResponse20013Data.status) &&
-                Objects.equals(this.reasonId, inlineResponse20013Data.reasonId) &&
-                Objects.equals(this.reasonDesc, inlineResponse20013Data.reasonDesc) &&
-                Objects.equals(this.toastId, inlineResponse20013Data.toastId) &&
-                Objects.equals(this.cancelTime, inlineResponse20013Data.cancelTime) &&
-                Objects.equals(this.sellerConfirm, inlineResponse20013Data.sellerConfirm) &&
-                Objects.equals(this.inAppeal, inlineResponse20013Data.inAppeal) &&
-                Objects.equals(this.disputeTime, inlineResponse20013Data.disputeTime) &&
-                Objects.equals(this.cancelable, inlineResponse20013Data.cancelable) &&
-                Objects.equals(this.hidePayment, inlineResponse20013Data.hidePayment) &&
-                Objects.equals(this.tradeTips, inlineResponse20013Data.tradeTips) &&
-                Objects.equals(this.showBank, inlineResponse20013Data.showBank) &&
-                Objects.equals(this.bankname, inlineResponse20013Data.bankname) &&
-                Objects.equals(this.bankbranch, inlineResponse20013Data.bankbranch) &&
-                Objects.equals(this.bankid, inlineResponse20013Data.bankid) &&
-                Objects.equals(this.bankHolderRealname, inlineResponse20013Data.bankHolderRealname) &&
-                Objects.equals(this.showAli, inlineResponse20013Data.showAli) &&
-                Objects.equals(this.aliname, inlineResponse20013Data.aliname) &&
-                Objects.equals(this.isAlicode, inlineResponse20013Data.isAlicode) &&
-                Objects.equals(this.showWechat, inlineResponse20013Data.showWechat) &&
-                Objects.equals(this.wename, inlineResponse20013Data.wename) &&
-                Objects.equals(this.showOthers, inlineResponse20013Data.showOthers) &&
-                Objects.equals(this.payOthers, inlineResponse20013Data.payOthers) &&
-                Objects.equals(this.selPaytype, inlineResponse20013Data.selPaytype) &&
-                Objects.equals(this.itsUid, inlineResponse20013Data.itsUid) &&
-                Objects.equals(this.itsIsBlueVip, inlineResponse20013Data.itsIsBlueVip) &&
-                Objects.equals(this.itsTier, inlineResponse20013Data.itsTier) &&
-                Objects.equals(this.itsAvatar, inlineResponse20013Data.itsAvatar) &&
-                Objects.equals(this.itsNickname, inlineResponse20013Data.itsNickname) &&
-                Objects.equals(this.itsRealname, inlineResponse20013Data.itsRealname) &&
-                Objects.equals(this.isFollow, inlineResponse20013Data.isFollow) &&
-                Objects.equals(this.isBlack, inlineResponse20013Data.isBlack) &&
-                Objects.equals(this.haveTraded, inlineResponse20013Data.haveTraded) &&
-                Objects.equals(this.appealUnread, inlineResponse20013Data.appealUnread) &&
-                Objects.equals(this.appealAllowCancel, inlineResponse20013Data.appealAllowCancel) &&
-                Objects.equals(this.appealVerdictHasOpen, inlineResponse20013Data.appealVerdictHasOpen) &&
-                Objects.equals(this.imUnread, inlineResponse20013Data.imUnread) &&
-                Objects.equals(this.message, inlineResponse20013Data.message) &&
-                Objects.equals(this.score, inlineResponse20013Data.score) &&
-                Objects.equals(this.paymentVoucherUrl, inlineResponse20013Data.paymentVoucherUrl) &&
-                Objects.equals(this.completeNumber, inlineResponse20013Data.completeNumber) &&
+        return Objects.equals(this.isSelf, inlineResponse20013Data.isSelf) &&
+                Objects.equals(this.userTimest, inlineResponse20013Data.userTimest) &&
+                Objects.equals(this.counterpartiesNum, inlineResponse20013Data.counterpartiesNum) &&
+                Objects.equals(this.emailVerified, inlineResponse20013Data.emailVerified) &&
+                Objects.equals(this.verified, inlineResponse20013Data.verified) &&
+                Objects.equals(this.hasPhone, inlineResponse20013Data.hasPhone) &&
+                Objects.equals(this.userName, inlineResponse20013Data.userName) &&
+                Objects.equals(this.userNote, inlineResponse20013Data.userNote) &&
+                Objects.equals(this.completeTransactions, inlineResponse20013Data.completeTransactions) &&
+                Objects.equals(this.paidTransactions, inlineResponse20013Data.paidTransactions) &&
+                Objects.equals(this.acceptedTransactions, inlineResponse20013Data.acceptedTransactions) &&
+                Objects.equals(this.transactionsUsedTime, inlineResponse20013Data.transactionsUsedTime) &&
+                Objects.equals(this.cancelledUsedTimeMonth, inlineResponse20013Data.cancelledUsedTimeMonth) &&
+                Objects.equals(this.completeTransactionsMonth, inlineResponse20013Data.completeTransactionsMonth) &&
                 Objects.equals(this.completeRateMonth, inlineResponse20013Data.completeRateMonth) &&
-                Objects.equals(this.checkJournalAccount, inlineResponse20013Data.checkJournalAccount) &&
-                Objects.equals(this.showJournalAccount, inlineResponse20013Data.showJournalAccount) &&
-                Objects.equals(this.isFreezeGuarantee, inlineResponse20013Data.isFreezeGuarantee) &&
-                Objects.equals(this.usdtLeftGuarantee, inlineResponse20013Data.usdtLeftGuarantee) &&
-                Objects.equals(this.guaranteeCurrType, inlineResponse20013Data.guaranteeCurrType) &&
-                Objects.equals(this.timestPaid, inlineResponse20013Data.timestPaid) &&
-                Objects.equals(this.state, inlineResponse20013Data.state) &&
-                Objects.equals(this.releaseCoinSwitch, inlineResponse20013Data.releaseCoinSwitch) &&
-                Objects.equals(this.ownRealname, inlineResponse20013Data.ownRealname) &&
-                Objects.equals(this.confirmationUseTimeMonth, inlineResponse20013Data.confirmationUseTimeMonth) &&
-                Objects.equals(this.isRiskUser, inlineResponse20013Data.isRiskUser) &&
-                Objects.equals(this.isXt, inlineResponse20013Data.isXt) &&
-                Objects.equals(this.orderType, inlineResponse20013Data.orderType) &&
-                Objects.equals(this.symbol, inlineResponse20013Data.symbol) &&
-                Objects.equals(this.isShowReceive, inlineResponse20013Data.isShowReceive) &&
-                Objects.equals(this.isTaker, inlineResponse20013Data.isTaker) &&
-                Objects.equals(this.isOnline, inlineResponse20013Data.isOnline) &&
-                Objects.equals(this.showSellerContactInfo, inlineResponse20013Data.showSellerContactInfo) &&
-                Objects.equals(this.supportedPayTypes, inlineResponse20013Data.supportedPayTypes);
+                Objects.equals(this.ordersBuyRateMonth, inlineResponse20013Data.ordersBuyRateMonth) &&
+                Objects.equals(this.isBlack, inlineResponse20013Data.isBlack) &&
+                Objects.equals(this.isFollow, inlineResponse20013Data.isFollow) &&
+                Objects.equals(this.haveTraded, inlineResponse20013Data.haveTraded) &&
+                Objects.equals(this.bizUid, inlineResponse20013Data.bizUid) &&
+                Objects.equals(this.blueVip, inlineResponse20013Data.blueVip) &&
+                Objects.equals(this.workStatus, inlineResponse20013Data.workStatus) &&
+                Objects.equals(this.registrationDays, inlineResponse20013Data.registrationDays) &&
+                Objects.equals(this.firstTradeDays, inlineResponse20013Data.firstTradeDays) &&
+                Objects.equals(this.needReplenish, inlineResponse20013Data.needReplenish) &&
+                Objects.equals(this.merchantInfo, inlineResponse20013Data.merchantInfo) &&
+                Objects.equals(this.onlineStatus, inlineResponse20013Data.onlineStatus) &&
+                Objects.equals(this.workHours, inlineResponse20013Data.workHours) &&
+                Objects.equals(this.transactionsMonth, inlineResponse20013Data.transactionsMonth) &&
+                Objects.equals(this.transactionsAll, inlineResponse20013Data.transactionsAll) &&
+                Objects.equals(this.tradeVersatile, inlineResponse20013Data.tradeVersatile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isSell, txid, orderid, timest, lastPayTime, remainPayTime, currencyType, wantType, rate, amount, total, status, reasonId, reasonDesc, toastId, cancelTime, sellerConfirm, inAppeal, disputeTime, cancelable, hidePayment, tradeTips, showBank, bankname, bankbranch, bankid, bankHolderRealname, showAli, aliname, isAlicode, showWechat, wename, showOthers, payOthers, selPaytype, itsUid, itsIsBlueVip, itsTier, itsAvatar, itsNickname, itsRealname, isFollow, isBlack, haveTraded, appealUnread, appealAllowCancel, appealVerdictHasOpen, imUnread, message, score, paymentVoucherUrl, completeNumber, completeRateMonth, checkJournalAccount, showJournalAccount, isFreezeGuarantee, usdtLeftGuarantee, guaranteeCurrType, timestPaid, state, releaseCoinSwitch, ownRealname, confirmationUseTimeMonth, isRiskUser, isXt, orderType, symbol, isShowReceive, isTaker, isOnline, showSellerContactInfo, supportedPayTypes);
+        return Objects.hash(isSelf, userTimest, counterpartiesNum, emailVerified, verified, hasPhone, userName, userNote, completeTransactions, paidTransactions, acceptedTransactions, transactionsUsedTime, cancelledUsedTimeMonth, completeTransactionsMonth, completeRateMonth, ordersBuyRateMonth, isBlack, isFollow, haveTraded, bizUid, blueVip, workStatus, registrationDays, firstTradeDays, needReplenish, merchantInfo, onlineStatus, workHours, transactionsMonth, transactionsAll, tradeVersatile);
     }
 
 
@@ -1789,78 +791,37 @@ public class InlineResponse20013Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20013Data {\n");
-        sb.append("      isSell: ").append(toIndentedString(isSell)).append("\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      orderid: ").append(toIndentedString(orderid)).append("\n");
-        sb.append("      timest: ").append(toIndentedString(timest)).append("\n");
-        sb.append("      lastPayTime: ").append(toIndentedString(lastPayTime)).append("\n");
-        sb.append("      remainPayTime: ").append(toIndentedString(remainPayTime)).append("\n");
-        sb.append("      currencyType: ").append(toIndentedString(currencyType)).append("\n");
-        sb.append("      wantType: ").append(toIndentedString(wantType)).append("\n");
-        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      total: ").append(toIndentedString(total)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      reasonId: ").append(toIndentedString(reasonId)).append("\n");
-        sb.append("      reasonDesc: ").append(toIndentedString(reasonDesc)).append("\n");
-        sb.append("      toastId: ").append(toIndentedString(toastId)).append("\n");
-        sb.append("      cancelTime: ").append(toIndentedString(cancelTime)).append("\n");
-        sb.append("      sellerConfirm: ").append(toIndentedString(sellerConfirm)).append("\n");
-        sb.append("      inAppeal: ").append(toIndentedString(inAppeal)).append("\n");
-        sb.append("      disputeTime: ").append(toIndentedString(disputeTime)).append("\n");
-        sb.append("      cancelable: ").append(toIndentedString(cancelable)).append("\n");
-        sb.append("      hidePayment: ").append(toIndentedString(hidePayment)).append("\n");
-        sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
-        sb.append("      showBank: ").append(toIndentedString(showBank)).append("\n");
-        sb.append("      bankname: ").append(toIndentedString(bankname)).append("\n");
-        sb.append("      bankbranch: ").append(toIndentedString(bankbranch)).append("\n");
-        sb.append("      bankid: ").append(toIndentedString(bankid)).append("\n");
-        sb.append("      bankHolderRealname: ").append(toIndentedString(bankHolderRealname)).append("\n");
-        sb.append("      showAli: ").append(toIndentedString(showAli)).append("\n");
-        sb.append("      aliname: ").append(toIndentedString(aliname)).append("\n");
-        sb.append("      isAlicode: ").append(toIndentedString(isAlicode)).append("\n");
-        sb.append("      showWechat: ").append(toIndentedString(showWechat)).append("\n");
-        sb.append("      wename: ").append(toIndentedString(wename)).append("\n");
-        sb.append("      showOthers: ").append(toIndentedString(showOthers)).append("\n");
-        sb.append("      payOthers: ").append(toIndentedString(payOthers)).append("\n");
-        sb.append("      selPaytype: ").append(toIndentedString(selPaytype)).append("\n");
-        sb.append("      itsUid: ").append(toIndentedString(itsUid)).append("\n");
-        sb.append("      itsIsBlueVip: ").append(toIndentedString(itsIsBlueVip)).append("\n");
-        sb.append("      itsTier: ").append(toIndentedString(itsTier)).append("\n");
-        sb.append("      itsAvatar: ").append(toIndentedString(itsAvatar)).append("\n");
-        sb.append("      itsNickname: ").append(toIndentedString(itsNickname)).append("\n");
-        sb.append("      itsRealname: ").append(toIndentedString(itsRealname)).append("\n");
-        sb.append("      isFollow: ").append(toIndentedString(isFollow)).append("\n");
-        sb.append("      isBlack: ").append(toIndentedString(isBlack)).append("\n");
-        sb.append("      haveTraded: ").append(toIndentedString(haveTraded)).append("\n");
-        sb.append("      appealUnread: ").append(toIndentedString(appealUnread)).append("\n");
-        sb.append("      appealAllowCancel: ").append(toIndentedString(appealAllowCancel)).append("\n");
-        sb.append("      appealVerdictHasOpen: ").append(toIndentedString(appealVerdictHasOpen)).append("\n");
-        sb.append("      imUnread: ").append(toIndentedString(imUnread)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      score: ").append(toIndentedString(score)).append("\n");
-        sb.append("      paymentVoucherUrl: ").append(toIndentedString(paymentVoucherUrl)).append("\n");
-        sb.append("      completeNumber: ").append(toIndentedString(completeNumber)).append("\n");
+        sb.append("      isSelf: ").append(toIndentedString(isSelf)).append("\n");
+        sb.append("      userTimest: ").append(toIndentedString(userTimest)).append("\n");
+        sb.append("      counterpartiesNum: ").append(toIndentedString(counterpartiesNum)).append("\n");
+        sb.append("      emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
+        sb.append("      verified: ").append(toIndentedString(verified)).append("\n");
+        sb.append("      hasPhone: ").append(toIndentedString(hasPhone)).append("\n");
+        sb.append("      userName: ").append(toIndentedString(userName)).append("\n");
+        sb.append("      userNote: ").append(toIndentedString(userNote)).append("\n");
+        sb.append("      completeTransactions: ").append(toIndentedString(completeTransactions)).append("\n");
+        sb.append("      paidTransactions: ").append(toIndentedString(paidTransactions)).append("\n");
+        sb.append("      acceptedTransactions: ").append(toIndentedString(acceptedTransactions)).append("\n");
+        sb.append("      transactionsUsedTime: ").append(toIndentedString(transactionsUsedTime)).append("\n");
+        sb.append("      cancelledUsedTimeMonth: ").append(toIndentedString(cancelledUsedTimeMonth)).append("\n");
+        sb.append("      completeTransactionsMonth: ").append(toIndentedString(completeTransactionsMonth)).append("\n");
         sb.append("      completeRateMonth: ").append(toIndentedString(completeRateMonth)).append("\n");
-        sb.append("      checkJournalAccount: ").append(toIndentedString(checkJournalAccount)).append("\n");
-        sb.append("      showJournalAccount: ").append(toIndentedString(showJournalAccount)).append("\n");
-        sb.append("      isFreezeGuarantee: ").append(toIndentedString(isFreezeGuarantee)).append("\n");
-        sb.append("      usdtLeftGuarantee: ").append(toIndentedString(usdtLeftGuarantee)).append("\n");
-        sb.append("      guaranteeCurrType: ").append(toIndentedString(guaranteeCurrType)).append("\n");
-        sb.append("      timestPaid: ").append(toIndentedString(timestPaid)).append("\n");
-        sb.append("      state: ").append(toIndentedString(state)).append("\n");
-        sb.append("      releaseCoinSwitch: ").append(toIndentedString(releaseCoinSwitch)).append("\n");
-        sb.append("      ownRealname: ").append(toIndentedString(ownRealname)).append("\n");
-        sb.append("      confirmationUseTimeMonth: ").append(toIndentedString(confirmationUseTimeMonth)).append("\n");
-        sb.append("      isRiskUser: ").append(toIndentedString(isRiskUser)).append("\n");
-        sb.append("      isXt: ").append(toIndentedString(isXt)).append("\n");
-        sb.append("      orderType: ").append(toIndentedString(orderType)).append("\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      isShowReceive: ").append(toIndentedString(isShowReceive)).append("\n");
-        sb.append("      isTaker: ").append(toIndentedString(isTaker)).append("\n");
-        sb.append("      isOnline: ").append(toIndentedString(isOnline)).append("\n");
-        sb.append("      showSellerContactInfo: ").append(toIndentedString(showSellerContactInfo)).append("\n");
-        sb.append("      supportedPayTypes: ").append(toIndentedString(supportedPayTypes)).append("\n");
+        sb.append("      ordersBuyRateMonth: ").append(toIndentedString(ordersBuyRateMonth)).append("\n");
+        sb.append("      isBlack: ").append(toIndentedString(isBlack)).append("\n");
+        sb.append("      isFollow: ").append(toIndentedString(isFollow)).append("\n");
+        sb.append("      haveTraded: ").append(toIndentedString(haveTraded)).append("\n");
+        sb.append("      bizUid: ").append(toIndentedString(bizUid)).append("\n");
+        sb.append("      blueVip: ").append(toIndentedString(blueVip)).append("\n");
+        sb.append("      workStatus: ").append(toIndentedString(workStatus)).append("\n");
+        sb.append("      registrationDays: ").append(toIndentedString(registrationDays)).append("\n");
+        sb.append("      firstTradeDays: ").append(toIndentedString(firstTradeDays)).append("\n");
+        sb.append("      needReplenish: ").append(toIndentedString(needReplenish)).append("\n");
+        sb.append("      merchantInfo: ").append(toIndentedString(merchantInfo)).append("\n");
+        sb.append("      onlineStatus: ").append(toIndentedString(onlineStatus)).append("\n");
+        sb.append("      workHours: ").append(toIndentedString(workHours)).append("\n");
+        sb.append("      transactionsMonth: ").append(toIndentedString(transactionsMonth)).append("\n");
+        sb.append("      transactionsAll: ").append(toIndentedString(transactionsAll)).append("\n");
+        sb.append("      tradeVersatile: ").append(toIndentedString(tradeVersatile)).append("\n");
         sb.append("}");
         return sb.toString();
     }

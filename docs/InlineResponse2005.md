@@ -5,8 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | 
-**message** | **String** |  | 
-**data** | [**InlineResponse2005Data**](InlineResponse2005Data.md) |  | 
-**timestamp** | **Integer** |  | 
+**currency** | **String** |  |  [optional]
+**estRate** | **String** | Estimated Annualized Rate, e.g., &#x60;est_rate&#x60;: &#x60;0.8014&#x60; represents an annualized rate of 80.14% |  [optional]
 

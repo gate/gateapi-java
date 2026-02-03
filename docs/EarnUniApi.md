@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 
 <a name="listUniChart"></a>
 # **listUniChart**
-> List&lt;InlineResponse200&gt; listUniChart(from, to, asset)
+> List&lt;InlineResponse2004&gt; listUniChart(from, to, asset)
 
 UniLoan currency annualized trend chart
 
@@ -689,7 +689,7 @@ public class Example {
         Long to = 1722441600L; // Long | End timestamp in seconds, maximum span 30 days
         String asset = "BTC"; // String | Currency name
         try {
-            List<InlineResponse200> result = apiInstance.listUniChart(from, to, asset);
+            List<InlineResponse2004> result = apiInstance.listUniChart(from, to, asset);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse200&gt;**](InlineResponse200.md)
+[**List&lt;InlineResponse2004&gt;**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 
 <a name="listUniRate"></a>
 # **listUniRate**
-> List&lt;InlineResponse2001&gt; listUniRate()
+> List&lt;InlineResponse2005&gt; listUniRate()
 
 Currency estimated annualized interest rate
 
@@ -758,7 +758,7 @@ public class Example {
 
         EarnUniApi apiInstance = new EarnUniApi(defaultClient);
         try {
-            List<InlineResponse2001> result = apiInstance.listUniRate();
+            List<InlineResponse2005> result = apiInstance.listUniRate();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -778,7 +778,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;InlineResponse2001&gt;**](InlineResponse2001.md)
+[**List&lt;InlineResponse2005&gt;**](InlineResponse2005.md)
 
 ### Authorization
 

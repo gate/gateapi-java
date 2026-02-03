@@ -111,7 +111,7 @@ public class MarginTiers {
     }
 
      /**
-     * Upper limit, \&quot;\&quot; indicates greater than (the last tier)
+     * Upper limit, &#x60;&#x60; indicates greater than (the last tier)
      * @return upperLimit
     **/
     @javax.annotation.Nullable

@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.FuturesAccountHistory;
+import io.gate.gateapi.models.DeliveryAccountHistory;
 import java.io.IOException;
 
 /**
@@ -126,7 +126,7 @@ public class DeliveryAccount {
 
     public static final String SERIALIZED_NAME_HISTORY = "history";
     @SerializedName(SERIALIZED_NAME_HISTORY)
-    private FuturesAccountHistory history;
+    private DeliveryAccountHistory history;
 
 
     public DeliveryAccount total(String total) {
@@ -629,7 +629,7 @@ public class DeliveryAccount {
         this.enableTieredMm = enableTieredMm;
     }
 
-    public DeliveryAccount history(FuturesAccountHistory history) {
+    public DeliveryAccount history(DeliveryAccountHistory history) {
         
         this.history = history;
         return this;
@@ -640,12 +640,12 @@ public class DeliveryAccount {
      * @return history
     **/
     @javax.annotation.Nullable
-    public FuturesAccountHistory getHistory() {
+    public DeliveryAccountHistory getHistory() {
         return history;
     }
 
 
-    public void setHistory(FuturesAccountHistory history) {
+    public void setHistory(DeliveryAccountHistory history) {
         this.history = history;
     }
     @Override

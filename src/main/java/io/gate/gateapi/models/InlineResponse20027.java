@@ -23,166 +23,51 @@ import java.io.IOException;
  * InlineResponse20027
  */
 public class InlineResponse20027 {
-    public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
-    @SerializedName(SERIALIZED_NAME_QUOTE_ID)
-    private String quoteId;
+    public static final String SERIALIZED_NAME_TX_ID = "tx_id";
+    @SerializedName(SERIALIZED_NAME_TX_ID)
+    private String txId;
 
-    public static final String SERIALIZED_NAME_VALID_MS = "valid_ms";
-    @SerializedName(SERIALIZED_NAME_VALID_MS)
-    private String validMs;
-
-    public static final String SERIALIZED_NAME_FROM_COIN = "from_coin";
-    @SerializedName(SERIALIZED_NAME_FROM_COIN)
-    private String fromCoin;
-
-    public static final String SERIALIZED_NAME_TO_COIN = "to_coin";
-    @SerializedName(SERIALIZED_NAME_TO_COIN)
-    private String toCoin;
-
-    public static final String SERIALIZED_NAME_FROM_AMOUNT = "from_amount";
-    @SerializedName(SERIALIZED_NAME_FROM_AMOUNT)
-    private String fromAmount;
-
-    public static final String SERIALIZED_NAME_TO_AMOUNT = "to_amount";
-    @SerializedName(SERIALIZED_NAME_TO_AMOUNT)
-    private String toAmount;
-
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
 
 
-    public InlineResponse20027 quoteId(String quoteId) {
+    public InlineResponse20027 txId(String txId) {
         
-        this.quoteId = quoteId;
+        this.txId = txId;
         return this;
     }
 
      /**
-     * Quote ID
-     * @return quoteId
+     * Order ID
+     * @return txId
     **/
-    public String getQuoteId() {
-        return quoteId;
+    public String getTxId() {
+        return txId;
     }
 
 
-    public void setQuoteId(String quoteId) {
-        this.quoteId = quoteId;
+    public void setTxId(String txId) {
+        this.txId = txId;
     }
 
-    public InlineResponse20027 validMs(String validMs) {
+    public InlineResponse20027 text(String text) {
         
-        this.validMs = validMs;
+        this.text = text;
         return this;
     }
 
      /**
-     * Valid time (milliseconds timestamp)
-     * @return validMs
+     * User-defined Order ID
+     * @return text
     **/
-    public String getValidMs() {
-        return validMs;
+    public String getText() {
+        return text;
     }
 
 
-    public void setValidMs(String validMs) {
-        this.validMs = validMs;
-    }
-
-    public InlineResponse20027 fromCoin(String fromCoin) {
-        
-        this.fromCoin = fromCoin;
-        return this;
-    }
-
-     /**
-     * Asset Sold
-     * @return fromCoin
-    **/
-    public String getFromCoin() {
-        return fromCoin;
-    }
-
-
-    public void setFromCoin(String fromCoin) {
-        this.fromCoin = fromCoin;
-    }
-
-    public InlineResponse20027 toCoin(String toCoin) {
-        
-        this.toCoin = toCoin;
-        return this;
-    }
-
-     /**
-     * Asset Bought
-     * @return toCoin
-    **/
-    public String getToCoin() {
-        return toCoin;
-    }
-
-
-    public void setToCoin(String toCoin) {
-        this.toCoin = toCoin;
-    }
-
-    public InlineResponse20027 fromAmount(String fromAmount) {
-        
-        this.fromAmount = fromAmount;
-        return this;
-    }
-
-     /**
-     * Amount to sell
-     * @return fromAmount
-    **/
-    public String getFromAmount() {
-        return fromAmount;
-    }
-
-
-    public void setFromAmount(String fromAmount) {
-        this.fromAmount = fromAmount;
-    }
-
-    public InlineResponse20027 toAmount(String toAmount) {
-        
-        this.toAmount = toAmount;
-        return this;
-    }
-
-     /**
-     * Amount to buy
-     * @return toAmount
-    **/
-    public String getToAmount() {
-        return toAmount;
-    }
-
-
-    public void setToAmount(String toAmount) {
-        this.toAmount = toAmount;
-    }
-
-    public InlineResponse20027 price(String price) {
-        
-        this.price = price;
-        return this;
-    }
-
-     /**
-     * Price
-     * @return price
-    **/
-    public String getPrice() {
-        return price;
-    }
-
-
-    public void setPrice(String price) {
-        this.price = price;
+    public void setText(String text) {
+        this.text = text;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -193,18 +78,13 @@ public class InlineResponse20027 {
             return false;
         }
         InlineResponse20027 inlineResponse20027 = (InlineResponse20027) o;
-        return Objects.equals(this.quoteId, inlineResponse20027.quoteId) &&
-                Objects.equals(this.validMs, inlineResponse20027.validMs) &&
-                Objects.equals(this.fromCoin, inlineResponse20027.fromCoin) &&
-                Objects.equals(this.toCoin, inlineResponse20027.toCoin) &&
-                Objects.equals(this.fromAmount, inlineResponse20027.fromAmount) &&
-                Objects.equals(this.toAmount, inlineResponse20027.toAmount) &&
-                Objects.equals(this.price, inlineResponse20027.price);
+        return Objects.equals(this.txId, inlineResponse20027.txId) &&
+                Objects.equals(this.text, inlineResponse20027.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quoteId, validMs, fromCoin, toCoin, fromAmount, toAmount, price);
+        return Objects.hash(txId, text);
     }
 
 
@@ -212,13 +92,8 @@ public class InlineResponse20027 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20027 {\n");
-        sb.append("      quoteId: ").append(toIndentedString(quoteId)).append("\n");
-        sb.append("      validMs: ").append(toIndentedString(validMs)).append("\n");
-        sb.append("      fromCoin: ").append(toIndentedString(fromCoin)).append("\n");
-        sb.append("      toCoin: ").append(toIndentedString(toCoin)).append("\n");
-        sb.append("      fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
-        sb.append("      toAmount: ").append(toIndentedString(toAmount)).append("\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      txId: ").append(toIndentedString(txId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

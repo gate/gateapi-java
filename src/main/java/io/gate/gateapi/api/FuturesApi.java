@@ -21,10 +21,13 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.BatchAmendOrderReq;
+import io.gate.gateapi.models.BatchFundingRatesRequest;
+import io.gate.gateapi.models.BatchFundingRatesResponse;
 import io.gate.gateapi.models.BatchFuturesOrder;
 import io.gate.gateapi.models.Contract;
 import io.gate.gateapi.models.ContractStat;
 import io.gate.gateapi.models.CountdownCancelAllFuturesTask;
+import io.gate.gateapi.models.CreateTrailOrder;
 import io.gate.gateapi.models.FundingRateRecord;
 import io.gate.gateapi.models.FutureCancelOrderResult;
 import io.gate.gateapi.models.FuturesAccount;
@@ -49,13 +52,22 @@ import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.FuturesUpdatePriceTriggeredOrder;
 import io.gate.gateapi.models.InlineObject;
+import io.gate.gateapi.models.InlineResponse200;
+import io.gate.gateapi.models.InlineResponse2001;
+import io.gate.gateapi.models.InlineResponse2002;
+import io.gate.gateapi.models.InlineResponse2003;
+import io.gate.gateapi.models.InlineResponse201;
 import io.gate.gateapi.models.InsuranceRecord;
 import io.gate.gateapi.models.MyFuturesTrade;
 import io.gate.gateapi.models.MyFuturesTradeTimeRange;
 import io.gate.gateapi.models.Position;
 import io.gate.gateapi.models.PositionClose;
+import io.gate.gateapi.models.PositionTimerange;
+import io.gate.gateapi.models.StopAllTrailOrders;
+import io.gate.gateapi.models.StopTrailOrder;
 import io.gate.gateapi.models.TriggerOrderResponse;
 import io.gate.gateapi.models.TriggerTime;
+import io.gate.gateapi.models.UpdateTrailOrder;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1564,6 +1576,123 @@ public class FuturesApi {
         return new APIlistFuturesFundingRateHistoryRequest(settle, contract);
     }
 
+    /**
+     * Build call for listBatchFuturesFundingRates
+     * @param settle Settle currency (required)
+     * @param batchFundingRatesRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch Query Successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBatchFuturesFundingRatesCall(String settle, BatchFundingRatesRequest batchFundingRatesRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = batchFundingRatesRequest;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/funding_rates"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listBatchFuturesFundingRatesValidateBeforeCall(String settle, BatchFundingRatesRequest batchFundingRatesRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listBatchFuturesFundingRates(Async)");
+        }
+
+        // verify the required parameter 'batchFundingRatesRequest' is set
+        if (batchFundingRatesRequest == null) {
+            throw new ApiException("Missing the required parameter 'batchFundingRatesRequest' when calling listBatchFuturesFundingRates(Async)");
+        }
+
+        okhttp3.Call localVarCall = listBatchFuturesFundingRatesCall(settle, batchFundingRatesRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Batch Query Historical Funding Rate Data for Perpetual Contracts
+     * 
+     * @param settle Settle currency (required)
+     * @param batchFundingRatesRequest  (required)
+     * @return List&lt;BatchFundingRatesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch Query Successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<BatchFundingRatesResponse> listBatchFuturesFundingRates(String settle, BatchFundingRatesRequest batchFundingRatesRequest) throws ApiException {
+        ApiResponse<List<BatchFundingRatesResponse>> localVarResp = listBatchFuturesFundingRatesWithHttpInfo(settle, batchFundingRatesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch Query Historical Funding Rate Data for Perpetual Contracts
+     * 
+     * @param settle Settle currency (required)
+     * @param batchFundingRatesRequest  (required)
+     * @return ApiResponse&lt;List&lt;BatchFundingRatesResponse&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch Query Successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<BatchFundingRatesResponse>> listBatchFuturesFundingRatesWithHttpInfo(String settle, BatchFundingRatesRequest batchFundingRatesRequest) throws ApiException {
+        okhttp3.Call localVarCall = listBatchFuturesFundingRatesValidateBeforeCall(settle, batchFundingRatesRequest, null);
+        Type localVarReturnType = new TypeToken<List<BatchFundingRatesResponse>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch Query Historical Funding Rate Data for Perpetual Contracts (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param batchFundingRatesRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch Query Successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listBatchFuturesFundingRatesAsync(String settle, BatchFundingRatesRequest batchFundingRatesRequest, final ApiCallback<List<BatchFundingRatesResponse>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listBatchFuturesFundingRatesValidateBeforeCall(settle, batchFundingRatesRequest, _callback);
+        Type localVarReturnType = new TypeToken<List<BatchFundingRatesResponse>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
     private okhttp3.Call listFuturesInsuranceLedgerCall(String settle, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -2922,6 +3051,215 @@ public class FuturesApi {
      */
     public APIlistPositionsRequest listPositions(String settle) {
         return new APIlistPositionsRequest(settle);
+    }
+
+    private okhttp3.Call listPositionsTimerangeCall(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/positions_timerange"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listPositionsTimerangeValidateBeforeCall(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listPositionsTimerange(Async)");
+        }
+
+        // verify the required parameter 'contract' is set
+        if (contract == null) {
+            throw new ApiException("Missing the required parameter 'contract' when calling listPositionsTimerange(Async)");
+        }
+
+        okhttp3.Call localVarCall = listPositionsTimerangeCall(settle, contract, from, to, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<PositionTimerange>> listPositionsTimerangeWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listPositionsTimerangeValidateBeforeCall(settle, contract, from, to, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<PositionTimerange>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listPositionsTimerangeAsync(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<PositionTimerange>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listPositionsTimerangeValidateBeforeCall(settle, contract, from, to, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<PositionTimerange>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistPositionsTimerangeRequest {
+        private final String settle;
+        private final String contract;
+        private Long from;
+        private Long to;
+        private Integer limit;
+        private Integer offset;
+
+        private APIlistPositionsTimerangeRequest(String settle, String contract) {
+            this.settle = settle;
+            this.contract = contract;
+        }
+
+        /**
+         * Set from
+         * @param from Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)
+         * @return APIlistPositionsTimerangeRequest
+         */
+        public APIlistPositionsTimerangeRequest from(Long from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)
+         * @return APIlistPositionsTimerangeRequest
+         */
+        public APIlistPositionsTimerangeRequest to(Long to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in a single list (optional, default to 100)
+         * @return APIlistPositionsTimerangeRequest
+         */
+        public APIlistPositionsTimerangeRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistPositionsTimerangeRequest
+         */
+        public APIlistPositionsTimerangeRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listPositionsTimerange
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPositionsTimerangeCall(settle, contract, from, to, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listPositionsTimerange request
+         * @return List&lt;PositionTimerange&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<PositionTimerange> execute() throws ApiException {
+            ApiResponse<List<PositionTimerange>> localVarResp = listPositionsTimerangeWithHttpInfo(settle, contract, from, to, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPositionsTimerange request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PositionTimerange&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<PositionTimerange>> executeWithHttpInfo() throws ApiException {
+            return listPositionsTimerangeWithHttpInfo(settle, contract, from, to, limit, offset);
+        }
+
+        /**
+         * Execute listPositionsTimerange request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PositionTimerange>> _callback) throws ApiException {
+            return listPositionsTimerangeAsync(settle, contract, from, to, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Get user&#39;s historical position information list by time
+     * 
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @return APIlistPositionsTimerangeRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistPositionsTimerangeRequest listPositionsTimerange(String settle, String contract) {
+        return new APIlistPositionsTimerangeRequest(settle, contract);
     }
 
     private okhttp3.Call getPositionCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
@@ -7939,6 +8277,1091 @@ public class FuturesApi {
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for createTrailOrder
+     * @param settle Settle currency (required)
+     * @param createTrailOrder  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createTrailOrderCall(String settle, CreateTrailOrder createTrailOrder, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createTrailOrder;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/create"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createTrailOrderValidateBeforeCall(String settle, CreateTrailOrder createTrailOrder, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling createTrailOrder(Async)");
+        }
+
+        // verify the required parameter 'createTrailOrder' is set
+        if (createTrailOrder == null) {
+            throw new ApiException("Missing the required parameter 'createTrailOrder' when calling createTrailOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createTrailOrderCall(settle, createTrailOrder, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create trail order
+     * 
+     * @param settle Settle currency (required)
+     * @param createTrailOrder  (required)
+     * @return InlineResponse201
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse201 createTrailOrder(String settle, CreateTrailOrder createTrailOrder) throws ApiException {
+        ApiResponse<InlineResponse201> localVarResp = createTrailOrderWithHttpInfo(settle, createTrailOrder);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create trail order
+     * 
+     * @param settle Settle currency (required)
+     * @param createTrailOrder  (required)
+     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse201> createTrailOrderWithHttpInfo(String settle, CreateTrailOrder createTrailOrder) throws ApiException {
+        okhttp3.Call localVarCall = createTrailOrderValidateBeforeCall(settle, createTrailOrder, null);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create trail order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param createTrailOrder  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createTrailOrderAsync(String settle, CreateTrailOrder createTrailOrder, final ApiCallback<InlineResponse201> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createTrailOrderValidateBeforeCall(settle, createTrailOrder, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for stopTrailOrder
+     * @param settle Settle currency (required)
+     * @param stopTrailOrder  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopTrailOrderCall(String settle, StopTrailOrder stopTrailOrder, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = stopTrailOrder;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/stop"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopTrailOrderValidateBeforeCall(String settle, StopTrailOrder stopTrailOrder, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling stopTrailOrder(Async)");
+        }
+
+        // verify the required parameter 'stopTrailOrder' is set
+        if (stopTrailOrder == null) {
+            throw new ApiException("Missing the required parameter 'stopTrailOrder' when calling stopTrailOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = stopTrailOrderCall(settle, stopTrailOrder, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Terminate trail order
+     * 
+     * @param settle Settle currency (required)
+     * @param stopTrailOrder  (required)
+     * @return InlineResponse200
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse200 stopTrailOrder(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
+        ApiResponse<InlineResponse200> localVarResp = stopTrailOrderWithHttpInfo(settle, stopTrailOrder);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Terminate trail order
+     * 
+     * @param settle Settle currency (required)
+     * @param stopTrailOrder  (required)
+     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse200> stopTrailOrderWithHttpInfo(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
+        okhttp3.Call localVarCall = stopTrailOrderValidateBeforeCall(settle, stopTrailOrder, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Terminate trail order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param stopTrailOrder  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopTrailOrderAsync(String settle, StopTrailOrder stopTrailOrder, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+        okhttp3.Call localVarCall = stopTrailOrderValidateBeforeCall(settle, stopTrailOrder, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for stopAllTrailOrders
+     * @param settle Settle currency (required)
+     * @param stopAllTrailOrders  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopAllTrailOrdersCall(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = stopAllTrailOrders;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/stop_all"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopAllTrailOrdersValidateBeforeCall(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling stopAllTrailOrders(Async)");
+        }
+
+        // verify the required parameter 'stopAllTrailOrders' is set
+        if (stopAllTrailOrders == null) {
+            throw new ApiException("Missing the required parameter 'stopAllTrailOrders' when calling stopAllTrailOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = stopAllTrailOrdersCall(settle, stopAllTrailOrders, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Batch terminate trail orders
+     * 
+     * @param settle Settle currency (required)
+     * @param stopAllTrailOrders  (required)
+     * @return InlineResponse2001
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse2001 stopAllTrailOrders(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
+        ApiResponse<InlineResponse2001> localVarResp = stopAllTrailOrdersWithHttpInfo(settle, stopAllTrailOrders);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch terminate trail orders
+     * 
+     * @param settle Settle currency (required)
+     * @param stopAllTrailOrders  (required)
+     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse2001> stopAllTrailOrdersWithHttpInfo(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
+        okhttp3.Call localVarCall = stopAllTrailOrdersValidateBeforeCall(settle, stopAllTrailOrders, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch terminate trail orders (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param stopAllTrailOrders  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopAllTrailOrdersAsync(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+        okhttp3.Call localVarCall = stopAllTrailOrdersValidateBeforeCall(settle, stopAllTrailOrders, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getTrailOrdersCall(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/list"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (isFinished != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_finished", isFinished));
+        }
+
+        if (startAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_at", startAt));
+        }
+
+        if (endAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_at", endAt));
+        }
+
+        if (pageNum != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_num", pageNum));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (sortBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_by", sortBy));
+        }
+
+        if (hideCancel != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hide_cancel", hideCancel));
+        }
+
+        if (relatedPosition != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("related_position", relatedPosition));
+        }
+
+        if (sortByTrigger != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_by_trigger", sortByTrigger));
+        }
+
+        if (reduceOnly != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reduce_only", reduceOnly));
+        }
+
+        if (side != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("side", side));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTrailOrdersValidateBeforeCall(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getTrailOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = getTrailOrdersCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<InlineResponse2001> getTrailOrdersWithHttpInfo(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side) throws ApiException {
+        okhttp3.Call localVarCall = getTrailOrdersValidateBeforeCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getTrailOrdersAsync(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTrailOrdersValidateBeforeCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetTrailOrdersRequest {
+        private final String settle;
+        private String contract;
+        private Boolean isFinished;
+        private Long startAt;
+        private Long endAt;
+        private Integer pageNum;
+        private Integer pageSize;
+        private Integer sortBy;
+        private Boolean hideCancel;
+        private Integer relatedPosition;
+        private Boolean sortByTrigger;
+        private Integer reduceOnly;
+        private Integer side;
+
+        private APIgetTrailOrdersRequest(String settle) {
+            this.settle = settle;
+        }
+
+        /**
+         * Set contract
+         * @param contract Contract name (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set isFinished
+         * @param isFinished Whether historical order (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest isFinished(Boolean isFinished) {
+            this.isFinished = isFinished;
+            return this;
+        }
+
+        /**
+         * Set startAt
+         * @param startAt Start time of time range (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest startAt(Long startAt) {
+            this.startAt = startAt;
+            return this;
+        }
+
+        /**
+         * Set endAt
+         * @param endAt End time of time range (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest endAt(Long endAt) {
+            this.endAt = endAt;
+            return this;
+        }
+
+        /**
+         * Set pageNum
+         * @param pageNum Page number, starting from 1 (optional, default to 1)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest pageNum(Integer pageNum) {
+            this.pageNum = pageNum;
+            return this;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Number of items per page (optional, default to 20)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * Set sortBy
+         * @param sortBy Common sort field, 1-creation time, 2-end time (optional, default to 1)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest sortBy(Integer sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+
+        /**
+         * Set hideCancel
+         * @param hideCancel Hide cancelled orders (optional, default to false)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest hideCancel(Boolean hideCancel) {
+            this.hideCancel = hideCancel;
+            return this;
+        }
+
+        /**
+         * Set relatedPosition
+         * @param relatedPosition Associated position, if provided, only return orders associated with this position, 1-long, 2-short (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest relatedPosition(Integer relatedPosition) {
+            this.relatedPosition = relatedPosition;
+            return this;
+        }
+
+        /**
+         * Set sortByTrigger
+         * @param sortByTrigger Sort by trigger price and activation price, easy to trigger or activate first, only for current orders associated with positions (optional, default to false)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest sortByTrigger(Boolean sortByTrigger) {
+            this.sortByTrigger = sortByTrigger;
+            return this;
+        }
+
+        /**
+         * Set reduceOnly
+         * @param reduceOnly Whether reduce only, 1-yes, 2-no (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest reduceOnly(Integer reduceOnly) {
+            this.reduceOnly = reduceOnly;
+            return this;
+        }
+
+        /**
+         * Set side
+         * @param side Direction, 1-long position, 2-short position (optional)
+         * @return APIgetTrailOrdersRequest
+         */
+        public APIgetTrailOrdersRequest side(Integer side) {
+            this.side = side;
+            return this;
+        }
+
+        /**
+         * Build call for getTrailOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTrailOrdersCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
+        }
+
+        /**
+         * Execute getTrailOrders request
+         * @return InlineResponse2001
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public InlineResponse2001 execute() throws ApiException {
+            ApiResponse<InlineResponse2001> localVarResp = getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTrailOrders request with HTTP info returned
+         * @return ApiResponse&lt;InlineResponse2001&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<InlineResponse2001> executeWithHttpInfo() throws ApiException {
+            return getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
+        }
+
+        /**
+         * Execute getTrailOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+            return getTrailOrdersAsync(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
+        }
+    }
+
+    /**
+     * Get trail order list
+     * 
+     * @param settle Settle currency (required)
+     * @return APIgetTrailOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetTrailOrdersRequest getTrailOrders(String settle) {
+        return new APIgetTrailOrdersRequest(settle);
+    }
+
+    /**
+     * Build call for getTrailOrderDetail
+     * @param settle Settle currency (required)
+     * @param id Order ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTrailOrderDetailCall(String settle, Long id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/detail"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTrailOrderDetailValidateBeforeCall(String settle, Long id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getTrailOrderDetail(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTrailOrderDetail(Async)");
+        }
+
+        okhttp3.Call localVarCall = getTrailOrderDetailCall(settle, id, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get trail order details
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID (required)
+     * @return InlineResponse2002
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse2002 getTrailOrderDetail(String settle, Long id) throws ApiException {
+        ApiResponse<InlineResponse2002> localVarResp = getTrailOrderDetailWithHttpInfo(settle, id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get trail order details
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID (required)
+     * @return ApiResponse&lt;InlineResponse2002&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse2002> getTrailOrderDetailWithHttpInfo(String settle, Long id) throws ApiException {
+        okhttp3.Call localVarCall = getTrailOrderDetailValidateBeforeCall(settle, id, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get trail order details (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getTrailOrderDetailAsync(String settle, Long id, final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTrailOrderDetailValidateBeforeCall(settle, id, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateTrailOrder
+     * @param settle Settle currency (required)
+     * @param updateTrailOrder  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTrailOrderCall(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = updateTrailOrder;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/update"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateTrailOrderValidateBeforeCall(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling updateTrailOrder(Async)");
+        }
+
+        // verify the required parameter 'updateTrailOrder' is set
+        if (updateTrailOrder == null) {
+            throw new ApiException("Missing the required parameter 'updateTrailOrder' when calling updateTrailOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateTrailOrderCall(settle, updateTrailOrder, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update trail order
+     * 
+     * @param settle Settle currency (required)
+     * @param updateTrailOrder  (required)
+     * @return InlineResponse200
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse200 updateTrailOrder(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
+        ApiResponse<InlineResponse200> localVarResp = updateTrailOrderWithHttpInfo(settle, updateTrailOrder);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update trail order
+     * 
+     * @param settle Settle currency (required)
+     * @param updateTrailOrder  (required)
+     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse200> updateTrailOrderWithHttpInfo(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
+        okhttp3.Call localVarCall = updateTrailOrderValidateBeforeCall(settle, updateTrailOrder, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update trail order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param updateTrailOrder  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateTrailOrderAsync(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateTrailOrderValidateBeforeCall(settle, updateTrailOrder, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getTrailOrderChangeLogCall(String settle, Long id, Integer pageNum, Integer pageSize, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/trail/change_log"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        if (pageNum != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_num", pageNum));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTrailOrderChangeLogValidateBeforeCall(String settle, Long id, Integer pageNum, Integer pageSize, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getTrailOrderChangeLog(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTrailOrderChangeLog(Async)");
+        }
+
+        okhttp3.Call localVarCall = getTrailOrderChangeLogCall(settle, id, pageNum, pageSize, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<InlineResponse2003> getTrailOrderChangeLogWithHttpInfo(String settle, Long id, Integer pageNum, Integer pageSize) throws ApiException {
+        okhttp3.Call localVarCall = getTrailOrderChangeLogValidateBeforeCall(settle, id, pageNum, pageSize, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getTrailOrderChangeLogAsync(String settle, Long id, Integer pageNum, Integer pageSize, final ApiCallback<InlineResponse2003> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getTrailOrderChangeLogValidateBeforeCall(settle, id, pageNum, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetTrailOrderChangeLogRequest {
+        private final String settle;
+        private final Long id;
+        private Integer pageNum;
+        private Integer pageSize;
+
+        private APIgetTrailOrderChangeLogRequest(String settle, Long id) {
+            this.settle = settle;
+            this.id = id;
+        }
+
+        /**
+         * Set pageNum
+         * @param pageNum Page number, starting from 1 (optional, default to 1)
+         * @return APIgetTrailOrderChangeLogRequest
+         */
+        public APIgetTrailOrderChangeLogRequest pageNum(Integer pageNum) {
+            this.pageNum = pageNum;
+            return this;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Number of items per page (optional, default to 20)
+         * @return APIgetTrailOrderChangeLogRequest
+         */
+        public APIgetTrailOrderChangeLogRequest pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * Build call for getTrailOrderChangeLog
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTrailOrderChangeLogCall(settle, id, pageNum, pageSize, _callback);
+        }
+
+        /**
+         * Execute getTrailOrderChangeLog request
+         * @return InlineResponse2003
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public InlineResponse2003 execute() throws ApiException {
+            ApiResponse<InlineResponse2003> localVarResp = getTrailOrderChangeLogWithHttpInfo(settle, id, pageNum, pageSize);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTrailOrderChangeLog request with HTTP info returned
+         * @return ApiResponse&lt;InlineResponse2003&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<InlineResponse2003> executeWithHttpInfo() throws ApiException {
+            return getTrailOrderChangeLogWithHttpInfo(settle, id, pageNum, pageSize);
+        }
+
+        /**
+         * Execute getTrailOrderChangeLog request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2003> _callback) throws ApiException {
+            return getTrailOrderChangeLogAsync(settle, id, pageNum, pageSize, _callback);
+        }
+    }
+
+    /**
+     * Get trail order user modification records
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID (required)
+     * @return APIgetTrailOrderChangeLogRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetTrailOrderChangeLogRequest getTrailOrderChangeLog(String settle, Long id) {
+        return new APIgetTrailOrderChangeLogRequest(settle, id);
     }
 
     private okhttp3.Call listPriceTriggeredOrdersCall(String settle, String status, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {

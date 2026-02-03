@@ -17,134 +17,264 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2006DataList;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse2006Data
  */
 public class InlineResponse2006Data {
-    public static final String SERIALIZED_NAME_PN = "pn";
-    @SerializedName(SERIALIZED_NAME_PN)
-    private Integer pn;
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
 
-    public static final String SERIALIZED_NAME_PS = "ps";
-    @SerializedName(SERIALIZED_NAME_PS)
-    private Integer ps;
+    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
+    @SerializedName(SERIALIZED_NAME_PAY_COIN)
+    private String payCoin;
 
-    public static final String SERIALIZED_NAME_TOTAL_PN = "total_pn";
-    @SerializedName(SERIALIZED_NAME_TOTAL_PN)
-    private Integer totalPn;
+    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
+    @SerializedName(SERIALIZED_NAME_GET_COIN)
+    private String getCoin;
 
-    public static final String SERIALIZED_NAME_COUNT = "count";
-    @SerializedName(SERIALIZED_NAME_COUNT)
-    private Integer count;
+    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
+    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
+    private String payAmount;
 
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse2006DataList> list = new ArrayList<>();
+    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
+    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
+    private String getAmount;
+
+    public static final String SERIALIZED_NAME_RATE = "rate";
+    @SerializedName(SERIALIZED_NAME_RATE)
+    private String rate;
+
+    public static final String SERIALIZED_NAME_RATE_RECI = "rate_reci";
+    @SerializedName(SERIALIZED_NAME_RATE_RECI)
+    private String rateReci;
+
+    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
+    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
+    private String promotionCode;
+
+    public static final String SERIALIZED_NAME_SIDE = "side";
+    @SerializedName(SERIALIZED_NAME_SIDE)
+    private String side;
+
+    public static final String SERIALIZED_NAME_ORDER_TYPE = "order_type";
+    @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
+    private String orderType;
+
+    public static final String SERIALIZED_NAME_QUOTE_TOKEN = "quote_token";
+    @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
+    private String quoteToken;
 
 
-    public InlineResponse2006Data pn(Integer pn) {
+    public InlineResponse2006Data type(String type) {
         
-        this.pn = pn;
+        this.type = type;
         return this;
     }
 
      /**
-     * Get pn
-     * @return pn
+     * BUY (on-ramp) or SELL (off-ramp)
+     * @return type
     **/
-    public Integer getPn() {
-        return pn;
+    public String getType() {
+        return type;
     }
 
 
-    public void setPn(Integer pn) {
-        this.pn = pn;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public InlineResponse2006Data ps(Integer ps) {
+    public InlineResponse2006Data payCoin(String payCoin) {
         
-        this.ps = ps;
+        this.payCoin = payCoin;
         return this;
     }
 
      /**
-     * Get ps
-     * @return ps
+     * Payment currency
+     * @return payCoin
     **/
-    public Integer getPs() {
-        return ps;
+    public String getPayCoin() {
+        return payCoin;
     }
 
 
-    public void setPs(Integer ps) {
-        this.ps = ps;
+    public void setPayCoin(String payCoin) {
+        this.payCoin = payCoin;
     }
 
-    public InlineResponse2006Data totalPn(Integer totalPn) {
+    public InlineResponse2006Data getCoin(String getCoin) {
         
-        this.totalPn = totalPn;
+        this.getCoin = getCoin;
         return this;
     }
 
      /**
-     * Get totalPn
-     * @return totalPn
+     * Currency
+     * @return getCoin
     **/
-    public Integer getTotalPn() {
-        return totalPn;
+    public String getGetCoin() {
+        return getCoin;
     }
 
 
-    public void setTotalPn(Integer totalPn) {
-        this.totalPn = totalPn;
+    public void setGetCoin(String getCoin) {
+        this.getCoin = getCoin;
     }
 
-    public InlineResponse2006Data count(Integer count) {
+    public InlineResponse2006Data payAmount(String payAmount) {
         
-        this.count = count;
+        this.payAmount = payAmount;
         return this;
     }
 
      /**
-     * Get count
-     * @return count
+     * Payment amount
+     * @return payAmount
     **/
-    public Integer getCount() {
-        return count;
+    public String getPayAmount() {
+        return payAmount;
     }
 
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setPayAmount(String payAmount) {
+        this.payAmount = payAmount;
     }
 
-    public InlineResponse2006Data list(List<InlineResponse2006DataList> list) {
+    public InlineResponse2006Data getAmount(String getAmount) {
         
-        this.list = list;
-        return this;
-    }
-
-    public InlineResponse2006Data addListItem(InlineResponse2006DataList listItem) {
-        this.list.add(listItem);
+        this.getAmount = getAmount;
         return this;
     }
 
      /**
-     * Get list
-     * @return list
+     * Redemption Amount
+     * @return getAmount
     **/
-    public List<InlineResponse2006DataList> getList() {
-        return list;
+    public String getGetAmount() {
+        return getAmount;
     }
 
 
-    public void setList(List<InlineResponse2006DataList> list) {
-        this.list = list;
+    public void setGetAmount(String getAmount) {
+        this.getAmount = getAmount;
+    }
+
+    public InlineResponse2006Data rate(String rate) {
+        
+        this.rate = rate;
+        return this;
+    }
+
+     /**
+     * Exchange rate
+     * @return rate
+    **/
+    public String getRate() {
+        return rate;
+    }
+
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public InlineResponse2006Data rateReci(String rateReci) {
+        
+        this.rateReci = rateReci;
+        return this;
+    }
+
+     /**
+     * Reciprocal of the exchange rate
+     * @return rateReci
+    **/
+    public String getRateReci() {
+        return rateReci;
+    }
+
+
+    public void setRateReci(String rateReci) {
+        this.rateReci = rateReci;
+    }
+
+    public InlineResponse2006Data promotionCode(String promotionCode) {
+        
+        this.promotionCode = promotionCode;
+        return this;
+    }
+
+     /**
+     * Promotion code
+     * @return promotionCode
+    **/
+    public String getPromotionCode() {
+        return promotionCode;
+    }
+
+
+    public void setPromotionCode(String promotionCode) {
+        this.promotionCode = promotionCode;
+    }
+
+    public InlineResponse2006Data side(String side) {
+        
+        this.side = side;
+        return this;
+    }
+
+     /**
+     * Quote method
+     * @return side
+    **/
+    public String getSide() {
+        return side;
+    }
+
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public InlineResponse2006Data orderType(String orderType) {
+        
+        this.orderType = orderType;
+        return this;
+    }
+
+     /**
+     * Order type: FIAT (fiat) / STABLE (stablecoin)
+     * @return orderType
+    **/
+    public String getOrderType() {
+        return orderType;
+    }
+
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
+    public InlineResponse2006Data quoteToken(String quoteToken) {
+        
+        this.quoteToken = quoteToken;
+        return this;
+    }
+
+     /**
+     * Quote token required when placing an order
+     * @return quoteToken
+    **/
+    public String getQuoteToken() {
+        return quoteToken;
+    }
+
+
+    public void setQuoteToken(String quoteToken) {
+        this.quoteToken = quoteToken;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -155,16 +285,22 @@ public class InlineResponse2006Data {
             return false;
         }
         InlineResponse2006Data inlineResponse2006Data = (InlineResponse2006Data) o;
-        return Objects.equals(this.pn, inlineResponse2006Data.pn) &&
-                Objects.equals(this.ps, inlineResponse2006Data.ps) &&
-                Objects.equals(this.totalPn, inlineResponse2006Data.totalPn) &&
-                Objects.equals(this.count, inlineResponse2006Data.count) &&
-                Objects.equals(this.list, inlineResponse2006Data.list);
+        return Objects.equals(this.type, inlineResponse2006Data.type) &&
+                Objects.equals(this.payCoin, inlineResponse2006Data.payCoin) &&
+                Objects.equals(this.getCoin, inlineResponse2006Data.getCoin) &&
+                Objects.equals(this.payAmount, inlineResponse2006Data.payAmount) &&
+                Objects.equals(this.getAmount, inlineResponse2006Data.getAmount) &&
+                Objects.equals(this.rate, inlineResponse2006Data.rate) &&
+                Objects.equals(this.rateReci, inlineResponse2006Data.rateReci) &&
+                Objects.equals(this.promotionCode, inlineResponse2006Data.promotionCode) &&
+                Objects.equals(this.side, inlineResponse2006Data.side) &&
+                Objects.equals(this.orderType, inlineResponse2006Data.orderType) &&
+                Objects.equals(this.quoteToken, inlineResponse2006Data.quoteToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pn, ps, totalPn, count, list);
+        return Objects.hash(type, payCoin, getCoin, payAmount, getAmount, rate, rateReci, promotionCode, side, orderType, quoteToken);
     }
 
 
@@ -172,11 +308,17 @@ public class InlineResponse2006Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2006Data {\n");
-        sb.append("      pn: ").append(toIndentedString(pn)).append("\n");
-        sb.append("      ps: ").append(toIndentedString(ps)).append("\n");
-        sb.append("      totalPn: ").append(toIndentedString(totalPn)).append("\n");
-        sb.append("      count: ").append(toIndentedString(count)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
+        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
+        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
+        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
+        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("      rateReci: ").append(toIndentedString(rateReci)).append("\n");
+        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
+        sb.append("      side: ").append(toIndentedString(side)).append("\n");
+        sb.append("      orderType: ").append(toIndentedString(orderType)).append("\n");
+        sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,57 +17,70 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.RuleRiskLimitsTiers;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20024
  */
 public class InlineResponse20024 {
-    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
-    @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
+    public static final String SERIALIZED_NAME_TIERS = "tiers";
+    @SerializedName(SERIALIZED_NAME_TIERS)
+    private List<RuleRiskLimitsTiers> tiers = null;
 
 
-    public InlineResponse20024 orderId(String orderId) {
+    public InlineResponse20024 symbol(String symbol) {
         
-        this.orderId = orderId;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Order ID
-     * @return orderId
+     * Get symbol
+     * @return symbol
     **/
-    public String getOrderId() {
-        return orderId;
+    @javax.annotation.Nullable
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineResponse20024 text(String text) {
+    public InlineResponse20024 tiers(List<RuleRiskLimitsTiers> tiers) {
         
-        this.text = text;
+        this.tiers = tiers;
+        return this;
+    }
+
+    public InlineResponse20024 addTiersItem(RuleRiskLimitsTiers tiersItem) {
+        if (this.tiers == null) {
+            this.tiers = new ArrayList<>();
+        }
+        this.tiers.add(tiersItem);
         return this;
     }
 
      /**
-     * User-defined Order ID
-     * @return text
+     * Get tiers
+     * @return tiers
     **/
-    public String getText() {
-        return text;
+    @javax.annotation.Nullable
+    public List<RuleRiskLimitsTiers> getTiers() {
+        return tiers;
     }
 
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTiers(List<RuleRiskLimitsTiers> tiers) {
+        this.tiers = tiers;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +91,13 @@ public class InlineResponse20024 {
             return false;
         }
         InlineResponse20024 inlineResponse20024 = (InlineResponse20024) o;
-        return Objects.equals(this.orderId, inlineResponse20024.orderId) &&
-                Objects.equals(this.text, inlineResponse20024.text);
+        return Objects.equals(this.symbol, inlineResponse20024.symbol) &&
+                Objects.equals(this.tiers, inlineResponse20024.tiers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, text);
+        return Objects.hash(symbol, tiers);
     }
 
 
@@ -92,8 +105,8 @@ public class InlineResponse20024 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20024 {\n");
-        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      tiers: ").append(toIndentedString(tiers)).append("\n");
         sb.append("}");
         return sb.toString();
     }

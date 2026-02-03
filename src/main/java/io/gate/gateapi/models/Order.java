@@ -405,7 +405,7 @@ public class Order {
     private StpActEnum stpAct;
 
     /**
-     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
+     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Order cancelled due to price protection- unknown: Unknown
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -430,6 +430,8 @@ public class Order {
         FOK("fok"),
         
         STP("stp"),
+        
+        PRICE_PROTECT_CANCELLED("price_protect_cancelled"),
         
         UNKNOWN("unknown");
 
@@ -942,7 +944,7 @@ public class Order {
     }
 
      /**
-     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
+     * Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Order cancelled due to price protection- unknown: Unknown
      * @return finishAs
     **/
     @javax.annotation.Nullable

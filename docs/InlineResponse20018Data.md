@@ -5,5 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SRVTM** | **Integer** | Timestamp when message was successfully sent (current timestamp) | 
+**status** | **Integer** | Ad status after successful update | 
 

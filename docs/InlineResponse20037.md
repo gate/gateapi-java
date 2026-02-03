@@ -5,22 +5,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **String** | Position ID |  [optional]
-**userId** | **String** | User ID |  [optional]
-**symbol** | **String** | Currency pair |  [optional]
-**closedType** | **String** | Position close type (PARTIAL_CLOSED: partially closed; COMPLETE_CLOSED: fully closed) |  [optional]
-**closedPnl** | **String** | Close Position P&amp;L |  [optional]
-**closedPnlRate** | **String** | Close Position P&amp;L Ratio |  [optional]
-**openAvgPrice** | **String** | Average Opening Price |  [optional]
-**closedAvgPrice** | **String** | Average Close Price |  [optional]
-**maxPositionQty** | **String** | Max Trade Size |  [optional]
-**closedQty** | **String** | Close Position Quantity |  [optional]
-**closedValue** | **String** | Close Position Value |  [optional]
-**liqFee** | **String** | Liquidation Fee |  [optional]
-**positionSide** | **String** | Position Direction Before Close |  [optional]
-**leverage** | **String** | Leverage at Close |  [optional]
-**interest** | **String** | Total Deducted Interest | 
-**businessType** | **String** | Position Business Type | 
-**createTime** | **String** | Created time |  [optional]
-**updateTime** | **String** | Update time |  [optional]
+**userId** | **String** | User ID | 
+**positionId** | **String** | Leveraged Position ID | 
+**symbol** | **String** | Trading Pair | 
+**positionSide** | **String** | Position Direction | 
+**initialMargin** | **String** | Initial position margin | 
+**maintenanceMargin** | **String** | Position maintenance margin | 
+**assetQty** | **String** | Position Asset Quantity | 
+**assetCoin** | **String** | Position Asset Currency | 
+**positionValue** | **String** | Position Value | 
+**liability** | **String** | Debt Quantity | 
+**liabilityCoin** | **String** | Debt Currency | 
+**interest** | **String** | Deducted Interest | 
+**maxPositionQty** | **String** | Max Trade Size | 
+**entryPrice** | **String** | Position Cost Price (Average Opening Price) | 
+**indexPrice** | **String** | Index price | 
+**upnl** | **String** | Unrealized P&amp;L | 
+**upnlRate** | **String** | Unrealized P&amp;L Ratio | 
+**leverage** | **String** | Opening Leverage | 
+**maxLeverage** | **String** | Maximum leverage | 
+**createTime** | **String** | Created time | 
+**updateTime** | **String** | Update time | 
 

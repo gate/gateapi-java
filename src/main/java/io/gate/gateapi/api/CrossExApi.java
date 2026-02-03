@@ -29,10 +29,6 @@ import io.gate.gateapi.models.InlineObject25;
 import io.gate.gateapi.models.InlineObject26;
 import io.gate.gateapi.models.InlineObject27;
 import io.gate.gateapi.models.InlineObject28;
-import io.gate.gateapi.models.InlineResponse20020;
-import io.gate.gateapi.models.InlineResponse20021;
-import io.gate.gateapi.models.InlineResponse20022;
-import io.gate.gateapi.models.InlineResponse20023;
 import io.gate.gateapi.models.InlineResponse20024;
 import io.gate.gateapi.models.InlineResponse20025;
 import io.gate.gateapi.models.InlineResponse20026;
@@ -51,6 +47,10 @@ import io.gate.gateapi.models.InlineResponse20038;
 import io.gate.gateapi.models.InlineResponse20039;
 import io.gate.gateapi.models.InlineResponse20040;
 import io.gate.gateapi.models.InlineResponse20041;
+import io.gate.gateapi.models.InlineResponse20042;
+import io.gate.gateapi.models.InlineResponse20043;
+import io.gate.gateapi.models.InlineResponse20044;
+import io.gate.gateapi.models.InlineResponse20045;
 import io.gate.gateapi.models.InlineResponse202;
 import io.gate.gateapi.models.InlineResponse2021;
 import io.gate.gateapi.models.Symbol;
@@ -283,7 +283,7 @@ public class CrossExApi {
      * [Public Interface] Query Risk Limit Information
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
-     * @return List&lt;InlineResponse20020&gt;
+     * @return List&lt;InlineResponse20024&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -291,8 +291,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public List<InlineResponse20020> listCrossexRuleRiskLimits(String symbols) throws ApiException {
-        ApiResponse<List<InlineResponse20020>> localVarResp = listCrossexRuleRiskLimitsWithHttpInfo(symbols);
+    public List<InlineResponse20024> listCrossexRuleRiskLimits(String symbols) throws ApiException {
+        ApiResponse<List<InlineResponse20024>> localVarResp = listCrossexRuleRiskLimitsWithHttpInfo(symbols);
         return localVarResp.getData();
     }
 
@@ -300,7 +300,7 @@ public class CrossExApi {
      * [Public Interface] Query Risk Limit Information
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
-     * @return ApiResponse&lt;List&lt;InlineResponse20020&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InlineResponse20024&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -308,9 +308,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<InlineResponse20020>> listCrossexRuleRiskLimitsWithHttpInfo(String symbols) throws ApiException {
+    public ApiResponse<List<InlineResponse20024>> listCrossexRuleRiskLimitsWithHttpInfo(String symbols) throws ApiException {
         okhttp3.Call localVarCall = listCrossexRuleRiskLimitsValidateBeforeCall(symbols, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20020>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20024>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -327,9 +327,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCrossexRuleRiskLimitsAsync(String symbols, final ApiCallback<List<InlineResponse20020>> _callback) throws ApiException {
+    public okhttp3.Call listCrossexRuleRiskLimitsAsync(String symbols, final ApiCallback<List<InlineResponse20024>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexRuleRiskLimitsValidateBeforeCall(symbols, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20020>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20024>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -374,15 +374,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20021>> listCrossexTransferCoinsWithHttpInfo(String coin) throws ApiException {
+    private ApiResponse<List<InlineResponse20025>> listCrossexTransferCoinsWithHttpInfo(String coin) throws ApiException {
         okhttp3.Call localVarCall = listCrossexTransferCoinsValidateBeforeCall(coin, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20021>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20025>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexTransferCoinsAsync(String coin, final ApiCallback<List<InlineResponse20021>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexTransferCoinsAsync(String coin, final ApiCallback<List<InlineResponse20025>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexTransferCoinsValidateBeforeCall(coin, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20021>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20025>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -420,7 +420,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexTransferCoins request
-         * @return List&lt;InlineResponse20021&gt;
+         * @return List&lt;InlineResponse20025&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -428,14 +428,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20021> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20021>> localVarResp = listCrossexTransferCoinsWithHttpInfo(coin);
+        public List<InlineResponse20025> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20025>> localVarResp = listCrossexTransferCoinsWithHttpInfo(coin);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexTransferCoins request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20021&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20025&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -443,7 +443,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20021>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20025>> executeWithHttpInfo() throws ApiException {
             return listCrossexTransferCoinsWithHttpInfo(coin);
         }
 
@@ -458,7 +458,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20021>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20025>> _callback) throws ApiException {
             return listCrossexTransferCoinsAsync(coin, _callback);
         }
     }
@@ -537,15 +537,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20022>> listCrossexTransfersWithHttpInfo(String coin, String orderId, Integer from, Integer to, Integer page, Integer limit) throws ApiException {
+    private ApiResponse<List<InlineResponse20026>> listCrossexTransfersWithHttpInfo(String coin, String orderId, Integer from, Integer to, Integer page, Integer limit) throws ApiException {
         okhttp3.Call localVarCall = listCrossexTransfersValidateBeforeCall(coin, orderId, from, to, page, limit, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20022>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20026>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexTransfersAsync(String coin, String orderId, Integer from, Integer to, Integer page, Integer limit, final ApiCallback<List<InlineResponse20022>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexTransfersAsync(String coin, String orderId, Integer from, Integer to, Integer page, Integer limit, final ApiCallback<List<InlineResponse20026>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexTransfersValidateBeforeCall(coin, orderId, from, to, page, limit, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20022>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20026>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -638,7 +638,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexTransfers request
-         * @return List&lt;InlineResponse20022&gt;
+         * @return List&lt;InlineResponse20026&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -646,14 +646,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20022> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20022>> localVarResp = listCrossexTransfersWithHttpInfo(coin, orderId, from, to, page, limit);
+        public List<InlineResponse20026> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20026>> localVarResp = listCrossexTransfersWithHttpInfo(coin, orderId, from, to, page, limit);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexTransfers request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20022&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20026&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -661,7 +661,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20022>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20026>> executeWithHttpInfo() throws ApiException {
             return listCrossexTransfersWithHttpInfo(coin, orderId, from, to, page, limit);
         }
 
@@ -676,7 +676,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20022>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20026>> _callback) throws ApiException {
             return listCrossexTransfersAsync(coin, orderId, from, to, page, limit, _callback);
         }
     }
@@ -746,7 +746,7 @@ public class CrossExApi {
      * Fund Transfer
      * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60;
      * @param inlineObject20  (optional)
-     * @return InlineResponse20023
+     * @return InlineResponse20027
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -754,8 +754,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20023 createCrossexTransfer(InlineObject20 inlineObject20) throws ApiException {
-        ApiResponse<InlineResponse20023> localVarResp = createCrossexTransferWithHttpInfo(inlineObject20);
+    public InlineResponse20027 createCrossexTransfer(InlineObject20 inlineObject20) throws ApiException {
+        ApiResponse<InlineResponse20027> localVarResp = createCrossexTransferWithHttpInfo(inlineObject20);
         return localVarResp.getData();
     }
 
@@ -763,7 +763,7 @@ public class CrossExApi {
      * Fund Transfer
      * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60;
      * @param inlineObject20  (optional)
-     * @return ApiResponse&lt;InlineResponse20023&gt;
+     * @return ApiResponse&lt;InlineResponse20027&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -771,9 +771,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20023> createCrossexTransferWithHttpInfo(InlineObject20 inlineObject20) throws ApiException {
+    public ApiResponse<InlineResponse20027> createCrossexTransferWithHttpInfo(InlineObject20 inlineObject20) throws ApiException {
         okhttp3.Call localVarCall = createCrossexTransferValidateBeforeCall(inlineObject20, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -790,9 +790,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCrossexTransferAsync(InlineObject20 inlineObject20, final ApiCallback<InlineResponse20023> _callback) throws ApiException {
+    public okhttp3.Call createCrossexTransferAsync(InlineObject20 inlineObject20, final ApiCallback<InlineResponse20027> _callback) throws ApiException {
         okhttp3.Call localVarCall = createCrossexTransferValidateBeforeCall(inlineObject20, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -848,7 +848,7 @@ public class CrossExApi {
      * Create an order
      * Rate Limit: 100 requests per 10 seconds
      * @param inlineObject21  (optional)
-     * @return InlineResponse20024
+     * @return InlineResponse20028
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -856,8 +856,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20024 createCrossexOrder(InlineObject21 inlineObject21) throws ApiException {
-        ApiResponse<InlineResponse20024> localVarResp = createCrossexOrderWithHttpInfo(inlineObject21);
+    public InlineResponse20028 createCrossexOrder(InlineObject21 inlineObject21) throws ApiException {
+        ApiResponse<InlineResponse20028> localVarResp = createCrossexOrderWithHttpInfo(inlineObject21);
         return localVarResp.getData();
     }
 
@@ -865,7 +865,7 @@ public class CrossExApi {
      * Create an order
      * Rate Limit: 100 requests per 10 seconds
      * @param inlineObject21  (optional)
-     * @return ApiResponse&lt;InlineResponse20024&gt;
+     * @return ApiResponse&lt;InlineResponse20028&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -873,9 +873,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20024> createCrossexOrderWithHttpInfo(InlineObject21 inlineObject21) throws ApiException {
+    public ApiResponse<InlineResponse20028> createCrossexOrderWithHttpInfo(InlineObject21 inlineObject21) throws ApiException {
         okhttp3.Call localVarCall = createCrossexOrderValidateBeforeCall(inlineObject21, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -892,9 +892,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCrossexOrderAsync(InlineObject21 inlineObject21, final ApiCallback<InlineResponse20024> _callback) throws ApiException {
+    public okhttp3.Call createCrossexOrderAsync(InlineObject21 inlineObject21, final ApiCallback<InlineResponse20028> _callback) throws ApiException {
         okhttp3.Call localVarCall = createCrossexOrderValidateBeforeCall(inlineObject21, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -956,7 +956,7 @@ public class CrossExApi {
      * Query order details
      * Rate Limit: 200 requests per 10 seconds
      * @param orderId 1. Supports querying order IDs returned when creating orders 2. Supports custom IDs specified by users when creating orders (i.e., the text field) (required)
-     * @return InlineResponse20025
+     * @return InlineResponse20029
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -964,8 +964,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20025 getCrossexOrder(String orderId) throws ApiException {
-        ApiResponse<InlineResponse20025> localVarResp = getCrossexOrderWithHttpInfo(orderId);
+    public InlineResponse20029 getCrossexOrder(String orderId) throws ApiException {
+        ApiResponse<InlineResponse20029> localVarResp = getCrossexOrderWithHttpInfo(orderId);
         return localVarResp.getData();
     }
 
@@ -973,7 +973,7 @@ public class CrossExApi {
      * Query order details
      * Rate Limit: 200 requests per 10 seconds
      * @param orderId 1. Supports querying order IDs returned when creating orders 2. Supports custom IDs specified by users when creating orders (i.e., the text field) (required)
-     * @return ApiResponse&lt;InlineResponse20025&gt;
+     * @return ApiResponse&lt;InlineResponse20029&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -981,9 +981,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20025> getCrossexOrderWithHttpInfo(String orderId) throws ApiException {
+    public ApiResponse<InlineResponse20029> getCrossexOrderWithHttpInfo(String orderId) throws ApiException {
         okhttp3.Call localVarCall = getCrossexOrderValidateBeforeCall(orderId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20029>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1000,9 +1000,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCrossexOrderAsync(String orderId, final ApiCallback<InlineResponse20025> _callback) throws ApiException {
+    public okhttp3.Call getCrossexOrderAsync(String orderId, final ApiCallback<InlineResponse20029> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexOrderValidateBeforeCall(orderId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20029>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1066,7 +1066,7 @@ public class CrossExApi {
      * Rate Limit: 100 requests per 10 seconds
      * @param orderId Support Order ID or Text for Modify Order (required)
      * @param inlineObject22  (optional)
-     * @return InlineResponse20026
+     * @return InlineResponse20030
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1074,8 +1074,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20026 updateCrossexOrder(String orderId, InlineObject22 inlineObject22) throws ApiException {
-        ApiResponse<InlineResponse20026> localVarResp = updateCrossexOrderWithHttpInfo(orderId, inlineObject22);
+    public InlineResponse20030 updateCrossexOrder(String orderId, InlineObject22 inlineObject22) throws ApiException {
+        ApiResponse<InlineResponse20030> localVarResp = updateCrossexOrderWithHttpInfo(orderId, inlineObject22);
         return localVarResp.getData();
     }
 
@@ -1084,7 +1084,7 @@ public class CrossExApi {
      * Rate Limit: 100 requests per 10 seconds
      * @param orderId Support Order ID or Text for Modify Order (required)
      * @param inlineObject22  (optional)
-     * @return ApiResponse&lt;InlineResponse20026&gt;
+     * @return ApiResponse&lt;InlineResponse20030&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1092,9 +1092,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20026> updateCrossexOrderWithHttpInfo(String orderId, InlineObject22 inlineObject22) throws ApiException {
+    public ApiResponse<InlineResponse20030> updateCrossexOrderWithHttpInfo(String orderId, InlineObject22 inlineObject22) throws ApiException {
         okhttp3.Call localVarCall = updateCrossexOrderValidateBeforeCall(orderId, inlineObject22, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20026>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20030>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1112,9 +1112,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCrossexOrderAsync(String orderId, InlineObject22 inlineObject22, final ApiCallback<InlineResponse20026> _callback) throws ApiException {
+    public okhttp3.Call updateCrossexOrderAsync(String orderId, InlineObject22 inlineObject22, final ApiCallback<InlineResponse20030> _callback) throws ApiException {
         okhttp3.Call localVarCall = updateCrossexOrderValidateBeforeCall(orderId, inlineObject22, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20026>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20030>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1282,7 +1282,7 @@ public class CrossExApi {
      * Flash Swap Inquiry
      * Rate Limit: 100 requests per day
      * @param inlineObject23  (optional)
-     * @return InlineResponse20027
+     * @return InlineResponse20031
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1290,8 +1290,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20027 createCrossexConvertQuote(InlineObject23 inlineObject23) throws ApiException {
-        ApiResponse<InlineResponse20027> localVarResp = createCrossexConvertQuoteWithHttpInfo(inlineObject23);
+    public InlineResponse20031 createCrossexConvertQuote(InlineObject23 inlineObject23) throws ApiException {
+        ApiResponse<InlineResponse20031> localVarResp = createCrossexConvertQuoteWithHttpInfo(inlineObject23);
         return localVarResp.getData();
     }
 
@@ -1299,7 +1299,7 @@ public class CrossExApi {
      * Flash Swap Inquiry
      * Rate Limit: 100 requests per day
      * @param inlineObject23  (optional)
-     * @return ApiResponse&lt;InlineResponse20027&gt;
+     * @return ApiResponse&lt;InlineResponse20031&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1307,9 +1307,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20027> createCrossexConvertQuoteWithHttpInfo(InlineObject23 inlineObject23) throws ApiException {
+    public ApiResponse<InlineResponse20031> createCrossexConvertQuoteWithHttpInfo(InlineObject23 inlineObject23) throws ApiException {
         okhttp3.Call localVarCall = createCrossexConvertQuoteValidateBeforeCall(inlineObject23, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20031>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1326,9 +1326,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCrossexConvertQuoteAsync(InlineObject23 inlineObject23, final ApiCallback<InlineResponse20027> _callback) throws ApiException {
+    public okhttp3.Call createCrossexConvertQuoteAsync(InlineObject23 inlineObject23, final ApiCallback<InlineResponse20031> _callback) throws ApiException {
         okhttp3.Call localVarCall = createCrossexConvertQuoteValidateBeforeCall(inlineObject23, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20031>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1475,15 +1475,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<InlineResponse20028> getCrossexAccountWithHttpInfo(String exchangeType) throws ApiException {
+    private ApiResponse<InlineResponse20032> getCrossexAccountWithHttpInfo(String exchangeType) throws ApiException {
         okhttp3.Call localVarCall = getCrossexAccountValidateBeforeCall(exchangeType, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20032>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCrossexAccountAsync(String exchangeType, final ApiCallback<InlineResponse20028> _callback) throws ApiException {
+    private okhttp3.Call getCrossexAccountAsync(String exchangeType, final ApiCallback<InlineResponse20032> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexAccountValidateBeforeCall(exchangeType, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20032>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1521,7 +1521,7 @@ public class CrossExApi {
 
         /**
          * Execute getCrossexAccount request
-         * @return InlineResponse20028
+         * @return InlineResponse20032
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1529,14 +1529,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse20028 execute() throws ApiException {
-            ApiResponse<InlineResponse20028> localVarResp = getCrossexAccountWithHttpInfo(exchangeType);
+        public InlineResponse20032 execute() throws ApiException {
+            ApiResponse<InlineResponse20032> localVarResp = getCrossexAccountWithHttpInfo(exchangeType);
             return localVarResp.getData();
         }
 
         /**
          * Execute getCrossexAccount request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse20028&gt;
+         * @return ApiResponse&lt;InlineResponse20032&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1544,7 +1544,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse20028> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<InlineResponse20032> executeWithHttpInfo() throws ApiException {
             return getCrossexAccountWithHttpInfo(exchangeType);
         }
 
@@ -1559,7 +1559,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20028> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20032> _callback) throws ApiException {
             return getCrossexAccountAsync(exchangeType, _callback);
         }
     }
@@ -1720,15 +1720,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20029>> getCrossexPositionsLeverageWithHttpInfo(String symbols) throws ApiException {
+    private ApiResponse<List<InlineResponse20033>> getCrossexPositionsLeverageWithHttpInfo(String symbols) throws ApiException {
         okhttp3.Call localVarCall = getCrossexPositionsLeverageValidateBeforeCall(symbols, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20029>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20033>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCrossexPositionsLeverageAsync(String symbols, final ApiCallback<List<InlineResponse20029>> _callback) throws ApiException {
+    private okhttp3.Call getCrossexPositionsLeverageAsync(String symbols, final ApiCallback<List<InlineResponse20033>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexPositionsLeverageValidateBeforeCall(symbols, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20029>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20033>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1766,7 +1766,7 @@ public class CrossExApi {
 
         /**
          * Execute getCrossexPositionsLeverage request
-         * @return List&lt;InlineResponse20029&gt;
+         * @return List&lt;InlineResponse20033&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1774,14 +1774,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20029> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20029>> localVarResp = getCrossexPositionsLeverageWithHttpInfo(symbols);
+        public List<InlineResponse20033> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20033>> localVarResp = getCrossexPositionsLeverageWithHttpInfo(symbols);
             return localVarResp.getData();
         }
 
         /**
          * Execute getCrossexPositionsLeverage request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20029&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20033&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1789,7 +1789,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20029>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20033>> executeWithHttpInfo() throws ApiException {
             return getCrossexPositionsLeverageWithHttpInfo(symbols);
         }
 
@@ -1804,7 +1804,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20029>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20033>> _callback) throws ApiException {
             return getCrossexPositionsLeverageAsync(symbols, _callback);
         }
     }
@@ -1965,15 +1965,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20029>> getCrossexMarginPositionsLeverageWithHttpInfo(String symbols) throws ApiException {
+    private ApiResponse<List<InlineResponse20033>> getCrossexMarginPositionsLeverageWithHttpInfo(String symbols) throws ApiException {
         okhttp3.Call localVarCall = getCrossexMarginPositionsLeverageValidateBeforeCall(symbols, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20029>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20033>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCrossexMarginPositionsLeverageAsync(String symbols, final ApiCallback<List<InlineResponse20029>> _callback) throws ApiException {
+    private okhttp3.Call getCrossexMarginPositionsLeverageAsync(String symbols, final ApiCallback<List<InlineResponse20033>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexMarginPositionsLeverageValidateBeforeCall(symbols, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20029>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20033>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2011,7 +2011,7 @@ public class CrossExApi {
 
         /**
          * Execute getCrossexMarginPositionsLeverage request
-         * @return List&lt;InlineResponse20029&gt;
+         * @return List&lt;InlineResponse20033&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2019,14 +2019,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20029> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20029>> localVarResp = getCrossexMarginPositionsLeverageWithHttpInfo(symbols);
+        public List<InlineResponse20033> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20033>> localVarResp = getCrossexMarginPositionsLeverageWithHttpInfo(symbols);
             return localVarResp.getData();
         }
 
         /**
          * Execute getCrossexMarginPositionsLeverage request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20029&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20033&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2034,7 +2034,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20029>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20033>> executeWithHttpInfo() throws ApiException {
             return getCrossexMarginPositionsLeverageWithHttpInfo(symbols);
         }
 
@@ -2049,7 +2049,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20029>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20033>> _callback) throws ApiException {
             return getCrossexMarginPositionsLeverageAsync(symbols, _callback);
         }
     }
@@ -2221,7 +2221,7 @@ public class CrossExApi {
      * Full Close Position
      * Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
      * @param inlineObject28  (optional)
-     * @return InlineResponse20024
+     * @return InlineResponse20028
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2229,8 +2229,8 @@ public class CrossExApi {
         <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20024 closeCrossexPosition(InlineObject28 inlineObject28) throws ApiException {
-        ApiResponse<InlineResponse20024> localVarResp = closeCrossexPositionWithHttpInfo(inlineObject28);
+    public InlineResponse20028 closeCrossexPosition(InlineObject28 inlineObject28) throws ApiException {
+        ApiResponse<InlineResponse20028> localVarResp = closeCrossexPositionWithHttpInfo(inlineObject28);
         return localVarResp.getData();
     }
 
@@ -2238,7 +2238,7 @@ public class CrossExApi {
      * Full Close Position
      * Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
      * @param inlineObject28  (optional)
-     * @return ApiResponse&lt;InlineResponse20024&gt;
+     * @return ApiResponse&lt;InlineResponse20028&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2246,9 +2246,9 @@ public class CrossExApi {
         <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20024> closeCrossexPositionWithHttpInfo(InlineObject28 inlineObject28) throws ApiException {
+    public ApiResponse<InlineResponse20028> closeCrossexPositionWithHttpInfo(InlineObject28 inlineObject28) throws ApiException {
         okhttp3.Call localVarCall = closeCrossexPositionValidateBeforeCall(inlineObject28, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2265,9 +2265,9 @@ public class CrossExApi {
         <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call closeCrossexPositionAsync(InlineObject28 inlineObject28, final ApiCallback<InlineResponse20024> _callback) throws ApiException {
+    public okhttp3.Call closeCrossexPositionAsync(InlineObject28 inlineObject28, final ApiCallback<InlineResponse20028> _callback) throws ApiException {
         okhttp3.Call localVarCall = closeCrossexPositionValidateBeforeCall(inlineObject28, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2316,15 +2316,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20030>> getCrossexInterestRateWithHttpInfo(String coin, String exchangeType) throws ApiException {
+    private ApiResponse<List<InlineResponse20034>> getCrossexInterestRateWithHttpInfo(String coin, String exchangeType) throws ApiException {
         okhttp3.Call localVarCall = getCrossexInterestRateValidateBeforeCall(coin, exchangeType, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20030>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20034>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCrossexInterestRateAsync(String coin, String exchangeType, final ApiCallback<List<InlineResponse20030>> _callback) throws ApiException {
+    private okhttp3.Call getCrossexInterestRateAsync(String coin, String exchangeType, final ApiCallback<List<InlineResponse20034>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexInterestRateValidateBeforeCall(coin, exchangeType, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20030>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20034>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2373,7 +2373,7 @@ public class CrossExApi {
 
         /**
          * Execute getCrossexInterestRate request
-         * @return List&lt;InlineResponse20030&gt;
+         * @return List&lt;InlineResponse20034&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2381,14 +2381,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20030> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20030>> localVarResp = getCrossexInterestRateWithHttpInfo(coin, exchangeType);
+        public List<InlineResponse20034> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20034>> localVarResp = getCrossexInterestRateWithHttpInfo(coin, exchangeType);
             return localVarResp.getData();
         }
 
         /**
          * Execute getCrossexInterestRate request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20030&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20034&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2396,7 +2396,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20030>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20034>> executeWithHttpInfo() throws ApiException {
             return getCrossexInterestRateWithHttpInfo(coin, exchangeType);
         }
 
@@ -2411,7 +2411,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20030>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20034>> _callback) throws ApiException {
             return getCrossexInterestRateAsync(coin, exchangeType, _callback);
         }
     }
@@ -2479,7 +2479,7 @@ public class CrossExApi {
     /**
      * Query User Fee Rates
      * Rate Limit: 200 requests per 10 seconds
-     * @return InlineResponse20031
+     * @return InlineResponse20035
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2487,15 +2487,15 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20031 getCrossexFee() throws ApiException {
-        ApiResponse<InlineResponse20031> localVarResp = getCrossexFeeWithHttpInfo();
+    public InlineResponse20035 getCrossexFee() throws ApiException {
+        ApiResponse<InlineResponse20035> localVarResp = getCrossexFeeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Query User Fee Rates
      * Rate Limit: 200 requests per 10 seconds
-     * @return ApiResponse&lt;InlineResponse20031&gt;
+     * @return ApiResponse&lt;InlineResponse20035&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2503,9 +2503,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20031> getCrossexFeeWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20035> getCrossexFeeWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getCrossexFeeValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20031>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20035>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2521,9 +2521,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCrossexFeeAsync(final ApiCallback<InlineResponse20031> _callback) throws ApiException {
+    public okhttp3.Call getCrossexFeeAsync(final ApiCallback<InlineResponse20035> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexFeeValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20031>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20035>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2572,15 +2572,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20032>> listCrossexPositionsWithHttpInfo(String symbol, String exchangeType) throws ApiException {
+    private ApiResponse<List<InlineResponse20036>> listCrossexPositionsWithHttpInfo(String symbol, String exchangeType) throws ApiException {
         okhttp3.Call localVarCall = listCrossexPositionsValidateBeforeCall(symbol, exchangeType, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20032>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20036>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexPositionsAsync(String symbol, String exchangeType, final ApiCallback<List<InlineResponse20032>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexPositionsAsync(String symbol, String exchangeType, final ApiCallback<List<InlineResponse20036>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexPositionsValidateBeforeCall(symbol, exchangeType, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20032>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20036>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2629,7 +2629,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexPositions request
-         * @return List&lt;InlineResponse20032&gt;
+         * @return List&lt;InlineResponse20036&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2637,14 +2637,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20032> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20032>> localVarResp = listCrossexPositionsWithHttpInfo(symbol, exchangeType);
+        public List<InlineResponse20036> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20036>> localVarResp = listCrossexPositionsWithHttpInfo(symbol, exchangeType);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexPositions request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20032&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20036&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2652,7 +2652,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20032>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20036>> executeWithHttpInfo() throws ApiException {
             return listCrossexPositionsWithHttpInfo(symbol, exchangeType);
         }
 
@@ -2667,7 +2667,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20032>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20036>> _callback) throws ApiException {
             return listCrossexPositionsAsync(symbol, exchangeType, _callback);
         }
     }
@@ -2730,15 +2730,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20033>> listCrossexMarginPositionsWithHttpInfo(String symbol, String exchangeType) throws ApiException {
+    private ApiResponse<List<InlineResponse20037>> listCrossexMarginPositionsWithHttpInfo(String symbol, String exchangeType) throws ApiException {
         okhttp3.Call localVarCall = listCrossexMarginPositionsValidateBeforeCall(symbol, exchangeType, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20033>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20037>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexMarginPositionsAsync(String symbol, String exchangeType, final ApiCallback<List<InlineResponse20033>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexMarginPositionsAsync(String symbol, String exchangeType, final ApiCallback<List<InlineResponse20037>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexMarginPositionsValidateBeforeCall(symbol, exchangeType, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20033>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20037>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2787,7 +2787,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexMarginPositions request
-         * @return List&lt;InlineResponse20033&gt;
+         * @return List&lt;InlineResponse20037&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2795,14 +2795,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20033> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20033>> localVarResp = listCrossexMarginPositionsWithHttpInfo(symbol, exchangeType);
+        public List<InlineResponse20037> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20037>> localVarResp = listCrossexMarginPositionsWithHttpInfo(symbol, exchangeType);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexMarginPositions request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20033&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20037&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2810,7 +2810,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20033>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20037>> executeWithHttpInfo() throws ApiException {
             return listCrossexMarginPositionsWithHttpInfo(symbol, exchangeType);
         }
 
@@ -2825,7 +2825,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20033>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20037>> _callback) throws ApiException {
             return listCrossexMarginPositionsAsync(symbol, exchangeType, _callback);
         }
     }
@@ -2904,7 +2904,7 @@ public class CrossExApi {
      * Query ADL Position Reduction Ranking
      * Rate Limit: 200 requests per 10 seconds
      * @param symbol Trading Pair (required)
-     * @return List&lt;InlineResponse20034&gt;
+     * @return List&lt;InlineResponse20038&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2912,8 +2912,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public List<InlineResponse20034> listCrossexAdlRank(String symbol) throws ApiException {
-        ApiResponse<List<InlineResponse20034>> localVarResp = listCrossexAdlRankWithHttpInfo(symbol);
+    public List<InlineResponse20038> listCrossexAdlRank(String symbol) throws ApiException {
+        ApiResponse<List<InlineResponse20038>> localVarResp = listCrossexAdlRankWithHttpInfo(symbol);
         return localVarResp.getData();
     }
 
@@ -2921,7 +2921,7 @@ public class CrossExApi {
      * Query ADL Position Reduction Ranking
      * Rate Limit: 200 requests per 10 seconds
      * @param symbol Trading Pair (required)
-     * @return ApiResponse&lt;List&lt;InlineResponse20034&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InlineResponse20038&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2929,9 +2929,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<InlineResponse20034>> listCrossexAdlRankWithHttpInfo(String symbol) throws ApiException {
+    public ApiResponse<List<InlineResponse20038>> listCrossexAdlRankWithHttpInfo(String symbol) throws ApiException {
         okhttp3.Call localVarCall = listCrossexAdlRankValidateBeforeCall(symbol, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20034>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20038>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2948,9 +2948,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCrossexAdlRankAsync(String symbol, final ApiCallback<List<InlineResponse20034>> _callback) throws ApiException {
+    public okhttp3.Call listCrossexAdlRankAsync(String symbol, final ApiCallback<List<InlineResponse20038>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexAdlRankValidateBeforeCall(symbol, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20034>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20038>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3003,15 +3003,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20025>> listCrossexOpenOrdersWithHttpInfo(String symbol, String exchangeType, String businessType) throws ApiException {
+    private ApiResponse<List<InlineResponse20029>> listCrossexOpenOrdersWithHttpInfo(String symbol, String exchangeType, String businessType) throws ApiException {
         okhttp3.Call localVarCall = listCrossexOpenOrdersValidateBeforeCall(symbol, exchangeType, businessType, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20025>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20029>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexOpenOrdersAsync(String symbol, String exchangeType, String businessType, final ApiCallback<List<InlineResponse20025>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexOpenOrdersAsync(String symbol, String exchangeType, String businessType, final ApiCallback<List<InlineResponse20029>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexOpenOrdersValidateBeforeCall(symbol, exchangeType, businessType, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20025>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20029>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3071,7 +3071,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexOpenOrders request
-         * @return List&lt;InlineResponse20025&gt;
+         * @return List&lt;InlineResponse20029&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3079,14 +3079,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20025> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20025>> localVarResp = listCrossexOpenOrdersWithHttpInfo(symbol, exchangeType, businessType);
+        public List<InlineResponse20029> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20029>> localVarResp = listCrossexOpenOrdersWithHttpInfo(symbol, exchangeType, businessType);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexOpenOrders request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20025&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20029&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3094,7 +3094,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20025>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20029>> executeWithHttpInfo() throws ApiException {
             return listCrossexOpenOrdersWithHttpInfo(symbol, exchangeType, businessType);
         }
 
@@ -3109,7 +3109,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20025>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20029>> _callback) throws ApiException {
             return listCrossexOpenOrdersAsync(symbol, exchangeType, businessType, _callback);
         }
     }
@@ -3184,15 +3184,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20035>> listCrossexHistoryOrdersWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
+    private ApiResponse<List<InlineResponse20039>> listCrossexHistoryOrdersWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryOrdersValidateBeforeCall(page, limit, symbol, from, to, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20035>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20039>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexHistoryOrdersAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20035>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexHistoryOrdersAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20039>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryOrdersValidateBeforeCall(page, limit, symbol, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20035>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20039>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3274,7 +3274,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexHistoryOrders request
-         * @return List&lt;InlineResponse20035&gt;
+         * @return List&lt;InlineResponse20039&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3282,14 +3282,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20035> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20035>> localVarResp = listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to);
+        public List<InlineResponse20039> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20039>> localVarResp = listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexHistoryOrders request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20035&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20039&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3297,7 +3297,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20035>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20039>> executeWithHttpInfo() throws ApiException {
             return listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to);
         }
 
@@ -3312,7 +3312,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20035>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20039>> _callback) throws ApiException {
             return listCrossexHistoryOrdersAsync(page, limit, symbol, from, to, _callback);
         }
     }
@@ -3387,15 +3387,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20036>> listCrossexHistoryPositionsWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
+    private ApiResponse<List<InlineResponse20040>> listCrossexHistoryPositionsWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryPositionsValidateBeforeCall(page, limit, symbol, from, to, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20036>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20040>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexHistoryPositionsAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20036>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexHistoryPositionsAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20040>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryPositionsValidateBeforeCall(page, limit, symbol, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20036>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20040>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3477,7 +3477,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexHistoryPositions request
-         * @return List&lt;InlineResponse20036&gt;
+         * @return List&lt;InlineResponse20040&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3485,14 +3485,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20036> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20036>> localVarResp = listCrossexHistoryPositionsWithHttpInfo(page, limit, symbol, from, to);
+        public List<InlineResponse20040> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20040>> localVarResp = listCrossexHistoryPositionsWithHttpInfo(page, limit, symbol, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexHistoryPositions request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20036&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20040&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3500,7 +3500,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20036>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20040>> executeWithHttpInfo() throws ApiException {
             return listCrossexHistoryPositionsWithHttpInfo(page, limit, symbol, from, to);
         }
 
@@ -3515,7 +3515,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20036>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20040>> _callback) throws ApiException {
             return listCrossexHistoryPositionsAsync(page, limit, symbol, from, to, _callback);
         }
     }
@@ -3590,15 +3590,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20037>> listCrossexHistoryMarginPositionsWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
+    private ApiResponse<List<InlineResponse20041>> listCrossexHistoryMarginPositionsWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryMarginPositionsValidateBeforeCall(page, limit, symbol, from, to, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20037>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20041>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexHistoryMarginPositionsAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20037>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexHistoryMarginPositionsAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20041>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryMarginPositionsValidateBeforeCall(page, limit, symbol, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20037>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20041>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3680,7 +3680,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexHistoryMarginPositions request
-         * @return List&lt;InlineResponse20037&gt;
+         * @return List&lt;InlineResponse20041&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3688,14 +3688,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20037> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20037>> localVarResp = listCrossexHistoryMarginPositionsWithHttpInfo(page, limit, symbol, from, to);
+        public List<InlineResponse20041> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20041>> localVarResp = listCrossexHistoryMarginPositionsWithHttpInfo(page, limit, symbol, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexHistoryMarginPositions request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20037&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20041&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3703,7 +3703,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20037>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20041>> executeWithHttpInfo() throws ApiException {
             return listCrossexHistoryMarginPositionsWithHttpInfo(page, limit, symbol, from, to);
         }
 
@@ -3718,7 +3718,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20037>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20041>> _callback) throws ApiException {
             return listCrossexHistoryMarginPositionsAsync(page, limit, symbol, from, to, _callback);
         }
     }
@@ -3797,15 +3797,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20038>> listCrossexHistoryMarginInterestsWithHttpInfo(String symbol, Integer from, Integer to, Integer page, Integer limit, String exchangeType) throws ApiException {
+    private ApiResponse<List<InlineResponse20042>> listCrossexHistoryMarginInterestsWithHttpInfo(String symbol, Integer from, Integer to, Integer page, Integer limit, String exchangeType) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryMarginInterestsValidateBeforeCall(symbol, from, to, page, limit, exchangeType, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20038>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20042>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexHistoryMarginInterestsAsync(String symbol, Integer from, Integer to, Integer page, Integer limit, String exchangeType, final ApiCallback<List<InlineResponse20038>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexHistoryMarginInterestsAsync(String symbol, Integer from, Integer to, Integer page, Integer limit, String exchangeType, final ApiCallback<List<InlineResponse20042>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryMarginInterestsValidateBeforeCall(symbol, from, to, page, limit, exchangeType, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20038>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20042>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3898,7 +3898,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexHistoryMarginInterests request
-         * @return List&lt;InlineResponse20038&gt;
+         * @return List&lt;InlineResponse20042&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3906,14 +3906,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20038> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20038>> localVarResp = listCrossexHistoryMarginInterestsWithHttpInfo(symbol, from, to, page, limit, exchangeType);
+        public List<InlineResponse20042> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20042>> localVarResp = listCrossexHistoryMarginInterestsWithHttpInfo(symbol, from, to, page, limit, exchangeType);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexHistoryMarginInterests request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20038&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20042&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3921,7 +3921,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20038>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20042>> executeWithHttpInfo() throws ApiException {
             return listCrossexHistoryMarginInterestsWithHttpInfo(symbol, from, to, page, limit, exchangeType);
         }
 
@@ -3936,7 +3936,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20038>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20042>> _callback) throws ApiException {
             return listCrossexHistoryMarginInterestsAsync(symbol, from, to, page, limit, exchangeType, _callback);
         }
     }
@@ -4011,15 +4011,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20039>> listCrossexHistoryTradesWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
+    private ApiResponse<List<InlineResponse20043>> listCrossexHistoryTradesWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryTradesValidateBeforeCall(page, limit, symbol, from, to, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20039>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20043>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexHistoryTradesAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20039>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexHistoryTradesAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<InlineResponse20043>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexHistoryTradesValidateBeforeCall(page, limit, symbol, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20039>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20043>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4101,7 +4101,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexHistoryTrades request
-         * @return List&lt;InlineResponse20039&gt;
+         * @return List&lt;InlineResponse20043&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -4109,14 +4109,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20039> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20039>> localVarResp = listCrossexHistoryTradesWithHttpInfo(page, limit, symbol, from, to);
+        public List<InlineResponse20043> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20043>> localVarResp = listCrossexHistoryTradesWithHttpInfo(page, limit, symbol, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexHistoryTrades request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20039&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20043&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -4124,7 +4124,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20039>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20043>> executeWithHttpInfo() throws ApiException {
             return listCrossexHistoryTradesWithHttpInfo(page, limit, symbol, from, to);
         }
 
@@ -4139,7 +4139,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20039>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20043>> _callback) throws ApiException {
             return listCrossexHistoryTradesAsync(page, limit, symbol, from, to, _callback);
         }
     }
@@ -4214,15 +4214,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20040>> listCrossexAccountBookWithHttpInfo(Integer page, Integer limit, String coin, Integer from, Integer to) throws ApiException {
+    private ApiResponse<List<InlineResponse20044>> listCrossexAccountBookWithHttpInfo(Integer page, Integer limit, String coin, Integer from, Integer to) throws ApiException {
         okhttp3.Call localVarCall = listCrossexAccountBookValidateBeforeCall(page, limit, coin, from, to, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20040>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20044>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexAccountBookAsync(Integer page, Integer limit, String coin, Integer from, Integer to, final ApiCallback<List<InlineResponse20040>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexAccountBookAsync(Integer page, Integer limit, String coin, Integer from, Integer to, final ApiCallback<List<InlineResponse20044>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexAccountBookValidateBeforeCall(page, limit, coin, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20040>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20044>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4304,7 +4304,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexAccountBook request
-         * @return List&lt;InlineResponse20040&gt;
+         * @return List&lt;InlineResponse20044&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -4312,14 +4312,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20040> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20040>> localVarResp = listCrossexAccountBookWithHttpInfo(page, limit, coin, from, to);
+        public List<InlineResponse20044> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20044>> localVarResp = listCrossexAccountBookWithHttpInfo(page, limit, coin, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexAccountBook request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20040&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20044&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -4327,7 +4327,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20040>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20044>> executeWithHttpInfo() throws ApiException {
             return listCrossexAccountBookWithHttpInfo(page, limit, coin, from, to);
         }
 
@@ -4342,7 +4342,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20040>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20044>> _callback) throws ApiException {
             return listCrossexAccountBookAsync(page, limit, coin, from, to, _callback);
         }
     }
@@ -4405,15 +4405,15 @@ public class CrossExApi {
     }
 
 
-    private ApiResponse<List<InlineResponse20041>> listCrossexCoinDiscountRateWithHttpInfo(String coin, String exchangeType) throws ApiException {
+    private ApiResponse<List<InlineResponse20045>> listCrossexCoinDiscountRateWithHttpInfo(String coin, String exchangeType) throws ApiException {
         okhttp3.Call localVarCall = listCrossexCoinDiscountRateValidateBeforeCall(coin, exchangeType, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20041>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20045>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexCoinDiscountRateAsync(String coin, String exchangeType, final ApiCallback<List<InlineResponse20041>> _callback) throws ApiException {
+    private okhttp3.Call listCrossexCoinDiscountRateAsync(String coin, String exchangeType, final ApiCallback<List<InlineResponse20045>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexCoinDiscountRateValidateBeforeCall(coin, exchangeType, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse20041>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse20045>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4462,7 +4462,7 @@ public class CrossExApi {
 
         /**
          * Execute listCrossexCoinDiscountRate request
-         * @return List&lt;InlineResponse20041&gt;
+         * @return List&lt;InlineResponse20045&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -4470,14 +4470,14 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public List<InlineResponse20041> execute() throws ApiException {
-            ApiResponse<List<InlineResponse20041>> localVarResp = listCrossexCoinDiscountRateWithHttpInfo(coin, exchangeType);
+        public List<InlineResponse20045> execute() throws ApiException {
+            ApiResponse<List<InlineResponse20045>> localVarResp = listCrossexCoinDiscountRateWithHttpInfo(coin, exchangeType);
             return localVarResp.getData();
         }
 
         /**
          * Execute listCrossexCoinDiscountRate request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;InlineResponse20041&gt;&gt;
+         * @return ApiResponse&lt;List&lt;InlineResponse20045&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -4485,7 +4485,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<InlineResponse20041>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<InlineResponse20045>> executeWithHttpInfo() throws ApiException {
             return listCrossexCoinDiscountRateWithHttpInfo(coin, exchangeType);
         }
 
@@ -4500,7 +4500,7 @@ public class CrossExApi {
             <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20041>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse20045>> _callback) throws ApiException {
             return listCrossexCoinDiscountRateAsync(coin, exchangeType, _callback);
         }
     }

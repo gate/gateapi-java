@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20021Data;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -24,120 +25,143 @@ import java.math.BigDecimal;
  * InlineResponse20021
  */
 public class InlineResponse20021 {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private BigDecimal timestamp;
 
-    public static final String SERIALIZED_NAME_MIN_TRANS_AMOUNT = "min_trans_amount";
-    @SerializedName(SERIALIZED_NAME_MIN_TRANS_AMOUNT)
-    private BigDecimal minTransAmount;
+    public static final String SERIALIZED_NAME_METHOD = "method";
+    @SerializedName(SERIALIZED_NAME_METHOD)
+    private String method;
 
-    public static final String SERIALIZED_NAME_EST_FEE = "est_fee";
-    @SerializedName(SERIALIZED_NAME_EST_FEE)
-    private BigDecimal estFee;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
 
-    public static final String SERIALIZED_NAME_PRECISION = "precision";
-    @SerializedName(SERIALIZED_NAME_PRECISION)
-    private Integer precision;
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
-    public static final String SERIALIZED_NAME_IS_DISABLED = "is_disabled";
-    @SerializedName(SERIALIZED_NAME_IS_DISABLED)
-    private Integer isDisabled;
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse20021Data data;
+
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
 
 
-    public InlineResponse20021 coin(String coin) {
+    public InlineResponse20021 timestamp(BigDecimal timestamp) {
         
-        this.coin = coin;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Get timestamp
+     * @return timestamp
     **/
-    public String getCoin() {
-        return coin;
+    public BigDecimal getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setTimestamp(BigDecimal timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public InlineResponse20021 minTransAmount(BigDecimal minTransAmount) {
+    public InlineResponse20021 method(String method) {
         
-        this.minTransAmount = minTransAmount;
+        this.method = method;
         return this;
     }
 
      /**
-     * Minimum Transfer Quantity (including estimated fees)
-     * @return minTransAmount
+     * Get method
+     * @return method
     **/
-    public BigDecimal getMinTransAmount() {
-        return minTransAmount;
+    public String getMethod() {
+        return method;
     }
 
 
-    public void setMinTransAmount(BigDecimal minTransAmount) {
-        this.minTransAmount = minTransAmount;
+    public void setMethod(String method) {
+        this.method = method;
     }
 
-    public InlineResponse20021 estFee(BigDecimal estFee) {
+    public InlineResponse20021 code(Integer code) {
         
-        this.estFee = estFee;
+        this.code = code;
         return this;
     }
 
      /**
-     * Estimated Fee
-     * @return estFee
+     * Get code
+     * @return code
     **/
-    public BigDecimal getEstFee() {
-        return estFee;
+    public Integer getCode() {
+        return code;
     }
 
 
-    public void setEstFee(BigDecimal estFee) {
-        this.estFee = estFee;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public InlineResponse20021 precision(Integer precision) {
+    public InlineResponse20021 message(String message) {
         
-        this.precision = precision;
+        this.message = message;
         return this;
     }
 
      /**
-     * Precision
-     * @return precision
+     * Get message
+     * @return message
     **/
-    public Integer getPrecision() {
-        return precision;
+    public String getMessage() {
+        return message;
     }
 
 
-    public void setPrecision(Integer precision) {
-        this.precision = precision;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public InlineResponse20021 isDisabled(Integer isDisabled) {
+    public InlineResponse20021 data(InlineResponse20021Data data) {
         
-        this.isDisabled = isDisabled;
+        this.data = data;
         return this;
     }
 
      /**
-     * If it is disabled. 0 means NOT being disabled
-     * @return isDisabled
+     * Get data
+     * @return data
     **/
-    public Integer getIsDisabled() {
-        return isDisabled;
+    public InlineResponse20021Data getData() {
+        return data;
     }
 
 
-    public void setIsDisabled(Integer isDisabled) {
-        this.isDisabled = isDisabled;
+    public void setData(InlineResponse20021Data data) {
+        this.data = data;
+    }
+
+    public InlineResponse20021 version(String version) {
+        
+        this.version = version;
+        return this;
+    }
+
+     /**
+     * Get version
+     * @return version
+    **/
+    public String getVersion() {
+        return version;
+    }
+
+
+    public void setVersion(String version) {
+        this.version = version;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -148,16 +172,17 @@ public class InlineResponse20021 {
             return false;
         }
         InlineResponse20021 inlineResponse20021 = (InlineResponse20021) o;
-        return Objects.equals(this.coin, inlineResponse20021.coin) &&
-                Objects.equals(this.minTransAmount, inlineResponse20021.minTransAmount) &&
-                Objects.equals(this.estFee, inlineResponse20021.estFee) &&
-                Objects.equals(this.precision, inlineResponse20021.precision) &&
-                Objects.equals(this.isDisabled, inlineResponse20021.isDisabled);
+        return Objects.equals(this.timestamp, inlineResponse20021.timestamp) &&
+                Objects.equals(this.method, inlineResponse20021.method) &&
+                Objects.equals(this.code, inlineResponse20021.code) &&
+                Objects.equals(this.message, inlineResponse20021.message) &&
+                Objects.equals(this.data, inlineResponse20021.data) &&
+                Objects.equals(this.version, inlineResponse20021.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, minTransAmount, estFee, precision, isDisabled);
+        return Objects.hash(timestamp, method, code, message, data, version);
     }
 
 
@@ -165,11 +190,12 @@ public class InlineResponse20021 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20021 {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      minTransAmount: ").append(toIndentedString(minTransAmount)).append("\n");
-        sb.append("      estFee: ").append(toIndentedString(estFee)).append("\n");
-        sb.append("      precision: ").append(toIndentedString(precision)).append("\n");
-        sb.append("      isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      method: ").append(toIndentedString(method)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

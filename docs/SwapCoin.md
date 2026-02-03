@@ -8,7 +8,7 @@ Blockchain Mining
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **coin** | **String** | Currency | 
-**side** | **String** | 0 - Stake 1 - Redeem | 
+**side** | **Integer** | 0 - Stake 1 - Redeem | 
 **amount** | **String** | Size | 
 **pid** | **Integer** | DeFi-type Mining Protocol Identifier |  [optional]
 

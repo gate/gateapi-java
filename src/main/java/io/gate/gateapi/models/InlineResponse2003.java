@@ -17,80 +17,46 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.TrailChangeLog;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse2003
  */
 public class InlineResponse2003 {
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
-
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Integer timestamp;
+    public static final String SERIALIZED_NAME_CHANGE_LOG = "change_log";
+    @SerializedName(SERIALIZED_NAME_CHANGE_LOG)
+    private List<TrailChangeLog> changeLog = null;
 
 
-    public InlineResponse2003 code(Integer code) {
+    public InlineResponse2003 changeLog(List<TrailChangeLog> changeLog) {
         
-        this.code = code;
+        this.changeLog = changeLog;
+        return this;
+    }
+
+    public InlineResponse2003 addChangeLogItem(TrailChangeLog changeLogItem) {
+        if (this.changeLog == null) {
+            this.changeLog = new ArrayList<>();
+        }
+        this.changeLog.add(changeLogItem);
         return this;
     }
 
      /**
-     * Get code
-     * @return code
+     * Get changeLog
+     * @return changeLog
     **/
-    public Integer getCode() {
-        return code;
+    @javax.annotation.Nullable
+    public List<TrailChangeLog> getChangeLog() {
+        return changeLog;
     }
 
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public InlineResponse2003 message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Get message
-     * @return message
-    **/
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public InlineResponse2003 timestamp(Integer timestamp) {
-        
-        this.timestamp = timestamp;
-        return this;
-    }
-
-     /**
-     * Get timestamp
-     * @return timestamp
-    **/
-    public Integer getTimestamp() {
-        return timestamp;
-    }
-
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
+    public void setChangeLog(List<TrailChangeLog> changeLog) {
+        this.changeLog = changeLog;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -101,14 +67,12 @@ public class InlineResponse2003 {
             return false;
         }
         InlineResponse2003 inlineResponse2003 = (InlineResponse2003) o;
-        return Objects.equals(this.code, inlineResponse2003.code) &&
-                Objects.equals(this.message, inlineResponse2003.message) &&
-                Objects.equals(this.timestamp, inlineResponse2003.timestamp);
+        return Objects.equals(this.changeLog, inlineResponse2003.changeLog);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, timestamp);
+        return Objects.hash(changeLog);
     }
 
 
@@ -116,9 +80,7 @@ public class InlineResponse2003 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2003 {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      changeLog: ").append(toIndentedString(changeLog)).append("\n");
         sb.append("}");
         return sb.toString();
     }

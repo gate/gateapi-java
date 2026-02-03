@@ -19,20 +19,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.InlineResponse2009Data;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineResponse2009
  */
 public class InlineResponse2009 {
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private BigDecimal timestamp;
-
-    public static final String SERIALIZED_NAME_METHOD = "method";
-    @SerializedName(SERIALIZED_NAME_METHOD)
-    private String method;
-
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
@@ -45,48 +36,10 @@ public class InlineResponse2009 {
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse2009Data data;
 
-    public static final String SERIALIZED_NAME_VERSION = "version";
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private String version;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
 
-
-    public InlineResponse2009 timestamp(BigDecimal timestamp) {
-        
-        this.timestamp = timestamp;
-        return this;
-    }
-
-     /**
-     * Get timestamp
-     * @return timestamp
-    **/
-    public BigDecimal getTimestamp() {
-        return timestamp;
-    }
-
-
-    public void setTimestamp(BigDecimal timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public InlineResponse2009 method(String method) {
-        
-        this.method = method;
-        return this;
-    }
-
-     /**
-     * Get method
-     * @return method
-    **/
-    public String getMethod() {
-        return method;
-    }
-
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
 
     public InlineResponse2009 code(Integer code) {
         
@@ -145,23 +98,23 @@ public class InlineResponse2009 {
         this.data = data;
     }
 
-    public InlineResponse2009 version(String version) {
+    public InlineResponse2009 timestamp(Integer timestamp) {
         
-        this.version = version;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Get version
-     * @return version
+     * Get timestamp
+     * @return timestamp
     **/
-    public String getVersion() {
-        return version;
+    public Integer getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,17 +125,15 @@ public class InlineResponse2009 {
             return false;
         }
         InlineResponse2009 inlineResponse2009 = (InlineResponse2009) o;
-        return Objects.equals(this.timestamp, inlineResponse2009.timestamp) &&
-                Objects.equals(this.method, inlineResponse2009.method) &&
-                Objects.equals(this.code, inlineResponse2009.code) &&
+        return Objects.equals(this.code, inlineResponse2009.code) &&
                 Objects.equals(this.message, inlineResponse2009.message) &&
                 Objects.equals(this.data, inlineResponse2009.data) &&
-                Objects.equals(this.version, inlineResponse2009.version);
+                Objects.equals(this.timestamp, inlineResponse2009.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(timestamp, method, code, message, data, version);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -190,12 +141,10 @@ public class InlineResponse2009 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2009 {\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
-        sb.append("      method: ").append(toIndentedString(method)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
-        sb.append("      version: ").append(toIndentedString(version)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

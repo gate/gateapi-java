@@ -19,20 +19,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.InlineResponse20010Data;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineResponse20010
  */
 public class InlineResponse20010 {
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private BigDecimal timestamp;
-
-    public static final String SERIALIZED_NAME_METHOD = "method";
-    @SerializedName(SERIALIZED_NAME_METHOD)
-    private String method;
-
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
@@ -45,48 +36,6 @@ public class InlineResponse20010 {
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse20010Data data;
 
-    public static final String SERIALIZED_NAME_VERSION = "version";
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private String version;
-
-
-    public InlineResponse20010 timestamp(BigDecimal timestamp) {
-        
-        this.timestamp = timestamp;
-        return this;
-    }
-
-     /**
-     * Get timestamp
-     * @return timestamp
-    **/
-    public BigDecimal getTimestamp() {
-        return timestamp;
-    }
-
-
-    public void setTimestamp(BigDecimal timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public InlineResponse20010 method(String method) {
-        
-        this.method = method;
-        return this;
-    }
-
-     /**
-     * Get method
-     * @return method
-    **/
-    public String getMethod() {
-        return method;
-    }
-
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
 
     public InlineResponse20010 code(Integer code) {
         
@@ -144,25 +93,6 @@ public class InlineResponse20010 {
     public void setData(InlineResponse20010Data data) {
         this.data = data;
     }
-
-    public InlineResponse20010 version(String version) {
-        
-        this.version = version;
-        return this;
-    }
-
-     /**
-     * Get version
-     * @return version
-    **/
-    public String getVersion() {
-        return version;
-    }
-
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -172,17 +102,14 @@ public class InlineResponse20010 {
             return false;
         }
         InlineResponse20010 inlineResponse20010 = (InlineResponse20010) o;
-        return Objects.equals(this.timestamp, inlineResponse20010.timestamp) &&
-                Objects.equals(this.method, inlineResponse20010.method) &&
-                Objects.equals(this.code, inlineResponse20010.code) &&
+        return Objects.equals(this.code, inlineResponse20010.code) &&
                 Objects.equals(this.message, inlineResponse20010.message) &&
-                Objects.equals(this.data, inlineResponse20010.data) &&
-                Objects.equals(this.version, inlineResponse20010.version);
+                Objects.equals(this.data, inlineResponse20010.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(timestamp, method, code, message, data, version);
+        return Objects.hash(code, message, data);
     }
 
 
@@ -190,12 +117,9 @@ public class InlineResponse20010 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20010 {\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
-        sb.append("      method: ").append(toIndentedString(method)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
-        sb.append("      version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

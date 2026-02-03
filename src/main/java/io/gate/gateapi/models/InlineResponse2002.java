@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2002Data;
+import io.gate.gateapi.models.InlineResponse200;
 import java.io.IOException;
 
 /**
@@ -34,7 +34,11 @@ public class InlineResponse2002 {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse2002Data data;
+    private InlineResponse200 data;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Long timestamp;
 
 
     public InlineResponse2002 code(Integer code) {
@@ -44,9 +48,10 @@ public class InlineResponse2002 {
     }
 
      /**
-     * Get code
+     * Status code, 0 means success
      * @return code
     **/
+    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -63,9 +68,10 @@ public class InlineResponse2002 {
     }
 
      /**
-     * Get message
+     * Response message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -75,7 +81,7 @@ public class InlineResponse2002 {
         this.message = message;
     }
 
-    public InlineResponse2002 data(InlineResponse2002Data data) {
+    public InlineResponse2002 data(InlineResponse200 data) {
         
         this.data = data;
         return this;
@@ -85,13 +91,34 @@ public class InlineResponse2002 {
      * Get data
      * @return data
     **/
-    public InlineResponse2002Data getData() {
+    @javax.annotation.Nullable
+    public InlineResponse200 getData() {
         return data;
     }
 
 
-    public void setData(InlineResponse2002Data data) {
+    public void setData(InlineResponse200 data) {
         this.data = data;
+    }
+
+    public InlineResponse2002 timestamp(Long timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Response timestamp (milliseconds)
+     * @return timestamp
+    **/
+    @javax.annotation.Nullable
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -104,12 +131,13 @@ public class InlineResponse2002 {
         InlineResponse2002 inlineResponse2002 = (InlineResponse2002) o;
         return Objects.equals(this.code, inlineResponse2002.code) &&
                 Objects.equals(this.message, inlineResponse2002.message) &&
-                Objects.equals(this.data, inlineResponse2002.data);
+                Objects.equals(this.data, inlineResponse2002.data) &&
+                Objects.equals(this.timestamp, inlineResponse2002.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -120,6 +148,7 @@ public class InlineResponse2002 {
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

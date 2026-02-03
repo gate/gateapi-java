@@ -152,7 +152,7 @@ public class InlineResponse20016 {
     }
 
      /**
-     * Version number
+     * Get version
      * @return version
     **/
     public String getVersion() {

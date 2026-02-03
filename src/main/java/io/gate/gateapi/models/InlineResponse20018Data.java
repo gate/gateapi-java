@@ -23,28 +23,28 @@ import java.io.IOException;
  * InlineResponse20018Data
  */
 public class InlineResponse20018Data {
-    public static final String SERIALIZED_NAME_S_R_V_T_M = "SRVTM";
-    @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
-    private Integer SRVTM;
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private Integer status;
 
 
-    public InlineResponse20018Data SRVTM(Integer SRVTM) {
+    public InlineResponse20018Data status(Integer status) {
         
-        this.SRVTM = SRVTM;
+        this.status = status;
         return this;
     }
 
      /**
-     * Timestamp when message was successfully sent (current timestamp)
-     * @return SRVTM
+     * Ad status after successful update
+     * @return status
     **/
-    public Integer getSRVTM() {
-        return SRVTM;
+    public Integer getStatus() {
+        return status;
     }
 
 
-    public void setSRVTM(Integer SRVTM) {
-        this.SRVTM = SRVTM;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +55,12 @@ public class InlineResponse20018Data {
             return false;
         }
         InlineResponse20018Data inlineResponse20018Data = (InlineResponse20018Data) o;
-        return Objects.equals(this.SRVTM, inlineResponse20018Data.SRVTM);
+        return Objects.equals(this.status, inlineResponse20018Data.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(SRVTM);
+        return Objects.hash(status);
     }
 
 
@@ -68,7 +68,7 @@ public class InlineResponse20018Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20018Data {\n");
-        sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }

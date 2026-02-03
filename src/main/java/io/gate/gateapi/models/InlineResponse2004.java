@@ -23,51 +23,53 @@ import java.io.IOException;
  * InlineResponse2004
  */
 public class InlineResponse2004 {
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
+    public static final String SERIALIZED_NAME_TIME = "time";
+    @SerializedName(SERIALIZED_NAME_TIME)
+    private Long time;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
+    public static final String SERIALIZED_NAME_VALUE = "value";
+    @SerializedName(SERIALIZED_NAME_VALUE)
+    private String value;
 
 
-    public InlineResponse2004 code(Integer code) {
+    public InlineResponse2004 time(Long time) {
         
-        this.code = code;
+        this.time = time;
         return this;
     }
 
      /**
-     * Get code
-     * @return code
+     * Get time
+     * @return time
     **/
-    public Integer getCode() {
-        return code;
+    @javax.annotation.Nullable
+    public Long getTime() {
+        return time;
     }
 
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
-    public InlineResponse2004 message(String message) {
+    public InlineResponse2004 value(String value) {
         
-        this.message = message;
+        this.value = value;
         return this;
     }
 
      /**
-     * Get message
-     * @return message
+     * Get value
+     * @return value
     **/
-    public String getMessage() {
-        return message;
+    @javax.annotation.Nullable
+    public String getValue() {
+        return value;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setValue(String value) {
+        this.value = value;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +80,13 @@ public class InlineResponse2004 {
             return false;
         }
         InlineResponse2004 inlineResponse2004 = (InlineResponse2004) o;
-        return Objects.equals(this.code, inlineResponse2004.code) &&
-                Objects.equals(this.message, inlineResponse2004.message);
+        return Objects.equals(this.time, inlineResponse2004.time) &&
+                Objects.equals(this.value, inlineResponse2004.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message);
+        return Objects.hash(time, value);
     }
 
 
@@ -92,8 +94,8 @@ public class InlineResponse2004 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2004 {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      time: ").append(toIndentedString(time)).append("\n");
+        sb.append("      value: ").append(toIndentedString(value)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -5,6 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** |  |  [optional]
-**tiers** | [**List&lt;RuleRiskLimitsTiers&gt;**](RuleRiskLimitsTiers.md) |  |  [optional]
+**timestamp** | [**BigDecimal**](BigDecimal.md) |  | 
+**method** | **String** |  | 
+**code** | **Integer** |  | 
+**message** | **String** |  | 
+**data** | [**InlineResponse20020Data**](InlineResponse20020Data.md) |  | 
+**version** | **String** | Version number | 
 

@@ -17,7 +17,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2007Data;
 import java.io.IOException;
 
 /**
@@ -32,9 +31,9 @@ public class InlineResponse2007 {
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse2007Data data;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
 
 
     public InlineResponse2007 code(Integer code) {
@@ -75,23 +74,23 @@ public class InlineResponse2007 {
         this.message = message;
     }
 
-    public InlineResponse2007 data(InlineResponse2007Data data) {
+    public InlineResponse2007 timestamp(Integer timestamp) {
         
-        this.data = data;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Get data
-     * @return data
+     * Get timestamp
+     * @return timestamp
     **/
-    public InlineResponse2007Data getData() {
-        return data;
+    public Integer getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setData(InlineResponse2007Data data) {
-        this.data = data;
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -104,12 +103,12 @@ public class InlineResponse2007 {
         InlineResponse2007 inlineResponse2007 = (InlineResponse2007) o;
         return Objects.equals(this.code, inlineResponse2007.code) &&
                 Objects.equals(this.message, inlineResponse2007.message) &&
-                Objects.equals(this.data, inlineResponse2007.data);
+                Objects.equals(this.timestamp, inlineResponse2007.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data);
+        return Objects.hash(code, message, timestamp);
     }
 
 
@@ -119,7 +118,7 @@ public class InlineResponse2007 {
         sb.append("class InlineResponse2007 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

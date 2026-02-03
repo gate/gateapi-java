@@ -5,7 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | 
-**message** | **String** |  | 
-**timestamp** | **Integer** |  | 
+**changeLog** | [**List&lt;TrailChangeLog&gt;**](TrailChangeLog.md) |  |  [optional]
 

@@ -17,57 +17,151 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20023Data;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20023
  */
 public class InlineResponse20023 {
-    public static final String SERIALIZED_NAME_TX_ID = "tx_id";
-    @SerializedName(SERIALIZED_NAME_TX_ID)
-    private String txId;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private BigDecimal timestamp;
 
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
+    public static final String SERIALIZED_NAME_METHOD = "method";
+    @SerializedName(SERIALIZED_NAME_METHOD)
+    private String method;
+
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse20023Data data;
+
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
 
 
-    public InlineResponse20023 txId(String txId) {
+    public InlineResponse20023 timestamp(BigDecimal timestamp) {
         
-        this.txId = txId;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Order ID
-     * @return txId
+     * Get timestamp
+     * @return timestamp
     **/
-    public String getTxId() {
-        return txId;
+    public BigDecimal getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setTxId(String txId) {
-        this.txId = txId;
+    public void setTimestamp(BigDecimal timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public InlineResponse20023 text(String text) {
+    public InlineResponse20023 method(String method) {
         
-        this.text = text;
+        this.method = method;
         return this;
     }
 
      /**
-     * User-defined Order ID
-     * @return text
+     * Get method
+     * @return method
     **/
-    public String getText() {
-        return text;
+    public String getMethod() {
+        return method;
     }
 
 
-    public void setText(String text) {
-        this.text = text;
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public InlineResponse20023 code(Integer code) {
+        
+        this.code = code;
+        return this;
+    }
+
+     /**
+     * Get code
+     * @return code
+    **/
+    public Integer getCode() {
+        return code;
+    }
+
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public InlineResponse20023 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Get message
+     * @return message
+    **/
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public InlineResponse20023 data(InlineResponse20023Data data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Get data
+     * @return data
+    **/
+    public InlineResponse20023Data getData() {
+        return data;
+    }
+
+
+    public void setData(InlineResponse20023Data data) {
+        this.data = data;
+    }
+
+    public InlineResponse20023 version(String version) {
+        
+        this.version = version;
+        return this;
+    }
+
+     /**
+     * Get version
+     * @return version
+    **/
+    public String getVersion() {
+        return version;
+    }
+
+
+    public void setVersion(String version) {
+        this.version = version;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +172,17 @@ public class InlineResponse20023 {
             return false;
         }
         InlineResponse20023 inlineResponse20023 = (InlineResponse20023) o;
-        return Objects.equals(this.txId, inlineResponse20023.txId) &&
-                Objects.equals(this.text, inlineResponse20023.text);
+        return Objects.equals(this.timestamp, inlineResponse20023.timestamp) &&
+                Objects.equals(this.method, inlineResponse20023.method) &&
+                Objects.equals(this.code, inlineResponse20023.code) &&
+                Objects.equals(this.message, inlineResponse20023.message) &&
+                Objects.equals(this.data, inlineResponse20023.data) &&
+                Objects.equals(this.version, inlineResponse20023.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(txId, text);
+        return Objects.hash(timestamp, method, code, message, data, version);
     }
 
 
@@ -92,8 +190,12 @@ public class InlineResponse20023 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20023 {\n");
-        sb.append("      txId: ").append(toIndentedString(txId)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      method: ").append(toIndentedString(method)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

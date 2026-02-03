@@ -201,6 +201,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_ORDER_SIZE_MIN)
     private String orderSizeMin;
 
+    public static final String SERIALIZED_NAME_ENABLE_DECIMAL = "enable_decimal";
+    @SerializedName(SERIALIZED_NAME_ENABLE_DECIMAL)
+    private Boolean enableDecimal;
+
     public static final String SERIALIZED_NAME_ORDER_SIZE_MAX = "order_size_max";
     @SerializedName(SERIALIZED_NAME_ORDER_SIZE_MAX)
     private String orderSizeMax;
@@ -710,6 +714,26 @@ public class Contract {
         this.orderSizeMin = orderSizeMin;
     }
 
+    public Contract enableDecimal(Boolean enableDecimal) {
+        
+        this.enableDecimal = enableDecimal;
+        return this;
+    }
+
+     /**
+     * Whether decimal string type is supported for contract lot size. When this field is set to &#x60;true&#x60;, it indicates that the contract supports decimal lot sizes (i.e., the &#x60;size&#x60; field can use a decimal string type); when set to &#x60;false&#x60;, it indicates that the contract does not support decimal lot sizes (i.e., the &#x60;size&#x60; field can only use an integer type).
+     * @return enableDecimal
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnableDecimal() {
+        return enableDecimal;
+    }
+
+
+    public void setEnableDecimal(Boolean enableDecimal) {
+        this.enableDecimal = enableDecimal;
+    }
+
     public Contract orderSizeMax(String orderSizeMax) {
         
         this.orderSizeMax = orderSizeMax;
@@ -1179,6 +1203,7 @@ public class Contract {
                 Objects.equals(this.riskLimitStep, contract.riskLimitStep) &&
                 Objects.equals(this.riskLimitMax, contract.riskLimitMax) &&
                 Objects.equals(this.orderSizeMin, contract.orderSizeMin) &&
+                Objects.equals(this.enableDecimal, contract.enableDecimal) &&
                 Objects.equals(this.orderSizeMax, contract.orderSizeMax) &&
                 Objects.equals(this.orderPriceDeviate, contract.orderPriceDeviate) &&
                 Objects.equals(this.refDiscountRate, contract.refDiscountRate) &&
@@ -1205,7 +1230,7 @@ public class Contract {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit);
     }
 
 
@@ -1234,6 +1259,7 @@ public class Contract {
         sb.append("      riskLimitStep: ").append(toIndentedString(riskLimitStep)).append("\n");
         sb.append("      riskLimitMax: ").append(toIndentedString(riskLimitMax)).append("\n");
         sb.append("      orderSizeMin: ").append(toIndentedString(orderSizeMin)).append("\n");
+        sb.append("      enableDecimal: ").append(toIndentedString(enableDecimal)).append("\n");
         sb.append("      orderSizeMax: ").append(toIndentedString(orderSizeMax)).append("\n");
         sb.append("      orderPriceDeviate: ").append(toIndentedString(orderPriceDeviate)).append("\n");
         sb.append("      refDiscountRate: ").append(toIndentedString(refDiscountRate)).append("\n");

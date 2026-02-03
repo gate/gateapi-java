@@ -5,6 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**time** | **Long** |  |  [optional]
-**value** | **String** |  |  [optional]
+**order** | [**TrailOrder**](TrailOrder.md) |  |  [optional]
 

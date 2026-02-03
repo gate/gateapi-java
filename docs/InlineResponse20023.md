@@ -5,6 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**txId** | **String** | Order ID | 
-**text** | **String** | User-defined Order ID | 
+**timestamp** | [**BigDecimal**](BigDecimal.md) |  | 
+**method** | **String** |  | 
+**code** | **Integer** |  | 
+**message** | **String** |  | 
+**data** | [**InlineResponse20023Data**](InlineResponse20023Data.md) |  | 
+**version** | **String** |  | 
 

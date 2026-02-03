@@ -5,10 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timestamp** | [**BigDecimal**](BigDecimal.md) |  | 
-**method** | **String** |  | 
-**code** | **Integer** |  | 
 **message** | **String** |  | 
+**code** | **Integer** |  | 
 **data** | [**InlineResponse20012Data**](InlineResponse20012Data.md) |  | 
-**version** | **String** |  | 
 

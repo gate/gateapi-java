@@ -17,7 +17,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20016DataLists;
+import io.gate.gateapi.models.InlineResponse20016DataList;
+import io.gate.gateapi.models.InlineResponse20016DataTransTime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,33 +27,107 @@ import java.util.List;
  * InlineResponse20016Data
  */
 public class InlineResponse20016Data {
-    public static final String SERIALIZED_NAME_LISTS = "lists";
-    @SerializedName(SERIALIZED_NAME_LISTS)
-    private List<InlineResponse20016DataLists> lists = new ArrayList<>();
+    public static final String SERIALIZED_NAME_LIST = "list";
+    @SerializedName(SERIALIZED_NAME_LIST)
+    private List<InlineResponse20016DataList> list = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_TRANS_TIME = "trans_time";
+    @SerializedName(SERIALIZED_NAME_TRANS_TIME)
+    private List<InlineResponse20016DataTransTime> transTime = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_COUNT = "count";
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private Integer count;
+
+    public static final String SERIALIZED_NAME_EXPORTED_NUM = "exported_num";
+    @SerializedName(SERIALIZED_NAME_EXPORTED_NUM)
+    private Integer exportedNum;
 
 
-    public InlineResponse20016Data lists(List<InlineResponse20016DataLists> lists) {
+    public InlineResponse20016Data list(List<InlineResponse20016DataList> list) {
         
-        this.lists = lists;
+        this.list = list;
         return this;
     }
 
-    public InlineResponse20016Data addListsItem(InlineResponse20016DataLists listsItem) {
-        this.lists.add(listsItem);
+    public InlineResponse20016Data addListItem(InlineResponse20016DataList listItem) {
+        this.list.add(listItem);
         return this;
     }
 
      /**
-     * Get lists
-     * @return lists
+     * Get list
+     * @return list
     **/
-    public List<InlineResponse20016DataLists> getLists() {
-        return lists;
+    public List<InlineResponse20016DataList> getList() {
+        return list;
     }
 
 
-    public void setLists(List<InlineResponse20016DataLists> lists) {
-        this.lists = lists;
+    public void setList(List<InlineResponse20016DataList> list) {
+        this.list = list;
+    }
+
+    public InlineResponse20016Data transTime(List<InlineResponse20016DataTransTime> transTime) {
+        
+        this.transTime = transTime;
+        return this;
+    }
+
+    public InlineResponse20016Data addTransTimeItem(InlineResponse20016DataTransTime transTimeItem) {
+        this.transTime.add(transTimeItem);
+        return this;
+    }
+
+     /**
+     * Countdown time
+     * @return transTime
+    **/
+    public List<InlineResponse20016DataTransTime> getTransTime() {
+        return transTime;
+    }
+
+
+    public void setTransTime(List<InlineResponse20016DataTransTime> transTime) {
+        this.transTime = transTime;
+    }
+
+    public InlineResponse20016Data count(Integer count) {
+        
+        this.count = count;
+        return this;
+    }
+
+     /**
+     * Number of orders
+     * @return count
+    **/
+    public Integer getCount() {
+        return count;
+    }
+
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public InlineResponse20016Data exportedNum(Integer exportedNum) {
+        
+        this.exportedNum = exportedNum;
+        return this;
+    }
+
+     /**
+     * Export count
+     * @return exportedNum
+    **/
+    public Integer getExportedNum() {
+        return exportedNum;
+    }
+
+
+    public void setExportedNum(Integer exportedNum) {
+        this.exportedNum = exportedNum;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -63,12 +138,15 @@ public class InlineResponse20016Data {
             return false;
         }
         InlineResponse20016Data inlineResponse20016Data = (InlineResponse20016Data) o;
-        return Objects.equals(this.lists, inlineResponse20016Data.lists);
+        return Objects.equals(this.list, inlineResponse20016Data.list) &&
+                Objects.equals(this.transTime, inlineResponse20016Data.transTime) &&
+                Objects.equals(this.count, inlineResponse20016Data.count) &&
+                Objects.equals(this.exportedNum, inlineResponse20016Data.exportedNum);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lists);
+        return Objects.hash(list, transTime, count, exportedNum);
     }
 
 
@@ -76,7 +154,10 @@ public class InlineResponse20016Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20016Data {\n");
-        sb.append("      lists: ").append(toIndentedString(lists)).append("\n");
+        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      transTime: ").append(toIndentedString(transTime)).append("\n");
+        sb.append("      count: ").append(toIndentedString(count)).append("\n");
+        sb.append("      exportedNum: ").append(toIndentedString(exportedNum)).append("\n");
         sb.append("}");
         return sb.toString();
     }

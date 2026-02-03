@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **subAccountFromType** | **String** | Source sub-account trading account: spot - spot account, futures - perpetual contract account, delivery - delivery contract account | 
 **subAccountTo** | **String** | Transfer to the user id of the sub-account | 
 **subAccountToType** | **String** | Target sub-account trading account: spot - spot account, futures - perpetual contract account, delivery - delivery contract account | 
-**amount** | **String** | Transfer amount | 
+**amount** | **String** | Transfer Amount, supports up to 8 decimal places, must be greater than 0 | 
 

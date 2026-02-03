@@ -29,7 +29,7 @@ public class SwapCoin {
 
     public static final String SERIALIZED_NAME_SIDE = "side";
     @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
+    private Integer side;
 
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -59,7 +59,7 @@ public class SwapCoin {
         this.coin = coin;
     }
 
-    public SwapCoin side(String side) {
+    public SwapCoin side(Integer side) {
         
         this.side = side;
         return this;
@@ -69,12 +69,12 @@ public class SwapCoin {
      * 0 - Stake 1 - Redeem
      * @return side
     **/
-    public String getSide() {
+    public Integer getSide() {
         return side;
     }
 
 
-    public void setSide(String side) {
+    public void setSide(Integer side) {
         this.side = side;
     }
 

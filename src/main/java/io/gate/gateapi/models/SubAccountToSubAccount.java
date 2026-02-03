@@ -174,7 +174,7 @@ public class SubAccountToSubAccount {
     }
 
      /**
-     * Transfer amount
+     * Transfer Amount, supports up to 8 decimal places, must be greater than 0
      * @return amount
     **/
     public String getAmount() {

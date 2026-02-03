@@ -5,25 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** | User ID |  [optional]
-**positionId** | **String** | Position ID |  [optional]
-**symbol** | **String** | Currency pair |  [optional]
-**positionSide** | **String** | Position Direction |  [optional]
-**initialMargin** | **String** | Initial Margin |  [optional]
-**maintenanceMargin** | **String** | Maintenance margin |  [optional]
-**positionQty** | **String** | Position Quantity |  [optional]
-**positionValue** | **String** | Position Value |  [optional]
-**upnl** | **String** | Unrealized P&amp;L |  [optional]
-**upnlRate** | **String** | Unrealized P&amp;L Ratio |  [optional]
-**entryPrice** | **String** | Position Average Entry Price |  [optional]
-**markPrice** | **String** | Mark price |  [optional]
-**leverage** | **String** | Position Leverage |  [optional]
-**maxLeverage** | **String** | Maximum leverage |  [optional]
-**riskLimit** | **String** | Position risk limit |  [optional]
-**fee** | **String** | Position Fee |  [optional]
-**fundingFee** | **String** | Position Funding Fee |  [optional]
-**fundingTime** | **String** | Position funding fee collection time (0 indicates it has not been collected yet) |  [optional]
-**createTime** | **String** | Position Creation Time |  [optional]
-**updateTime** | **String** | Position Update Time |  [optional]
-**closedPnl** | **String** | Realized PnL |  [optional]
+**userId** | **String** | User ID | 
+**availableMargin** | **String** | Available Margin | 
+**marginBalance** | **String** | marginbalance | 
+**initialMargin** | **String** | Initial Margin | 
+**maintenanceMargin** | **String** | Maintenance margin | 
+**initialMarginRate** | **String** | Initial margin rate | 
+**maintenanceMarginRate** | **String** | Maintenance margin rate | 
+**positionMode** | **String** | Contract Position Mode | 
+**accountLimit** | **String** | Account limit |  [optional]
+**createTime** | **String** | Created time | 
+**updateTime** | **String** | Update time | 
+**accountMode** | **String** | Account mode. CROSS_EXCHANGE: cross-exchange mode. ISOLATED_EXCHANGE: isolated exchange mode |  [optional]
+**exchangeType** | **String** | Exchange type. When account_mode is CROSS_EXCHANGE, this must be CROSSEX; otherwise, it represents a specific exchange |  [optional]
+**assets** | [**List&lt;InlineResponse20032Assets&gt;**](InlineResponse20032Assets.md) |  | 
 

@@ -17,44 +17,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2008Data;
 import java.io.IOException;
 
 /**
  * InlineResponse2008
  */
 public class InlineResponse2008 {
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
 
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse2008Data data;
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
-
-    public InlineResponse2008 message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Get message
-     * @return message
-    **/
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public InlineResponse2008 code(Integer code) {
         
@@ -75,23 +51,23 @@ public class InlineResponse2008 {
         this.code = code;
     }
 
-    public InlineResponse2008 data(InlineResponse2008Data data) {
+    public InlineResponse2008 message(String message) {
         
-        this.data = data;
+        this.message = message;
         return this;
     }
 
      /**
-     * Get data
-     * @return data
+     * Get message
+     * @return message
     **/
-    public InlineResponse2008Data getData() {
-        return data;
+    public String getMessage() {
+        return message;
     }
 
 
-    public void setData(InlineResponse2008Data data) {
-        this.data = data;
+    public void setMessage(String message) {
+        this.message = message;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -102,14 +78,13 @@ public class InlineResponse2008 {
             return false;
         }
         InlineResponse2008 inlineResponse2008 = (InlineResponse2008) o;
-        return Objects.equals(this.message, inlineResponse2008.message) &&
-                Objects.equals(this.code, inlineResponse2008.code) &&
-                Objects.equals(this.data, inlineResponse2008.data);
+        return Objects.equals(this.code, inlineResponse2008.code) &&
+                Objects.equals(this.message, inlineResponse2008.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(message, code, data);
+        return Objects.hash(code, message);
     }
 
 
@@ -117,9 +92,8 @@ public class InlineResponse2008 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2008 {\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }

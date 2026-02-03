@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **code** | **Integer** |  | 
 **message** | **String** |  | 
 **data** | [**InlineResponse20016Data**](InlineResponse20016Data.md) |  | 
-**version** | **String** | Version number | 
+**version** | **String** |  | 
 

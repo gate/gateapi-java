@@ -17,104 +17,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2005Data;
 import java.io.IOException;
 
 /**
  * InlineResponse2005
  */
 public class InlineResponse2005 {
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
+    public static final String SERIALIZED_NAME_CURRENCY = "currency";
+    @SerializedName(SERIALIZED_NAME_CURRENCY)
+    private String currency;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse2005Data data;
-
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Integer timestamp;
+    public static final String SERIALIZED_NAME_EST_RATE = "est_rate";
+    @SerializedName(SERIALIZED_NAME_EST_RATE)
+    private String estRate;
 
 
-    public InlineResponse2005 code(Integer code) {
+    public InlineResponse2005 currency(String currency) {
         
-        this.code = code;
+        this.currency = currency;
         return this;
     }
 
      /**
-     * Get code
-     * @return code
+     * Get currency
+     * @return currency
     **/
-    public Integer getCode() {
-        return code;
+    @javax.annotation.Nullable
+    public String getCurrency() {
+        return currency;
     }
 
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public InlineResponse2005 message(String message) {
+    public InlineResponse2005 estRate(String estRate) {
         
-        this.message = message;
+        this.estRate = estRate;
         return this;
     }
 
      /**
-     * Get message
-     * @return message
+     * Estimated Annualized Rate, e.g., &#x60;est_rate&#x60;: &#x60;0.8014&#x60; represents an annualized rate of 80.14%
+     * @return estRate
     **/
-    public String getMessage() {
-        return message;
+    @javax.annotation.Nullable
+    public String getEstRate() {
+        return estRate;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public InlineResponse2005 data(InlineResponse2005Data data) {
-        
-        this.data = data;
-        return this;
-    }
-
-     /**
-     * Get data
-     * @return data
-    **/
-    public InlineResponse2005Data getData() {
-        return data;
-    }
-
-
-    public void setData(InlineResponse2005Data data) {
-        this.data = data;
-    }
-
-    public InlineResponse2005 timestamp(Integer timestamp) {
-        
-        this.timestamp = timestamp;
-        return this;
-    }
-
-     /**
-     * Get timestamp
-     * @return timestamp
-    **/
-    public Integer getTimestamp() {
-        return timestamp;
-    }
-
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
+    public void setEstRate(String estRate) {
+        this.estRate = estRate;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -125,15 +80,13 @@ public class InlineResponse2005 {
             return false;
         }
         InlineResponse2005 inlineResponse2005 = (InlineResponse2005) o;
-        return Objects.equals(this.code, inlineResponse2005.code) &&
-                Objects.equals(this.message, inlineResponse2005.message) &&
-                Objects.equals(this.data, inlineResponse2005.data) &&
-                Objects.equals(this.timestamp, inlineResponse2005.timestamp);
+        return Objects.equals(this.currency, inlineResponse2005.currency) &&
+                Objects.equals(this.estRate, inlineResponse2005.estRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data, timestamp);
+        return Objects.hash(currency, estRate);
     }
 
 
@@ -141,10 +94,8 @@ public class InlineResponse2005 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2005 {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("      estRate: ").append(toIndentedString(estRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

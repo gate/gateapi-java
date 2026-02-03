@@ -17,59 +17,46 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.TrailOrder;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse2001
  */
 public class InlineResponse2001 {
-    public static final String SERIALIZED_NAME_CURRENCY = "currency";
-    @SerializedName(SERIALIZED_NAME_CURRENCY)
-    private String currency;
-
-    public static final String SERIALIZED_NAME_EST_RATE = "est_rate";
-    @SerializedName(SERIALIZED_NAME_EST_RATE)
-    private String estRate;
+    public static final String SERIALIZED_NAME_ORDERS = "orders";
+    @SerializedName(SERIALIZED_NAME_ORDERS)
+    private List<TrailOrder> orders = null;
 
 
-    public InlineResponse2001 currency(String currency) {
+    public InlineResponse2001 orders(List<TrailOrder> orders) {
         
-        this.currency = currency;
+        this.orders = orders;
+        return this;
+    }
+
+    public InlineResponse2001 addOrdersItem(TrailOrder ordersItem) {
+        if (this.orders == null) {
+            this.orders = new ArrayList<>();
+        }
+        this.orders.add(ordersItem);
         return this;
     }
 
      /**
-     * Get currency
-     * @return currency
+     * Get orders
+     * @return orders
     **/
     @javax.annotation.Nullable
-    public String getCurrency() {
-        return currency;
+    public List<TrailOrder> getOrders() {
+        return orders;
     }
 
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public InlineResponse2001 estRate(String estRate) {
-        
-        this.estRate = estRate;
-        return this;
-    }
-
-     /**
-     * Estimated Annualized Rate, e.g., &#x60;est_rate&#x60;: &#x60;0.8014&#x60; represents an annualized rate of 80.14%
-     * @return estRate
-    **/
-    @javax.annotation.Nullable
-    public String getEstRate() {
-        return estRate;
-    }
-
-
-    public void setEstRate(String estRate) {
-        this.estRate = estRate;
+    public void setOrders(List<TrailOrder> orders) {
+        this.orders = orders;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -80,13 +67,12 @@ public class InlineResponse2001 {
             return false;
         }
         InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-        return Objects.equals(this.currency, inlineResponse2001.currency) &&
-                Objects.equals(this.estRate, inlineResponse2001.estRate);
+        return Objects.equals(this.orders, inlineResponse2001.orders);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, estRate);
+        return Objects.hash(orders);
     }
 
 
@@ -94,8 +80,7 @@ public class InlineResponse2001 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2001 {\n");
-        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("      estRate: ").append(toIndentedString(estRate)).append("\n");
+        sb.append("      orders: ").append(toIndentedString(orders)).append("\n");
         sb.append("}");
         return sb.toString();
     }
