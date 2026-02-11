@@ -5,9 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pn** | **Integer** |  | 
-**ps** | **Integer** |  | 
-**totalPn** | **Integer** |  | 
-**count** | **Integer** |  | 
-**list** | [**List&lt;InlineResponse20010DataList&gt;**](InlineResponse20010DataList.md) |  | 
+**lists** | [**List&lt;InlineResponse20010DataLists&gt;**](InlineResponse20010DataLists.md) | Bank card list | 
 

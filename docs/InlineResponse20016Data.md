@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**list** | [**List&lt;InlineResponse20016DataList&gt;**](InlineResponse20016DataList.md) |  | 
-**transTime** | [**List&lt;InlineResponse20016DataTransTime&gt;**](InlineResponse20016DataTransTime.md) | Countdown time | 
-**count** | **Integer** | Number of orders | 
-**exportedNum** | **Integer** | Export count | 
+**payType** | **String** | Payment method type |  [optional]
+**payName** | **String** | Payment method name |  [optional]
+**ids** | **List&lt;Integer&gt;** | User&#39;s currently bound payment method (primary key ID) |  [optional]
+**list** | [**List&lt;InlineResponse20016List&gt;**](InlineResponse20016List.md) |  |  [optional]
 

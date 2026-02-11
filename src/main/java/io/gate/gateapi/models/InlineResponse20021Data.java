@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20021DataMessages;
+import io.gate.gateapi.models.InlineResponse20021DataLists;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,148 +26,33 @@ import java.util.List;
  * InlineResponse20021Data
  */
 public class InlineResponse20021Data {
-    public static final String SERIALIZED_NAME_MESSAGES = "messages";
-    @SerializedName(SERIALIZED_NAME_MESSAGES)
-    private List<InlineResponse20021DataMessages> messages = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_MEMO = "memo";
-    @SerializedName(SERIALIZED_NAME_MEMO)
-    private String memo;
-
-    public static final String SERIALIZED_NAME_HAS_HISTORY = "has_history";
-    @SerializedName(SERIALIZED_NAME_HAS_HISTORY)
-    private Boolean hasHistory;
-
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
-
-    public static final String SERIALIZED_NAME_S_R_V_T_M = "SRVTM";
-    @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
-    private Integer SRVTM;
-
-    public static final String SERIALIZED_NAME_ORDER_STATUS = "order_status";
-    @SerializedName(SERIALIZED_NAME_ORDER_STATUS)
-    private String orderStatus;
+    public static final String SERIALIZED_NAME_LISTS = "lists";
+    @SerializedName(SERIALIZED_NAME_LISTS)
+    private List<InlineResponse20021DataLists> lists = new ArrayList<>();
 
 
-    public InlineResponse20021Data messages(List<InlineResponse20021DataMessages> messages) {
+    public InlineResponse20021Data lists(List<InlineResponse20021DataLists> lists) {
         
-        this.messages = messages;
+        this.lists = lists;
         return this;
     }
 
-    public InlineResponse20021Data addMessagesItem(InlineResponse20021DataMessages messagesItem) {
-        this.messages.add(messagesItem);
+    public InlineResponse20021Data addListsItem(InlineResponse20021DataLists listsItem) {
+        this.lists.add(listsItem);
         return this;
     }
 
      /**
-     * Message List
-     * @return messages
+     * Get lists
+     * @return lists
     **/
-    public List<InlineResponse20021DataMessages> getMessages() {
-        return messages;
+    public List<InlineResponse20021DataLists> getLists() {
+        return lists;
     }
 
 
-    public void setMessages(List<InlineResponse20021DataMessages> messages) {
-        this.messages = messages;
-    }
-
-    public InlineResponse20021Data memo(String memo) {
-        
-        this.memo = memo;
-        return this;
-    }
-
-     /**
-     * Payment tip (displayed on homepage only)
-     * @return memo
-    **/
-    public String getMemo() {
-        return memo;
-    }
-
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
-    public InlineResponse20021Data hasHistory(Boolean hasHistory) {
-        
-        this.hasHistory = hasHistory;
-        return this;
-    }
-
-     /**
-     * Whether historical records exist
-     * @return hasHistory
-    **/
-    public Boolean getHasHistory() {
-        return hasHistory;
-    }
-
-
-    public void setHasHistory(Boolean hasHistory) {
-        this.hasHistory = hasHistory;
-    }
-
-    public InlineResponse20021Data txid(Integer txid) {
-        
-        this.txid = txid;
-        return this;
-    }
-
-     /**
-     * Order ID
-     * @return txid
-    **/
-    public Integer getTxid() {
-        return txid;
-    }
-
-
-    public void setTxid(Integer txid) {
-        this.txid = txid;
-    }
-
-    public InlineResponse20021Data SRVTM(Integer SRVTM) {
-        
-        this.SRVTM = SRVTM;
-        return this;
-    }
-
-     /**
-     * Timestamp of the latest message
-     * @return SRVTM
-    **/
-    public Integer getSRVTM() {
-        return SRVTM;
-    }
-
-
-    public void setSRVTM(Integer SRVTM) {
-        this.SRVTM = SRVTM;
-    }
-
-    public InlineResponse20021Data orderStatus(String orderStatus) {
-        
-        this.orderStatus = orderStatus;
-        return this;
-    }
-
-     /**
-     * Order Status
-     * @return orderStatus
-    **/
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setLists(List<InlineResponse20021DataLists> lists) {
+        this.lists = lists;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -178,17 +63,12 @@ public class InlineResponse20021Data {
             return false;
         }
         InlineResponse20021Data inlineResponse20021Data = (InlineResponse20021Data) o;
-        return Objects.equals(this.messages, inlineResponse20021Data.messages) &&
-                Objects.equals(this.memo, inlineResponse20021Data.memo) &&
-                Objects.equals(this.hasHistory, inlineResponse20021Data.hasHistory) &&
-                Objects.equals(this.txid, inlineResponse20021Data.txid) &&
-                Objects.equals(this.SRVTM, inlineResponse20021Data.SRVTM) &&
-                Objects.equals(this.orderStatus, inlineResponse20021Data.orderStatus);
+        return Objects.equals(this.lists, inlineResponse20021Data.lists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messages, memo, hasHistory, txid, SRVTM, orderStatus);
+        return Objects.hash(lists);
     }
 
 
@@ -196,12 +76,7 @@ public class InlineResponse20021Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20021Data {\n");
-        sb.append("      messages: ").append(toIndentedString(messages)).append("\n");
-        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
-        sb.append("      hasHistory: ").append(toIndentedString(hasHistory)).append("\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
-        sb.append("      orderStatus: ").append(toIndentedString(orderStatus)).append("\n");
+        sb.append("      lists: ").append(toIndentedString(lists)).append("\n");
         sb.append("}");
         return sb.toString();
     }

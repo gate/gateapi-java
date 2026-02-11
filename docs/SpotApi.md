@@ -385,7 +385,7 @@ public class Example {
 
         SpotApi apiInstance = new SpotApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Currency pair
-        String interval = "\"0\""; // String | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        String interval = "\"0\""; // String | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         Integer limit = 10; // Integer | Number of depth levels
         Boolean withId = false; // Boolean | Return order book update ID
         try {
@@ -413,7 +413,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Currency pair |
- **interval** | **String**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to &quot;0&quot;]
+ **interval** | **String**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
  **withId** | **Boolean**| Return order book update ID | [optional] [default to false]
 
@@ -526,7 +526,7 @@ No authorization required
 
 Market K-line chart
 
-Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive
 
 ### Example
 
@@ -1358,7 +1358,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 <a name="cancelBatchOrders"></a>
 # **cancelBatchOrders**
@@ -2248,7 +2248,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 <a name="getSpotPriceTriggeredOrder"></a>
 # **getSpotPriceTriggeredOrder**

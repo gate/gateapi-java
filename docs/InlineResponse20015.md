@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **method** | **String** |  | 
 **code** | **Integer** |  | 
 **message** | **String** |  | 
-**data** | [**List&lt;InlineResponse20015Data&gt;**](InlineResponse20015Data.md) |  | 
+**data** | [**InlineResponse20015Data**](InlineResponse20015Data.md) |  | 
 **version** | **String** |  | 
 

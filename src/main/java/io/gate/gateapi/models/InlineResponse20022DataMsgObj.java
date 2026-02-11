@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * InlineResponse20021DataMsgObj
+ * InlineResponse20022DataMsgObj
  */
-public class InlineResponse20021DataMsgObj {
+public class InlineResponse20022DataMsgObj {
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
@@ -110,7 +110,7 @@ public class InlineResponse20021DataMsgObj {
     private String payName;
 
 
-    public InlineResponse20021DataMsgObj status(String status) {
+    public InlineResponse20022DataMsgObj status(String status) {
         
         this.status = status;
         return this;
@@ -130,7 +130,7 @@ public class InlineResponse20021DataMsgObj {
         this.status = status;
     }
 
-    public InlineResponse20021DataMsgObj text(String text) {
+    public InlineResponse20022DataMsgObj text(String text) {
         
         this.text = text;
         return this;
@@ -150,13 +150,13 @@ public class InlineResponse20021DataMsgObj {
         this.text = text;
     }
 
-    public InlineResponse20021DataMsgObj paymentVoucher(List<String> paymentVoucher) {
+    public InlineResponse20022DataMsgObj paymentVoucher(List<String> paymentVoucher) {
         
         this.paymentVoucher = paymentVoucher;
         return this;
     }
 
-    public InlineResponse20021DataMsgObj addPaymentVoucherItem(String paymentVoucherItem) {
+    public InlineResponse20022DataMsgObj addPaymentVoucherItem(String paymentVoucherItem) {
         if (this.paymentVoucher == null) {
             this.paymentVoucher = new ArrayList<>();
         }
@@ -178,7 +178,7 @@ public class InlineResponse20021DataMsgObj {
         this.paymentVoucher = paymentVoucher;
     }
 
-    public InlineResponse20021DataMsgObj reasonId(Integer reasonId) {
+    public InlineResponse20022DataMsgObj reasonId(Integer reasonId) {
         
         this.reasonId = reasonId;
         return this;
@@ -198,7 +198,7 @@ public class InlineResponse20021DataMsgObj {
         this.reasonId = reasonId;
     }
 
-    public InlineResponse20021DataMsgObj toastId(Integer toastId) {
+    public InlineResponse20022DataMsgObj toastId(Integer toastId) {
         
         this.toastId = toastId;
         return this;
@@ -218,7 +218,7 @@ public class InlineResponse20021DataMsgObj {
         this.toastId = toastId;
     }
 
-    public InlineResponse20021DataMsgObj reasonMemo(String reasonMemo) {
+    public InlineResponse20022DataMsgObj reasonMemo(String reasonMemo) {
         
         this.reasonMemo = reasonMemo;
         return this;
@@ -238,7 +238,7 @@ public class InlineResponse20021DataMsgObj {
         this.reasonMemo = reasonMemo;
     }
 
-    public InlineResponse20021DataMsgObj cancelTime(Integer cancelTime) {
+    public InlineResponse20022DataMsgObj cancelTime(Integer cancelTime) {
         
         this.cancelTime = cancelTime;
         return this;
@@ -258,7 +258,7 @@ public class InlineResponse20021DataMsgObj {
         this.cancelTime = cancelTime;
     }
 
-    public InlineResponse20021DataMsgObj sellerConfirm(Integer sellerConfirm) {
+    public InlineResponse20022DataMsgObj sellerConfirm(Integer sellerConfirm) {
         
         this.sellerConfirm = sellerConfirm;
         return this;
@@ -278,7 +278,7 @@ public class InlineResponse20021DataMsgObj {
         this.sellerConfirm = sellerConfirm;
     }
 
-    public InlineResponse20021DataMsgObj id(String id) {
+    public InlineResponse20022DataMsgObj id(String id) {
         
         this.id = id;
         return this;
@@ -297,7 +297,7 @@ public class InlineResponse20021DataMsgObj {
         this.id = id;
     }
 
-    public InlineResponse20021DataMsgObj accountDes(String accountDes) {
+    public InlineResponse20022DataMsgObj accountDes(String accountDes) {
         
         this.accountDes = accountDes;
         return this;
@@ -316,7 +316,7 @@ public class InlineResponse20021DataMsgObj {
         this.accountDes = accountDes;
     }
 
-    public InlineResponse20021DataMsgObj payType(String payType) {
+    public InlineResponse20022DataMsgObj payType(String payType) {
         
         this.payType = payType;
         return this;
@@ -335,7 +335,7 @@ public class InlineResponse20021DataMsgObj {
         this.payType = payType;
     }
 
-    public InlineResponse20021DataMsgObj file(String file) {
+    public InlineResponse20022DataMsgObj file(String file) {
         
         this.file = file;
         return this;
@@ -354,7 +354,7 @@ public class InlineResponse20021DataMsgObj {
         this.file = file;
     }
 
-    public InlineResponse20021DataMsgObj fileKey(String fileKey) {
+    public InlineResponse20022DataMsgObj fileKey(String fileKey) {
         
         this.fileKey = fileKey;
         return this;
@@ -373,7 +373,7 @@ public class InlineResponse20021DataMsgObj {
         this.fileKey = fileKey;
     }
 
-    public InlineResponse20021DataMsgObj account(String account) {
+    public InlineResponse20022DataMsgObj account(String account) {
         
         this.account = account;
         return this;
@@ -392,7 +392,7 @@ public class InlineResponse20021DataMsgObj {
         this.account = account;
     }
 
-    public InlineResponse20021DataMsgObj memo(String memo) {
+    public InlineResponse20022DataMsgObj memo(String memo) {
         
         this.memo = memo;
         return this;
@@ -411,7 +411,7 @@ public class InlineResponse20021DataMsgObj {
         this.memo = memo;
     }
 
-    public InlineResponse20021DataMsgObj code(String code) {
+    public InlineResponse20022DataMsgObj code(String code) {
         
         this.code = code;
         return this;
@@ -430,7 +430,7 @@ public class InlineResponse20021DataMsgObj {
         this.code = code;
     }
 
-    public InlineResponse20021DataMsgObj memoExt(String memoExt) {
+    public InlineResponse20022DataMsgObj memoExt(String memoExt) {
         
         this.memoExt = memoExt;
         return this;
@@ -449,7 +449,7 @@ public class InlineResponse20021DataMsgObj {
         this.memoExt = memoExt;
     }
 
-    public InlineResponse20021DataMsgObj tradeTips(String tradeTips) {
+    public InlineResponse20022DataMsgObj tradeTips(String tradeTips) {
         
         this.tradeTips = tradeTips;
         return this;
@@ -468,7 +468,7 @@ public class InlineResponse20021DataMsgObj {
         this.tradeTips = tradeTips;
     }
 
-    public InlineResponse20021DataMsgObj realName(String realName) {
+    public InlineResponse20022DataMsgObj realName(String realName) {
         
         this.realName = realName;
         return this;
@@ -487,7 +487,7 @@ public class InlineResponse20021DataMsgObj {
         this.realName = realName;
     }
 
-    public InlineResponse20021DataMsgObj isDelete(Integer isDelete) {
+    public InlineResponse20022DataMsgObj isDelete(Integer isDelete) {
         
         this.isDelete = isDelete;
         return this;
@@ -506,7 +506,7 @@ public class InlineResponse20021DataMsgObj {
         this.isDelete = isDelete;
     }
 
-    public InlineResponse20021DataMsgObj payName(String payName) {
+    public InlineResponse20022DataMsgObj payName(String payName) {
         
         this.payName = payName;
         return this;
@@ -532,28 +532,28 @@ public class InlineResponse20021DataMsgObj {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20021DataMsgObj inlineResponse20021DataMsgObj = (InlineResponse20021DataMsgObj) o;
-        return Objects.equals(this.status, inlineResponse20021DataMsgObj.status) &&
-                Objects.equals(this.text, inlineResponse20021DataMsgObj.text) &&
-                Objects.equals(this.paymentVoucher, inlineResponse20021DataMsgObj.paymentVoucher) &&
-                Objects.equals(this.reasonId, inlineResponse20021DataMsgObj.reasonId) &&
-                Objects.equals(this.toastId, inlineResponse20021DataMsgObj.toastId) &&
-                Objects.equals(this.reasonMemo, inlineResponse20021DataMsgObj.reasonMemo) &&
-                Objects.equals(this.cancelTime, inlineResponse20021DataMsgObj.cancelTime) &&
-                Objects.equals(this.sellerConfirm, inlineResponse20021DataMsgObj.sellerConfirm) &&
-                Objects.equals(this.id, inlineResponse20021DataMsgObj.id) &&
-                Objects.equals(this.accountDes, inlineResponse20021DataMsgObj.accountDes) &&
-                Objects.equals(this.payType, inlineResponse20021DataMsgObj.payType) &&
-                Objects.equals(this.file, inlineResponse20021DataMsgObj.file) &&
-                Objects.equals(this.fileKey, inlineResponse20021DataMsgObj.fileKey) &&
-                Objects.equals(this.account, inlineResponse20021DataMsgObj.account) &&
-                Objects.equals(this.memo, inlineResponse20021DataMsgObj.memo) &&
-                Objects.equals(this.code, inlineResponse20021DataMsgObj.code) &&
-                Objects.equals(this.memoExt, inlineResponse20021DataMsgObj.memoExt) &&
-                Objects.equals(this.tradeTips, inlineResponse20021DataMsgObj.tradeTips) &&
-                Objects.equals(this.realName, inlineResponse20021DataMsgObj.realName) &&
-                Objects.equals(this.isDelete, inlineResponse20021DataMsgObj.isDelete) &&
-                Objects.equals(this.payName, inlineResponse20021DataMsgObj.payName);
+        InlineResponse20022DataMsgObj inlineResponse20022DataMsgObj = (InlineResponse20022DataMsgObj) o;
+        return Objects.equals(this.status, inlineResponse20022DataMsgObj.status) &&
+                Objects.equals(this.text, inlineResponse20022DataMsgObj.text) &&
+                Objects.equals(this.paymentVoucher, inlineResponse20022DataMsgObj.paymentVoucher) &&
+                Objects.equals(this.reasonId, inlineResponse20022DataMsgObj.reasonId) &&
+                Objects.equals(this.toastId, inlineResponse20022DataMsgObj.toastId) &&
+                Objects.equals(this.reasonMemo, inlineResponse20022DataMsgObj.reasonMemo) &&
+                Objects.equals(this.cancelTime, inlineResponse20022DataMsgObj.cancelTime) &&
+                Objects.equals(this.sellerConfirm, inlineResponse20022DataMsgObj.sellerConfirm) &&
+                Objects.equals(this.id, inlineResponse20022DataMsgObj.id) &&
+                Objects.equals(this.accountDes, inlineResponse20022DataMsgObj.accountDes) &&
+                Objects.equals(this.payType, inlineResponse20022DataMsgObj.payType) &&
+                Objects.equals(this.file, inlineResponse20022DataMsgObj.file) &&
+                Objects.equals(this.fileKey, inlineResponse20022DataMsgObj.fileKey) &&
+                Objects.equals(this.account, inlineResponse20022DataMsgObj.account) &&
+                Objects.equals(this.memo, inlineResponse20022DataMsgObj.memo) &&
+                Objects.equals(this.code, inlineResponse20022DataMsgObj.code) &&
+                Objects.equals(this.memoExt, inlineResponse20022DataMsgObj.memoExt) &&
+                Objects.equals(this.tradeTips, inlineResponse20022DataMsgObj.tradeTips) &&
+                Objects.equals(this.realName, inlineResponse20022DataMsgObj.realName) &&
+                Objects.equals(this.isDelete, inlineResponse20022DataMsgObj.isDelete) &&
+                Objects.equals(this.payName, inlineResponse20022DataMsgObj.payName);
     }
 
     @Override
@@ -565,7 +565,7 @@ public class InlineResponse20021DataMsgObj {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20021DataMsgObj {\n");
+        sb.append("class InlineResponse20022DataMsgObj {\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("      paymentVoucher: ").append(toIndentedString(paymentVoucher)).append("\n");

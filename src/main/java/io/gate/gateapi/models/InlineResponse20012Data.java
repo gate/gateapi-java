@@ -17,379 +17,134 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20012DataList;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20012Data
  */
 public class InlineResponse20012Data {
-    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
-    @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
+    public static final String SERIALIZED_NAME_TOTAL = "total";
+    @SerializedName(SERIALIZED_NAME_TOTAL)
+    private Integer total;
 
-    public static final String SERIALIZED_NAME_UID = "uid";
-    @SerializedName(SERIALIZED_NAME_UID)
-    private String uid;
+    public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
+    @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+    private Integer pageSize;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
+    @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
+    private Integer pageNumber;
 
-    public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
-    @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
-    private String fiatCurrency;
+    public static final String SERIALIZED_NAME_TOTAL_PAGE = "total_page";
+    @SerializedName(SERIALIZED_NAME_TOTAL_PAGE)
+    private Integer totalPage;
 
-    public static final String SERIALIZED_NAME_FIAT_AMOUNT = "fiat_amount";
-    @SerializedName(SERIALIZED_NAME_FIAT_AMOUNT)
-    private String fiatAmount;
-
-    public static final String SERIALIZED_NAME_CRYPTO_CURRENCY = "crypto_currency";
-    @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY)
-    private String cryptoCurrency;
-
-    public static final String SERIALIZED_NAME_CRYPTO_AMOUNT = "crypto_amount";
-    @SerializedName(SERIALIZED_NAME_CRYPTO_AMOUNT)
-    private String cryptoAmount;
-
-    public static final String SERIALIZED_NAME_RATE = "rate";
-    @SerializedName(SERIALIZED_NAME_RATE)
-    private String rate;
-
-    public static final String SERIALIZED_NAME_TRANSFER_REMARK = "transfer_remark";
-    @SerializedName(SERIALIZED_NAME_TRANSFER_REMARK)
-    private String transferRemark;
-
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
-
-    public static final String SERIALIZED_NAME_DB_STATUS = "db_status";
-    @SerializedName(SERIALIZED_NAME_DB_STATUS)
-    private String dbStatus;
-
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private String createTime;
-
-    public static final String SERIALIZED_NAME_MEMO = "memo";
-    @SerializedName(SERIALIZED_NAME_MEMO)
-    private String memo;
-
-    public static final String SERIALIZED_NAME_SIDE = "side";
-    @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
-
-    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
-    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
-    private String promotionCode;
-
-    public static final String SERIALIZED_NAME_TRADE_NO = "trade_no";
-    @SerializedName(SERIALIZED_NAME_TRADE_NO)
-    private String tradeNo;
+    public static final String SERIALIZED_NAME_LIST = "list";
+    @SerializedName(SERIALIZED_NAME_LIST)
+    private List<InlineResponse20012DataList> list = new ArrayList<>();
 
 
-    public InlineResponse20012Data orderId(String orderId) {
+    public InlineResponse20012Data total(Integer total) {
         
-        this.orderId = orderId;
+        this.total = total;
         return this;
     }
 
      /**
-     * Order ID
-     * @return orderId
+     * Get total
+     * @return total
     **/
-    public String getOrderId() {
-        return orderId;
+    public Integer getTotal() {
+        return total;
     }
 
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
-    public InlineResponse20012Data uid(String uid) {
+    public InlineResponse20012Data pageSize(Integer pageSize) {
         
-        this.uid = uid;
+        this.pageSize = pageSize;
         return this;
     }
 
      /**
-     * User ID
-     * @return uid
+     * Get pageSize
+     * @return pageSize
     **/
-    public String getUid() {
-        return uid;
+    public Integer getPageSize() {
+        return pageSize;
     }
 
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public InlineResponse20012Data type(String type) {
+    public InlineResponse20012Data pageNumber(Integer pageNumber) {
         
-        this.type = type;
+        this.pageNumber = pageNumber;
         return this;
     }
 
      /**
-     * Order Type
-     * @return type
+     * Get pageNumber
+     * @return pageNumber
     **/
-    public String getType() {
-        return type;
+    public Integer getPageNumber() {
+        return pageNumber;
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public void setPageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
     }
 
-    public InlineResponse20012Data fiatCurrency(String fiatCurrency) {
+    public InlineResponse20012Data totalPage(Integer totalPage) {
         
-        this.fiatCurrency = fiatCurrency;
+        this.totalPage = totalPage;
         return this;
     }
 
      /**
-     * Fiat type
-     * @return fiatCurrency
+     * Get totalPage
+     * @return totalPage
     **/
-    public String getFiatCurrency() {
-        return fiatCurrency;
+    public Integer getTotalPage() {
+        return totalPage;
     }
 
 
-    public void setFiatCurrency(String fiatCurrency) {
-        this.fiatCurrency = fiatCurrency;
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
     }
 
-    public InlineResponse20012Data fiatAmount(String fiatAmount) {
+    public InlineResponse20012Data list(List<InlineResponse20012DataList> list) {
         
-        this.fiatAmount = fiatAmount;
+        this.list = list;
+        return this;
+    }
+
+    public InlineResponse20012Data addListItem(InlineResponse20012DataList listItem) {
+        this.list.add(listItem);
         return this;
     }
 
      /**
-     * Fiat amount
-     * @return fiatAmount
+     * Get list
+     * @return list
     **/
-    public String getFiatAmount() {
-        return fiatAmount;
+    public List<InlineResponse20012DataList> getList() {
+        return list;
     }
 
 
-    public void setFiatAmount(String fiatAmount) {
-        this.fiatAmount = fiatAmount;
-    }
-
-    public InlineResponse20012Data cryptoCurrency(String cryptoCurrency) {
-        
-        this.cryptoCurrency = cryptoCurrency;
-        return this;
-    }
-
-     /**
-     * Stablecoin
-     * @return cryptoCurrency
-    **/
-    public String getCryptoCurrency() {
-        return cryptoCurrency;
-    }
-
-
-    public void setCryptoCurrency(String cryptoCurrency) {
-        this.cryptoCurrency = cryptoCurrency;
-    }
-
-    public InlineResponse20012Data cryptoAmount(String cryptoAmount) {
-        
-        this.cryptoAmount = cryptoAmount;
-        return this;
-    }
-
-     /**
-     * Stablecoin amount
-     * @return cryptoAmount
-    **/
-    public String getCryptoAmount() {
-        return cryptoAmount;
-    }
-
-
-    public void setCryptoAmount(String cryptoAmount) {
-        this.cryptoAmount = cryptoAmount;
-    }
-
-    public InlineResponse20012Data rate(String rate) {
-        
-        this.rate = rate;
-        return this;
-    }
-
-     /**
-     * Exchange rate
-     * @return rate
-    **/
-    public String getRate() {
-        return rate;
-    }
-
-
-    public void setRate(String rate) {
-        this.rate = rate;
-    }
-
-    public InlineResponse20012Data transferRemark(String transferRemark) {
-        
-        this.transferRemark = transferRemark;
-        return this;
-    }
-
-     /**
-     * Remark
-     * @return transferRemark
-    **/
-    public String getTransferRemark() {
-        return transferRemark;
-    }
-
-
-    public void setTransferRemark(String transferRemark) {
-        this.transferRemark = transferRemark;
-    }
-
-    public InlineResponse20012Data status(String status) {
-        
-        this.status = status;
-        return this;
-    }
-
-     /**
-     * Status
-     * @return status
-    **/
-    public String getStatus() {
-        return status;
-    }
-
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public InlineResponse20012Data dbStatus(String dbStatus) {
-        
-        this.dbStatus = dbStatus;
-        return this;
-    }
-
-     /**
-     * Get dbStatus
-     * @return dbStatus
-    **/
-    public String getDbStatus() {
-        return dbStatus;
-    }
-
-
-    public void setDbStatus(String dbStatus) {
-        this.dbStatus = dbStatus;
-    }
-
-    public InlineResponse20012Data createTime(String createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Created time
-     * @return createTime
-    **/
-    public String getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public InlineResponse20012Data memo(String memo) {
-        
-        this.memo = memo;
-        return this;
-    }
-
-     /**
-     * Cancellation or rejection reason
-     * @return memo
-    **/
-    public String getMemo() {
-        return memo;
-    }
-
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
-    public InlineResponse20012Data side(String side) {
-        
-        this.side = side;
-        return this;
-    }
-
-     /**
-     * Quote direction
-     * @return side
-    **/
-    public String getSide() {
-        return side;
-    }
-
-
-    public void setSide(String side) {
-        this.side = side;
-    }
-
-    public InlineResponse20012Data promotionCode(String promotionCode) {
-        
-        this.promotionCode = promotionCode;
-        return this;
-    }
-
-     /**
-     * Promotion code
-     * @return promotionCode
-    **/
-    public String getPromotionCode() {
-        return promotionCode;
-    }
-
-
-    public void setPromotionCode(String promotionCode) {
-        this.promotionCode = promotionCode;
-    }
-
-    public InlineResponse20012Data tradeNo(String tradeNo) {
-        
-        this.tradeNo = tradeNo;
-        return this;
-    }
-
-     /**
-     * Trade number
-     * @return tradeNo
-    **/
-    public String getTradeNo() {
-        return tradeNo;
-    }
-
-
-    public void setTradeNo(String tradeNo) {
-        this.tradeNo = tradeNo;
+    public void setList(List<InlineResponse20012DataList> list) {
+        this.list = list;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -400,27 +155,16 @@ public class InlineResponse20012Data {
             return false;
         }
         InlineResponse20012Data inlineResponse20012Data = (InlineResponse20012Data) o;
-        return Objects.equals(this.orderId, inlineResponse20012Data.orderId) &&
-                Objects.equals(this.uid, inlineResponse20012Data.uid) &&
-                Objects.equals(this.type, inlineResponse20012Data.type) &&
-                Objects.equals(this.fiatCurrency, inlineResponse20012Data.fiatCurrency) &&
-                Objects.equals(this.fiatAmount, inlineResponse20012Data.fiatAmount) &&
-                Objects.equals(this.cryptoCurrency, inlineResponse20012Data.cryptoCurrency) &&
-                Objects.equals(this.cryptoAmount, inlineResponse20012Data.cryptoAmount) &&
-                Objects.equals(this.rate, inlineResponse20012Data.rate) &&
-                Objects.equals(this.transferRemark, inlineResponse20012Data.transferRemark) &&
-                Objects.equals(this.status, inlineResponse20012Data.status) &&
-                Objects.equals(this.dbStatus, inlineResponse20012Data.dbStatus) &&
-                Objects.equals(this.createTime, inlineResponse20012Data.createTime) &&
-                Objects.equals(this.memo, inlineResponse20012Data.memo) &&
-                Objects.equals(this.side, inlineResponse20012Data.side) &&
-                Objects.equals(this.promotionCode, inlineResponse20012Data.promotionCode) &&
-                Objects.equals(this.tradeNo, inlineResponse20012Data.tradeNo);
+        return Objects.equals(this.total, inlineResponse20012Data.total) &&
+                Objects.equals(this.pageSize, inlineResponse20012Data.pageSize) &&
+                Objects.equals(this.pageNumber, inlineResponse20012Data.pageNumber) &&
+                Objects.equals(this.totalPage, inlineResponse20012Data.totalPage) &&
+                Objects.equals(this.list, inlineResponse20012Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, uid, type, fiatCurrency, fiatAmount, cryptoCurrency, cryptoAmount, rate, transferRemark, status, dbStatus, createTime, memo, side, promotionCode, tradeNo);
+        return Objects.hash(total, pageSize, pageNumber, totalPage, list);
     }
 
 
@@ -428,22 +172,11 @@ public class InlineResponse20012Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20012Data {\n");
-        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
-        sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
-        sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
-        sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
-        sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
-        sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
-        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("      transferRemark: ").append(toIndentedString(transferRemark)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
-        sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
-        sb.append("      tradeNo: ").append(toIndentedString(tradeNo)).append("\n");
+        sb.append("      total: ").append(toIndentedString(total)).append("\n");
+        sb.append("      pageSize: ").append(toIndentedString(pageSize)).append("\n");
+        sb.append("      pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+        sb.append("      totalPage: ").append(toIndentedString(totalPage)).append("\n");
+        sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();
     }

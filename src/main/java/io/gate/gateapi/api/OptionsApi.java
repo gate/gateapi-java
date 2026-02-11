@@ -1168,7 +1168,7 @@ public class OptionsApi {
 
         /**
          * Set interval
-         * @param interval Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional, default to 0)
+         * @param interval Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional, default to 0)
          * @return APIlistOptionsOrderBookRequest
          */
         public APIlistOptionsOrderBookRequest interval(String interval) {

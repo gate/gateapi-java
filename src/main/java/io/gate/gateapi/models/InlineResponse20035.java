@@ -17,134 +17,103 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20035SpecialFeeList;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20035
  */
 public class InlineResponse20035 {
-    public static final String SERIALIZED_NAME_SPOT_MAKER_FEE = "spot_maker_fee";
-    @SerializedName(SERIALIZED_NAME_SPOT_MAKER_FEE)
-    private String spotMakerFee;
+    public static final String SERIALIZED_NAME_COIN = "coin";
+    @SerializedName(SERIALIZED_NAME_COIN)
+    private String coin;
 
-    public static final String SERIALIZED_NAME_SPOT_TAKER_FEE = "spot_taker_fee";
-    @SerializedName(SERIALIZED_NAME_SPOT_TAKER_FEE)
-    private String spotTakerFee;
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
 
-    public static final String SERIALIZED_NAME_FUTURE_MAKER_FEE = "future_maker_fee";
-    @SerializedName(SERIALIZED_NAME_FUTURE_MAKER_FEE)
-    private String futureMakerFee;
+    public static final String SERIALIZED_NAME_HOUR_INTEREST_RATE = "hour_interest_rate";
+    @SerializedName(SERIALIZED_NAME_HOUR_INTEREST_RATE)
+    private String hourInterestRate;
 
-    public static final String SERIALIZED_NAME_FUTURE_TAKER_FEE = "future_taker_fee";
-    @SerializedName(SERIALIZED_NAME_FUTURE_TAKER_FEE)
-    private String futureTakerFee;
-
-    public static final String SERIALIZED_NAME_SPECIAL_FEE_LIST = "special_fee_list";
-    @SerializedName(SERIALIZED_NAME_SPECIAL_FEE_LIST)
-    private List<InlineResponse20035SpecialFeeList> specialFeeList = new ArrayList<>();
+    public static final String SERIALIZED_NAME_TIME = "time";
+    @SerializedName(SERIALIZED_NAME_TIME)
+    private String time;
 
 
-    public InlineResponse20035 spotMakerFee(String spotMakerFee) {
+    public InlineResponse20035 coin(String coin) {
         
-        this.spotMakerFee = spotMakerFee;
+        this.coin = coin;
         return this;
     }
 
      /**
-     * spotMakerfee rate
-     * @return spotMakerFee
+     * Currency
+     * @return coin
     **/
-    public String getSpotMakerFee() {
-        return spotMakerFee;
+    public String getCoin() {
+        return coin;
     }
 
 
-    public void setSpotMakerFee(String spotMakerFee) {
-        this.spotMakerFee = spotMakerFee;
+    public void setCoin(String coin) {
+        this.coin = coin;
     }
 
-    public InlineResponse20035 spotTakerFee(String spotTakerFee) {
+    public InlineResponse20035 exchangeType(String exchangeType) {
         
-        this.spotTakerFee = spotTakerFee;
+        this.exchangeType = exchangeType;
         return this;
     }
 
      /**
-     * spotTakerfee rate
-     * @return spotTakerFee
+     * Exchange
+     * @return exchangeType
     **/
-    public String getSpotTakerFee() {
-        return spotTakerFee;
+    public String getExchangeType() {
+        return exchangeType;
     }
 
 
-    public void setSpotTakerFee(String spotTakerFee) {
-        this.spotTakerFee = spotTakerFee;
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
 
-    public InlineResponse20035 futureMakerFee(String futureMakerFee) {
+    public InlineResponse20035 hourInterestRate(String hourInterestRate) {
         
-        this.futureMakerFee = futureMakerFee;
+        this.hourInterestRate = hourInterestRate;
         return this;
     }
 
      /**
-     * contractMakerfee rate
-     * @return futureMakerFee
+     * Hourly Interest Rate
+     * @return hourInterestRate
     **/
-    public String getFutureMakerFee() {
-        return futureMakerFee;
+    public String getHourInterestRate() {
+        return hourInterestRate;
     }
 
 
-    public void setFutureMakerFee(String futureMakerFee) {
-        this.futureMakerFee = futureMakerFee;
+    public void setHourInterestRate(String hourInterestRate) {
+        this.hourInterestRate = hourInterestRate;
     }
 
-    public InlineResponse20035 futureTakerFee(String futureTakerFee) {
+    public InlineResponse20035 time(String time) {
         
-        this.futureTakerFee = futureTakerFee;
+        this.time = time;
         return this;
     }
 
      /**
-     * contractTakerfee rate
-     * @return futureTakerFee
+     * Millisecond Timestamp
+     * @return time
     **/
-    public String getFutureTakerFee() {
-        return futureTakerFee;
+    public String getTime() {
+        return time;
     }
 
 
-    public void setFutureTakerFee(String futureTakerFee) {
-        this.futureTakerFee = futureTakerFee;
-    }
-
-    public InlineResponse20035 specialFeeList(List<InlineResponse20035SpecialFeeList> specialFeeList) {
-        
-        this.specialFeeList = specialFeeList;
-        return this;
-    }
-
-    public InlineResponse20035 addSpecialFeeListItem(InlineResponse20035SpecialFeeList specialFeeListItem) {
-        this.specialFeeList.add(specialFeeListItem);
-        return this;
-    }
-
-     /**
-     * Get specialFeeList
-     * @return specialFeeList
-    **/
-    public List<InlineResponse20035SpecialFeeList> getSpecialFeeList() {
-        return specialFeeList;
-    }
-
-
-    public void setSpecialFeeList(List<InlineResponse20035SpecialFeeList> specialFeeList) {
-        this.specialFeeList = specialFeeList;
+    public void setTime(String time) {
+        this.time = time;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -155,16 +124,15 @@ public class InlineResponse20035 {
             return false;
         }
         InlineResponse20035 inlineResponse20035 = (InlineResponse20035) o;
-        return Objects.equals(this.spotMakerFee, inlineResponse20035.spotMakerFee) &&
-                Objects.equals(this.spotTakerFee, inlineResponse20035.spotTakerFee) &&
-                Objects.equals(this.futureMakerFee, inlineResponse20035.futureMakerFee) &&
-                Objects.equals(this.futureTakerFee, inlineResponse20035.futureTakerFee) &&
-                Objects.equals(this.specialFeeList, inlineResponse20035.specialFeeList);
+        return Objects.equals(this.coin, inlineResponse20035.coin) &&
+                Objects.equals(this.exchangeType, inlineResponse20035.exchangeType) &&
+                Objects.equals(this.hourInterestRate, inlineResponse20035.hourInterestRate) &&
+                Objects.equals(this.time, inlineResponse20035.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(spotMakerFee, spotTakerFee, futureMakerFee, futureTakerFee, specialFeeList);
+        return Objects.hash(coin, exchangeType, hourInterestRate, time);
     }
 
 
@@ -172,11 +140,10 @@ public class InlineResponse20035 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20035 {\n");
-        sb.append("      spotMakerFee: ").append(toIndentedString(spotMakerFee)).append("\n");
-        sb.append("      spotTakerFee: ").append(toIndentedString(spotTakerFee)).append("\n");
-        sb.append("      futureMakerFee: ").append(toIndentedString(futureMakerFee)).append("\n");
-        sb.append("      futureTakerFee: ").append(toIndentedString(futureTakerFee)).append("\n");
-        sb.append("      specialFeeList: ").append(toIndentedString(specialFeeList)).append("\n");
+        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      hourInterestRate: ").append(toIndentedString(hourInterestRate)).append("\n");
+        sb.append("      time: ").append(toIndentedString(time)).append("\n");
         sb.append("}");
         return sb.toString();
     }

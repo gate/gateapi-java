@@ -1266,7 +1266,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query supported borrowing and collateral currencies for multi-currency collateral
+     * Query borrow currencies and collateral currencies supported by multi-currency collateral
      * 
      * @return MultiCollateralCurrency
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1282,7 +1282,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query supported borrowing and collateral currencies for multi-currency collateral
+     * Query borrow currencies and collateral currencies supported by multi-currency collateral
      * 
      * @return ApiResponse&lt;MultiCollateralCurrency&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1299,7 +1299,7 @@ public class MultiCollateralLoanApi {
     }
 
     /**
-     * Query supported borrowing and collateral currencies for multi-currency collateral (asynchronously)
+     * Query borrow currencies and collateral currencies supported by multi-currency collateral (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

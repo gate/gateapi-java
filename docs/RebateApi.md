@@ -46,7 +46,7 @@ public class Example {
         RebateApi apiInstance = new RebateApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Specify the trading pair. If not specified, returns all trading pairs
         Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Specify the trading pair. If not specified, returns all trading pairs | [optional]
  **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -134,7 +134,7 @@ public class Example {
         String currency = "BTC"; // String | Specify the currency. If not specified, returns all currencies
         Integer commissionType = 1; // Integer | Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate
         Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
  **currency** | **String**| Specify the currency. If not specified, returns all currencies | [optional]
  **commissionType** | **Integer**| Rebate type: 1 - Direct rebate, 2 - Indirect rebate, 3 - Self rebate | [optional]
  **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -223,7 +223,7 @@ public class Example {
         RebateApi apiInstance = new RebateApi(defaultClient);
         String currencyPair = "BTC_USDT"; // String | Specify the trading pair. If not specified, returns all trading pairs
         Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **String**| Specify the trading pair. If not specified, returns all trading pairs | [optional]
  **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -310,7 +310,7 @@ public class Example {
         RebateApi apiInstance = new RebateApi(defaultClient);
         String currency = "BTC"; // String | Specify the currency. If not specified, returns all currencies
         Long userId = 10003L; // Long | User ID. If not specified, all user records will be returned
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| Specify the currency. If not specified, returns all currencies | [optional]
  **userId** | **Long**| User ID. If not specified, all user records will be returned | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]

@@ -721,7 +721,7 @@ public class SpotApi {
 
         /**
          * Set interval
-         * @param interval Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional, default to &quot;0&quot;)
+         * @param interval Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional, default to &quot;0&quot;)
          * @return APIlistOrderBookRequest
          */
         public APIlistOrderBookRequest interval(String interval) {
@@ -1241,7 +1241,7 @@ public class SpotApi {
 
     /**
      * Market K-line chart
-     * Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+     * K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive
      * @param currencyPair Currency pair (required)
      * @return APIlistCandlesticksRequest
      * @http.response.details
@@ -2660,7 +2660,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelOrdersCall(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback _callback) throws ApiException {
@@ -2731,7 +2731,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public List<OrderCancel> cancelOrders(String currencyPair, String side, String account, String actionMode, String xGateExptime) throws ApiException {
@@ -2752,7 +2752,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<OrderCancel>> cancelOrdersWithHttpInfo(String currencyPair, String side, String account, String actionMode, String xGateExptime) throws ApiException {
@@ -2775,7 +2775,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelOrdersAsync(String currencyPair, String side, String account, String actionMode, String xGateExptime, final ApiCallback<List<OrderCancel>> _callback) throws ApiException {
@@ -4391,7 +4391,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelSpotPriceTriggeredOrderListCall(String market, String account, final ApiCallback _callback) throws ApiException {
@@ -4447,7 +4447,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public List<SpotPriceTriggeredOrder> cancelSpotPriceTriggeredOrderList(String market, String account) throws ApiException {
@@ -4465,7 +4465,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<SpotPriceTriggeredOrder>> cancelSpotPriceTriggeredOrderListWithHttpInfo(String market, String account) throws ApiException {
@@ -4485,7 +4485,7 @@ public class SpotApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelSpotPriceTriggeredOrderListAsync(String market, String account, final ApiCallback<List<SpotPriceTriggeredOrder>> _callback) throws ApiException {

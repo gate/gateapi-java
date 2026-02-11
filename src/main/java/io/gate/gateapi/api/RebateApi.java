@@ -161,7 +161,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIagencyTransactionHistoryRequest
          */
         public APIagencyTransactionHistoryRequest from(Long from) {
@@ -394,7 +394,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIagencyCommissionsHistoryRequest
          */
         public APIagencyCommissionsHistoryRequest from(Long from) {
@@ -612,7 +612,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIpartnerTransactionHistoryRequest
          */
         public APIpartnerTransactionHistoryRequest from(Long from) {
@@ -830,7 +830,7 @@ public class RebateApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIpartnerCommissionsHistoryRequest
          */
         public APIpartnerCommissionsHistoryRequest from(Long from) {

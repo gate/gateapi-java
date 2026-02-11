@@ -1,5 +1,5 @@
 
-# InlineResponse20010DataFiatCurrencyInfo
+# InlineResponse20011DataFiatCurrencyInfo
 
 ## Properties
 

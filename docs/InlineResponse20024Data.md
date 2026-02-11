@@ -1,10 +1,9 @@
 
-# InlineResponse20010DataCryptoCurrencyInfo
+# InlineResponse20024Data
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**icon** | **String** |  | 
+**fileKey** | **String** | File key | 
 

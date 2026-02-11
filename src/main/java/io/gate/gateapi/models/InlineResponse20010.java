@@ -36,6 +36,10 @@ public class InlineResponse20010 {
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse20010Data data;
 
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
+
 
     public InlineResponse20010 code(Integer code) {
         
@@ -93,6 +97,25 @@ public class InlineResponse20010 {
     public void setData(InlineResponse20010Data data) {
         this.data = data;
     }
+
+    public InlineResponse20010 timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Get timestamp
+     * @return timestamp
+    **/
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -104,12 +127,13 @@ public class InlineResponse20010 {
         InlineResponse20010 inlineResponse20010 = (InlineResponse20010) o;
         return Objects.equals(this.code, inlineResponse20010.code) &&
                 Objects.equals(this.message, inlineResponse20010.message) &&
-                Objects.equals(this.data, inlineResponse20010.data);
+                Objects.equals(this.data, inlineResponse20010.data) &&
+                Objects.equals(this.timestamp, inlineResponse20010.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -120,6 +144,7 @@ public class InlineResponse20010 {
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,15 +17,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20016DataConvertInfo;
+import io.gate.gateapi.models.InlineResponse20017DataConvertInfo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * InlineResponse20016DataList
+ * InlineResponse20017DataList
  */
-public class InlineResponse20016DataList {
+public class InlineResponse20017DataList {
     public static final String SERIALIZED_NAME_TYPE_BUY = "type_buy";
     @SerializedName(SERIALIZED_NAME_TYPE_BUY)
     private Integer typeBuy;
@@ -268,10 +268,10 @@ public class InlineResponse20016DataList {
 
     public static final String SERIALIZED_NAME_CONVERT_INFO = "convert_info";
     @SerializedName(SERIALIZED_NAME_CONVERT_INFO)
-    private InlineResponse20016DataConvertInfo convertInfo;
+    private InlineResponse20017DataConvertInfo convertInfo;
 
 
-    public InlineResponse20016DataList typeBuy(Integer typeBuy) {
+    public InlineResponse20017DataList typeBuy(Integer typeBuy) {
         
         this.typeBuy = typeBuy;
         return this;
@@ -291,7 +291,7 @@ public class InlineResponse20016DataList {
         this.typeBuy = typeBuy;
     }
 
-    public InlineResponse20016DataList timest(String timest) {
+    public InlineResponse20017DataList timest(String timest) {
         
         this.timest = timest;
         return this;
@@ -311,7 +311,7 @@ public class InlineResponse20016DataList {
         this.timest = timest;
     }
 
-    public InlineResponse20016DataList timestExpire(String timestExpire) {
+    public InlineResponse20017DataList timestExpire(String timestExpire) {
         
         this.timestExpire = timestExpire;
         return this;
@@ -331,7 +331,7 @@ public class InlineResponse20016DataList {
         this.timestExpire = timestExpire;
     }
 
-    public InlineResponse20016DataList type(String type) {
+    public InlineResponse20017DataList type(String type) {
         
         this.type = type;
         return this;
@@ -351,7 +351,7 @@ public class InlineResponse20016DataList {
         this.type = type;
     }
 
-    public InlineResponse20016DataList tradeType(String tradeType) {
+    public InlineResponse20017DataList tradeType(String tradeType) {
         
         this.tradeType = tradeType;
         return this;
@@ -371,7 +371,7 @@ public class InlineResponse20016DataList {
         this.tradeType = tradeType;
     }
 
-    public InlineResponse20016DataList timestamp(Integer timestamp) {
+    public InlineResponse20017DataList timestamp(Integer timestamp) {
         
         this.timestamp = timestamp;
         return this;
@@ -391,7 +391,7 @@ public class InlineResponse20016DataList {
         this.timestamp = timestamp;
     }
 
-    public InlineResponse20016DataList rate(String rate) {
+    public InlineResponse20017DataList rate(String rate) {
         
         this.rate = rate;
         return this;
@@ -411,7 +411,7 @@ public class InlineResponse20016DataList {
         this.rate = rate;
     }
 
-    public InlineResponse20016DataList amount(String amount) {
+    public InlineResponse20017DataList amount(String amount) {
         
         this.amount = amount;
         return this;
@@ -431,7 +431,7 @@ public class InlineResponse20016DataList {
         this.amount = amount;
     }
 
-    public InlineResponse20016DataList total(String total) {
+    public InlineResponse20017DataList total(String total) {
         
         this.total = total;
         return this;
@@ -451,7 +451,7 @@ public class InlineResponse20016DataList {
         this.total = total;
     }
 
-    public InlineResponse20016DataList txid(Integer txid) {
+    public InlineResponse20017DataList txid(Integer txid) {
         
         this.txid = txid;
         return this;
@@ -471,7 +471,7 @@ public class InlineResponse20016DataList {
         this.txid = txid;
     }
 
-    public InlineResponse20016DataList status(String status) {
+    public InlineResponse20017DataList status(String status) {
         
         this.status = status;
         return this;
@@ -491,7 +491,7 @@ public class InlineResponse20016DataList {
         this.status = status;
     }
 
-    public InlineResponse20016DataList orderStatus(String orderStatus) {
+    public InlineResponse20017DataList orderStatus(String orderStatus) {
         
         this.orderStatus = orderStatus;
         return this;
@@ -511,7 +511,7 @@ public class InlineResponse20016DataList {
         this.orderStatus = orderStatus;
     }
 
-    public InlineResponse20016DataList itsRealname(String itsRealname) {
+    public InlineResponse20017DataList itsRealname(String itsRealname) {
         
         this.itsRealname = itsRealname;
         return this;
@@ -531,7 +531,7 @@ public class InlineResponse20016DataList {
         this.itsRealname = itsRealname;
     }
 
-    public InlineResponse20016DataList itsUid(String itsUid) {
+    public InlineResponse20017DataList itsUid(String itsUid) {
         
         this.itsUid = itsUid;
         return this;
@@ -551,7 +551,7 @@ public class InlineResponse20016DataList {
         this.itsUid = itsUid;
     }
 
-    public InlineResponse20016DataList itsNick(String itsNick) {
+    public InlineResponse20017DataList itsNick(String itsNick) {
         
         this.itsNick = itsNick;
         return this;
@@ -571,7 +571,7 @@ public class InlineResponse20016DataList {
         this.itsNick = itsNick;
     }
 
-    public InlineResponse20016DataList userNote(String userNote) {
+    public InlineResponse20017DataList userNote(String userNote) {
         
         this.userNote = userNote;
         return this;
@@ -591,7 +591,7 @@ public class InlineResponse20016DataList {
         this.userNote = userNote;
     }
 
-    public InlineResponse20016DataList showBank(String showBank) {
+    public InlineResponse20017DataList showBank(String showBank) {
         
         this.showBank = showBank;
         return this;
@@ -611,7 +611,7 @@ public class InlineResponse20016DataList {
         this.showBank = showBank;
     }
 
-    public InlineResponse20016DataList bankname(String bankname) {
+    public InlineResponse20017DataList bankname(String bankname) {
         
         this.bankname = bankname;
         return this;
@@ -631,7 +631,7 @@ public class InlineResponse20016DataList {
         this.bankname = bankname;
     }
 
-    public InlineResponse20016DataList bankbranch(String bankbranch) {
+    public InlineResponse20017DataList bankbranch(String bankbranch) {
         
         this.bankbranch = bankbranch;
         return this;
@@ -651,7 +651,7 @@ public class InlineResponse20016DataList {
         this.bankbranch = bankbranch;
     }
 
-    public InlineResponse20016DataList sellerRealname(String sellerRealname) {
+    public InlineResponse20017DataList sellerRealname(String sellerRealname) {
         
         this.sellerRealname = sellerRealname;
         return this;
@@ -671,7 +671,7 @@ public class InlineResponse20016DataList {
         this.sellerRealname = sellerRealname;
     }
 
-    public InlineResponse20016DataList buyerRealname(String buyerRealname) {
+    public InlineResponse20017DataList buyerRealname(String buyerRealname) {
         
         this.buyerRealname = buyerRealname;
         return this;
@@ -691,7 +691,7 @@ public class InlineResponse20016DataList {
         this.buyerRealname = buyerRealname;
     }
 
-    public InlineResponse20016DataList bankid(String bankid) {
+    public InlineResponse20017DataList bankid(String bankid) {
         
         this.bankid = bankid;
         return this;
@@ -711,7 +711,7 @@ public class InlineResponse20016DataList {
         this.bankid = bankid;
     }
 
-    public InlineResponse20016DataList bankHolderRealname(String bankHolderRealname) {
+    public InlineResponse20017DataList bankHolderRealname(String bankHolderRealname) {
         
         this.bankHolderRealname = bankHolderRealname;
         return this;
@@ -731,7 +731,7 @@ public class InlineResponse20016DataList {
         this.bankHolderRealname = bankHolderRealname;
     }
 
-    public InlineResponse20016DataList showAli(Integer showAli) {
+    public InlineResponse20017DataList showAli(Integer showAli) {
         
         this.showAli = showAli;
         return this;
@@ -751,7 +751,7 @@ public class InlineResponse20016DataList {
         this.showAli = showAli;
     }
 
-    public InlineResponse20016DataList aliname(String aliname) {
+    public InlineResponse20017DataList aliname(String aliname) {
         
         this.aliname = aliname;
         return this;
@@ -771,7 +771,7 @@ public class InlineResponse20016DataList {
         this.aliname = aliname;
     }
 
-    public InlineResponse20016DataList showWechat(Integer showWechat) {
+    public InlineResponse20017DataList showWechat(Integer showWechat) {
         
         this.showWechat = showWechat;
         return this;
@@ -791,7 +791,7 @@ public class InlineResponse20016DataList {
         this.showWechat = showWechat;
     }
 
-    public InlineResponse20016DataList wename(String wename) {
+    public InlineResponse20017DataList wename(String wename) {
         
         this.wename = wename;
         return this;
@@ -811,7 +811,7 @@ public class InlineResponse20016DataList {
         this.wename = wename;
     }
 
-    public InlineResponse20016DataList isAlicode(Integer isAlicode) {
+    public InlineResponse20017DataList isAlicode(Integer isAlicode) {
         
         this.isAlicode = isAlicode;
         return this;
@@ -831,7 +831,7 @@ public class InlineResponse20016DataList {
         this.isAlicode = isAlicode;
     }
 
-    public InlineResponse20016DataList disputeTime(Integer disputeTime) {
+    public InlineResponse20017DataList disputeTime(Integer disputeTime) {
         
         this.disputeTime = disputeTime;
         return this;
@@ -851,7 +851,7 @@ public class InlineResponse20016DataList {
         this.disputeTime = disputeTime;
     }
 
-    public InlineResponse20016DataList cancelable(Integer cancelable) {
+    public InlineResponse20017DataList cancelable(Integer cancelable) {
         
         this.cancelable = cancelable;
         return this;
@@ -871,7 +871,7 @@ public class InlineResponse20016DataList {
         this.cancelable = cancelable;
     }
 
-    public InlineResponse20016DataList blackUid(String blackUid) {
+    public InlineResponse20017DataList blackUid(String blackUid) {
         
         this.blackUid = blackUid;
         return this;
@@ -891,7 +891,7 @@ public class InlineResponse20016DataList {
         this.blackUid = blackUid;
     }
 
-    public InlineResponse20016DataList blackName(String blackName) {
+    public InlineResponse20017DataList blackName(String blackName) {
         
         this.blackName = blackName;
         return this;
@@ -911,7 +911,7 @@ public class InlineResponse20016DataList {
         this.blackName = blackName;
     }
 
-    public InlineResponse20016DataList memo(String memo) {
+    public InlineResponse20017DataList memo(String memo) {
         
         this.memo = memo;
         return this;
@@ -931,7 +931,7 @@ public class InlineResponse20016DataList {
         this.memo = memo;
     }
 
-    public InlineResponse20016DataList isFollow(Integer isFollow) {
+    public InlineResponse20017DataList isFollow(Integer isFollow) {
         
         this.isFollow = isFollow;
         return this;
@@ -951,7 +951,7 @@ public class InlineResponse20016DataList {
         this.isFollow = isFollow;
     }
 
-    public InlineResponse20016DataList isBlack(Boolean isBlack) {
+    public InlineResponse20017DataList isBlack(Boolean isBlack) {
         
         this.isBlack = isBlack;
         return this;
@@ -971,7 +971,7 @@ public class InlineResponse20016DataList {
         this.isBlack = isBlack;
     }
 
-    public InlineResponse20016DataList currencyType(String currencyType) {
+    public InlineResponse20017DataList currencyType(String currencyType) {
         
         this.currencyType = currencyType;
         return this;
@@ -991,7 +991,7 @@ public class InlineResponse20016DataList {
         this.currencyType = currencyType;
     }
 
-    public InlineResponse20016DataList wantType(String wantType) {
+    public InlineResponse20017DataList wantType(String wantType) {
         
         this.wantType = wantType;
         return this;
@@ -1011,7 +1011,7 @@ public class InlineResponse20016DataList {
         this.wantType = wantType;
     }
 
-    public InlineResponse20016DataList isHedge(Integer isHedge) {
+    public InlineResponse20017DataList isHedge(Integer isHedge) {
         
         this.isHedge = isHedge;
         return this;
@@ -1031,7 +1031,7 @@ public class InlineResponse20016DataList {
         this.isHedge = isHedge;
     }
 
-    public InlineResponse20016DataList hidePayment(Integer hidePayment) {
+    public InlineResponse20017DataList hidePayment(Integer hidePayment) {
         
         this.hidePayment = hidePayment;
         return this;
@@ -1051,7 +1051,7 @@ public class InlineResponse20016DataList {
         this.hidePayment = hidePayment;
     }
 
-    public InlineResponse20016DataList selPaytype(String selPaytype) {
+    public InlineResponse20017DataList selPaytype(String selPaytype) {
         
         this.selPaytype = selPaytype;
         return this;
@@ -1071,7 +1071,7 @@ public class InlineResponse20016DataList {
         this.selPaytype = selPaytype;
     }
 
-    public InlineResponse20016DataList showOthers(Integer showOthers) {
+    public InlineResponse20017DataList showOthers(Integer showOthers) {
         
         this.showOthers = showOthers;
         return this;
@@ -1091,13 +1091,13 @@ public class InlineResponse20016DataList {
         this.showOthers = showOthers;
     }
 
-    public InlineResponse20016DataList payOthers(List<String> payOthers) {
+    public InlineResponse20017DataList payOthers(List<String> payOthers) {
         
         this.payOthers = payOthers;
         return this;
     }
 
-    public InlineResponse20016DataList addPayOthersItem(String payOthersItem) {
+    public InlineResponse20017DataList addPayOthersItem(String payOthersItem) {
         if (this.payOthers == null) {
             this.payOthers = new ArrayList<>();
         }
@@ -1119,7 +1119,7 @@ public class InlineResponse20016DataList {
         this.payOthers = payOthers;
     }
 
-    public InlineResponse20016DataList tradeTips(String tradeTips) {
+    public InlineResponse20017DataList tradeTips(String tradeTips) {
         
         this.tradeTips = tradeTips;
         return this;
@@ -1139,7 +1139,7 @@ public class InlineResponse20016DataList {
         this.tradeTips = tradeTips;
     }
 
-    public InlineResponse20016DataList appealUnread(Integer appealUnread) {
+    public InlineResponse20017DataList appealUnread(Integer appealUnread) {
         
         this.appealUnread = appealUnread;
         return this;
@@ -1159,7 +1159,7 @@ public class InlineResponse20016DataList {
         this.appealUnread = appealUnread;
     }
 
-    public InlineResponse20016DataList imUnread(Integer imUnread) {
+    public InlineResponse20017DataList imUnread(Integer imUnread) {
         
         this.imUnread = imUnread;
         return this;
@@ -1179,7 +1179,7 @@ public class InlineResponse20016DataList {
         this.imUnread = imUnread;
     }
 
-    public InlineResponse20016DataList inDispute(Boolean inDispute) {
+    public InlineResponse20017DataList inDispute(Boolean inDispute) {
         
         this.inDispute = inDispute;
         return this;
@@ -1199,7 +1199,7 @@ public class InlineResponse20016DataList {
         this.inDispute = inDispute;
     }
 
-    public InlineResponse20016DataList reasonId(String reasonId) {
+    public InlineResponse20017DataList reasonId(String reasonId) {
         
         this.reasonId = reasonId;
         return this;
@@ -1219,7 +1219,7 @@ public class InlineResponse20016DataList {
         this.reasonId = reasonId;
     }
 
-    public InlineResponse20016DataList reasonMemo(String reasonMemo) {
+    public InlineResponse20017DataList reasonMemo(String reasonMemo) {
         
         this.reasonMemo = reasonMemo;
         return this;
@@ -1239,7 +1239,7 @@ public class InlineResponse20016DataList {
         this.reasonMemo = reasonMemo;
     }
 
-    public InlineResponse20016DataList cancelTime(String cancelTime) {
+    public InlineResponse20017DataList cancelTime(String cancelTime) {
         
         this.cancelTime = cancelTime;
         return this;
@@ -1259,7 +1259,7 @@ public class InlineResponse20016DataList {
         this.cancelTime = cancelTime;
     }
 
-    public InlineResponse20016DataList sellerConfirm(Integer sellerConfirm) {
+    public InlineResponse20017DataList sellerConfirm(Integer sellerConfirm) {
         
         this.sellerConfirm = sellerConfirm;
         return this;
@@ -1279,7 +1279,7 @@ public class InlineResponse20016DataList {
         this.sellerConfirm = sellerConfirm;
     }
 
-    public InlineResponse20016DataList toastId(Integer toastId) {
+    public InlineResponse20017DataList toastId(Integer toastId) {
         
         this.toastId = toastId;
         return this;
@@ -1299,7 +1299,7 @@ public class InlineResponse20016DataList {
         this.toastId = toastId;
     }
 
-    public InlineResponse20016DataList disputeReback(Integer disputeReback) {
+    public InlineResponse20017DataList disputeReback(Integer disputeReback) {
         
         this.disputeReback = disputeReback;
         return this;
@@ -1319,7 +1319,7 @@ public class InlineResponse20016DataList {
         this.disputeReback = disputeReback;
     }
 
-    public InlineResponse20016DataList score(String score) {
+    public InlineResponse20017DataList score(String score) {
         
         this.score = score;
         return this;
@@ -1339,7 +1339,7 @@ public class InlineResponse20016DataList {
         this.score = score;
     }
 
-    public InlineResponse20016DataList message(String message) {
+    public InlineResponse20017DataList message(String message) {
         
         this.message = message;
         return this;
@@ -1359,7 +1359,7 @@ public class InlineResponse20016DataList {
         this.message = message;
     }
 
-    public InlineResponse20016DataList releaseCoinSwitch(Integer releaseCoinSwitch) {
+    public InlineResponse20017DataList releaseCoinSwitch(Integer releaseCoinSwitch) {
         
         this.releaseCoinSwitch = releaseCoinSwitch;
         return this;
@@ -1379,7 +1379,7 @@ public class InlineResponse20016DataList {
         this.releaseCoinSwitch = releaseCoinSwitch;
     }
 
-    public InlineResponse20016DataList tier(Integer tier) {
+    public InlineResponse20017DataList tier(Integer tier) {
         
         this.tier = tier;
         return this;
@@ -1399,7 +1399,7 @@ public class InlineResponse20016DataList {
         this.tier = tier;
     }
 
-    public InlineResponse20016DataList blueVip(Integer blueVip) {
+    public InlineResponse20017DataList blueVip(Integer blueVip) {
         
         this.blueVip = blueVip;
         return this;
@@ -1419,7 +1419,7 @@ public class InlineResponse20016DataList {
         this.blueVip = blueVip;
     }
 
-    public InlineResponse20016DataList odTime(Integer odTime) {
+    public InlineResponse20017DataList odTime(Integer odTime) {
         
         this.odTime = odTime;
         return this;
@@ -1439,7 +1439,7 @@ public class InlineResponse20016DataList {
         this.odTime = odTime;
     }
 
-    public InlineResponse20016DataList orderType(Integer orderType) {
+    public InlineResponse20017DataList orderType(Integer orderType) {
         
         this.orderType = orderType;
         return this;
@@ -1459,13 +1459,13 @@ public class InlineResponse20016DataList {
         this.orderType = orderType;
     }
 
-    public InlineResponse20016DataList orderTag(List<String> orderTag) {
+    public InlineResponse20017DataList orderTag(List<String> orderTag) {
         
         this.orderTag = orderTag;
         return this;
     }
 
-    public InlineResponse20016DataList addOrderTagItem(String orderTagItem) {
+    public InlineResponse20017DataList addOrderTagItem(String orderTagItem) {
         if (this.orderTag == null) {
             this.orderTag = new ArrayList<>();
         }
@@ -1487,7 +1487,7 @@ public class InlineResponse20016DataList {
         this.orderTag = orderTag;
     }
 
-    public InlineResponse20016DataList convertInfo(InlineResponse20016DataConvertInfo convertInfo) {
+    public InlineResponse20017DataList convertInfo(InlineResponse20017DataConvertInfo convertInfo) {
         
         this.convertInfo = convertInfo;
         return this;
@@ -1498,12 +1498,12 @@ public class InlineResponse20016DataList {
      * @return convertInfo
     **/
     @javax.annotation.Nullable
-    public InlineResponse20016DataConvertInfo getConvertInfo() {
+    public InlineResponse20017DataConvertInfo getConvertInfo() {
         return convertInfo;
     }
 
 
-    public void setConvertInfo(InlineResponse20016DataConvertInfo convertInfo) {
+    public void setConvertInfo(InlineResponse20017DataConvertInfo convertInfo) {
         this.convertInfo = convertInfo;
     }
     @Override
@@ -1514,68 +1514,68 @@ public class InlineResponse20016DataList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20016DataList inlineResponse20016DataList = (InlineResponse20016DataList) o;
-        return Objects.equals(this.typeBuy, inlineResponse20016DataList.typeBuy) &&
-                Objects.equals(this.timest, inlineResponse20016DataList.timest) &&
-                Objects.equals(this.timestExpire, inlineResponse20016DataList.timestExpire) &&
-                Objects.equals(this.type, inlineResponse20016DataList.type) &&
-                Objects.equals(this.tradeType, inlineResponse20016DataList.tradeType) &&
-                Objects.equals(this.timestamp, inlineResponse20016DataList.timestamp) &&
-                Objects.equals(this.rate, inlineResponse20016DataList.rate) &&
-                Objects.equals(this.amount, inlineResponse20016DataList.amount) &&
-                Objects.equals(this.total, inlineResponse20016DataList.total) &&
-                Objects.equals(this.txid, inlineResponse20016DataList.txid) &&
-                Objects.equals(this.status, inlineResponse20016DataList.status) &&
-                Objects.equals(this.orderStatus, inlineResponse20016DataList.orderStatus) &&
-                Objects.equals(this.itsRealname, inlineResponse20016DataList.itsRealname) &&
-                Objects.equals(this.itsUid, inlineResponse20016DataList.itsUid) &&
-                Objects.equals(this.itsNick, inlineResponse20016DataList.itsNick) &&
-                Objects.equals(this.userNote, inlineResponse20016DataList.userNote) &&
-                Objects.equals(this.showBank, inlineResponse20016DataList.showBank) &&
-                Objects.equals(this.bankname, inlineResponse20016DataList.bankname) &&
-                Objects.equals(this.bankbranch, inlineResponse20016DataList.bankbranch) &&
-                Objects.equals(this.sellerRealname, inlineResponse20016DataList.sellerRealname) &&
-                Objects.equals(this.buyerRealname, inlineResponse20016DataList.buyerRealname) &&
-                Objects.equals(this.bankid, inlineResponse20016DataList.bankid) &&
-                Objects.equals(this.bankHolderRealname, inlineResponse20016DataList.bankHolderRealname) &&
-                Objects.equals(this.showAli, inlineResponse20016DataList.showAli) &&
-                Objects.equals(this.aliname, inlineResponse20016DataList.aliname) &&
-                Objects.equals(this.showWechat, inlineResponse20016DataList.showWechat) &&
-                Objects.equals(this.wename, inlineResponse20016DataList.wename) &&
-                Objects.equals(this.isAlicode, inlineResponse20016DataList.isAlicode) &&
-                Objects.equals(this.disputeTime, inlineResponse20016DataList.disputeTime) &&
-                Objects.equals(this.cancelable, inlineResponse20016DataList.cancelable) &&
-                Objects.equals(this.blackUid, inlineResponse20016DataList.blackUid) &&
-                Objects.equals(this.blackName, inlineResponse20016DataList.blackName) &&
-                Objects.equals(this.memo, inlineResponse20016DataList.memo) &&
-                Objects.equals(this.isFollow, inlineResponse20016DataList.isFollow) &&
-                Objects.equals(this.isBlack, inlineResponse20016DataList.isBlack) &&
-                Objects.equals(this.currencyType, inlineResponse20016DataList.currencyType) &&
-                Objects.equals(this.wantType, inlineResponse20016DataList.wantType) &&
-                Objects.equals(this.isHedge, inlineResponse20016DataList.isHedge) &&
-                Objects.equals(this.hidePayment, inlineResponse20016DataList.hidePayment) &&
-                Objects.equals(this.selPaytype, inlineResponse20016DataList.selPaytype) &&
-                Objects.equals(this.showOthers, inlineResponse20016DataList.showOthers) &&
-                Objects.equals(this.payOthers, inlineResponse20016DataList.payOthers) &&
-                Objects.equals(this.tradeTips, inlineResponse20016DataList.tradeTips) &&
-                Objects.equals(this.appealUnread, inlineResponse20016DataList.appealUnread) &&
-                Objects.equals(this.imUnread, inlineResponse20016DataList.imUnread) &&
-                Objects.equals(this.inDispute, inlineResponse20016DataList.inDispute) &&
-                Objects.equals(this.reasonId, inlineResponse20016DataList.reasonId) &&
-                Objects.equals(this.reasonMemo, inlineResponse20016DataList.reasonMemo) &&
-                Objects.equals(this.cancelTime, inlineResponse20016DataList.cancelTime) &&
-                Objects.equals(this.sellerConfirm, inlineResponse20016DataList.sellerConfirm) &&
-                Objects.equals(this.toastId, inlineResponse20016DataList.toastId) &&
-                Objects.equals(this.disputeReback, inlineResponse20016DataList.disputeReback) &&
-                Objects.equals(this.score, inlineResponse20016DataList.score) &&
-                Objects.equals(this.message, inlineResponse20016DataList.message) &&
-                Objects.equals(this.releaseCoinSwitch, inlineResponse20016DataList.releaseCoinSwitch) &&
-                Objects.equals(this.tier, inlineResponse20016DataList.tier) &&
-                Objects.equals(this.blueVip, inlineResponse20016DataList.blueVip) &&
-                Objects.equals(this.odTime, inlineResponse20016DataList.odTime) &&
-                Objects.equals(this.orderType, inlineResponse20016DataList.orderType) &&
-                Objects.equals(this.orderTag, inlineResponse20016DataList.orderTag) &&
-                Objects.equals(this.convertInfo, inlineResponse20016DataList.convertInfo);
+        InlineResponse20017DataList inlineResponse20017DataList = (InlineResponse20017DataList) o;
+        return Objects.equals(this.typeBuy, inlineResponse20017DataList.typeBuy) &&
+                Objects.equals(this.timest, inlineResponse20017DataList.timest) &&
+                Objects.equals(this.timestExpire, inlineResponse20017DataList.timestExpire) &&
+                Objects.equals(this.type, inlineResponse20017DataList.type) &&
+                Objects.equals(this.tradeType, inlineResponse20017DataList.tradeType) &&
+                Objects.equals(this.timestamp, inlineResponse20017DataList.timestamp) &&
+                Objects.equals(this.rate, inlineResponse20017DataList.rate) &&
+                Objects.equals(this.amount, inlineResponse20017DataList.amount) &&
+                Objects.equals(this.total, inlineResponse20017DataList.total) &&
+                Objects.equals(this.txid, inlineResponse20017DataList.txid) &&
+                Objects.equals(this.status, inlineResponse20017DataList.status) &&
+                Objects.equals(this.orderStatus, inlineResponse20017DataList.orderStatus) &&
+                Objects.equals(this.itsRealname, inlineResponse20017DataList.itsRealname) &&
+                Objects.equals(this.itsUid, inlineResponse20017DataList.itsUid) &&
+                Objects.equals(this.itsNick, inlineResponse20017DataList.itsNick) &&
+                Objects.equals(this.userNote, inlineResponse20017DataList.userNote) &&
+                Objects.equals(this.showBank, inlineResponse20017DataList.showBank) &&
+                Objects.equals(this.bankname, inlineResponse20017DataList.bankname) &&
+                Objects.equals(this.bankbranch, inlineResponse20017DataList.bankbranch) &&
+                Objects.equals(this.sellerRealname, inlineResponse20017DataList.sellerRealname) &&
+                Objects.equals(this.buyerRealname, inlineResponse20017DataList.buyerRealname) &&
+                Objects.equals(this.bankid, inlineResponse20017DataList.bankid) &&
+                Objects.equals(this.bankHolderRealname, inlineResponse20017DataList.bankHolderRealname) &&
+                Objects.equals(this.showAli, inlineResponse20017DataList.showAli) &&
+                Objects.equals(this.aliname, inlineResponse20017DataList.aliname) &&
+                Objects.equals(this.showWechat, inlineResponse20017DataList.showWechat) &&
+                Objects.equals(this.wename, inlineResponse20017DataList.wename) &&
+                Objects.equals(this.isAlicode, inlineResponse20017DataList.isAlicode) &&
+                Objects.equals(this.disputeTime, inlineResponse20017DataList.disputeTime) &&
+                Objects.equals(this.cancelable, inlineResponse20017DataList.cancelable) &&
+                Objects.equals(this.blackUid, inlineResponse20017DataList.blackUid) &&
+                Objects.equals(this.blackName, inlineResponse20017DataList.blackName) &&
+                Objects.equals(this.memo, inlineResponse20017DataList.memo) &&
+                Objects.equals(this.isFollow, inlineResponse20017DataList.isFollow) &&
+                Objects.equals(this.isBlack, inlineResponse20017DataList.isBlack) &&
+                Objects.equals(this.currencyType, inlineResponse20017DataList.currencyType) &&
+                Objects.equals(this.wantType, inlineResponse20017DataList.wantType) &&
+                Objects.equals(this.isHedge, inlineResponse20017DataList.isHedge) &&
+                Objects.equals(this.hidePayment, inlineResponse20017DataList.hidePayment) &&
+                Objects.equals(this.selPaytype, inlineResponse20017DataList.selPaytype) &&
+                Objects.equals(this.showOthers, inlineResponse20017DataList.showOthers) &&
+                Objects.equals(this.payOthers, inlineResponse20017DataList.payOthers) &&
+                Objects.equals(this.tradeTips, inlineResponse20017DataList.tradeTips) &&
+                Objects.equals(this.appealUnread, inlineResponse20017DataList.appealUnread) &&
+                Objects.equals(this.imUnread, inlineResponse20017DataList.imUnread) &&
+                Objects.equals(this.inDispute, inlineResponse20017DataList.inDispute) &&
+                Objects.equals(this.reasonId, inlineResponse20017DataList.reasonId) &&
+                Objects.equals(this.reasonMemo, inlineResponse20017DataList.reasonMemo) &&
+                Objects.equals(this.cancelTime, inlineResponse20017DataList.cancelTime) &&
+                Objects.equals(this.sellerConfirm, inlineResponse20017DataList.sellerConfirm) &&
+                Objects.equals(this.toastId, inlineResponse20017DataList.toastId) &&
+                Objects.equals(this.disputeReback, inlineResponse20017DataList.disputeReback) &&
+                Objects.equals(this.score, inlineResponse20017DataList.score) &&
+                Objects.equals(this.message, inlineResponse20017DataList.message) &&
+                Objects.equals(this.releaseCoinSwitch, inlineResponse20017DataList.releaseCoinSwitch) &&
+                Objects.equals(this.tier, inlineResponse20017DataList.tier) &&
+                Objects.equals(this.blueVip, inlineResponse20017DataList.blueVip) &&
+                Objects.equals(this.odTime, inlineResponse20017DataList.odTime) &&
+                Objects.equals(this.orderType, inlineResponse20017DataList.orderType) &&
+                Objects.equals(this.orderTag, inlineResponse20017DataList.orderTag) &&
+                Objects.equals(this.convertInfo, inlineResponse20017DataList.convertInfo);
     }
 
     @Override
@@ -1587,7 +1587,7 @@ public class InlineResponse20016DataList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20016DataList {\n");
+        sb.append("class InlineResponse20017DataList {\n");
         sb.append("      typeBuy: ").append(toIndentedString(typeBuy)).append("\n");
         sb.append("      timest: ").append(toIndentedString(timest)).append("\n");
         sb.append("      timestExpire: ").append(toIndentedString(timestExpire)).append("\n");

@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Integer** |  | 
-**pageSize** | **Integer** |  | 
-**pageNumber** | **Integer** |  | 
-**totalPage** | **Integer** |  | 
+**pn** | **Integer** |  | 
+**ps** | **Integer** |  | 
+**totalPn** | **Integer** |  | 
+**count** | **Integer** |  | 
 **list** | [**List&lt;InlineResponse20011DataList&gt;**](InlineResponse20011DataList.md) |  | 
 

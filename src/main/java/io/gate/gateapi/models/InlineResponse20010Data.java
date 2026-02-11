@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20010DataList;
+import io.gate.gateapi.models.InlineResponse20010DataLists;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,125 +26,33 @@ import java.util.List;
  * InlineResponse20010Data
  */
 public class InlineResponse20010Data {
-    public static final String SERIALIZED_NAME_PN = "pn";
-    @SerializedName(SERIALIZED_NAME_PN)
-    private Integer pn;
-
-    public static final String SERIALIZED_NAME_PS = "ps";
-    @SerializedName(SERIALIZED_NAME_PS)
-    private Integer ps;
-
-    public static final String SERIALIZED_NAME_TOTAL_PN = "total_pn";
-    @SerializedName(SERIALIZED_NAME_TOTAL_PN)
-    private Integer totalPn;
-
-    public static final String SERIALIZED_NAME_COUNT = "count";
-    @SerializedName(SERIALIZED_NAME_COUNT)
-    private Integer count;
-
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20010DataList> list = new ArrayList<>();
+    public static final String SERIALIZED_NAME_LISTS = "lists";
+    @SerializedName(SERIALIZED_NAME_LISTS)
+    private List<InlineResponse20010DataLists> lists = new ArrayList<>();
 
 
-    public InlineResponse20010Data pn(Integer pn) {
+    public InlineResponse20010Data lists(List<InlineResponse20010DataLists> lists) {
         
-        this.pn = pn;
+        this.lists = lists;
+        return this;
+    }
+
+    public InlineResponse20010Data addListsItem(InlineResponse20010DataLists listsItem) {
+        this.lists.add(listsItem);
         return this;
     }
 
      /**
-     * Get pn
-     * @return pn
+     * Bank card list
+     * @return lists
     **/
-    public Integer getPn() {
-        return pn;
+    public List<InlineResponse20010DataLists> getLists() {
+        return lists;
     }
 
 
-    public void setPn(Integer pn) {
-        this.pn = pn;
-    }
-
-    public InlineResponse20010Data ps(Integer ps) {
-        
-        this.ps = ps;
-        return this;
-    }
-
-     /**
-     * Get ps
-     * @return ps
-    **/
-    public Integer getPs() {
-        return ps;
-    }
-
-
-    public void setPs(Integer ps) {
-        this.ps = ps;
-    }
-
-    public InlineResponse20010Data totalPn(Integer totalPn) {
-        
-        this.totalPn = totalPn;
-        return this;
-    }
-
-     /**
-     * Get totalPn
-     * @return totalPn
-    **/
-    public Integer getTotalPn() {
-        return totalPn;
-    }
-
-
-    public void setTotalPn(Integer totalPn) {
-        this.totalPn = totalPn;
-    }
-
-    public InlineResponse20010Data count(Integer count) {
-        
-        this.count = count;
-        return this;
-    }
-
-     /**
-     * Get count
-     * @return count
-    **/
-    public Integer getCount() {
-        return count;
-    }
-
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public InlineResponse20010Data list(List<InlineResponse20010DataList> list) {
-        
-        this.list = list;
-        return this;
-    }
-
-    public InlineResponse20010Data addListItem(InlineResponse20010DataList listItem) {
-        this.list.add(listItem);
-        return this;
-    }
-
-     /**
-     * Get list
-     * @return list
-    **/
-    public List<InlineResponse20010DataList> getList() {
-        return list;
-    }
-
-
-    public void setList(List<InlineResponse20010DataList> list) {
-        this.list = list;
+    public void setLists(List<InlineResponse20010DataLists> lists) {
+        this.lists = lists;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -155,16 +63,12 @@ public class InlineResponse20010Data {
             return false;
         }
         InlineResponse20010Data inlineResponse20010Data = (InlineResponse20010Data) o;
-        return Objects.equals(this.pn, inlineResponse20010Data.pn) &&
-                Objects.equals(this.ps, inlineResponse20010Data.ps) &&
-                Objects.equals(this.totalPn, inlineResponse20010Data.totalPn) &&
-                Objects.equals(this.count, inlineResponse20010Data.count) &&
-                Objects.equals(this.list, inlineResponse20010Data.list);
+        return Objects.equals(this.lists, inlineResponse20010Data.lists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pn, ps, totalPn, count, list);
+        return Objects.hash(lists);
     }
 
 
@@ -172,11 +76,7 @@ public class InlineResponse20010Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20010Data {\n");
-        sb.append("      pn: ").append(toIndentedString(pn)).append("\n");
-        sb.append("      ps: ").append(toIndentedString(ps)).append("\n");
-        sb.append("      totalPn: ").append(toIndentedString(totalPn)).append("\n");
-        sb.append("      count: ").append(toIndentedString(count)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      lists: ").append(toIndentedString(lists)).append("\n");
         sb.append("}");
         return sb.toString();
     }

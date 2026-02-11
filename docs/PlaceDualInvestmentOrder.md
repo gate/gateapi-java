@@ -1,13 +1,25 @@
 
 # PlaceDualInvestmentOrder
 
-Dual Investment Order
-
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**planId** | **String** | Product ID | 
-**amount** | **String** | Subscription amount, mutually exclusive with copies field | 
-**text** | **String** | Order custom information. Users can set custom ID with this field. Custom fields must meet the following conditions:  1. Must start with &#x60;t-&#x60; 2. Excluding &#x60;t-&#x60;, length cannot exceed 28 bytes 3. Can only contain numbers, letters, underscore(_), hyphen(-) or dot(.)  |  [optional]
+**id** | **Integer** | Order ID |  [optional]
+**planId** | **Integer** | Product ID |  [optional]
+**copies** | **String** | Units |  [optional]
+**investAmount** | **String** | Investment Quantity |  [optional]
+**settlementAmount** | **String** | Settlement Quantity |  [optional]
+**createTime** | **Integer** | Created time |  [optional]
+**completeTime** | **Integer** | Completed Time |  [optional]
+**status** | **String** | Status:  &#x60;INIT&#x60;-Created &#x60;SETTLEMENT_SUCCESS&#x60;-Settlement Success &#x60;SETTLEMENT_PROCESSING&#x60;-Settlement Processing &#x60;CANCELED&#x60;-Canceled &#x60;FAILED&#x60;-Failed |  [optional]
+**investCurrency** | **String** | Investment Token |  [optional]
+**exerciseCurrency** | **String** | Strike Token |  [optional]
+**exercisePrice** | **String** | Strike price |  [optional]
+**settlementPrice** | **String** | Settlement price |  [optional]
+**settlementCurrency** | **String** | Settlement currency |  [optional]
+**apyDisplay** | **String** | Annual Yield |  [optional]
+**apySettlement** | **String** | Settlement Annual Yield |  [optional]
+**deliveryTime** | **Integer** | Settlement time |  [optional]
+**text** | **String** | Custom order information |  [optional]
 

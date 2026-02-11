@@ -20,15 +20,15 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20016DataTransTime
+ * InlineResponse20017DataTransTime
  */
-public class InlineResponse20016DataTransTime {
+public class InlineResponse20017DataTransTime {
     public static final String SERIALIZED_NAME_OD_TIME = "od_time";
     @SerializedName(SERIALIZED_NAME_OD_TIME)
     private Integer odTime;
 
 
-    public InlineResponse20016DataTransTime odTime(Integer odTime) {
+    public InlineResponse20017DataTransTime odTime(Integer odTime) {
         
         this.odTime = odTime;
         return this;
@@ -55,8 +55,8 @@ public class InlineResponse20016DataTransTime {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20016DataTransTime inlineResponse20016DataTransTime = (InlineResponse20016DataTransTime) o;
-        return Objects.equals(this.odTime, inlineResponse20016DataTransTime.odTime);
+        InlineResponse20017DataTransTime inlineResponse20017DataTransTime = (InlineResponse20017DataTransTime) o;
+        return Objects.equals(this.odTime, inlineResponse20017DataTransTime.odTime);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class InlineResponse20016DataTransTime {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20016DataTransTime {\n");
+        sb.append("class InlineResponse20017DataTransTime {\n");
         sb.append("      odTime: ").append(toIndentedString(odTime)).append("\n");
         sb.append("}");
         return sb.toString();

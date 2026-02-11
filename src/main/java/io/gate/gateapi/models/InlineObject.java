@@ -39,7 +39,7 @@ public class InlineObject {
     }
 
      /**
-     * Cross margin or isolated margin mode. ISOLATED - isolated margin mode, CROSS - cross margin mode
+     * Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin
      * @return mode
     **/
     public String getMode() {

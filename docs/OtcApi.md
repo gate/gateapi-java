@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**createOtcOrder**](OtcApi.md#createOtcOrder) | **POST** /otc/order/create | Create fiat order
 [**createStableCoinOrder**](OtcApi.md#createStableCoinOrder) | **POST** /otc/stable_coin/order/create | Create stablecoin order
 [**getUserDefaultBank**](OtcApi.md#getUserDefaultBank) | **GET** /otc/get_user_def_bank | Get user&#39;s default bank account information
+[**getBankList**](OtcApi.md#getBankList) | **GET** /otc/bank_list | Get user bank card list
 [**markOtcOrderPaid**](OtcApi.md#markOtcOrderPaid) | **POST** /otc/order/paid | Mark fiat order as paid
 [**cancelOtcOrder**](OtcApi.md#cancelOtcOrder) | **POST** /otc/order/cancel | Fiat order cancellation
 [**listOtcOrders**](OtcApi.md#listOtcOrders) | **GET** /otc/order/list | Fiat order list
@@ -291,6 +292,72 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Query successful |  -  |
 
+<a name="getBankList"></a>
+# **getBankList**
+> InlineResponse20010 getBankList()
+
+Get user bank card list
+
+Get user bank card list for selecting bank card when placing orders
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.OtcApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        OtcApi apiInstance = new OtcApi(defaultClient);
+        try {
+            InlineResponse20010 result = apiInstance.getBankList();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling OtcApi#getBankList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+
 <a name="markOtcOrderPaid"></a>
 # **markOtcOrderPaid**
 > InlineResponse2007 markOtcOrderPaid(inlineObject4)
@@ -433,7 +500,7 @@ Name | Type | Description  | Notes
 
 <a name="listOtcOrders"></a>
 # **listOtcOrders**
-> InlineResponse20010 listOtcOrders().type(type).fiatCurrency(fiatCurrency).cryptoCurrency(cryptoCurrency).startTime(startTime).endTime(endTime).status(status).pn(pn).ps(ps).execute();
+> InlineResponse20011 listOtcOrders().type(type).fiatCurrency(fiatCurrency).cryptoCurrency(cryptoCurrency).startTime(startTime).endTime(endTime).status(status).pn(pn).ps(ps).execute();
 
 Fiat order list
 
@@ -465,11 +532,11 @@ public class Example {
         String cryptoCurrency = "cryptoCurrency_example"; // String | Digital currency
         String startTime = "startTime_example"; // String | starttime   for example : 2025-09-09
         String endTime = "endTime_example"; // String | endtime  for example :2025-09-09
-        String status = "status_example"; // String | DONE ：完成 CANCEL  ：取消 PROCESSING ：进行中
+        String status = "status_example"; // String | DONE: Completed CANCEL: Canceled PROCESSING: In Progress
         String pn = "pn_example"; // String | Page number
         String ps = "ps_example"; // String | Number of items per page
         try {
-            InlineResponse20010 result = apiInstance.listOtcOrders()
+            InlineResponse20011 result = apiInstance.listOtcOrders()
                         .type(type)
                         .fiatCurrency(fiatCurrency)
                         .cryptoCurrency(cryptoCurrency)
@@ -502,13 +569,13 @@ Name | Type | Description  | Notes
  **cryptoCurrency** | **String**| Digital currency | [optional]
  **startTime** | **String**| starttime   for example : 2025-09-09 | [optional]
  **endTime** | **String**| endtime  for example :2025-09-09 | [optional]
- **status** | **String**| DONE ：完成 CANCEL  ：取消 PROCESSING ：进行中 | [optional]
+ **status** | **String**| DONE: Completed CANCEL: Canceled PROCESSING: In Progress | [optional]
  **pn** | **String**| Page number | [optional]
  **ps** | **String**| Number of items per page | [optional]
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -526,7 +593,7 @@ Name | Type | Description  | Notes
 
 <a name="listStableCoinOrders"></a>
 # **listStableCoinOrders**
-> InlineResponse20011 listStableCoinOrders().pageSize(pageSize).pageNumber(pageNumber).coinName(coinName).startTime(startTime).endTime(endTime).status(status).execute();
+> InlineResponse20012 listStableCoinOrders().pageSize(pageSize).pageNumber(pageNumber).coinName(coinName).startTime(startTime).endTime(endTime).status(status).execute();
 
 Stablecoin order list
 
@@ -560,7 +627,7 @@ public class Example {
         String endTime = "endTime_example"; // String | End time
         String status = "status_example"; // String | Status: PROCESSING: in progress / DONE：completed / FAILED: failed
         try {
-            InlineResponse20011 result = apiInstance.listStableCoinOrders()
+            InlineResponse20012 result = apiInstance.listStableCoinOrders()
                         .pageSize(pageSize)
                         .pageNumber(pageNumber)
                         .coinName(coinName)
@@ -595,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -613,7 +680,7 @@ Name | Type | Description  | Notes
 
 <a name="getOtcOrderDetail"></a>
 # **getOtcOrderDetail**
-> InlineResponse20012 getOtcOrderDetail(orderId)
+> InlineResponse20013 getOtcOrderDetail(orderId)
 
 Fiat order details
 
@@ -642,7 +709,7 @@ public class Example {
         OtcApi apiInstance = new OtcApi(defaultClient);
         String orderId = "orderId_example"; // String | Order ID
         try {
-            InlineResponse20012 result = apiInstance.getOtcOrderDetail(orderId);
+            InlineResponse20013 result = apiInstance.getOtcOrderDetail(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -665,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 

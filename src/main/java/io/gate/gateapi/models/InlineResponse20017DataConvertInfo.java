@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Flash swap order information
  */
-public class InlineResponse20016DataConvertInfo {
+public class InlineResponse20017DataConvertInfo {
     public static final String SERIALIZED_NAME_CONVERT_TYPE = "convert_type";
     @SerializedName(SERIALIZED_NAME_CONVERT_TYPE)
     private String convertType;
@@ -64,7 +64,7 @@ public class InlineResponse20016DataConvertInfo {
     private String status;
 
 
-    public InlineResponse20016DataConvertInfo convertType(String convertType) {
+    public InlineResponse20017DataConvertInfo convertType(String convertType) {
         
         this.convertType = convertType;
         return this;
@@ -83,7 +83,7 @@ public class InlineResponse20016DataConvertInfo {
         this.convertType = convertType;
     }
 
-    public InlineResponse20016DataConvertInfo convertStatus(String convertStatus) {
+    public InlineResponse20017DataConvertInfo convertStatus(String convertStatus) {
         
         this.convertStatus = convertStatus;
         return this;
@@ -102,7 +102,7 @@ public class InlineResponse20016DataConvertInfo {
         this.convertStatus = convertStatus;
     }
 
-    public InlineResponse20016DataConvertInfo preRate(String preRate) {
+    public InlineResponse20017DataConvertInfo preRate(String preRate) {
         
         this.preRate = preRate;
         return this;
@@ -121,7 +121,7 @@ public class InlineResponse20016DataConvertInfo {
         this.preRate = preRate;
     }
 
-    public InlineResponse20016DataConvertInfo rate(String rate) {
+    public InlineResponse20017DataConvertInfo rate(String rate) {
         
         this.rate = rate;
         return this;
@@ -140,7 +140,7 @@ public class InlineResponse20016DataConvertInfo {
         this.rate = rate;
     }
 
-    public InlineResponse20016DataConvertInfo preFiatRate(String preFiatRate) {
+    public InlineResponse20017DataConvertInfo preFiatRate(String preFiatRate) {
         
         this.preFiatRate = preFiatRate;
         return this;
@@ -159,7 +159,7 @@ public class InlineResponse20016DataConvertInfo {
         this.preFiatRate = preFiatRate;
     }
 
-    public InlineResponse20016DataConvertInfo fiatRate(String fiatRate) {
+    public InlineResponse20017DataConvertInfo fiatRate(String fiatRate) {
         
         this.fiatRate = fiatRate;
         return this;
@@ -178,7 +178,7 @@ public class InlineResponse20016DataConvertInfo {
         this.fiatRate = fiatRate;
     }
 
-    public InlineResponse20016DataConvertInfo amount(String amount) {
+    public InlineResponse20017DataConvertInfo amount(String amount) {
         
         this.amount = amount;
         return this;
@@ -197,7 +197,7 @@ public class InlineResponse20016DataConvertInfo {
         this.amount = amount;
     }
 
-    public InlineResponse20016DataConvertInfo convertAmount(String convertAmount) {
+    public InlineResponse20017DataConvertInfo convertAmount(String convertAmount) {
         
         this.convertAmount = convertAmount;
         return this;
@@ -216,7 +216,7 @@ public class InlineResponse20016DataConvertInfo {
         this.convertAmount = convertAmount;
     }
 
-    public InlineResponse20016DataConvertInfo slippage(String slippage) {
+    public InlineResponse20017DataConvertInfo slippage(String slippage) {
         
         this.slippage = slippage;
         return this;
@@ -235,7 +235,7 @@ public class InlineResponse20016DataConvertInfo {
         this.slippage = slippage;
     }
 
-    public InlineResponse20016DataConvertInfo status(String status) {
+    public InlineResponse20017DataConvertInfo status(String status) {
         
         this.status = status;
         return this;
@@ -261,17 +261,17 @@ public class InlineResponse20016DataConvertInfo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20016DataConvertInfo inlineResponse20016DataConvertInfo = (InlineResponse20016DataConvertInfo) o;
-        return Objects.equals(this.convertType, inlineResponse20016DataConvertInfo.convertType) &&
-                Objects.equals(this.convertStatus, inlineResponse20016DataConvertInfo.convertStatus) &&
-                Objects.equals(this.preRate, inlineResponse20016DataConvertInfo.preRate) &&
-                Objects.equals(this.rate, inlineResponse20016DataConvertInfo.rate) &&
-                Objects.equals(this.preFiatRate, inlineResponse20016DataConvertInfo.preFiatRate) &&
-                Objects.equals(this.fiatRate, inlineResponse20016DataConvertInfo.fiatRate) &&
-                Objects.equals(this.amount, inlineResponse20016DataConvertInfo.amount) &&
-                Objects.equals(this.convertAmount, inlineResponse20016DataConvertInfo.convertAmount) &&
-                Objects.equals(this.slippage, inlineResponse20016DataConvertInfo.slippage) &&
-                Objects.equals(this.status, inlineResponse20016DataConvertInfo.status);
+        InlineResponse20017DataConvertInfo inlineResponse20017DataConvertInfo = (InlineResponse20017DataConvertInfo) o;
+        return Objects.equals(this.convertType, inlineResponse20017DataConvertInfo.convertType) &&
+                Objects.equals(this.convertStatus, inlineResponse20017DataConvertInfo.convertStatus) &&
+                Objects.equals(this.preRate, inlineResponse20017DataConvertInfo.preRate) &&
+                Objects.equals(this.rate, inlineResponse20017DataConvertInfo.rate) &&
+                Objects.equals(this.preFiatRate, inlineResponse20017DataConvertInfo.preFiatRate) &&
+                Objects.equals(this.fiatRate, inlineResponse20017DataConvertInfo.fiatRate) &&
+                Objects.equals(this.amount, inlineResponse20017DataConvertInfo.amount) &&
+                Objects.equals(this.convertAmount, inlineResponse20017DataConvertInfo.convertAmount) &&
+                Objects.equals(this.slippage, inlineResponse20017DataConvertInfo.slippage) &&
+                Objects.equals(this.status, inlineResponse20017DataConvertInfo.status);
     }
 
     @Override
@@ -283,7 +283,7 @@ public class InlineResponse20016DataConvertInfo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20016DataConvertInfo {\n");
+        sb.append("class InlineResponse20017DataConvertInfo {\n");
         sb.append("      convertType: ").append(toIndentedString(convertType)).append("\n");
         sb.append("      convertStatus: ").append(toIndentedString(convertStatus)).append("\n");
         sb.append("      preRate: ").append(toIndentedString(preRate)).append("\n");

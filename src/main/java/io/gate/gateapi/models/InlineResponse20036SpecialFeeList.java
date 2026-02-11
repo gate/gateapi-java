@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20035SpecialFeeList
+ * InlineResponse20036SpecialFeeList
  */
-public class InlineResponse20035SpecialFeeList {
+public class InlineResponse20036SpecialFeeList {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
@@ -36,7 +36,7 @@ public class InlineResponse20035SpecialFeeList {
     private String makerFeeRate;
 
 
-    public InlineResponse20035SpecialFeeList symbol(String symbol) {
+    public InlineResponse20036SpecialFeeList symbol(String symbol) {
         
         this.symbol = symbol;
         return this;
@@ -55,7 +55,7 @@ public class InlineResponse20035SpecialFeeList {
         this.symbol = symbol;
     }
 
-    public InlineResponse20035SpecialFeeList takerFeeRate(String takerFeeRate) {
+    public InlineResponse20036SpecialFeeList takerFeeRate(String takerFeeRate) {
         
         this.takerFeeRate = takerFeeRate;
         return this;
@@ -74,7 +74,7 @@ public class InlineResponse20035SpecialFeeList {
         this.takerFeeRate = takerFeeRate;
     }
 
-    public InlineResponse20035SpecialFeeList makerFeeRate(String makerFeeRate) {
+    public InlineResponse20036SpecialFeeList makerFeeRate(String makerFeeRate) {
         
         this.makerFeeRate = makerFeeRate;
         return this;
@@ -100,10 +100,10 @@ public class InlineResponse20035SpecialFeeList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20035SpecialFeeList inlineResponse20035SpecialFeeList = (InlineResponse20035SpecialFeeList) o;
-        return Objects.equals(this.symbol, inlineResponse20035SpecialFeeList.symbol) &&
-                Objects.equals(this.takerFeeRate, inlineResponse20035SpecialFeeList.takerFeeRate) &&
-                Objects.equals(this.makerFeeRate, inlineResponse20035SpecialFeeList.makerFeeRate);
+        InlineResponse20036SpecialFeeList inlineResponse20036SpecialFeeList = (InlineResponse20036SpecialFeeList) o;
+        return Objects.equals(this.symbol, inlineResponse20036SpecialFeeList.symbol) &&
+                Objects.equals(this.takerFeeRate, inlineResponse20036SpecialFeeList.takerFeeRate) &&
+                Objects.equals(this.makerFeeRate, inlineResponse20036SpecialFeeList.makerFeeRate);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class InlineResponse20035SpecialFeeList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20035SpecialFeeList {\n");
+        sb.append("class InlineResponse20036SpecialFeeList {\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      takerFeeRate: ").append(toIndentedString(takerFeeRate)).append("\n");
         sb.append("      makerFeeRate: ").append(toIndentedString(makerFeeRate)).append("\n");

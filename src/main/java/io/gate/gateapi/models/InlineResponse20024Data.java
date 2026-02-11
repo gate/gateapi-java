@@ -20,54 +20,31 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20010DataFiatCurrencyInfo
+ * InlineResponse20024Data
  */
-public class InlineResponse20010DataFiatCurrencyInfo {
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-
-    public static final String SERIALIZED_NAME_ICON = "icon";
-    @SerializedName(SERIALIZED_NAME_ICON)
-    private String icon;
+public class InlineResponse20024Data {
+    public static final String SERIALIZED_NAME_FILE_KEY = "file_key";
+    @SerializedName(SERIALIZED_NAME_FILE_KEY)
+    private String fileKey;
 
 
-    public InlineResponse20010DataFiatCurrencyInfo name(String name) {
+    public InlineResponse20024Data fileKey(String fileKey) {
         
-        this.name = name;
+        this.fileKey = fileKey;
         return this;
     }
 
      /**
-     * Name
-     * @return name
+     * File key
+     * @return fileKey
     **/
-    public String getName() {
-        return name;
+    public String getFileKey() {
+        return fileKey;
     }
 
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public InlineResponse20010DataFiatCurrencyInfo icon(String icon) {
-        
-        this.icon = icon;
-        return this;
-    }
-
-     /**
-     * Image
-     * @return icon
-    **/
-    public String getIcon() {
-        return icon;
-    }
-
-
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setFileKey(String fileKey) {
+        this.fileKey = fileKey;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +54,21 @@ public class InlineResponse20010DataFiatCurrencyInfo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20010DataFiatCurrencyInfo inlineResponse20010DataFiatCurrencyInfo = (InlineResponse20010DataFiatCurrencyInfo) o;
-        return Objects.equals(this.name, inlineResponse20010DataFiatCurrencyInfo.name) &&
-                Objects.equals(this.icon, inlineResponse20010DataFiatCurrencyInfo.icon);
+        InlineResponse20024Data inlineResponse20024Data = (InlineResponse20024Data) o;
+        return Objects.equals(this.fileKey, inlineResponse20024Data.fileKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, icon);
+        return Objects.hash(fileKey);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20010DataFiatCurrencyInfo {\n");
-        sb.append("      name: ").append(toIndentedString(name)).append("\n");
-        sb.append("      icon: ").append(toIndentedString(icon)).append("\n");
+        sb.append("class InlineResponse20024Data {\n");
+        sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,126 +17,448 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20015List;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20015Data
  */
 public class InlineResponse20015Data {
-    public static final String SERIALIZED_NAME_PAY_TYPE = "pay_type";
-    @SerializedName(SERIALIZED_NAME_PAY_TYPE)
-    private String payType;
+    public static final String SERIALIZED_NAME_USER_TIMEST = "user_timest";
+    @SerializedName(SERIALIZED_NAME_USER_TIMEST)
+    private String userTimest;
 
-    public static final String SERIALIZED_NAME_PAY_NAME = "pay_name";
-    @SerializedName(SERIALIZED_NAME_PAY_NAME)
-    private String payName;
+    public static final String SERIALIZED_NAME_EMAIL_VERIFIED = "email_verified";
+    @SerializedName(SERIALIZED_NAME_EMAIL_VERIFIED)
+    private String emailVerified;
 
-    public static final String SERIALIZED_NAME_IDS = "ids";
-    @SerializedName(SERIALIZED_NAME_IDS)
-    private List<Integer> ids = null;
+    public static final String SERIALIZED_NAME_VERIFIED = "verified";
+    @SerializedName(SERIALIZED_NAME_VERIFIED)
+    private String verified;
 
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20015List> list = null;
+    public static final String SERIALIZED_NAME_HAS_PHONE = "has_phone";
+    @SerializedName(SERIALIZED_NAME_HAS_PHONE)
+    private String hasPhone;
+
+    public static final String SERIALIZED_NAME_USER_NAME = "user_name";
+    @SerializedName(SERIALIZED_NAME_USER_NAME)
+    private String userName;
+
+    public static final String SERIALIZED_NAME_USER_NOTE = "user_note";
+    @SerializedName(SERIALIZED_NAME_USER_NOTE)
+    private String userNote;
+
+    public static final String SERIALIZED_NAME_COMPLETE_TRANSACTIONS = "complete_transactions";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_TRANSACTIONS)
+    private String completeTransactions;
+
+    public static final String SERIALIZED_NAME_PAID_TRANSACTIONS = "paid_transactions";
+    @SerializedName(SERIALIZED_NAME_PAID_TRANSACTIONS)
+    private String paidTransactions;
+
+    public static final String SERIALIZED_NAME_ACCEPTED_TRANSACTIONS = "accepted_transactions";
+    @SerializedName(SERIALIZED_NAME_ACCEPTED_TRANSACTIONS)
+    private String acceptedTransactions;
+
+    public static final String SERIALIZED_NAME_TRANSACTIONS_USED_TIME = "transactions_used_time";
+    @SerializedName(SERIALIZED_NAME_TRANSACTIONS_USED_TIME)
+    private String transactionsUsedTime;
+
+    public static final String SERIALIZED_NAME_CANCELLED_USED_TIME_MONTH = "cancelled_used_time_month";
+    @SerializedName(SERIALIZED_NAME_CANCELLED_USED_TIME_MONTH)
+    private String cancelledUsedTimeMonth;
+
+    public static final String SERIALIZED_NAME_COMPLETE_TRANSACTIONS_MONTH = "complete_transactions_month";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_TRANSACTIONS_MONTH)
+    private String completeTransactionsMonth;
+
+    public static final String SERIALIZED_NAME_COMPLETE_RATE_MONTH = "complete_rate_month";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_RATE_MONTH)
+    private Integer completeRateMonth;
+
+    public static final String SERIALIZED_NAME_IS_FOLLOW = "is_follow";
+    @SerializedName(SERIALIZED_NAME_IS_FOLLOW)
+    private Integer isFollow;
+
+    public static final String SERIALIZED_NAME_HAVE_TRADED = "have_traded";
+    @SerializedName(SERIALIZED_NAME_HAVE_TRADED)
+    private Integer haveTraded;
+
+    public static final String SERIALIZED_NAME_BIZ_UID = "biz_uid";
+    @SerializedName(SERIALIZED_NAME_BIZ_UID)
+    private String bizUid;
+
+    public static final String SERIALIZED_NAME_REGISTRATION_DAYS = "registration_days";
+    @SerializedName(SERIALIZED_NAME_REGISTRATION_DAYS)
+    private Integer registrationDays;
+
+    public static final String SERIALIZED_NAME_FIRST_TRADE_DAYS = "first_trade_days";
+    @SerializedName(SERIALIZED_NAME_FIRST_TRADE_DAYS)
+    private Integer firstTradeDays;
+
+    public static final String SERIALIZED_NAME_TRADE_VERSATILE = "trade_versatile";
+    @SerializedName(SERIALIZED_NAME_TRADE_VERSATILE)
+    private Boolean tradeVersatile;
 
 
-    public InlineResponse20015Data payType(String payType) {
+    public InlineResponse20015Data userTimest(String userTimest) {
         
-        this.payType = payType;
+        this.userTimest = userTimest;
         return this;
     }
 
      /**
-     * Payment method type
-     * @return payType
+     * User registration time (formatted string)
+     * @return userTimest
     **/
-    @javax.annotation.Nullable
-    public String getPayType() {
-        return payType;
+    public String getUserTimest() {
+        return userTimest;
     }
 
 
-    public void setPayType(String payType) {
-        this.payType = payType;
+    public void setUserTimest(String userTimest) {
+        this.userTimest = userTimest;
     }
 
-    public InlineResponse20015Data payName(String payName) {
+    public InlineResponse20015Data emailVerified(String emailVerified) {
         
-        this.payName = payName;
+        this.emailVerified = emailVerified;
         return this;
     }
 
      /**
-     * Payment method name
-     * @return payName
+     * Whether email is verified
+     * @return emailVerified
     **/
-    @javax.annotation.Nullable
-    public String getPayName() {
-        return payName;
+    public String getEmailVerified() {
+        return emailVerified;
     }
 
 
-    public void setPayName(String payName) {
-        this.payName = payName;
+    public void setEmailVerified(String emailVerified) {
+        this.emailVerified = emailVerified;
     }
 
-    public InlineResponse20015Data ids(List<Integer> ids) {
+    public InlineResponse20015Data verified(String verified) {
         
-        this.ids = ids;
-        return this;
-    }
-
-    public InlineResponse20015Data addIdsItem(Integer idsItem) {
-        if (this.ids == null) {
-            this.ids = new ArrayList<>();
-        }
-        this.ids.add(idsItem);
+        this.verified = verified;
         return this;
     }
 
      /**
-     * User&#39;s currently bound payment method (primary key ID)
-     * @return ids
+     * Whether KYC verification is completed
+     * @return verified
     **/
-    @javax.annotation.Nullable
-    public List<Integer> getIds() {
-        return ids;
+    public String getVerified() {
+        return verified;
     }
 
 
-    public void setIds(List<Integer> ids) {
-        this.ids = ids;
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 
-    public InlineResponse20015Data list(List<InlineResponse20015List> list) {
+    public InlineResponse20015Data hasPhone(String hasPhone) {
         
-        this.list = list;
-        return this;
-    }
-
-    public InlineResponse20015Data addListItem(InlineResponse20015List listItem) {
-        if (this.list == null) {
-            this.list = new ArrayList<>();
-        }
-        this.list.add(listItem);
+        this.hasPhone = hasPhone;
         return this;
     }
 
      /**
-     * Get list
-     * @return list
+     * Whether phone is bound
+     * @return hasPhone
     **/
-    @javax.annotation.Nullable
-    public List<InlineResponse20015List> getList() {
-        return list;
+    public String getHasPhone() {
+        return hasPhone;
     }
 
 
-    public void setList(List<InlineResponse20015List> list) {
-        this.list = list;
+    public void setHasPhone(String hasPhone) {
+        this.hasPhone = hasPhone;
+    }
+
+    public InlineResponse20015Data userName(String userName) {
+        
+        this.userName = userName;
+        return this;
+    }
+
+     /**
+     * Username
+     * @return userName
+    **/
+    public String getUserName() {
+        return userName;
+    }
+
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public InlineResponse20015Data userNote(String userNote) {
+        
+        this.userNote = userNote;
+        return this;
+    }
+
+     /**
+     * User note information
+     * @return userNote
+    **/
+    public String getUserNote() {
+        return userNote;
+    }
+
+
+    public void setUserNote(String userNote) {
+        this.userNote = userNote;
+    }
+
+    public InlineResponse20015Data completeTransactions(String completeTransactions) {
+        
+        this.completeTransactions = completeTransactions;
+        return this;
+    }
+
+     /**
+     * Total completed orders
+     * @return completeTransactions
+    **/
+    public String getCompleteTransactions() {
+        return completeTransactions;
+    }
+
+
+    public void setCompleteTransactions(String completeTransactions) {
+        this.completeTransactions = completeTransactions;
+    }
+
+    public InlineResponse20015Data paidTransactions(String paidTransactions) {
+        
+        this.paidTransactions = paidTransactions;
+        return this;
+    }
+
+     /**
+     * Number of completed buy orders
+     * @return paidTransactions
+    **/
+    public String getPaidTransactions() {
+        return paidTransactions;
+    }
+
+
+    public void setPaidTransactions(String paidTransactions) {
+        this.paidTransactions = paidTransactions;
+    }
+
+    public InlineResponse20015Data acceptedTransactions(String acceptedTransactions) {
+        
+        this.acceptedTransactions = acceptedTransactions;
+        return this;
+    }
+
+     /**
+     * Number of completed sell orders
+     * @return acceptedTransactions
+    **/
+    public String getAcceptedTransactions() {
+        return acceptedTransactions;
+    }
+
+
+    public void setAcceptedTransactions(String acceptedTransactions) {
+        this.acceptedTransactions = acceptedTransactions;
+    }
+
+    public InlineResponse20015Data transactionsUsedTime(String transactionsUsedTime) {
+        
+        this.transactionsUsedTime = transactionsUsedTime;
+        return this;
+    }
+
+     /**
+     * Average time to confirm receipt
+     * @return transactionsUsedTime
+    **/
+    public String getTransactionsUsedTime() {
+        return transactionsUsedTime;
+    }
+
+
+    public void setTransactionsUsedTime(String transactionsUsedTime) {
+        this.transactionsUsedTime = transactionsUsedTime;
+    }
+
+    public InlineResponse20015Data cancelledUsedTimeMonth(String cancelledUsedTimeMonth) {
+        
+        this.cancelledUsedTimeMonth = cancelledUsedTimeMonth;
+        return this;
+    }
+
+     /**
+     * Cancellation time in last 30 days
+     * @return cancelledUsedTimeMonth
+    **/
+    public String getCancelledUsedTimeMonth() {
+        return cancelledUsedTimeMonth;
+    }
+
+
+    public void setCancelledUsedTimeMonth(String cancelledUsedTimeMonth) {
+        this.cancelledUsedTimeMonth = cancelledUsedTimeMonth;
+    }
+
+    public InlineResponse20015Data completeTransactionsMonth(String completeTransactionsMonth) {
+        
+        this.completeTransactionsMonth = completeTransactionsMonth;
+        return this;
+    }
+
+     /**
+     * Number of completed orders in last 30 days
+     * @return completeTransactionsMonth
+    **/
+    public String getCompleteTransactionsMonth() {
+        return completeTransactionsMonth;
+    }
+
+
+    public void setCompleteTransactionsMonth(String completeTransactionsMonth) {
+        this.completeTransactionsMonth = completeTransactionsMonth;
+    }
+
+    public InlineResponse20015Data completeRateMonth(Integer completeRateMonth) {
+        
+        this.completeRateMonth = completeRateMonth;
+        return this;
+    }
+
+     /**
+     * Completion rate in last 30 days
+     * @return completeRateMonth
+    **/
+    public Integer getCompleteRateMonth() {
+        return completeRateMonth;
+    }
+
+
+    public void setCompleteRateMonth(Integer completeRateMonth) {
+        this.completeRateMonth = completeRateMonth;
+    }
+
+    public InlineResponse20015Data isFollow(Integer isFollow) {
+        
+        this.isFollow = isFollow;
+        return this;
+    }
+
+     /**
+     * Whether following
+     * @return isFollow
+    **/
+    public Integer getIsFollow() {
+        return isFollow;
+    }
+
+
+    public void setIsFollow(Integer isFollow) {
+        this.isFollow = isFollow;
+    }
+
+    public InlineResponse20015Data haveTraded(Integer haveTraded) {
+        
+        this.haveTraded = haveTraded;
+        return this;
+    }
+
+     /**
+     * Whether traded with self
+     * @return haveTraded
+    **/
+    public Integer getHaveTraded() {
+        return haveTraded;
+    }
+
+
+    public void setHaveTraded(Integer haveTraded) {
+        this.haveTraded = haveTraded;
+    }
+
+    public InlineResponse20015Data bizUid(String bizUid) {
+        
+        this.bizUid = bizUid;
+        return this;
+    }
+
+     /**
+     * Encrypted UID
+     * @return bizUid
+    **/
+    public String getBizUid() {
+        return bizUid;
+    }
+
+
+    public void setBizUid(String bizUid) {
+        this.bizUid = bizUid;
+    }
+
+    public InlineResponse20015Data registrationDays(Integer registrationDays) {
+        
+        this.registrationDays = registrationDays;
+        return this;
+    }
+
+     /**
+     * Registration days
+     * @return registrationDays
+    **/
+    public Integer getRegistrationDays() {
+        return registrationDays;
+    }
+
+
+    public void setRegistrationDays(Integer registrationDays) {
+        this.registrationDays = registrationDays;
+    }
+
+    public InlineResponse20015Data firstTradeDays(Integer firstTradeDays) {
+        
+        this.firstTradeDays = firstTradeDays;
+        return this;
+    }
+
+     /**
+     * Days since first trade
+     * @return firstTradeDays
+    **/
+    public Integer getFirstTradeDays() {
+        return firstTradeDays;
+    }
+
+
+    public void setFirstTradeDays(Integer firstTradeDays) {
+        this.firstTradeDays = firstTradeDays;
+    }
+
+    public InlineResponse20015Data tradeVersatile(Boolean tradeVersatile) {
+        
+        this.tradeVersatile = tradeVersatile;
+        return this;
+    }
+
+     /**
+     * Single user or composite user
+     * @return tradeVersatile
+    **/
+    public Boolean getTradeVersatile() {
+        return tradeVersatile;
+    }
+
+
+    public void setTradeVersatile(Boolean tradeVersatile) {
+        this.tradeVersatile = tradeVersatile;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -147,15 +469,30 @@ public class InlineResponse20015Data {
             return false;
         }
         InlineResponse20015Data inlineResponse20015Data = (InlineResponse20015Data) o;
-        return Objects.equals(this.payType, inlineResponse20015Data.payType) &&
-                Objects.equals(this.payName, inlineResponse20015Data.payName) &&
-                Objects.equals(this.ids, inlineResponse20015Data.ids) &&
-                Objects.equals(this.list, inlineResponse20015Data.list);
+        return Objects.equals(this.userTimest, inlineResponse20015Data.userTimest) &&
+                Objects.equals(this.emailVerified, inlineResponse20015Data.emailVerified) &&
+                Objects.equals(this.verified, inlineResponse20015Data.verified) &&
+                Objects.equals(this.hasPhone, inlineResponse20015Data.hasPhone) &&
+                Objects.equals(this.userName, inlineResponse20015Data.userName) &&
+                Objects.equals(this.userNote, inlineResponse20015Data.userNote) &&
+                Objects.equals(this.completeTransactions, inlineResponse20015Data.completeTransactions) &&
+                Objects.equals(this.paidTransactions, inlineResponse20015Data.paidTransactions) &&
+                Objects.equals(this.acceptedTransactions, inlineResponse20015Data.acceptedTransactions) &&
+                Objects.equals(this.transactionsUsedTime, inlineResponse20015Data.transactionsUsedTime) &&
+                Objects.equals(this.cancelledUsedTimeMonth, inlineResponse20015Data.cancelledUsedTimeMonth) &&
+                Objects.equals(this.completeTransactionsMonth, inlineResponse20015Data.completeTransactionsMonth) &&
+                Objects.equals(this.completeRateMonth, inlineResponse20015Data.completeRateMonth) &&
+                Objects.equals(this.isFollow, inlineResponse20015Data.isFollow) &&
+                Objects.equals(this.haveTraded, inlineResponse20015Data.haveTraded) &&
+                Objects.equals(this.bizUid, inlineResponse20015Data.bizUid) &&
+                Objects.equals(this.registrationDays, inlineResponse20015Data.registrationDays) &&
+                Objects.equals(this.firstTradeDays, inlineResponse20015Data.firstTradeDays) &&
+                Objects.equals(this.tradeVersatile, inlineResponse20015Data.tradeVersatile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(payType, payName, ids, list);
+        return Objects.hash(userTimest, emailVerified, verified, hasPhone, userName, userNote, completeTransactions, paidTransactions, acceptedTransactions, transactionsUsedTime, cancelledUsedTimeMonth, completeTransactionsMonth, completeRateMonth, isFollow, haveTraded, bizUid, registrationDays, firstTradeDays, tradeVersatile);
     }
 
 
@@ -163,10 +500,25 @@ public class InlineResponse20015Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20015Data {\n");
-        sb.append("      payType: ").append(toIndentedString(payType)).append("\n");
-        sb.append("      payName: ").append(toIndentedString(payName)).append("\n");
-        sb.append("      ids: ").append(toIndentedString(ids)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      userTimest: ").append(toIndentedString(userTimest)).append("\n");
+        sb.append("      emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
+        sb.append("      verified: ").append(toIndentedString(verified)).append("\n");
+        sb.append("      hasPhone: ").append(toIndentedString(hasPhone)).append("\n");
+        sb.append("      userName: ").append(toIndentedString(userName)).append("\n");
+        sb.append("      userNote: ").append(toIndentedString(userNote)).append("\n");
+        sb.append("      completeTransactions: ").append(toIndentedString(completeTransactions)).append("\n");
+        sb.append("      paidTransactions: ").append(toIndentedString(paidTransactions)).append("\n");
+        sb.append("      acceptedTransactions: ").append(toIndentedString(acceptedTransactions)).append("\n");
+        sb.append("      transactionsUsedTime: ").append(toIndentedString(transactionsUsedTime)).append("\n");
+        sb.append("      cancelledUsedTimeMonth: ").append(toIndentedString(cancelledUsedTimeMonth)).append("\n");
+        sb.append("      completeTransactionsMonth: ").append(toIndentedString(completeTransactionsMonth)).append("\n");
+        sb.append("      completeRateMonth: ").append(toIndentedString(completeRateMonth)).append("\n");
+        sb.append("      isFollow: ").append(toIndentedString(isFollow)).append("\n");
+        sb.append("      haveTraded: ").append(toIndentedString(haveTraded)).append("\n");
+        sb.append("      bizUid: ").append(toIndentedString(bizUid)).append("\n");
+        sb.append("      registrationDays: ").append(toIndentedString(registrationDays)).append("\n");
+        sb.append("      firstTradeDays: ").append(toIndentedString(firstTradeDays)).append("\n");
+        sb.append("      tradeVersatile: ").append(toIndentedString(tradeVersatile)).append("\n");
         sb.append("}");
         return sb.toString();
     }

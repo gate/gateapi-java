@@ -17,8 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20016DataList;
-import io.gate.gateapi.models.InlineResponse20016DataTransTime;
+import io.gate.gateapi.models.InlineResponse20016List;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,30 +26,101 @@ import java.util.List;
  * InlineResponse20016Data
  */
 public class InlineResponse20016Data {
+    public static final String SERIALIZED_NAME_PAY_TYPE = "pay_type";
+    @SerializedName(SERIALIZED_NAME_PAY_TYPE)
+    private String payType;
+
+    public static final String SERIALIZED_NAME_PAY_NAME = "pay_name";
+    @SerializedName(SERIALIZED_NAME_PAY_NAME)
+    private String payName;
+
+    public static final String SERIALIZED_NAME_IDS = "ids";
+    @SerializedName(SERIALIZED_NAME_IDS)
+    private List<Integer> ids = null;
+
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20016DataList> list = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_TRANS_TIME = "trans_time";
-    @SerializedName(SERIALIZED_NAME_TRANS_TIME)
-    private List<InlineResponse20016DataTransTime> transTime = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_COUNT = "count";
-    @SerializedName(SERIALIZED_NAME_COUNT)
-    private Integer count;
-
-    public static final String SERIALIZED_NAME_EXPORTED_NUM = "exported_num";
-    @SerializedName(SERIALIZED_NAME_EXPORTED_NUM)
-    private Integer exportedNum;
+    private List<InlineResponse20016List> list = null;
 
 
-    public InlineResponse20016Data list(List<InlineResponse20016DataList> list) {
+    public InlineResponse20016Data payType(String payType) {
+        
+        this.payType = payType;
+        return this;
+    }
+
+     /**
+     * Payment method type
+     * @return payType
+    **/
+    @javax.annotation.Nullable
+    public String getPayType() {
+        return payType;
+    }
+
+
+    public void setPayType(String payType) {
+        this.payType = payType;
+    }
+
+    public InlineResponse20016Data payName(String payName) {
+        
+        this.payName = payName;
+        return this;
+    }
+
+     /**
+     * Payment method name
+     * @return payName
+    **/
+    @javax.annotation.Nullable
+    public String getPayName() {
+        return payName;
+    }
+
+
+    public void setPayName(String payName) {
+        this.payName = payName;
+    }
+
+    public InlineResponse20016Data ids(List<Integer> ids) {
+        
+        this.ids = ids;
+        return this;
+    }
+
+    public InlineResponse20016Data addIdsItem(Integer idsItem) {
+        if (this.ids == null) {
+            this.ids = new ArrayList<>();
+        }
+        this.ids.add(idsItem);
+        return this;
+    }
+
+     /**
+     * User&#39;s currently bound payment method (primary key ID)
+     * @return ids
+    **/
+    @javax.annotation.Nullable
+    public List<Integer> getIds() {
+        return ids;
+    }
+
+
+    public void setIds(List<Integer> ids) {
+        this.ids = ids;
+    }
+
+    public InlineResponse20016Data list(List<InlineResponse20016List> list) {
         
         this.list = list;
         return this;
     }
 
-    public InlineResponse20016Data addListItem(InlineResponse20016DataList listItem) {
+    public InlineResponse20016Data addListItem(InlineResponse20016List listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<>();
+        }
         this.list.add(listItem);
         return this;
     }
@@ -59,75 +129,14 @@ public class InlineResponse20016Data {
      * Get list
      * @return list
     **/
-    public List<InlineResponse20016DataList> getList() {
+    @javax.annotation.Nullable
+    public List<InlineResponse20016List> getList() {
         return list;
     }
 
 
-    public void setList(List<InlineResponse20016DataList> list) {
+    public void setList(List<InlineResponse20016List> list) {
         this.list = list;
-    }
-
-    public InlineResponse20016Data transTime(List<InlineResponse20016DataTransTime> transTime) {
-        
-        this.transTime = transTime;
-        return this;
-    }
-
-    public InlineResponse20016Data addTransTimeItem(InlineResponse20016DataTransTime transTimeItem) {
-        this.transTime.add(transTimeItem);
-        return this;
-    }
-
-     /**
-     * Countdown time
-     * @return transTime
-    **/
-    public List<InlineResponse20016DataTransTime> getTransTime() {
-        return transTime;
-    }
-
-
-    public void setTransTime(List<InlineResponse20016DataTransTime> transTime) {
-        this.transTime = transTime;
-    }
-
-    public InlineResponse20016Data count(Integer count) {
-        
-        this.count = count;
-        return this;
-    }
-
-     /**
-     * Number of orders
-     * @return count
-    **/
-    public Integer getCount() {
-        return count;
-    }
-
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public InlineResponse20016Data exportedNum(Integer exportedNum) {
-        
-        this.exportedNum = exportedNum;
-        return this;
-    }
-
-     /**
-     * Export count
-     * @return exportedNum
-    **/
-    public Integer getExportedNum() {
-        return exportedNum;
-    }
-
-
-    public void setExportedNum(Integer exportedNum) {
-        this.exportedNum = exportedNum;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,15 +147,15 @@ public class InlineResponse20016Data {
             return false;
         }
         InlineResponse20016Data inlineResponse20016Data = (InlineResponse20016Data) o;
-        return Objects.equals(this.list, inlineResponse20016Data.list) &&
-                Objects.equals(this.transTime, inlineResponse20016Data.transTime) &&
-                Objects.equals(this.count, inlineResponse20016Data.count) &&
-                Objects.equals(this.exportedNum, inlineResponse20016Data.exportedNum);
+        return Objects.equals(this.payType, inlineResponse20016Data.payType) &&
+                Objects.equals(this.payName, inlineResponse20016Data.payName) &&
+                Objects.equals(this.ids, inlineResponse20016Data.ids) &&
+                Objects.equals(this.list, inlineResponse20016Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(list, transTime, count, exportedNum);
+        return Objects.hash(payType, payName, ids, list);
     }
 
 
@@ -154,10 +163,10 @@ public class InlineResponse20016Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20016Data {\n");
+        sb.append("      payType: ").append(toIndentedString(payType)).append("\n");
+        sb.append("      payName: ").append(toIndentedString(payName)).append("\n");
+        sb.append("      ids: ").append(toIndentedString(ids)).append("\n");
         sb.append("      list: ").append(toIndentedString(list)).append("\n");
-        sb.append("      transTime: ").append(toIndentedString(transTime)).append("\n");
-        sb.append("      count: ").append(toIndentedString(count)).append("\n");
-        sb.append("      exportedNum: ").append(toIndentedString(exportedNum)).append("\n");
         sb.append("}");
         return sb.toString();
     }

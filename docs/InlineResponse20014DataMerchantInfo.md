@@ -1,5 +1,5 @@
 
-# InlineResponse20013DataMerchantInfo
+# InlineResponse20014DataMerchantInfo
 
 Markets where user can place orders
 

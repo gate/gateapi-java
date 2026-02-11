@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | 
 **code** | **Integer** |  | 
+**message** | **String** |  | 
 **data** | [**InlineResponse20012Data**](InlineResponse20012Data.md) |  | 
 

@@ -17,127 +17,70 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.RuleRiskLimitsTiers;
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20025
  */
 public class InlineResponse20025 {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_MIN_TRANS_AMOUNT = "min_trans_amount";
-    @SerializedName(SERIALIZED_NAME_MIN_TRANS_AMOUNT)
-    private BigDecimal minTransAmount;
-
-    public static final String SERIALIZED_NAME_EST_FEE = "est_fee";
-    @SerializedName(SERIALIZED_NAME_EST_FEE)
-    private BigDecimal estFee;
-
-    public static final String SERIALIZED_NAME_PRECISION = "precision";
-    @SerializedName(SERIALIZED_NAME_PRECISION)
-    private Integer precision;
-
-    public static final String SERIALIZED_NAME_IS_DISABLED = "is_disabled";
-    @SerializedName(SERIALIZED_NAME_IS_DISABLED)
-    private Integer isDisabled;
+    public static final String SERIALIZED_NAME_TIERS = "tiers";
+    @SerializedName(SERIALIZED_NAME_TIERS)
+    private List<RuleRiskLimitsTiers> tiers = null;
 
 
-    public InlineResponse20025 coin(String coin) {
+    public InlineResponse20025 symbol(String symbol) {
         
-        this.coin = coin;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Get symbol
+     * @return symbol
     **/
-    public String getCoin() {
-        return coin;
+    @javax.annotation.Nullable
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineResponse20025 minTransAmount(BigDecimal minTransAmount) {
+    public InlineResponse20025 tiers(List<RuleRiskLimitsTiers> tiers) {
         
-        this.minTransAmount = minTransAmount;
+        this.tiers = tiers;
+        return this;
+    }
+
+    public InlineResponse20025 addTiersItem(RuleRiskLimitsTiers tiersItem) {
+        if (this.tiers == null) {
+            this.tiers = new ArrayList<>();
+        }
+        this.tiers.add(tiersItem);
         return this;
     }
 
      /**
-     * Minimum Transfer Quantity (including estimated fees)
-     * @return minTransAmount
+     * Get tiers
+     * @return tiers
     **/
-    public BigDecimal getMinTransAmount() {
-        return minTransAmount;
+    @javax.annotation.Nullable
+    public List<RuleRiskLimitsTiers> getTiers() {
+        return tiers;
     }
 
 
-    public void setMinTransAmount(BigDecimal minTransAmount) {
-        this.minTransAmount = minTransAmount;
-    }
-
-    public InlineResponse20025 estFee(BigDecimal estFee) {
-        
-        this.estFee = estFee;
-        return this;
-    }
-
-     /**
-     * Estimated Fee
-     * @return estFee
-    **/
-    public BigDecimal getEstFee() {
-        return estFee;
-    }
-
-
-    public void setEstFee(BigDecimal estFee) {
-        this.estFee = estFee;
-    }
-
-    public InlineResponse20025 precision(Integer precision) {
-        
-        this.precision = precision;
-        return this;
-    }
-
-     /**
-     * Precision
-     * @return precision
-    **/
-    public Integer getPrecision() {
-        return precision;
-    }
-
-
-    public void setPrecision(Integer precision) {
-        this.precision = precision;
-    }
-
-    public InlineResponse20025 isDisabled(Integer isDisabled) {
-        
-        this.isDisabled = isDisabled;
-        return this;
-    }
-
-     /**
-     * If it is disabled. 0 means NOT being disabled
-     * @return isDisabled
-    **/
-    public Integer getIsDisabled() {
-        return isDisabled;
-    }
-
-
-    public void setIsDisabled(Integer isDisabled) {
-        this.isDisabled = isDisabled;
+    public void setTiers(List<RuleRiskLimitsTiers> tiers) {
+        this.tiers = tiers;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -148,16 +91,13 @@ public class InlineResponse20025 {
             return false;
         }
         InlineResponse20025 inlineResponse20025 = (InlineResponse20025) o;
-        return Objects.equals(this.coin, inlineResponse20025.coin) &&
-                Objects.equals(this.minTransAmount, inlineResponse20025.minTransAmount) &&
-                Objects.equals(this.estFee, inlineResponse20025.estFee) &&
-                Objects.equals(this.precision, inlineResponse20025.precision) &&
-                Objects.equals(this.isDisabled, inlineResponse20025.isDisabled);
+        return Objects.equals(this.symbol, inlineResponse20025.symbol) &&
+                Objects.equals(this.tiers, inlineResponse20025.tiers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, minTransAmount, estFee, precision, isDisabled);
+        return Objects.hash(symbol, tiers);
     }
 
 
@@ -165,11 +105,8 @@ public class InlineResponse20025 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20025 {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      minTransAmount: ").append(toIndentedString(minTransAmount)).append("\n");
-        sb.append("      estFee: ").append(toIndentedString(estFee)).append("\n");
-        sb.append("      precision: ").append(toIndentedString(precision)).append("\n");
-        sb.append("      isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      tiers: ").append(toIndentedString(tiers)).append("\n");
         sb.append("}");
         return sb.toString();
     }

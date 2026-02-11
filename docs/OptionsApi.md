@@ -545,7 +545,7 @@ public class Example {
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
         String contract = "BTC_USDT-20210916-5000-C"; // String | Options contract name
-        String interval = "0"; // String | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        String interval = "0"; // String | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         Integer limit = 10; // Integer | Number of depth levels
         Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time the depth changes
         try {
@@ -573,7 +573,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **String**| Options contract name |
- **interval** | **String**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to 0] [enum: 0, 0.1, 0.01]
+ **interval** | **String**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
  **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to false]
 

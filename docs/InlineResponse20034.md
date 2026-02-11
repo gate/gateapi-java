@@ -5,8 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**coin** | **String** | Currency | 
-**exchangeType** | **String** | Exchange | 
-**hourInterestRate** | **String** | Hourly Interest Rate | 
-**time** | **String** | Millisecond Timestamp | 
+**symbol** | **String** | Currency pair | 
+**leverage** | **String** | leverage | 
 

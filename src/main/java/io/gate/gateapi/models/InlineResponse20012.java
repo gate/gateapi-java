@@ -24,37 +24,18 @@ import java.io.IOException;
  * InlineResponse20012
  */
 public class InlineResponse20012 {
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse20012Data data;
 
-
-    public InlineResponse20012 message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Get message
-     * @return message
-    **/
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public InlineResponse20012 code(Integer code) {
         
@@ -73,6 +54,25 @@ public class InlineResponse20012 {
 
     public void setCode(Integer code) {
         this.code = code;
+    }
+
+    public InlineResponse20012 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Get message
+     * @return message
+    **/
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public InlineResponse20012 data(InlineResponse20012Data data) {
@@ -102,14 +102,14 @@ public class InlineResponse20012 {
             return false;
         }
         InlineResponse20012 inlineResponse20012 = (InlineResponse20012) o;
-        return Objects.equals(this.message, inlineResponse20012.message) &&
-                Objects.equals(this.code, inlineResponse20012.code) &&
+        return Objects.equals(this.code, inlineResponse20012.code) &&
+                Objects.equals(this.message, inlineResponse20012.message) &&
                 Objects.equals(this.data, inlineResponse20012.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(message, code, data);
+        return Objects.hash(code, message, data);
     }
 
 
@@ -117,8 +117,8 @@ public class InlineResponse20012 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20012 {\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

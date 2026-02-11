@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20015List
+ * InlineResponse20016List
  */
-public class InlineResponse20015List {
+public class InlineResponse20016List {
     public static final String SERIALIZED_NAME_UID = "uid";
     @SerializedName(SERIALIZED_NAME_UID)
     private Integer uid;
@@ -112,7 +112,7 @@ public class InlineResponse20015List {
     private String tradeTips;
 
 
-    public InlineResponse20015List uid(Integer uid) {
+    public InlineResponse20016List uid(Integer uid) {
         
         this.uid = uid;
         return this;
@@ -132,7 +132,7 @@ public class InlineResponse20015List {
         this.uid = uid;
     }
 
-    public InlineResponse20015List bankid(String bankid) {
+    public InlineResponse20016List bankid(String bankid) {
         
         this.bankid = bankid;
         return this;
@@ -152,7 +152,7 @@ public class InlineResponse20015List {
         this.bankid = bankid;
     }
 
-    public InlineResponse20015List nickname(Integer nickname) {
+    public InlineResponse20016List nickname(Integer nickname) {
         
         this.nickname = nickname;
         return this;
@@ -172,7 +172,7 @@ public class InlineResponse20015List {
         this.nickname = nickname;
     }
 
-    public InlineResponse20015List bankname(String bankname) {
+    public InlineResponse20016List bankname(String bankname) {
         
         this.bankname = bankname;
         return this;
@@ -192,7 +192,7 @@ public class InlineResponse20015List {
         this.bankname = bankname;
     }
 
-    public InlineResponse20015List bankbranch(String bankbranch) {
+    public InlineResponse20016List bankbranch(String bankbranch) {
         
         this.bankbranch = bankbranch;
         return this;
@@ -212,7 +212,7 @@ public class InlineResponse20015List {
         this.bankbranch = bankbranch;
     }
 
-    public InlineResponse20015List bankcity(String bankcity) {
+    public InlineResponse20016List bankcity(String bankcity) {
         
         this.bankcity = bankcity;
         return this;
@@ -232,7 +232,7 @@ public class InlineResponse20015List {
         this.bankcity = bankcity;
     }
 
-    public InlineResponse20015List bankprov(String bankprov) {
+    public InlineResponse20016List bankprov(String bankprov) {
         
         this.bankprov = bankprov;
         return this;
@@ -252,7 +252,7 @@ public class InlineResponse20015List {
         this.bankprov = bankprov;
     }
 
-    public InlineResponse20015List bankaddr(String bankaddr) {
+    public InlineResponse20016List bankaddr(String bankaddr) {
         
         this.bankaddr = bankaddr;
         return this;
@@ -272,7 +272,7 @@ public class InlineResponse20015List {
         this.bankaddr = bankaddr;
     }
 
-    public InlineResponse20015List bankdesc(String bankdesc) {
+    public InlineResponse20016List bankdesc(String bankdesc) {
         
         this.bankdesc = bankdesc;
         return this;
@@ -292,7 +292,7 @@ public class InlineResponse20015List {
         this.bankdesc = bankdesc;
     }
 
-    public InlineResponse20015List holdUid(Integer holdUid) {
+    public InlineResponse20016List holdUid(Integer holdUid) {
         
         this.holdUid = holdUid;
         return this;
@@ -312,7 +312,7 @@ public class InlineResponse20015List {
         this.holdUid = holdUid;
     }
 
-    public InlineResponse20015List holdUsername(String holdUsername) {
+    public InlineResponse20016List holdUsername(String holdUsername) {
         
         this.holdUsername = holdUsername;
         return this;
@@ -332,7 +332,7 @@ public class InlineResponse20015List {
         this.holdUsername = holdUsername;
     }
 
-    public InlineResponse20015List realName(String realName) {
+    public InlineResponse20016List realName(String realName) {
         
         this.realName = realName;
         return this;
@@ -352,7 +352,7 @@ public class InlineResponse20015List {
         this.realName = realName;
     }
 
-    public InlineResponse20015List id(String id) {
+    public InlineResponse20016List id(String id) {
         
         this.id = id;
         return this;
@@ -372,7 +372,7 @@ public class InlineResponse20015List {
         this.id = id;
     }
 
-    public InlineResponse20015List accountDes(String accountDes) {
+    public InlineResponse20016List accountDes(String accountDes) {
         
         this.accountDes = accountDes;
         return this;
@@ -392,7 +392,7 @@ public class InlineResponse20015List {
         this.accountDes = accountDes;
     }
 
-    public InlineResponse20015List payType(String payType) {
+    public InlineResponse20016List payType(String payType) {
         
         this.payType = payType;
         return this;
@@ -412,7 +412,7 @@ public class InlineResponse20015List {
         this.payType = payType;
     }
 
-    public InlineResponse20015List file(String file) {
+    public InlineResponse20016List file(String file) {
         
         this.file = file;
         return this;
@@ -432,7 +432,7 @@ public class InlineResponse20015List {
         this.file = file;
     }
 
-    public InlineResponse20015List fileKey(String fileKey) {
+    public InlineResponse20016List fileKey(String fileKey) {
         
         this.fileKey = fileKey;
         return this;
@@ -452,7 +452,7 @@ public class InlineResponse20015List {
         this.fileKey = fileKey;
     }
 
-    public InlineResponse20015List account(String account) {
+    public InlineResponse20016List account(String account) {
         
         this.account = account;
         return this;
@@ -472,7 +472,7 @@ public class InlineResponse20015List {
         this.account = account;
     }
 
-    public InlineResponse20015List memo(String memo) {
+    public InlineResponse20016List memo(String memo) {
         
         this.memo = memo;
         return this;
@@ -492,7 +492,7 @@ public class InlineResponse20015List {
         this.memo = memo;
     }
 
-    public InlineResponse20015List code(String code) {
+    public InlineResponse20016List code(String code) {
         
         this.code = code;
         return this;
@@ -512,7 +512,7 @@ public class InlineResponse20015List {
         this.code = code;
     }
 
-    public InlineResponse20015List memoExt(String memoExt) {
+    public InlineResponse20016List memoExt(String memoExt) {
         
         this.memoExt = memoExt;
         return this;
@@ -532,7 +532,7 @@ public class InlineResponse20015List {
         this.memoExt = memoExt;
     }
 
-    public InlineResponse20015List tradeTips(String tradeTips) {
+    public InlineResponse20016List tradeTips(String tradeTips) {
         
         this.tradeTips = tradeTips;
         return this;
@@ -559,29 +559,29 @@ public class InlineResponse20015List {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20015List inlineResponse20015List = (InlineResponse20015List) o;
-        return Objects.equals(this.uid, inlineResponse20015List.uid) &&
-                Objects.equals(this.bankid, inlineResponse20015List.bankid) &&
-                Objects.equals(this.nickname, inlineResponse20015List.nickname) &&
-                Objects.equals(this.bankname, inlineResponse20015List.bankname) &&
-                Objects.equals(this.bankbranch, inlineResponse20015List.bankbranch) &&
-                Objects.equals(this.bankcity, inlineResponse20015List.bankcity) &&
-                Objects.equals(this.bankprov, inlineResponse20015List.bankprov) &&
-                Objects.equals(this.bankaddr, inlineResponse20015List.bankaddr) &&
-                Objects.equals(this.bankdesc, inlineResponse20015List.bankdesc) &&
-                Objects.equals(this.holdUid, inlineResponse20015List.holdUid) &&
-                Objects.equals(this.holdUsername, inlineResponse20015List.holdUsername) &&
-                Objects.equals(this.realName, inlineResponse20015List.realName) &&
-                Objects.equals(this.id, inlineResponse20015List.id) &&
-                Objects.equals(this.accountDes, inlineResponse20015List.accountDes) &&
-                Objects.equals(this.payType, inlineResponse20015List.payType) &&
-                Objects.equals(this.file, inlineResponse20015List.file) &&
-                Objects.equals(this.fileKey, inlineResponse20015List.fileKey) &&
-                Objects.equals(this.account, inlineResponse20015List.account) &&
-                Objects.equals(this.memo, inlineResponse20015List.memo) &&
-                Objects.equals(this.code, inlineResponse20015List.code) &&
-                Objects.equals(this.memoExt, inlineResponse20015List.memoExt) &&
-                Objects.equals(this.tradeTips, inlineResponse20015List.tradeTips);
+        InlineResponse20016List inlineResponse20016List = (InlineResponse20016List) o;
+        return Objects.equals(this.uid, inlineResponse20016List.uid) &&
+                Objects.equals(this.bankid, inlineResponse20016List.bankid) &&
+                Objects.equals(this.nickname, inlineResponse20016List.nickname) &&
+                Objects.equals(this.bankname, inlineResponse20016List.bankname) &&
+                Objects.equals(this.bankbranch, inlineResponse20016List.bankbranch) &&
+                Objects.equals(this.bankcity, inlineResponse20016List.bankcity) &&
+                Objects.equals(this.bankprov, inlineResponse20016List.bankprov) &&
+                Objects.equals(this.bankaddr, inlineResponse20016List.bankaddr) &&
+                Objects.equals(this.bankdesc, inlineResponse20016List.bankdesc) &&
+                Objects.equals(this.holdUid, inlineResponse20016List.holdUid) &&
+                Objects.equals(this.holdUsername, inlineResponse20016List.holdUsername) &&
+                Objects.equals(this.realName, inlineResponse20016List.realName) &&
+                Objects.equals(this.id, inlineResponse20016List.id) &&
+                Objects.equals(this.accountDes, inlineResponse20016List.accountDes) &&
+                Objects.equals(this.payType, inlineResponse20016List.payType) &&
+                Objects.equals(this.file, inlineResponse20016List.file) &&
+                Objects.equals(this.fileKey, inlineResponse20016List.fileKey) &&
+                Objects.equals(this.account, inlineResponse20016List.account) &&
+                Objects.equals(this.memo, inlineResponse20016List.memo) &&
+                Objects.equals(this.code, inlineResponse20016List.code) &&
+                Objects.equals(this.memoExt, inlineResponse20016List.memoExt) &&
+                Objects.equals(this.tradeTips, inlineResponse20016List.tradeTips);
     }
 
     @Override
@@ -593,7 +593,7 @@ public class InlineResponse20015List {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20015List {\n");
+        sb.append("class InlineResponse20016List {\n");
         sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
         sb.append("      bankid: ").append(toIndentedString(bankid)).append("\n");
         sb.append("      nickname: ").append(toIndentedString(nickname)).append("\n");

@@ -379,7 +379,7 @@ public class DeliveryApi {
 
         /**
          * Set interval
-         * @param interval Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional, default to 0)
+         * @param interval Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional, default to 0)
          * @return APIlistDeliveryOrderBookRequest
          */
         public APIlistDeliveryOrderBookRequest interval(String interval) {
@@ -4096,7 +4096,7 @@ public class DeliveryApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredDeliveryOrderListCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
@@ -4159,7 +4159,7 @@ public class DeliveryApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public List<FuturesPriceTriggeredOrder> cancelPriceTriggeredDeliveryOrderList(String settle, String contract) throws ApiException {
@@ -4177,7 +4177,7 @@ public class DeliveryApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FuturesPriceTriggeredOrder>> cancelPriceTriggeredDeliveryOrderListWithHttpInfo(String settle, String contract) throws ApiException {
@@ -4197,7 +4197,7 @@ public class DeliveryApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredDeliveryOrderListAsync(String settle, String contract, final ApiCallback<List<FuturesPriceTriggeredOrder>> _callback) throws ApiException {

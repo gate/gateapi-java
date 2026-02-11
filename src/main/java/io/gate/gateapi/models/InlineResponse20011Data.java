@@ -26,101 +26,101 @@ import java.util.List;
  * InlineResponse20011Data
  */
 public class InlineResponse20011Data {
-    public static final String SERIALIZED_NAME_TOTAL = "total";
-    @SerializedName(SERIALIZED_NAME_TOTAL)
-    private Integer total;
+    public static final String SERIALIZED_NAME_PN = "pn";
+    @SerializedName(SERIALIZED_NAME_PN)
+    private Integer pn;
 
-    public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
-    @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
-    private Integer pageSize;
+    public static final String SERIALIZED_NAME_PS = "ps";
+    @SerializedName(SERIALIZED_NAME_PS)
+    private Integer ps;
 
-    public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
-    @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
-    private Integer pageNumber;
+    public static final String SERIALIZED_NAME_TOTAL_PN = "total_pn";
+    @SerializedName(SERIALIZED_NAME_TOTAL_PN)
+    private Integer totalPn;
 
-    public static final String SERIALIZED_NAME_TOTAL_PAGE = "total_page";
-    @SerializedName(SERIALIZED_NAME_TOTAL_PAGE)
-    private Integer totalPage;
+    public static final String SERIALIZED_NAME_COUNT = "count";
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private Integer count;
 
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
     private List<InlineResponse20011DataList> list = new ArrayList<>();
 
 
-    public InlineResponse20011Data total(Integer total) {
+    public InlineResponse20011Data pn(Integer pn) {
         
-        this.total = total;
+        this.pn = pn;
         return this;
     }
 
      /**
-     * Get total
-     * @return total
+     * Get pn
+     * @return pn
     **/
-    public Integer getTotal() {
-        return total;
+    public Integer getPn() {
+        return pn;
     }
 
 
-    public void setTotal(Integer total) {
-        this.total = total;
+    public void setPn(Integer pn) {
+        this.pn = pn;
     }
 
-    public InlineResponse20011Data pageSize(Integer pageSize) {
+    public InlineResponse20011Data ps(Integer ps) {
         
-        this.pageSize = pageSize;
+        this.ps = ps;
         return this;
     }
 
      /**
-     * Get pageSize
-     * @return pageSize
+     * Get ps
+     * @return ps
     **/
-    public Integer getPageSize() {
-        return pageSize;
+    public Integer getPs() {
+        return ps;
     }
 
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setPs(Integer ps) {
+        this.ps = ps;
     }
 
-    public InlineResponse20011Data pageNumber(Integer pageNumber) {
+    public InlineResponse20011Data totalPn(Integer totalPn) {
         
-        this.pageNumber = pageNumber;
+        this.totalPn = totalPn;
         return this;
     }
 
      /**
-     * Get pageNumber
-     * @return pageNumber
+     * Get totalPn
+     * @return totalPn
     **/
-    public Integer getPageNumber() {
-        return pageNumber;
+    public Integer getTotalPn() {
+        return totalPn;
     }
 
 
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
+    public void setTotalPn(Integer totalPn) {
+        this.totalPn = totalPn;
     }
 
-    public InlineResponse20011Data totalPage(Integer totalPage) {
+    public InlineResponse20011Data count(Integer count) {
         
-        this.totalPage = totalPage;
+        this.count = count;
         return this;
     }
 
      /**
-     * Get totalPage
-     * @return totalPage
+     * Get count
+     * @return count
     **/
-    public Integer getTotalPage() {
-        return totalPage;
+    public Integer getCount() {
+        return count;
     }
 
 
-    public void setTotalPage(Integer totalPage) {
-        this.totalPage = totalPage;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public InlineResponse20011Data list(List<InlineResponse20011DataList> list) {
@@ -155,16 +155,16 @@ public class InlineResponse20011Data {
             return false;
         }
         InlineResponse20011Data inlineResponse20011Data = (InlineResponse20011Data) o;
-        return Objects.equals(this.total, inlineResponse20011Data.total) &&
-                Objects.equals(this.pageSize, inlineResponse20011Data.pageSize) &&
-                Objects.equals(this.pageNumber, inlineResponse20011Data.pageNumber) &&
-                Objects.equals(this.totalPage, inlineResponse20011Data.totalPage) &&
+        return Objects.equals(this.pn, inlineResponse20011Data.pn) &&
+                Objects.equals(this.ps, inlineResponse20011Data.ps) &&
+                Objects.equals(this.totalPn, inlineResponse20011Data.totalPn) &&
+                Objects.equals(this.count, inlineResponse20011Data.count) &&
                 Objects.equals(this.list, inlineResponse20011Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, pageSize, pageNumber, totalPage, list);
+        return Objects.hash(pn, ps, totalPn, count, list);
     }
 
 
@@ -172,10 +172,10 @@ public class InlineResponse20011Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20011Data {\n");
-        sb.append("      total: ").append(toIndentedString(total)).append("\n");
-        sb.append("      pageSize: ").append(toIndentedString(pageSize)).append("\n");
-        sb.append("      pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-        sb.append("      totalPage: ").append(toIndentedString(totalPage)).append("\n");
+        sb.append("      pn: ").append(toIndentedString(pn)).append("\n");
+        sb.append("      ps: ").append(toIndentedString(ps)).append("\n");
+        sb.append("      totalPn: ").append(toIndentedString(totalPn)).append("\n");
+        sb.append("      count: ").append(toIndentedString(count)).append("\n");
         sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();

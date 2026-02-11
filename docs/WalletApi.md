@@ -195,7 +195,7 @@ public class Example {
         String withdrawId = "withdrawId_example"; // String | Withdrawal record ID starts with 'w', such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled
         String assetClass = "assetClass_example"; // String | Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone
         String withdrawOrderId = "withdrawOrderId_example"; // String | User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
  **withdrawId** | **String**| Withdrawal record ID starts with &#39;w&#39;, such as: w1879219868. When withdraw_id is not empty, only this specific withdrawal record will be queried, and time-based querying will be disabled | [optional]
  **assetClass** | **String**| Currency type of withdrawal record, empty by default. Supports querying withdrawal records in main zone and innovation zone on demand. Value range: SPOT, PILOT  SPOT: Main Zone PILOT: Innovation Zone | [optional]
  **withdrawOrderId** | **String**| User-defined order number for withdrawal. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -285,7 +285,7 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String currency = "BTC"; // String | Specify the currency. If not specified, returns all currencies
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of entries returned in the list, limited to 500 transactions
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -316,7 +316,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **String**| Specify the currency. If not specified, returns all currencies | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of entries returned in the list, limited to 500 transactions | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -439,7 +439,7 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String subUid = "10003"; // String | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
-        Long from = 1602120000L; // Long | Start time for querying records, defaults to 7 days before current time if not specified
+        Long from = 1602120000L; // Long | Start time for querying records. If not specified, defaults to 7 days before current time
         Long to = 1602123600L; // Long | End timestamp for the query, defaults to current time if not specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -470,7 +470,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subUid** | **String**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
- **from** | **Long**| Start time for querying records, defaults to 7 days before current time if not specified | [optional]
+ **from** | **Long**| Start time for querying records. If not specified, defaults to 7 days before current time | [optional]
  **to** | **Long**| End timestamp for the query, defaults to current time if not specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]

@@ -192,7 +192,7 @@ public class Example {
         DeliveryApi apiInstance = new DeliveryApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         String contract = "BTC_USDT_20200814"; // String | Futures contract
-        String interval = "0"; // String | Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified
+        String interval = "0"; // String | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         Integer limit = 10; // Integer | Number of depth levels
         Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time the depth changes
         try {
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: usdt]
  **contract** | **String**| Futures contract |
- **interval** | **String**| Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified | [optional] [default to 0] [enum: 0, 0.1, 0.01]
+ **interval** | **String**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to 0] [enum: 0, 0.1, 0.01]
  **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
  **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to false]
 
@@ -2030,7 +2030,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Batch cancellation request accepted and processed, success determined by order list |  -  |
+**200** | Batch cancel request is received and processed. Success is determined based on the order list |  -  |
 
 <a name="getPriceTriggeredDeliveryOrder"></a>
 # **getPriceTriggeredDeliveryOrder**

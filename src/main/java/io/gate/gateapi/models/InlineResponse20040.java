@@ -23,77 +23,101 @@ import java.io.IOException;
  * InlineResponse20040
  */
 public class InlineResponse20040 {
-    public static final String SERIALIZED_NAME_POSITION_ID = "position_id";
-    @SerializedName(SERIALIZED_NAME_POSITION_ID)
-    private String positionId;
-
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
+
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
+
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
+    public static final String SERIALIZED_NAME_STATE = "state";
+    @SerializedName(SERIALIZED_NAME_STATE)
+    private String state;
 
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_CLOSED_TYPE = "closed_type";
-    @SerializedName(SERIALIZED_NAME_CLOSED_TYPE)
-    private String closedType;
+    public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
+    @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
+    private String attribute;
 
-    public static final String SERIALIZED_NAME_CLOSED_PNL = "closed_pnl";
-    @SerializedName(SERIALIZED_NAME_CLOSED_PNL)
-    private String closedPnl;
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
 
-    public static final String SERIALIZED_NAME_CLOSED_PNL_RATE = "closed_pnl_rate";
-    @SerializedName(SERIALIZED_NAME_CLOSED_PNL_RATE)
-    private String closedPnlRate;
+    public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
+    @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
+    private String businessType;
 
-    public static final String SERIALIZED_NAME_OPEN_AVG_PRICE = "open_avg_price";
-    @SerializedName(SERIALIZED_NAME_OPEN_AVG_PRICE)
-    private String openAvgPrice;
+    public static final String SERIALIZED_NAME_QTY = "qty";
+    @SerializedName(SERIALIZED_NAME_QTY)
+    private String qty;
 
-    public static final String SERIALIZED_NAME_CLOSED_AVG_PRICE = "closed_avg_price";
-    @SerializedName(SERIALIZED_NAME_CLOSED_AVG_PRICE)
-    private String closedAvgPrice;
+    public static final String SERIALIZED_NAME_QUOTE_QTY = "quote_qty";
+    @SerializedName(SERIALIZED_NAME_QUOTE_QTY)
+    private String quoteQty;
 
-    public static final String SERIALIZED_NAME_MAX_POSITION_QTY = "max_position_qty";
-    @SerializedName(SERIALIZED_NAME_MAX_POSITION_QTY)
-    private String maxPositionQty;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
-    public static final String SERIALIZED_NAME_CLOSED_QTY = "closed_qty";
-    @SerializedName(SERIALIZED_NAME_CLOSED_QTY)
-    private String closedQty;
+    public static final String SERIALIZED_NAME_TIME_IN_FORCE = "time_in_force";
+    @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
+    private String timeInForce;
 
-    public static final String SERIALIZED_NAME_CLOSED_VALUE = "closed_value";
-    @SerializedName(SERIALIZED_NAME_CLOSED_VALUE)
-    private String closedValue;
+    public static final String SERIALIZED_NAME_EXECUTED_QTY = "executed_qty";
+    @SerializedName(SERIALIZED_NAME_EXECUTED_QTY)
+    private String executedQty;
+
+    public static final String SERIALIZED_NAME_EXECUTED_AMOUNT = "executed_amount";
+    @SerializedName(SERIALIZED_NAME_EXECUTED_AMOUNT)
+    private String executedAmount;
+
+    public static final String SERIALIZED_NAME_EXECUTED_AVG_PRICE = "executed_avg_price";
+    @SerializedName(SERIALIZED_NAME_EXECUTED_AVG_PRICE)
+    private String executedAvgPrice;
+
+    public static final String SERIALIZED_NAME_FEE_COIN = "fee_coin";
+    @SerializedName(SERIALIZED_NAME_FEE_COIN)
+    private String feeCoin;
 
     public static final String SERIALIZED_NAME_FEE = "fee";
     @SerializedName(SERIALIZED_NAME_FEE)
     private String fee;
 
-    public static final String SERIALIZED_NAME_LIQ_FEE = "liq_fee";
-    @SerializedName(SERIALIZED_NAME_LIQ_FEE)
-    private String liqFee;
-
-    public static final String SERIALIZED_NAME_FUNDING_FEE = "funding_fee";
-    @SerializedName(SERIALIZED_NAME_FUNDING_FEE)
-    private String fundingFee;
-
-    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
-    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
-    private String positionSide;
-
-    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
-    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
-    private String positionMode;
+    public static final String SERIALIZED_NAME_REDUCE_ONLY = "reduce_only";
+    @SerializedName(SERIALIZED_NAME_REDUCE_ONLY)
+    private String reduceOnly;
 
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
 
-    public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
-    @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-    private String businessType;
+    public static final String SERIALIZED_NAME_REASON = "reason";
+    @SerializedName(SERIALIZED_NAME_REASON)
+    private String reason;
+
+    public static final String SERIALIZED_NAME_LAST_EXECUTED_QTY = "last_executed_qty";
+    @SerializedName(SERIALIZED_NAME_LAST_EXECUTED_QTY)
+    private String lastExecutedQty;
+
+    public static final String SERIALIZED_NAME_LAST_EXECUTED_PRICE = "last_executed_price";
+    @SerializedName(SERIALIZED_NAME_LAST_EXECUTED_PRICE)
+    private String lastExecutedPrice;
+
+    public static final String SERIALIZED_NAME_LAST_EXECUTED_AMOUNT = "last_executed_amount";
+    @SerializedName(SERIALIZED_NAME_LAST_EXECUTED_AMOUNT)
+    private String lastExecutedAmount;
+
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private String positionSide;
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
@@ -103,26 +127,6 @@ public class InlineResponse20040 {
     @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
     private String updateTime;
 
-
-    public InlineResponse20040 positionId(String positionId) {
-        
-        this.positionId = positionId;
-        return this;
-    }
-
-     /**
-     * Position ID
-     * @return positionId
-    **/
-    @javax.annotation.Nullable
-    public String getPositionId() {
-        return positionId;
-    }
-
-
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
 
     public InlineResponse20040 userId(String userId) {
         
@@ -134,7 +138,6 @@ public class InlineResponse20040 {
      * User ID
      * @return userId
     **/
-    @javax.annotation.Nullable
     public String getUserId() {
         return userId;
     }
@@ -142,6 +145,63 @@ public class InlineResponse20040 {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public InlineResponse20040 orderId(String orderId) {
+        
+        this.orderId = orderId;
+        return this;
+    }
+
+     /**
+     * Order ID
+     * @return orderId
+    **/
+    public String getOrderId() {
+        return orderId;
+    }
+
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public InlineResponse20040 text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * Client Order ID
+     * @return text
+    **/
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public InlineResponse20040 state(String state) {
+        
+        this.state = state;
+        return this;
+    }
+
+     /**
+     * Order Status
+     * @return state
+    **/
+    public String getState() {
+        return state;
+    }
+
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public InlineResponse20040 symbol(String symbol) {
@@ -154,7 +214,6 @@ public class InlineResponse20040 {
      * Currency pair
      * @return symbol
     **/
-    @javax.annotation.Nullable
     public String getSymbol() {
         return symbol;
     }
@@ -164,284 +223,42 @@ public class InlineResponse20040 {
         this.symbol = symbol;
     }
 
-    public InlineResponse20040 closedType(String closedType) {
+    public InlineResponse20040 attribute(String attribute) {
         
-        this.closedType = closedType;
+        this.attribute = attribute;
         return this;
     }
 
      /**
-     * Position close type (PARTIAL_CLOSED: partially closed; COMPLETE_CLOSED: fully closed)
-     * @return closedType
+     * Attribute COMMON: Normal Order, LIQ: Liquidation Takeover Order, REDUCE: Liquidation Reduce Order, ADL: Auto-Reduce
+     * @return attribute
     **/
-    @javax.annotation.Nullable
-    public String getClosedType() {
-        return closedType;
+    public String getAttribute() {
+        return attribute;
     }
 
 
-    public void setClosedType(String closedType) {
-        this.closedType = closedType;
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
     }
 
-    public InlineResponse20040 closedPnl(String closedPnl) {
+    public InlineResponse20040 exchangeType(String exchangeType) {
         
-        this.closedPnl = closedPnl;
+        this.exchangeType = exchangeType;
         return this;
     }
 
      /**
-     * Close Position P&amp;L
-     * @return closedPnl
+     * Exchange
+     * @return exchangeType
     **/
-    @javax.annotation.Nullable
-    public String getClosedPnl() {
-        return closedPnl;
+    public String getExchangeType() {
+        return exchangeType;
     }
 
 
-    public void setClosedPnl(String closedPnl) {
-        this.closedPnl = closedPnl;
-    }
-
-    public InlineResponse20040 closedPnlRate(String closedPnlRate) {
-        
-        this.closedPnlRate = closedPnlRate;
-        return this;
-    }
-
-     /**
-     * Close Position P&amp;L Ratio
-     * @return closedPnlRate
-    **/
-    @javax.annotation.Nullable
-    public String getClosedPnlRate() {
-        return closedPnlRate;
-    }
-
-
-    public void setClosedPnlRate(String closedPnlRate) {
-        this.closedPnlRate = closedPnlRate;
-    }
-
-    public InlineResponse20040 openAvgPrice(String openAvgPrice) {
-        
-        this.openAvgPrice = openAvgPrice;
-        return this;
-    }
-
-     /**
-     * Average Opening Price
-     * @return openAvgPrice
-    **/
-    @javax.annotation.Nullable
-    public String getOpenAvgPrice() {
-        return openAvgPrice;
-    }
-
-
-    public void setOpenAvgPrice(String openAvgPrice) {
-        this.openAvgPrice = openAvgPrice;
-    }
-
-    public InlineResponse20040 closedAvgPrice(String closedAvgPrice) {
-        
-        this.closedAvgPrice = closedAvgPrice;
-        return this;
-    }
-
-     /**
-     * Average Close Price
-     * @return closedAvgPrice
-    **/
-    @javax.annotation.Nullable
-    public String getClosedAvgPrice() {
-        return closedAvgPrice;
-    }
-
-
-    public void setClosedAvgPrice(String closedAvgPrice) {
-        this.closedAvgPrice = closedAvgPrice;
-    }
-
-    public InlineResponse20040 maxPositionQty(String maxPositionQty) {
-        
-        this.maxPositionQty = maxPositionQty;
-        return this;
-    }
-
-     /**
-     * Max Trade Size
-     * @return maxPositionQty
-    **/
-    @javax.annotation.Nullable
-    public String getMaxPositionQty() {
-        return maxPositionQty;
-    }
-
-
-    public void setMaxPositionQty(String maxPositionQty) {
-        this.maxPositionQty = maxPositionQty;
-    }
-
-    public InlineResponse20040 closedQty(String closedQty) {
-        
-        this.closedQty = closedQty;
-        return this;
-    }
-
-     /**
-     * Close Position Quantity
-     * @return closedQty
-    **/
-    @javax.annotation.Nullable
-    public String getClosedQty() {
-        return closedQty;
-    }
-
-
-    public void setClosedQty(String closedQty) {
-        this.closedQty = closedQty;
-    }
-
-    public InlineResponse20040 closedValue(String closedValue) {
-        
-        this.closedValue = closedValue;
-        return this;
-    }
-
-     /**
-     * Close Position Value
-     * @return closedValue
-    **/
-    @javax.annotation.Nullable
-    public String getClosedValue() {
-        return closedValue;
-    }
-
-
-    public void setClosedValue(String closedValue) {
-        this.closedValue = closedValue;
-    }
-
-    public InlineResponse20040 fee(String fee) {
-        
-        this.fee = fee;
-        return this;
-    }
-
-     /**
-     * Position Accumulated Fees
-     * @return fee
-    **/
-    @javax.annotation.Nullable
-    public String getFee() {
-        return fee;
-    }
-
-
-    public void setFee(String fee) {
-        this.fee = fee;
-    }
-
-    public InlineResponse20040 liqFee(String liqFee) {
-        
-        this.liqFee = liqFee;
-        return this;
-    }
-
-     /**
-     * Liquidation Fee
-     * @return liqFee
-    **/
-    @javax.annotation.Nullable
-    public String getLiqFee() {
-        return liqFee;
-    }
-
-
-    public void setLiqFee(String liqFee) {
-        this.liqFee = liqFee;
-    }
-
-    public InlineResponse20040 fundingFee(String fundingFee) {
-        
-        this.fundingFee = fundingFee;
-        return this;
-    }
-
-     /**
-     * Funding Fee
-     * @return fundingFee
-    **/
-    @javax.annotation.Nullable
-    public String getFundingFee() {
-        return fundingFee;
-    }
-
-
-    public void setFundingFee(String fundingFee) {
-        this.fundingFee = fundingFee;
-    }
-
-    public InlineResponse20040 positionSide(String positionSide) {
-        
-        this.positionSide = positionSide;
-        return this;
-    }
-
-     /**
-     * Position Direction Before Close
-     * @return positionSide
-    **/
-    @javax.annotation.Nullable
-    public String getPositionSide() {
-        return positionSide;
-    }
-
-
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
-    }
-
-    public InlineResponse20040 positionMode(String positionMode) {
-        
-        this.positionMode = positionMode;
-        return this;
-    }
-
-     /**
-     * Position Mode at Close
-     * @return positionMode
-    **/
-    @javax.annotation.Nullable
-    public String getPositionMode() {
-        return positionMode;
-    }
-
-
-    public void setPositionMode(String positionMode) {
-        this.positionMode = positionMode;
-    }
-
-    public InlineResponse20040 leverage(String leverage) {
-        
-        this.leverage = leverage;
-        return this;
-    }
-
-     /**
-     * Leverage at Close
-     * @return leverage
-    **/
-    @javax.annotation.Nullable
-    public String getLeverage() {
-        return leverage;
-    }
-
-
-    public void setLeverage(String leverage) {
-        this.leverage = leverage;
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
 
     public InlineResponse20040 businessType(String businessType) {
@@ -463,6 +280,310 @@ public class InlineResponse20040 {
         this.businessType = businessType;
     }
 
+    public InlineResponse20040 qty(String qty) {
+        
+        this.qty = qty;
+        return this;
+    }
+
+     /**
+     * Base Currency Quantity
+     * @return qty
+    **/
+    public String getQty() {
+        return qty;
+    }
+
+
+    public void setQty(String qty) {
+        this.qty = qty;
+    }
+
+    public InlineResponse20040 quoteQty(String quoteQty) {
+        
+        this.quoteQty = quoteQty;
+        return this;
+    }
+
+     /**
+     * Quote Currency Quantity
+     * @return quoteQty
+    **/
+    public String getQuoteQty() {
+        return quoteQty;
+    }
+
+
+    public void setQuoteQty(String quoteQty) {
+        this.quoteQty = quoteQty;
+    }
+
+    public InlineResponse20040 price(String price) {
+        
+        this.price = price;
+        return this;
+    }
+
+     /**
+     * Price
+     * @return price
+    **/
+    public String getPrice() {
+        return price;
+    }
+
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public InlineResponse20040 timeInForce(String timeInForce) {
+        
+        this.timeInForce = timeInForce;
+        return this;
+    }
+
+     /**
+     * Time in Force Strategy
+     * @return timeInForce
+    **/
+    public String getTimeInForce() {
+        return timeInForce;
+    }
+
+
+    public void setTimeInForce(String timeInForce) {
+        this.timeInForce = timeInForce;
+    }
+
+    public InlineResponse20040 executedQty(String executedQty) {
+        
+        this.executedQty = executedQty;
+        return this;
+    }
+
+     /**
+     * Filled Quantity
+     * @return executedQty
+    **/
+    public String getExecutedQty() {
+        return executedQty;
+    }
+
+
+    public void setExecutedQty(String executedQty) {
+        this.executedQty = executedQty;
+    }
+
+    public InlineResponse20040 executedAmount(String executedAmount) {
+        
+        this.executedAmount = executedAmount;
+        return this;
+    }
+
+     /**
+     * Filled Amount
+     * @return executedAmount
+    **/
+    public String getExecutedAmount() {
+        return executedAmount;
+    }
+
+
+    public void setExecutedAmount(String executedAmount) {
+        this.executedAmount = executedAmount;
+    }
+
+    public InlineResponse20040 executedAvgPrice(String executedAvgPrice) {
+        
+        this.executedAvgPrice = executedAvgPrice;
+        return this;
+    }
+
+     /**
+     * Average Filled Price
+     * @return executedAvgPrice
+    **/
+    public String getExecutedAvgPrice() {
+        return executedAvgPrice;
+    }
+
+
+    public void setExecutedAvgPrice(String executedAvgPrice) {
+        this.executedAvgPrice = executedAvgPrice;
+    }
+
+    public InlineResponse20040 feeCoin(String feeCoin) {
+        
+        this.feeCoin = feeCoin;
+        return this;
+    }
+
+     /**
+     * Fee currency
+     * @return feeCoin
+    **/
+    public String getFeeCoin() {
+        return feeCoin;
+    }
+
+
+    public void setFeeCoin(String feeCoin) {
+        this.feeCoin = feeCoin;
+    }
+
+    public InlineResponse20040 fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * fee
+     * @return fee
+    **/
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public InlineResponse20040 reduceOnly(String reduceOnly) {
+        
+        this.reduceOnly = reduceOnly;
+        return this;
+    }
+
+     /**
+     * Reduce Position Only
+     * @return reduceOnly
+    **/
+    public String getReduceOnly() {
+        return reduceOnly;
+    }
+
+
+    public void setReduceOnly(String reduceOnly) {
+        this.reduceOnly = reduceOnly;
+    }
+
+    public InlineResponse20040 leverage(String leverage) {
+        
+        this.leverage = leverage;
+        return this;
+    }
+
+     /**
+     * leverage
+     * @return leverage
+    **/
+    public String getLeverage() {
+        return leverage;
+    }
+
+
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
+    }
+
+    public InlineResponse20040 reason(String reason) {
+        
+        this.reason = reason;
+        return this;
+    }
+
+     /**
+     * Reason
+     * @return reason
+    **/
+    public String getReason() {
+        return reason;
+    }
+
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public InlineResponse20040 lastExecutedQty(String lastExecutedQty) {
+        
+        this.lastExecutedQty = lastExecutedQty;
+        return this;
+    }
+
+     /**
+     * Latest Filled Quantity
+     * @return lastExecutedQty
+    **/
+    public String getLastExecutedQty() {
+        return lastExecutedQty;
+    }
+
+
+    public void setLastExecutedQty(String lastExecutedQty) {
+        this.lastExecutedQty = lastExecutedQty;
+    }
+
+    public InlineResponse20040 lastExecutedPrice(String lastExecutedPrice) {
+        
+        this.lastExecutedPrice = lastExecutedPrice;
+        return this;
+    }
+
+     /**
+     * Latest Filled Price
+     * @return lastExecutedPrice
+    **/
+    public String getLastExecutedPrice() {
+        return lastExecutedPrice;
+    }
+
+
+    public void setLastExecutedPrice(String lastExecutedPrice) {
+        this.lastExecutedPrice = lastExecutedPrice;
+    }
+
+    public InlineResponse20040 lastExecutedAmount(String lastExecutedAmount) {
+        
+        this.lastExecutedAmount = lastExecutedAmount;
+        return this;
+    }
+
+     /**
+     * Latest Filled Amount
+     * @return lastExecutedAmount
+    **/
+    public String getLastExecutedAmount() {
+        return lastExecutedAmount;
+    }
+
+
+    public void setLastExecutedAmount(String lastExecutedAmount) {
+        this.lastExecutedAmount = lastExecutedAmount;
+    }
+
+    public InlineResponse20040 positionSide(String positionSide) {
+        
+        this.positionSide = positionSide;
+        return this;
+    }
+
+     /**
+     * Position Direction
+     * @return positionSide
+    **/
+    public String getPositionSide() {
+        return positionSide;
+    }
+
+
+    public void setPositionSide(String positionSide) {
+        this.positionSide = positionSide;
+    }
+
     public InlineResponse20040 createTime(String createTime) {
         
         this.createTime = createTime;
@@ -473,7 +594,6 @@ public class InlineResponse20040 {
      * Created time
      * @return createTime
     **/
-    @javax.annotation.Nullable
     public String getCreateTime() {
         return createTime;
     }
@@ -493,7 +613,6 @@ public class InlineResponse20040 {
      * Update time
      * @return updateTime
     **/
-    @javax.annotation.Nullable
     public String getUpdateTime() {
         return updateTime;
     }
@@ -511,31 +630,37 @@ public class InlineResponse20040 {
             return false;
         }
         InlineResponse20040 inlineResponse20040 = (InlineResponse20040) o;
-        return Objects.equals(this.positionId, inlineResponse20040.positionId) &&
-                Objects.equals(this.userId, inlineResponse20040.userId) &&
+        return Objects.equals(this.userId, inlineResponse20040.userId) &&
+                Objects.equals(this.orderId, inlineResponse20040.orderId) &&
+                Objects.equals(this.text, inlineResponse20040.text) &&
+                Objects.equals(this.state, inlineResponse20040.state) &&
                 Objects.equals(this.symbol, inlineResponse20040.symbol) &&
-                Objects.equals(this.closedType, inlineResponse20040.closedType) &&
-                Objects.equals(this.closedPnl, inlineResponse20040.closedPnl) &&
-                Objects.equals(this.closedPnlRate, inlineResponse20040.closedPnlRate) &&
-                Objects.equals(this.openAvgPrice, inlineResponse20040.openAvgPrice) &&
-                Objects.equals(this.closedAvgPrice, inlineResponse20040.closedAvgPrice) &&
-                Objects.equals(this.maxPositionQty, inlineResponse20040.maxPositionQty) &&
-                Objects.equals(this.closedQty, inlineResponse20040.closedQty) &&
-                Objects.equals(this.closedValue, inlineResponse20040.closedValue) &&
-                Objects.equals(this.fee, inlineResponse20040.fee) &&
-                Objects.equals(this.liqFee, inlineResponse20040.liqFee) &&
-                Objects.equals(this.fundingFee, inlineResponse20040.fundingFee) &&
-                Objects.equals(this.positionSide, inlineResponse20040.positionSide) &&
-                Objects.equals(this.positionMode, inlineResponse20040.positionMode) &&
-                Objects.equals(this.leverage, inlineResponse20040.leverage) &&
+                Objects.equals(this.attribute, inlineResponse20040.attribute) &&
+                Objects.equals(this.exchangeType, inlineResponse20040.exchangeType) &&
                 Objects.equals(this.businessType, inlineResponse20040.businessType) &&
+                Objects.equals(this.qty, inlineResponse20040.qty) &&
+                Objects.equals(this.quoteQty, inlineResponse20040.quoteQty) &&
+                Objects.equals(this.price, inlineResponse20040.price) &&
+                Objects.equals(this.timeInForce, inlineResponse20040.timeInForce) &&
+                Objects.equals(this.executedQty, inlineResponse20040.executedQty) &&
+                Objects.equals(this.executedAmount, inlineResponse20040.executedAmount) &&
+                Objects.equals(this.executedAvgPrice, inlineResponse20040.executedAvgPrice) &&
+                Objects.equals(this.feeCoin, inlineResponse20040.feeCoin) &&
+                Objects.equals(this.fee, inlineResponse20040.fee) &&
+                Objects.equals(this.reduceOnly, inlineResponse20040.reduceOnly) &&
+                Objects.equals(this.leverage, inlineResponse20040.leverage) &&
+                Objects.equals(this.reason, inlineResponse20040.reason) &&
+                Objects.equals(this.lastExecutedQty, inlineResponse20040.lastExecutedQty) &&
+                Objects.equals(this.lastExecutedPrice, inlineResponse20040.lastExecutedPrice) &&
+                Objects.equals(this.lastExecutedAmount, inlineResponse20040.lastExecutedAmount) &&
+                Objects.equals(this.positionSide, inlineResponse20040.positionSide) &&
                 Objects.equals(this.createTime, inlineResponse20040.createTime) &&
                 Objects.equals(this.updateTime, inlineResponse20040.updateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(positionId, userId, symbol, closedType, closedPnl, closedPnlRate, openAvgPrice, closedAvgPrice, maxPositionQty, closedQty, closedValue, fee, liqFee, fundingFee, positionSide, positionMode, leverage, businessType, createTime, updateTime);
+        return Objects.hash(userId, orderId, text, state, symbol, attribute, exchangeType, businessType, qty, quoteQty, price, timeInForce, executedQty, executedAmount, executedAvgPrice, feeCoin, fee, reduceOnly, leverage, reason, lastExecutedQty, lastExecutedPrice, lastExecutedAmount, positionSide, createTime, updateTime);
     }
 
 
@@ -543,24 +668,30 @@ public class InlineResponse20040 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20040 {\n");
-        sb.append("      positionId: ").append(toIndentedString(positionId)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      state: ").append(toIndentedString(state)).append("\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      closedType: ").append(toIndentedString(closedType)).append("\n");
-        sb.append("      closedPnl: ").append(toIndentedString(closedPnl)).append("\n");
-        sb.append("      closedPnlRate: ").append(toIndentedString(closedPnlRate)).append("\n");
-        sb.append("      openAvgPrice: ").append(toIndentedString(openAvgPrice)).append("\n");
-        sb.append("      closedAvgPrice: ").append(toIndentedString(closedAvgPrice)).append("\n");
-        sb.append("      maxPositionQty: ").append(toIndentedString(maxPositionQty)).append("\n");
-        sb.append("      closedQty: ").append(toIndentedString(closedQty)).append("\n");
-        sb.append("      closedValue: ").append(toIndentedString(closedValue)).append("\n");
-        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
-        sb.append("      liqFee: ").append(toIndentedString(liqFee)).append("\n");
-        sb.append("      fundingFee: ").append(toIndentedString(fundingFee)).append("\n");
-        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
-        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
-        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      attribute: ").append(toIndentedString(attribute)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
         sb.append("      businessType: ").append(toIndentedString(businessType)).append("\n");
+        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
+        sb.append("      quoteQty: ").append(toIndentedString(quoteQty)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+        sb.append("      executedQty: ").append(toIndentedString(executedQty)).append("\n");
+        sb.append("      executedAmount: ").append(toIndentedString(executedAmount)).append("\n");
+        sb.append("      executedAvgPrice: ").append(toIndentedString(executedAvgPrice)).append("\n");
+        sb.append("      feeCoin: ").append(toIndentedString(feeCoin)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
+        sb.append("      reduceOnly: ").append(toIndentedString(reduceOnly)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      reason: ").append(toIndentedString(reason)).append("\n");
+        sb.append("      lastExecutedQty: ").append(toIndentedString(lastExecutedQty)).append("\n");
+        sb.append("      lastExecutedPrice: ").append(toIndentedString(lastExecutedPrice)).append("\n");
+        sb.append("      lastExecutedAmount: ").append(toIndentedString(lastExecutedAmount)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("}");

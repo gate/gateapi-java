@@ -1,5 +1,5 @@
 
-# InlineResponse20035SpecialFeeList
+# InlineResponse20036SpecialFeeList
 
 ## Properties
 

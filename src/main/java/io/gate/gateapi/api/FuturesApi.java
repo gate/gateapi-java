@@ -469,7 +469,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Price precision for depth aggregation, 0 means no aggregation, defaults to 0 if not specified (optional, default to &quot;0&quot;)
+         * @param interval Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional, default to &quot;0&quot;)
          * @return APIlistFuturesOrderBookRequest
          */
         public APIlistFuturesOrderBookRequest interval(String interval) {
@@ -927,7 +927,7 @@ public class FuturesApi {
 
         /**
          * Set interval
-         * @param interval Interval time between data points. Note that &#x60;1w&#x60; means natural week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 30d represents a natural month, not 30 days (optional, default to 5m)
+         * @param interval Time interval for data points. Note: 1w represents a natural week, 7d is aligned with Unix epoch time, 30d represents a natural month (optional, default to 5m)
          * @return APIlistFuturesCandlesticksRequest
          */
         public APIlistFuturesCandlesticksRequest interval(String interval) {
@@ -1216,7 +1216,7 @@ public class FuturesApi {
 
     /**
      * Premium Index K-line chart
-     * Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+     * K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
      * @return APIlistFuturesPremiumIndexRequest
@@ -6578,7 +6578,7 @@ public class FuturesApi {
 
     /**
      * Query personal trading records
-     * By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
+     * By default, only supports querying data within 6 months. For older data, use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;
      * @param settle Settle currency (required)
      * @return APIgetMyTradesRequest
      * @http.response.details
@@ -9685,7 +9685,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredOrderListCall(String settle, String contract, final ApiCallback _callback) throws ApiException {
@@ -9743,7 +9743,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public List<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderList(String settle, String contract) throws ApiException {
@@ -9761,7 +9761,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<FuturesPriceTriggeredOrder>> cancelPriceTriggeredOrderListWithHttpInfo(String settle, String contract) throws ApiException {
@@ -9781,7 +9781,7 @@ public class FuturesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Batch cancellation request accepted and processed, success determined by order list </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call cancelPriceTriggeredOrderListAsync(String settle, String contract, final ApiCallback<List<FuturesPriceTriggeredOrder>> _callback) throws ApiException {

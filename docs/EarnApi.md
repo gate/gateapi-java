@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 <a name="placeDualOrder"></a>
 # **placeDualOrder**
-> placeDualOrder(placeDualInvestmentOrder)
+> PlaceDualInvestmentOrder placeDualOrder(placeDualInvestmentOrderParams)
 
 Place Dual Investment order
 
@@ -325,9 +325,10 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        PlaceDualInvestmentOrder placeDualInvestmentOrder = new PlaceDualInvestmentOrder(); // PlaceDualInvestmentOrder | 
+        PlaceDualInvestmentOrderParams placeDualInvestmentOrderParams = new PlaceDualInvestmentOrderParams(); // PlaceDualInvestmentOrderParams | 
         try {
-            apiInstance.placeDualOrder(placeDualInvestmentOrder);
+            PlaceDualInvestmentOrder result = apiInstance.placeDualOrder(placeDualInvestmentOrderParams);
+            System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
@@ -345,11 +346,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **placeDualInvestmentOrder** | [**PlaceDualInvestmentOrder**](PlaceDualInvestmentOrder.md)|  |
+ **placeDualInvestmentOrderParams** | [**PlaceDualInvestmentOrderParams**](PlaceDualInvestmentOrderParams.md)|  |
 
 ### Return type
 
-null (empty response body)
+[**PlaceDualInvestmentOrder**](PlaceDualInvestmentOrder.md)
 
 ### Authorization
 
@@ -358,7 +359,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

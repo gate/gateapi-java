@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 <a name="p2pMerchantAccountGetUserInfo"></a>
 # **p2pMerchantAccountGetUserInfo**
-> InlineResponse20013 p2pMerchantAccountGetUserInfo()
+> InlineResponse20014 p2pMerchantAccountGetUserInfo()
 
 Get account information
 
@@ -46,7 +46,7 @@ public class Example {
 
         P2PApi apiInstance = new P2PApi(defaultClient);
         try {
-            InlineResponse20013 result = apiInstance.p2pMerchantAccountGetUserInfo();
+            InlineResponse20014 result = apiInstance.p2pMerchantAccountGetUserInfo();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -66,7 +66,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ No authorization required
 
 <a name="p2pMerchantAccountGetCounterpartyUserInfo"></a>
 # **p2pMerchantAccountGetCounterpartyUserInfo**
-> InlineResponse20014 p2pMerchantAccountGetCounterpartyUserInfo(bizUid)
+> InlineResponse20015 p2pMerchantAccountGetCounterpartyUserInfo(bizUid)
 
 Get counterparty information
 
@@ -107,7 +107,7 @@ public class Example {
         P2PApi apiInstance = new P2PApi(defaultClient);
         String bizUid = "bizUid_example"; // String | Counterparty UID (encrypted)
         try {
-            InlineResponse20014 result = apiInstance.p2pMerchantAccountGetCounterpartyUserInfo(bizUid);
+            InlineResponse20015 result = apiInstance.p2pMerchantAccountGetCounterpartyUserInfo(bizUid);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ No authorization required
 
 <a name="p2pMerchantAccountGetMyselfPayment"></a>
 # **p2pMerchantAccountGetMyselfPayment**
-> InlineResponse20015 p2pMerchantAccountGetMyselfPayment(fiat)
+> InlineResponse20016 p2pMerchantAccountGetMyselfPayment(fiat)
 
 Get payment method list
 
@@ -171,7 +171,7 @@ public class Example {
         P2PApi apiInstance = new P2PApi(defaultClient);
         String fiat = "fiat_example"; // String | Fiat currency
         try {
-            InlineResponse20015 result = apiInstance.p2pMerchantAccountGetMyselfPayment(fiat);
+            InlineResponse20016 result = apiInstance.p2pMerchantAccountGetMyselfPayment(fiat);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ No authorization required
 
 <a name="p2pMerchantTransactionGetPendingTransactionList"></a>
 # **p2pMerchantTransactionGetPendingTransactionList**
-> InlineResponse20016 p2pMerchantTransactionGetPendingTransactionList(cryptoCurrency, fiatCurrency, orderTab, selectType, status, txid, startTime, endTime)
+> InlineResponse20017 p2pMerchantTransactionGetPendingTransactionList(cryptoCurrency, fiatCurrency, orderTab, selectType, status, txid, startTime, endTime)
 
 Get pending orders
 
@@ -235,14 +235,14 @@ public class Example {
         P2PApi apiInstance = new P2PApi(defaultClient);
         String cryptoCurrency = "cryptoCurrency_example"; // String | Cryptocurrency
         String fiatCurrency = "fiatCurrency_example"; // String | Fiat currency
-        String orderTab = "orderTab_example"; // String | Order tab, default is pending (pending: Processing (pending: AND status in ('OPEN',  'PAID', 'LOCKED', 'TEMP')); dispute: In dispute (status in ('ACCEPT',  'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
+        String orderTab = "orderTab_example"; // String | 订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
         String selectType = "selectType_example"; // String | Buy/Sell (sell=Sell, buy=Buy, others=All)
-        String status = "status_example"; // String | 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED）
+        String status = "status_example"; // String | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
         Integer txid = 56; // Integer | Order ID
         Integer startTime = 56; // Integer | Start timestamp, default is 00:00 89 days ago
         Integer endTime = 56; // Integer | End timestamp, default is 23:59:59 today
         try {
-            InlineResponse20016 result = apiInstance.p2pMerchantTransactionGetPendingTransactionList(cryptoCurrency, fiatCurrency, orderTab, selectType, status, txid, startTime, endTime);
+            InlineResponse20017 result = apiInstance.p2pMerchantTransactionGetPendingTransactionList(cryptoCurrency, fiatCurrency, orderTab, selectType, status, txid, startTime, endTime);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -263,16 +263,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cryptoCurrency** | **String**| Cryptocurrency |
  **fiatCurrency** | **String**| Fiat currency |
- **orderTab** | **String**| Order tab, default is pending (pending: Processing (pending: AND status in (&#39;OPEN&#39;,  &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In dispute (status in (&#39;ACCEPT&#39;,  &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional]
+ **orderTab** | **String**| 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional]
  **selectType** | **String**| Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) | [optional]
- **status** | **String**| 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED） | [optional]
+ **status** | **String**| Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) | [optional]
  **txid** | **Integer**| Order ID | [optional]
  **startTime** | **Integer**| Start timestamp, default is 00:00 89 days ago | [optional]
  **endTime** | **Integer**| End timestamp, default is 23:59:59 today | [optional]
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ No authorization required
 
 <a name="p2pMerchantTransactionGetCompletedTransactionList"></a>
 # **p2pMerchantTransactionGetCompletedTransactionList**
-> InlineResponse20016 p2pMerchantTransactionGetCompletedTransactionList(cryptoCurrency, fiatCurrency, selectType, status, txid, startTime, endTime, queryDispute, page, perPage)
+> InlineResponse20017 p2pMerchantTransactionGetCompletedTransactionList(cryptoCurrency, fiatCurrency, selectType, status, txid, startTime, endTime, queryDispute, page, perPage)
 
 Get all/historical orders
 
@@ -314,7 +314,7 @@ public class Example {
         String cryptoCurrency = "cryptoCurrency_example"; // String | Cryptocurrency
         String fiatCurrency = "fiatCurrency_example"; // String | Fiat currency
         String selectType = "selectType_example"; // String | Buy/Sell (sell=Sell, buy=Buy, others=All)
-        String status = "status_example"; // String | 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED）
+        String status = "status_example"; // String | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
         Integer txid = 56; // Integer | Order ID
         Integer startTime = 56; // Integer | Start timestamp, default is 00:00 89 days ago
         Integer endTime = 56; // Integer | End timestamp, default is 23:59:59 today
@@ -322,7 +322,7 @@ public class Example {
         Integer page = 56; // Integer | page number
         Integer perPage = 56; // Integer | Number of orders per page
         try {
-            InlineResponse20016 result = apiInstance.p2pMerchantTransactionGetCompletedTransactionList(cryptoCurrency, fiatCurrency, selectType, status, txid, startTime, endTime, queryDispute, page, perPage);
+            InlineResponse20017 result = apiInstance.p2pMerchantTransactionGetCompletedTransactionList(cryptoCurrency, fiatCurrency, selectType, status, txid, startTime, endTime, queryDispute, page, perPage);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
  **cryptoCurrency** | **String**| Cryptocurrency |
  **fiatCurrency** | **String**| Fiat currency |
  **selectType** | **String**| Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) | [optional]
- **status** | **String**| 订单状态（dispute: 申诉订单； closed: ACCEPT、BCLOSED； cancel： CANCEL、BECANCEL、SCLOSED、SCANCEL； locked: LOCKED； open: OPEN； paid： PAID； completed： CANCEL、BECANCEL、SCLOSED、SCANCEL、ACCEPT、BCLOSED） | [optional]
+ **status** | **String**| Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) | [optional]
  **txid** | **Integer**| Order ID | [optional]
  **startTime** | **Integer**| Start timestamp, default is 00:00 89 days ago | [optional]
  **endTime** | **Integer**| End timestamp, default is 23:59:59 today | [optional]
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -372,7 +372,7 @@ No authorization required
 
 <a name="p2pMerchantTransactionGetTransactionDetails"></a>
 # **p2pMerchantTransactionGetTransactionDetails**
-> InlineResponse20017 p2pMerchantTransactionGetTransactionDetails(txid, channel)
+> InlineResponse20018 p2pMerchantTransactionGetTransactionDetails(txid, channel)
 
 Query order details
 
@@ -396,7 +396,7 @@ public class Example {
         Integer txid = 56; // Integer | Order ID
         String channel = "channel_example"; // String | Empty or web3
         try {
-            InlineResponse20017 result = apiInstance.p2pMerchantTransactionGetTransactionDetails(txid, channel);
+            InlineResponse20018 result = apiInstance.p2pMerchantTransactionGetTransactionDetails(txid, channel);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -746,7 +746,7 @@ No authorization required
 
 <a name="p2pMerchantBooksAdsUpdateStatus"></a>
 # **p2pMerchantBooksAdsUpdateStatus**
-> InlineResponse20018 p2pMerchantBooksAdsUpdateStatus(advNo, advStatus, tradeType)
+> InlineResponse20019 p2pMerchantBooksAdsUpdateStatus(advNo, advStatus, tradeType)
 
 Update ad status
 
@@ -771,7 +771,7 @@ public class Example {
         Integer advStatus = 56; // Integer | Ad status: 1=Active, 3=Inactive, 4=Closed
         String tradeType = "sell"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         try {
-            InlineResponse20018 result = apiInstance.p2pMerchantBooksAdsUpdateStatus(advNo, advStatus, tradeType);
+            InlineResponse20019 result = apiInstance.p2pMerchantBooksAdsUpdateStatus(advNo, advStatus, tradeType);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -814,7 +814,7 @@ No authorization required
 
 <a name="p2pMerchantBooksAdsDetail"></a>
 # **p2pMerchantBooksAdsDetail**
-> InlineResponse20019 p2pMerchantBooksAdsDetail(advNo)
+> InlineResponse20020 p2pMerchantBooksAdsDetail(advNo)
 
 Query ad details
 
@@ -837,7 +837,7 @@ public class Example {
         P2PApi apiInstance = new P2PApi(defaultClient);
         String advNo = "advNo_example"; // String | 
         try {
-            InlineResponse20019 result = apiInstance.p2pMerchantBooksAdsDetail(advNo);
+            InlineResponse20020 result = apiInstance.p2pMerchantBooksAdsDetail(advNo);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -860,7 +860,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -878,7 +878,7 @@ No authorization required
 
 <a name="p2pMerchantBooksMyAdsList"></a>
 # **p2pMerchantBooksMyAdsList**
-> InlineResponse20020 p2pMerchantBooksMyAdsList(asset, fiatUnit, tradeType)
+> InlineResponse20021 p2pMerchantBooksMyAdsList(asset, fiatUnit, tradeType)
 
 Get my ad list
 
@@ -903,7 +903,7 @@ public class Example {
         String fiatUnit = "fiatUnit_example"; // String | Fiat currency
         String tradeType = "tradeType_example"; // String | Buy/Sell
         try {
-            InlineResponse20020 result = apiInstance.p2pMerchantBooksMyAdsList(asset, fiatUnit, tradeType);
+            InlineResponse20021 result = apiInstance.p2pMerchantBooksMyAdsList(asset, fiatUnit, tradeType);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -928,7 +928,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -946,7 +946,7 @@ No authorization required
 
 <a name="p2pMerchantChatGetChatsList"></a>
 # **p2pMerchantChatGetChatsList**
-> InlineResponse20021 p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived)
+> InlineResponse20022 p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived)
 
 Get chat history
 
@@ -971,7 +971,7 @@ public class Example {
         Integer lastreceived = 56; // Integer | Pagination timestamp (forward)
         Integer firstreceived = 56; // Integer | Pagination timestamp (backward)
         try {
-            InlineResponse20021 result = apiInstance.p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived);
+            InlineResponse20022 result = apiInstance.p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -1014,7 +1014,7 @@ No authorization required
 
 <a name="p2pMerchantChatSendChatMessage"></a>
 # **p2pMerchantChatSendChatMessage**
-> InlineResponse20022 p2pMerchantChatSendChatMessage(txid, message, type)
+> InlineResponse20023 p2pMerchantChatSendChatMessage(txid, message, type)
 
 Send text message
 
@@ -1039,7 +1039,7 @@ public class Example {
         String message = "message_example"; // String | Message content
         Integer type = 56; // Integer | 0=Text, 1=File (video or image), default is 0 if not provided
         try {
-            InlineResponse20022 result = apiInstance.p2pMerchantChatSendChatMessage(txid, message, type);
+            InlineResponse20023 result = apiInstance.p2pMerchantChatSendChatMessage(txid, message, type);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1064,7 +1064,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -1082,7 +1082,7 @@ No authorization required
 
 <a name="p2pMerchantChatUploadChatFile"></a>
 # **p2pMerchantChatUploadChatFile**
-> InlineResponse20023 p2pMerchantChatUploadChatFile(imageContentType, base64Img)
+> InlineResponse20024 p2pMerchantChatUploadChatFile(imageContentType, base64Img)
 
 Upload chat file
 
@@ -1106,7 +1106,7 @@ public class Example {
         String imageContentType = "imageContentType_example"; // String | File type, currently only images and videos are supported
         String base64Img = "base64Img_example"; // String | File content (base64 encoded)
         try {
-            InlineResponse20023 result = apiInstance.p2pMerchantChatUploadChatFile(imageContentType, base64Img);
+            InlineResponse20024 result = apiInstance.p2pMerchantChatUploadChatFile(imageContentType, base64Img);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1130,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 

@@ -20,23 +20,99 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Dual Investment Order
+ * PlaceDualInvestmentOrder
  */
 public class PlaceDualInvestmentOrder {
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private Integer id;
+
     public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";
     @SerializedName(SERIALIZED_NAME_PLAN_ID)
-    private String planId;
+    private Integer planId;
 
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
+    public static final String SERIALIZED_NAME_COPIES = "copies";
+    @SerializedName(SERIALIZED_NAME_COPIES)
+    private String copies;
+
+    public static final String SERIALIZED_NAME_INVEST_AMOUNT = "invest_amount";
+    @SerializedName(SERIALIZED_NAME_INVEST_AMOUNT)
+    private String investAmount;
+
+    public static final String SERIALIZED_NAME_SETTLEMENT_AMOUNT = "settlement_amount";
+    @SerializedName(SERIALIZED_NAME_SETTLEMENT_AMOUNT)
+    private String settlementAmount;
+
+    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+    private Integer createTime;
+
+    public static final String SERIALIZED_NAME_COMPLETE_TIME = "complete_time";
+    @SerializedName(SERIALIZED_NAME_COMPLETE_TIME)
+    private Integer completeTime;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private String status;
+
+    public static final String SERIALIZED_NAME_INVEST_CURRENCY = "invest_currency";
+    @SerializedName(SERIALIZED_NAME_INVEST_CURRENCY)
+    private String investCurrency;
+
+    public static final String SERIALIZED_NAME_EXERCISE_CURRENCY = "exercise_currency";
+    @SerializedName(SERIALIZED_NAME_EXERCISE_CURRENCY)
+    private String exerciseCurrency;
+
+    public static final String SERIALIZED_NAME_EXERCISE_PRICE = "exercise_price";
+    @SerializedName(SERIALIZED_NAME_EXERCISE_PRICE)
+    private String exercisePrice;
+
+    public static final String SERIALIZED_NAME_SETTLEMENT_PRICE = "settlement_price";
+    @SerializedName(SERIALIZED_NAME_SETTLEMENT_PRICE)
+    private String settlementPrice;
+
+    public static final String SERIALIZED_NAME_SETTLEMENT_CURRENCY = "settlement_currency";
+    @SerializedName(SERIALIZED_NAME_SETTLEMENT_CURRENCY)
+    private String settlementCurrency;
+
+    public static final String SERIALIZED_NAME_APY_DISPLAY = "apy_display";
+    @SerializedName(SERIALIZED_NAME_APY_DISPLAY)
+    private String apyDisplay;
+
+    public static final String SERIALIZED_NAME_APY_SETTLEMENT = "apy_settlement";
+    @SerializedName(SERIALIZED_NAME_APY_SETTLEMENT)
+    private String apySettlement;
+
+    public static final String SERIALIZED_NAME_DELIVERY_TIME = "delivery_time";
+    @SerializedName(SERIALIZED_NAME_DELIVERY_TIME)
+    private Integer deliveryTime;
 
     public static final String SERIALIZED_NAME_TEXT = "text";
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
 
 
-    public PlaceDualInvestmentOrder planId(String planId) {
+    public PlaceDualInvestmentOrder id(Integer id) {
+        
+        this.id = id;
+        return this;
+    }
+
+     /**
+     * Order ID
+     * @return id
+    **/
+    @javax.annotation.Nullable
+    public Integer getId() {
+        return id;
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public PlaceDualInvestmentOrder planId(Integer planId) {
         
         this.planId = planId;
         return this;
@@ -46,32 +122,294 @@ public class PlaceDualInvestmentOrder {
      * Product ID
      * @return planId
     **/
-    public String getPlanId() {
+    @javax.annotation.Nullable
+    public Integer getPlanId() {
         return planId;
     }
 
 
-    public void setPlanId(String planId) {
+    public void setPlanId(Integer planId) {
         this.planId = planId;
     }
 
-    public PlaceDualInvestmentOrder amount(String amount) {
+    public PlaceDualInvestmentOrder copies(String copies) {
         
-        this.amount = amount;
+        this.copies = copies;
         return this;
     }
 
      /**
-     * Subscription amount, mutually exclusive with copies field
-     * @return amount
+     * Units
+     * @return copies
     **/
-    public String getAmount() {
-        return amount;
+    @javax.annotation.Nullable
+    public String getCopies() {
+        return copies;
     }
 
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setCopies(String copies) {
+        this.copies = copies;
+    }
+
+    public PlaceDualInvestmentOrder investAmount(String investAmount) {
+        
+        this.investAmount = investAmount;
+        return this;
+    }
+
+     /**
+     * Investment Quantity
+     * @return investAmount
+    **/
+    @javax.annotation.Nullable
+    public String getInvestAmount() {
+        return investAmount;
+    }
+
+
+    public void setInvestAmount(String investAmount) {
+        this.investAmount = investAmount;
+    }
+
+    public PlaceDualInvestmentOrder settlementAmount(String settlementAmount) {
+        
+        this.settlementAmount = settlementAmount;
+        return this;
+    }
+
+     /**
+     * Settlement Quantity
+     * @return settlementAmount
+    **/
+    @javax.annotation.Nullable
+    public String getSettlementAmount() {
+        return settlementAmount;
+    }
+
+
+    public void setSettlementAmount(String settlementAmount) {
+        this.settlementAmount = settlementAmount;
+    }
+
+    public PlaceDualInvestmentOrder createTime(Integer createTime) {
+        
+        this.createTime = createTime;
+        return this;
+    }
+
+     /**
+     * Created time
+     * @return createTime
+    **/
+    @javax.annotation.Nullable
+    public Integer getCreateTime() {
+        return createTime;
+    }
+
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public PlaceDualInvestmentOrder completeTime(Integer completeTime) {
+        
+        this.completeTime = completeTime;
+        return this;
+    }
+
+     /**
+     * Completed Time
+     * @return completeTime
+    **/
+    @javax.annotation.Nullable
+    public Integer getCompleteTime() {
+        return completeTime;
+    }
+
+
+    public void setCompleteTime(Integer completeTime) {
+        this.completeTime = completeTime;
+    }
+
+    public PlaceDualInvestmentOrder status(String status) {
+        
+        this.status = status;
+        return this;
+    }
+
+     /**
+     * Status:  &#x60;INIT&#x60;-Created &#x60;SETTLEMENT_SUCCESS&#x60;-Settlement Success &#x60;SETTLEMENT_PROCESSING&#x60;-Settlement Processing &#x60;CANCELED&#x60;-Canceled &#x60;FAILED&#x60;-Failed
+     * @return status
+    **/
+    @javax.annotation.Nullable
+    public String getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public PlaceDualInvestmentOrder investCurrency(String investCurrency) {
+        
+        this.investCurrency = investCurrency;
+        return this;
+    }
+
+     /**
+     * Investment Token
+     * @return investCurrency
+    **/
+    @javax.annotation.Nullable
+    public String getInvestCurrency() {
+        return investCurrency;
+    }
+
+
+    public void setInvestCurrency(String investCurrency) {
+        this.investCurrency = investCurrency;
+    }
+
+    public PlaceDualInvestmentOrder exerciseCurrency(String exerciseCurrency) {
+        
+        this.exerciseCurrency = exerciseCurrency;
+        return this;
+    }
+
+     /**
+     * Strike Token
+     * @return exerciseCurrency
+    **/
+    @javax.annotation.Nullable
+    public String getExerciseCurrency() {
+        return exerciseCurrency;
+    }
+
+
+    public void setExerciseCurrency(String exerciseCurrency) {
+        this.exerciseCurrency = exerciseCurrency;
+    }
+
+    public PlaceDualInvestmentOrder exercisePrice(String exercisePrice) {
+        
+        this.exercisePrice = exercisePrice;
+        return this;
+    }
+
+     /**
+     * Strike price
+     * @return exercisePrice
+    **/
+    @javax.annotation.Nullable
+    public String getExercisePrice() {
+        return exercisePrice;
+    }
+
+
+    public void setExercisePrice(String exercisePrice) {
+        this.exercisePrice = exercisePrice;
+    }
+
+    public PlaceDualInvestmentOrder settlementPrice(String settlementPrice) {
+        
+        this.settlementPrice = settlementPrice;
+        return this;
+    }
+
+     /**
+     * Settlement price
+     * @return settlementPrice
+    **/
+    @javax.annotation.Nullable
+    public String getSettlementPrice() {
+        return settlementPrice;
+    }
+
+
+    public void setSettlementPrice(String settlementPrice) {
+        this.settlementPrice = settlementPrice;
+    }
+
+    public PlaceDualInvestmentOrder settlementCurrency(String settlementCurrency) {
+        
+        this.settlementCurrency = settlementCurrency;
+        return this;
+    }
+
+     /**
+     * Settlement currency
+     * @return settlementCurrency
+    **/
+    @javax.annotation.Nullable
+    public String getSettlementCurrency() {
+        return settlementCurrency;
+    }
+
+
+    public void setSettlementCurrency(String settlementCurrency) {
+        this.settlementCurrency = settlementCurrency;
+    }
+
+    public PlaceDualInvestmentOrder apyDisplay(String apyDisplay) {
+        
+        this.apyDisplay = apyDisplay;
+        return this;
+    }
+
+     /**
+     * Annual Yield
+     * @return apyDisplay
+    **/
+    @javax.annotation.Nullable
+    public String getApyDisplay() {
+        return apyDisplay;
+    }
+
+
+    public void setApyDisplay(String apyDisplay) {
+        this.apyDisplay = apyDisplay;
+    }
+
+    public PlaceDualInvestmentOrder apySettlement(String apySettlement) {
+        
+        this.apySettlement = apySettlement;
+        return this;
+    }
+
+     /**
+     * Settlement Annual Yield
+     * @return apySettlement
+    **/
+    @javax.annotation.Nullable
+    public String getApySettlement() {
+        return apySettlement;
+    }
+
+
+    public void setApySettlement(String apySettlement) {
+        this.apySettlement = apySettlement;
+    }
+
+    public PlaceDualInvestmentOrder deliveryTime(Integer deliveryTime) {
+        
+        this.deliveryTime = deliveryTime;
+        return this;
+    }
+
+     /**
+     * Settlement time
+     * @return deliveryTime
+    **/
+    @javax.annotation.Nullable
+    public Integer getDeliveryTime() {
+        return deliveryTime;
+    }
+
+
+    public void setDeliveryTime(Integer deliveryTime) {
+        this.deliveryTime = deliveryTime;
     }
 
     public PlaceDualInvestmentOrder text(String text) {
@@ -81,7 +419,7 @@ public class PlaceDualInvestmentOrder {
     }
 
      /**
-     * Order custom information. Users can set custom ID with this field. Custom fields must meet the following conditions:  1. Must start with &#x60;t-&#x60; 2. Excluding &#x60;t-&#x60;, length cannot exceed 28 bytes 3. Can only contain numbers, letters, underscore(_), hyphen(-) or dot(.) 
+     * Custom order information
      * @return text
     **/
     @javax.annotation.Nullable
@@ -102,14 +440,28 @@ public class PlaceDualInvestmentOrder {
             return false;
         }
         PlaceDualInvestmentOrder placeDualInvestmentOrder = (PlaceDualInvestmentOrder) o;
-        return Objects.equals(this.planId, placeDualInvestmentOrder.planId) &&
-                Objects.equals(this.amount, placeDualInvestmentOrder.amount) &&
+        return Objects.equals(this.id, placeDualInvestmentOrder.id) &&
+                Objects.equals(this.planId, placeDualInvestmentOrder.planId) &&
+                Objects.equals(this.copies, placeDualInvestmentOrder.copies) &&
+                Objects.equals(this.investAmount, placeDualInvestmentOrder.investAmount) &&
+                Objects.equals(this.settlementAmount, placeDualInvestmentOrder.settlementAmount) &&
+                Objects.equals(this.createTime, placeDualInvestmentOrder.createTime) &&
+                Objects.equals(this.completeTime, placeDualInvestmentOrder.completeTime) &&
+                Objects.equals(this.status, placeDualInvestmentOrder.status) &&
+                Objects.equals(this.investCurrency, placeDualInvestmentOrder.investCurrency) &&
+                Objects.equals(this.exerciseCurrency, placeDualInvestmentOrder.exerciseCurrency) &&
+                Objects.equals(this.exercisePrice, placeDualInvestmentOrder.exercisePrice) &&
+                Objects.equals(this.settlementPrice, placeDualInvestmentOrder.settlementPrice) &&
+                Objects.equals(this.settlementCurrency, placeDualInvestmentOrder.settlementCurrency) &&
+                Objects.equals(this.apyDisplay, placeDualInvestmentOrder.apyDisplay) &&
+                Objects.equals(this.apySettlement, placeDualInvestmentOrder.apySettlement) &&
+                Objects.equals(this.deliveryTime, placeDualInvestmentOrder.deliveryTime) &&
                 Objects.equals(this.text, placeDualInvestmentOrder.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(planId, amount, text);
+        return Objects.hash(id, planId, copies, investAmount, settlementAmount, createTime, completeTime, status, investCurrency, exerciseCurrency, exercisePrice, settlementPrice, settlementCurrency, apyDisplay, apySettlement, deliveryTime, text);
     }
 
 
@@ -117,8 +469,22 @@ public class PlaceDualInvestmentOrder {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PlaceDualInvestmentOrder {\n");
+        sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      planId: ").append(toIndentedString(planId)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      copies: ").append(toIndentedString(copies)).append("\n");
+        sb.append("      investAmount: ").append(toIndentedString(investAmount)).append("\n");
+        sb.append("      settlementAmount: ").append(toIndentedString(settlementAmount)).append("\n");
+        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      completeTime: ").append(toIndentedString(completeTime)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      investCurrency: ").append(toIndentedString(investCurrency)).append("\n");
+        sb.append("      exerciseCurrency: ").append(toIndentedString(exerciseCurrency)).append("\n");
+        sb.append("      exercisePrice: ").append(toIndentedString(exercisePrice)).append("\n");
+        sb.append("      settlementPrice: ").append(toIndentedString(settlementPrice)).append("\n");
+        sb.append("      settlementCurrency: ").append(toIndentedString(settlementCurrency)).append("\n");
+        sb.append("      apyDisplay: ").append(toIndentedString(apyDisplay)).append("\n");
+        sb.append("      apySettlement: ").append(toIndentedString(apySettlement)).append("\n");
+        sb.append("      deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();

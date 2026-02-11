@@ -5,22 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** | User ID |  [optional]
-**transactionId** | **String** | filledrecordsID |  [optional]
-**orderId** | **String** | Order ID |  [optional]
-**text** | **String** | User Order ID |  [optional]
-**symbol** | **String** | Currency pair |  [optional]
-**exchangeType** | **String** | Exchange |  [optional]
-**businessType** | **String** | Business Type |  [optional]
-**side** | **String** | Buy/Sell Direction |  [optional]
-**qty** | **String** | Trading size |  [optional]
-**price** | **String** | Fill Price |  [optional]
-**fee** | **String** | fee |  [optional]
-**feeCoin** | **String** | Fee currency |  [optional]
-**feeRate** | **String** | Fee Rate |  [optional]
-**matchRole** | **String** | Filled Role |  [optional]
-**rpnl** | **String** | Realized P&amp;L |  [optional]
-**positionMode** | **String** | Position Mode |  [optional]
-**positionSide** | **String** | Position Direction |  [optional]
-**createTime** | **String** | Created time |  [optional]
+**userId** | **String** | User ID | 
+**symbol** | **String** | Trading Pair | 
+**interestId** | **String** | Interest Deduction ID | 
+**liabilityId** | **String** | Debt Source ID, can be Order ID or Position ID | 
+**liability** | **String** | Debt Quantity | 
+**liabilityCoin** | **String** | Debt Currency | 
+**interest** | **String** | Interest | 
+**interestRate** | **String** | interest rate | 
+**interestType** | **String** | Interest deduction type (&#x60;PERIODIC_POSITION&#x60;: periodic position interest; &#x60;PERIODIC_OPEN_ORDER&#x60;: periodic open-order interest; &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged on order opening) | 
+**createTime** | **String** | Created time | 
+**exchangeType** | **String** | Exchange | 
 

@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.23
-- SDK version: 7.2.23
+- API version: v4.106.25
+- SDK version: 7.2.25
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.23</version>
+    <version>7.2.25</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.23"
+compile "io.gate:gate-api:7.2.25"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.23.jar`
+* `target/gate-api-7.2.25.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -332,7 +332,7 @@ Class | Method | HTTP request | Description
 *MultiCollateralLoanApi* | [**listMultiCollateralRecords**](docs/MultiCollateralLoanApi.md#listMultiCollateralRecords) | **GET** /loan/multi_collateral/mortgage | Query collateral adjustment records
 *MultiCollateralLoanApi* | [**operateMultiCollateral**](docs/MultiCollateralLoanApi.md#operateMultiCollateral) | **POST** /loan/multi_collateral/mortgage | Add or withdraw collateral
 *MultiCollateralLoanApi* | [**listUserCurrencyQuota**](docs/MultiCollateralLoanApi.md#listUserCurrencyQuota) | **GET** /loan/multi_collateral/currency_quota | Query user&#39;s collateral and borrowing currency quota information
-*MultiCollateralLoanApi* | [**listMultiCollateralCurrencies**](docs/MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies for multi-currency collateral
+*MultiCollateralLoanApi* | [**listMultiCollateralCurrencies**](docs/MultiCollateralLoanApi.md#listMultiCollateralCurrencies) | **GET** /loan/multi_collateral/currencies | Query borrow currencies and collateral currencies supported by multi-currency collateral
 *MultiCollateralLoanApi* | [**getMultiCollateralLtv**](docs/MultiCollateralLoanApi.md#getMultiCollateralLtv) | **GET** /loan/multi_collateral/ltv | Query collateralization ratio information
 *MultiCollateralLoanApi* | [**getMultiCollateralFixRate**](docs/MultiCollateralLoanApi.md#getMultiCollateralFixRate) | **GET** /loan/multi_collateral/fixed_rate | Query currency&#39;s 7-day and 30-day fixed interest rates
 *MultiCollateralLoanApi* | [**getMultiCollateralCurrentRate**](docs/MultiCollateralLoanApi.md#getMultiCollateralCurrentRate) | **GET** /loan/multi_collateral/current_rate | Query currency&#39;s current interest rate
@@ -368,6 +368,7 @@ Class | Method | HTTP request | Description
 *OtcApi* | [**createOtcOrder**](docs/OtcApi.md#createOtcOrder) | **POST** /otc/order/create | Create fiat order
 *OtcApi* | [**createStableCoinOrder**](docs/OtcApi.md#createStableCoinOrder) | **POST** /otc/stable_coin/order/create | Create stablecoin order
 *OtcApi* | [**getUserDefaultBank**](docs/OtcApi.md#getUserDefaultBank) | **GET** /otc/get_user_def_bank | Get user&#39;s default bank account information
+*OtcApi* | [**getBankList**](docs/OtcApi.md#getBankList) | **GET** /otc/bank_list | Get user bank card list
 *OtcApi* | [**markOtcOrderPaid**](docs/OtcApi.md#markOtcOrderPaid) | **POST** /otc/order/paid | Mark fiat order as paid
 *OtcApi* | [**cancelOtcOrder**](docs/OtcApi.md#cancelOtcOrder) | **POST** /otc/order/cancel | Fiat order cancellation
 *OtcApi* | [**listOtcOrders**](docs/OtcApi.md#listOtcOrders) | **GET** /otc/order/list | Fiat order list
@@ -637,29 +638,30 @@ Class | Method | HTTP request | Description
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
  - [InlineResponse20010Data](docs/InlineResponse20010Data.md)
- - [InlineResponse20010DataCryptoCurrencyInfo](docs/InlineResponse20010DataCryptoCurrencyInfo.md)
- - [InlineResponse20010DataFiatCurrencyInfo](docs/InlineResponse20010DataFiatCurrencyInfo.md)
- - [InlineResponse20010DataList](docs/InlineResponse20010DataList.md)
+ - [InlineResponse20010DataLists](docs/InlineResponse20010DataLists.md)
  - [InlineResponse20011](docs/InlineResponse20011.md)
  - [InlineResponse20011Data](docs/InlineResponse20011Data.md)
+ - [InlineResponse20011DataCryptoCurrencyInfo](docs/InlineResponse20011DataCryptoCurrencyInfo.md)
+ - [InlineResponse20011DataFiatCurrencyInfo](docs/InlineResponse20011DataFiatCurrencyInfo.md)
  - [InlineResponse20011DataList](docs/InlineResponse20011DataList.md)
  - [InlineResponse20012](docs/InlineResponse20012.md)
  - [InlineResponse20012Data](docs/InlineResponse20012Data.md)
+ - [InlineResponse20012DataList](docs/InlineResponse20012DataList.md)
  - [InlineResponse20013](docs/InlineResponse20013.md)
  - [InlineResponse20013Data](docs/InlineResponse20013Data.md)
- - [InlineResponse20013DataMerchantInfo](docs/InlineResponse20013DataMerchantInfo.md)
  - [InlineResponse20014](docs/InlineResponse20014.md)
  - [InlineResponse20014Data](docs/InlineResponse20014Data.md)
+ - [InlineResponse20014DataMerchantInfo](docs/InlineResponse20014DataMerchantInfo.md)
  - [InlineResponse20015](docs/InlineResponse20015.md)
  - [InlineResponse20015Data](docs/InlineResponse20015Data.md)
- - [InlineResponse20015List](docs/InlineResponse20015List.md)
  - [InlineResponse20016](docs/InlineResponse20016.md)
  - [InlineResponse20016Data](docs/InlineResponse20016Data.md)
- - [InlineResponse20016DataConvertInfo](docs/InlineResponse20016DataConvertInfo.md)
- - [InlineResponse20016DataList](docs/InlineResponse20016DataList.md)
- - [InlineResponse20016DataTransTime](docs/InlineResponse20016DataTransTime.md)
+ - [InlineResponse20016List](docs/InlineResponse20016List.md)
  - [InlineResponse20017](docs/InlineResponse20017.md)
  - [InlineResponse20017Data](docs/InlineResponse20017Data.md)
+ - [InlineResponse20017DataConvertInfo](docs/InlineResponse20017DataConvertInfo.md)
+ - [InlineResponse20017DataList](docs/InlineResponse20017DataList.md)
+ - [InlineResponse20017DataTransTime](docs/InlineResponse20017DataTransTime.md)
  - [InlineResponse20018](docs/InlineResponse20018.md)
  - [InlineResponse20018Data](docs/InlineResponse20018Data.md)
  - [InlineResponse20019](docs/InlineResponse20019.md)
@@ -667,16 +669,17 @@ Class | Method | HTTP request | Description
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse20020](docs/InlineResponse20020.md)
  - [InlineResponse20020Data](docs/InlineResponse20020Data.md)
- - [InlineResponse20020DataLists](docs/InlineResponse20020DataLists.md)
  - [InlineResponse20021](docs/InlineResponse20021.md)
  - [InlineResponse20021Data](docs/InlineResponse20021Data.md)
- - [InlineResponse20021DataMessages](docs/InlineResponse20021DataMessages.md)
- - [InlineResponse20021DataMsgObj](docs/InlineResponse20021DataMsgObj.md)
+ - [InlineResponse20021DataLists](docs/InlineResponse20021DataLists.md)
  - [InlineResponse20022](docs/InlineResponse20022.md)
  - [InlineResponse20022Data](docs/InlineResponse20022Data.md)
+ - [InlineResponse20022DataMessages](docs/InlineResponse20022DataMessages.md)
+ - [InlineResponse20022DataMsgObj](docs/InlineResponse20022DataMsgObj.md)
  - [InlineResponse20023](docs/InlineResponse20023.md)
  - [InlineResponse20023Data](docs/InlineResponse20023Data.md)
  - [InlineResponse20024](docs/InlineResponse20024.md)
+ - [InlineResponse20024Data](docs/InlineResponse20024Data.md)
  - [InlineResponse20025](docs/InlineResponse20025.md)
  - [InlineResponse20026](docs/InlineResponse20026.md)
  - [InlineResponse20027](docs/InlineResponse20027.md)
@@ -686,12 +689,12 @@ Class | Method | HTTP request | Description
  - [InlineResponse20030](docs/InlineResponse20030.md)
  - [InlineResponse20031](docs/InlineResponse20031.md)
  - [InlineResponse20032](docs/InlineResponse20032.md)
- - [InlineResponse20032Assets](docs/InlineResponse20032Assets.md)
  - [InlineResponse20033](docs/InlineResponse20033.md)
+ - [InlineResponse20033Assets](docs/InlineResponse20033Assets.md)
  - [InlineResponse20034](docs/InlineResponse20034.md)
  - [InlineResponse20035](docs/InlineResponse20035.md)
- - [InlineResponse20035SpecialFeeList](docs/InlineResponse20035SpecialFeeList.md)
  - [InlineResponse20036](docs/InlineResponse20036.md)
+ - [InlineResponse20036SpecialFeeList](docs/InlineResponse20036SpecialFeeList.md)
  - [InlineResponse20037](docs/InlineResponse20037.md)
  - [InlineResponse20038](docs/InlineResponse20038.md)
  - [InlineResponse20039](docs/InlineResponse20039.md)
@@ -702,6 +705,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse20043](docs/InlineResponse20043.md)
  - [InlineResponse20044](docs/InlineResponse20044.md)
  - [InlineResponse20045](docs/InlineResponse20045.md)
+ - [InlineResponse20046](docs/InlineResponse20046.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
  - [InlineResponse2006](docs/InlineResponse2006.md)
  - [InlineResponse2006Data](docs/InlineResponse2006Data.md)
@@ -776,6 +780,7 @@ Class | Method | HTTP request | Description
  - [PartnerTransactionHistory](docs/PartnerTransactionHistory.md)
  - [PatchUniLend](docs/PatchUniLend.md)
  - [PlaceDualInvestmentOrder](docs/PlaceDualInvestmentOrder.md)
+ - [PlaceDualInvestmentOrderParams](docs/PlaceDualInvestmentOrderParams.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)

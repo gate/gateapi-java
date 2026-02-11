@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **deliveryTime** | **Integer** | Settlement time |  [optional]
 **minCopies** | **Integer** | Minimum Units |  [optional]
 **maxCopies** | **Integer** | Maximum Units |  [optional]
-**perValue** | **String** | Value Per Unit |  [optional]
+**perValue** | **String** | Value Per Unit (deprecated) |  [optional]
 **apyDisplay** | **String** | Annual Yield |  [optional]
 **startTime** | **Integer** | Start Time |  [optional]
 **endTime** | **Integer** | End time |  [optional]
-**status** | **String** | Status:   &#x60;NOTSTARTED&#x60;-Not Started  &#x60;ONGOING&#x60;-In Progress  &#x60;ENDED&#x60;-Ended |  [optional]
+**status** | **String** | 状态:  &#x60;NOTSTARTED&#x60;-未开始 &#x60;ONGOING&#x60;-进行中 &#x60;ENDED&#x60;-已结束 |  [optional]
 

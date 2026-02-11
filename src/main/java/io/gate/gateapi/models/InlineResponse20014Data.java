@@ -17,15 +17,24 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20014DataMerchantInfo;
 import java.io.IOException;
 
 /**
  * InlineResponse20014Data
  */
 public class InlineResponse20014Data {
+    public static final String SERIALIZED_NAME_IS_SELF = "is_self";
+    @SerializedName(SERIALIZED_NAME_IS_SELF)
+    private Boolean isSelf;
+
     public static final String SERIALIZED_NAME_USER_TIMEST = "user_timest";
     @SerializedName(SERIALIZED_NAME_USER_TIMEST)
     private String userTimest;
+
+    public static final String SERIALIZED_NAME_COUNTERPARTIES_NUM = "counterparties_num";
+    @SerializedName(SERIALIZED_NAME_COUNTERPARTIES_NUM)
+    private Integer counterpartiesNum;
 
     public static final String SERIALIZED_NAME_EMAIL_VERIFIED = "email_verified";
     @SerializedName(SERIALIZED_NAME_EMAIL_VERIFIED)
@@ -75,6 +84,14 @@ public class InlineResponse20014Data {
     @SerializedName(SERIALIZED_NAME_COMPLETE_RATE_MONTH)
     private Integer completeRateMonth;
 
+    public static final String SERIALIZED_NAME_ORDERS_BUY_RATE_MONTH = "orders_buy_rate_month";
+    @SerializedName(SERIALIZED_NAME_ORDERS_BUY_RATE_MONTH)
+    private Integer ordersBuyRateMonth;
+
+    public static final String SERIALIZED_NAME_IS_BLACK = "is_black";
+    @SerializedName(SERIALIZED_NAME_IS_BLACK)
+    private Integer isBlack;
+
     public static final String SERIALIZED_NAME_IS_FOLLOW = "is_follow";
     @SerializedName(SERIALIZED_NAME_IS_FOLLOW)
     private Integer isFollow;
@@ -87,6 +104,14 @@ public class InlineResponse20014Data {
     @SerializedName(SERIALIZED_NAME_BIZ_UID)
     private String bizUid;
 
+    public static final String SERIALIZED_NAME_BLUE_VIP = "blue_vip";
+    @SerializedName(SERIALIZED_NAME_BLUE_VIP)
+    private Integer blueVip;
+
+    public static final String SERIALIZED_NAME_WORK_STATUS = "work_status";
+    @SerializedName(SERIALIZED_NAME_WORK_STATUS)
+    private Integer workStatus;
+
     public static final String SERIALIZED_NAME_REGISTRATION_DAYS = "registration_days";
     @SerializedName(SERIALIZED_NAME_REGISTRATION_DAYS)
     private Integer registrationDays;
@@ -95,10 +120,53 @@ public class InlineResponse20014Data {
     @SerializedName(SERIALIZED_NAME_FIRST_TRADE_DAYS)
     private Integer firstTradeDays;
 
+    public static final String SERIALIZED_NAME_NEED_REPLENISH = "need_replenish";
+    @SerializedName(SERIALIZED_NAME_NEED_REPLENISH)
+    private Integer needReplenish;
+
+    public static final String SERIALIZED_NAME_MERCHANT_INFO = "merchant_info";
+    @SerializedName(SERIALIZED_NAME_MERCHANT_INFO)
+    private InlineResponse20014DataMerchantInfo merchantInfo;
+
+    public static final String SERIALIZED_NAME_ONLINE_STATUS = "online_status";
+    @SerializedName(SERIALIZED_NAME_ONLINE_STATUS)
+    private Integer onlineStatus;
+
+    public static final String SERIALIZED_NAME_WORK_HOURS = "work_hours";
+    @SerializedName(SERIALIZED_NAME_WORK_HOURS)
+    private Object workHours;
+
+    public static final String SERIALIZED_NAME_TRANSACTIONS_MONTH = "transactions_month";
+    @SerializedName(SERIALIZED_NAME_TRANSACTIONS_MONTH)
+    private Integer transactionsMonth;
+
+    public static final String SERIALIZED_NAME_TRANSACTIONS_ALL = "transactions_all";
+    @SerializedName(SERIALIZED_NAME_TRANSACTIONS_ALL)
+    private Integer transactionsAll;
+
     public static final String SERIALIZED_NAME_TRADE_VERSATILE = "trade_versatile";
     @SerializedName(SERIALIZED_NAME_TRADE_VERSATILE)
     private Boolean tradeVersatile;
 
+
+    public InlineResponse20014Data isSelf(Boolean isSelf) {
+        
+        this.isSelf = isSelf;
+        return this;
+    }
+
+     /**
+     * Whether self
+     * @return isSelf
+    **/
+    public Boolean getIsSelf() {
+        return isSelf;
+    }
+
+
+    public void setIsSelf(Boolean isSelf) {
+        this.isSelf = isSelf;
+    }
 
     public InlineResponse20014Data userTimest(String userTimest) {
         
@@ -117,6 +185,25 @@ public class InlineResponse20014Data {
 
     public void setUserTimest(String userTimest) {
         this.userTimest = userTimest;
+    }
+
+    public InlineResponse20014Data counterpartiesNum(Integer counterpartiesNum) {
+        
+        this.counterpartiesNum = counterpartiesNum;
+        return this;
+    }
+
+     /**
+     * Number of counterparties
+     * @return counterpartiesNum
+    **/
+    public Integer getCounterpartiesNum() {
+        return counterpartiesNum;
+    }
+
+
+    public void setCounterpartiesNum(Integer counterpartiesNum) {
+        this.counterpartiesNum = counterpartiesNum;
     }
 
     public InlineResponse20014Data emailVerified(String emailVerified) {
@@ -347,6 +434,44 @@ public class InlineResponse20014Data {
         this.completeRateMonth = completeRateMonth;
     }
 
+    public InlineResponse20014Data ordersBuyRateMonth(Integer ordersBuyRateMonth) {
+        
+        this.ordersBuyRateMonth = ordersBuyRateMonth;
+        return this;
+    }
+
+     /**
+     * Buy order ratio in last 30 days
+     * @return ordersBuyRateMonth
+    **/
+    public Integer getOrdersBuyRateMonth() {
+        return ordersBuyRateMonth;
+    }
+
+
+    public void setOrdersBuyRateMonth(Integer ordersBuyRateMonth) {
+        this.ordersBuyRateMonth = ordersBuyRateMonth;
+    }
+
+    public InlineResponse20014Data isBlack(Integer isBlack) {
+        
+        this.isBlack = isBlack;
+        return this;
+    }
+
+     /**
+     * Whether blocked
+     * @return isBlack
+    **/
+    public Integer getIsBlack() {
+        return isBlack;
+    }
+
+
+    public void setIsBlack(Integer isBlack) {
+        this.isBlack = isBlack;
+    }
+
     public InlineResponse20014Data isFollow(Integer isFollow) {
         
         this.isFollow = isFollow;
@@ -404,6 +529,44 @@ public class InlineResponse20014Data {
         this.bizUid = bizUid;
     }
 
+    public InlineResponse20014Data blueVip(Integer blueVip) {
+        
+        this.blueVip = blueVip;
+        return this;
+    }
+
+     /**
+     * Blue V Crown Shield
+     * @return blueVip
+    **/
+    public Integer getBlueVip() {
+        return blueVip;
+    }
+
+
+    public void setBlueVip(Integer blueVip) {
+        this.blueVip = blueVip;
+    }
+
+    public InlineResponse20014Data workStatus(Integer workStatus) {
+        
+        this.workStatus = workStatus;
+        return this;
+    }
+
+     /**
+     * Merchant work status
+     * @return workStatus
+    **/
+    public Integer getWorkStatus() {
+        return workStatus;
+    }
+
+
+    public void setWorkStatus(Integer workStatus) {
+        this.workStatus = workStatus;
+    }
+
     public InlineResponse20014Data registrationDays(Integer registrationDays) {
         
         this.registrationDays = registrationDays;
@@ -442,6 +605,121 @@ public class InlineResponse20014Data {
         this.firstTradeDays = firstTradeDays;
     }
 
+    public InlineResponse20014Data needReplenish(Integer needReplenish) {
+        
+        this.needReplenish = needReplenish;
+        return this;
+    }
+
+     /**
+     * Whether margin replenishment is needed
+     * @return needReplenish
+    **/
+    public Integer getNeedReplenish() {
+        return needReplenish;
+    }
+
+
+    public void setNeedReplenish(Integer needReplenish) {
+        this.needReplenish = needReplenish;
+    }
+
+    public InlineResponse20014Data merchantInfo(InlineResponse20014DataMerchantInfo merchantInfo) {
+        
+        this.merchantInfo = merchantInfo;
+        return this;
+    }
+
+     /**
+     * Get merchantInfo
+     * @return merchantInfo
+    **/
+    public InlineResponse20014DataMerchantInfo getMerchantInfo() {
+        return merchantInfo;
+    }
+
+
+    public void setMerchantInfo(InlineResponse20014DataMerchantInfo merchantInfo) {
+        this.merchantInfo = merchantInfo;
+    }
+
+    public InlineResponse20014Data onlineStatus(Integer onlineStatus) {
+        
+        this.onlineStatus = onlineStatus;
+        return this;
+    }
+
+     /**
+     * Merchant online status
+     * @return onlineStatus
+    **/
+    public Integer getOnlineStatus() {
+        return onlineStatus;
+    }
+
+
+    public void setOnlineStatus(Integer onlineStatus) {
+        this.onlineStatus = onlineStatus;
+    }
+
+    public InlineResponse20014Data workHours(Object workHours) {
+        
+        this.workHours = workHours;
+        return this;
+    }
+
+     /**
+     * Merchant online status details
+     * @return workHours
+    **/
+    @javax.annotation.Nullable
+    public Object getWorkHours() {
+        return workHours;
+    }
+
+
+    public void setWorkHours(Object workHours) {
+        this.workHours = workHours;
+    }
+
+    public InlineResponse20014Data transactionsMonth(Integer transactionsMonth) {
+        
+        this.transactionsMonth = transactionsMonth;
+        return this;
+    }
+
+     /**
+     * 30-day transaction volume
+     * @return transactionsMonth
+    **/
+    public Integer getTransactionsMonth() {
+        return transactionsMonth;
+    }
+
+
+    public void setTransactionsMonth(Integer transactionsMonth) {
+        this.transactionsMonth = transactionsMonth;
+    }
+
+    public InlineResponse20014Data transactionsAll(Integer transactionsAll) {
+        
+        this.transactionsAll = transactionsAll;
+        return this;
+    }
+
+     /**
+     * Total transaction volume
+     * @return transactionsAll
+    **/
+    public Integer getTransactionsAll() {
+        return transactionsAll;
+    }
+
+
+    public void setTransactionsAll(Integer transactionsAll) {
+        this.transactionsAll = transactionsAll;
+    }
+
     public InlineResponse20014Data tradeVersatile(Boolean tradeVersatile) {
         
         this.tradeVersatile = tradeVersatile;
@@ -469,7 +747,9 @@ public class InlineResponse20014Data {
             return false;
         }
         InlineResponse20014Data inlineResponse20014Data = (InlineResponse20014Data) o;
-        return Objects.equals(this.userTimest, inlineResponse20014Data.userTimest) &&
+        return Objects.equals(this.isSelf, inlineResponse20014Data.isSelf) &&
+                Objects.equals(this.userTimest, inlineResponse20014Data.userTimest) &&
+                Objects.equals(this.counterpartiesNum, inlineResponse20014Data.counterpartiesNum) &&
                 Objects.equals(this.emailVerified, inlineResponse20014Data.emailVerified) &&
                 Objects.equals(this.verified, inlineResponse20014Data.verified) &&
                 Objects.equals(this.hasPhone, inlineResponse20014Data.hasPhone) &&
@@ -482,17 +762,27 @@ public class InlineResponse20014Data {
                 Objects.equals(this.cancelledUsedTimeMonth, inlineResponse20014Data.cancelledUsedTimeMonth) &&
                 Objects.equals(this.completeTransactionsMonth, inlineResponse20014Data.completeTransactionsMonth) &&
                 Objects.equals(this.completeRateMonth, inlineResponse20014Data.completeRateMonth) &&
+                Objects.equals(this.ordersBuyRateMonth, inlineResponse20014Data.ordersBuyRateMonth) &&
+                Objects.equals(this.isBlack, inlineResponse20014Data.isBlack) &&
                 Objects.equals(this.isFollow, inlineResponse20014Data.isFollow) &&
                 Objects.equals(this.haveTraded, inlineResponse20014Data.haveTraded) &&
                 Objects.equals(this.bizUid, inlineResponse20014Data.bizUid) &&
+                Objects.equals(this.blueVip, inlineResponse20014Data.blueVip) &&
+                Objects.equals(this.workStatus, inlineResponse20014Data.workStatus) &&
                 Objects.equals(this.registrationDays, inlineResponse20014Data.registrationDays) &&
                 Objects.equals(this.firstTradeDays, inlineResponse20014Data.firstTradeDays) &&
+                Objects.equals(this.needReplenish, inlineResponse20014Data.needReplenish) &&
+                Objects.equals(this.merchantInfo, inlineResponse20014Data.merchantInfo) &&
+                Objects.equals(this.onlineStatus, inlineResponse20014Data.onlineStatus) &&
+                Objects.equals(this.workHours, inlineResponse20014Data.workHours) &&
+                Objects.equals(this.transactionsMonth, inlineResponse20014Data.transactionsMonth) &&
+                Objects.equals(this.transactionsAll, inlineResponse20014Data.transactionsAll) &&
                 Objects.equals(this.tradeVersatile, inlineResponse20014Data.tradeVersatile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userTimest, emailVerified, verified, hasPhone, userName, userNote, completeTransactions, paidTransactions, acceptedTransactions, transactionsUsedTime, cancelledUsedTimeMonth, completeTransactionsMonth, completeRateMonth, isFollow, haveTraded, bizUid, registrationDays, firstTradeDays, tradeVersatile);
+        return Objects.hash(isSelf, userTimest, counterpartiesNum, emailVerified, verified, hasPhone, userName, userNote, completeTransactions, paidTransactions, acceptedTransactions, transactionsUsedTime, cancelledUsedTimeMonth, completeTransactionsMonth, completeRateMonth, ordersBuyRateMonth, isBlack, isFollow, haveTraded, bizUid, blueVip, workStatus, registrationDays, firstTradeDays, needReplenish, merchantInfo, onlineStatus, workHours, transactionsMonth, transactionsAll, tradeVersatile);
     }
 
 
@@ -500,7 +790,9 @@ public class InlineResponse20014Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20014Data {\n");
+        sb.append("      isSelf: ").append(toIndentedString(isSelf)).append("\n");
         sb.append("      userTimest: ").append(toIndentedString(userTimest)).append("\n");
+        sb.append("      counterpartiesNum: ").append(toIndentedString(counterpartiesNum)).append("\n");
         sb.append("      emailVerified: ").append(toIndentedString(emailVerified)).append("\n");
         sb.append("      verified: ").append(toIndentedString(verified)).append("\n");
         sb.append("      hasPhone: ").append(toIndentedString(hasPhone)).append("\n");
@@ -513,11 +805,21 @@ public class InlineResponse20014Data {
         sb.append("      cancelledUsedTimeMonth: ").append(toIndentedString(cancelledUsedTimeMonth)).append("\n");
         sb.append("      completeTransactionsMonth: ").append(toIndentedString(completeTransactionsMonth)).append("\n");
         sb.append("      completeRateMonth: ").append(toIndentedString(completeRateMonth)).append("\n");
+        sb.append("      ordersBuyRateMonth: ").append(toIndentedString(ordersBuyRateMonth)).append("\n");
+        sb.append("      isBlack: ").append(toIndentedString(isBlack)).append("\n");
         sb.append("      isFollow: ").append(toIndentedString(isFollow)).append("\n");
         sb.append("      haveTraded: ").append(toIndentedString(haveTraded)).append("\n");
         sb.append("      bizUid: ").append(toIndentedString(bizUid)).append("\n");
+        sb.append("      blueVip: ").append(toIndentedString(blueVip)).append("\n");
+        sb.append("      workStatus: ").append(toIndentedString(workStatus)).append("\n");
         sb.append("      registrationDays: ").append(toIndentedString(registrationDays)).append("\n");
         sb.append("      firstTradeDays: ").append(toIndentedString(firstTradeDays)).append("\n");
+        sb.append("      needReplenish: ").append(toIndentedString(needReplenish)).append("\n");
+        sb.append("      merchantInfo: ").append(toIndentedString(merchantInfo)).append("\n");
+        sb.append("      onlineStatus: ").append(toIndentedString(onlineStatus)).append("\n");
+        sb.append("      workHours: ").append(toIndentedString(workHours)).append("\n");
+        sb.append("      transactionsMonth: ").append(toIndentedString(transactionsMonth)).append("\n");
+        sb.append("      transactionsAll: ").append(toIndentedString(transactionsAll)).append("\n");
         sb.append("      tradeVersatile: ").append(toIndentedString(tradeVersatile)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -5,25 +5,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** | User ID | 
-**positionId** | **String** | Leveraged Position ID | 
-**symbol** | **String** | Trading Pair | 
-**positionSide** | **String** | Position Direction | 
-**initialMargin** | **String** | Initial position margin | 
-**maintenanceMargin** | **String** | Position maintenance margin | 
-**assetQty** | **String** | Position Asset Quantity | 
-**assetCoin** | **String** | Position Asset Currency | 
-**positionValue** | **String** | Position Value | 
-**liability** | **String** | Debt Quantity | 
-**liabilityCoin** | **String** | Debt Currency | 
-**interest** | **String** | Deducted Interest | 
-**maxPositionQty** | **String** | Max Trade Size | 
-**entryPrice** | **String** | Position Cost Price (Average Opening Price) | 
-**indexPrice** | **String** | Index price | 
-**upnl** | **String** | Unrealized P&amp;L | 
-**upnlRate** | **String** | Unrealized P&amp;L Ratio | 
-**leverage** | **String** | Opening Leverage | 
-**maxLeverage** | **String** | Maximum leverage | 
-**createTime** | **String** | Created time | 
-**updateTime** | **String** | Update time | 
+**userId** | **String** | User ID |  [optional]
+**positionId** | **String** | Position ID |  [optional]
+**symbol** | **String** | Currency pair |  [optional]
+**positionSide** | **String** | Position Direction |  [optional]
+**initialMargin** | **String** | Initial Margin |  [optional]
+**maintenanceMargin** | **String** | Maintenance margin |  [optional]
+**positionQty** | **String** | Position Quantity |  [optional]
+**positionValue** | **String** | Position Value |  [optional]
+**upnl** | **String** | Unrealized P&amp;L |  [optional]
+**upnlRate** | **String** | Unrealized P&amp;L Ratio |  [optional]
+**entryPrice** | **String** | Position Average Entry Price |  [optional]
+**markPrice** | **String** | Mark price |  [optional]
+**leverage** | **String** | Position Leverage |  [optional]
+**maxLeverage** | **String** | Maximum leverage |  [optional]
+**riskLimit** | **String** | Position risk limit |  [optional]
+**fee** | **String** | Position Fee |  [optional]
+**fundingFee** | **String** | Position Funding Fee |  [optional]
+**fundingTime** | **String** | Position funding fee collection time (0 indicates it has not been collected yet) |  [optional]
+**createTime** | **String** | Position Creation Time |  [optional]
+**updateTime** | **String** | Position Update Time |  [optional]
+**closedPnl** | **String** | Realized PnL |  [optional]
 

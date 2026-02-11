@@ -1,5 +1,5 @@
 
-# InlineResponse20016DataList
+# InlineResponse20017DataList
 
 ## Properties
 
@@ -65,5 +65,5 @@ Name | Type | Description | Notes
 **odTime** | **Integer** | Countdown time |  [optional]
 **orderType** | **Integer** | Order Type |  [optional]
 **orderTag** | **List&lt;String&gt;** | Order tags |  [optional]
-**convertInfo** | [**InlineResponse20016DataConvertInfo**](InlineResponse20016DataConvertInfo.md) |  |  [optional]
+**convertInfo** | [**InlineResponse20017DataConvertInfo**](InlineResponse20017DataConvertInfo.md) |  |  [optional]
 

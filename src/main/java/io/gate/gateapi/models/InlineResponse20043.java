@@ -23,77 +23,49 @@ import java.io.IOException;
  * InlineResponse20043
  */
 public class InlineResponse20043 {
-    public static final String SERIALIZED_NAME_USER_ID = "user_id";
+    public static final String SERIALIZED_NAME_USER_ID = "userId";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
-
-    public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
-    @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
-    private String transactionId;
-
-    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
-    @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
-
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
 
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
+    public static final String SERIALIZED_NAME_INTEREST_ID = "interest_id";
+    @SerializedName(SERIALIZED_NAME_INTEREST_ID)
+    private String interestId;
 
-    public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
-    @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
-    private String businessType;
+    public static final String SERIALIZED_NAME_LIABILITY_ID = "liability_id";
+    @SerializedName(SERIALIZED_NAME_LIABILITY_ID)
+    private String liabilityId;
 
-    public static final String SERIALIZED_NAME_SIDE = "side";
-    @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
+    public static final String SERIALIZED_NAME_LIABILITY = "liability";
+    @SerializedName(SERIALIZED_NAME_LIABILITY)
+    private String liability;
 
-    public static final String SERIALIZED_NAME_QTY = "qty";
-    @SerializedName(SERIALIZED_NAME_QTY)
-    private String qty;
+    public static final String SERIALIZED_NAME_LIABILITY_COIN = "liability_coin";
+    @SerializedName(SERIALIZED_NAME_LIABILITY_COIN)
+    private String liabilityCoin;
 
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
+    public static final String SERIALIZED_NAME_INTEREST = "interest";
+    @SerializedName(SERIALIZED_NAME_INTEREST)
+    private String interest;
 
-    public static final String SERIALIZED_NAME_FEE = "fee";
-    @SerializedName(SERIALIZED_NAME_FEE)
-    private String fee;
+    public static final String SERIALIZED_NAME_INTEREST_RATE = "interest_rate";
+    @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
+    private String interestRate;
 
-    public static final String SERIALIZED_NAME_FEE_COIN = "fee_coin";
-    @SerializedName(SERIALIZED_NAME_FEE_COIN)
-    private String feeCoin;
-
-    public static final String SERIALIZED_NAME_FEE_RATE = "fee_rate";
-    @SerializedName(SERIALIZED_NAME_FEE_RATE)
-    private String feeRate;
-
-    public static final String SERIALIZED_NAME_MATCH_ROLE = "match_role";
-    @SerializedName(SERIALIZED_NAME_MATCH_ROLE)
-    private String matchRole;
-
-    public static final String SERIALIZED_NAME_RPNL = "rpnl";
-    @SerializedName(SERIALIZED_NAME_RPNL)
-    private String rpnl;
-
-    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
-    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
-    private String positionMode;
-
-    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
-    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
-    private String positionSide;
+    public static final String SERIALIZED_NAME_INTEREST_TYPE = "interest_type";
+    @SerializedName(SERIALIZED_NAME_INTEREST_TYPE)
+    private String interestType;
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private String createTime;
+
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
 
 
     public InlineResponse20043 userId(String userId) {
@@ -106,7 +78,6 @@ public class InlineResponse20043 {
      * User ID
      * @return userId
     **/
-    @javax.annotation.Nullable
     public String getUserId() {
         return userId;
     }
@@ -116,66 +87,6 @@ public class InlineResponse20043 {
         this.userId = userId;
     }
 
-    public InlineResponse20043 transactionId(String transactionId) {
-        
-        this.transactionId = transactionId;
-        return this;
-    }
-
-     /**
-     * filledrecordsID
-     * @return transactionId
-    **/
-    @javax.annotation.Nullable
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public InlineResponse20043 orderId(String orderId) {
-        
-        this.orderId = orderId;
-        return this;
-    }
-
-     /**
-     * Order ID
-     * @return orderId
-    **/
-    @javax.annotation.Nullable
-    public String getOrderId() {
-        return orderId;
-    }
-
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public InlineResponse20043 text(String text) {
-        
-        this.text = text;
-        return this;
-    }
-
-     /**
-     * User Order ID
-     * @return text
-    **/
-    @javax.annotation.Nullable
-    public String getText() {
-        return text;
-    }
-
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
     public InlineResponse20043 symbol(String symbol) {
         
         this.symbol = symbol;
@@ -183,10 +94,9 @@ public class InlineResponse20043 {
     }
 
      /**
-     * Currency pair
+     * Trading Pair
      * @return symbol
     **/
-    @javax.annotation.Nullable
     public String getSymbol() {
         return symbol;
     }
@@ -196,244 +106,137 @@ public class InlineResponse20043 {
         this.symbol = symbol;
     }
 
-    public InlineResponse20043 exchangeType(String exchangeType) {
+    public InlineResponse20043 interestId(String interestId) {
         
-        this.exchangeType = exchangeType;
+        this.interestId = interestId;
         return this;
     }
 
      /**
-     * Exchange
-     * @return exchangeType
+     * Interest Deduction ID
+     * @return interestId
     **/
-    @javax.annotation.Nullable
-    public String getExchangeType() {
-        return exchangeType;
+    public String getInterestId() {
+        return interestId;
     }
 
 
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
+    public void setInterestId(String interestId) {
+        this.interestId = interestId;
     }
 
-    public InlineResponse20043 businessType(String businessType) {
+    public InlineResponse20043 liabilityId(String liabilityId) {
         
-        this.businessType = businessType;
+        this.liabilityId = liabilityId;
         return this;
     }
 
      /**
-     * Business Type
-     * @return businessType
+     * Debt Source ID, can be Order ID or Position ID
+     * @return liabilityId
     **/
-    @javax.annotation.Nullable
-    public String getBusinessType() {
-        return businessType;
+    public String getLiabilityId() {
+        return liabilityId;
     }
 
 
-    public void setBusinessType(String businessType) {
-        this.businessType = businessType;
+    public void setLiabilityId(String liabilityId) {
+        this.liabilityId = liabilityId;
     }
 
-    public InlineResponse20043 side(String side) {
+    public InlineResponse20043 liability(String liability) {
         
-        this.side = side;
+        this.liability = liability;
         return this;
     }
 
      /**
-     * Buy/Sell Direction
-     * @return side
+     * Debt Quantity
+     * @return liability
     **/
-    @javax.annotation.Nullable
-    public String getSide() {
-        return side;
+    public String getLiability() {
+        return liability;
     }
 
 
-    public void setSide(String side) {
-        this.side = side;
+    public void setLiability(String liability) {
+        this.liability = liability;
     }
 
-    public InlineResponse20043 qty(String qty) {
+    public InlineResponse20043 liabilityCoin(String liabilityCoin) {
         
-        this.qty = qty;
+        this.liabilityCoin = liabilityCoin;
         return this;
     }
 
      /**
-     * Trading size
-     * @return qty
+     * Debt Currency
+     * @return liabilityCoin
     **/
-    @javax.annotation.Nullable
-    public String getQty() {
-        return qty;
+    public String getLiabilityCoin() {
+        return liabilityCoin;
     }
 
 
-    public void setQty(String qty) {
-        this.qty = qty;
+    public void setLiabilityCoin(String liabilityCoin) {
+        this.liabilityCoin = liabilityCoin;
     }
 
-    public InlineResponse20043 price(String price) {
+    public InlineResponse20043 interest(String interest) {
         
-        this.price = price;
+        this.interest = interest;
         return this;
     }
 
      /**
-     * Fill Price
-     * @return price
+     * Interest
+     * @return interest
     **/
-    @javax.annotation.Nullable
-    public String getPrice() {
-        return price;
+    public String getInterest() {
+        return interest;
     }
 
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setInterest(String interest) {
+        this.interest = interest;
     }
 
-    public InlineResponse20043 fee(String fee) {
+    public InlineResponse20043 interestRate(String interestRate) {
         
-        this.fee = fee;
+        this.interestRate = interestRate;
         return this;
     }
 
      /**
-     * fee
-     * @return fee
+     * interest rate
+     * @return interestRate
     **/
-    @javax.annotation.Nullable
-    public String getFee() {
-        return fee;
+    public String getInterestRate() {
+        return interestRate;
     }
 
 
-    public void setFee(String fee) {
-        this.fee = fee;
+    public void setInterestRate(String interestRate) {
+        this.interestRate = interestRate;
     }
 
-    public InlineResponse20043 feeCoin(String feeCoin) {
+    public InlineResponse20043 interestType(String interestType) {
         
-        this.feeCoin = feeCoin;
+        this.interestType = interestType;
         return this;
     }
 
      /**
-     * Fee currency
-     * @return feeCoin
+     * Interest deduction type (&#x60;PERIODIC_POSITION&#x60;: periodic position interest; &#x60;PERIODIC_OPEN_ORDER&#x60;: periodic open-order interest; &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged on order opening)
+     * @return interestType
     **/
-    @javax.annotation.Nullable
-    public String getFeeCoin() {
-        return feeCoin;
+    public String getInterestType() {
+        return interestType;
     }
 
 
-    public void setFeeCoin(String feeCoin) {
-        this.feeCoin = feeCoin;
-    }
-
-    public InlineResponse20043 feeRate(String feeRate) {
-        
-        this.feeRate = feeRate;
-        return this;
-    }
-
-     /**
-     * Fee Rate
-     * @return feeRate
-    **/
-    @javax.annotation.Nullable
-    public String getFeeRate() {
-        return feeRate;
-    }
-
-
-    public void setFeeRate(String feeRate) {
-        this.feeRate = feeRate;
-    }
-
-    public InlineResponse20043 matchRole(String matchRole) {
-        
-        this.matchRole = matchRole;
-        return this;
-    }
-
-     /**
-     * Filled Role
-     * @return matchRole
-    **/
-    @javax.annotation.Nullable
-    public String getMatchRole() {
-        return matchRole;
-    }
-
-
-    public void setMatchRole(String matchRole) {
-        this.matchRole = matchRole;
-    }
-
-    public InlineResponse20043 rpnl(String rpnl) {
-        
-        this.rpnl = rpnl;
-        return this;
-    }
-
-     /**
-     * Realized P&amp;L
-     * @return rpnl
-    **/
-    @javax.annotation.Nullable
-    public String getRpnl() {
-        return rpnl;
-    }
-
-
-    public void setRpnl(String rpnl) {
-        this.rpnl = rpnl;
-    }
-
-    public InlineResponse20043 positionMode(String positionMode) {
-        
-        this.positionMode = positionMode;
-        return this;
-    }
-
-     /**
-     * Position Mode
-     * @return positionMode
-    **/
-    @javax.annotation.Nullable
-    public String getPositionMode() {
-        return positionMode;
-    }
-
-
-    public void setPositionMode(String positionMode) {
-        this.positionMode = positionMode;
-    }
-
-    public InlineResponse20043 positionSide(String positionSide) {
-        
-        this.positionSide = positionSide;
-        return this;
-    }
-
-     /**
-     * Position Direction
-     * @return positionSide
-    **/
-    @javax.annotation.Nullable
-    public String getPositionSide() {
-        return positionSide;
-    }
-
-
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
+    public void setInterestType(String interestType) {
+        this.interestType = interestType;
     }
 
     public InlineResponse20043 createTime(String createTime) {
@@ -446,7 +249,6 @@ public class InlineResponse20043 {
      * Created time
      * @return createTime
     **/
-    @javax.annotation.Nullable
     public String getCreateTime() {
         return createTime;
     }
@@ -454,6 +256,25 @@ public class InlineResponse20043 {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public InlineResponse20043 exchangeType(String exchangeType) {
+        
+        this.exchangeType = exchangeType;
+        return this;
+    }
+
+     /**
+     * Exchange
+     * @return exchangeType
+    **/
+    public String getExchangeType() {
+        return exchangeType;
+    }
+
+
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -465,28 +286,21 @@ public class InlineResponse20043 {
         }
         InlineResponse20043 inlineResponse20043 = (InlineResponse20043) o;
         return Objects.equals(this.userId, inlineResponse20043.userId) &&
-                Objects.equals(this.transactionId, inlineResponse20043.transactionId) &&
-                Objects.equals(this.orderId, inlineResponse20043.orderId) &&
-                Objects.equals(this.text, inlineResponse20043.text) &&
                 Objects.equals(this.symbol, inlineResponse20043.symbol) &&
-                Objects.equals(this.exchangeType, inlineResponse20043.exchangeType) &&
-                Objects.equals(this.businessType, inlineResponse20043.businessType) &&
-                Objects.equals(this.side, inlineResponse20043.side) &&
-                Objects.equals(this.qty, inlineResponse20043.qty) &&
-                Objects.equals(this.price, inlineResponse20043.price) &&
-                Objects.equals(this.fee, inlineResponse20043.fee) &&
-                Objects.equals(this.feeCoin, inlineResponse20043.feeCoin) &&
-                Objects.equals(this.feeRate, inlineResponse20043.feeRate) &&
-                Objects.equals(this.matchRole, inlineResponse20043.matchRole) &&
-                Objects.equals(this.rpnl, inlineResponse20043.rpnl) &&
-                Objects.equals(this.positionMode, inlineResponse20043.positionMode) &&
-                Objects.equals(this.positionSide, inlineResponse20043.positionSide) &&
-                Objects.equals(this.createTime, inlineResponse20043.createTime);
+                Objects.equals(this.interestId, inlineResponse20043.interestId) &&
+                Objects.equals(this.liabilityId, inlineResponse20043.liabilityId) &&
+                Objects.equals(this.liability, inlineResponse20043.liability) &&
+                Objects.equals(this.liabilityCoin, inlineResponse20043.liabilityCoin) &&
+                Objects.equals(this.interest, inlineResponse20043.interest) &&
+                Objects.equals(this.interestRate, inlineResponse20043.interestRate) &&
+                Objects.equals(this.interestType, inlineResponse20043.interestType) &&
+                Objects.equals(this.createTime, inlineResponse20043.createTime) &&
+                Objects.equals(this.exchangeType, inlineResponse20043.exchangeType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, transactionId, orderId, text, symbol, exchangeType, businessType, side, qty, price, fee, feeCoin, feeRate, matchRole, rpnl, positionMode, positionSide, createTime);
+        return Objects.hash(userId, symbol, interestId, liabilityId, liability, liabilityCoin, interest, interestRate, interestType, createTime, exchangeType);
     }
 
 
@@ -495,23 +309,16 @@ public class InlineResponse20043 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20043 {\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("      transactionId: ").append(toIndentedString(transactionId)).append("\n");
-        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      businessType: ").append(toIndentedString(businessType)).append("\n");
-        sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
-        sb.append("      feeCoin: ").append(toIndentedString(feeCoin)).append("\n");
-        sb.append("      feeRate: ").append(toIndentedString(feeRate)).append("\n");
-        sb.append("      matchRole: ").append(toIndentedString(matchRole)).append("\n");
-        sb.append("      rpnl: ").append(toIndentedString(rpnl)).append("\n");
-        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
-        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
+        sb.append("      interestId: ").append(toIndentedString(interestId)).append("\n");
+        sb.append("      liabilityId: ").append(toIndentedString(liabilityId)).append("\n");
+        sb.append("      liability: ").append(toIndentedString(liability)).append("\n");
+        sb.append("      liabilityCoin: ").append(toIndentedString(liabilityCoin)).append("\n");
+        sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
+        sb.append("      interestRate: ").append(toIndentedString(interestRate)).append("\n");
+        sb.append("      interestType: ").append(toIndentedString(interestType)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

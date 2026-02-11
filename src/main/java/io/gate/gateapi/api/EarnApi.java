@@ -29,6 +29,7 @@ import io.gate.gateapi.models.Eth2Swap;
 import io.gate.gateapi.models.FindCoin;
 import io.gate.gateapi.models.OrderListStruct;
 import io.gate.gateapi.models.PlaceDualInvestmentOrder;
+import io.gate.gateapi.models.PlaceDualInvestmentOrderParams;
 import io.gate.gateapi.models.StructuredBuy;
 import io.gate.gateapi.models.StructuredGetProjectList;
 import io.gate.gateapi.models.StructuredOrderList;
@@ -594,7 +595,7 @@ public class EarnApi {
 
     /**
      * Build call for placeDualOrder
-     * @param placeDualInvestmentOrder  (required)
+     * @param placeDualInvestmentOrderParams  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -604,8 +605,8 @@ public class EarnApi {
         <tr><td> 200 </td><td> Order placed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call placeDualOrderCall(PlaceDualInvestmentOrder placeDualInvestmentOrder, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = placeDualInvestmentOrder;
+    public okhttp3.Call placeDualOrderCall(PlaceDualInvestmentOrderParams placeDualInvestmentOrderParams, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = placeDualInvestmentOrderParams;
 
         // create path and map variables
         String localVarPath = "/earn/dual/orders";
@@ -616,7 +617,7 @@ public class EarnApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -634,20 +635,21 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call placeDualOrderValidateBeforeCall(PlaceDualInvestmentOrder placeDualInvestmentOrder, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'placeDualInvestmentOrder' is set
-        if (placeDualInvestmentOrder == null) {
-            throw new ApiException("Missing the required parameter 'placeDualInvestmentOrder' when calling placeDualOrder(Async)");
+    private okhttp3.Call placeDualOrderValidateBeforeCall(PlaceDualInvestmentOrderParams placeDualInvestmentOrderParams, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'placeDualInvestmentOrderParams' is set
+        if (placeDualInvestmentOrderParams == null) {
+            throw new ApiException("Missing the required parameter 'placeDualInvestmentOrderParams' when calling placeDualOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = placeDualOrderCall(placeDualInvestmentOrder, _callback);
+        okhttp3.Call localVarCall = placeDualOrderCall(placeDualInvestmentOrderParams, _callback);
         return localVarCall;
     }
 
     /**
      * Place Dual Investment order
      * 
-     * @param placeDualInvestmentOrder  (required)
+     * @param placeDualInvestmentOrderParams  (required)
+     * @return PlaceDualInvestmentOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -655,15 +657,16 @@ public class EarnApi {
         <tr><td> 200 </td><td> Order placed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public void placeDualOrder(PlaceDualInvestmentOrder placeDualInvestmentOrder) throws ApiException {
-        placeDualOrderWithHttpInfo(placeDualInvestmentOrder);
+    public PlaceDualInvestmentOrder placeDualOrder(PlaceDualInvestmentOrderParams placeDualInvestmentOrderParams) throws ApiException {
+        ApiResponse<PlaceDualInvestmentOrder> localVarResp = placeDualOrderWithHttpInfo(placeDualInvestmentOrderParams);
+        return localVarResp.getData();
     }
 
     /**
      * Place Dual Investment order
      * 
-     * @param placeDualInvestmentOrder  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @param placeDualInvestmentOrderParams  (required)
+     * @return ApiResponse&lt;PlaceDualInvestmentOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -671,15 +674,16 @@ public class EarnApi {
         <tr><td> 200 </td><td> Order placed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> placeDualOrderWithHttpInfo(PlaceDualInvestmentOrder placeDualInvestmentOrder) throws ApiException {
-        okhttp3.Call localVarCall = placeDualOrderValidateBeforeCall(placeDualInvestmentOrder, null);
-        return localVarApiClient.execute(localVarCall);
+    public ApiResponse<PlaceDualInvestmentOrder> placeDualOrderWithHttpInfo(PlaceDualInvestmentOrderParams placeDualInvestmentOrderParams) throws ApiException {
+        okhttp3.Call localVarCall = placeDualOrderValidateBeforeCall(placeDualInvestmentOrderParams, null);
+        Type localVarReturnType = new TypeToken<PlaceDualInvestmentOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Place Dual Investment order (asynchronously)
      * 
-     * @param placeDualInvestmentOrder  (required)
+     * @param placeDualInvestmentOrderParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -689,9 +693,10 @@ public class EarnApi {
         <tr><td> 200 </td><td> Order placed successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call placeDualOrderAsync(PlaceDualInvestmentOrder placeDualInvestmentOrder, final ApiCallback<Void> _callback) throws ApiException {
-        okhttp3.Call localVarCall = placeDualOrderValidateBeforeCall(placeDualInvestmentOrder, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+    public okhttp3.Call placeDualOrderAsync(PlaceDualInvestmentOrderParams placeDualInvestmentOrderParams, final ApiCallback<PlaceDualInvestmentOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = placeDualOrderValidateBeforeCall(placeDualInvestmentOrderParams, _callback);
+        Type localVarReturnType = new TypeToken<PlaceDualInvestmentOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 

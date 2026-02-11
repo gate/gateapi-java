@@ -243,7 +243,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Value Per Unit
+     * Value Per Unit (deprecated)
      * @return perValue
     **/
     @javax.annotation.Nullable
@@ -323,7 +323,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Status:   &#x60;NOTSTARTED&#x60;-Not Started  &#x60;ONGOING&#x60;-In Progress  &#x60;ENDED&#x60;-Ended
+     * 状态:  &#x60;NOTSTARTED&#x60;-未开始 &#x60;ONGOING&#x60;-进行中 &#x60;ENDED&#x60;-已结束
      * @return status
     **/
     @javax.annotation.Nullable

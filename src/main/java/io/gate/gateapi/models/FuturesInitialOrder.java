@@ -176,7 +176,7 @@ public class FuturesInitialOrder {
     }
 
      /**
-     * In One-way Mode, when closing all positions, this must be set to true to perform the closing operation When partially closing positions in One-way Mode or Hedge Mode, you can omit close or set close&#x3D;false
+     * When fully closing a position in single-position mode, close must be set to true to execute the close operation. When partially closing a position in single-position mode or in dual-position mode, close can be left unset or set to false.
      * @return close
     **/
     @javax.annotation.Nullable

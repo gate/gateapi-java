@@ -426,7 +426,7 @@ public class WalletApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIlistWithdrawalsRequest
          */
         public APIlistWithdrawalsRequest from(Long from) {
@@ -629,7 +629,7 @@ public class WalletApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIlistDepositsRequest
          */
         public APIlistDepositsRequest from(Long from) {
@@ -939,7 +939,7 @@ public class WalletApi {
 
         /**
          * Set from
-         * @param from Start time for querying records, defaults to 7 days before current time if not specified (optional)
+         * @param from Start time for querying records. If not specified, defaults to 7 days before current time (optional)
          * @return APIlistSubAccountTransfersRequest
          */
         public APIlistSubAccountTransfersRequest from(Long from) {

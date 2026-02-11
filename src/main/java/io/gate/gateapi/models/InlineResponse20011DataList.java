@@ -17,75 +17,141 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20011DataCryptoCurrencyInfo;
+import io.gate.gateapi.models.InlineResponse20011DataFiatCurrencyInfo;
 import java.io.IOException;
 
 /**
  * InlineResponse20011DataList
  */
 public class InlineResponse20011DataList {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Integer id;
+    public static final String SERIALIZED_NAME_TIME = "time";
+    @SerializedName(SERIALIZED_NAME_TIME)
+    private String time;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
+
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
 
     public static final String SERIALIZED_NAME_TRADE_NO = "trade_no";
     @SerializedName(SERIALIZED_NAME_TRADE_NO)
     private String tradeNo;
 
-    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
-    @SerializedName(SERIALIZED_NAME_PAY_COIN)
-    private String payCoin;
-
-    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
-    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
-    private String payAmount;
-
-    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
-    @SerializedName(SERIALIZED_NAME_GET_COIN)
-    private String getCoin;
-
-    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
-    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
-    private String getAmount;
-
-    public static final String SERIALIZED_NAME_RATE = "rate";
-    @SerializedName(SERIALIZED_NAME_RATE)
-    private String rate;
-
-    public static final String SERIALIZED_NAME_RATE_RECI = "rate_reci";
-    @SerializedName(SERIALIZED_NAME_RATE_RECI)
-    private String rateReci;
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
-    public static final String SERIALIZED_NAME_CREATE_TIMEST = "create_timest";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIMEST)
-    private Integer createTimest;
+    public static final String SERIALIZED_NAME_DB_STATUS = "db_status";
+    @SerializedName(SERIALIZED_NAME_DB_STATUS)
+    private String dbStatus;
 
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private String createTime;
+    public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
+    @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
+    private String fiatCurrency;
+
+    public static final String SERIALIZED_NAME_FIAT_CURRENCY_INFO = "fiat_currency_info";
+    @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY_INFO)
+    private InlineResponse20011DataFiatCurrencyInfo fiatCurrencyInfo;
+
+    public static final String SERIALIZED_NAME_FIAT_AMOUNT = "fiat_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_AMOUNT)
+    private String fiatAmount;
+
+    public static final String SERIALIZED_NAME_CRYPTO_CURRENCY = "crypto_currency";
+    @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY)
+    private String cryptoCurrency;
+
+    public static final String SERIALIZED_NAME_CRYPTO_CURRENCY_INFO = "crypto_currency_info";
+    @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY_INFO)
+    private InlineResponse20011DataCryptoCurrencyInfo cryptoCurrencyInfo;
+
+    public static final String SERIALIZED_NAME_CRYPTO_AMOUNT = "crypto_amount";
+    @SerializedName(SERIALIZED_NAME_CRYPTO_AMOUNT)
+    private String cryptoAmount;
+
+    public static final String SERIALIZED_NAME_RATE = "rate";
+    @SerializedName(SERIALIZED_NAME_RATE)
+    private String rate;
+
+    public static final String SERIALIZED_NAME_TRANSFER_REMARK = "transfer_remark";
+    @SerializedName(SERIALIZED_NAME_TRANSFER_REMARK)
+    private String transferRemark;
+
+    public static final String SERIALIZED_NAME_GATE_BANK_ACCOUNT_IBAN = "gate_bank_account_iban";
+    @SerializedName(SERIALIZED_NAME_GATE_BANK_ACCOUNT_IBAN)
+    private String gateBankAccountIban;
+
+    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
+    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
+    private String promotionCode;
 
 
-    public InlineResponse20011DataList id(Integer id) {
+    public InlineResponse20011DataList time(String time) {
         
-        this.id = id;
+        this.time = time;
         return this;
     }
 
      /**
-     * Order ID
-     * @return id
+     * Current time
+     * @return time
     **/
     @javax.annotation.Nullable
-    public Integer getId() {
-        return id;
+    public String getTime() {
+        return time;
     }
 
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public InlineResponse20011DataList timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Current timestamp
+     * @return timestamp
+    **/
+    @javax.annotation.Nullable
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public InlineResponse20011DataList orderId(String orderId) {
+        
+        this.orderId = orderId;
+        return this;
+    }
+
+     /**
+     * orderId
+     * @return orderId
+    **/
+    @javax.annotation.Nullable
+    public String getOrderId() {
+        return orderId;
+    }
+
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public InlineResponse20011DataList tradeNo(String tradeNo) {
@@ -95,7 +161,7 @@ public class InlineResponse20011DataList {
     }
 
      /**
-     * Transaction reference number
+     * Trade number
      * @return tradeNo
     **/
     @javax.annotation.Nullable
@@ -108,84 +174,184 @@ public class InlineResponse20011DataList {
         this.tradeNo = tradeNo;
     }
 
-    public InlineResponse20011DataList payCoin(String payCoin) {
+    public InlineResponse20011DataList type(String type) {
         
-        this.payCoin = payCoin;
+        this.type = type;
         return this;
     }
 
      /**
-     * Payment currency
-     * @return payCoin
+     * Quote direction buy/sell/all
+     * @return type
     **/
     @javax.annotation.Nullable
-    public String getPayCoin() {
-        return payCoin;
+    public String getType() {
+        return type;
     }
 
 
-    public void setPayCoin(String payCoin) {
-        this.payCoin = payCoin;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public InlineResponse20011DataList payAmount(String payAmount) {
+    public InlineResponse20011DataList status(String status) {
         
-        this.payAmount = payAmount;
+        this.status = status;
         return this;
     }
 
      /**
-     * Payment amount
-     * @return payAmount
+     * Order Status
+     * @return status
     **/
     @javax.annotation.Nullable
-    public String getPayAmount() {
-        return payAmount;
+    public String getStatus() {
+        return status;
     }
 
 
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public InlineResponse20011DataList getCoin(String getCoin) {
+    public InlineResponse20011DataList dbStatus(String dbStatus) {
         
-        this.getCoin = getCoin;
+        this.dbStatus = dbStatus;
         return this;
     }
 
      /**
-     * Received currency
-     * @return getCoin
+     * Get dbStatus
+     * @return dbStatus
     **/
     @javax.annotation.Nullable
-    public String getGetCoin() {
-        return getCoin;
+    public String getDbStatus() {
+        return dbStatus;
     }
 
 
-    public void setGetCoin(String getCoin) {
-        this.getCoin = getCoin;
+    public void setDbStatus(String dbStatus) {
+        this.dbStatus = dbStatus;
     }
 
-    public InlineResponse20011DataList getAmount(String getAmount) {
+    public InlineResponse20011DataList fiatCurrency(String fiatCurrency) {
         
-        this.getAmount = getAmount;
+        this.fiatCurrency = fiatCurrency;
         return this;
     }
 
      /**
-     * Received amount
-     * @return getAmount
+     * Fiat type
+     * @return fiatCurrency
     **/
     @javax.annotation.Nullable
-    public String getGetAmount() {
-        return getAmount;
+    public String getFiatCurrency() {
+        return fiatCurrency;
     }
 
 
-    public void setGetAmount(String getAmount) {
-        this.getAmount = getAmount;
+    public void setFiatCurrency(String fiatCurrency) {
+        this.fiatCurrency = fiatCurrency;
+    }
+
+    public InlineResponse20011DataList fiatCurrencyInfo(InlineResponse20011DataFiatCurrencyInfo fiatCurrencyInfo) {
+        
+        this.fiatCurrencyInfo = fiatCurrencyInfo;
+        return this;
+    }
+
+     /**
+     * Get fiatCurrencyInfo
+     * @return fiatCurrencyInfo
+    **/
+    @javax.annotation.Nullable
+    public InlineResponse20011DataFiatCurrencyInfo getFiatCurrencyInfo() {
+        return fiatCurrencyInfo;
+    }
+
+
+    public void setFiatCurrencyInfo(InlineResponse20011DataFiatCurrencyInfo fiatCurrencyInfo) {
+        this.fiatCurrencyInfo = fiatCurrencyInfo;
+    }
+
+    public InlineResponse20011DataList fiatAmount(String fiatAmount) {
+        
+        this.fiatAmount = fiatAmount;
+        return this;
+    }
+
+     /**
+     * Fiat amount
+     * @return fiatAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatAmount() {
+        return fiatAmount;
+    }
+
+
+    public void setFiatAmount(String fiatAmount) {
+        this.fiatAmount = fiatAmount;
+    }
+
+    public InlineResponse20011DataList cryptoCurrency(String cryptoCurrency) {
+        
+        this.cryptoCurrency = cryptoCurrency;
+        return this;
+    }
+
+     /**
+     * Stablecoin
+     * @return cryptoCurrency
+    **/
+    @javax.annotation.Nullable
+    public String getCryptoCurrency() {
+        return cryptoCurrency;
+    }
+
+
+    public void setCryptoCurrency(String cryptoCurrency) {
+        this.cryptoCurrency = cryptoCurrency;
+    }
+
+    public InlineResponse20011DataList cryptoCurrencyInfo(InlineResponse20011DataCryptoCurrencyInfo cryptoCurrencyInfo) {
+        
+        this.cryptoCurrencyInfo = cryptoCurrencyInfo;
+        return this;
+    }
+
+     /**
+     * Get cryptoCurrencyInfo
+     * @return cryptoCurrencyInfo
+    **/
+    @javax.annotation.Nullable
+    public InlineResponse20011DataCryptoCurrencyInfo getCryptoCurrencyInfo() {
+        return cryptoCurrencyInfo;
+    }
+
+
+    public void setCryptoCurrencyInfo(InlineResponse20011DataCryptoCurrencyInfo cryptoCurrencyInfo) {
+        this.cryptoCurrencyInfo = cryptoCurrencyInfo;
+    }
+
+    public InlineResponse20011DataList cryptoAmount(String cryptoAmount) {
+        
+        this.cryptoAmount = cryptoAmount;
+        return this;
+    }
+
+     /**
+     * Stablecoin amount
+     * @return cryptoAmount
+    **/
+    @javax.annotation.Nullable
+    public String getCryptoAmount() {
+        return cryptoAmount;
+    }
+
+
+    public void setCryptoAmount(String cryptoAmount) {
+        this.cryptoAmount = cryptoAmount;
     }
 
     public InlineResponse20011DataList rate(String rate) {
@@ -208,84 +374,64 @@ public class InlineResponse20011DataList {
         this.rate = rate;
     }
 
-    public InlineResponse20011DataList rateReci(String rateReci) {
+    public InlineResponse20011DataList transferRemark(String transferRemark) {
         
-        this.rateReci = rateReci;
+        this.transferRemark = transferRemark;
         return this;
     }
 
      /**
-     * Reciprocal of the exchange rate
-     * @return rateReci
+     * Remark
+     * @return transferRemark
     **/
     @javax.annotation.Nullable
-    public String getRateReci() {
-        return rateReci;
+    public String getTransferRemark() {
+        return transferRemark;
     }
 
 
-    public void setRateReci(String rateReci) {
-        this.rateReci = rateReci;
+    public void setTransferRemark(String transferRemark) {
+        this.transferRemark = transferRemark;
     }
 
-    public InlineResponse20011DataList status(String status) {
+    public InlineResponse20011DataList gateBankAccountIban(String gateBankAccountIban) {
         
-        this.status = status;
+        this.gateBankAccountIban = gateBankAccountIban;
         return this;
     }
 
      /**
-     * PROCESSING: in progress / DONE: completed / FAILED: failed
-     * @return status
+     * Bank account
+     * @return gateBankAccountIban
     **/
     @javax.annotation.Nullable
-    public String getStatus() {
-        return status;
+    public String getGateBankAccountIban() {
+        return gateBankAccountIban;
     }
 
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setGateBankAccountIban(String gateBankAccountIban) {
+        this.gateBankAccountIban = gateBankAccountIban;
     }
 
-    public InlineResponse20011DataList createTimest(Integer createTimest) {
+    public InlineResponse20011DataList promotionCode(String promotionCode) {
         
-        this.createTimest = createTimest;
+        this.promotionCode = promotionCode;
         return this;
     }
 
      /**
-     * timetimestamp
-     * @return createTimest
+     * Promotion code
+     * @return promotionCode
     **/
     @javax.annotation.Nullable
-    public Integer getCreateTimest() {
-        return createTimest;
+    public String getPromotionCode() {
+        return promotionCode;
     }
 
 
-    public void setCreateTimest(Integer createTimest) {
-        this.createTimest = createTimest;
-    }
-
-    public InlineResponse20011DataList createTime(String createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Created time
-     * @return createTime
-    **/
-    @javax.annotation.Nullable
-    public String getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setPromotionCode(String promotionCode) {
+        this.promotionCode = promotionCode;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -296,22 +442,28 @@ public class InlineResponse20011DataList {
             return false;
         }
         InlineResponse20011DataList inlineResponse20011DataList = (InlineResponse20011DataList) o;
-        return Objects.equals(this.id, inlineResponse20011DataList.id) &&
+        return Objects.equals(this.time, inlineResponse20011DataList.time) &&
+                Objects.equals(this.timestamp, inlineResponse20011DataList.timestamp) &&
+                Objects.equals(this.orderId, inlineResponse20011DataList.orderId) &&
                 Objects.equals(this.tradeNo, inlineResponse20011DataList.tradeNo) &&
-                Objects.equals(this.payCoin, inlineResponse20011DataList.payCoin) &&
-                Objects.equals(this.payAmount, inlineResponse20011DataList.payAmount) &&
-                Objects.equals(this.getCoin, inlineResponse20011DataList.getCoin) &&
-                Objects.equals(this.getAmount, inlineResponse20011DataList.getAmount) &&
-                Objects.equals(this.rate, inlineResponse20011DataList.rate) &&
-                Objects.equals(this.rateReci, inlineResponse20011DataList.rateReci) &&
+                Objects.equals(this.type, inlineResponse20011DataList.type) &&
                 Objects.equals(this.status, inlineResponse20011DataList.status) &&
-                Objects.equals(this.createTimest, inlineResponse20011DataList.createTimest) &&
-                Objects.equals(this.createTime, inlineResponse20011DataList.createTime);
+                Objects.equals(this.dbStatus, inlineResponse20011DataList.dbStatus) &&
+                Objects.equals(this.fiatCurrency, inlineResponse20011DataList.fiatCurrency) &&
+                Objects.equals(this.fiatCurrencyInfo, inlineResponse20011DataList.fiatCurrencyInfo) &&
+                Objects.equals(this.fiatAmount, inlineResponse20011DataList.fiatAmount) &&
+                Objects.equals(this.cryptoCurrency, inlineResponse20011DataList.cryptoCurrency) &&
+                Objects.equals(this.cryptoCurrencyInfo, inlineResponse20011DataList.cryptoCurrencyInfo) &&
+                Objects.equals(this.cryptoAmount, inlineResponse20011DataList.cryptoAmount) &&
+                Objects.equals(this.rate, inlineResponse20011DataList.rate) &&
+                Objects.equals(this.transferRemark, inlineResponse20011DataList.transferRemark) &&
+                Objects.equals(this.gateBankAccountIban, inlineResponse20011DataList.gateBankAccountIban) &&
+                Objects.equals(this.promotionCode, inlineResponse20011DataList.promotionCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tradeNo, payCoin, payAmount, getCoin, getAmount, rate, rateReci, status, createTimest, createTime);
+        return Objects.hash(time, timestamp, orderId, tradeNo, type, status, dbStatus, fiatCurrency, fiatCurrencyInfo, fiatAmount, cryptoCurrency, cryptoCurrencyInfo, cryptoAmount, rate, transferRemark, gateBankAccountIban, promotionCode);
     }
 
 
@@ -319,17 +471,23 @@ public class InlineResponse20011DataList {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20011DataList {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      time: ").append(toIndentedString(time)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
         sb.append("      tradeNo: ").append(toIndentedString(tradeNo)).append("\n");
-        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
-        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
-        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
-        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
-        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("      rateReci: ").append(toIndentedString(rateReci)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      createTimest: ").append(toIndentedString(createTimest)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
+        sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
+        sb.append("      fiatCurrencyInfo: ").append(toIndentedString(fiatCurrencyInfo)).append("\n");
+        sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
+        sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
+        sb.append("      cryptoCurrencyInfo: ").append(toIndentedString(cryptoCurrencyInfo)).append("\n");
+        sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
+        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("      transferRemark: ").append(toIndentedString(transferRemark)).append("\n");
+        sb.append("      gateBankAccountIban: ").append(toIndentedString(gateBankAccountIban)).append("\n");
+        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

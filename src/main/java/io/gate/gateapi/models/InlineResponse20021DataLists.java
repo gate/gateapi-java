@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20020DataLists
+ * InlineResponse20021DataLists
  */
-public class InlineResponse20020DataLists {
+public class InlineResponse20021DataLists {
     public static final String SERIALIZED_NAME_TYPE = "type";
     @SerializedName(SERIALIZED_NAME_TYPE)
     private String type;
@@ -180,7 +180,7 @@ public class InlineResponse20020DataLists {
     private Integer isHedge;
 
 
-    public InlineResponse20020DataLists type(String type) {
+    public InlineResponse20021DataLists type(String type) {
         
         this.type = type;
         return this;
@@ -200,7 +200,7 @@ public class InlineResponse20020DataLists {
         this.type = type;
     }
 
-    public InlineResponse20020DataLists rate(String rate) {
+    public InlineResponse20021DataLists rate(String rate) {
         
         this.rate = rate;
         return this;
@@ -220,7 +220,7 @@ public class InlineResponse20020DataLists {
         this.rate = rate;
     }
 
-    public InlineResponse20020DataLists originalRate(String originalRate) {
+    public InlineResponse20021DataLists originalRate(String originalRate) {
         
         this.originalRate = originalRate;
         return this;
@@ -240,7 +240,7 @@ public class InlineResponse20020DataLists {
         this.originalRate = originalRate;
     }
 
-    public InlineResponse20020DataLists amount(String amount) {
+    public InlineResponse20021DataLists amount(String amount) {
         
         this.amount = amount;
         return this;
@@ -260,7 +260,7 @@ public class InlineResponse20020DataLists {
         this.amount = amount;
     }
 
-    public InlineResponse20020DataLists total(String total) {
+    public InlineResponse20021DataLists total(String total) {
         
         this.total = total;
         return this;
@@ -280,7 +280,7 @@ public class InlineResponse20020DataLists {
         this.total = total;
     }
 
-    public InlineResponse20020DataLists limitTotal(String limitTotal) {
+    public InlineResponse20021DataLists limitTotal(String limitTotal) {
         
         this.limitTotal = limitTotal;
         return this;
@@ -300,7 +300,7 @@ public class InlineResponse20020DataLists {
         this.limitTotal = limitTotal;
     }
 
-    public InlineResponse20020DataLists limitFiat(String limitFiat) {
+    public InlineResponse20021DataLists limitFiat(String limitFiat) {
         
         this.limitFiat = limitFiat;
         return this;
@@ -320,7 +320,7 @@ public class InlineResponse20020DataLists {
         this.limitFiat = limitFiat;
     }
 
-    public InlineResponse20020DataLists minAmount(String minAmount) {
+    public InlineResponse20021DataLists minAmount(String minAmount) {
         
         this.minAmount = minAmount;
         return this;
@@ -340,7 +340,7 @@ public class InlineResponse20020DataLists {
         this.minAmount = minAmount;
     }
 
-    public InlineResponse20020DataLists maxAmount(String maxAmount) {
+    public InlineResponse20021DataLists maxAmount(String maxAmount) {
         
         this.maxAmount = maxAmount;
         return this;
@@ -360,7 +360,7 @@ public class InlineResponse20020DataLists {
         this.maxAmount = maxAmount;
     }
 
-    public InlineResponse20020DataLists payTypeNum(String payTypeNum) {
+    public InlineResponse20021DataLists payTypeNum(String payTypeNum) {
         
         this.payTypeNum = payTypeNum;
         return this;
@@ -380,7 +380,7 @@ public class InlineResponse20020DataLists {
         this.payTypeNum = payTypeNum;
     }
 
-    public InlineResponse20020DataLists payTypeJson(String payTypeJson) {
+    public InlineResponse20021DataLists payTypeJson(String payTypeJson) {
         
         this.payTypeJson = payTypeJson;
         return this;
@@ -400,7 +400,7 @@ public class InlineResponse20020DataLists {
         this.payTypeJson = payTypeJson;
     }
 
-    public InlineResponse20020DataLists expireMin(String expireMin) {
+    public InlineResponse20021DataLists expireMin(String expireMin) {
         
         this.expireMin = expireMin;
         return this;
@@ -420,7 +420,7 @@ public class InlineResponse20020DataLists {
         this.expireMin = expireMin;
     }
 
-    public InlineResponse20020DataLists tierLimit(String tierLimit) {
+    public InlineResponse20021DataLists tierLimit(String tierLimit) {
         
         this.tierLimit = tierLimit;
         return this;
@@ -440,7 +440,7 @@ public class InlineResponse20020DataLists {
         this.tierLimit = tierLimit;
     }
 
-    public InlineResponse20020DataLists advertisersLimit(Integer advertisersLimit) {
+    public InlineResponse20021DataLists advertisersLimit(Integer advertisersLimit) {
         
         this.advertisersLimit = advertisersLimit;
         return this;
@@ -460,7 +460,7 @@ public class InlineResponse20020DataLists {
         this.advertisersLimit = advertisersLimit;
     }
 
-    public InlineResponse20020DataLists regTimeLimit(Integer regTimeLimit) {
+    public InlineResponse20021DataLists regTimeLimit(Integer regTimeLimit) {
         
         this.regTimeLimit = regTimeLimit;
         return this;
@@ -480,7 +480,7 @@ public class InlineResponse20020DataLists {
         this.regTimeLimit = regTimeLimit;
     }
 
-    public InlineResponse20020DataLists verifiedLimit(Integer verifiedLimit) {
+    public InlineResponse20021DataLists verifiedLimit(Integer verifiedLimit) {
         
         this.verifiedLimit = verifiedLimit;
         return this;
@@ -500,7 +500,7 @@ public class InlineResponse20020DataLists {
         this.verifiedLimit = verifiedLimit;
     }
 
-    public InlineResponse20020DataLists minCompletedLimit(Integer minCompletedLimit) {
+    public InlineResponse20021DataLists minCompletedLimit(Integer minCompletedLimit) {
         
         this.minCompletedLimit = minCompletedLimit;
         return this;
@@ -520,7 +520,7 @@ public class InlineResponse20020DataLists {
         this.minCompletedLimit = minCompletedLimit;
     }
 
-    public InlineResponse20020DataLists maxCompletedLimit(Integer maxCompletedLimit) {
+    public InlineResponse20021DataLists maxCompletedLimit(Integer maxCompletedLimit) {
         
         this.maxCompletedLimit = maxCompletedLimit;
         return this;
@@ -540,7 +540,7 @@ public class InlineResponse20020DataLists {
         this.maxCompletedLimit = maxCompletedLimit;
     }
 
-    public InlineResponse20020DataLists userCountryLimit(Integer userCountryLimit) {
+    public InlineResponse20021DataLists userCountryLimit(Integer userCountryLimit) {
         
         this.userCountryLimit = userCountryLimit;
         return this;
@@ -560,7 +560,7 @@ public class InlineResponse20020DataLists {
         this.userCountryLimit = userCountryLimit;
     }
 
-    public InlineResponse20020DataLists completedRateLimit(Integer completedRateLimit) {
+    public InlineResponse20021DataLists completedRateLimit(Integer completedRateLimit) {
         
         this.completedRateLimit = completedRateLimit;
         return this;
@@ -580,7 +580,7 @@ public class InlineResponse20020DataLists {
         this.completedRateLimit = completedRateLimit;
     }
 
-    public InlineResponse20020DataLists userOrdersLimit(Integer userOrdersLimit) {
+    public InlineResponse20021DataLists userOrdersLimit(Integer userOrdersLimit) {
         
         this.userOrdersLimit = userOrdersLimit;
         return this;
@@ -600,7 +600,7 @@ public class InlineResponse20020DataLists {
         this.userOrdersLimit = userOrdersLimit;
     }
 
-    public InlineResponse20020DataLists hidePayment(String hidePayment) {
+    public InlineResponse20021DataLists hidePayment(String hidePayment) {
         
         this.hidePayment = hidePayment;
         return this;
@@ -620,7 +620,7 @@ public class InlineResponse20020DataLists {
         this.hidePayment = hidePayment;
     }
 
-    public InlineResponse20020DataLists currencyType(String currencyType) {
+    public InlineResponse20021DataLists currencyType(String currencyType) {
         
         this.currencyType = currencyType;
         return this;
@@ -640,7 +640,7 @@ public class InlineResponse20020DataLists {
         this.currencyType = currencyType;
     }
 
-    public InlineResponse20020DataLists wantType(String wantType) {
+    public InlineResponse20021DataLists wantType(String wantType) {
         
         this.wantType = wantType;
         return this;
@@ -660,7 +660,7 @@ public class InlineResponse20020DataLists {
         this.wantType = wantType;
     }
 
-    public InlineResponse20020DataLists tradeTips(String tradeTips) {
+    public InlineResponse20021DataLists tradeTips(String tradeTips) {
         
         this.tradeTips = tradeTips;
         return this;
@@ -680,7 +680,7 @@ public class InlineResponse20020DataLists {
         this.tradeTips = tradeTips;
     }
 
-    public InlineResponse20020DataLists newHand(Integer newHand) {
+    public InlineResponse20021DataLists newHand(Integer newHand) {
         
         this.newHand = newHand;
         return this;
@@ -700,7 +700,7 @@ public class InlineResponse20020DataLists {
         this.newHand = newHand;
     }
 
-    public InlineResponse20020DataLists id(String id) {
+    public InlineResponse20021DataLists id(String id) {
         
         this.id = id;
         return this;
@@ -720,7 +720,7 @@ public class InlineResponse20020DataLists {
         this.id = id;
     }
 
-    public InlineResponse20020DataLists status(String status) {
+    public InlineResponse20021DataLists status(String status) {
         
         this.status = status;
         return this;
@@ -740,7 +740,7 @@ public class InlineResponse20020DataLists {
         this.status = status;
     }
 
-    public InlineResponse20020DataLists lockedAmount(String lockedAmount) {
+    public InlineResponse20021DataLists lockedAmount(String lockedAmount) {
         
         this.lockedAmount = lockedAmount;
         return this;
@@ -760,7 +760,7 @@ public class InlineResponse20020DataLists {
         this.lockedAmount = lockedAmount;
     }
 
-    public InlineResponse20020DataLists hideRate(String hideRate) {
+    public InlineResponse20021DataLists hideRate(String hideRate) {
         
         this.hideRate = hideRate;
         return this;
@@ -780,7 +780,7 @@ public class InlineResponse20020DataLists {
         this.hideRate = hideRate;
     }
 
-    public InlineResponse20020DataLists isOutTime(Integer isOutTime) {
+    public InlineResponse20021DataLists isOutTime(Integer isOutTime) {
         
         this.isOutTime = isOutTime;
         return this;
@@ -800,7 +800,7 @@ public class InlineResponse20020DataLists {
         this.isOutTime = isOutTime;
     }
 
-    public InlineResponse20020DataLists rateRefId(Integer rateRefId) {
+    public InlineResponse20021DataLists rateRefId(Integer rateRefId) {
         
         this.rateRefId = rateRefId;
         return this;
@@ -820,7 +820,7 @@ public class InlineResponse20020DataLists {
         this.rateRefId = rateRefId;
     }
 
-    public InlineResponse20020DataLists rateOffset(String rateOffset) {
+    public InlineResponse20021DataLists rateOffset(String rateOffset) {
         
         this.rateOffset = rateOffset;
         return this;
@@ -840,7 +840,7 @@ public class InlineResponse20020DataLists {
         this.rateOffset = rateOffset;
     }
 
-    public InlineResponse20020DataLists rateFixed(Integer rateFixed) {
+    public InlineResponse20021DataLists rateFixed(Integer rateFixed) {
         
         this.rateFixed = rateFixed;
         return this;
@@ -860,7 +860,7 @@ public class InlineResponse20020DataLists {
         this.rateFixed = rateFixed;
     }
 
-    public InlineResponse20020DataLists floatTrend(Integer floatTrend) {
+    public InlineResponse20021DataLists floatTrend(Integer floatTrend) {
         
         this.floatTrend = floatTrend;
         return this;
@@ -880,7 +880,7 @@ public class InlineResponse20020DataLists {
         this.floatTrend = floatTrend;
     }
 
-    public InlineResponse20020DataLists inDispute(Integer inDispute) {
+    public InlineResponse20021DataLists inDispute(Integer inDispute) {
         
         this.inDispute = inDispute;
         return this;
@@ -900,7 +900,7 @@ public class InlineResponse20020DataLists {
         this.inDispute = inDispute;
     }
 
-    public InlineResponse20020DataLists autoReply(String autoReply) {
+    public InlineResponse20021DataLists autoReply(String autoReply) {
         
         this.autoReply = autoReply;
         return this;
@@ -920,7 +920,7 @@ public class InlineResponse20020DataLists {
         this.autoReply = autoReply;
     }
 
-    public InlineResponse20020DataLists timestamp(Integer timestamp) {
+    public InlineResponse20021DataLists timestamp(Integer timestamp) {
         
         this.timestamp = timestamp;
         return this;
@@ -940,7 +940,7 @@ public class InlineResponse20020DataLists {
         this.timestamp = timestamp;
     }
 
-    public InlineResponse20020DataLists isHedge(Integer isHedge) {
+    public InlineResponse20021DataLists isHedge(Integer isHedge) {
         
         this.isHedge = isHedge;
         return this;
@@ -967,46 +967,46 @@ public class InlineResponse20020DataLists {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20020DataLists inlineResponse20020DataLists = (InlineResponse20020DataLists) o;
-        return Objects.equals(this.type, inlineResponse20020DataLists.type) &&
-                Objects.equals(this.rate, inlineResponse20020DataLists.rate) &&
-                Objects.equals(this.originalRate, inlineResponse20020DataLists.originalRate) &&
-                Objects.equals(this.amount, inlineResponse20020DataLists.amount) &&
-                Objects.equals(this.total, inlineResponse20020DataLists.total) &&
-                Objects.equals(this.limitTotal, inlineResponse20020DataLists.limitTotal) &&
-                Objects.equals(this.limitFiat, inlineResponse20020DataLists.limitFiat) &&
-                Objects.equals(this.minAmount, inlineResponse20020DataLists.minAmount) &&
-                Objects.equals(this.maxAmount, inlineResponse20020DataLists.maxAmount) &&
-                Objects.equals(this.payTypeNum, inlineResponse20020DataLists.payTypeNum) &&
-                Objects.equals(this.payTypeJson, inlineResponse20020DataLists.payTypeJson) &&
-                Objects.equals(this.expireMin, inlineResponse20020DataLists.expireMin) &&
-                Objects.equals(this.tierLimit, inlineResponse20020DataLists.tierLimit) &&
-                Objects.equals(this.advertisersLimit, inlineResponse20020DataLists.advertisersLimit) &&
-                Objects.equals(this.regTimeLimit, inlineResponse20020DataLists.regTimeLimit) &&
-                Objects.equals(this.verifiedLimit, inlineResponse20020DataLists.verifiedLimit) &&
-                Objects.equals(this.minCompletedLimit, inlineResponse20020DataLists.minCompletedLimit) &&
-                Objects.equals(this.maxCompletedLimit, inlineResponse20020DataLists.maxCompletedLimit) &&
-                Objects.equals(this.userCountryLimit, inlineResponse20020DataLists.userCountryLimit) &&
-                Objects.equals(this.completedRateLimit, inlineResponse20020DataLists.completedRateLimit) &&
-                Objects.equals(this.userOrdersLimit, inlineResponse20020DataLists.userOrdersLimit) &&
-                Objects.equals(this.hidePayment, inlineResponse20020DataLists.hidePayment) &&
-                Objects.equals(this.currencyType, inlineResponse20020DataLists.currencyType) &&
-                Objects.equals(this.wantType, inlineResponse20020DataLists.wantType) &&
-                Objects.equals(this.tradeTips, inlineResponse20020DataLists.tradeTips) &&
-                Objects.equals(this.newHand, inlineResponse20020DataLists.newHand) &&
-                Objects.equals(this.id, inlineResponse20020DataLists.id) &&
-                Objects.equals(this.status, inlineResponse20020DataLists.status) &&
-                Objects.equals(this.lockedAmount, inlineResponse20020DataLists.lockedAmount) &&
-                Objects.equals(this.hideRate, inlineResponse20020DataLists.hideRate) &&
-                Objects.equals(this.isOutTime, inlineResponse20020DataLists.isOutTime) &&
-                Objects.equals(this.rateRefId, inlineResponse20020DataLists.rateRefId) &&
-                Objects.equals(this.rateOffset, inlineResponse20020DataLists.rateOffset) &&
-                Objects.equals(this.rateFixed, inlineResponse20020DataLists.rateFixed) &&
-                Objects.equals(this.floatTrend, inlineResponse20020DataLists.floatTrend) &&
-                Objects.equals(this.inDispute, inlineResponse20020DataLists.inDispute) &&
-                Objects.equals(this.autoReply, inlineResponse20020DataLists.autoReply) &&
-                Objects.equals(this.timestamp, inlineResponse20020DataLists.timestamp) &&
-                Objects.equals(this.isHedge, inlineResponse20020DataLists.isHedge);
+        InlineResponse20021DataLists inlineResponse20021DataLists = (InlineResponse20021DataLists) o;
+        return Objects.equals(this.type, inlineResponse20021DataLists.type) &&
+                Objects.equals(this.rate, inlineResponse20021DataLists.rate) &&
+                Objects.equals(this.originalRate, inlineResponse20021DataLists.originalRate) &&
+                Objects.equals(this.amount, inlineResponse20021DataLists.amount) &&
+                Objects.equals(this.total, inlineResponse20021DataLists.total) &&
+                Objects.equals(this.limitTotal, inlineResponse20021DataLists.limitTotal) &&
+                Objects.equals(this.limitFiat, inlineResponse20021DataLists.limitFiat) &&
+                Objects.equals(this.minAmount, inlineResponse20021DataLists.minAmount) &&
+                Objects.equals(this.maxAmount, inlineResponse20021DataLists.maxAmount) &&
+                Objects.equals(this.payTypeNum, inlineResponse20021DataLists.payTypeNum) &&
+                Objects.equals(this.payTypeJson, inlineResponse20021DataLists.payTypeJson) &&
+                Objects.equals(this.expireMin, inlineResponse20021DataLists.expireMin) &&
+                Objects.equals(this.tierLimit, inlineResponse20021DataLists.tierLimit) &&
+                Objects.equals(this.advertisersLimit, inlineResponse20021DataLists.advertisersLimit) &&
+                Objects.equals(this.regTimeLimit, inlineResponse20021DataLists.regTimeLimit) &&
+                Objects.equals(this.verifiedLimit, inlineResponse20021DataLists.verifiedLimit) &&
+                Objects.equals(this.minCompletedLimit, inlineResponse20021DataLists.minCompletedLimit) &&
+                Objects.equals(this.maxCompletedLimit, inlineResponse20021DataLists.maxCompletedLimit) &&
+                Objects.equals(this.userCountryLimit, inlineResponse20021DataLists.userCountryLimit) &&
+                Objects.equals(this.completedRateLimit, inlineResponse20021DataLists.completedRateLimit) &&
+                Objects.equals(this.userOrdersLimit, inlineResponse20021DataLists.userOrdersLimit) &&
+                Objects.equals(this.hidePayment, inlineResponse20021DataLists.hidePayment) &&
+                Objects.equals(this.currencyType, inlineResponse20021DataLists.currencyType) &&
+                Objects.equals(this.wantType, inlineResponse20021DataLists.wantType) &&
+                Objects.equals(this.tradeTips, inlineResponse20021DataLists.tradeTips) &&
+                Objects.equals(this.newHand, inlineResponse20021DataLists.newHand) &&
+                Objects.equals(this.id, inlineResponse20021DataLists.id) &&
+                Objects.equals(this.status, inlineResponse20021DataLists.status) &&
+                Objects.equals(this.lockedAmount, inlineResponse20021DataLists.lockedAmount) &&
+                Objects.equals(this.hideRate, inlineResponse20021DataLists.hideRate) &&
+                Objects.equals(this.isOutTime, inlineResponse20021DataLists.isOutTime) &&
+                Objects.equals(this.rateRefId, inlineResponse20021DataLists.rateRefId) &&
+                Objects.equals(this.rateOffset, inlineResponse20021DataLists.rateOffset) &&
+                Objects.equals(this.rateFixed, inlineResponse20021DataLists.rateFixed) &&
+                Objects.equals(this.floatTrend, inlineResponse20021DataLists.floatTrend) &&
+                Objects.equals(this.inDispute, inlineResponse20021DataLists.inDispute) &&
+                Objects.equals(this.autoReply, inlineResponse20021DataLists.autoReply) &&
+                Objects.equals(this.timestamp, inlineResponse20021DataLists.timestamp) &&
+                Objects.equals(this.isHedge, inlineResponse20021DataLists.isHedge);
     }
 
     @Override
@@ -1018,7 +1018,7 @@ public class InlineResponse20020DataLists {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20020DataLists {\n");
+        sb.append("class InlineResponse20021DataLists {\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
         sb.append("      originalRate: ").append(toIndentedString(originalRate)).append("\n");

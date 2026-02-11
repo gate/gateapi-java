@@ -20,54 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Markets where user can place orders
+ * InlineResponse20011DataCryptoCurrencyInfo
  */
-public class InlineResponse20013DataMerchantInfo {
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+public class InlineResponse20011DataCryptoCurrencyInfo {
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
-    public static final String SERIALIZED_NAME_MARKET = "market";
-    @SerializedName(SERIALIZED_NAME_MARKET)
-    private String market;
+    public static final String SERIALIZED_NAME_ICON = "icon";
+    @SerializedName(SERIALIZED_NAME_ICON)
+    private String icon;
 
 
-    public InlineResponse20013DataMerchantInfo type(String type) {
+    public InlineResponse20011DataCryptoCurrencyInfo name(String name) {
         
-        this.type = type;
+        this.name = name;
         return this;
     }
 
      /**
-     * Get type
-     * @return type
+     * Get name
+     * @return name
     **/
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public InlineResponse20013DataMerchantInfo market(String market) {
+    public InlineResponse20011DataCryptoCurrencyInfo icon(String icon) {
         
-        this.market = market;
+        this.icon = icon;
         return this;
     }
 
      /**
-     * Get market
-     * @return market
+     * Get icon
+     * @return icon
     **/
-    public String getMarket() {
-        return market;
+    public String getIcon() {
+        return icon;
     }
 
 
-    public void setMarket(String market) {
-        this.market = market;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +77,23 @@ public class InlineResponse20013DataMerchantInfo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20013DataMerchantInfo inlineResponse20013DataMerchantInfo = (InlineResponse20013DataMerchantInfo) o;
-        return Objects.equals(this.type, inlineResponse20013DataMerchantInfo.type) &&
-                Objects.equals(this.market, inlineResponse20013DataMerchantInfo.market);
+        InlineResponse20011DataCryptoCurrencyInfo inlineResponse20011DataCryptoCurrencyInfo = (InlineResponse20011DataCryptoCurrencyInfo) o;
+        return Objects.equals(this.name, inlineResponse20011DataCryptoCurrencyInfo.name) &&
+                Objects.equals(this.icon, inlineResponse20011DataCryptoCurrencyInfo.icon);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, market);
+        return Objects.hash(name, icon);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20013DataMerchantInfo {\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
-        sb.append("      market: ").append(toIndentedString(market)).append("\n");
+        sb.append("class InlineResponse20011DataCryptoCurrencyInfo {\n");
+        sb.append("      name: ").append(toIndentedString(name)).append("\n");
+        sb.append("      icon: ").append(toIndentedString(icon)).append("\n");
         sb.append("}");
         return sb.toString();
     }
