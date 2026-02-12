@@ -23,76 +23,74 @@ import java.io.IOException;
  * InlineObject17
  */
 public class InlineObject17 {
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
+    public static final String SERIALIZED_NAME_ASSET = "asset";
+    @SerializedName(SERIALIZED_NAME_ASSET)
+    private String asset;
 
-    public static final String SERIALIZED_NAME_LASTRECEIVED = "lastreceived";
-    @SerializedName(SERIALIZED_NAME_LASTRECEIVED)
-    private Integer lastreceived;
+    public static final String SERIALIZED_NAME_FIAT_UNIT = "fiat_unit";
+    @SerializedName(SERIALIZED_NAME_FIAT_UNIT)
+    private String fiatUnit;
 
-    public static final String SERIALIZED_NAME_FIRSTRECEIVED = "firstreceived";
-    @SerializedName(SERIALIZED_NAME_FIRSTRECEIVED)
-    private Integer firstreceived;
+    public static final String SERIALIZED_NAME_TRADE_TYPE = "trade_type";
+    @SerializedName(SERIALIZED_NAME_TRADE_TYPE)
+    private String tradeType;
 
 
-    public InlineObject17 txid(Integer txid) {
+    public InlineObject17 asset(String asset) {
         
-        this.txid = txid;
+        this.asset = asset;
         return this;
     }
 
      /**
-     * Order ID
-     * @return txid
+     * Cryptocurrency
+     * @return asset
     **/
-    public Integer getTxid() {
-        return txid;
+    public String getAsset() {
+        return asset;
     }
 
 
-    public void setTxid(Integer txid) {
-        this.txid = txid;
+    public void setAsset(String asset) {
+        this.asset = asset;
     }
 
-    public InlineObject17 lastreceived(Integer lastreceived) {
+    public InlineObject17 fiatUnit(String fiatUnit) {
         
-        this.lastreceived = lastreceived;
+        this.fiatUnit = fiatUnit;
         return this;
     }
 
      /**
-     * Pagination timestamp (forward)
-     * @return lastreceived
+     * Fiat currency
+     * @return fiatUnit
     **/
-    @javax.annotation.Nullable
-    public Integer getLastreceived() {
-        return lastreceived;
+    public String getFiatUnit() {
+        return fiatUnit;
     }
 
 
-    public void setLastreceived(Integer lastreceived) {
-        this.lastreceived = lastreceived;
+    public void setFiatUnit(String fiatUnit) {
+        this.fiatUnit = fiatUnit;
     }
 
-    public InlineObject17 firstreceived(Integer firstreceived) {
+    public InlineObject17 tradeType(String tradeType) {
         
-        this.firstreceived = firstreceived;
+        this.tradeType = tradeType;
         return this;
     }
 
      /**
-     * Pagination timestamp (backward)
-     * @return firstreceived
+     * Buy/Sell, sell/buy
+     * @return tradeType
     **/
-    @javax.annotation.Nullable
-    public Integer getFirstreceived() {
-        return firstreceived;
+    public String getTradeType() {
+        return tradeType;
     }
 
 
-    public void setFirstreceived(Integer firstreceived) {
-        this.firstreceived = firstreceived;
+    public void setTradeType(String tradeType) {
+        this.tradeType = tradeType;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -103,14 +101,14 @@ public class InlineObject17 {
             return false;
         }
         InlineObject17 inlineObject17 = (InlineObject17) o;
-        return Objects.equals(this.txid, inlineObject17.txid) &&
-                Objects.equals(this.lastreceived, inlineObject17.lastreceived) &&
-                Objects.equals(this.firstreceived, inlineObject17.firstreceived);
+        return Objects.equals(this.asset, inlineObject17.asset) &&
+                Objects.equals(this.fiatUnit, inlineObject17.fiatUnit) &&
+                Objects.equals(this.tradeType, inlineObject17.tradeType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(txid, lastreceived, firstreceived);
+        return Objects.hash(asset, fiatUnit, tradeType);
     }
 
 
@@ -118,9 +116,9 @@ public class InlineObject17 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject17 {\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      lastreceived: ").append(toIndentedString(lastreceived)).append("\n");
-        sb.append("      firstreceived: ").append(toIndentedString(firstreceived)).append("\n");
+        sb.append("      asset: ").append(toIndentedString(asset)).append("\n");
+        sb.append("      fiatUnit: ").append(toIndentedString(fiatUnit)).append("\n");
+        sb.append("      tradeType: ").append(toIndentedString(tradeType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

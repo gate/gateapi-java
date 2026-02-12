@@ -23,28 +23,28 @@ import java.io.IOException;
  * InlineResponse20024Data
  */
 public class InlineResponse20024Data {
-    public static final String SERIALIZED_NAME_FILE_KEY = "file_key";
-    @SerializedName(SERIALIZED_NAME_FILE_KEY)
-    private String fileKey;
+    public static final String SERIALIZED_NAME_S_R_V_T_M = "SRVTM";
+    @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
+    private Integer SRVTM;
 
 
-    public InlineResponse20024Data fileKey(String fileKey) {
+    public InlineResponse20024Data SRVTM(Integer SRVTM) {
         
-        this.fileKey = fileKey;
+        this.SRVTM = SRVTM;
         return this;
     }
 
      /**
-     * File key
-     * @return fileKey
+     * Timestamp when message was successfully sent (current timestamp)
+     * @return SRVTM
     **/
-    public String getFileKey() {
-        return fileKey;
+    public Integer getSRVTM() {
+        return SRVTM;
     }
 
 
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
+    public void setSRVTM(Integer SRVTM) {
+        this.SRVTM = SRVTM;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +55,12 @@ public class InlineResponse20024Data {
             return false;
         }
         InlineResponse20024Data inlineResponse20024Data = (InlineResponse20024Data) o;
-        return Objects.equals(this.fileKey, inlineResponse20024Data.fileKey);
+        return Objects.equals(this.SRVTM, inlineResponse20024Data.SRVTM);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileKey);
+        return Objects.hash(SRVTM);
     }
 
 
@@ -68,7 +68,7 @@ public class InlineResponse20024Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20024Data {\n");
-        sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
+        sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
         sb.append("}");
         return sb.toString();
     }

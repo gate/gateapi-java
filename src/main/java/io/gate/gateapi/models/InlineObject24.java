@@ -23,28 +23,97 @@ import java.io.IOException;
  * InlineObject24
  */
 public class InlineObject24 {
-    public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
-    @SerializedName(SERIALIZED_NAME_QUOTE_ID)
-    private String quoteId;
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
+
+    public static final String SERIALIZED_NAME_FROM_COIN = "from_coin";
+    @SerializedName(SERIALIZED_NAME_FROM_COIN)
+    private String fromCoin;
+
+    public static final String SERIALIZED_NAME_TO_COIN = "to_coin";
+    @SerializedName(SERIALIZED_NAME_TO_COIN)
+    private String toCoin;
+
+    public static final String SERIALIZED_NAME_FROM_AMOUNT = "from_amount";
+    @SerializedName(SERIALIZED_NAME_FROM_AMOUNT)
+    private String fromAmount;
 
 
-    public InlineObject24 quoteId(String quoteId) {
+    public InlineObject24 exchangeType(String exchangeType) {
         
-        this.quoteId = quoteId;
+        this.exchangeType = exchangeType;
         return this;
     }
 
      /**
-     * Inquiry ID
-     * @return quoteId
+     * Exchange Type
+     * @return exchangeType
     **/
-    public String getQuoteId() {
-        return quoteId;
+    public String getExchangeType() {
+        return exchangeType;
     }
 
 
-    public void setQuoteId(String quoteId) {
-        this.quoteId = quoteId;
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
+    }
+
+    public InlineObject24 fromCoin(String fromCoin) {
+        
+        this.fromCoin = fromCoin;
+        return this;
+    }
+
+     /**
+     * Asset Sold
+     * @return fromCoin
+    **/
+    public String getFromCoin() {
+        return fromCoin;
+    }
+
+
+    public void setFromCoin(String fromCoin) {
+        this.fromCoin = fromCoin;
+    }
+
+    public InlineObject24 toCoin(String toCoin) {
+        
+        this.toCoin = toCoin;
+        return this;
+    }
+
+     /**
+     * Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)
+     * @return toCoin
+    **/
+    public String getToCoin() {
+        return toCoin;
+    }
+
+
+    public void setToCoin(String toCoin) {
+        this.toCoin = toCoin;
+    }
+
+    public InlineObject24 fromAmount(String fromAmount) {
+        
+        this.fromAmount = fromAmount;
+        return this;
+    }
+
+     /**
+     * Amount to sell
+     * @return fromAmount
+    **/
+    public String getFromAmount() {
+        return fromAmount;
+    }
+
+
+    public void setFromAmount(String fromAmount) {
+        this.fromAmount = fromAmount;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +124,15 @@ public class InlineObject24 {
             return false;
         }
         InlineObject24 inlineObject24 = (InlineObject24) o;
-        return Objects.equals(this.quoteId, inlineObject24.quoteId);
+        return Objects.equals(this.exchangeType, inlineObject24.exchangeType) &&
+                Objects.equals(this.fromCoin, inlineObject24.fromCoin) &&
+                Objects.equals(this.toCoin, inlineObject24.toCoin) &&
+                Objects.equals(this.fromAmount, inlineObject24.fromAmount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quoteId);
+        return Objects.hash(exchangeType, fromCoin, toCoin, fromAmount);
     }
 
 
@@ -68,7 +140,10 @@ public class InlineObject24 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject24 {\n");
-        sb.append("      quoteId: ").append(toIndentedString(quoteId)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      fromCoin: ").append(toIndentedString(fromCoin)).append("\n");
+        sb.append("      toCoin: ").append(toIndentedString(toCoin)).append("\n");
+        sb.append("      fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

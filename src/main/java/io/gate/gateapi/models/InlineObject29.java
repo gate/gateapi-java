@@ -20,30 +20,26 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20036SpecialFeeList
+ * InlineObject29
  */
-public class InlineResponse20036SpecialFeeList {
+public class InlineObject29 {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_TAKER_FEE_RATE = "taker_fee_rate";
-    @SerializedName(SERIALIZED_NAME_TAKER_FEE_RATE)
-    private String takerFeeRate;
-
-    public static final String SERIALIZED_NAME_MAKER_FEE_RATE = "maker_fee_rate";
-    @SerializedName(SERIALIZED_NAME_MAKER_FEE_RATE)
-    private String makerFeeRate;
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private String positionSide;
 
 
-    public InlineResponse20036SpecialFeeList symbol(String symbol) {
+    public InlineObject29 symbol(String symbol) {
         
         this.symbol = symbol;
         return this;
     }
 
      /**
-     * Currency pair
+     * Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT
      * @return symbol
     **/
     public String getSymbol() {
@@ -55,42 +51,24 @@ public class InlineResponse20036SpecialFeeList {
         this.symbol = symbol;
     }
 
-    public InlineResponse20036SpecialFeeList takerFeeRate(String takerFeeRate) {
+    public InlineObject29 positionSide(String positionSide) {
         
-        this.takerFeeRate = takerFeeRate;
+        this.positionSide = positionSide;
         return this;
     }
 
      /**
-     * Taker fee rate
-     * @return takerFeeRate
+     * Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method
+     * @return positionSide
     **/
-    public String getTakerFeeRate() {
-        return takerFeeRate;
+    @javax.annotation.Nullable
+    public String getPositionSide() {
+        return positionSide;
     }
 
 
-    public void setTakerFeeRate(String takerFeeRate) {
-        this.takerFeeRate = takerFeeRate;
-    }
-
-    public InlineResponse20036SpecialFeeList makerFeeRate(String makerFeeRate) {
-        
-        this.makerFeeRate = makerFeeRate;
-        return this;
-    }
-
-     /**
-     * Maker fee rate
-     * @return makerFeeRate
-    **/
-    public String getMakerFeeRate() {
-        return makerFeeRate;
-    }
-
-
-    public void setMakerFeeRate(String makerFeeRate) {
-        this.makerFeeRate = makerFeeRate;
+    public void setPositionSide(String positionSide) {
+        this.positionSide = positionSide;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -100,25 +78,23 @@ public class InlineResponse20036SpecialFeeList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20036SpecialFeeList inlineResponse20036SpecialFeeList = (InlineResponse20036SpecialFeeList) o;
-        return Objects.equals(this.symbol, inlineResponse20036SpecialFeeList.symbol) &&
-                Objects.equals(this.takerFeeRate, inlineResponse20036SpecialFeeList.takerFeeRate) &&
-                Objects.equals(this.makerFeeRate, inlineResponse20036SpecialFeeList.makerFeeRate);
+        InlineObject29 inlineObject29 = (InlineObject29) o;
+        return Objects.equals(this.symbol, inlineObject29.symbol) &&
+                Objects.equals(this.positionSide, inlineObject29.positionSide);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, takerFeeRate, makerFeeRate);
+        return Objects.hash(symbol, positionSide);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20036SpecialFeeList {\n");
+        sb.append("class InlineObject29 {\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      takerFeeRate: ").append(toIndentedString(takerFeeRate)).append("\n");
-        sb.append("      makerFeeRate: ").append(toIndentedString(makerFeeRate)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -23,32 +23,32 @@ import java.io.IOException;
  * InlineResponse20029
  */
 public class InlineResponse20029 {
-    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
-    @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
+    public static final String SERIALIZED_NAME_TX_ID = "tx_id";
+    @SerializedName(SERIALIZED_NAME_TX_ID)
+    private String txId;
 
     public static final String SERIALIZED_NAME_TEXT = "text";
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
 
 
-    public InlineResponse20029 orderId(String orderId) {
+    public InlineResponse20029 txId(String txId) {
         
-        this.orderId = orderId;
+        this.txId = txId;
         return this;
     }
 
      /**
      * Order ID
-     * @return orderId
+     * @return txId
     **/
-    public String getOrderId() {
-        return orderId;
+    public String getTxId() {
+        return txId;
     }
 
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setTxId(String txId) {
+        this.txId = txId;
     }
 
     public InlineResponse20029 text(String text) {
@@ -78,13 +78,13 @@ public class InlineResponse20029 {
             return false;
         }
         InlineResponse20029 inlineResponse20029 = (InlineResponse20029) o;
-        return Objects.equals(this.orderId, inlineResponse20029.orderId) &&
+        return Objects.equals(this.txId, inlineResponse20029.txId) &&
                 Objects.equals(this.text, inlineResponse20029.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, text);
+        return Objects.hash(txId, text);
     }
 
 
@@ -92,7 +92,7 @@ public class InlineResponse20029 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20029 {\n");
-        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      txId: ").append(toIndentedString(txId)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();

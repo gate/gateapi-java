@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.InlineResponse20022Data;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20022
@@ -43,7 +45,7 @@ public class InlineResponse20022 {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse20022Data data;
+    private List<InlineResponse20022Data> data = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_VERSION = "version";
     @SerializedName(SERIALIZED_NAME_VERSION)
@@ -126,9 +128,14 @@ public class InlineResponse20022 {
         this.message = message;
     }
 
-    public InlineResponse20022 data(InlineResponse20022Data data) {
+    public InlineResponse20022 data(List<InlineResponse20022Data> data) {
         
         this.data = data;
+        return this;
+    }
+
+    public InlineResponse20022 addDataItem(InlineResponse20022Data dataItem) {
+        this.data.add(dataItem);
         return this;
     }
 
@@ -136,12 +143,12 @@ public class InlineResponse20022 {
      * Get data
      * @return data
     **/
-    public InlineResponse20022Data getData() {
+    public List<InlineResponse20022Data> getData() {
         return data;
     }
 
 
-    public void setData(InlineResponse20022Data data) {
+    public void setData(List<InlineResponse20022Data> data) {
         this.data = data;
     }
 

@@ -67,21 +67,29 @@ public class InlineResponse20042 {
     @SerializedName(SERIALIZED_NAME_CLOSED_VALUE)
     private String closedValue;
 
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private String fee;
+
     public static final String SERIALIZED_NAME_LIQ_FEE = "liq_fee";
     @SerializedName(SERIALIZED_NAME_LIQ_FEE)
     private String liqFee;
+
+    public static final String SERIALIZED_NAME_FUNDING_FEE = "funding_fee";
+    @SerializedName(SERIALIZED_NAME_FUNDING_FEE)
+    private String fundingFee;
 
     public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
     @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
     private String positionSide;
 
+    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
+    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
+    private String positionMode;
+
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
-
-    public static final String SERIALIZED_NAME_INTEREST = "interest";
-    @SerializedName(SERIALIZED_NAME_INTEREST)
-    private String interest;
 
     public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
     @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
@@ -316,6 +324,26 @@ public class InlineResponse20042 {
         this.closedValue = closedValue;
     }
 
+    public InlineResponse20042 fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * Position Accumulated Fees
+     * @return fee
+    **/
+    @javax.annotation.Nullable
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
     public InlineResponse20042 liqFee(String liqFee) {
         
         this.liqFee = liqFee;
@@ -334,6 +362,26 @@ public class InlineResponse20042 {
 
     public void setLiqFee(String liqFee) {
         this.liqFee = liqFee;
+    }
+
+    public InlineResponse20042 fundingFee(String fundingFee) {
+        
+        this.fundingFee = fundingFee;
+        return this;
+    }
+
+     /**
+     * Funding Fee
+     * @return fundingFee
+    **/
+    @javax.annotation.Nullable
+    public String getFundingFee() {
+        return fundingFee;
+    }
+
+
+    public void setFundingFee(String fundingFee) {
+        this.fundingFee = fundingFee;
     }
 
     public InlineResponse20042 positionSide(String positionSide) {
@@ -356,6 +404,26 @@ public class InlineResponse20042 {
         this.positionSide = positionSide;
     }
 
+    public InlineResponse20042 positionMode(String positionMode) {
+        
+        this.positionMode = positionMode;
+        return this;
+    }
+
+     /**
+     * Position Mode at Close
+     * @return positionMode
+    **/
+    @javax.annotation.Nullable
+    public String getPositionMode() {
+        return positionMode;
+    }
+
+
+    public void setPositionMode(String positionMode) {
+        this.positionMode = positionMode;
+    }
+
     public InlineResponse20042 leverage(String leverage) {
         
         this.leverage = leverage;
@@ -376,25 +444,6 @@ public class InlineResponse20042 {
         this.leverage = leverage;
     }
 
-    public InlineResponse20042 interest(String interest) {
-        
-        this.interest = interest;
-        return this;
-    }
-
-     /**
-     * Total Deducted Interest
-     * @return interest
-    **/
-    public String getInterest() {
-        return interest;
-    }
-
-
-    public void setInterest(String interest) {
-        this.interest = interest;
-    }
-
     public InlineResponse20042 businessType(String businessType) {
         
         this.businessType = businessType;
@@ -402,7 +451,7 @@ public class InlineResponse20042 {
     }
 
      /**
-     * Position Business Type
+     * Business Type
      * @return businessType
     **/
     public String getBusinessType() {
@@ -473,10 +522,12 @@ public class InlineResponse20042 {
                 Objects.equals(this.maxPositionQty, inlineResponse20042.maxPositionQty) &&
                 Objects.equals(this.closedQty, inlineResponse20042.closedQty) &&
                 Objects.equals(this.closedValue, inlineResponse20042.closedValue) &&
+                Objects.equals(this.fee, inlineResponse20042.fee) &&
                 Objects.equals(this.liqFee, inlineResponse20042.liqFee) &&
+                Objects.equals(this.fundingFee, inlineResponse20042.fundingFee) &&
                 Objects.equals(this.positionSide, inlineResponse20042.positionSide) &&
+                Objects.equals(this.positionMode, inlineResponse20042.positionMode) &&
                 Objects.equals(this.leverage, inlineResponse20042.leverage) &&
-                Objects.equals(this.interest, inlineResponse20042.interest) &&
                 Objects.equals(this.businessType, inlineResponse20042.businessType) &&
                 Objects.equals(this.createTime, inlineResponse20042.createTime) &&
                 Objects.equals(this.updateTime, inlineResponse20042.updateTime);
@@ -484,7 +535,7 @@ public class InlineResponse20042 {
 
     @Override
     public int hashCode() {
-        return Objects.hash(positionId, userId, symbol, closedType, closedPnl, closedPnlRate, openAvgPrice, closedAvgPrice, maxPositionQty, closedQty, closedValue, liqFee, positionSide, leverage, interest, businessType, createTime, updateTime);
+        return Objects.hash(positionId, userId, symbol, closedType, closedPnl, closedPnlRate, openAvgPrice, closedAvgPrice, maxPositionQty, closedQty, closedValue, fee, liqFee, fundingFee, positionSide, positionMode, leverage, businessType, createTime, updateTime);
     }
 
 
@@ -503,10 +554,12 @@ public class InlineResponse20042 {
         sb.append("      maxPositionQty: ").append(toIndentedString(maxPositionQty)).append("\n");
         sb.append("      closedQty: ").append(toIndentedString(closedQty)).append("\n");
         sb.append("      closedValue: ").append(toIndentedString(closedValue)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      liqFee: ").append(toIndentedString(liqFee)).append("\n");
+        sb.append("      fundingFee: ").append(toIndentedString(fundingFee)).append("\n");
         sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
+        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
-        sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
         sb.append("      businessType: ").append(toIndentedString(businessType)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");

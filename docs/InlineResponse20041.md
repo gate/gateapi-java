@@ -5,24 +5,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **String** | Position ID |  [optional]
-**userId** | **String** | User ID |  [optional]
-**symbol** | **String** | Currency pair |  [optional]
-**closedType** | **String** | Position close type (PARTIAL_CLOSED: partially closed; COMPLETE_CLOSED: fully closed) |  [optional]
-**closedPnl** | **String** | Close Position P&amp;L |  [optional]
-**closedPnlRate** | **String** | Close Position P&amp;L Ratio |  [optional]
-**openAvgPrice** | **String** | Average Opening Price |  [optional]
-**closedAvgPrice** | **String** | Average Close Price |  [optional]
-**maxPositionQty** | **String** | Max Trade Size |  [optional]
-**closedQty** | **String** | Close Position Quantity |  [optional]
-**closedValue** | **String** | Close Position Value |  [optional]
-**fee** | **String** | Position Accumulated Fees |  [optional]
-**liqFee** | **String** | Liquidation Fee |  [optional]
-**fundingFee** | **String** | Funding Fee |  [optional]
-**positionSide** | **String** | Position Direction Before Close |  [optional]
-**positionMode** | **String** | Position Mode at Close |  [optional]
-**leverage** | **String** | Leverage at Close |  [optional]
+**userId** | **String** | User ID | 
+**orderId** | **String** | Order ID | 
+**text** | **String** | Client Order ID | 
+**state** | **String** | Order Status | 
+**symbol** | **String** | Currency pair | 
+**attribute** | **String** | Attribute COMMON: Normal Order, LIQ: Liquidation Takeover Order, REDUCE: Liquidation Reduce Order, ADL: Auto-Reduce | 
+**exchangeType** | **String** | Exchange | 
 **businessType** | **String** | Business Type | 
-**createTime** | **String** | Created time |  [optional]
-**updateTime** | **String** | Update time |  [optional]
+**qty** | **String** | Base Currency Quantity | 
+**quoteQty** | **String** | Quote Currency Quantity | 
+**price** | **String** | Price | 
+**timeInForce** | **String** | Time in Force Strategy | 
+**executedQty** | **String** | Filled Quantity | 
+**executedAmount** | **String** | Filled Amount | 
+**executedAvgPrice** | **String** | Average Filled Price | 
+**feeCoin** | **String** | Fee currency | 
+**fee** | **String** | fee | 
+**reduceOnly** | **String** | Reduce Position Only | 
+**leverage** | **String** | leverage | 
+**reason** | **String** | Reason | 
+**lastExecutedQty** | **String** | Latest Filled Quantity | 
+**lastExecutedPrice** | **String** | Latest Filled Price | 
+**lastExecutedAmount** | **String** | Latest Filled Amount | 
+**positionSide** | **String** | Position Direction | 
+**createTime** | **String** | Created time | 
+**updateTime** | **String** | Update time | 
 

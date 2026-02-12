@@ -23,51 +23,75 @@ import java.io.IOException;
  * InlineObject19
  */
 public class InlineObject19 {
-    public static final String SERIALIZED_NAME_IMAGE_CONTENT_TYPE = "image_content_type";
-    @SerializedName(SERIALIZED_NAME_IMAGE_CONTENT_TYPE)
-    private String imageContentType;
+    public static final String SERIALIZED_NAME_TXID = "txid";
+    @SerializedName(SERIALIZED_NAME_TXID)
+    private Integer txid;
 
-    public static final String SERIALIZED_NAME_BASE64_IMG = "base64_img";
-    @SerializedName(SERIALIZED_NAME_BASE64_IMG)
-    private String base64Img;
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private Integer type;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
 
-    public InlineObject19 imageContentType(String imageContentType) {
+    public InlineObject19 txid(Integer txid) {
         
-        this.imageContentType = imageContentType;
+        this.txid = txid;
         return this;
     }
 
      /**
-     * File type, currently only images and videos are supported
-     * @return imageContentType
+     * Order ID
+     * @return txid
     **/
-    public String getImageContentType() {
-        return imageContentType;
+    public Integer getTxid() {
+        return txid;
     }
 
 
-    public void setImageContentType(String imageContentType) {
-        this.imageContentType = imageContentType;
+    public void setTxid(Integer txid) {
+        this.txid = txid;
     }
 
-    public InlineObject19 base64Img(String base64Img) {
+    public InlineObject19 type(Integer type) {
         
-        this.base64Img = base64Img;
+        this.type = type;
         return this;
     }
 
      /**
-     * File content (base64 encoded)
-     * @return base64Img
+     * 0&#x3D;Text, 1&#x3D;File (video or image), default is 0 if not provided
+     * @return type
     **/
-    public String getBase64Img() {
-        return base64Img;
+    @javax.annotation.Nullable
+    public Integer getType() {
+        return type;
     }
 
 
-    public void setBase64Img(String base64Img) {
-        this.base64Img = base64Img;
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public InlineObject19 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Message content
+     * @return message
+    **/
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +102,14 @@ public class InlineObject19 {
             return false;
         }
         InlineObject19 inlineObject19 = (InlineObject19) o;
-        return Objects.equals(this.imageContentType, inlineObject19.imageContentType) &&
-                Objects.equals(this.base64Img, inlineObject19.base64Img);
+        return Objects.equals(this.txid, inlineObject19.txid) &&
+                Objects.equals(this.type, inlineObject19.type) &&
+                Objects.equals(this.message, inlineObject19.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(imageContentType, base64Img);
+        return Objects.hash(txid, type, message);
     }
 
 
@@ -92,8 +117,9 @@ public class InlineObject19 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject19 {\n");
-        sb.append("      imageContentType: ").append(toIndentedString(imageContentType)).append("\n");
-        sb.append("      base64Img: ").append(toIndentedString(base64Img)).append("\n");
+        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }

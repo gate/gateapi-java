@@ -34,6 +34,7 @@ import io.gate.gateapi.models.InlineResponse20021;
 import io.gate.gateapi.models.InlineResponse20022;
 import io.gate.gateapi.models.InlineResponse20023;
 import io.gate.gateapi.models.InlineResponse20024;
+import io.gate.gateapi.models.InlineResponse20025;
 import io.gate.gateapi.models.InlineResponse2007;
 
 import java.lang.reflect.Type;
@@ -380,7 +381,7 @@ public class P2PApi {
      * Build call for p2pMerchantTransactionGetPendingTransactionList
      * @param cryptoCurrency Cryptocurrency (required)
      * @param fiatCurrency Fiat currency (required)
-     * @param orderTab 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
+     * @param orderTab Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
      * @param selectType Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) (optional)
      * @param status Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
      * @param txid Order ID (optional)
@@ -477,7 +478,7 @@ public class P2PApi {
      * 
      * @param cryptoCurrency Cryptocurrency (required)
      * @param fiatCurrency Fiat currency (required)
-     * @param orderTab 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
+     * @param orderTab Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
      * @param selectType Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) (optional)
      * @param status Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
      * @param txid Order ID (optional)
@@ -501,7 +502,7 @@ public class P2PApi {
      * 
      * @param cryptoCurrency Cryptocurrency (required)
      * @param fiatCurrency Fiat currency (required)
-     * @param orderTab 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
+     * @param orderTab Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
      * @param selectType Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) (optional)
      * @param status Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
      * @param txid Order ID (optional)
@@ -526,7 +527,7 @@ public class P2PApi {
      * 
      * @param cryptoCurrency Cryptocurrency (required)
      * @param fiatCurrency Fiat currency (required)
-     * @param orderTab 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
+     * @param orderTab Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) (optional)
      * @param selectType Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) (optional)
      * @param status Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) (optional)
      * @param txid Order ID (optional)
@@ -1876,6 +1877,143 @@ public class P2PApi {
     }
 
     /**
+     * Build call for p2pMerchantBooksAdsList
+     * @param asset Cryptocurrency (required)
+     * @param fiatUnit Fiat currency (required)
+     * @param tradeType Buy/Sell, sell/buy (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call p2pMerchantBooksAdsListCall(String asset, String fiatUnit, String tradeType, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/p2p/merchant/books/ads_list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (asset != null) {
+            localVarFormParams.put("asset", asset);
+        }
+
+        if (fiatUnit != null) {
+            localVarFormParams.put("fiat_unit", fiatUnit);
+        }
+
+        if (tradeType != null) {
+            localVarFormParams.put("trade_type", tradeType);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call p2pMerchantBooksAdsListValidateBeforeCall(String asset, String fiatUnit, String tradeType, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'asset' is set
+        if (asset == null) {
+            throw new ApiException("Missing the required parameter 'asset' when calling p2pMerchantBooksAdsList(Async)");
+        }
+
+        // verify the required parameter 'fiatUnit' is set
+        if (fiatUnit == null) {
+            throw new ApiException("Missing the required parameter 'fiatUnit' when calling p2pMerchantBooksAdsList(Async)");
+        }
+
+        // verify the required parameter 'tradeType' is set
+        if (tradeType == null) {
+            throw new ApiException("Missing the required parameter 'tradeType' when calling p2pMerchantBooksAdsList(Async)");
+        }
+
+        okhttp3.Call localVarCall = p2pMerchantBooksAdsListCall(asset, fiatUnit, tradeType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get Advertisement List
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * @param asset Cryptocurrency (required)
+     * @param fiatUnit Fiat currency (required)
+     * @param tradeType Buy/Sell, sell/buy (required)
+     * @return InlineResponse20022
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse20022 p2pMerchantBooksAdsList(String asset, String fiatUnit, String tradeType) throws ApiException {
+        ApiResponse<InlineResponse20022> localVarResp = p2pMerchantBooksAdsListWithHttpInfo(asset, fiatUnit, tradeType);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Advertisement List
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * @param asset Cryptocurrency (required)
+     * @param fiatUnit Fiat currency (required)
+     * @param tradeType Buy/Sell, sell/buy (required)
+     * @return ApiResponse&lt;InlineResponse20022&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse20022> p2pMerchantBooksAdsListWithHttpInfo(String asset, String fiatUnit, String tradeType) throws ApiException {
+        okhttp3.Call localVarCall = p2pMerchantBooksAdsListValidateBeforeCall(asset, fiatUnit, tradeType, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Advertisement List (asynchronously)
+     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * @param asset Cryptocurrency (required)
+     * @param fiatUnit Fiat currency (required)
+     * @param tradeType Buy/Sell, sell/buy (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call p2pMerchantBooksAdsListAsync(String asset, String fiatUnit, String tradeType, final ApiCallback<InlineResponse20022> _callback) throws ApiException {
+        okhttp3.Call localVarCall = p2pMerchantBooksAdsListValidateBeforeCall(asset, fiatUnit, tradeType, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for p2pMerchantChatGetChatsList
      * @param txid Order ID (required)
      * @param lastreceived Pagination timestamp (forward) (optional)
@@ -1947,7 +2085,7 @@ public class P2PApi {
      * @param txid Order ID (required)
      * @param lastreceived Pagination timestamp (forward) (optional)
      * @param firstreceived Pagination timestamp (backward) (optional)
-     * @return InlineResponse20022
+     * @return InlineResponse20023
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1955,8 +2093,8 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20022 p2pMerchantChatGetChatsList(Integer txid, Integer lastreceived, Integer firstreceived) throws ApiException {
-        ApiResponse<InlineResponse20022> localVarResp = p2pMerchantChatGetChatsListWithHttpInfo(txid, lastreceived, firstreceived);
+    public InlineResponse20023 p2pMerchantChatGetChatsList(Integer txid, Integer lastreceived, Integer firstreceived) throws ApiException {
+        ApiResponse<InlineResponse20023> localVarResp = p2pMerchantChatGetChatsListWithHttpInfo(txid, lastreceived, firstreceived);
         return localVarResp.getData();
     }
 
@@ -1966,7 +2104,7 @@ public class P2PApi {
      * @param txid Order ID (required)
      * @param lastreceived Pagination timestamp (forward) (optional)
      * @param firstreceived Pagination timestamp (backward) (optional)
-     * @return ApiResponse&lt;InlineResponse20022&gt;
+     * @return ApiResponse&lt;InlineResponse20023&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1974,9 +2112,9 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20022> p2pMerchantChatGetChatsListWithHttpInfo(Integer txid, Integer lastreceived, Integer firstreceived) throws ApiException {
+    public ApiResponse<InlineResponse20023> p2pMerchantChatGetChatsListWithHttpInfo(Integer txid, Integer lastreceived, Integer firstreceived) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatGetChatsListValidateBeforeCall(txid, lastreceived, firstreceived, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1995,9 +2133,9 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantChatGetChatsListAsync(Integer txid, Integer lastreceived, Integer firstreceived, final ApiCallback<InlineResponse20022> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantChatGetChatsListAsync(Integer txid, Integer lastreceived, Integer firstreceived, final ApiCallback<InlineResponse20023> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatGetChatsListValidateBeforeCall(txid, lastreceived, firstreceived, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2079,7 +2217,7 @@ public class P2PApi {
      * @param txid Order ID (required)
      * @param message Message content (required)
      * @param type 0&#x3D;Text, 1&#x3D;File (video or image), default is 0 if not provided (optional)
-     * @return InlineResponse20023
+     * @return InlineResponse20024
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2087,8 +2225,8 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20023 p2pMerchantChatSendChatMessage(Integer txid, String message, Integer type) throws ApiException {
-        ApiResponse<InlineResponse20023> localVarResp = p2pMerchantChatSendChatMessageWithHttpInfo(txid, message, type);
+    public InlineResponse20024 p2pMerchantChatSendChatMessage(Integer txid, String message, Integer type) throws ApiException {
+        ApiResponse<InlineResponse20024> localVarResp = p2pMerchantChatSendChatMessageWithHttpInfo(txid, message, type);
         return localVarResp.getData();
     }
 
@@ -2098,7 +2236,7 @@ public class P2PApi {
      * @param txid Order ID (required)
      * @param message Message content (required)
      * @param type 0&#x3D;Text, 1&#x3D;File (video or image), default is 0 if not provided (optional)
-     * @return ApiResponse&lt;InlineResponse20023&gt;
+     * @return ApiResponse&lt;InlineResponse20024&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2106,9 +2244,9 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20023> p2pMerchantChatSendChatMessageWithHttpInfo(Integer txid, String message, Integer type) throws ApiException {
+    public ApiResponse<InlineResponse20024> p2pMerchantChatSendChatMessageWithHttpInfo(Integer txid, String message, Integer type) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatSendChatMessageValidateBeforeCall(txid, message, type, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2127,9 +2265,9 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantChatSendChatMessageAsync(Integer txid, String message, Integer type, final ApiCallback<InlineResponse20023> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantChatSendChatMessageAsync(Integer txid, String message, Integer type, final ApiCallback<InlineResponse20024> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatSendChatMessageValidateBeforeCall(txid, message, type, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2205,7 +2343,7 @@ public class P2PApi {
      * 
      * @param imageContentType File type, currently only images and videos are supported (required)
      * @param base64Img File content (base64 encoded) (required)
-     * @return InlineResponse20024
+     * @return InlineResponse20025
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2213,8 +2351,8 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20024 p2pMerchantChatUploadChatFile(String imageContentType, String base64Img) throws ApiException {
-        ApiResponse<InlineResponse20024> localVarResp = p2pMerchantChatUploadChatFileWithHttpInfo(imageContentType, base64Img);
+    public InlineResponse20025 p2pMerchantChatUploadChatFile(String imageContentType, String base64Img) throws ApiException {
+        ApiResponse<InlineResponse20025> localVarResp = p2pMerchantChatUploadChatFileWithHttpInfo(imageContentType, base64Img);
         return localVarResp.getData();
     }
 
@@ -2223,7 +2361,7 @@ public class P2PApi {
      * 
      * @param imageContentType File type, currently only images and videos are supported (required)
      * @param base64Img File content (base64 encoded) (required)
-     * @return ApiResponse&lt;InlineResponse20024&gt;
+     * @return ApiResponse&lt;InlineResponse20025&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2231,9 +2369,9 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20024> p2pMerchantChatUploadChatFileWithHttpInfo(String imageContentType, String base64Img) throws ApiException {
+    public ApiResponse<InlineResponse20025> p2pMerchantChatUploadChatFileWithHttpInfo(String imageContentType, String base64Img) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatUploadChatFileValidateBeforeCall(imageContentType, base64Img, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2251,9 +2389,9 @@ public class P2PApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantChatUploadChatFileAsync(String imageContentType, String base64Img, final ApiCallback<InlineResponse20024> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantChatUploadChatFileAsync(String imageContentType, String base64Img, final ApiCallback<InlineResponse20025> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatUploadChatFileValidateBeforeCall(imageContentType, base64Img, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

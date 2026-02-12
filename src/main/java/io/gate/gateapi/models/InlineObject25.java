@@ -23,77 +23,28 @@ import java.io.IOException;
  * InlineObject25
  */
 public class InlineObject25 {
-    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
-    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
-    private String positionMode;
-
-    public static final String SERIALIZED_NAME_ACCOUNT_MODE = "account_mode";
-    @SerializedName(SERIALIZED_NAME_ACCOUNT_MODE)
-    private String accountMode;
-
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
+    public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
+    @SerializedName(SERIALIZED_NAME_QUOTE_ID)
+    private String quoteId;
 
 
-    public InlineObject25 positionMode(String positionMode) {
+    public InlineObject25 quoteId(String quoteId) {
         
-        this.positionMode = positionMode;
+        this.quoteId = quoteId;
         return this;
     }
 
      /**
-     * Futures position mode (SINGLE/DUAL)
-     * @return positionMode
+     * Inquiry ID
+     * @return quoteId
     **/
-    @javax.annotation.Nullable
-    public String getPositionMode() {
-        return positionMode;
+    public String getQuoteId() {
+        return quoteId;
     }
 
 
-    public void setPositionMode(String positionMode) {
-        this.positionMode = positionMode;
-    }
-
-    public InlineObject25 accountMode(String accountMode) {
-        
-        this.accountMode = accountMode;
-        return this;
-    }
-
-     /**
-     * Account mode (CROSS_EXCHANGE/ISOLATED_EXCHANGE, default: CROSS_EXCHANGE)
-     * @return accountMode
-    **/
-    @javax.annotation.Nullable
-    public String getAccountMode() {
-        return accountMode;
-    }
-
-
-    public void setAccountMode(String accountMode) {
-        this.accountMode = accountMode;
-    }
-
-    public InlineObject25 exchangeType(String exchangeType) {
-        
-        this.exchangeType = exchangeType;
-        return this;
-    }
-
-     /**
-     * Exchange (BINANCE/OKX/GATE/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)
-     * @return exchangeType
-    **/
-    @javax.annotation.Nullable
-    public String getExchangeType() {
-        return exchangeType;
-    }
-
-
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
+    public void setQuoteId(String quoteId) {
+        this.quoteId = quoteId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -104,14 +55,12 @@ public class InlineObject25 {
             return false;
         }
         InlineObject25 inlineObject25 = (InlineObject25) o;
-        return Objects.equals(this.positionMode, inlineObject25.positionMode) &&
-                Objects.equals(this.accountMode, inlineObject25.accountMode) &&
-                Objects.equals(this.exchangeType, inlineObject25.exchangeType);
+        return Objects.equals(this.quoteId, inlineObject25.quoteId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(positionMode, accountMode, exchangeType);
+        return Objects.hash(quoteId);
     }
 
 
@@ -119,9 +68,7 @@ public class InlineObject25 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject25 {\n");
-        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
-        sb.append("      accountMode: ").append(toIndentedString(accountMode)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      quoteId: ").append(toIndentedString(quoteId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

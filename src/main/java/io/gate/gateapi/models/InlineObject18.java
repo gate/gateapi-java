@@ -27,13 +27,13 @@ public class InlineObject18 {
     @SerializedName(SERIALIZED_NAME_TXID)
     private Integer txid;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private Integer type;
+    public static final String SERIALIZED_NAME_LASTRECEIVED = "lastreceived";
+    @SerializedName(SERIALIZED_NAME_LASTRECEIVED)
+    private Integer lastreceived;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
+    public static final String SERIALIZED_NAME_FIRSTRECEIVED = "firstreceived";
+    @SerializedName(SERIALIZED_NAME_FIRSTRECEIVED)
+    private Integer firstreceived;
 
 
     public InlineObject18 txid(Integer txid) {
@@ -55,43 +55,44 @@ public class InlineObject18 {
         this.txid = txid;
     }
 
-    public InlineObject18 type(Integer type) {
+    public InlineObject18 lastreceived(Integer lastreceived) {
         
-        this.type = type;
+        this.lastreceived = lastreceived;
         return this;
     }
 
      /**
-     * 0&#x3D;Text, 1&#x3D;File (video or image), default is 0 if not provided
-     * @return type
+     * Pagination timestamp (forward)
+     * @return lastreceived
     **/
     @javax.annotation.Nullable
-    public Integer getType() {
-        return type;
+    public Integer getLastreceived() {
+        return lastreceived;
     }
 
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setLastreceived(Integer lastreceived) {
+        this.lastreceived = lastreceived;
     }
 
-    public InlineObject18 message(String message) {
+    public InlineObject18 firstreceived(Integer firstreceived) {
         
-        this.message = message;
+        this.firstreceived = firstreceived;
         return this;
     }
 
      /**
-     * Message content
-     * @return message
+     * Pagination timestamp (backward)
+     * @return firstreceived
     **/
-    public String getMessage() {
-        return message;
+    @javax.annotation.Nullable
+    public Integer getFirstreceived() {
+        return firstreceived;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setFirstreceived(Integer firstreceived) {
+        this.firstreceived = firstreceived;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -103,13 +104,13 @@ public class InlineObject18 {
         }
         InlineObject18 inlineObject18 = (InlineObject18) o;
         return Objects.equals(this.txid, inlineObject18.txid) &&
-                Objects.equals(this.type, inlineObject18.type) &&
-                Objects.equals(this.message, inlineObject18.message);
+                Objects.equals(this.lastreceived, inlineObject18.lastreceived) &&
+                Objects.equals(this.firstreceived, inlineObject18.firstreceived);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(txid, type, message);
+        return Objects.hash(txid, lastreceived, firstreceived);
     }
 
 
@@ -118,8 +119,8 @@ public class InlineObject18 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject18 {\n");
         sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      lastreceived: ").append(toIndentedString(lastreceived)).append("\n");
+        sb.append("      firstreceived: ").append(toIndentedString(firstreceived)).append("\n");
         sb.append("}");
         return sb.toString();
     }

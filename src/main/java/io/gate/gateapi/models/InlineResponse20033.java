@@ -17,344 +17,172 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20033Assets;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20033
  */
 public class InlineResponse20033 {
-    public static final String SERIALIZED_NAME_USER_ID = "user_id";
-    @SerializedName(SERIALIZED_NAME_USER_ID)
-    private String userId;
+    public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
+    @SerializedName(SERIALIZED_NAME_QUOTE_ID)
+    private String quoteId;
 
-    public static final String SERIALIZED_NAME_AVAILABLE_MARGIN = "available_margin";
-    @SerializedName(SERIALIZED_NAME_AVAILABLE_MARGIN)
-    private String availableMargin;
+    public static final String SERIALIZED_NAME_VALID_MS = "valid_ms";
+    @SerializedName(SERIALIZED_NAME_VALID_MS)
+    private String validMs;
 
-    public static final String SERIALIZED_NAME_MARGIN_BALANCE = "margin_balance";
-    @SerializedName(SERIALIZED_NAME_MARGIN_BALANCE)
-    private String marginBalance;
+    public static final String SERIALIZED_NAME_FROM_COIN = "from_coin";
+    @SerializedName(SERIALIZED_NAME_FROM_COIN)
+    private String fromCoin;
 
-    public static final String SERIALIZED_NAME_INITIAL_MARGIN = "initial_margin";
-    @SerializedName(SERIALIZED_NAME_INITIAL_MARGIN)
-    private String initialMargin;
+    public static final String SERIALIZED_NAME_TO_COIN = "to_coin";
+    @SerializedName(SERIALIZED_NAME_TO_COIN)
+    private String toCoin;
 
-    public static final String SERIALIZED_NAME_MAINTENANCE_MARGIN = "maintenance_margin";
-    @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN)
-    private String maintenanceMargin;
+    public static final String SERIALIZED_NAME_FROM_AMOUNT = "from_amount";
+    @SerializedName(SERIALIZED_NAME_FROM_AMOUNT)
+    private String fromAmount;
 
-    public static final String SERIALIZED_NAME_INITIAL_MARGIN_RATE = "initial_margin_rate";
-    @SerializedName(SERIALIZED_NAME_INITIAL_MARGIN_RATE)
-    private String initialMarginRate;
+    public static final String SERIALIZED_NAME_TO_AMOUNT = "to_amount";
+    @SerializedName(SERIALIZED_NAME_TO_AMOUNT)
+    private String toAmount;
 
-    public static final String SERIALIZED_NAME_MAINTENANCE_MARGIN_RATE = "maintenance_margin_rate";
-    @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN_RATE)
-    private String maintenanceMarginRate;
-
-    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
-    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
-    private String positionMode;
-
-    public static final String SERIALIZED_NAME_ACCOUNT_LIMIT = "account_limit";
-    @SerializedName(SERIALIZED_NAME_ACCOUNT_LIMIT)
-    private String accountLimit;
-
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private String createTime;
-
-    public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
-    @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
-    private String updateTime;
-
-    public static final String SERIALIZED_NAME_ACCOUNT_MODE = "account_mode";
-    @SerializedName(SERIALIZED_NAME_ACCOUNT_MODE)
-    private String accountMode;
-
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
-
-    public static final String SERIALIZED_NAME_ASSETS = "assets";
-    @SerializedName(SERIALIZED_NAME_ASSETS)
-    private List<InlineResponse20033Assets> assets = new ArrayList<>();
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
 
-    public InlineResponse20033 userId(String userId) {
+    public InlineResponse20033 quoteId(String quoteId) {
         
-        this.userId = userId;
+        this.quoteId = quoteId;
         return this;
     }
 
      /**
-     * User ID
-     * @return userId
+     * Quote ID
+     * @return quoteId
     **/
-    public String getUserId() {
-        return userId;
+    public String getQuoteId() {
+        return quoteId;
     }
 
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setQuoteId(String quoteId) {
+        this.quoteId = quoteId;
     }
 
-    public InlineResponse20033 availableMargin(String availableMargin) {
+    public InlineResponse20033 validMs(String validMs) {
         
-        this.availableMargin = availableMargin;
+        this.validMs = validMs;
         return this;
     }
 
      /**
-     * Available Margin
-     * @return availableMargin
+     * Valid time (milliseconds timestamp)
+     * @return validMs
     **/
-    public String getAvailableMargin() {
-        return availableMargin;
+    public String getValidMs() {
+        return validMs;
     }
 
 
-    public void setAvailableMargin(String availableMargin) {
-        this.availableMargin = availableMargin;
+    public void setValidMs(String validMs) {
+        this.validMs = validMs;
     }
 
-    public InlineResponse20033 marginBalance(String marginBalance) {
+    public InlineResponse20033 fromCoin(String fromCoin) {
         
-        this.marginBalance = marginBalance;
+        this.fromCoin = fromCoin;
         return this;
     }
 
      /**
-     * marginbalance
-     * @return marginBalance
+     * Asset Sold
+     * @return fromCoin
     **/
-    public String getMarginBalance() {
-        return marginBalance;
+    public String getFromCoin() {
+        return fromCoin;
     }
 
 
-    public void setMarginBalance(String marginBalance) {
-        this.marginBalance = marginBalance;
+    public void setFromCoin(String fromCoin) {
+        this.fromCoin = fromCoin;
     }
 
-    public InlineResponse20033 initialMargin(String initialMargin) {
+    public InlineResponse20033 toCoin(String toCoin) {
         
-        this.initialMargin = initialMargin;
+        this.toCoin = toCoin;
         return this;
     }
 
      /**
-     * Initial Margin
-     * @return initialMargin
+     * Asset Bought
+     * @return toCoin
     **/
-    public String getInitialMargin() {
-        return initialMargin;
+    public String getToCoin() {
+        return toCoin;
     }
 
 
-    public void setInitialMargin(String initialMargin) {
-        this.initialMargin = initialMargin;
+    public void setToCoin(String toCoin) {
+        this.toCoin = toCoin;
     }
 
-    public InlineResponse20033 maintenanceMargin(String maintenanceMargin) {
+    public InlineResponse20033 fromAmount(String fromAmount) {
         
-        this.maintenanceMargin = maintenanceMargin;
+        this.fromAmount = fromAmount;
         return this;
     }
 
      /**
-     * Maintenance margin
-     * @return maintenanceMargin
+     * Amount to sell
+     * @return fromAmount
     **/
-    public String getMaintenanceMargin() {
-        return maintenanceMargin;
+    public String getFromAmount() {
+        return fromAmount;
     }
 
 
-    public void setMaintenanceMargin(String maintenanceMargin) {
-        this.maintenanceMargin = maintenanceMargin;
+    public void setFromAmount(String fromAmount) {
+        this.fromAmount = fromAmount;
     }
 
-    public InlineResponse20033 initialMarginRate(String initialMarginRate) {
+    public InlineResponse20033 toAmount(String toAmount) {
         
-        this.initialMarginRate = initialMarginRate;
+        this.toAmount = toAmount;
         return this;
     }
 
      /**
-     * Initial margin rate
-     * @return initialMarginRate
+     * Amount to buy
+     * @return toAmount
     **/
-    public String getInitialMarginRate() {
-        return initialMarginRate;
+    public String getToAmount() {
+        return toAmount;
     }
 
 
-    public void setInitialMarginRate(String initialMarginRate) {
-        this.initialMarginRate = initialMarginRate;
+    public void setToAmount(String toAmount) {
+        this.toAmount = toAmount;
     }
 
-    public InlineResponse20033 maintenanceMarginRate(String maintenanceMarginRate) {
+    public InlineResponse20033 price(String price) {
         
-        this.maintenanceMarginRate = maintenanceMarginRate;
+        this.price = price;
         return this;
     }
 
      /**
-     * Maintenance margin rate
-     * @return maintenanceMarginRate
+     * Price
+     * @return price
     **/
-    public String getMaintenanceMarginRate() {
-        return maintenanceMarginRate;
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setMaintenanceMarginRate(String maintenanceMarginRate) {
-        this.maintenanceMarginRate = maintenanceMarginRate;
-    }
-
-    public InlineResponse20033 positionMode(String positionMode) {
-        
-        this.positionMode = positionMode;
-        return this;
-    }
-
-     /**
-     * Contract Position Mode
-     * @return positionMode
-    **/
-    public String getPositionMode() {
-        return positionMode;
-    }
-
-
-    public void setPositionMode(String positionMode) {
-        this.positionMode = positionMode;
-    }
-
-    public InlineResponse20033 accountLimit(String accountLimit) {
-        
-        this.accountLimit = accountLimit;
-        return this;
-    }
-
-     /**
-     * Account limit
-     * @return accountLimit
-    **/
-    @javax.annotation.Nullable
-    public String getAccountLimit() {
-        return accountLimit;
-    }
-
-
-    public void setAccountLimit(String accountLimit) {
-        this.accountLimit = accountLimit;
-    }
-
-    public InlineResponse20033 createTime(String createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Created time
-     * @return createTime
-    **/
-    public String getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public InlineResponse20033 updateTime(String updateTime) {
-        
-        this.updateTime = updateTime;
-        return this;
-    }
-
-     /**
-     * Update time
-     * @return updateTime
-    **/
-    public String getUpdateTime() {
-        return updateTime;
-    }
-
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public InlineResponse20033 accountMode(String accountMode) {
-        
-        this.accountMode = accountMode;
-        return this;
-    }
-
-     /**
-     * Account Mode. CROSS_EXCHANGE: Cross-Exchange Mode; ISOLATED_EXCHANGE: Split-Exchange Mode
-     * @return accountMode
-    **/
-    @javax.annotation.Nullable
-    public String getAccountMode() {
-        return accountMode;
-    }
-
-
-    public void setAccountMode(String accountMode) {
-        this.accountMode = accountMode;
-    }
-
-    public InlineResponse20033 exchangeType(String exchangeType) {
-        
-        this.exchangeType = exchangeType;
-        return this;
-    }
-
-     /**
-     * Exchange Type. When account_mode is CROSS_EXCHANGE, it must be CROSSEX; otherwise, it is another exchange.
-     * @return exchangeType
-    **/
-    @javax.annotation.Nullable
-    public String getExchangeType() {
-        return exchangeType;
-    }
-
-
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
-    }
-
-    public InlineResponse20033 assets(List<InlineResponse20033Assets> assets) {
-        
-        this.assets = assets;
-        return this;
-    }
-
-    public InlineResponse20033 addAssetsItem(InlineResponse20033Assets assetsItem) {
-        this.assets.add(assetsItem);
-        return this;
-    }
-
-     /**
-     * Get assets
-     * @return assets
-    **/
-    public List<InlineResponse20033Assets> getAssets() {
-        return assets;
-    }
-
-
-    public void setAssets(List<InlineResponse20033Assets> assets) {
-        this.assets = assets;
+    public void setPrice(String price) {
+        this.price = price;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -365,25 +193,18 @@ public class InlineResponse20033 {
             return false;
         }
         InlineResponse20033 inlineResponse20033 = (InlineResponse20033) o;
-        return Objects.equals(this.userId, inlineResponse20033.userId) &&
-                Objects.equals(this.availableMargin, inlineResponse20033.availableMargin) &&
-                Objects.equals(this.marginBalance, inlineResponse20033.marginBalance) &&
-                Objects.equals(this.initialMargin, inlineResponse20033.initialMargin) &&
-                Objects.equals(this.maintenanceMargin, inlineResponse20033.maintenanceMargin) &&
-                Objects.equals(this.initialMarginRate, inlineResponse20033.initialMarginRate) &&
-                Objects.equals(this.maintenanceMarginRate, inlineResponse20033.maintenanceMarginRate) &&
-                Objects.equals(this.positionMode, inlineResponse20033.positionMode) &&
-                Objects.equals(this.accountLimit, inlineResponse20033.accountLimit) &&
-                Objects.equals(this.createTime, inlineResponse20033.createTime) &&
-                Objects.equals(this.updateTime, inlineResponse20033.updateTime) &&
-                Objects.equals(this.accountMode, inlineResponse20033.accountMode) &&
-                Objects.equals(this.exchangeType, inlineResponse20033.exchangeType) &&
-                Objects.equals(this.assets, inlineResponse20033.assets);
+        return Objects.equals(this.quoteId, inlineResponse20033.quoteId) &&
+                Objects.equals(this.validMs, inlineResponse20033.validMs) &&
+                Objects.equals(this.fromCoin, inlineResponse20033.fromCoin) &&
+                Objects.equals(this.toCoin, inlineResponse20033.toCoin) &&
+                Objects.equals(this.fromAmount, inlineResponse20033.fromAmount) &&
+                Objects.equals(this.toAmount, inlineResponse20033.toAmount) &&
+                Objects.equals(this.price, inlineResponse20033.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, availableMargin, marginBalance, initialMargin, maintenanceMargin, initialMarginRate, maintenanceMarginRate, positionMode, accountLimit, createTime, updateTime, accountMode, exchangeType, assets);
+        return Objects.hash(quoteId, validMs, fromCoin, toCoin, fromAmount, toAmount, price);
     }
 
 
@@ -391,20 +212,13 @@ public class InlineResponse20033 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20033 {\n");
-        sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("      availableMargin: ").append(toIndentedString(availableMargin)).append("\n");
-        sb.append("      marginBalance: ").append(toIndentedString(marginBalance)).append("\n");
-        sb.append("      initialMargin: ").append(toIndentedString(initialMargin)).append("\n");
-        sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
-        sb.append("      initialMarginRate: ").append(toIndentedString(initialMarginRate)).append("\n");
-        sb.append("      maintenanceMarginRate: ").append(toIndentedString(maintenanceMarginRate)).append("\n");
-        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
-        sb.append("      accountLimit: ").append(toIndentedString(accountLimit)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
-        sb.append("      accountMode: ").append(toIndentedString(accountMode)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      assets: ").append(toIndentedString(assets)).append("\n");
+        sb.append("      quoteId: ").append(toIndentedString(quoteId)).append("\n");
+        sb.append("      validMs: ").append(toIndentedString(validMs)).append("\n");
+        sb.append("      fromCoin: ").append(toIndentedString(fromCoin)).append("\n");
+        sb.append("      toCoin: ").append(toIndentedString(toCoin)).append("\n");
+        sb.append("      fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
+        sb.append("      toAmount: ").append(toIndentedString(toAmount)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("}");
         return sb.toString();
     }

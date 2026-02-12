@@ -17,13 +17,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20022DataMsgObj;
+import io.gate.gateapi.models.InlineResponse20023DataMsgObj;
 import java.io.IOException;
 
 /**
- * InlineResponse20022DataMessages
+ * InlineResponse20023DataMessages
  */
-public class InlineResponse20022DataMessages {
+public class InlineResponse20023DataMessages {
     public static final String SERIALIZED_NAME_IS_SELL = "is_sell";
     @SerializedName(SERIALIZED_NAME_IS_SELL)
     private Integer isSell;
@@ -46,7 +46,7 @@ public class InlineResponse20022DataMessages {
 
     public static final String SERIALIZED_NAME_MSG_OBJ = "msg_obj";
     @SerializedName(SERIALIZED_NAME_MSG_OBJ)
-    private InlineResponse20022DataMsgObj msgObj;
+    private InlineResponse20023DataMsgObj msgObj;
 
     public static final String SERIALIZED_NAME_UID = "uid";
     @SerializedName(SERIALIZED_NAME_UID)
@@ -77,7 +77,7 @@ public class InlineResponse20022DataMessages {
     private String height;
 
 
-    public InlineResponse20022DataMessages isSell(Integer isSell) {
+    public InlineResponse20023DataMessages isSell(Integer isSell) {
         
         this.isSell = isSell;
         return this;
@@ -96,7 +96,7 @@ public class InlineResponse20022DataMessages {
         this.isSell = isSell;
     }
 
-    public InlineResponse20022DataMessages msgType(Integer msgType) {
+    public InlineResponse20023DataMessages msgType(Integer msgType) {
         
         this.msgType = msgType;
         return this;
@@ -115,7 +115,7 @@ public class InlineResponse20022DataMessages {
         this.msgType = msgType;
     }
 
-    public InlineResponse20022DataMessages msg(String msg) {
+    public InlineResponse20023DataMessages msg(String msg) {
         
         this.msg = msg;
         return this;
@@ -134,7 +134,7 @@ public class InlineResponse20022DataMessages {
         this.msg = msg;
     }
 
-    public InlineResponse20022DataMessages username(String username) {
+    public InlineResponse20023DataMessages username(String username) {
         
         this.username = username;
         return this;
@@ -153,7 +153,7 @@ public class InlineResponse20022DataMessages {
         this.username = username;
     }
 
-    public InlineResponse20022DataMessages timest(Integer timest) {
+    public InlineResponse20023DataMessages timest(Integer timest) {
         
         this.timest = timest;
         return this;
@@ -172,7 +172,7 @@ public class InlineResponse20022DataMessages {
         this.timest = timest;
     }
 
-    public InlineResponse20022DataMessages msgObj(InlineResponse20022DataMsgObj msgObj) {
+    public InlineResponse20023DataMessages msgObj(InlineResponse20023DataMsgObj msgObj) {
         
         this.msgObj = msgObj;
         return this;
@@ -182,16 +182,16 @@ public class InlineResponse20022DataMessages {
      * Get msgObj
      * @return msgObj
     **/
-    public InlineResponse20022DataMsgObj getMsgObj() {
+    public InlineResponse20023DataMsgObj getMsgObj() {
         return msgObj;
     }
 
 
-    public void setMsgObj(InlineResponse20022DataMsgObj msgObj) {
+    public void setMsgObj(InlineResponse20023DataMsgObj msgObj) {
         this.msgObj = msgObj;
     }
 
-    public InlineResponse20022DataMessages uid(String uid) {
+    public InlineResponse20023DataMessages uid(String uid) {
         
         this.uid = uid;
         return this;
@@ -210,7 +210,7 @@ public class InlineResponse20022DataMessages {
         this.uid = uid;
     }
 
-    public InlineResponse20022DataMessages type(Integer type) {
+    public InlineResponse20023DataMessages type(Integer type) {
         
         this.type = type;
         return this;
@@ -229,7 +229,7 @@ public class InlineResponse20022DataMessages {
         this.type = type;
     }
 
-    public InlineResponse20022DataMessages pic(String pic) {
+    public InlineResponse20023DataMessages pic(String pic) {
         
         this.pic = pic;
         return this;
@@ -248,7 +248,7 @@ public class InlineResponse20022DataMessages {
         this.pic = pic;
     }
 
-    public InlineResponse20022DataMessages fileKey(String fileKey) {
+    public InlineResponse20023DataMessages fileKey(String fileKey) {
         
         this.fileKey = fileKey;
         return this;
@@ -267,7 +267,7 @@ public class InlineResponse20022DataMessages {
         this.fileKey = fileKey;
     }
 
-    public InlineResponse20022DataMessages fileType(String fileType) {
+    public InlineResponse20023DataMessages fileType(String fileType) {
         
         this.fileType = fileType;
         return this;
@@ -286,7 +286,7 @@ public class InlineResponse20022DataMessages {
         this.fileType = fileType;
     }
 
-    public InlineResponse20022DataMessages width(String width) {
+    public InlineResponse20023DataMessages width(String width) {
         
         this.width = width;
         return this;
@@ -305,7 +305,7 @@ public class InlineResponse20022DataMessages {
         this.width = width;
     }
 
-    public InlineResponse20022DataMessages height(String height) {
+    public InlineResponse20023DataMessages height(String height) {
         
         this.height = height;
         return this;
@@ -331,20 +331,20 @@ public class InlineResponse20022DataMessages {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20022DataMessages inlineResponse20022DataMessages = (InlineResponse20022DataMessages) o;
-        return Objects.equals(this.isSell, inlineResponse20022DataMessages.isSell) &&
-                Objects.equals(this.msgType, inlineResponse20022DataMessages.msgType) &&
-                Objects.equals(this.msg, inlineResponse20022DataMessages.msg) &&
-                Objects.equals(this.username, inlineResponse20022DataMessages.username) &&
-                Objects.equals(this.timest, inlineResponse20022DataMessages.timest) &&
-                Objects.equals(this.msgObj, inlineResponse20022DataMessages.msgObj) &&
-                Objects.equals(this.uid, inlineResponse20022DataMessages.uid) &&
-                Objects.equals(this.type, inlineResponse20022DataMessages.type) &&
-                Objects.equals(this.pic, inlineResponse20022DataMessages.pic) &&
-                Objects.equals(this.fileKey, inlineResponse20022DataMessages.fileKey) &&
-                Objects.equals(this.fileType, inlineResponse20022DataMessages.fileType) &&
-                Objects.equals(this.width, inlineResponse20022DataMessages.width) &&
-                Objects.equals(this.height, inlineResponse20022DataMessages.height);
+        InlineResponse20023DataMessages inlineResponse20023DataMessages = (InlineResponse20023DataMessages) o;
+        return Objects.equals(this.isSell, inlineResponse20023DataMessages.isSell) &&
+                Objects.equals(this.msgType, inlineResponse20023DataMessages.msgType) &&
+                Objects.equals(this.msg, inlineResponse20023DataMessages.msg) &&
+                Objects.equals(this.username, inlineResponse20023DataMessages.username) &&
+                Objects.equals(this.timest, inlineResponse20023DataMessages.timest) &&
+                Objects.equals(this.msgObj, inlineResponse20023DataMessages.msgObj) &&
+                Objects.equals(this.uid, inlineResponse20023DataMessages.uid) &&
+                Objects.equals(this.type, inlineResponse20023DataMessages.type) &&
+                Objects.equals(this.pic, inlineResponse20023DataMessages.pic) &&
+                Objects.equals(this.fileKey, inlineResponse20023DataMessages.fileKey) &&
+                Objects.equals(this.fileType, inlineResponse20023DataMessages.fileType) &&
+                Objects.equals(this.width, inlineResponse20023DataMessages.width) &&
+                Objects.equals(this.height, inlineResponse20023DataMessages.height);
     }
 
     @Override
@@ -356,7 +356,7 @@ public class InlineResponse20022DataMessages {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20022DataMessages {\n");
+        sb.append("class InlineResponse20023DataMessages {\n");
         sb.append("      isSell: ").append(toIndentedString(isSell)).append("\n");
         sb.append("      msgType: ").append(toIndentedString(msgType)).append("\n");
         sb.append("      msg: ").append(toIndentedString(msg)).append("\n");

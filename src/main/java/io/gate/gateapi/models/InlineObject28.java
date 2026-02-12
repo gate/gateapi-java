@@ -27,9 +27,9 @@ public class InlineObject28 {
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
-    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
-    private String positionSide;
+    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
+    @SerializedName(SERIALIZED_NAME_LEVERAGE)
+    private String leverage;
 
 
     public InlineObject28 symbol(String symbol) {
@@ -39,7 +39,7 @@ public class InlineObject28 {
     }
 
      /**
-     * Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT
+     * Currency pair
      * @return symbol
     **/
     public String getSymbol() {
@@ -51,24 +51,23 @@ public class InlineObject28 {
         this.symbol = symbol;
     }
 
-    public InlineObject28 positionSide(String positionSide) {
+    public InlineObject28 leverage(String leverage) {
         
-        this.positionSide = positionSide;
+        this.leverage = leverage;
         return this;
     }
 
      /**
-     * Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method
-     * @return positionSide
+     * leverage
+     * @return leverage
     **/
-    @javax.annotation.Nullable
-    public String getPositionSide() {
-        return positionSide;
+    public String getLeverage() {
+        return leverage;
     }
 
 
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -80,12 +79,12 @@ public class InlineObject28 {
         }
         InlineObject28 inlineObject28 = (InlineObject28) o;
         return Objects.equals(this.symbol, inlineObject28.symbol) &&
-                Objects.equals(this.positionSide, inlineObject28.positionSide);
+                Objects.equals(this.leverage, inlineObject28.leverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, positionSide);
+        return Objects.hash(symbol, leverage);
     }
 
 
@@ -94,7 +93,7 @@ public class InlineObject28 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject28 {\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

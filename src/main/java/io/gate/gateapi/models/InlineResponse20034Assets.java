@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse20033Assets
+ * InlineResponse20034Assets
  */
-public class InlineResponse20033Assets {
+public class InlineResponse20034Assets {
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
@@ -72,7 +72,7 @@ public class InlineResponse20033Assets {
     private String liability;
 
 
-    public InlineResponse20033Assets userId(String userId) {
+    public InlineResponse20034Assets userId(String userId) {
         
         this.userId = userId;
         return this;
@@ -92,7 +92,7 @@ public class InlineResponse20033Assets {
         this.userId = userId;
     }
 
-    public InlineResponse20033Assets coin(String coin) {
+    public InlineResponse20034Assets coin(String coin) {
         
         this.coin = coin;
         return this;
@@ -112,7 +112,7 @@ public class InlineResponse20033Assets {
         this.coin = coin;
     }
 
-    public InlineResponse20033Assets exchangeType(String exchangeType) {
+    public InlineResponse20034Assets exchangeType(String exchangeType) {
         
         this.exchangeType = exchangeType;
         return this;
@@ -132,7 +132,7 @@ public class InlineResponse20033Assets {
         this.exchangeType = exchangeType;
     }
 
-    public InlineResponse20033Assets balance(String balance) {
+    public InlineResponse20034Assets balance(String balance) {
         
         this.balance = balance;
         return this;
@@ -152,7 +152,7 @@ public class InlineResponse20033Assets {
         this.balance = balance;
     }
 
-    public InlineResponse20033Assets upnl(String upnl) {
+    public InlineResponse20034Assets upnl(String upnl) {
         
         this.upnl = upnl;
         return this;
@@ -172,7 +172,7 @@ public class InlineResponse20033Assets {
         this.upnl = upnl;
     }
 
-    public InlineResponse20033Assets equity(String equity) {
+    public InlineResponse20034Assets equity(String equity) {
         
         this.equity = equity;
         return this;
@@ -192,7 +192,7 @@ public class InlineResponse20033Assets {
         this.equity = equity;
     }
 
-    public InlineResponse20033Assets futuresInitialMargin(String futuresInitialMargin) {
+    public InlineResponse20034Assets futuresInitialMargin(String futuresInitialMargin) {
         
         this.futuresInitialMargin = futuresInitialMargin;
         return this;
@@ -212,7 +212,7 @@ public class InlineResponse20033Assets {
         this.futuresInitialMargin = futuresInitialMargin;
     }
 
-    public InlineResponse20033Assets futuresMaintenanceMargin(String futuresMaintenanceMargin) {
+    public InlineResponse20034Assets futuresMaintenanceMargin(String futuresMaintenanceMargin) {
         
         this.futuresMaintenanceMargin = futuresMaintenanceMargin;
         return this;
@@ -232,7 +232,7 @@ public class InlineResponse20033Assets {
         this.futuresMaintenanceMargin = futuresMaintenanceMargin;
     }
 
-    public InlineResponse20033Assets borrowingInitialMargin(String borrowingInitialMargin) {
+    public InlineResponse20034Assets borrowingInitialMargin(String borrowingInitialMargin) {
         
         this.borrowingInitialMargin = borrowingInitialMargin;
         return this;
@@ -251,7 +251,7 @@ public class InlineResponse20033Assets {
         this.borrowingInitialMargin = borrowingInitialMargin;
     }
 
-    public InlineResponse20033Assets borrowingMaintenanceMargin(String borrowingMaintenanceMargin) {
+    public InlineResponse20034Assets borrowingMaintenanceMargin(String borrowingMaintenanceMargin) {
         
         this.borrowingMaintenanceMargin = borrowingMaintenanceMargin;
         return this;
@@ -270,7 +270,7 @@ public class InlineResponse20033Assets {
         this.borrowingMaintenanceMargin = borrowingMaintenanceMargin;
     }
 
-    public InlineResponse20033Assets availableBalance(String availableBalance) {
+    public InlineResponse20034Assets availableBalance(String availableBalance) {
         
         this.availableBalance = availableBalance;
         return this;
@@ -290,7 +290,7 @@ public class InlineResponse20033Assets {
         this.availableBalance = availableBalance;
     }
 
-    public InlineResponse20033Assets liability(String liability) {
+    public InlineResponse20034Assets liability(String liability) {
         
         this.liability = liability;
         return this;
@@ -317,19 +317,19 @@ public class InlineResponse20033Assets {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20033Assets inlineResponse20033Assets = (InlineResponse20033Assets) o;
-        return Objects.equals(this.userId, inlineResponse20033Assets.userId) &&
-                Objects.equals(this.coin, inlineResponse20033Assets.coin) &&
-                Objects.equals(this.exchangeType, inlineResponse20033Assets.exchangeType) &&
-                Objects.equals(this.balance, inlineResponse20033Assets.balance) &&
-                Objects.equals(this.upnl, inlineResponse20033Assets.upnl) &&
-                Objects.equals(this.equity, inlineResponse20033Assets.equity) &&
-                Objects.equals(this.futuresInitialMargin, inlineResponse20033Assets.futuresInitialMargin) &&
-                Objects.equals(this.futuresMaintenanceMargin, inlineResponse20033Assets.futuresMaintenanceMargin) &&
-                Objects.equals(this.borrowingInitialMargin, inlineResponse20033Assets.borrowingInitialMargin) &&
-                Objects.equals(this.borrowingMaintenanceMargin, inlineResponse20033Assets.borrowingMaintenanceMargin) &&
-                Objects.equals(this.availableBalance, inlineResponse20033Assets.availableBalance) &&
-                Objects.equals(this.liability, inlineResponse20033Assets.liability);
+        InlineResponse20034Assets inlineResponse20034Assets = (InlineResponse20034Assets) o;
+        return Objects.equals(this.userId, inlineResponse20034Assets.userId) &&
+                Objects.equals(this.coin, inlineResponse20034Assets.coin) &&
+                Objects.equals(this.exchangeType, inlineResponse20034Assets.exchangeType) &&
+                Objects.equals(this.balance, inlineResponse20034Assets.balance) &&
+                Objects.equals(this.upnl, inlineResponse20034Assets.upnl) &&
+                Objects.equals(this.equity, inlineResponse20034Assets.equity) &&
+                Objects.equals(this.futuresInitialMargin, inlineResponse20034Assets.futuresInitialMargin) &&
+                Objects.equals(this.futuresMaintenanceMargin, inlineResponse20034Assets.futuresMaintenanceMargin) &&
+                Objects.equals(this.borrowingInitialMargin, inlineResponse20034Assets.borrowingInitialMargin) &&
+                Objects.equals(this.borrowingMaintenanceMargin, inlineResponse20034Assets.borrowingMaintenanceMargin) &&
+                Objects.equals(this.availableBalance, inlineResponse20034Assets.availableBalance) &&
+                Objects.equals(this.liability, inlineResponse20034Assets.liability);
     }
 
     @Override
@@ -341,7 +341,7 @@ public class InlineResponse20033Assets {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20033Assets {\n");
+        sb.append("class InlineResponse20034Assets {\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");

@@ -23,97 +23,51 @@ import java.io.IOException;
  * InlineResponse20035
  */
 public class InlineResponse20035 {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
-
-    public static final String SERIALIZED_NAME_HOUR_INTEREST_RATE = "hour_interest_rate";
-    @SerializedName(SERIALIZED_NAME_HOUR_INTEREST_RATE)
-    private String hourInterestRate;
-
-    public static final String SERIALIZED_NAME_TIME = "time";
-    @SerializedName(SERIALIZED_NAME_TIME)
-    private String time;
+    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
+    @SerializedName(SERIALIZED_NAME_LEVERAGE)
+    private String leverage;
 
 
-    public InlineResponse20035 coin(String coin) {
+    public InlineResponse20035 symbol(String symbol) {
         
-        this.coin = coin;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Currency pair
+     * @return symbol
     **/
-    public String getCoin() {
-        return coin;
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineResponse20035 exchangeType(String exchangeType) {
+    public InlineResponse20035 leverage(String leverage) {
         
-        this.exchangeType = exchangeType;
+        this.leverage = leverage;
         return this;
     }
 
      /**
-     * Exchange
-     * @return exchangeType
+     * leverage
+     * @return leverage
     **/
-    public String getExchangeType() {
-        return exchangeType;
+    public String getLeverage() {
+        return leverage;
     }
 
 
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
-    }
-
-    public InlineResponse20035 hourInterestRate(String hourInterestRate) {
-        
-        this.hourInterestRate = hourInterestRate;
-        return this;
-    }
-
-     /**
-     * Hourly Interest Rate
-     * @return hourInterestRate
-    **/
-    public String getHourInterestRate() {
-        return hourInterestRate;
-    }
-
-
-    public void setHourInterestRate(String hourInterestRate) {
-        this.hourInterestRate = hourInterestRate;
-    }
-
-    public InlineResponse20035 time(String time) {
-        
-        this.time = time;
-        return this;
-    }
-
-     /**
-     * Millisecond Timestamp
-     * @return time
-    **/
-    public String getTime() {
-        return time;
-    }
-
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -124,15 +78,13 @@ public class InlineResponse20035 {
             return false;
         }
         InlineResponse20035 inlineResponse20035 = (InlineResponse20035) o;
-        return Objects.equals(this.coin, inlineResponse20035.coin) &&
-                Objects.equals(this.exchangeType, inlineResponse20035.exchangeType) &&
-                Objects.equals(this.hourInterestRate, inlineResponse20035.hourInterestRate) &&
-                Objects.equals(this.time, inlineResponse20035.time);
+        return Objects.equals(this.symbol, inlineResponse20035.symbol) &&
+                Objects.equals(this.leverage, inlineResponse20035.leverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, exchangeType, hourInterestRate, time);
+        return Objects.hash(symbol, leverage);
     }
 
 
@@ -140,10 +92,8 @@ public class InlineResponse20035 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20035 {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      hourInterestRate: ").append(toIndentedString(hourInterestRate)).append("\n");
-        sb.append("      time: ").append(toIndentedString(time)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -23,121 +23,51 @@ import java.io.IOException;
  * InlineObject20
  */
 public class InlineObject20 {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_IMAGE_CONTENT_TYPE = "image_content_type";
+    @SerializedName(SERIALIZED_NAME_IMAGE_CONTENT_TYPE)
+    private String imageContentType;
 
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
-
-    public static final String SERIALIZED_NAME_FROM = "from";
-    @SerializedName(SERIALIZED_NAME_FROM)
-    private String from;
-
-    public static final String SERIALIZED_NAME_TO = "to";
-    @SerializedName(SERIALIZED_NAME_TO)
-    private String to;
-
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
+    public static final String SERIALIZED_NAME_BASE64_IMG = "base64_img";
+    @SerializedName(SERIALIZED_NAME_BASE64_IMG)
+    private String base64Img;
 
 
-    public InlineObject20 coin(String coin) {
+    public InlineObject20 imageContentType(String imageContentType) {
         
-        this.coin = coin;
+        this.imageContentType = imageContentType;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * File type, currently only images and videos are supported
+     * @return imageContentType
     **/
-    public String getCoin() {
-        return coin;
+    public String getImageContentType() {
+        return imageContentType;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
     }
 
-    public InlineObject20 amount(String amount) {
+    public InlineObject20 base64Img(String base64Img) {
         
-        this.amount = amount;
+        this.base64Img = base64Img;
         return this;
     }
 
      /**
-     * Transfer amount
-     * @return amount
+     * File content (base64 encoded)
+     * @return base64Img
     **/
-    public String getAmount() {
-        return amount;
+    public String getBase64Img() {
+        return base64Img;
     }
 
 
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public InlineObject20 from(String from) {
-        
-        this.from = from;
-        return this;
-    }
-
-     /**
-     * Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT
-     * @return from
-    **/
-    public String getFrom() {
-        return from;
-    }
-
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public InlineObject20 to(String to) {
-        
-        this.to = to;
-        return this;
-    }
-
-     /**
-     * Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT
-     * @return to
-    **/
-    public String getTo() {
-        return to;
-    }
-
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public InlineObject20 text(String text) {
-        
-        this.text = text;
-        return this;
-    }
-
-     /**
-     * User-defined ID
-     * @return text
-    **/
-    @javax.annotation.Nullable
-    public String getText() {
-        return text;
-    }
-
-
-    public void setText(String text) {
-        this.text = text;
+    public void setBase64Img(String base64Img) {
+        this.base64Img = base64Img;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -148,16 +78,13 @@ public class InlineObject20 {
             return false;
         }
         InlineObject20 inlineObject20 = (InlineObject20) o;
-        return Objects.equals(this.coin, inlineObject20.coin) &&
-                Objects.equals(this.amount, inlineObject20.amount) &&
-                Objects.equals(this.from, inlineObject20.from) &&
-                Objects.equals(this.to, inlineObject20.to) &&
-                Objects.equals(this.text, inlineObject20.text);
+        return Objects.equals(this.imageContentType, inlineObject20.imageContentType) &&
+                Objects.equals(this.base64Img, inlineObject20.base64Img);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, amount, from, to, text);
+        return Objects.hash(imageContentType, base64Img);
     }
 
 
@@ -165,11 +92,8 @@ public class InlineObject20 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject20 {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      from: ").append(toIndentedString(from)).append("\n");
-        sb.append("      to: ").append(toIndentedString(to)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      imageContentType: ").append(toIndentedString(imageContentType)).append("\n");
+        sb.append("      base64Img: ").append(toIndentedString(base64Img)).append("\n");
         sb.append("}");
         return sb.toString();
     }

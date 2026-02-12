@@ -20,56 +20,31 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject23
+ * InlineResponse20025Data
  */
-public class InlineObject23 {
-    public static final String SERIALIZED_NAME_QTY = "qty";
-    @SerializedName(SERIALIZED_NAME_QTY)
-    private String qty;
-
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
+public class InlineResponse20025Data {
+    public static final String SERIALIZED_NAME_FILE_KEY = "file_key";
+    @SerializedName(SERIALIZED_NAME_FILE_KEY)
+    private String fileKey;
 
 
-    public InlineObject23 qty(String qty) {
+    public InlineResponse20025Data fileKey(String fileKey) {
         
-        this.qty = qty;
+        this.fileKey = fileKey;
         return this;
     }
 
      /**
-     * modify amount
-     * @return qty
+     * File key
+     * @return fileKey
     **/
-    @javax.annotation.Nullable
-    public String getQty() {
-        return qty;
+    public String getFileKey() {
+        return fileKey;
     }
 
 
-    public void setQty(String qty) {
-        this.qty = qty;
-    }
-
-    public InlineObject23 price(String price) {
-        
-        this.price = price;
-        return this;
-    }
-
-     /**
-     * modify price
-     * @return price
-    **/
-    @javax.annotation.Nullable
-    public String getPrice() {
-        return price;
-    }
-
-
-    public void setPrice(String price) {
-        this.price = price;
+    public void setFileKey(String fileKey) {
+        this.fileKey = fileKey;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,23 +54,21 @@ public class InlineObject23 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineObject23 inlineObject23 = (InlineObject23) o;
-        return Objects.equals(this.qty, inlineObject23.qty) &&
-                Objects.equals(this.price, inlineObject23.price);
+        InlineResponse20025Data inlineResponse20025Data = (InlineResponse20025Data) o;
+        return Objects.equals(this.fileKey, inlineResponse20025Data.fileKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(qty, price);
+        return Objects.hash(fileKey);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineObject23 {\n");
-        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("class InlineResponse20025Data {\n");
+        sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }

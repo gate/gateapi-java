@@ -23,61 +23,78 @@ import java.io.IOException;
  * InlineResponse20045
  */
 public class InlineResponse20045 {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
-
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
 
-    public static final String SERIALIZED_NAME_BUSINESS_ID = "business_id";
-    @SerializedName(SERIALIZED_NAME_BUSINESS_ID)
-    private String businessId;
+    public static final String SERIALIZED_NAME_TRANSACTION_ID = "transaction_id";
+    @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
+    private String transactionId;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
+
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
+
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
     public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
     @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
     private String exchangeType;
 
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
+    @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
+    private String businessType;
 
-    public static final String SERIALIZED_NAME_CHANGE = "change";
-    @SerializedName(SERIALIZED_NAME_CHANGE)
-    private String change;
+    public static final String SERIALIZED_NAME_SIDE = "side";
+    @SerializedName(SERIALIZED_NAME_SIDE)
+    private String side;
 
-    public static final String SERIALIZED_NAME_BALANCE = "balance";
-    @SerializedName(SERIALIZED_NAME_BALANCE)
-    private String balance;
+    public static final String SERIALIZED_NAME_QTY = "qty";
+    @SerializedName(SERIALIZED_NAME_QTY)
+    private String qty;
+
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
+
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private String fee;
+
+    public static final String SERIALIZED_NAME_FEE_COIN = "fee_coin";
+    @SerializedName(SERIALIZED_NAME_FEE_COIN)
+    private String feeCoin;
+
+    public static final String SERIALIZED_NAME_FEE_RATE = "fee_rate";
+    @SerializedName(SERIALIZED_NAME_FEE_RATE)
+    private String feeRate;
+
+    public static final String SERIALIZED_NAME_MATCH_ROLE = "match_role";
+    @SerializedName(SERIALIZED_NAME_MATCH_ROLE)
+    private String matchRole;
+
+    public static final String SERIALIZED_NAME_RPNL = "rpnl";
+    @SerializedName(SERIALIZED_NAME_RPNL)
+    private String rpnl;
+
+    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
+    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
+    private String positionMode;
+
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private String positionSide;
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private String createTime;
 
-
-    public InlineResponse20045 id(String id) {
-        
-        this.id = id;
-        return this;
-    }
-
-     /**
-     * Account Change Record ID
-     * @return id
-    **/
-    public String getId() {
-        return id;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public InlineResponse20045 userId(String userId) {
         
@@ -89,6 +106,7 @@ public class InlineResponse20045 {
      * User ID
      * @return userId
     **/
+    @javax.annotation.Nullable
     public String getUserId() {
         return userId;
     }
@@ -98,42 +116,84 @@ public class InlineResponse20045 {
         this.userId = userId;
     }
 
-    public InlineResponse20045 businessId(String businessId) {
+    public InlineResponse20045 transactionId(String transactionId) {
         
-        this.businessId = businessId;
+        this.transactionId = transactionId;
         return this;
     }
 
      /**
-     * Business ID
-     * @return businessId
+     * filledrecordsID
+     * @return transactionId
     **/
-    public String getBusinessId() {
-        return businessId;
+    @javax.annotation.Nullable
+    public String getTransactionId() {
+        return transactionId;
     }
 
 
-    public void setBusinessId(String businessId) {
-        this.businessId = businessId;
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
-    public InlineResponse20045 type(String type) {
+    public InlineResponse20045 orderId(String orderId) {
         
-        this.type = type;
+        this.orderId = orderId;
         return this;
     }
 
      /**
-     * 变更类型| &#x60;TRANSACTION&#x60; 成交 &#x60;TRADING_FEE&#x60; 手续费 &#x60;FUNDING_FEE&#x60; 合约资金费 &#x60;LIQUIDATION_FEE&#x60; 强平费 &#x60;TRANSFER_IN&#x60; 资金转入 &#x60;TRANSFER_OUT&#x60; 资金转出 &#x60;BANKRUPT_COMPENSATION&#x60; 穿仓补贴 &#x60;AUTO_REPAY&#x60; 杠杆仓位自动还负债
-     * @return type
+     * Order ID
+     * @return orderId
     **/
-    public String getType() {
-        return type;
+    @javax.annotation.Nullable
+    public String getOrderId() {
+        return orderId;
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public InlineResponse20045 text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * User Order ID
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public InlineResponse20045 symbol(String symbol) {
+        
+        this.symbol = symbol;
+        return this;
+    }
+
+     /**
+     * Currency pair
+     * @return symbol
+    **/
+    @javax.annotation.Nullable
+    public String getSymbol() {
+        return symbol;
+    }
+
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public InlineResponse20045 exchangeType(String exchangeType) {
@@ -146,6 +206,7 @@ public class InlineResponse20045 {
      * Exchange
      * @return exchangeType
     **/
+    @javax.annotation.Nullable
     public String getExchangeType() {
         return exchangeType;
     }
@@ -155,61 +216,224 @@ public class InlineResponse20045 {
         this.exchangeType = exchangeType;
     }
 
-    public InlineResponse20045 coin(String coin) {
+    public InlineResponse20045 businessType(String businessType) {
         
-        this.coin = coin;
+        this.businessType = businessType;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Business Type
+     * @return businessType
     **/
-    public String getCoin() {
-        return coin;
+    @javax.annotation.Nullable
+    public String getBusinessType() {
+        return businessType;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setBusinessType(String businessType) {
+        this.businessType = businessType;
     }
 
-    public InlineResponse20045 change(String change) {
+    public InlineResponse20045 side(String side) {
         
-        this.change = change;
+        this.side = side;
         return this;
     }
 
      /**
-     * Change amount (positive indicates transfer in; negative indicates transfer out)
-     * @return change
+     * Buy/Sell Direction
+     * @return side
     **/
-    public String getChange() {
-        return change;
+    @javax.annotation.Nullable
+    public String getSide() {
+        return side;
     }
 
 
-    public void setChange(String change) {
-        this.change = change;
+    public void setSide(String side) {
+        this.side = side;
     }
 
-    public InlineResponse20045 balance(String balance) {
+    public InlineResponse20045 qty(String qty) {
         
-        this.balance = balance;
+        this.qty = qty;
         return this;
     }
 
      /**
-     * Balance after change
-     * @return balance
+     * Trading size
+     * @return qty
     **/
-    public String getBalance() {
-        return balance;
+    @javax.annotation.Nullable
+    public String getQty() {
+        return qty;
     }
 
 
-    public void setBalance(String balance) {
-        this.balance = balance;
+    public void setQty(String qty) {
+        this.qty = qty;
+    }
+
+    public InlineResponse20045 price(String price) {
+        
+        this.price = price;
+        return this;
+    }
+
+     /**
+     * Fill Price
+     * @return price
+    **/
+    @javax.annotation.Nullable
+    public String getPrice() {
+        return price;
+    }
+
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public InlineResponse20045 fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * fee
+     * @return fee
+    **/
+    @javax.annotation.Nullable
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public InlineResponse20045 feeCoin(String feeCoin) {
+        
+        this.feeCoin = feeCoin;
+        return this;
+    }
+
+     /**
+     * Fee currency
+     * @return feeCoin
+    **/
+    @javax.annotation.Nullable
+    public String getFeeCoin() {
+        return feeCoin;
+    }
+
+
+    public void setFeeCoin(String feeCoin) {
+        this.feeCoin = feeCoin;
+    }
+
+    public InlineResponse20045 feeRate(String feeRate) {
+        
+        this.feeRate = feeRate;
+        return this;
+    }
+
+     /**
+     * Fee Rate
+     * @return feeRate
+    **/
+    @javax.annotation.Nullable
+    public String getFeeRate() {
+        return feeRate;
+    }
+
+
+    public void setFeeRate(String feeRate) {
+        this.feeRate = feeRate;
+    }
+
+    public InlineResponse20045 matchRole(String matchRole) {
+        
+        this.matchRole = matchRole;
+        return this;
+    }
+
+     /**
+     * Filled Role
+     * @return matchRole
+    **/
+    @javax.annotation.Nullable
+    public String getMatchRole() {
+        return matchRole;
+    }
+
+
+    public void setMatchRole(String matchRole) {
+        this.matchRole = matchRole;
+    }
+
+    public InlineResponse20045 rpnl(String rpnl) {
+        
+        this.rpnl = rpnl;
+        return this;
+    }
+
+     /**
+     * Realized P&amp;L
+     * @return rpnl
+    **/
+    @javax.annotation.Nullable
+    public String getRpnl() {
+        return rpnl;
+    }
+
+
+    public void setRpnl(String rpnl) {
+        this.rpnl = rpnl;
+    }
+
+    public InlineResponse20045 positionMode(String positionMode) {
+        
+        this.positionMode = positionMode;
+        return this;
+    }
+
+     /**
+     * Position Mode
+     * @return positionMode
+    **/
+    @javax.annotation.Nullable
+    public String getPositionMode() {
+        return positionMode;
+    }
+
+
+    public void setPositionMode(String positionMode) {
+        this.positionMode = positionMode;
+    }
+
+    public InlineResponse20045 positionSide(String positionSide) {
+        
+        this.positionSide = positionSide;
+        return this;
+    }
+
+     /**
+     * Position Direction
+     * @return positionSide
+    **/
+    @javax.annotation.Nullable
+    public String getPositionSide() {
+        return positionSide;
+    }
+
+
+    public void setPositionSide(String positionSide) {
+        this.positionSide = positionSide;
     }
 
     public InlineResponse20045 createTime(String createTime) {
@@ -222,6 +446,7 @@ public class InlineResponse20045 {
      * Created time
      * @return createTime
     **/
+    @javax.annotation.Nullable
     public String getCreateTime() {
         return createTime;
     }
@@ -239,20 +464,29 @@ public class InlineResponse20045 {
             return false;
         }
         InlineResponse20045 inlineResponse20045 = (InlineResponse20045) o;
-        return Objects.equals(this.id, inlineResponse20045.id) &&
-                Objects.equals(this.userId, inlineResponse20045.userId) &&
-                Objects.equals(this.businessId, inlineResponse20045.businessId) &&
-                Objects.equals(this.type, inlineResponse20045.type) &&
+        return Objects.equals(this.userId, inlineResponse20045.userId) &&
+                Objects.equals(this.transactionId, inlineResponse20045.transactionId) &&
+                Objects.equals(this.orderId, inlineResponse20045.orderId) &&
+                Objects.equals(this.text, inlineResponse20045.text) &&
+                Objects.equals(this.symbol, inlineResponse20045.symbol) &&
                 Objects.equals(this.exchangeType, inlineResponse20045.exchangeType) &&
-                Objects.equals(this.coin, inlineResponse20045.coin) &&
-                Objects.equals(this.change, inlineResponse20045.change) &&
-                Objects.equals(this.balance, inlineResponse20045.balance) &&
+                Objects.equals(this.businessType, inlineResponse20045.businessType) &&
+                Objects.equals(this.side, inlineResponse20045.side) &&
+                Objects.equals(this.qty, inlineResponse20045.qty) &&
+                Objects.equals(this.price, inlineResponse20045.price) &&
+                Objects.equals(this.fee, inlineResponse20045.fee) &&
+                Objects.equals(this.feeCoin, inlineResponse20045.feeCoin) &&
+                Objects.equals(this.feeRate, inlineResponse20045.feeRate) &&
+                Objects.equals(this.matchRole, inlineResponse20045.matchRole) &&
+                Objects.equals(this.rpnl, inlineResponse20045.rpnl) &&
+                Objects.equals(this.positionMode, inlineResponse20045.positionMode) &&
+                Objects.equals(this.positionSide, inlineResponse20045.positionSide) &&
                 Objects.equals(this.createTime, inlineResponse20045.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, businessId, type, exchangeType, coin, change, balance, createTime);
+        return Objects.hash(userId, transactionId, orderId, text, symbol, exchangeType, businessType, side, qty, price, fee, feeCoin, feeRate, matchRole, rpnl, positionMode, positionSide, createTime);
     }
 
 
@@ -260,14 +494,23 @@ public class InlineResponse20045 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20045 {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("      businessId: ").append(toIndentedString(businessId)).append("\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      transactionId: ").append(toIndentedString(transactionId)).append("\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      change: ").append(toIndentedString(change)).append("\n");
-        sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("      businessType: ").append(toIndentedString(businessType)).append("\n");
+        sb.append("      side: ").append(toIndentedString(side)).append("\n");
+        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
+        sb.append("      feeCoin: ").append(toIndentedString(feeCoin)).append("\n");
+        sb.append("      feeRate: ").append(toIndentedString(feeRate)).append("\n");
+        sb.append("      matchRole: ").append(toIndentedString(matchRole)).append("\n");
+        sb.append("      rpnl: ").append(toIndentedString(rpnl)).append("\n");
+        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");
         return sb.toString();

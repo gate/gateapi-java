@@ -17,16 +17,120 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20023DataMessages;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20023Data
  */
 public class InlineResponse20023Data {
+    public static final String SERIALIZED_NAME_MESSAGES = "messages";
+    @SerializedName(SERIALIZED_NAME_MESSAGES)
+    private List<InlineResponse20023DataMessages> messages = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_MEMO = "memo";
+    @SerializedName(SERIALIZED_NAME_MEMO)
+    private String memo;
+
+    public static final String SERIALIZED_NAME_HAS_HISTORY = "has_history";
+    @SerializedName(SERIALIZED_NAME_HAS_HISTORY)
+    private Boolean hasHistory;
+
+    public static final String SERIALIZED_NAME_TXID = "txid";
+    @SerializedName(SERIALIZED_NAME_TXID)
+    private Integer txid;
+
     public static final String SERIALIZED_NAME_S_R_V_T_M = "SRVTM";
     @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
     private Integer SRVTM;
 
+    public static final String SERIALIZED_NAME_ORDER_STATUS = "order_status";
+    @SerializedName(SERIALIZED_NAME_ORDER_STATUS)
+    private String orderStatus;
+
+
+    public InlineResponse20023Data messages(List<InlineResponse20023DataMessages> messages) {
+        
+        this.messages = messages;
+        return this;
+    }
+
+    public InlineResponse20023Data addMessagesItem(InlineResponse20023DataMessages messagesItem) {
+        this.messages.add(messagesItem);
+        return this;
+    }
+
+     /**
+     * Message List
+     * @return messages
+    **/
+    public List<InlineResponse20023DataMessages> getMessages() {
+        return messages;
+    }
+
+
+    public void setMessages(List<InlineResponse20023DataMessages> messages) {
+        this.messages = messages;
+    }
+
+    public InlineResponse20023Data memo(String memo) {
+        
+        this.memo = memo;
+        return this;
+    }
+
+     /**
+     * Payment tip (displayed on homepage only)
+     * @return memo
+    **/
+    public String getMemo() {
+        return memo;
+    }
+
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
+    public InlineResponse20023Data hasHistory(Boolean hasHistory) {
+        
+        this.hasHistory = hasHistory;
+        return this;
+    }
+
+     /**
+     * Whether historical records exist
+     * @return hasHistory
+    **/
+    public Boolean getHasHistory() {
+        return hasHistory;
+    }
+
+
+    public void setHasHistory(Boolean hasHistory) {
+        this.hasHistory = hasHistory;
+    }
+
+    public InlineResponse20023Data txid(Integer txid) {
+        
+        this.txid = txid;
+        return this;
+    }
+
+     /**
+     * Order ID
+     * @return txid
+    **/
+    public Integer getTxid() {
+        return txid;
+    }
+
+
+    public void setTxid(Integer txid) {
+        this.txid = txid;
+    }
 
     public InlineResponse20023Data SRVTM(Integer SRVTM) {
         
@@ -35,7 +139,7 @@ public class InlineResponse20023Data {
     }
 
      /**
-     * Timestamp when message was successfully sent (current timestamp)
+     * Timestamp of the latest message
      * @return SRVTM
     **/
     public Integer getSRVTM() {
@@ -46,6 +150,25 @@ public class InlineResponse20023Data {
     public void setSRVTM(Integer SRVTM) {
         this.SRVTM = SRVTM;
     }
+
+    public InlineResponse20023Data orderStatus(String orderStatus) {
+        
+        this.orderStatus = orderStatus;
+        return this;
+    }
+
+     /**
+     * Order Status
+     * @return orderStatus
+    **/
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -55,12 +178,17 @@ public class InlineResponse20023Data {
             return false;
         }
         InlineResponse20023Data inlineResponse20023Data = (InlineResponse20023Data) o;
-        return Objects.equals(this.SRVTM, inlineResponse20023Data.SRVTM);
+        return Objects.equals(this.messages, inlineResponse20023Data.messages) &&
+                Objects.equals(this.memo, inlineResponse20023Data.memo) &&
+                Objects.equals(this.hasHistory, inlineResponse20023Data.hasHistory) &&
+                Objects.equals(this.txid, inlineResponse20023Data.txid) &&
+                Objects.equals(this.SRVTM, inlineResponse20023Data.SRVTM) &&
+                Objects.equals(this.orderStatus, inlineResponse20023Data.orderStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(SRVTM);
+        return Objects.hash(messages, memo, hasHistory, txid, SRVTM, orderStatus);
     }
 
 
@@ -68,7 +196,12 @@ public class InlineResponse20023Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20023Data {\n");
+        sb.append("      messages: ").append(toIndentedString(messages)).append("\n");
+        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
+        sb.append("      hasHistory: ").append(toIndentedString(hasHistory)).append("\n");
+        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
         sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
+        sb.append("      orderStatus: ").append(toIndentedString(orderStatus)).append("\n");
         sb.append("}");
         return sb.toString();
     }

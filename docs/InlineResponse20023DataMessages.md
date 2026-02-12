@@ -1,5 +1,5 @@
 
-# InlineResponse20022DataMessages
+# InlineResponse20023DataMessages
 
 ## Properties
 
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **msg** | **String** | Message content | 
 **username** | **String** | Message sender username | 
 **timest** | **Integer** | Message timestamp | 
-**msgObj** | [**InlineResponse20022DataMsgObj**](InlineResponse20022DataMsgObj.md) |  | 
+**msgObj** | [**InlineResponse20023DataMsgObj**](InlineResponse20023DataMsgObj.md) |  | 
 **uid** | **String** | Message sender UID | 
 **type** | **Integer** | Message type | 
 **pic** | **String** | File link | 

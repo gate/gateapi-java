@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.25
-- SDK version: 7.2.25
+- API version: v4.106.26
+- SDK version: 7.2.26
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.25</version>
+    <version>7.2.26</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.25"
+compile "io.gate:gate-api:7.2.26"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.25.jar`
+* `target/gate-api-7.2.26.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -387,6 +387,7 @@ Class | Method | HTTP request | Description
 *P2PApi* | [**p2pMerchantBooksAdsUpdateStatus**](docs/P2PApi.md#p2pMerchantBooksAdsUpdateStatus) | **POST** /p2p/merchant/books/ads_update_status | Update ad status
 *P2PApi* | [**p2pMerchantBooksAdsDetail**](docs/P2PApi.md#p2pMerchantBooksAdsDetail) | **POST** /p2p/merchant/books/ads_detail | Query ad details
 *P2PApi* | [**p2pMerchantBooksMyAdsList**](docs/P2PApi.md#p2pMerchantBooksMyAdsList) | **POST** /p2p/merchant/books/my_ads_list | Get my ad list
+*P2PApi* | [**p2pMerchantBooksAdsList**](docs/P2PApi.md#p2pMerchantBooksAdsList) | **POST** /p2p/merchant/books/ads_list | Get Advertisement List
 *P2PApi* | [**p2pMerchantChatGetChatsList**](docs/P2PApi.md#p2pMerchantChatGetChatsList) | **POST** /p2p/merchant/chat/get_chats_list | Get chat history
 *P2PApi* | [**p2pMerchantChatSendChatMessage**](docs/P2PApi.md#p2pMerchantChatSendChatMessage) | **POST** /p2p/merchant/chat/send_chat_message | Send text message
 *P2PApi* | [**p2pMerchantChatUploadChatFile**](docs/P2PApi.md#p2pMerchantChatUploadChatFile) | **POST** /p2p/merchant/chat/upload_chat_file | Upload chat file
@@ -627,6 +628,7 @@ Class | Method | HTTP request | Description
  - [InlineObject26](docs/InlineObject26.md)
  - [InlineObject27](docs/InlineObject27.md)
  - [InlineObject28](docs/InlineObject28.md)
+ - [InlineObject29](docs/InlineObject29.md)
  - [InlineObject3](docs/InlineObject3.md)
  - [InlineObject4](docs/InlineObject4.md)
  - [InlineObject5](docs/InlineObject5.md)
@@ -674,13 +676,14 @@ Class | Method | HTTP request | Description
  - [InlineResponse20021DataLists](docs/InlineResponse20021DataLists.md)
  - [InlineResponse20022](docs/InlineResponse20022.md)
  - [InlineResponse20022Data](docs/InlineResponse20022Data.md)
- - [InlineResponse20022DataMessages](docs/InlineResponse20022DataMessages.md)
- - [InlineResponse20022DataMsgObj](docs/InlineResponse20022DataMsgObj.md)
  - [InlineResponse20023](docs/InlineResponse20023.md)
  - [InlineResponse20023Data](docs/InlineResponse20023Data.md)
+ - [InlineResponse20023DataMessages](docs/InlineResponse20023DataMessages.md)
+ - [InlineResponse20023DataMsgObj](docs/InlineResponse20023DataMsgObj.md)
  - [InlineResponse20024](docs/InlineResponse20024.md)
  - [InlineResponse20024Data](docs/InlineResponse20024Data.md)
  - [InlineResponse20025](docs/InlineResponse20025.md)
+ - [InlineResponse20025Data](docs/InlineResponse20025Data.md)
  - [InlineResponse20026](docs/InlineResponse20026.md)
  - [InlineResponse20027](docs/InlineResponse20027.md)
  - [InlineResponse20028](docs/InlineResponse20028.md)
@@ -690,12 +693,12 @@ Class | Method | HTTP request | Description
  - [InlineResponse20031](docs/InlineResponse20031.md)
  - [InlineResponse20032](docs/InlineResponse20032.md)
  - [InlineResponse20033](docs/InlineResponse20033.md)
- - [InlineResponse20033Assets](docs/InlineResponse20033Assets.md)
  - [InlineResponse20034](docs/InlineResponse20034.md)
+ - [InlineResponse20034Assets](docs/InlineResponse20034Assets.md)
  - [InlineResponse20035](docs/InlineResponse20035.md)
  - [InlineResponse20036](docs/InlineResponse20036.md)
- - [InlineResponse20036SpecialFeeList](docs/InlineResponse20036SpecialFeeList.md)
  - [InlineResponse20037](docs/InlineResponse20037.md)
+ - [InlineResponse20037SpecialFeeList](docs/InlineResponse20037SpecialFeeList.md)
  - [InlineResponse20038](docs/InlineResponse20038.md)
  - [InlineResponse20039](docs/InlineResponse20039.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
@@ -706,6 +709,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse20044](docs/InlineResponse20044.md)
  - [InlineResponse20045](docs/InlineResponse20045.md)
  - [InlineResponse20046](docs/InlineResponse20046.md)
+ - [InlineResponse20047](docs/InlineResponse20047.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
  - [InlineResponse2006](docs/InlineResponse2006.md)
  - [InlineResponse2006Data](docs/InlineResponse2006Data.md)

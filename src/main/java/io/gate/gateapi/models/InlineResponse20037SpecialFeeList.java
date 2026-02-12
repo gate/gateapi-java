@@ -17,35 +17,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.RuleRiskLimitsTiers;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * InlineResponse20026
+ * InlineResponse20037SpecialFeeList
  */
-public class InlineResponse20026 {
+public class InlineResponse20037SpecialFeeList {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_TIERS = "tiers";
-    @SerializedName(SERIALIZED_NAME_TIERS)
-    private List<RuleRiskLimitsTiers> tiers = null;
+    public static final String SERIALIZED_NAME_TAKER_FEE_RATE = "taker_fee_rate";
+    @SerializedName(SERIALIZED_NAME_TAKER_FEE_RATE)
+    private String takerFeeRate;
+
+    public static final String SERIALIZED_NAME_MAKER_FEE_RATE = "maker_fee_rate";
+    @SerializedName(SERIALIZED_NAME_MAKER_FEE_RATE)
+    private String makerFeeRate;
 
 
-    public InlineResponse20026 symbol(String symbol) {
+    public InlineResponse20037SpecialFeeList symbol(String symbol) {
         
         this.symbol = symbol;
         return this;
     }
 
      /**
-     * Get symbol
+     * Currency pair
      * @return symbol
     **/
-    @javax.annotation.Nullable
     public String getSymbol() {
         return symbol;
     }
@@ -55,32 +55,42 @@ public class InlineResponse20026 {
         this.symbol = symbol;
     }
 
-    public InlineResponse20026 tiers(List<RuleRiskLimitsTiers> tiers) {
+    public InlineResponse20037SpecialFeeList takerFeeRate(String takerFeeRate) {
         
-        this.tiers = tiers;
-        return this;
-    }
-
-    public InlineResponse20026 addTiersItem(RuleRiskLimitsTiers tiersItem) {
-        if (this.tiers == null) {
-            this.tiers = new ArrayList<>();
-        }
-        this.tiers.add(tiersItem);
+        this.takerFeeRate = takerFeeRate;
         return this;
     }
 
      /**
-     * Get tiers
-     * @return tiers
+     * Taker fee rate
+     * @return takerFeeRate
     **/
-    @javax.annotation.Nullable
-    public List<RuleRiskLimitsTiers> getTiers() {
-        return tiers;
+    public String getTakerFeeRate() {
+        return takerFeeRate;
     }
 
 
-    public void setTiers(List<RuleRiskLimitsTiers> tiers) {
-        this.tiers = tiers;
+    public void setTakerFeeRate(String takerFeeRate) {
+        this.takerFeeRate = takerFeeRate;
+    }
+
+    public InlineResponse20037SpecialFeeList makerFeeRate(String makerFeeRate) {
+        
+        this.makerFeeRate = makerFeeRate;
+        return this;
+    }
+
+     /**
+     * Maker fee rate
+     * @return makerFeeRate
+    **/
+    public String getMakerFeeRate() {
+        return makerFeeRate;
+    }
+
+
+    public void setMakerFeeRate(String makerFeeRate) {
+        this.makerFeeRate = makerFeeRate;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -90,23 +100,25 @@ public class InlineResponse20026 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20026 inlineResponse20026 = (InlineResponse20026) o;
-        return Objects.equals(this.symbol, inlineResponse20026.symbol) &&
-                Objects.equals(this.tiers, inlineResponse20026.tiers);
+        InlineResponse20037SpecialFeeList inlineResponse20037SpecialFeeList = (InlineResponse20037SpecialFeeList) o;
+        return Objects.equals(this.symbol, inlineResponse20037SpecialFeeList.symbol) &&
+                Objects.equals(this.takerFeeRate, inlineResponse20037SpecialFeeList.takerFeeRate) &&
+                Objects.equals(this.makerFeeRate, inlineResponse20037SpecialFeeList.makerFeeRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, tiers);
+        return Objects.hash(symbol, takerFeeRate, makerFeeRate);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20026 {\n");
+        sb.append("class InlineResponse20037SpecialFeeList {\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      tiers: ").append(toIndentedString(tiers)).append("\n");
+        sb.append("      takerFeeRate: ").append(toIndentedString(takerFeeRate)).append("\n");
+        sb.append("      makerFeeRate: ").append(toIndentedString(makerFeeRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

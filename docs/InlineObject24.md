@@ -5,5 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quoteId** | **String** | Inquiry ID | 
+**exchangeType** | **String** | Exchange Type | 
+**fromCoin** | **String** | Asset Sold | 
+**toCoin** | **String** | Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT) | 
+**fromAmount** | **String** | Amount to sell | 
 

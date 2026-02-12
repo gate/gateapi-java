@@ -23,48 +23,117 @@ import java.io.IOException;
  * InlineResponse20046
  */
 public class InlineResponse20046 {
-    public static final String SERIALIZED_NAME_COIN = "coin";
-    @SerializedName(SERIALIZED_NAME_COIN)
-    private String coin;
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
+
+    public static final String SERIALIZED_NAME_USER_ID = "user_id";
+    @SerializedName(SERIALIZED_NAME_USER_ID)
+    private String userId;
+
+    public static final String SERIALIZED_NAME_BUSINESS_ID = "business_id";
+    @SerializedName(SERIALIZED_NAME_BUSINESS_ID)
+    private String businessId;
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
 
     public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
     @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
     private String exchangeType;
 
-    public static final String SERIALIZED_NAME_TIER = "tier";
-    @SerializedName(SERIALIZED_NAME_TIER)
-    private String tier;
+    public static final String SERIALIZED_NAME_COIN = "coin";
+    @SerializedName(SERIALIZED_NAME_COIN)
+    private String coin;
 
-    public static final String SERIALIZED_NAME_MIN_VALUE = "min_value";
-    @SerializedName(SERIALIZED_NAME_MIN_VALUE)
-    private String minValue;
+    public static final String SERIALIZED_NAME_CHANGE = "change";
+    @SerializedName(SERIALIZED_NAME_CHANGE)
+    private String change;
 
-    public static final String SERIALIZED_NAME_MAX_VALUE = "max_value";
-    @SerializedName(SERIALIZED_NAME_MAX_VALUE)
-    private String maxValue;
+    public static final String SERIALIZED_NAME_BALANCE = "balance";
+    @SerializedName(SERIALIZED_NAME_BALANCE)
+    private String balance;
 
-    public static final String SERIALIZED_NAME_DISCOUNT_RATE = "discount_rate";
-    @SerializedName(SERIALIZED_NAME_DISCOUNT_RATE)
-    private String discountRate;
+    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+    private String createTime;
 
 
-    public InlineResponse20046 coin(String coin) {
+    public InlineResponse20046 id(String id) {
         
-        this.coin = coin;
+        this.id = id;
         return this;
     }
 
      /**
-     * Currency
-     * @return coin
+     * Account Change Record ID
+     * @return id
     **/
-    public String getCoin() {
-        return coin;
+    public String getId() {
+        return id;
     }
 
 
-    public void setCoin(String coin) {
-        this.coin = coin;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public InlineResponse20046 userId(String userId) {
+        
+        this.userId = userId;
+        return this;
+    }
+
+     /**
+     * User ID
+     * @return userId
+    **/
+    public String getUserId() {
+        return userId;
+    }
+
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public InlineResponse20046 businessId(String businessId) {
+        
+        this.businessId = businessId;
+        return this;
+    }
+
+     /**
+     * Business ID
+     * @return businessId
+    **/
+    public String getBusinessId() {
+        return businessId;
+    }
+
+
+    public void setBusinessId(String businessId) {
+        this.businessId = businessId;
+    }
+
+    public InlineResponse20046 type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * 变更类型| &#x60;TRANSACTION&#x60; 成交 &#x60;TRADING_FEE&#x60; 手续费 &#x60;FUNDING_FEE&#x60; 合约资金费 &#x60;LIQUIDATION_FEE&#x60; 强平费 &#x60;TRANSFER_IN&#x60; 资金转入 &#x60;TRANSFER_OUT&#x60; 资金转出 &#x60;BANKRUPT_COMPENSATION&#x60; 穿仓补贴 &#x60;AUTO_REPAY&#x60; 杠杆仓位自动还负债
+     * @return type
+    **/
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public InlineResponse20046 exchangeType(String exchangeType) {
@@ -86,80 +155,80 @@ public class InlineResponse20046 {
         this.exchangeType = exchangeType;
     }
 
-    public InlineResponse20046 tier(String tier) {
+    public InlineResponse20046 coin(String coin) {
         
-        this.tier = tier;
+        this.coin = coin;
         return this;
     }
 
      /**
-     * Tier
-     * @return tier
+     * Currency
+     * @return coin
     **/
-    public String getTier() {
-        return tier;
+    public String getCoin() {
+        return coin;
     }
 
 
-    public void setTier(String tier) {
-        this.tier = tier;
+    public void setCoin(String coin) {
+        this.coin = coin;
     }
 
-    public InlineResponse20046 minValue(String minValue) {
+    public InlineResponse20046 change(String change) {
         
-        this.minValue = minValue;
+        this.change = change;
         return this;
     }
 
      /**
-     * Minimum value
-     * @return minValue
+     * Change amount (positive indicates transfer in; negative indicates transfer out)
+     * @return change
     **/
-    public String getMinValue() {
-        return minValue;
+    public String getChange() {
+        return change;
     }
 
 
-    public void setMinValue(String minValue) {
-        this.minValue = minValue;
+    public void setChange(String change) {
+        this.change = change;
     }
 
-    public InlineResponse20046 maxValue(String maxValue) {
+    public InlineResponse20046 balance(String balance) {
         
-        this.maxValue = maxValue;
+        this.balance = balance;
         return this;
     }
 
      /**
-     * Maximum value
-     * @return maxValue
+     * Balance after change
+     * @return balance
     **/
-    public String getMaxValue() {
-        return maxValue;
+    public String getBalance() {
+        return balance;
     }
 
 
-    public void setMaxValue(String maxValue) {
-        this.maxValue = maxValue;
+    public void setBalance(String balance) {
+        this.balance = balance;
     }
 
-    public InlineResponse20046 discountRate(String discountRate) {
+    public InlineResponse20046 createTime(String createTime) {
         
-        this.discountRate = discountRate;
+        this.createTime = createTime;
         return this;
     }
 
      /**
-     * Discount rate
-     * @return discountRate
+     * Created time
+     * @return createTime
     **/
-    public String getDiscountRate() {
-        return discountRate;
+    public String getCreateTime() {
+        return createTime;
     }
 
 
-    public void setDiscountRate(String discountRate) {
-        this.discountRate = discountRate;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -170,17 +239,20 @@ public class InlineResponse20046 {
             return false;
         }
         InlineResponse20046 inlineResponse20046 = (InlineResponse20046) o;
-        return Objects.equals(this.coin, inlineResponse20046.coin) &&
+        return Objects.equals(this.id, inlineResponse20046.id) &&
+                Objects.equals(this.userId, inlineResponse20046.userId) &&
+                Objects.equals(this.businessId, inlineResponse20046.businessId) &&
+                Objects.equals(this.type, inlineResponse20046.type) &&
                 Objects.equals(this.exchangeType, inlineResponse20046.exchangeType) &&
-                Objects.equals(this.tier, inlineResponse20046.tier) &&
-                Objects.equals(this.minValue, inlineResponse20046.minValue) &&
-                Objects.equals(this.maxValue, inlineResponse20046.maxValue) &&
-                Objects.equals(this.discountRate, inlineResponse20046.discountRate);
+                Objects.equals(this.coin, inlineResponse20046.coin) &&
+                Objects.equals(this.change, inlineResponse20046.change) &&
+                Objects.equals(this.balance, inlineResponse20046.balance) &&
+                Objects.equals(this.createTime, inlineResponse20046.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coin, exchangeType, tier, minValue, maxValue, discountRate);
+        return Objects.hash(id, userId, businessId, type, exchangeType, coin, change, balance, createTime);
     }
 
 
@@ -188,12 +260,15 @@ public class InlineResponse20046 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20046 {\n");
-        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
+        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      businessId: ").append(toIndentedString(businessId)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      tier: ").append(toIndentedString(tier)).append("\n");
-        sb.append("      minValue: ").append(toIndentedString(minValue)).append("\n");
-        sb.append("      maxValue: ").append(toIndentedString(maxValue)).append("\n");
-        sb.append("      discountRate: ").append(toIndentedString(discountRate)).append("\n");
+        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
+        sb.append("      change: ").append(toIndentedString(change)).append("\n");
+        sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

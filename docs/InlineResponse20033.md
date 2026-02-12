@@ -5,18 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** | User ID | 
-**availableMargin** | **String** | Available Margin | 
-**marginBalance** | **String** | marginbalance | 
-**initialMargin** | **String** | Initial Margin | 
-**maintenanceMargin** | **String** | Maintenance margin | 
-**initialMarginRate** | **String** | Initial margin rate | 
-**maintenanceMarginRate** | **String** | Maintenance margin rate | 
-**positionMode** | **String** | Contract Position Mode | 
-**accountLimit** | **String** | Account limit |  [optional]
-**createTime** | **String** | Created time | 
-**updateTime** | **String** | Update time | 
-**accountMode** | **String** | Account Mode. CROSS_EXCHANGE: Cross-Exchange Mode; ISOLATED_EXCHANGE: Split-Exchange Mode |  [optional]
-**exchangeType** | **String** | Exchange Type. When account_mode is CROSS_EXCHANGE, it must be CROSSEX; otherwise, it is another exchange. |  [optional]
-**assets** | [**List&lt;InlineResponse20033Assets&gt;**](InlineResponse20033Assets.md) |  | 
+**quoteId** | **String** | Quote ID | 
+**validMs** | **String** | Valid time (milliseconds timestamp) | 
+**fromCoin** | **String** | Asset Sold | 
+**toCoin** | **String** | Asset Bought | 
+**fromAmount** | **String** | Amount to sell | 
+**toAmount** | **String** | Amount to buy | 
+**price** | **String** | Price | 
 

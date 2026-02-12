@@ -47,41 +47,13 @@ public class InlineResponse20038 {
     @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN)
     private String maintenanceMargin;
 
-    public static final String SERIALIZED_NAME_ASSET_QTY = "asset_qty";
-    @SerializedName(SERIALIZED_NAME_ASSET_QTY)
-    private String assetQty;
-
-    public static final String SERIALIZED_NAME_ASSET_COIN = "asset_coin";
-    @SerializedName(SERIALIZED_NAME_ASSET_COIN)
-    private String assetCoin;
+    public static final String SERIALIZED_NAME_POSITION_QTY = "position_qty";
+    @SerializedName(SERIALIZED_NAME_POSITION_QTY)
+    private String positionQty;
 
     public static final String SERIALIZED_NAME_POSITION_VALUE = "position_value";
     @SerializedName(SERIALIZED_NAME_POSITION_VALUE)
     private String positionValue;
-
-    public static final String SERIALIZED_NAME_LIABILITY = "liability";
-    @SerializedName(SERIALIZED_NAME_LIABILITY)
-    private String liability;
-
-    public static final String SERIALIZED_NAME_LIABILITY_COIN = "liability_coin";
-    @SerializedName(SERIALIZED_NAME_LIABILITY_COIN)
-    private String liabilityCoin;
-
-    public static final String SERIALIZED_NAME_INTEREST = "interest";
-    @SerializedName(SERIALIZED_NAME_INTEREST)
-    private String interest;
-
-    public static final String SERIALIZED_NAME_MAX_POSITION_QTY = "max_position_qty";
-    @SerializedName(SERIALIZED_NAME_MAX_POSITION_QTY)
-    private String maxPositionQty;
-
-    public static final String SERIALIZED_NAME_ENTRY_PRICE = "entry_price";
-    @SerializedName(SERIALIZED_NAME_ENTRY_PRICE)
-    private String entryPrice;
-
-    public static final String SERIALIZED_NAME_INDEX_PRICE = "index_price";
-    @SerializedName(SERIALIZED_NAME_INDEX_PRICE)
-    private String indexPrice;
 
     public static final String SERIALIZED_NAME_UPNL = "upnl";
     @SerializedName(SERIALIZED_NAME_UPNL)
@@ -91,6 +63,14 @@ public class InlineResponse20038 {
     @SerializedName(SERIALIZED_NAME_UPNL_RATE)
     private String upnlRate;
 
+    public static final String SERIALIZED_NAME_ENTRY_PRICE = "entry_price";
+    @SerializedName(SERIALIZED_NAME_ENTRY_PRICE)
+    private String entryPrice;
+
+    public static final String SERIALIZED_NAME_MARK_PRICE = "mark_price";
+    @SerializedName(SERIALIZED_NAME_MARK_PRICE)
+    private String markPrice;
+
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
@@ -99,6 +79,22 @@ public class InlineResponse20038 {
     @SerializedName(SERIALIZED_NAME_MAX_LEVERAGE)
     private String maxLeverage;
 
+    public static final String SERIALIZED_NAME_RISK_LIMIT = "risk_limit";
+    @SerializedName(SERIALIZED_NAME_RISK_LIMIT)
+    private String riskLimit;
+
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private String fee;
+
+    public static final String SERIALIZED_NAME_FUNDING_FEE = "funding_fee";
+    @SerializedName(SERIALIZED_NAME_FUNDING_FEE)
+    private String fundingFee;
+
+    public static final String SERIALIZED_NAME_FUNDING_TIME = "funding_time";
+    @SerializedName(SERIALIZED_NAME_FUNDING_TIME)
+    private String fundingTime;
+
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private String createTime;
@@ -106,6 +102,10 @@ public class InlineResponse20038 {
     public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
     @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
     private String updateTime;
+
+    public static final String SERIALIZED_NAME_CLOSED_PNL = "closed_pnl";
+    @SerializedName(SERIALIZED_NAME_CLOSED_PNL)
+    private String closedPnl;
 
 
     public InlineResponse20038 userId(String userId) {
@@ -118,6 +118,7 @@ public class InlineResponse20038 {
      * User ID
      * @return userId
     **/
+    @javax.annotation.Nullable
     public String getUserId() {
         return userId;
     }
@@ -134,9 +135,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Leveraged Position ID
+     * Position ID
      * @return positionId
     **/
+    @javax.annotation.Nullable
     public String getPositionId() {
         return positionId;
     }
@@ -153,9 +155,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Trading Pair
+     * Currency pair
      * @return symbol
     **/
+    @javax.annotation.Nullable
     public String getSymbol() {
         return symbol;
     }
@@ -175,6 +178,7 @@ public class InlineResponse20038 {
      * Position Direction
      * @return positionSide
     **/
+    @javax.annotation.Nullable
     public String getPositionSide() {
         return positionSide;
     }
@@ -191,9 +195,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Initial position margin
+     * Initial Margin
      * @return initialMargin
     **/
+    @javax.annotation.Nullable
     public String getInitialMargin() {
         return initialMargin;
     }
@@ -210,9 +215,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Position maintenance margin
+     * Maintenance margin
      * @return maintenanceMargin
     **/
+    @javax.annotation.Nullable
     public String getMaintenanceMargin() {
         return maintenanceMargin;
     }
@@ -222,42 +228,24 @@ public class InlineResponse20038 {
         this.maintenanceMargin = maintenanceMargin;
     }
 
-    public InlineResponse20038 assetQty(String assetQty) {
+    public InlineResponse20038 positionQty(String positionQty) {
         
-        this.assetQty = assetQty;
+        this.positionQty = positionQty;
         return this;
     }
 
      /**
-     * Position Asset Quantity
-     * @return assetQty
+     * Position Quantity
+     * @return positionQty
     **/
-    public String getAssetQty() {
-        return assetQty;
+    @javax.annotation.Nullable
+    public String getPositionQty() {
+        return positionQty;
     }
 
 
-    public void setAssetQty(String assetQty) {
-        this.assetQty = assetQty;
-    }
-
-    public InlineResponse20038 assetCoin(String assetCoin) {
-        
-        this.assetCoin = assetCoin;
-        return this;
-    }
-
-     /**
-     * Position Asset Currency
-     * @return assetCoin
-    **/
-    public String getAssetCoin() {
-        return assetCoin;
-    }
-
-
-    public void setAssetCoin(String assetCoin) {
-        this.assetCoin = assetCoin;
+    public void setPositionQty(String positionQty) {
+        this.positionQty = positionQty;
     }
 
     public InlineResponse20038 positionValue(String positionValue) {
@@ -270,6 +258,7 @@ public class InlineResponse20038 {
      * Position Value
      * @return positionValue
     **/
+    @javax.annotation.Nullable
     public String getPositionValue() {
         return positionValue;
     }
@@ -277,120 +266,6 @@ public class InlineResponse20038 {
 
     public void setPositionValue(String positionValue) {
         this.positionValue = positionValue;
-    }
-
-    public InlineResponse20038 liability(String liability) {
-        
-        this.liability = liability;
-        return this;
-    }
-
-     /**
-     * Debt Quantity
-     * @return liability
-    **/
-    public String getLiability() {
-        return liability;
-    }
-
-
-    public void setLiability(String liability) {
-        this.liability = liability;
-    }
-
-    public InlineResponse20038 liabilityCoin(String liabilityCoin) {
-        
-        this.liabilityCoin = liabilityCoin;
-        return this;
-    }
-
-     /**
-     * Debt Currency
-     * @return liabilityCoin
-    **/
-    public String getLiabilityCoin() {
-        return liabilityCoin;
-    }
-
-
-    public void setLiabilityCoin(String liabilityCoin) {
-        this.liabilityCoin = liabilityCoin;
-    }
-
-    public InlineResponse20038 interest(String interest) {
-        
-        this.interest = interest;
-        return this;
-    }
-
-     /**
-     * Deducted Interest
-     * @return interest
-    **/
-    public String getInterest() {
-        return interest;
-    }
-
-
-    public void setInterest(String interest) {
-        this.interest = interest;
-    }
-
-    public InlineResponse20038 maxPositionQty(String maxPositionQty) {
-        
-        this.maxPositionQty = maxPositionQty;
-        return this;
-    }
-
-     /**
-     * Max Trade Size
-     * @return maxPositionQty
-    **/
-    public String getMaxPositionQty() {
-        return maxPositionQty;
-    }
-
-
-    public void setMaxPositionQty(String maxPositionQty) {
-        this.maxPositionQty = maxPositionQty;
-    }
-
-    public InlineResponse20038 entryPrice(String entryPrice) {
-        
-        this.entryPrice = entryPrice;
-        return this;
-    }
-
-     /**
-     * Position Cost Price (Average Opening Price)
-     * @return entryPrice
-    **/
-    public String getEntryPrice() {
-        return entryPrice;
-    }
-
-
-    public void setEntryPrice(String entryPrice) {
-        this.entryPrice = entryPrice;
-    }
-
-    public InlineResponse20038 indexPrice(String indexPrice) {
-        
-        this.indexPrice = indexPrice;
-        return this;
-    }
-
-     /**
-     * Index price
-     * @return indexPrice
-    **/
-    public String getIndexPrice() {
-        return indexPrice;
-    }
-
-
-    public void setIndexPrice(String indexPrice) {
-        this.indexPrice = indexPrice;
     }
 
     public InlineResponse20038 upnl(String upnl) {
@@ -403,6 +278,7 @@ public class InlineResponse20038 {
      * Unrealized P&amp;L
      * @return upnl
     **/
+    @javax.annotation.Nullable
     public String getUpnl() {
         return upnl;
     }
@@ -422,6 +298,7 @@ public class InlineResponse20038 {
      * Unrealized P&amp;L Ratio
      * @return upnlRate
     **/
+    @javax.annotation.Nullable
     public String getUpnlRate() {
         return upnlRate;
     }
@@ -431,6 +308,46 @@ public class InlineResponse20038 {
         this.upnlRate = upnlRate;
     }
 
+    public InlineResponse20038 entryPrice(String entryPrice) {
+        
+        this.entryPrice = entryPrice;
+        return this;
+    }
+
+     /**
+     * Position Average Entry Price
+     * @return entryPrice
+    **/
+    @javax.annotation.Nullable
+    public String getEntryPrice() {
+        return entryPrice;
+    }
+
+
+    public void setEntryPrice(String entryPrice) {
+        this.entryPrice = entryPrice;
+    }
+
+    public InlineResponse20038 markPrice(String markPrice) {
+        
+        this.markPrice = markPrice;
+        return this;
+    }
+
+     /**
+     * Mark price
+     * @return markPrice
+    **/
+    @javax.annotation.Nullable
+    public String getMarkPrice() {
+        return markPrice;
+    }
+
+
+    public void setMarkPrice(String markPrice) {
+        this.markPrice = markPrice;
+    }
+
     public InlineResponse20038 leverage(String leverage) {
         
         this.leverage = leverage;
@@ -438,9 +355,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Opening Leverage
+     * Position Leverage
      * @return leverage
     **/
+    @javax.annotation.Nullable
     public String getLeverage() {
         return leverage;
     }
@@ -460,6 +378,7 @@ public class InlineResponse20038 {
      * Maximum leverage
      * @return maxLeverage
     **/
+    @javax.annotation.Nullable
     public String getMaxLeverage() {
         return maxLeverage;
     }
@@ -469,6 +388,86 @@ public class InlineResponse20038 {
         this.maxLeverage = maxLeverage;
     }
 
+    public InlineResponse20038 riskLimit(String riskLimit) {
+        
+        this.riskLimit = riskLimit;
+        return this;
+    }
+
+     /**
+     * Position risk limit
+     * @return riskLimit
+    **/
+    @javax.annotation.Nullable
+    public String getRiskLimit() {
+        return riskLimit;
+    }
+
+
+    public void setRiskLimit(String riskLimit) {
+        this.riskLimit = riskLimit;
+    }
+
+    public InlineResponse20038 fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * Position Fee
+     * @return fee
+    **/
+    @javax.annotation.Nullable
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public InlineResponse20038 fundingFee(String fundingFee) {
+        
+        this.fundingFee = fundingFee;
+        return this;
+    }
+
+     /**
+     * Position Funding Fee
+     * @return fundingFee
+    **/
+    @javax.annotation.Nullable
+    public String getFundingFee() {
+        return fundingFee;
+    }
+
+
+    public void setFundingFee(String fundingFee) {
+        this.fundingFee = fundingFee;
+    }
+
+    public InlineResponse20038 fundingTime(String fundingTime) {
+        
+        this.fundingTime = fundingTime;
+        return this;
+    }
+
+     /**
+     * Position funding fee collection time (0 indicates it has not been collected yet)
+     * @return fundingTime
+    **/
+    @javax.annotation.Nullable
+    public String getFundingTime() {
+        return fundingTime;
+    }
+
+
+    public void setFundingTime(String fundingTime) {
+        this.fundingTime = fundingTime;
+    }
+
     public InlineResponse20038 createTime(String createTime) {
         
         this.createTime = createTime;
@@ -476,9 +475,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Created time
+     * Position Creation Time
      * @return createTime
     **/
+    @javax.annotation.Nullable
     public String getCreateTime() {
         return createTime;
     }
@@ -495,9 +495,10 @@ public class InlineResponse20038 {
     }
 
      /**
-     * Update time
+     * Position Update Time
      * @return updateTime
     **/
+    @javax.annotation.Nullable
     public String getUpdateTime() {
         return updateTime;
     }
@@ -505,6 +506,26 @@ public class InlineResponse20038 {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public InlineResponse20038 closedPnl(String closedPnl) {
+        
+        this.closedPnl = closedPnl;
+        return this;
+    }
+
+     /**
+     * Realized PnL
+     * @return closedPnl
+    **/
+    @javax.annotation.Nullable
+    public String getClosedPnl() {
+        return closedPnl;
+    }
+
+
+    public void setClosedPnl(String closedPnl) {
+        this.closedPnl = closedPnl;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -521,26 +542,26 @@ public class InlineResponse20038 {
                 Objects.equals(this.positionSide, inlineResponse20038.positionSide) &&
                 Objects.equals(this.initialMargin, inlineResponse20038.initialMargin) &&
                 Objects.equals(this.maintenanceMargin, inlineResponse20038.maintenanceMargin) &&
-                Objects.equals(this.assetQty, inlineResponse20038.assetQty) &&
-                Objects.equals(this.assetCoin, inlineResponse20038.assetCoin) &&
+                Objects.equals(this.positionQty, inlineResponse20038.positionQty) &&
                 Objects.equals(this.positionValue, inlineResponse20038.positionValue) &&
-                Objects.equals(this.liability, inlineResponse20038.liability) &&
-                Objects.equals(this.liabilityCoin, inlineResponse20038.liabilityCoin) &&
-                Objects.equals(this.interest, inlineResponse20038.interest) &&
-                Objects.equals(this.maxPositionQty, inlineResponse20038.maxPositionQty) &&
-                Objects.equals(this.entryPrice, inlineResponse20038.entryPrice) &&
-                Objects.equals(this.indexPrice, inlineResponse20038.indexPrice) &&
                 Objects.equals(this.upnl, inlineResponse20038.upnl) &&
                 Objects.equals(this.upnlRate, inlineResponse20038.upnlRate) &&
+                Objects.equals(this.entryPrice, inlineResponse20038.entryPrice) &&
+                Objects.equals(this.markPrice, inlineResponse20038.markPrice) &&
                 Objects.equals(this.leverage, inlineResponse20038.leverage) &&
                 Objects.equals(this.maxLeverage, inlineResponse20038.maxLeverage) &&
+                Objects.equals(this.riskLimit, inlineResponse20038.riskLimit) &&
+                Objects.equals(this.fee, inlineResponse20038.fee) &&
+                Objects.equals(this.fundingFee, inlineResponse20038.fundingFee) &&
+                Objects.equals(this.fundingTime, inlineResponse20038.fundingTime) &&
                 Objects.equals(this.createTime, inlineResponse20038.createTime) &&
-                Objects.equals(this.updateTime, inlineResponse20038.updateTime);
+                Objects.equals(this.updateTime, inlineResponse20038.updateTime) &&
+                Objects.equals(this.closedPnl, inlineResponse20038.closedPnl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, positionId, symbol, positionSide, initialMargin, maintenanceMargin, assetQty, assetCoin, positionValue, liability, liabilityCoin, interest, maxPositionQty, entryPrice, indexPrice, upnl, upnlRate, leverage, maxLeverage, createTime, updateTime);
+        return Objects.hash(userId, positionId, symbol, positionSide, initialMargin, maintenanceMargin, positionQty, positionValue, upnl, upnlRate, entryPrice, markPrice, leverage, maxLeverage, riskLimit, fee, fundingFee, fundingTime, createTime, updateTime, closedPnl);
     }
 
 
@@ -554,21 +575,21 @@ public class InlineResponse20038 {
         sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("      initialMargin: ").append(toIndentedString(initialMargin)).append("\n");
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
-        sb.append("      assetQty: ").append(toIndentedString(assetQty)).append("\n");
-        sb.append("      assetCoin: ").append(toIndentedString(assetCoin)).append("\n");
+        sb.append("      positionQty: ").append(toIndentedString(positionQty)).append("\n");
         sb.append("      positionValue: ").append(toIndentedString(positionValue)).append("\n");
-        sb.append("      liability: ").append(toIndentedString(liability)).append("\n");
-        sb.append("      liabilityCoin: ").append(toIndentedString(liabilityCoin)).append("\n");
-        sb.append("      interest: ").append(toIndentedString(interest)).append("\n");
-        sb.append("      maxPositionQty: ").append(toIndentedString(maxPositionQty)).append("\n");
-        sb.append("      entryPrice: ").append(toIndentedString(entryPrice)).append("\n");
-        sb.append("      indexPrice: ").append(toIndentedString(indexPrice)).append("\n");
         sb.append("      upnl: ").append(toIndentedString(upnl)).append("\n");
         sb.append("      upnlRate: ").append(toIndentedString(upnlRate)).append("\n");
+        sb.append("      entryPrice: ").append(toIndentedString(entryPrice)).append("\n");
+        sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("      maxLeverage: ").append(toIndentedString(maxLeverage)).append("\n");
+        sb.append("      riskLimit: ").append(toIndentedString(riskLimit)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
+        sb.append("      fundingFee: ").append(toIndentedString(fundingFee)).append("\n");
+        sb.append("      fundingTime: ").append(toIndentedString(fundingTime)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
+        sb.append("      closedPnl: ").append(toIndentedString(closedPnl)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**p2pMerchantBooksAdsUpdateStatus**](P2PApi.md#p2pMerchantBooksAdsUpdateStatus) | **POST** /p2p/merchant/books/ads_update_status | Update ad status
 [**p2pMerchantBooksAdsDetail**](P2PApi.md#p2pMerchantBooksAdsDetail) | **POST** /p2p/merchant/books/ads_detail | Query ad details
 [**p2pMerchantBooksMyAdsList**](P2PApi.md#p2pMerchantBooksMyAdsList) | **POST** /p2p/merchant/books/my_ads_list | Get my ad list
+[**p2pMerchantBooksAdsList**](P2PApi.md#p2pMerchantBooksAdsList) | **POST** /p2p/merchant/books/ads_list | Get Advertisement List
 [**p2pMerchantChatGetChatsList**](P2PApi.md#p2pMerchantChatGetChatsList) | **POST** /p2p/merchant/chat/get_chats_list | Get chat history
 [**p2pMerchantChatSendChatMessage**](P2PApi.md#p2pMerchantChatSendChatMessage) | **POST** /p2p/merchant/chat/send_chat_message | Send text message
 [**p2pMerchantChatUploadChatFile**](P2PApi.md#p2pMerchantChatUploadChatFile) | **POST** /p2p/merchant/chat/upload_chat_file | Upload chat file
@@ -235,7 +236,7 @@ public class Example {
         P2PApi apiInstance = new P2PApi(defaultClient);
         String cryptoCurrency = "cryptoCurrency_example"; // String | Cryptocurrency
         String fiatCurrency = "fiatCurrency_example"; // String | Fiat currency
-        String orderTab = "orderTab_example"; // String | 订单标签页，默认pending（pending：处理中（pending:  AND status in ('OPEN', 'PAID', 'LOCKED', 'TEMP')）；dispute：申诉中（status in ('ACCEPT', 'BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
+        String orderTab = "orderTab_example"; // String | Order tab, default: pending (pending: In Progress (pending: AND status in ('OPEN','PAID', 'LOCKED', 'TEMP')); dispute: In Dispute (status in ('ACCEPT','BCLOSED', 'CANCEL', 'BECANCEL', 'SCLOSED', 'SCANCEL')))
         String selectType = "selectType_example"; // String | Buy/Sell (sell=Sell, buy=Buy, others=All)
         String status = "status_example"; // String | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
         Integer txid = 56; // Integer | Order ID
@@ -263,7 +264,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cryptoCurrency** | **String**| Cryptocurrency |
  **fiatCurrency** | **String**| Fiat currency |
- **orderTab** | **String**| 订单标签页，默认pending（pending：处理中（pending:  AND status in (&#39;OPEN&#39;, &#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)）；dispute：申诉中（status in (&#39;ACCEPT&#39;, &#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional]
+ **orderTab** | **String**| Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) | [optional]
  **selectType** | **String**| Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) | [optional]
  **status** | **String**| Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) | [optional]
  **txid** | **Integer**| Order ID | [optional]
@@ -944,9 +945,79 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
 
+<a name="p2pMerchantBooksAdsList"></a>
+# **p2pMerchantBooksAdsList**
+> InlineResponse20022 p2pMerchantBooksAdsList(asset, fiatUnit, tradeType)
+
+Get Advertisement List
+
+Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.P2PApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        P2PApi apiInstance = new P2PApi(defaultClient);
+        String asset = "asset_example"; // String | Cryptocurrency
+        String fiatUnit = "fiatUnit_example"; // String | Fiat currency
+        String tradeType = "tradeType_example"; // String | Buy/Sell, sell/buy
+        try {
+            InlineResponse20022 result = apiInstance.p2pMerchantBooksAdsList(asset, fiatUnit, tradeType);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling P2PApi#p2pMerchantBooksAdsList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asset** | **String**| Cryptocurrency |
+ **fiatUnit** | **String**| Fiat currency |
+ **tradeType** | **String**| Buy/Sell, sell/buy |
+
+### Return type
+
+[**InlineResponse20022**](InlineResponse20022.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
 <a name="p2pMerchantChatGetChatsList"></a>
 # **p2pMerchantChatGetChatsList**
-> InlineResponse20022 p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived)
+> InlineResponse20023 p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived)
 
 Get chat history
 
@@ -971,7 +1042,7 @@ public class Example {
         Integer lastreceived = 56; // Integer | Pagination timestamp (forward)
         Integer firstreceived = 56; // Integer | Pagination timestamp (backward)
         try {
-            InlineResponse20022 result = apiInstance.p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived);
+            InlineResponse20023 result = apiInstance.p2pMerchantChatGetChatsList(txid, lastreceived, firstreceived);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -996,7 +1067,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -1014,7 +1085,7 @@ No authorization required
 
 <a name="p2pMerchantChatSendChatMessage"></a>
 # **p2pMerchantChatSendChatMessage**
-> InlineResponse20023 p2pMerchantChatSendChatMessage(txid, message, type)
+> InlineResponse20024 p2pMerchantChatSendChatMessage(txid, message, type)
 
 Send text message
 
@@ -1039,7 +1110,7 @@ public class Example {
         String message = "message_example"; // String | Message content
         Integer type = 56; // Integer | 0=Text, 1=File (video or image), default is 0 if not provided
         try {
-            InlineResponse20023 result = apiInstance.p2pMerchantChatSendChatMessage(txid, message, type);
+            InlineResponse20024 result = apiInstance.p2pMerchantChatSendChatMessage(txid, message, type);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1064,7 +1135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -1082,7 +1153,7 @@ No authorization required
 
 <a name="p2pMerchantChatUploadChatFile"></a>
 # **p2pMerchantChatUploadChatFile**
-> InlineResponse20024 p2pMerchantChatUploadChatFile(imageContentType, base64Img)
+> InlineResponse20025 p2pMerchantChatUploadChatFile(imageContentType, base64Img)
 
 Upload chat file
 
@@ -1106,7 +1177,7 @@ public class Example {
         String imageContentType = "imageContentType_example"; // String | File type, currently only images and videos are supported
         String base64Img = "base64Img_example"; // String | File content (base64 encoded)
         try {
-            InlineResponse20024 result = apiInstance.p2pMerchantChatUploadChatFile(imageContentType, base64Img);
+            InlineResponse20025 result = apiInstance.p2pMerchantChatUploadChatFile(imageContentType, base64Img);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1130,7 +1201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
