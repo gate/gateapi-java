@@ -17,22 +17,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20019Data;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * InlineResponse20019
  */
 public class InlineResponse20019 {
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private BigDecimal timestamp;
-
-    public static final String SERIALIZED_NAME_METHOD = "method";
-    @SerializedName(SERIALIZED_NAME_METHOD)
-    private String method;
-
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
@@ -41,52 +31,10 @@ public class InlineResponse20019 {
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse20019Data data;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
 
-    public static final String SERIALIZED_NAME_VERSION = "version";
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private String version;
-
-
-    public InlineResponse20019 timestamp(BigDecimal timestamp) {
-        
-        this.timestamp = timestamp;
-        return this;
-    }
-
-     /**
-     * Get timestamp
-     * @return timestamp
-    **/
-    public BigDecimal getTimestamp() {
-        return timestamp;
-    }
-
-
-    public void setTimestamp(BigDecimal timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public InlineResponse20019 method(String method) {
-        
-        this.method = method;
-        return this;
-    }
-
-     /**
-     * Get method
-     * @return method
-    **/
-    public String getMethod() {
-        return method;
-    }
-
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
 
     public InlineResponse20019 code(Integer code) {
         
@@ -98,6 +46,7 @@ public class InlineResponse20019 {
      * Get code
      * @return code
     **/
+    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -117,6 +66,7 @@ public class InlineResponse20019 {
      * Get message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -126,42 +76,24 @@ public class InlineResponse20019 {
         this.message = message;
     }
 
-    public InlineResponse20019 data(InlineResponse20019Data data) {
+    public InlineResponse20019 timestamp(Integer timestamp) {
         
-        this.data = data;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Get data
-     * @return data
+     * Get timestamp
+     * @return timestamp
     **/
-    public InlineResponse20019Data getData() {
-        return data;
+    @javax.annotation.Nullable
+    public Integer getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setData(InlineResponse20019Data data) {
-        this.data = data;
-    }
-
-    public InlineResponse20019 version(String version) {
-        
-        this.version = version;
-        return this;
-    }
-
-     /**
-     * Get version
-     * @return version
-    **/
-    public String getVersion() {
-        return version;
-    }
-
-
-    public void setVersion(String version) {
-        this.version = version;
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,17 +104,14 @@ public class InlineResponse20019 {
             return false;
         }
         InlineResponse20019 inlineResponse20019 = (InlineResponse20019) o;
-        return Objects.equals(this.timestamp, inlineResponse20019.timestamp) &&
-                Objects.equals(this.method, inlineResponse20019.method) &&
-                Objects.equals(this.code, inlineResponse20019.code) &&
+        return Objects.equals(this.code, inlineResponse20019.code) &&
                 Objects.equals(this.message, inlineResponse20019.message) &&
-                Objects.equals(this.data, inlineResponse20019.data) &&
-                Objects.equals(this.version, inlineResponse20019.version);
+                Objects.equals(this.timestamp, inlineResponse20019.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(timestamp, method, code, message, data, version);
+        return Objects.hash(code, message, timestamp);
     }
 
 
@@ -190,12 +119,9 @@ public class InlineResponse20019 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20019 {\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
-        sb.append("      method: ").append(toIndentedString(method)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
-        sb.append("      version: ").append(toIndentedString(version)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

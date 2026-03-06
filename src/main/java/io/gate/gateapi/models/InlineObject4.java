@@ -20,31 +20,56 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject4
+ * Modify position take profit/stop loss parameters
  */
 public class InlineObject4 {
-    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
-    @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
+    public static final String SERIALIZED_NAME_PRICE_TP = "price_tp";
+    @SerializedName(SERIALIZED_NAME_PRICE_TP)
+    private String priceTp;
+
+    public static final String SERIALIZED_NAME_PRICE_SL = "price_sl";
+    @SerializedName(SERIALIZED_NAME_PRICE_SL)
+    private String priceSl;
 
 
-    public InlineObject4 orderId(String orderId) {
+    public InlineObject4 priceTp(String priceTp) {
         
-        this.orderId = orderId;
+        this.priceTp = priceTp;
         return this;
     }
 
      /**
-     * Order ID
-     * @return orderId
+     * 止盈价格  说明： - 不传 或 传 \&quot;0\&quot;：将清空原有止盈价 - 如不希望清空，请传接口返回的原止盈价
+     * @return priceTp
     **/
-    public String getOrderId() {
-        return orderId;
+    @javax.annotation.Nullable
+    public String getPriceTp() {
+        return priceTp;
     }
 
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setPriceTp(String priceTp) {
+        this.priceTp = priceTp;
+    }
+
+    public InlineObject4 priceSl(String priceSl) {
+        
+        this.priceSl = priceSl;
+        return this;
+    }
+
+     /**
+     * 止损价格  说明： - 不传 或 传 \&quot;0\&quot;：将清空原有止损价 - 如不希望清空，请传接口返回的原止损价
+     * @return priceSl
+    **/
+    @javax.annotation.Nullable
+    public String getPriceSl() {
+        return priceSl;
+    }
+
+
+    public void setPriceSl(String priceSl) {
+        this.priceSl = priceSl;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +80,13 @@ public class InlineObject4 {
             return false;
         }
         InlineObject4 inlineObject4 = (InlineObject4) o;
-        return Objects.equals(this.orderId, inlineObject4.orderId);
+        return Objects.equals(this.priceTp, inlineObject4.priceTp) &&
+                Objects.equals(this.priceSl, inlineObject4.priceSl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId);
+        return Objects.hash(priceTp, priceSl);
     }
 
 
@@ -68,7 +94,8 @@ public class InlineObject4 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject4 {\n");
-        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      priceTp: ").append(toIndentedString(priceTp)).append("\n");
+        sb.append("      priceSl: ").append(toIndentedString(priceSl)).append("\n");
         sb.append("}");
         return sb.toString();
     }

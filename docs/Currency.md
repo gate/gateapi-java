@@ -15,4 +15,6 @@ Name | Type | Description | Notes
 **fixedRate** | **String** | Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies |  [optional]
 **chain** | **String** | The main chain corresponding to the coin |  [optional]
 **chains** | [**List&lt;SpotCurrencyChain&gt;**](SpotCurrencyChain.md) | All links corresponding to coins |  [optional]
+**totalSupply** | **String** | Total supply |  [optional]
+**marketCap** | **String** | Market cap |  [optional]
 

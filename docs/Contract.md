@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **marketOrderSlipRatio** | **String** | The maximum slippage allowed for market orders, with the slippage rate calculated based on the latest market price |  [optional]
 **marketOrderSizeMax** | **String** | The maximum number of contracts supported for market orders, with a default value of 0. When the default value is used, the maximum number of contracts is limited by the &#x60;order_size_max&#x60; field |  [optional]
 **fundingRateLimit** | **String** | Upper and lower limits of funding rate |  [optional]
+**fundingImpactValue** | **String** | Funding rate depth impact value |  [optional]
 
 ## Enum: TypeEnum
 

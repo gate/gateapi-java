@@ -60,6 +60,7 @@ public class InlineResponse20021 {
      * Get timestamp
      * @return timestamp
     **/
+    @javax.annotation.Nullable
     public BigDecimal getTimestamp() {
         return timestamp;
     }
@@ -79,6 +80,7 @@ public class InlineResponse20021 {
      * Get method
      * @return method
     **/
+    @javax.annotation.Nullable
     public String getMethod() {
         return method;
     }
@@ -98,6 +100,7 @@ public class InlineResponse20021 {
      * Get code
      * @return code
     **/
+    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -117,6 +120,7 @@ public class InlineResponse20021 {
      * Get message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -136,6 +140,7 @@ public class InlineResponse20021 {
      * Get data
      * @return data
     **/
+    @javax.annotation.Nullable
     public InlineResponse20021Data getData() {
         return data;
     }
@@ -152,9 +157,10 @@ public class InlineResponse20021 {
     }
 
      /**
-     * Version number
+     * Get version
      * @return version
     **/
+    @javax.annotation.Nullable
     public String getVersion() {
         return version;
     }

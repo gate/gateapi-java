@@ -66,6 +66,14 @@ public class Currency {
     @SerializedName(SERIALIZED_NAME_CHAINS)
     private List<SpotCurrencyChain> chains = null;
 
+    public static final String SERIALIZED_NAME_TOTAL_SUPPLY = "total_supply";
+    @SerializedName(SERIALIZED_NAME_TOTAL_SUPPLY)
+    private String totalSupply;
+
+    public static final String SERIALIZED_NAME_MARKET_CAP = "market_cap";
+    @SerializedName(SERIALIZED_NAME_MARKET_CAP)
+    private String marketCap;
+
 
     public Currency currency(String currency) {
         
@@ -274,6 +282,46 @@ public class Currency {
     public void setChains(List<SpotCurrencyChain> chains) {
         this.chains = chains;
     }
+
+    public Currency totalSupply(String totalSupply) {
+        
+        this.totalSupply = totalSupply;
+        return this;
+    }
+
+     /**
+     * Total supply
+     * @return totalSupply
+    **/
+    @javax.annotation.Nullable
+    public String getTotalSupply() {
+        return totalSupply;
+    }
+
+
+    public void setTotalSupply(String totalSupply) {
+        this.totalSupply = totalSupply;
+    }
+
+    public Currency marketCap(String marketCap) {
+        
+        this.marketCap = marketCap;
+        return this;
+    }
+
+     /**
+     * Market cap
+     * @return marketCap
+    **/
+    @javax.annotation.Nullable
+    public String getMarketCap() {
+        return marketCap;
+    }
+
+
+    public void setMarketCap(String marketCap) {
+        this.marketCap = marketCap;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -292,12 +340,14 @@ public class Currency {
                 Objects.equals(this.tradeDisabled, currency.tradeDisabled) &&
                 Objects.equals(this.fixedRate, currency.fixedRate) &&
                 Objects.equals(this.chain, currency.chain) &&
-                Objects.equals(this.chains, currency.chains);
+                Objects.equals(this.chains, currency.chains) &&
+                Objects.equals(this.totalSupply, currency.totalSupply) &&
+                Objects.equals(this.marketCap, currency.marketCap);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain, chains);
+        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain, chains, totalSupply, marketCap);
     }
 
 
@@ -315,6 +365,8 @@ public class Currency {
         sb.append("      fixedRate: ").append(toIndentedString(fixedRate)).append("\n");
         sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
         sb.append("      chains: ").append(toIndentedString(chains)).append("\n");
+        sb.append("      totalSupply: ").append(toIndentedString(totalSupply)).append("\n");
+        sb.append("      marketCap: ").append(toIndentedString(marketCap)).append("\n");
         sb.append("}");
         return sb.toString();
     }

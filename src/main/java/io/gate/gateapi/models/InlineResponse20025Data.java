@@ -23,28 +23,29 @@ import java.io.IOException;
  * InlineResponse20025Data
  */
 public class InlineResponse20025Data {
-    public static final String SERIALIZED_NAME_FILE_KEY = "file_key";
-    @SerializedName(SERIALIZED_NAME_FILE_KEY)
-    private String fileKey;
+    public static final String SERIALIZED_NAME_S_R_V_T_M = "SRVTM";
+    @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
+    private Integer SRVTM;
 
 
-    public InlineResponse20025Data fileKey(String fileKey) {
+    public InlineResponse20025Data SRVTM(Integer SRVTM) {
         
-        this.fileKey = fileKey;
+        this.SRVTM = SRVTM;
         return this;
     }
 
      /**
-     * File key
-     * @return fileKey
+     * Timestamp when message was successfully sent (current timestamp)
+     * @return SRVTM
     **/
-    public String getFileKey() {
-        return fileKey;
+    @javax.annotation.Nullable
+    public Integer getSRVTM() {
+        return SRVTM;
     }
 
 
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
+    public void setSRVTM(Integer SRVTM) {
+        this.SRVTM = SRVTM;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +56,12 @@ public class InlineResponse20025Data {
             return false;
         }
         InlineResponse20025Data inlineResponse20025Data = (InlineResponse20025Data) o;
-        return Objects.equals(this.fileKey, inlineResponse20025Data.fileKey);
+        return Objects.equals(this.SRVTM, inlineResponse20025Data.SRVTM);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileKey);
+        return Objects.hash(SRVTM);
     }
 
 
@@ -68,7 +69,7 @@ public class InlineResponse20025Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20025Data {\n");
-        sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
+        sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
         sb.append("}");
         return sb.toString();
     }

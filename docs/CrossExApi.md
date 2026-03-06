@@ -4,37 +4,37 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCrossexRuleSymbols**](CrossExApi.md#listCrossexRuleSymbols) | **GET** /rule/symbols | [Public Interface] Query Trading Pair Information
-[**listCrossexRuleRiskLimits**](CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /rule/risk_limits | [Public Interface] Query Risk Limit Information
-[**listCrossexTransferCoins**](CrossExApi.md#listCrossexTransferCoins) | **GET** /transfers/coin | [Public Interface] Query Supported Transfer Currencies
-[**listCrossexTransfers**](CrossExApi.md#listCrossexTransfers) | **GET** /transfers | Query Fund Transfer History
-[**createCrossexTransfer**](CrossExApi.md#createCrossexTransfer) | **POST** /transfers | Fund Transfer
-[**createCrossexOrder**](CrossExApi.md#createCrossexOrder) | **POST** /orders | Create an order
-[**getCrossexOrder**](CrossExApi.md#getCrossexOrder) | **GET** /orders/{order_id} | Query order details
-[**updateCrossexOrder**](CrossExApi.md#updateCrossexOrder) | **PUT** /orders/{order_id} | Modify Order
-[**cancelCrossexOrder**](CrossExApi.md#cancelCrossexOrder) | **DELETE** /orders/{order_id} | Cancel Order
-[**createCrossexConvertQuote**](CrossExApi.md#createCrossexConvertQuote) | **POST** /convert/quote | Flash Swap Inquiry
-[**createCrossexConvertOrder**](CrossExApi.md#createCrossexConvertOrder) | **POST** /convert/orders | Flash Swap Transaction
-[**getCrossexAccount**](CrossExApi.md#getCrossexAccount) | **GET** /accounts | Query Account Assets
-[**updateCrossexAccount**](CrossExApi.md#updateCrossexAccount) | **PUT** /accounts | Modify Account Contract Position Mode and Account Mode
-[**getCrossexPositionsLeverage**](CrossExApi.md#getCrossexPositionsLeverage) | **GET** /positions/leverage | Query Contract Trading Pair Leverage Multiplier
-[**updateCrossexPositionsLeverage**](CrossExApi.md#updateCrossexPositionsLeverage) | **POST** /positions/leverage | Modify Contract Trading Pair Leverage Multiplier
-[**getCrossexMarginPositionsLeverage**](CrossExApi.md#getCrossexMarginPositionsLeverage) | **GET** /margin_positions/leverage | Query Leveraged Trading Pair Leverage Multiplier
-[**updateCrossexMarginPositionsLeverage**](CrossExApi.md#updateCrossexMarginPositionsLeverage) | **POST** /margin_positions/leverage | Modify Leveraged Trading Pair Leverage Multiplier
-[**closeCrossexPosition**](CrossExApi.md#closeCrossexPosition) | **DELETE** /position | Full Close Position
-[**getCrossexInterestRate**](CrossExApi.md#getCrossexInterestRate) | **GET** /interest_rate | Query margin asset interest rates
-[**getCrossexFee**](CrossExApi.md#getCrossexFee) | **GET** /fee | Query User Fee Rates
-[**listCrossexPositions**](CrossExApi.md#listCrossexPositions) | **GET** /positions | Query Contract Positions
-[**listCrossexMarginPositions**](CrossExApi.md#listCrossexMarginPositions) | **GET** /margin_positions | Query Leveraged Positions
-[**listCrossexAdlRank**](CrossExApi.md#listCrossexAdlRank) | **GET** /adl_rank | Query ADL Position Reduction Ranking
-[**listCrossexOpenOrders**](CrossExApi.md#listCrossexOpenOrders) | **GET** /open_orders | Query All Current Open Orders
-[**listCrossexHistoryOrders**](CrossExApi.md#listCrossexHistoryOrders) | **GET** /history_orders | queryorderhistory
-[**listCrossexHistoryPositions**](CrossExApi.md#listCrossexHistoryPositions) | **GET** /history_positions | Query Contract Position History
-[**listCrossexHistoryMarginPositions**](CrossExApi.md#listCrossexHistoryMarginPositions) | **GET** /history_margin_positions | Query Leveraged Position History
-[**listCrossexHistoryMarginInterests**](CrossExApi.md#listCrossexHistoryMarginInterests) | **GET** /history_margin_interests | Query Leveraged Interest Deduction History
-[**listCrossexHistoryTrades**](CrossExApi.md#listCrossexHistoryTrades) | **GET** /history_trades | queryfilledhistory
-[**listCrossexAccountBook**](CrossExApi.md#listCrossexAccountBook) | **GET** /account_book | Query Account Asset Change History
-[**listCrossexCoinDiscountRate**](CrossExApi.md#listCrossexCoinDiscountRate) | **GET** /coin_discount_rate | Query currency discount rate (discount rate of margin currency in isolated exchange mode)
+[**listCrossexRuleSymbols**](CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | [Public Interface] Query Trading Pair Information
+[**listCrossexRuleRiskLimits**](CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | [Public Interface] Query Risk Limit Information
+[**listCrossexTransferCoins**](CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | [Public Interface] Query Supported Transfer Currencies
+[**listCrossexTransfers**](CrossExApi.md#listCrossexTransfers) | **GET** /crossex/transfers | Query Fund Transfer History
+[**createCrossexTransfer**](CrossExApi.md#createCrossexTransfer) | **POST** /crossex/transfers | Fund Transfer
+[**createCrossexOrder**](CrossExApi.md#createCrossexOrder) | **POST** /crossex/orders | Create an order
+[**getCrossexOrder**](CrossExApi.md#getCrossexOrder) | **GET** /crossex/orders/{order_id} | Query order details
+[**updateCrossexOrder**](CrossExApi.md#updateCrossexOrder) | **PUT** /crossex/orders/{order_id} | Modify Order
+[**cancelCrossexOrder**](CrossExApi.md#cancelCrossexOrder) | **DELETE** /crossex/orders/{order_id} | Cancel Order
+[**createCrossexConvertQuote**](CrossExApi.md#createCrossexConvertQuote) | **POST** /crossex/convert/quote | Flash Swap Inquiry
+[**createCrossexConvertOrder**](CrossExApi.md#createCrossexConvertOrder) | **POST** /crossex/convert/orders | Flash Swap Transaction
+[**getCrossexAccount**](CrossExApi.md#getCrossexAccount) | **GET** /crossex/accounts | Query Account Assets
+[**updateCrossexAccount**](CrossExApi.md#updateCrossexAccount) | **PUT** /crossex/accounts | Modify Account Contract Position Mode and Account Mode
+[**getCrossexPositionsLeverage**](CrossExApi.md#getCrossexPositionsLeverage) | **GET** /crossex/positions/leverage | Query Contract Trading Pair Leverage Multiplier
+[**updateCrossexPositionsLeverage**](CrossExApi.md#updateCrossexPositionsLeverage) | **POST** /crossex/positions/leverage | Modify Contract Trading Pair Leverage Multiplier
+[**getCrossexMarginPositionsLeverage**](CrossExApi.md#getCrossexMarginPositionsLeverage) | **GET** /crossex/margin_positions/leverage | Query Leveraged Trading Pair Leverage Multiplier
+[**updateCrossexMarginPositionsLeverage**](CrossExApi.md#updateCrossexMarginPositionsLeverage) | **POST** /crossex/margin_positions/leverage | Modify Leveraged Trading Pair Leverage Multiplier
+[**closeCrossexPosition**](CrossExApi.md#closeCrossexPosition) | **POST** /crossex/position | Full Close Position
+[**getCrossexInterestRate**](CrossExApi.md#getCrossexInterestRate) | **GET** /crossex/interest_rate | Query margin asset interest rates
+[**getCrossexFee**](CrossExApi.md#getCrossexFee) | **GET** /crossex/fee | Query User Fee Rates
+[**listCrossexPositions**](CrossExApi.md#listCrossexPositions) | **GET** /crossex/positions | Query Contract Positions
+[**listCrossexMarginPositions**](CrossExApi.md#listCrossexMarginPositions) | **GET** /crossex/margin_positions | Query Leveraged Positions
+[**listCrossexAdlRank**](CrossExApi.md#listCrossexAdlRank) | **GET** /crossex/adl_rank | Query ADL Position Reduction Ranking
+[**listCrossexOpenOrders**](CrossExApi.md#listCrossexOpenOrders) | **GET** /crossex/open_orders | Query All Current Open Orders
+[**listCrossexHistoryOrders**](CrossExApi.md#listCrossexHistoryOrders) | **GET** /crossex/history_orders | queryorderhistory
+[**listCrossexHistoryPositions**](CrossExApi.md#listCrossexHistoryPositions) | **GET** /crossex/history_positions | Query Contract Position History
+[**listCrossexHistoryMarginPositions**](CrossExApi.md#listCrossexHistoryMarginPositions) | **GET** /crossex/history_margin_positions | Query Leveraged Position History
+[**listCrossexHistoryMarginInterests**](CrossExApi.md#listCrossexHistoryMarginInterests) | **GET** /crossex/history_margin_interests | Query Leveraged Interest Deduction History
+[**listCrossexHistoryTrades**](CrossExApi.md#listCrossexHistoryTrades) | **GET** /crossex/history_trades | queryfilledhistory
+[**listCrossexAccountBook**](CrossExApi.md#listCrossexAccountBook) | **GET** /crossex/account_book | Query Account Asset Change History
+[**listCrossexCoinDiscountRate**](CrossExApi.md#listCrossexCoinDiscountRate) | **GET** /crossex/coin_discount_rate | Query currency discount rate (discount rate of margin currency in isolated exchange mode)
 
 
 <a name="listCrossexRuleSymbols"></a>
@@ -107,7 +107,7 @@ No authorization required
 
 <a name="listCrossexRuleRiskLimits"></a>
 # **listCrossexRuleRiskLimits**
-> List&lt;InlineResponse20026&gt; listCrossexRuleRiskLimits(symbols)
+> List&lt;InlineResponse20027&gt; listCrossexRuleRiskLimits(symbols)
 
 [Public Interface] Query Risk Limit Information
 
@@ -132,7 +132,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbols = "BINANCE_FUTURE_AAVE_USDT"; // String | Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT
         try {
-            List<InlineResponse20026> result = apiInstance.listCrossexRuleRiskLimits(symbols);
+            List<InlineResponse20027> result = apiInstance.listCrossexRuleRiskLimits(symbols);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20026&gt;**](InlineResponse20026.md)
+[**List&lt;InlineResponse20027&gt;**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ No authorization required
 
 <a name="listCrossexTransferCoins"></a>
 # **listCrossexTransferCoins**
-> List&lt;InlineResponse20027&gt; listCrossexTransferCoins().coin(coin).execute();
+> List&lt;InlineResponse20028&gt; listCrossexTransferCoins().coin(coin).execute();
 
 [Public Interface] Query Supported Transfer Currencies
 
@@ -198,7 +198,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "BTC"; // String | Currency
         try {
-            List<InlineResponse20027> result = apiInstance.listCrossexTransferCoins()
+            List<InlineResponse20028> result = apiInstance.listCrossexTransferCoins()
                         .coin(coin)
                         .execute();
             System.out.println(result);
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20027&gt;**](InlineResponse20027.md)
+[**List&lt;InlineResponse20028&gt;**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ No authorization required
 
 <a name="listCrossexTransfers"></a>
 # **listCrossexTransfers**
-> List&lt;InlineResponse20028&gt; listCrossexTransfers().coin(coin).orderId(orderId).from(from).to(to).page(page).limit(limit).execute();
+> List&lt;InlineResponse20029&gt; listCrossexTransfers().coin(coin).orderId(orderId).from(from).to(to).page(page).limit(limit).execute();
 
 Query Fund Transfer History
 
@@ -275,7 +275,7 @@ public class Example {
         Integer page = 1; // Integer | Page number
         Integer limit = 10,20,30; // Integer | Maximum number returned by list, max 1000
         try {
-            List<InlineResponse20028> result = apiInstance.listCrossexTransfers()
+            List<InlineResponse20029> result = apiInstance.listCrossexTransfers()
                         .coin(coin)
                         .orderId(orderId)
                         .from(from)
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20028&gt;**](InlineResponse20028.md)
+[**List&lt;InlineResponse20029&gt;**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexTransfer"></a>
 # **createCrossexTransfer**
-> InlineResponse20029 createCrossexTransfer(inlineObject21)
+> InlineResponse20030 createCrossexTransfer(inlineObject10)
 
 Fund Transfer
 
@@ -355,9 +355,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject21 inlineObject21 = new InlineObject21(); // InlineObject21 | 
+        InlineObject10 inlineObject10 = new InlineObject10(); // InlineObject10 | 
         try {
-            InlineResponse20029 result = apiInstance.createCrossexTransfer(inlineObject21);
+            InlineResponse20030 result = apiInstance.createCrossexTransfer(inlineObject10);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -376,11 +376,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject21** | [**InlineObject21**](InlineObject21.md)|  | [optional]
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -398,11 +398,11 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexOrder"></a>
 # **createCrossexOrder**
-> InlineResponse20030 createCrossexOrder(inlineObject22)
+> InlineResponse20031 createCrossexOrder(inlineObject11)
 
 Create an order
 
-Rate Limit: 100 requests per 10 seconds
+Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
 
 ### Example
 
@@ -425,9 +425,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject22 inlineObject22 = new InlineObject22(); // InlineObject22 | 
+        InlineObject11 inlineObject11 = new InlineObject11(); // InlineObject11 | 
         try {
-            InlineResponse20030 result = apiInstance.createCrossexOrder(inlineObject22);
+            InlineResponse20031 result = apiInstance.createCrossexOrder(inlineObject11);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -446,11 +446,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject22** | [**InlineObject22**](InlineObject22.md)|  | [optional]
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexOrder"></a>
 # **getCrossexOrder**
-> InlineResponse20031 getCrossexOrder(orderId)
+> InlineResponse20032 getCrossexOrder(orderId)
 
 Query order details
 
@@ -497,7 +497,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String orderId = "2048522992198912"; // String | 1. Supports querying order IDs returned when creating orders 2. Supports custom IDs specified by users when creating orders (i.e., the text field)
         try {
-            InlineResponse20031 result = apiInstance.getCrossexOrder(orderId);
+            InlineResponse20032 result = apiInstance.getCrossexOrder(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexOrder"></a>
 # **updateCrossexOrder**
-> InlineResponse20032 updateCrossexOrder(orderId, inlineObject23)
+> InlineResponse20033 updateCrossexOrder(orderId, inlineObject12)
 
 Modify Order
 
@@ -566,9 +566,9 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String orderId = "orderId_example"; // String | Support Order ID or Text for Modify Order
-        InlineObject23 inlineObject23 = new InlineObject23(); // InlineObject23 | 
+        InlineObject12 inlineObject12 = new InlineObject12(); // InlineObject12 | 
         try {
-            InlineResponse20032 result = apiInstance.updateCrossexOrder(orderId, inlineObject23);
+            InlineResponse20033 result = apiInstance.updateCrossexOrder(orderId, inlineObject12);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -588,11 +588,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Support Order ID or Text for Modify Order |
- **inlineObject23** | [**InlineObject23**](InlineObject23.md)|  | [optional]
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelCrossexOrder"></a>
 # **cancelCrossexOrder**
-> Object cancelCrossexOrder(orderId, body)
+> Object cancelCrossexOrder(orderId)
 
 Cancel Order
 
@@ -638,9 +638,8 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String orderId = "orderId_example"; // String | Support Order ID or Text for Cancel Order
-        Object body = null; // Object | 
         try {
-            Object result = apiInstance.cancelCrossexOrder(orderId, body);
+            Object result = apiInstance.cancelCrossexOrder(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -660,7 +659,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Support Order ID or Text for Cancel Order |
- **body** | **Object**|  | [optional]
 
 ### Return type
 
@@ -672,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -682,7 +680,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexConvertQuote"></a>
 # **createCrossexConvertQuote**
-> InlineResponse20033 createCrossexConvertQuote(inlineObject24)
+> InlineResponse20034 createCrossexConvertQuote(inlineObject13)
 
 Flash Swap Inquiry
 
@@ -709,9 +707,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject24 inlineObject24 = new InlineObject24(); // InlineObject24 | 
+        InlineObject13 inlineObject13 = new InlineObject13(); // InlineObject13 | 
         try {
-            InlineResponse20033 result = apiInstance.createCrossexConvertQuote(inlineObject24);
+            InlineResponse20034 result = apiInstance.createCrossexConvertQuote(inlineObject13);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -730,11 +728,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject24** | [**InlineObject24**](InlineObject24.md)|  | [optional]
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -752,7 +750,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexConvertOrder"></a>
 # **createCrossexConvertOrder**
-> Object createCrossexConvertOrder(inlineObject25)
+> Object createCrossexConvertOrder(inlineObject14)
 
 Flash Swap Transaction
 
@@ -779,9 +777,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject25 inlineObject25 = new InlineObject25(); // InlineObject25 | 
+        InlineObject14 inlineObject14 = new InlineObject14(); // InlineObject14 | 
         try {
-            Object result = apiInstance.createCrossexConvertOrder(inlineObject25);
+            Object result = apiInstance.createCrossexConvertOrder(inlineObject14);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -800,7 +798,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject25** | [**InlineObject25**](InlineObject25.md)|  | [optional]
+ **inlineObject14** | [**InlineObject14**](InlineObject14.md)|  | [optional]
 
 ### Return type
 
@@ -822,7 +820,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexAccount"></a>
 # **getCrossexAccount**
-> InlineResponse20034 getCrossexAccount().exchangeType(exchangeType).execute();
+> InlineResponse20035 getCrossexAccount().exchangeType(exchangeType).execute();
 
 Query Account Assets
 
@@ -851,7 +849,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String exchangeType = "BINANCE,OKX,GATE"; // String | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE)
         try {
-            InlineResponse20034 result = apiInstance.getCrossexAccount()
+            InlineResponse20035 result = apiInstance.getCrossexAccount()
                         .exchangeType(exchangeType)
                         .execute();
             System.out.println(result);
@@ -876,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -894,7 +892,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexAccount"></a>
 # **updateCrossexAccount**
-> InlineResponse202 updateCrossexAccount(inlineObject26)
+> InlineResponse202 updateCrossexAccount(inlineObject15)
 
 Modify Account Contract Position Mode and Account Mode
 
@@ -921,9 +919,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject26 inlineObject26 = new InlineObject26(); // InlineObject26 | 
+        InlineObject15 inlineObject15 = new InlineObject15(); // InlineObject15 | 
         try {
-            InlineResponse202 result = apiInstance.updateCrossexAccount(inlineObject26);
+            InlineResponse202 result = apiInstance.updateCrossexAccount(inlineObject15);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -942,7 +940,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject26** | [**InlineObject26**](InlineObject26.md)|  | [optional]
+ **inlineObject15** | [**InlineObject15**](InlineObject15.md)|  | [optional]
 
 ### Return type
 
@@ -964,7 +962,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexPositionsLeverage"></a>
 # **getCrossexPositionsLeverage**
-> List&lt;InlineResponse20035&gt; getCrossexPositionsLeverage().symbols(symbols).execute();
+> Map&lt;String, String&gt; getCrossexPositionsLeverage().symbols(symbols).execute();
 
 Query Contract Trading Pair Leverage Multiplier
 
@@ -991,9 +989,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String symbols = "BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT"; // String | Trading Pair List, multiple separated by commas
+        String symbols = "BINANCE_FUTURE_BTC_USDT,OKX_FUTURE_BTC_USDT,GATE_FUTURE_BTC_USDT"; // String | Trading Pair List, multiple separated by commas
         try {
-            List<InlineResponse20035> result = apiInstance.getCrossexPositionsLeverage()
+            Map<String, String> result = apiInstance.getCrossexPositionsLeverage()
                         .symbols(symbols)
                         .execute();
             System.out.println(result);
@@ -1018,7 +1016,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20035&gt;**](InlineResponse20035.md)
+**Map&lt;String, String&gt;**
 
 ### Authorization
 
@@ -1036,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexPositionsLeverage"></a>
 # **updateCrossexPositionsLeverage**
-> InlineResponse2021 updateCrossexPositionsLeverage(inlineObject27)
+> InlineResponse2021 updateCrossexPositionsLeverage(inlineObject16)
 
 Modify Contract Trading Pair Leverage Multiplier
 
@@ -1063,9 +1061,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject27 inlineObject27 = new InlineObject27(); // InlineObject27 | 
+        InlineObject16 inlineObject16 = new InlineObject16(); // InlineObject16 | 
         try {
-            InlineResponse2021 result = apiInstance.updateCrossexPositionsLeverage(inlineObject27);
+            InlineResponse2021 result = apiInstance.updateCrossexPositionsLeverage(inlineObject16);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1084,7 +1082,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject27** | [**InlineObject27**](InlineObject27.md)|  | [optional]
+ **inlineObject16** | [**InlineObject16**](InlineObject16.md)|  | [optional]
 
 ### Return type
 
@@ -1106,7 +1104,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexMarginPositionsLeverage"></a>
 # **getCrossexMarginPositionsLeverage**
-> List&lt;InlineResponse20035&gt; getCrossexMarginPositionsLeverage().symbols(symbols).execute();
+> Map&lt;String, String&gt; getCrossexMarginPositionsLeverage().symbols(symbols).execute();
 
 Query Leveraged Trading Pair Leverage Multiplier
 
@@ -1133,9 +1131,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String symbols = "BINANCE_MARGIN_ADA_USDT,OKX_FUTURE_ADA_USDT"; // String | Trading Pair List, multiple separated by commas
+        String symbols = "BINANCE_MARGIN_BTC_USDT,OKX_MARGIN_BTC_USDT,GATE_MARGIN_BTC_USDT"; // String | Trading Pair List, multiple separated by commas
         try {
-            List<InlineResponse20035> result = apiInstance.getCrossexMarginPositionsLeverage()
+            Map<String, String> result = apiInstance.getCrossexMarginPositionsLeverage()
                         .symbols(symbols)
                         .execute();
             System.out.println(result);
@@ -1160,7 +1158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20035&gt;**](InlineResponse20035.md)
+**Map&lt;String, String&gt;**
 
 ### Authorization
 
@@ -1178,7 +1176,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexMarginPositionsLeverage"></a>
 # **updateCrossexMarginPositionsLeverage**
-> InlineResponse2021 updateCrossexMarginPositionsLeverage(inlineObject28)
+> InlineResponse2021 updateCrossexMarginPositionsLeverage(inlineObject17)
 
 Modify Leveraged Trading Pair Leverage Multiplier
 
@@ -1205,9 +1203,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject28 inlineObject28 = new InlineObject28(); // InlineObject28 | 
+        InlineObject17 inlineObject17 = new InlineObject17(); // InlineObject17 | 
         try {
-            InlineResponse2021 result = apiInstance.updateCrossexMarginPositionsLeverage(inlineObject28);
+            InlineResponse2021 result = apiInstance.updateCrossexMarginPositionsLeverage(inlineObject17);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1226,7 +1224,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject28** | [**InlineObject28**](InlineObject28.md)|  | [optional]
+ **inlineObject17** | [**InlineObject17**](InlineObject17.md)|  | [optional]
 
 ### Return type
 
@@ -1248,7 +1246,7 @@ Name | Type | Description  | Notes
 
 <a name="closeCrossexPosition"></a>
 # **closeCrossexPosition**
-> InlineResponse20030 closeCrossexPosition(inlineObject29)
+> InlineResponse20031 closeCrossexPosition(inlineObject18)
 
 Full Close Position
 
@@ -1275,9 +1273,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject29 inlineObject29 = new InlineObject29(); // InlineObject29 | 
+        InlineObject18 inlineObject18 = new InlineObject18(); // InlineObject18 | 
         try {
-            InlineResponse20030 result = apiInstance.closeCrossexPosition(inlineObject29);
+            InlineResponse20031 result = apiInstance.closeCrossexPosition(inlineObject18);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1296,11 +1294,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject29** | [**InlineObject29**](InlineObject29.md)|  | [optional]
+ **inlineObject18** | [**InlineObject18**](InlineObject18.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -1679,7 +1677,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexOpenOrders"></a>
 # **listCrossexOpenOrders**
-> List&lt;InlineResponse20031&gt; listCrossexOpenOrders().symbol(symbol).exchangeType(exchangeType).businessType(businessType).execute();
+> List&lt;InlineResponse20032&gt; listCrossexOpenOrders().symbol(symbol).exchangeType(exchangeType).businessType(businessType).execute();
 
 Query All Current Open Orders
 
@@ -1710,7 +1708,7 @@ public class Example {
         String exchangeType = "BINANCE"; // String | Exchange
         String businessType = "FUTURE、MARGIN"; // String | Business Type
         try {
-            List<InlineResponse20031> result = apiInstance.listCrossexOpenOrders()
+            List<InlineResponse20032> result = apiInstance.listCrossexOpenOrders()
                         .symbol(symbol)
                         .exchangeType(exchangeType)
                         .businessType(businessType)
@@ -1739,7 +1737,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20031&gt;**](InlineResponse20031.md)
+[**List&lt;InlineResponse20032&gt;**](InlineResponse20032.md)
 
 ### Authorization
 

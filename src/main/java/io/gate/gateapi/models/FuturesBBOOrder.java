@@ -256,10 +256,6 @@ public class FuturesBBOOrder {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
-    public static final String SERIALIZED_NAME_LIMIT_VIP = "limit_vip";
-    @SerializedName(SERIALIZED_NAME_LIMIT_VIP)
-    private Long limitVip;
-
     public static final String SERIALIZED_NAME_PID = "pid";
     @SerializedName(SERIALIZED_NAME_PID)
     private Long pid;
@@ -581,26 +577,6 @@ public class FuturesBBOOrder {
     }
 
 
-    public FuturesBBOOrder limitVip(Long limitVip) {
-        
-        this.limitVip = limitVip;
-        return this;
-    }
-
-     /**
-     * Counterparty user&#39;s VIP level for limit order fills. Current order will only match with orders whose VIP level is less than or equal to the specified level. Only 11~16 are supported; default is 0
-     * @return limitVip
-    **/
-    @javax.annotation.Nullable
-    public Long getLimitVip() {
-        return limitVip;
-    }
-
-
-    public void setLimitVip(Long limitVip) {
-        this.limitVip = limitVip;
-    }
-
     public FuturesBBOOrder pid(Long pid) {
         
         this.pid = pid;
@@ -650,13 +626,12 @@ public class FuturesBBOOrder {
                 Objects.equals(this.stpId, futuresBBOOrder.stpId) &&
                 Objects.equals(this.stpAct, futuresBBOOrder.stpAct) &&
                 Objects.equals(this.amendText, futuresBBOOrder.amendText) &&
-                Objects.equals(this.limitVip, futuresBBOOrder.limitVip) &&
                 Objects.equals(this.pid, futuresBBOOrder.pid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, size, direction, iceberg, level, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, limitVip, pid);
+        return Objects.hash(contract, size, direction, iceberg, level, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid);
     }
 
 
@@ -685,7 +660,6 @@ public class FuturesBBOOrder {
         sb.append("      stpId: ").append(toIndentedString(stpId)).append("\n");
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
-        sb.append("      limitVip: ").append(toIndentedString(limitVip)).append("\n");
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("}");
         return sb.toString();

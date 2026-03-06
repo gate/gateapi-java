@@ -23,6 +23,14 @@ import java.io.IOException;
  * InlineObject7
  */
 public class InlineObject7 {
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
+    public static final String SERIALIZED_NAME_SIDE = "side";
+    @SerializedName(SERIALIZED_NAME_SIDE)
+    private String side;
+
     public static final String SERIALIZED_NAME_CRYPTO_CURRENCY = "crypto_currency";
     @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY)
     private String cryptoCurrency;
@@ -31,30 +39,64 @@ public class InlineObject7 {
     @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
     private String fiatCurrency;
 
-    public static final String SERIALIZED_NAME_ORDER_TAB = "order_tab";
-    @SerializedName(SERIALIZED_NAME_ORDER_TAB)
-    private String orderTab;
+    public static final String SERIALIZED_NAME_CRYPTO_AMOUNT = "crypto_amount";
+    @SerializedName(SERIALIZED_NAME_CRYPTO_AMOUNT)
+    private String cryptoAmount;
 
-    public static final String SERIALIZED_NAME_SELECT_TYPE = "select_type";
-    @SerializedName(SERIALIZED_NAME_SELECT_TYPE)
-    private String selectType;
+    public static final String SERIALIZED_NAME_FIAT_AMOUNT = "fiat_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_AMOUNT)
+    private String fiatAmount;
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
+    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
+    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
+    private String promotionCode;
 
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
+    public static final String SERIALIZED_NAME_QUOTE_TOKEN = "quote_token";
+    @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
+    private String quoteToken;
 
-    public static final String SERIALIZED_NAME_START_TIME = "start_time";
-    @SerializedName(SERIALIZED_NAME_START_TIME)
-    private Integer startTime;
+    public static final String SERIALIZED_NAME_BANK_ID = "bank_id";
+    @SerializedName(SERIALIZED_NAME_BANK_ID)
+    private String bankId;
 
-    public static final String SERIALIZED_NAME_END_TIME = "end_time";
-    @SerializedName(SERIALIZED_NAME_END_TIME)
-    private Integer endTime;
 
+    public InlineObject7 type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * BUY for on-ramp, SELL for off-ramp
+     * @return type
+    **/
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public InlineObject7 side(String side) {
+        
+        this.side = side;
+        return this;
+    }
+
+     /**
+     * Quote direction returned by the quote API (used for order validation)
+     * @return side
+    **/
+    public String getSide() {
+        return side;
+    }
+
+
+    public void setSide(String side) {
+        this.side = side;
+    }
 
     public InlineObject7 cryptoCurrency(String cryptoCurrency) {
         
@@ -63,7 +105,7 @@ public class InlineObject7 {
     }
 
      /**
-     * Cryptocurrency
+     * Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)
      * @return cryptoCurrency
     **/
     public String getCryptoCurrency() {
@@ -82,7 +124,7 @@ public class InlineObject7 {
     }
 
      /**
-     * Fiat currency
+     * Fiat currency (supported currencies can be queried from the OTC web fiat quote page)
      * @return fiatCurrency
     **/
     public String getFiatCurrency() {
@@ -94,124 +136,100 @@ public class InlineObject7 {
         this.fiatCurrency = fiatCurrency;
     }
 
-    public InlineObject7 orderTab(String orderTab) {
+    public InlineObject7 cryptoAmount(String cryptoAmount) {
         
-        this.orderTab = orderTab;
+        this.cryptoAmount = cryptoAmount;
         return this;
     }
 
      /**
-     * Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;)))
-     * @return orderTab
+     * Amount of cryptocurrency
+     * @return cryptoAmount
     **/
-    @javax.annotation.Nullable
-    public String getOrderTab() {
-        return orderTab;
+    public String getCryptoAmount() {
+        return cryptoAmount;
     }
 
 
-    public void setOrderTab(String orderTab) {
-        this.orderTab = orderTab;
+    public void setCryptoAmount(String cryptoAmount) {
+        this.cryptoAmount = cryptoAmount;
     }
 
-    public InlineObject7 selectType(String selectType) {
+    public InlineObject7 fiatAmount(String fiatAmount) {
         
-        this.selectType = selectType;
+        this.fiatAmount = fiatAmount;
         return this;
     }
 
      /**
-     * Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All)
-     * @return selectType
+     * Fiat amount
+     * @return fiatAmount
     **/
-    @javax.annotation.Nullable
-    public String getSelectType() {
-        return selectType;
+    public String getFiatAmount() {
+        return fiatAmount;
     }
 
 
-    public void setSelectType(String selectType) {
-        this.selectType = selectType;
+    public void setFiatAmount(String fiatAmount) {
+        this.fiatAmount = fiatAmount;
     }
 
-    public InlineObject7 status(String status) {
+    public InlineObject7 promotionCode(String promotionCode) {
         
-        this.status = status;
+        this.promotionCode = promotionCode;
         return this;
     }
 
      /**
-     * Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
-     * @return status
+     * Promotion code
+     * @return promotionCode
     **/
     @javax.annotation.Nullable
-    public String getStatus() {
-        return status;
+    public String getPromotionCode() {
+        return promotionCode;
     }
 
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPromotionCode(String promotionCode) {
+        this.promotionCode = promotionCode;
     }
 
-    public InlineObject7 txid(Integer txid) {
+    public InlineObject7 quoteToken(String quoteToken) {
         
-        this.txid = txid;
+        this.quoteToken = quoteToken;
         return this;
     }
 
      /**
-     * Order ID
-     * @return txid
+     * Parameter returned by the quote API
+     * @return quoteToken
     **/
-    @javax.annotation.Nullable
-    public Integer getTxid() {
-        return txid;
+    public String getQuoteToken() {
+        return quoteToken;
     }
 
 
-    public void setTxid(Integer txid) {
-        this.txid = txid;
+    public void setQuoteToken(String quoteToken) {
+        this.quoteToken = quoteToken;
     }
 
-    public InlineObject7 startTime(Integer startTime) {
+    public InlineObject7 bankId(String bankId) {
         
-        this.startTime = startTime;
+        this.bankId = bankId;
         return this;
     }
 
      /**
-     * Start timestamp, default is 00:00 89 days ago
-     * @return startTime
+     * Bank card ID used for the order (retrieved via the default bank card API)
+     * @return bankId
     **/
-    @javax.annotation.Nullable
-    public Integer getStartTime() {
-        return startTime;
+    public String getBankId() {
+        return bankId;
     }
 
 
-    public void setStartTime(Integer startTime) {
-        this.startTime = startTime;
-    }
-
-    public InlineObject7 endTime(Integer endTime) {
-        
-        this.endTime = endTime;
-        return this;
-    }
-
-     /**
-     * End timestamp, default is 23:59:59 today
-     * @return endTime
-    **/
-    @javax.annotation.Nullable
-    public Integer getEndTime() {
-        return endTime;
-    }
-
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
+    public void setBankId(String bankId) {
+        this.bankId = bankId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -222,19 +240,20 @@ public class InlineObject7 {
             return false;
         }
         InlineObject7 inlineObject7 = (InlineObject7) o;
-        return Objects.equals(this.cryptoCurrency, inlineObject7.cryptoCurrency) &&
+        return Objects.equals(this.type, inlineObject7.type) &&
+                Objects.equals(this.side, inlineObject7.side) &&
+                Objects.equals(this.cryptoCurrency, inlineObject7.cryptoCurrency) &&
                 Objects.equals(this.fiatCurrency, inlineObject7.fiatCurrency) &&
-                Objects.equals(this.orderTab, inlineObject7.orderTab) &&
-                Objects.equals(this.selectType, inlineObject7.selectType) &&
-                Objects.equals(this.status, inlineObject7.status) &&
-                Objects.equals(this.txid, inlineObject7.txid) &&
-                Objects.equals(this.startTime, inlineObject7.startTime) &&
-                Objects.equals(this.endTime, inlineObject7.endTime);
+                Objects.equals(this.cryptoAmount, inlineObject7.cryptoAmount) &&
+                Objects.equals(this.fiatAmount, inlineObject7.fiatAmount) &&
+                Objects.equals(this.promotionCode, inlineObject7.promotionCode) &&
+                Objects.equals(this.quoteToken, inlineObject7.quoteToken) &&
+                Objects.equals(this.bankId, inlineObject7.bankId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cryptoCurrency, fiatCurrency, orderTab, selectType, status, txid, startTime, endTime);
+        return Objects.hash(type, side, cryptoCurrency, fiatCurrency, cryptoAmount, fiatAmount, promotionCode, quoteToken, bankId);
     }
 
 
@@ -242,14 +261,15 @@ public class InlineObject7 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject7 {\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      side: ").append(toIndentedString(side)).append("\n");
         sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
         sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
-        sb.append("      orderTab: ").append(toIndentedString(orderTab)).append("\n");
-        sb.append("      selectType: ").append(toIndentedString(selectType)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      startTime: ").append(toIndentedString(startTime)).append("\n");
-        sb.append("      endTime: ").append(toIndentedString(endTime)).append("\n");
+        sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
+        sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
+        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
+        sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
+        sb.append("      bankId: ").append(toIndentedString(bankId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

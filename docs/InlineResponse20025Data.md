@@ -5,5 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fileKey** | **String** | File key | 
+**SRVTM** | **Integer** | Timestamp when message was successfully sent (current timestamp) |  [optional]
 

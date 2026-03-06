@@ -39,7 +39,7 @@ public class MockFuturesPosition {
     }
 
      /**
-     * Futures name, currently only supports USDT perpetual contracts for BTC and ETH
+     * Perpetual contract name. Only USDT perpetual contracts for underlying currencies with active options trading are supported.
      * @return contract
     **/
     public String getContract() {

@@ -74,6 +74,7 @@ public class InlineResponse20017DataConvertInfo {
      * Flash swap target currency
      * @return convertType
     **/
+    @javax.annotation.Nullable
     public String getConvertType() {
         return convertType;
     }
@@ -93,6 +94,7 @@ public class InlineResponse20017DataConvertInfo {
      * Flash swap order status
      * @return convertStatus
     **/
+    @javax.annotation.Nullable
     public String getConvertStatus() {
         return convertStatus;
     }
@@ -112,6 +114,7 @@ public class InlineResponse20017DataConvertInfo {
      * Expected price when placing order
      * @return preRate
     **/
+    @javax.annotation.Nullable
     public String getPreRate() {
         return preRate;
     }
@@ -131,6 +134,7 @@ public class InlineResponse20017DataConvertInfo {
      * Execution price
      * @return rate
     **/
+    @javax.annotation.Nullable
     public String getRate() {
         return rate;
     }
@@ -150,6 +154,7 @@ public class InlineResponse20017DataConvertInfo {
      * Expected fiat price when placing order
      * @return preFiatRate
     **/
+    @javax.annotation.Nullable
     public String getPreFiatRate() {
         return preFiatRate;
     }
@@ -169,6 +174,7 @@ public class InlineResponse20017DataConvertInfo {
      * Fiat price at execution
      * @return fiatRate
     **/
+    @javax.annotation.Nullable
     public String getFiatRate() {
         return fiatRate;
     }
@@ -188,6 +194,7 @@ public class InlineResponse20017DataConvertInfo {
      * Size
      * @return amount
     **/
+    @javax.annotation.Nullable
     public String getAmount() {
         return amount;
     }
@@ -207,6 +214,7 @@ public class InlineResponse20017DataConvertInfo {
      * Swap Amount
      * @return convertAmount
     **/
+    @javax.annotation.Nullable
     public String getConvertAmount() {
         return convertAmount;
     }
@@ -226,6 +234,7 @@ public class InlineResponse20017DataConvertInfo {
      * Slippage calculation: slippage &#x3D; (expected price when placing order - real-time price during auto swap) / expected price when placing order
      * @return slippage
     **/
+    @javax.annotation.Nullable
     public String getSlippage() {
         return slippage;
     }
@@ -245,6 +254,7 @@ public class InlineResponse20017DataConvertInfo {
      * Flash swap order display status
      * @return status
     **/
+    @javax.annotation.Nullable
     public String getStatus() {
         return status;
     }

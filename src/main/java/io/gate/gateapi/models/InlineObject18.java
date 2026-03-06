@@ -23,76 +23,52 @@ import java.io.IOException;
  * InlineObject18
  */
 public class InlineObject18 {
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_LASTRECEIVED = "lastreceived";
-    @SerializedName(SERIALIZED_NAME_LASTRECEIVED)
-    private Integer lastreceived;
-
-    public static final String SERIALIZED_NAME_FIRSTRECEIVED = "firstreceived";
-    @SerializedName(SERIALIZED_NAME_FIRSTRECEIVED)
-    private Integer firstreceived;
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private String positionSide;
 
 
-    public InlineObject18 txid(Integer txid) {
+    public InlineObject18 symbol(String symbol) {
         
-        this.txid = txid;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Order ID
-     * @return txid
+     * Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT
+     * @return symbol
     **/
-    public Integer getTxid() {
-        return txid;
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setTxid(Integer txid) {
-        this.txid = txid;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineObject18 lastreceived(Integer lastreceived) {
+    public InlineObject18 positionSide(String positionSide) {
         
-        this.lastreceived = lastreceived;
+        this.positionSide = positionSide;
         return this;
     }
 
      /**
-     * Pagination timestamp (forward)
-     * @return lastreceived
+     * Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method
+     * @return positionSide
     **/
     @javax.annotation.Nullable
-    public Integer getLastreceived() {
-        return lastreceived;
+    public String getPositionSide() {
+        return positionSide;
     }
 
 
-    public void setLastreceived(Integer lastreceived) {
-        this.lastreceived = lastreceived;
-    }
-
-    public InlineObject18 firstreceived(Integer firstreceived) {
-        
-        this.firstreceived = firstreceived;
-        return this;
-    }
-
-     /**
-     * Pagination timestamp (backward)
-     * @return firstreceived
-    **/
-    @javax.annotation.Nullable
-    public Integer getFirstreceived() {
-        return firstreceived;
-    }
-
-
-    public void setFirstreceived(Integer firstreceived) {
-        this.firstreceived = firstreceived;
+    public void setPositionSide(String positionSide) {
+        this.positionSide = positionSide;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -103,14 +79,13 @@ public class InlineObject18 {
             return false;
         }
         InlineObject18 inlineObject18 = (InlineObject18) o;
-        return Objects.equals(this.txid, inlineObject18.txid) &&
-                Objects.equals(this.lastreceived, inlineObject18.lastreceived) &&
-                Objects.equals(this.firstreceived, inlineObject18.firstreceived);
+        return Objects.equals(this.symbol, inlineObject18.symbol) &&
+                Objects.equals(this.positionSide, inlineObject18.positionSide);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(txid, lastreceived, firstreceived);
+        return Objects.hash(symbol, positionSide);
     }
 
 
@@ -118,9 +93,8 @@ public class InlineObject18 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject18 {\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      lastreceived: ").append(toIndentedString(lastreceived)).append("\n");
-        sb.append("      firstreceived: ").append(toIndentedString(firstreceived)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("}");
         return sb.toString();
     }

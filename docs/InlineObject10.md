@@ -5,6 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tradeId** | **String** |  | 
-**paymentMethod** | **String** |  | 
+**coin** | **String** | Currency | 
+**amount** | **String** | Transfer amount | 
+**from** | **String** | Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT | 
+**to** | **String** | Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT | 
+**text** | **String** | User-defined ID |  [optional]
 

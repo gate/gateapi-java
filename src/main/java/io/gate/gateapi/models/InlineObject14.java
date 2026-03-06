@@ -23,51 +23,28 @@ import java.io.IOException;
  * InlineObject14
  */
 public class InlineObject14 {
-    public static final String SERIALIZED_NAME_ADV_NO = "adv_no";
-    @SerializedName(SERIALIZED_NAME_ADV_NO)
-    private Integer advNo;
-
-    public static final String SERIALIZED_NAME_ADV_STATUS = "adv_status";
-    @SerializedName(SERIALIZED_NAME_ADV_STATUS)
-    private Integer advStatus;
+    public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
+    @SerializedName(SERIALIZED_NAME_QUOTE_ID)
+    private String quoteId;
 
 
-    public InlineObject14 advNo(Integer advNo) {
+    public InlineObject14 quoteId(String quoteId) {
         
-        this.advNo = advNo;
+        this.quoteId = quoteId;
         return this;
     }
 
      /**
-     * Ad ID
-     * @return advNo
+     * Inquiry ID
+     * @return quoteId
     **/
-    public Integer getAdvNo() {
-        return advNo;
+    public String getQuoteId() {
+        return quoteId;
     }
 
 
-    public void setAdvNo(Integer advNo) {
-        this.advNo = advNo;
-    }
-
-    public InlineObject14 advStatus(Integer advStatus) {
-        
-        this.advStatus = advStatus;
-        return this;
-    }
-
-     /**
-     * Ad status: 1&#x3D;Active, 3&#x3D;Inactive, 4&#x3D;Closed
-     * @return advStatus
-    **/
-    public Integer getAdvStatus() {
-        return advStatus;
-    }
-
-
-    public void setAdvStatus(Integer advStatus) {
-        this.advStatus = advStatus;
+    public void setQuoteId(String quoteId) {
+        this.quoteId = quoteId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +55,12 @@ public class InlineObject14 {
             return false;
         }
         InlineObject14 inlineObject14 = (InlineObject14) o;
-        return Objects.equals(this.advNo, inlineObject14.advNo) &&
-                Objects.equals(this.advStatus, inlineObject14.advStatus);
+        return Objects.equals(this.quoteId, inlineObject14.quoteId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(advNo, advStatus);
+        return Objects.hash(quoteId);
     }
 
 
@@ -92,8 +68,7 @@ public class InlineObject14 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject14 {\n");
-        sb.append("      advNo: ").append(toIndentedString(advNo)).append("\n");
-        sb.append("      advStatus: ").append(toIndentedString(advStatus)).append("\n");
+        sb.append("      quoteId: ").append(toIndentedString(quoteId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

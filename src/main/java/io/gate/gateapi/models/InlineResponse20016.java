@@ -45,7 +45,7 @@ public class InlineResponse20016 {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private List<InlineResponse20016Data> data = new ArrayList<>();
+    private List<InlineResponse20016Data> data = null;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
     @SerializedName(SERIALIZED_NAME_VERSION)
@@ -62,6 +62,7 @@ public class InlineResponse20016 {
      * Get timestamp
      * @return timestamp
     **/
+    @javax.annotation.Nullable
     public BigDecimal getTimestamp() {
         return timestamp;
     }
@@ -81,6 +82,7 @@ public class InlineResponse20016 {
      * Get method
      * @return method
     **/
+    @javax.annotation.Nullable
     public String getMethod() {
         return method;
     }
@@ -100,6 +102,7 @@ public class InlineResponse20016 {
      * Get code
      * @return code
     **/
+    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -119,6 +122,7 @@ public class InlineResponse20016 {
      * Get message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -135,6 +139,9 @@ public class InlineResponse20016 {
     }
 
     public InlineResponse20016 addDataItem(InlineResponse20016Data dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<>();
+        }
         this.data.add(dataItem);
         return this;
     }
@@ -143,6 +150,7 @@ public class InlineResponse20016 {
      * Get data
      * @return data
     **/
+    @javax.annotation.Nullable
     public List<InlineResponse20016Data> getData() {
         return data;
     }
@@ -162,6 +170,7 @@ public class InlineResponse20016 {
      * Get version
      * @return version
     **/
+    @javax.annotation.Nullable
     public String getVersion() {
         return version;
     }

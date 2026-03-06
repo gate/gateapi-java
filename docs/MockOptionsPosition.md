@@ -7,6 +7,6 @@ Options positions
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**optionsName** | **String** | Option name, currently only supports USDT options for BTC and ETH | 
+**optionsName** | **String** | Options contract name. Currently supports all options contract markets. | 
 **size** | **String** | Position size, measured in contract quantity | 
 

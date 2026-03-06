@@ -20,31 +20,102 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject5
+ * Close position request parameters
  */
 public class InlineObject5 {
-    public static final String SERIALIZED_NAME_BIZ_UID = "biz_uid";
-    @SerializedName(SERIALIZED_NAME_BIZ_UID)
-    private String bizUid;
-
-
-    public InlineObject5 bizUid(String bizUid) {
+    /**
+     * 平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）
+     */
+    @JsonAdapter(CloseTypeEnum.Adapter.class)
+    public enum CloseTypeEnum {
+        NUMBER_1(1),
         
-        this.bizUid = bizUid;
+        NUMBER_2(2);
+
+        private Integer value;
+
+        CloseTypeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CloseTypeEnum fromValue(Integer value) {
+            for (CloseTypeEnum b : CloseTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<CloseTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CloseTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CloseTypeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return CloseTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_CLOSE_TYPE = "close_type";
+    @SerializedName(SERIALIZED_NAME_CLOSE_TYPE)
+    private CloseTypeEnum closeType;
+
+    public static final String SERIALIZED_NAME_CLOSE_VOLUME = "close_volume";
+    @SerializedName(SERIALIZED_NAME_CLOSE_VOLUME)
+    private String closeVolume;
+
+
+    public InlineObject5 closeType(CloseTypeEnum closeType) {
+        
+        this.closeType = closeType;
         return this;
     }
 
      /**
-     * Counterparty UID (encrypted)
-     * @return bizUid
+     * 平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）
+     * @return closeType
     **/
-    public String getBizUid() {
-        return bizUid;
+    public CloseTypeEnum getCloseType() {
+        return closeType;
     }
 
 
-    public void setBizUid(String bizUid) {
-        this.bizUid = bizUid;
+    public void setCloseType(CloseTypeEnum closeType) {
+        this.closeType = closeType;
+    }
+
+    public InlineObject5 closeVolume(String closeVolume) {
+        
+        this.closeVolume = closeVolume;
+        return this;
+    }
+
+     /**
+     * 平仓数量  说明： - 当 close_type &#x3D; 1 时必传 - 当 close_type &#x3D; 2 时忽略该字段
+     * @return closeVolume
+    **/
+    @javax.annotation.Nullable
+    public String getCloseVolume() {
+        return closeVolume;
+    }
+
+
+    public void setCloseVolume(String closeVolume) {
+        this.closeVolume = closeVolume;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +126,13 @@ public class InlineObject5 {
             return false;
         }
         InlineObject5 inlineObject5 = (InlineObject5) o;
-        return Objects.equals(this.bizUid, inlineObject5.bizUid);
+        return Objects.equals(this.closeType, inlineObject5.closeType) &&
+                Objects.equals(this.closeVolume, inlineObject5.closeVolume);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bizUid);
+        return Objects.hash(closeType, closeVolume);
     }
 
 
@@ -68,7 +140,8 @@ public class InlineObject5 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject5 {\n");
-        sb.append("      bizUid: ").append(toIndentedString(bizUid)).append("\n");
+        sb.append("      closeType: ").append(toIndentedString(closeType)).append("\n");
+        sb.append("      closeVolume: ").append(toIndentedString(closeVolume)).append("\n");
         sb.append("}");
         return sb.toString();
     }

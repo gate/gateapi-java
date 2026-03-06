@@ -9804,13 +9804,13 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceTriggeredOrderCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPriceTriggeredOrderCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/futures/{settle}/price_orders/{order_id}"
             .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
-            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9836,7 +9836,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPriceTriggeredOrderValidateBeforeCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPriceTriggeredOrderValidateBeforeCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling getPriceTriggeredOrder(Async)");
@@ -9864,7 +9864,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesPriceTriggeredOrder getPriceTriggeredOrder(String settle, String orderId) throws ApiException {
+    public FuturesPriceTriggeredOrder getPriceTriggeredOrder(String settle, Integer orderId) throws ApiException {
         ApiResponse<FuturesPriceTriggeredOrder> localVarResp = getPriceTriggeredOrderWithHttpInfo(settle, orderId);
         return localVarResp.getData();
     }
@@ -9882,7 +9882,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesPriceTriggeredOrder> getPriceTriggeredOrderWithHttpInfo(String settle, String orderId) throws ApiException {
+    public ApiResponse<FuturesPriceTriggeredOrder> getPriceTriggeredOrderWithHttpInfo(String settle, Integer orderId) throws ApiException {
         okhttp3.Call localVarCall = getPriceTriggeredOrderValidateBeforeCall(settle, orderId, null);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9902,8 +9902,126 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceTriggeredOrderAsync(String settle, String orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
+    public okhttp3.Call getPriceTriggeredOrderAsync(String settle, Integer orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = getPriceTriggeredOrderValidateBeforeCall(settle, orderId, _callback);
+        Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelPriceTriggeredOrder
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelPriceTriggeredOrderCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/price_orders/{order_id}"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelPriceTriggeredOrderValidateBeforeCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling cancelPriceTriggeredOrder(Async)");
+        }
+
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling cancelPriceTriggeredOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = cancelPriceTriggeredOrderCall(settle, orderId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Cancel single auto order
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @return FuturesPriceTriggeredOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(String settle, Integer orderId) throws ApiException {
+        ApiResponse<FuturesPriceTriggeredOrder> localVarResp = cancelPriceTriggeredOrderWithHttpInfo(settle, orderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel single auto order
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderWithHttpInfo(String settle, Integer orderId) throws ApiException {
+        okhttp3.Call localVarCall = cancelPriceTriggeredOrderValidateBeforeCall(settle, orderId, null);
+        Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel single auto order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param orderId ID returned when order is successfully created (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelPriceTriggeredOrderAsync(String settle, Integer orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelPriceTriggeredOrderValidateBeforeCall(settle, orderId, _callback);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -9923,13 +10041,13 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = futuresUpdatePriceTriggeredOrder;
 
         // create path and map variables
-        String localVarPath = "/futures/{settle}/price_orders/{order_id}"
+        String localVarPath = "/futures/{settle}/price_orders/amend/{order_id}"
             .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
-            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9955,7 +10073,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updatePriceTriggeredOrder(Async)");
@@ -9989,7 +10107,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
         ApiResponse<TriggerOrderResponse> localVarResp = updatePriceTriggeredOrderWithHttpInfo(settle, orderId, futuresUpdatePriceTriggeredOrder);
         return localVarResp.getData();
     }
@@ -10008,7 +10126,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
         okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, null);
         Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10029,127 +10147,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, String orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
+    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, _callback);
         Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for cancelPriceTriggeredOrder
-     * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call cancelPriceTriggeredOrderCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/futures/{settle}/price_orders/{order_id}"
-            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
-            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelPriceTriggeredOrderValidateBeforeCall(String settle, String orderId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'settle' is set
-        if (settle == null) {
-            throw new ApiException("Missing the required parameter 'settle' when calling cancelPriceTriggeredOrder(Async)");
-        }
-
-        // verify the required parameter 'orderId' is set
-        if (orderId == null) {
-            throw new ApiException("Missing the required parameter 'orderId' when calling cancelPriceTriggeredOrder(Async)");
-        }
-
-        okhttp3.Call localVarCall = cancelPriceTriggeredOrderCall(settle, orderId, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Cancel single auto order
-     * 
-     * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
-     * @return FuturesPriceTriggeredOrder
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
-     </table>
-     */
-    public FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(String settle, String orderId) throws ApiException {
-        ApiResponse<FuturesPriceTriggeredOrder> localVarResp = cancelPriceTriggeredOrderWithHttpInfo(settle, orderId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Cancel single auto order
-     * 
-     * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
-     * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderWithHttpInfo(String settle, String orderId) throws ApiException {
-        okhttp3.Call localVarCall = cancelPriceTriggeredOrderValidateBeforeCall(settle, orderId, null);
-        Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Cancel single auto order (asynchronously)
-     * 
-     * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call cancelPriceTriggeredOrderAsync(String settle, String orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelPriceTriggeredOrderValidateBeforeCall(settle, orderId, _callback);
-        Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

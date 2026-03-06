@@ -20,176 +20,79 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject3
+ * Modify order price and take profit/stop loss parameters
  */
 public class InlineObject3 {
-    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
-    @SerializedName(SERIALIZED_NAME_PAY_COIN)
-    private String payCoin;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
-    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
-    @SerializedName(SERIALIZED_NAME_GET_COIN)
-    private String getCoin;
+    public static final String SERIALIZED_NAME_PRICE_TP = "price_tp";
+    @SerializedName(SERIALIZED_NAME_PRICE_TP)
+    private String priceTp;
 
-    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
-    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
-    private String payAmount;
-
-    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
-    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
-    private String getAmount;
-
-    public static final String SERIALIZED_NAME_SIDE = "side";
-    @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
-
-    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
-    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
-    private String promotionCode;
-
-    public static final String SERIALIZED_NAME_QUOTE_TOKEN = "quote_token";
-    @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
-    private String quoteToken;
+    public static final String SERIALIZED_NAME_PRICE_SL = "price_sl";
+    @SerializedName(SERIALIZED_NAME_PRICE_SL)
+    private String priceSl;
 
 
-    public InlineObject3 payCoin(String payCoin) {
+    public InlineObject3 price(String price) {
         
-        this.payCoin = payCoin;
+        this.price = price;
         return this;
     }
 
      /**
-     * Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.
-     * @return payCoin
+     * Price Description: - Required
+     * @return price
     **/
-    @javax.annotation.Nullable
-    public String getPayCoin() {
-        return payCoin;
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setPayCoin(String payCoin) {
-        this.payCoin = payCoin;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public InlineObject3 getCoin(String getCoin) {
+    public InlineObject3 priceTp(String priceTp) {
         
-        this.getCoin = getCoin;
+        this.priceTp = priceTp;
         return this;
     }
 
      /**
-     * Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.
-     * @return getCoin
+     * Take Profit Price Description: - If not provided or set to \&quot;0\&quot;: The original take profit price will be cleared - If you do not want to clear it, pass the original take profit price returned by the interface
+     * @return priceTp
     **/
     @javax.annotation.Nullable
-    public String getGetCoin() {
-        return getCoin;
+    public String getPriceTp() {
+        return priceTp;
     }
 
 
-    public void setGetCoin(String getCoin) {
-        this.getCoin = getCoin;
+    public void setPriceTp(String priceTp) {
+        this.priceTp = priceTp;
     }
 
-    public InlineObject3 payAmount(String payAmount) {
+    public InlineObject3 priceSl(String priceSl) {
         
-        this.payAmount = payAmount;
+        this.priceSl = priceSl;
         return this;
     }
 
      /**
-     * User payment currency amount
-     * @return payAmount
+     * Stop Loss Price Description: - If not provided or set to \&quot;0\&quot;: The original stop loss price will be cleared - If you do not want to clear it, pass the original stop loss price returned by the interface
+     * @return priceSl
     **/
     @javax.annotation.Nullable
-    public String getPayAmount() {
-        return payAmount;
+    public String getPriceSl() {
+        return priceSl;
     }
 
 
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
-    }
-
-    public InlineObject3 getAmount(String getAmount) {
-        
-        this.getAmount = getAmount;
-        return this;
-    }
-
-     /**
-     * Amount of currency received by the user
-     * @return getAmount
-    **/
-    @javax.annotation.Nullable
-    public String getGetAmount() {
-        return getAmount;
-    }
-
-
-    public void setGetAmount(String getAmount) {
-        this.getAmount = getAmount;
-    }
-
-    public InlineObject3 side(String side) {
-        
-        this.side = side;
-        return this;
-    }
-
-     /**
-     * Quote direction returned by the quote API (used for order validation)
-     * @return side
-    **/
-    @javax.annotation.Nullable
-    public String getSide() {
-        return side;
-    }
-
-
-    public void setSide(String side) {
-        this.side = side;
-    }
-
-    public InlineObject3 promotionCode(String promotionCode) {
-        
-        this.promotionCode = promotionCode;
-        return this;
-    }
-
-     /**
-     * promotion code 
-     * @return promotionCode
-    **/
-    @javax.annotation.Nullable
-    public String getPromotionCode() {
-        return promotionCode;
-    }
-
-
-    public void setPromotionCode(String promotionCode) {
-        this.promotionCode = promotionCode;
-    }
-
-    public InlineObject3 quoteToken(String quoteToken) {
-        
-        this.quoteToken = quoteToken;
-        return this;
-    }
-
-     /**
-     * Parameter returned by the quote API
-     * @return quoteToken
-    **/
-    @javax.annotation.Nullable
-    public String getQuoteToken() {
-        return quoteToken;
-    }
-
-
-    public void setQuoteToken(String quoteToken) {
-        this.quoteToken = quoteToken;
+    public void setPriceSl(String priceSl) {
+        this.priceSl = priceSl;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -200,18 +103,14 @@ public class InlineObject3 {
             return false;
         }
         InlineObject3 inlineObject3 = (InlineObject3) o;
-        return Objects.equals(this.payCoin, inlineObject3.payCoin) &&
-                Objects.equals(this.getCoin, inlineObject3.getCoin) &&
-                Objects.equals(this.payAmount, inlineObject3.payAmount) &&
-                Objects.equals(this.getAmount, inlineObject3.getAmount) &&
-                Objects.equals(this.side, inlineObject3.side) &&
-                Objects.equals(this.promotionCode, inlineObject3.promotionCode) &&
-                Objects.equals(this.quoteToken, inlineObject3.quoteToken);
+        return Objects.equals(this.price, inlineObject3.price) &&
+                Objects.equals(this.priceTp, inlineObject3.priceTp) &&
+                Objects.equals(this.priceSl, inlineObject3.priceSl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(payCoin, getCoin, payAmount, getAmount, side, promotionCode, quoteToken);
+        return Objects.hash(price, priceTp, priceSl);
     }
 
 
@@ -219,13 +118,9 @@ public class InlineObject3 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject3 {\n");
-        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
-        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
-        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
-        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
-        sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
-        sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      priceTp: ").append(toIndentedString(priceTp)).append("\n");
+        sb.append("      priceSl: ").append(toIndentedString(priceSl)).append("\n");
         sb.append("}");
         return sb.toString();
     }

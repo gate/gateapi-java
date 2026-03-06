@@ -17,70 +17,157 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.RuleRiskLimitsTiers;
+import io.gate.gateapi.models.InlineResponse20026Data;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20026
  */
 public class InlineResponse20026 {
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private BigDecimal timestamp;
 
-    public static final String SERIALIZED_NAME_TIERS = "tiers";
-    @SerializedName(SERIALIZED_NAME_TIERS)
-    private List<RuleRiskLimitsTiers> tiers = null;
+    public static final String SERIALIZED_NAME_METHOD = "method";
+    @SerializedName(SERIALIZED_NAME_METHOD)
+    private String method;
+
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse20026Data data;
+
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
 
 
-    public InlineResponse20026 symbol(String symbol) {
+    public InlineResponse20026 timestamp(BigDecimal timestamp) {
         
-        this.symbol = symbol;
+        this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Get symbol
-     * @return symbol
+     * Get timestamp
+     * @return timestamp
     **/
     @javax.annotation.Nullable
-    public String getSymbol() {
-        return symbol;
+    public BigDecimal getTimestamp() {
+        return timestamp;
     }
 
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTimestamp(BigDecimal timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public InlineResponse20026 tiers(List<RuleRiskLimitsTiers> tiers) {
+    public InlineResponse20026 method(String method) {
         
-        this.tiers = tiers;
-        return this;
-    }
-
-    public InlineResponse20026 addTiersItem(RuleRiskLimitsTiers tiersItem) {
-        if (this.tiers == null) {
-            this.tiers = new ArrayList<>();
-        }
-        this.tiers.add(tiersItem);
+        this.method = method;
         return this;
     }
 
      /**
-     * Get tiers
-     * @return tiers
+     * Get method
+     * @return method
     **/
     @javax.annotation.Nullable
-    public List<RuleRiskLimitsTiers> getTiers() {
-        return tiers;
+    public String getMethod() {
+        return method;
     }
 
 
-    public void setTiers(List<RuleRiskLimitsTiers> tiers) {
-        this.tiers = tiers;
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public InlineResponse20026 code(Integer code) {
+        
+        this.code = code;
+        return this;
+    }
+
+     /**
+     * Get code
+     * @return code
+    **/
+    @javax.annotation.Nullable
+    public Integer getCode() {
+        return code;
+    }
+
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public InlineResponse20026 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Get message
+     * @return message
+    **/
+    @javax.annotation.Nullable
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public InlineResponse20026 data(InlineResponse20026Data data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Get data
+     * @return data
+    **/
+    @javax.annotation.Nullable
+    public InlineResponse20026Data getData() {
+        return data;
+    }
+
+
+    public void setData(InlineResponse20026Data data) {
+        this.data = data;
+    }
+
+    public InlineResponse20026 version(String version) {
+        
+        this.version = version;
+        return this;
+    }
+
+     /**
+     * Get version
+     * @return version
+    **/
+    @javax.annotation.Nullable
+    public String getVersion() {
+        return version;
+    }
+
+
+    public void setVersion(String version) {
+        this.version = version;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,13 +178,17 @@ public class InlineResponse20026 {
             return false;
         }
         InlineResponse20026 inlineResponse20026 = (InlineResponse20026) o;
-        return Objects.equals(this.symbol, inlineResponse20026.symbol) &&
-                Objects.equals(this.tiers, inlineResponse20026.tiers);
+        return Objects.equals(this.timestamp, inlineResponse20026.timestamp) &&
+                Objects.equals(this.method, inlineResponse20026.method) &&
+                Objects.equals(this.code, inlineResponse20026.code) &&
+                Objects.equals(this.message, inlineResponse20026.message) &&
+                Objects.equals(this.data, inlineResponse20026.data) &&
+                Objects.equals(this.version, inlineResponse20026.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, tiers);
+        return Objects.hash(timestamp, method, code, message, data, version);
     }
 
 
@@ -105,8 +196,12 @@ public class InlineResponse20026 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20026 {\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      tiers: ").append(toIndentedString(tiers)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      method: ").append(toIndentedString(method)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

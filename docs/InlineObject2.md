@@ -1,17 +1,31 @@
 
 # InlineObject2
 
+Place order request parameters
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | BUY for on-ramp, SELL for off-ramp | 
-**side** | **String** | Quote direction returned by the quote API (used for order validation) | 
-**cryptoCurrency** | **String** | Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page) | 
-**fiatCurrency** | **String** | Fiat currency (supported currencies can be queried from the OTC web fiat quote page) | 
-**cryptoAmount** | **String** | Amount of cryptocurrency | 
-**fiatAmount** | **String** | Fiat amount | 
-**promotionCode** | **String** | Promotion code |  [optional]
-**quoteToken** | **String** | Parameter returned by the quote API | 
-**bankId** | **String** | Bank card ID used for the order (retrieved via the default bank card API) | 
+**price** | **String** | Order price | 
+**priceType** | [**PriceTypeEnum**](#PriceTypeEnum) | Price type (trigger&#x3D;trigger price, market&#x3D;market price) | 
+**side** | [**SideEnum**](#SideEnum) | Order side (1&#x3D;sell, 2&#x3D;buy) | 
+**symbol** | **String** | Trading symbol code | 
+**volume** | **String** | Order volume | 
+**priceTp** | **String** | Take profit price (optional) |  [optional]
+**priceSl** | **String** | Stop loss price (optional) |  [optional]
+
+## Enum: PriceTypeEnum
+
+Name | Value
+---- | -----
+TRIGGER | &quot;trigger&quot;
+MARKET | &quot;market&quot;
+
+## Enum: SideEnum
+
+Name | Value
+---- | -----
+NUMBER_1 | 1
+NUMBER_2 | 2
 

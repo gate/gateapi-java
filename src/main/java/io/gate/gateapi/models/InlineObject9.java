@@ -23,52 +23,28 @@ import java.io.IOException;
  * InlineObject9
  */
 public class InlineObject9 {
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
-
-    public static final String SERIALIZED_NAME_CHANNEL = "channel";
-    @SerializedName(SERIALIZED_NAME_CHANNEL)
-    private String channel;
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
 
 
-    public InlineObject9 txid(Integer txid) {
+    public InlineObject9 orderId(String orderId) {
         
-        this.txid = txid;
+        this.orderId = orderId;
         return this;
     }
 
      /**
      * Order ID
-     * @return txid
+     * @return orderId
     **/
-    public Integer getTxid() {
-        return txid;
+    public String getOrderId() {
+        return orderId;
     }
 
 
-    public void setTxid(Integer txid) {
-        this.txid = txid;
-    }
-
-    public InlineObject9 channel(String channel) {
-        
-        this.channel = channel;
-        return this;
-    }
-
-     /**
-     * Empty or web3
-     * @return channel
-    **/
-    @javax.annotation.Nullable
-    public String getChannel() {
-        return channel;
-    }
-
-
-    public void setChannel(String channel) {
-        this.channel = channel;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,13 +55,12 @@ public class InlineObject9 {
             return false;
         }
         InlineObject9 inlineObject9 = (InlineObject9) o;
-        return Objects.equals(this.txid, inlineObject9.txid) &&
-                Objects.equals(this.channel, inlineObject9.channel);
+        return Objects.equals(this.orderId, inlineObject9.orderId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(txid, channel);
+        return Objects.hash(orderId);
     }
 
 
@@ -93,8 +68,7 @@ public class InlineObject9 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject9 {\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      channel: ").append(toIndentedString(channel)).append("\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

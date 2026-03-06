@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messages** | [**List&lt;InlineResponse20023DataMessages&gt;**](InlineResponse20023DataMessages.md) | Message List | 
-**memo** | **String** | Payment tip (displayed on homepage only) | 
-**hasHistory** | **Boolean** | Whether historical records exist | 
-**txid** | **Integer** | Order ID | 
-**SRVTM** | **Integer** | Timestamp of the latest message | 
-**orderStatus** | **String** | Order Status | 
+**index** | **Integer** | Serial number |  [optional]
+**asset** | **String** | Cryptocurrency |  [optional]
+**fiatUnit** | **String** | Fiat currency |  [optional]
+**advNo** | **Integer** | Ad ID |  [optional]
+**price** | **String** | Price |  [optional]
+**maxSingleTransAmount** | **String** | Maximum Cryptocurrency Amount |  [optional]
+**minSingleTransAmount** | **String** | Minimum Cryptocurrency Amount |  [optional]
+**nickName** | **String** | Advertiser Nickname |  [optional]
 

@@ -29,11 +29,11 @@ import java.util.List;
 public class InlineResponse20017Data {
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20017DataList> list = new ArrayList<>();
+    private List<InlineResponse20017DataList> list = null;
 
     public static final String SERIALIZED_NAME_TRANS_TIME = "trans_time";
     @SerializedName(SERIALIZED_NAME_TRANS_TIME)
-    private List<InlineResponse20017DataTransTime> transTime = new ArrayList<>();
+    private List<InlineResponse20017DataTransTime> transTime = null;
 
     public static final String SERIALIZED_NAME_COUNT = "count";
     @SerializedName(SERIALIZED_NAME_COUNT)
@@ -51,6 +51,9 @@ public class InlineResponse20017Data {
     }
 
     public InlineResponse20017Data addListItem(InlineResponse20017DataList listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<>();
+        }
         this.list.add(listItem);
         return this;
     }
@@ -59,6 +62,7 @@ public class InlineResponse20017Data {
      * Get list
      * @return list
     **/
+    @javax.annotation.Nullable
     public List<InlineResponse20017DataList> getList() {
         return list;
     }
@@ -75,6 +79,9 @@ public class InlineResponse20017Data {
     }
 
     public InlineResponse20017Data addTransTimeItem(InlineResponse20017DataTransTime transTimeItem) {
+        if (this.transTime == null) {
+            this.transTime = new ArrayList<>();
+        }
         this.transTime.add(transTimeItem);
         return this;
     }
@@ -83,6 +90,7 @@ public class InlineResponse20017Data {
      * Countdown time
      * @return transTime
     **/
+    @javax.annotation.Nullable
     public List<InlineResponse20017DataTransTime> getTransTime() {
         return transTime;
     }
@@ -102,6 +110,7 @@ public class InlineResponse20017Data {
      * Number of orders
      * @return count
     **/
+    @javax.annotation.Nullable
     public Integer getCount() {
         return count;
     }
@@ -121,6 +130,7 @@ public class InlineResponse20017Data {
      * Export count
      * @return exportedNum
     **/
+    @javax.annotation.Nullable
     public Integer getExportedNum() {
         return exportedNum;
     }

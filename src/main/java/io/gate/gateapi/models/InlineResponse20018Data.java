@@ -159,7 +159,7 @@ public class InlineResponse20018Data {
 
     public static final String SERIALIZED_NAME_PAY_OTHERS = "pay_others";
     @SerializedName(SERIALIZED_NAME_PAY_OTHERS)
-    private List<String> payOthers = new ArrayList<>();
+    private List<String> payOthers = null;
 
     public static final String SERIALIZED_NAME_SEL_PAYTYPE = "sel_paytype";
     @SerializedName(SERIALIZED_NAME_SEL_PAYTYPE)
@@ -227,7 +227,7 @@ public class InlineResponse20018Data {
 
     public static final String SERIALIZED_NAME_PAYMENT_VOUCHER_URL = "payment_voucher_url";
     @SerializedName(SERIALIZED_NAME_PAYMENT_VOUCHER_URL)
-    private List<String> paymentVoucherUrl = new ArrayList<>();
+    private List<String> paymentVoucherUrl = null;
 
     public static final String SERIALIZED_NAME_COMPLETE_NUMBER = "complete_number";
     @SerializedName(SERIALIZED_NAME_COMPLETE_NUMBER)
@@ -311,7 +311,7 @@ public class InlineResponse20018Data {
 
     public static final String SERIALIZED_NAME_SUPPORTED_PAY_TYPES = "supported_pay_types";
     @SerializedName(SERIALIZED_NAME_SUPPORTED_PAY_TYPES)
-    private List<String> supportedPayTypes = new ArrayList<>();
+    private List<String> supportedPayTypes = null;
 
 
     public InlineResponse20018Data isSell(Integer isSell) {
@@ -324,6 +324,7 @@ public class InlineResponse20018Data {
      * Whether sell order
      * @return isSell
     **/
+    @javax.annotation.Nullable
     public Integer getIsSell() {
         return isSell;
     }
@@ -343,6 +344,7 @@ public class InlineResponse20018Data {
      * Order ID
      * @return txid
     **/
+    @javax.annotation.Nullable
     public Integer getTxid() {
         return txid;
     }
@@ -362,6 +364,7 @@ public class InlineResponse20018Data {
      * Order ID
      * @return orderid
     **/
+    @javax.annotation.Nullable
     public Integer getOrderid() {
         return orderid;
     }
@@ -381,6 +384,7 @@ public class InlineResponse20018Data {
      * Order creation timestamp
      * @return timest
     **/
+    @javax.annotation.Nullable
     public Integer getTimest() {
         return timest;
     }
@@ -400,6 +404,7 @@ public class InlineResponse20018Data {
      * Payment deadline
      * @return lastPayTime
     **/
+    @javax.annotation.Nullable
     public Integer getLastPayTime() {
         return lastPayTime;
     }
@@ -419,6 +424,7 @@ public class InlineResponse20018Data {
      * Remaining payment time
      * @return remainPayTime
     **/
+    @javax.annotation.Nullable
     public Integer getRemainPayTime() {
         return remainPayTime;
     }
@@ -438,6 +444,7 @@ public class InlineResponse20018Data {
      * Cryptocurrency type
      * @return currencyType
     **/
+    @javax.annotation.Nullable
     public String getCurrencyType() {
         return currencyType;
     }
@@ -457,6 +464,7 @@ public class InlineResponse20018Data {
      * Fiat currency type
      * @return wantType
     **/
+    @javax.annotation.Nullable
     public String getWantType() {
         return wantType;
     }
@@ -476,6 +484,7 @@ public class InlineResponse20018Data {
      * Price
      * @return rate
     **/
+    @javax.annotation.Nullable
     public String getRate() {
         return rate;
     }
@@ -495,6 +504,7 @@ public class InlineResponse20018Data {
      * Size
      * @return amount
     **/
+    @javax.annotation.Nullable
     public String getAmount() {
         return amount;
     }
@@ -514,6 +524,7 @@ public class InlineResponse20018Data {
      * Fiat amount
      * @return total
     **/
+    @javax.annotation.Nullable
     public String getTotal() {
         return total;
     }
@@ -533,6 +544,7 @@ public class InlineResponse20018Data {
      * Order Status
      * @return status
     **/
+    @javax.annotation.Nullable
     public String getStatus() {
         return status;
     }
@@ -552,6 +564,7 @@ public class InlineResponse20018Data {
      * Cancellation reason ID
      * @return reasonId
     **/
+    @javax.annotation.Nullable
     public String getReasonId() {
         return reasonId;
     }
@@ -571,6 +584,7 @@ public class InlineResponse20018Data {
      * Cancellation reason
      * @return reasonDesc
     **/
+    @javax.annotation.Nullable
     public String getReasonDesc() {
         return reasonDesc;
     }
@@ -590,6 +604,7 @@ public class InlineResponse20018Data {
      * Popup ID
      * @return toastId
     **/
+    @javax.annotation.Nullable
     public Integer getToastId() {
         return toastId;
     }
@@ -609,6 +624,7 @@ public class InlineResponse20018Data {
      * Cancellation time
      * @return cancelTime
     **/
+    @javax.annotation.Nullable
     public String getCancelTime() {
         return cancelTime;
     }
@@ -628,6 +644,7 @@ public class InlineResponse20018Data {
      * Whether seller confirmed the reason
      * @return sellerConfirm
     **/
+    @javax.annotation.Nullable
     public Integer getSellerConfirm() {
         return sellerConfirm;
     }
@@ -647,6 +664,7 @@ public class InlineResponse20018Data {
      * Whether in dispute
      * @return inAppeal
     **/
+    @javax.annotation.Nullable
     public Integer getInAppeal() {
         return inAppeal;
     }
@@ -666,6 +684,7 @@ public class InlineResponse20018Data {
      * Appeal time limit
      * @return disputeTime
     **/
+    @javax.annotation.Nullable
     public Integer getDisputeTime() {
         return disputeTime;
     }
@@ -685,6 +704,7 @@ public class InlineResponse20018Data {
      * Whether order cancellation is allowed
      * @return cancelable
     **/
+    @javax.annotation.Nullable
     public Integer getCancelable() {
         return cancelable;
     }
@@ -704,6 +724,7 @@ public class InlineResponse20018Data {
      * Whether to hide payment method
      * @return hidePayment
     **/
+    @javax.annotation.Nullable
     public Integer getHidePayment() {
         return hidePayment;
     }
@@ -723,6 +744,7 @@ public class InlineResponse20018Data {
      * Trading terms
      * @return tradeTips
     **/
+    @javax.annotation.Nullable
     public String getTradeTips() {
         return tradeTips;
     }
@@ -742,6 +764,7 @@ public class InlineResponse20018Data {
      * Whether to display bank
      * @return showBank
     **/
+    @javax.annotation.Nullable
     public String getShowBank() {
         return showBank;
     }
@@ -761,6 +784,7 @@ public class InlineResponse20018Data {
      * Bank name
      * @return bankname
     **/
+    @javax.annotation.Nullable
     public String getBankname() {
         return bankname;
     }
@@ -780,6 +804,7 @@ public class InlineResponse20018Data {
      * Bank branch name
      * @return bankbranch
     **/
+    @javax.annotation.Nullable
     public String getBankbranch() {
         return bankbranch;
     }
@@ -799,6 +824,7 @@ public class InlineResponse20018Data {
      * Bank ID
      * @return bankid
     **/
+    @javax.annotation.Nullable
     public String getBankid() {
         return bankid;
     }
@@ -818,6 +844,7 @@ public class InlineResponse20018Data {
      * Bank cardholder name
      * @return bankHolderRealname
     **/
+    @javax.annotation.Nullable
     public String getBankHolderRealname() {
         return bankHolderRealname;
     }
@@ -837,6 +864,7 @@ public class InlineResponse20018Data {
      * Whether to display Alipay
      * @return showAli
     **/
+    @javax.annotation.Nullable
     public String getShowAli() {
         return showAli;
     }
@@ -856,6 +884,7 @@ public class InlineResponse20018Data {
      * Alipay account name
      * @return aliname
     **/
+    @javax.annotation.Nullable
     public String getAliname() {
         return aliname;
     }
@@ -875,6 +904,7 @@ public class InlineResponse20018Data {
      * Whether Alipay QR code exists
      * @return isAlicode
     **/
+    @javax.annotation.Nullable
     public Integer getIsAlicode() {
         return isAlicode;
     }
@@ -894,6 +924,7 @@ public class InlineResponse20018Data {
      * Whether to display WeChat
      * @return showWechat
     **/
+    @javax.annotation.Nullable
     public String getShowWechat() {
         return showWechat;
     }
@@ -913,6 +944,7 @@ public class InlineResponse20018Data {
      * WeChat account name
      * @return wename
     **/
+    @javax.annotation.Nullable
     public String getWename() {
         return wename;
     }
@@ -932,6 +964,7 @@ public class InlineResponse20018Data {
      * Whether to display other payment methods
      * @return showOthers
     **/
+    @javax.annotation.Nullable
     public String getShowOthers() {
         return showOthers;
     }
@@ -948,6 +981,9 @@ public class InlineResponse20018Data {
     }
 
     public InlineResponse20018Data addPayOthersItem(String payOthersItem) {
+        if (this.payOthers == null) {
+            this.payOthers = new ArrayList<>();
+        }
         this.payOthers.add(payOthersItem);
         return this;
     }
@@ -956,6 +992,7 @@ public class InlineResponse20018Data {
      * Other payment methods
      * @return payOthers
     **/
+    @javax.annotation.Nullable
     public List<String> getPayOthers() {
         return payOthers;
     }
@@ -975,6 +1012,7 @@ public class InlineResponse20018Data {
      * Payment type
      * @return selPaytype
     **/
+    @javax.annotation.Nullable
     public String getSelPaytype() {
         return selPaytype;
     }
@@ -994,6 +1032,7 @@ public class InlineResponse20018Data {
      * Counterparty UID
      * @return itsUid
     **/
+    @javax.annotation.Nullable
     public String getItsUid() {
         return itsUid;
     }
@@ -1013,6 +1052,7 @@ public class InlineResponse20018Data {
      * Whether counterparty is Blue V
      * @return itsIsBlueVip
     **/
+    @javax.annotation.Nullable
     public Integer getItsIsBlueVip() {
         return itsIsBlueVip;
     }
@@ -1032,6 +1072,7 @@ public class InlineResponse20018Data {
      * Counterparty VIP tier
      * @return itsTier
     **/
+    @javax.annotation.Nullable
     public Integer getItsTier() {
         return itsTier;
     }
@@ -1051,6 +1092,7 @@ public class InlineResponse20018Data {
      * Counterparty avatar
      * @return itsAvatar
     **/
+    @javax.annotation.Nullable
     public String getItsAvatar() {
         return itsAvatar;
     }
@@ -1070,6 +1112,7 @@ public class InlineResponse20018Data {
      * Counterparty nickname
      * @return itsNickname
     **/
+    @javax.annotation.Nullable
     public String getItsNickname() {
         return itsNickname;
     }
@@ -1089,6 +1132,7 @@ public class InlineResponse20018Data {
      * Counterparty username
      * @return itsRealname
     **/
+    @javax.annotation.Nullable
     public String getItsRealname() {
         return itsRealname;
     }
@@ -1108,6 +1152,7 @@ public class InlineResponse20018Data {
      * Whether following
      * @return isFollow
     **/
+    @javax.annotation.Nullable
     public Integer getIsFollow() {
         return isFollow;
     }
@@ -1127,6 +1172,7 @@ public class InlineResponse20018Data {
      * Whether blocked
      * @return isBlack
     **/
+    @javax.annotation.Nullable
     public Integer getIsBlack() {
         return isBlack;
     }
@@ -1146,6 +1192,7 @@ public class InlineResponse20018Data {
      * Whether traded before
      * @return haveTraded
     **/
+    @javax.annotation.Nullable
     public Integer getHaveTraded() {
         return haveTraded;
     }
@@ -1165,6 +1212,7 @@ public class InlineResponse20018Data {
      * Unread appeals
      * @return appealUnread
     **/
+    @javax.annotation.Nullable
     public Integer getAppealUnread() {
         return appealUnread;
     }
@@ -1184,6 +1232,7 @@ public class InlineResponse20018Data {
      * Whether appeal cancellation is allowed
      * @return appealAllowCancel
     **/
+    @javax.annotation.Nullable
     public Integer getAppealAllowCancel() {
         return appealAllowCancel;
     }
@@ -1203,6 +1252,7 @@ public class InlineResponse20018Data {
      * Appeal result (including pending appeals)
      * @return appealVerdictHasOpen
     **/
+    @javax.annotation.Nullable
     public String getAppealVerdictHasOpen() {
         return appealVerdictHasOpen;
     }
@@ -1222,6 +1272,7 @@ public class InlineResponse20018Data {
      * IM unread
      * @return imUnread
     **/
+    @javax.annotation.Nullable
     public Integer getImUnread() {
         return imUnread;
     }
@@ -1241,6 +1292,7 @@ public class InlineResponse20018Data {
      * Review content
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -1260,6 +1312,7 @@ public class InlineResponse20018Data {
      * Rating
      * @return score
     **/
+    @javax.annotation.Nullable
     public String getScore() {
         return score;
     }
@@ -1276,6 +1329,9 @@ public class InlineResponse20018Data {
     }
 
     public InlineResponse20018Data addPaymentVoucherUrlItem(String paymentVoucherUrlItem) {
+        if (this.paymentVoucherUrl == null) {
+            this.paymentVoucherUrl = new ArrayList<>();
+        }
         this.paymentVoucherUrl.add(paymentVoucherUrlItem);
         return this;
     }
@@ -1284,6 +1340,7 @@ public class InlineResponse20018Data {
      * Payment voucher
      * @return paymentVoucherUrl
     **/
+    @javax.annotation.Nullable
     public List<String> getPaymentVoucherUrl() {
         return paymentVoucherUrl;
     }
@@ -1303,6 +1360,7 @@ public class InlineResponse20018Data {
      * Counterparty transaction volume
      * @return completeNumber
     **/
+    @javax.annotation.Nullable
     public Integer getCompleteNumber() {
         return completeNumber;
     }
@@ -1322,6 +1380,7 @@ public class InlineResponse20018Data {
      * Counterparty completion rate
      * @return completeRateMonth
     **/
+    @javax.annotation.Nullable
     public String getCompleteRateMonth() {
         return completeRateMonth;
     }
@@ -1341,6 +1400,7 @@ public class InlineResponse20018Data {
      * Whether transaction record is verified
      * @return checkJournalAccount
     **/
+    @javax.annotation.Nullable
     public Boolean getCheckJournalAccount() {
         return checkJournalAccount;
     }
@@ -1360,6 +1420,7 @@ public class InlineResponse20018Data {
      * Whether to display transaction records
      * @return showJournalAccount
     **/
+    @javax.annotation.Nullable
     public Boolean getShowJournalAccount() {
         return showJournalAccount;
     }
@@ -1379,6 +1440,7 @@ public class InlineResponse20018Data {
      * Whether margin is frozen
      * @return isFreezeGuarantee
     **/
+    @javax.annotation.Nullable
     public Integer getIsFreezeGuarantee() {
         return isFreezeGuarantee;
     }
@@ -1398,6 +1460,7 @@ public class InlineResponse20018Data {
      * Remaining USDT margin
      * @return usdtLeftGuarantee
     **/
+    @javax.annotation.Nullable
     public String getUsdtLeftGuarantee() {
         return usdtLeftGuarantee;
     }
@@ -1417,6 +1480,7 @@ public class InlineResponse20018Data {
      * Margin currency type
      * @return guaranteeCurrType
     **/
+    @javax.annotation.Nullable
     public String getGuaranteeCurrType() {
         return guaranteeCurrType;
     }
@@ -1436,6 +1500,7 @@ public class InlineResponse20018Data {
      * Payment time
      * @return timestPaid
     **/
+    @javax.annotation.Nullable
     public Integer getTimestPaid() {
         return timestPaid;
     }
@@ -1455,6 +1520,7 @@ public class InlineResponse20018Data {
      * Order Status
      * @return state
     **/
+    @javax.annotation.Nullable
     public String getState() {
         return state;
     }
@@ -1474,6 +1540,7 @@ public class InlineResponse20018Data {
      * Coin release switch configuration
      * @return releaseCoinSwitch
     **/
+    @javax.annotation.Nullable
     public Integer getReleaseCoinSwitch() {
         return releaseCoinSwitch;
     }
@@ -1493,6 +1560,7 @@ public class InlineResponse20018Data {
      * Username
      * @return ownRealname
     **/
+    @javax.annotation.Nullable
     public String getOwnRealname() {
         return ownRealname;
     }
@@ -1512,6 +1580,7 @@ public class InlineResponse20018Data {
      * Average confirmation time in last 30 days
      * @return confirmationUseTimeMonth
     **/
+    @javax.annotation.Nullable
     public Integer getConfirmationUseTimeMonth() {
         return confirmationUseTimeMonth;
     }
@@ -1531,6 +1600,7 @@ public class InlineResponse20018Data {
      * Whether risk user
      * @return isRiskUser
     **/
+    @javax.annotation.Nullable
     public Integer getIsRiskUser() {
         return isRiskUser;
     }
@@ -1550,6 +1620,7 @@ public class InlineResponse20018Data {
      * Whether XT order
      * @return isXt
     **/
+    @javax.annotation.Nullable
     public Integer getIsXt() {
         return isXt;
     }
@@ -1569,6 +1640,7 @@ public class InlineResponse20018Data {
      * Order Type
      * @return orderType
     **/
+    @javax.annotation.Nullable
     public Integer getOrderType() {
         return orderType;
     }
@@ -1588,6 +1660,7 @@ public class InlineResponse20018Data {
      * Fiat currency symbol
      * @return symbol
     **/
+    @javax.annotation.Nullable
     public String getSymbol() {
         return symbol;
     }
@@ -1607,6 +1680,7 @@ public class InlineResponse20018Data {
      * Whether to show confirm receipt during appeal
      * @return isShowReceive
     **/
+    @javax.annotation.Nullable
     public Integer getIsShowReceive() {
         return isShowReceive;
     }
@@ -1626,6 +1700,7 @@ public class InlineResponse20018Data {
      * Whether regular user
      * @return isTaker
     **/
+    @javax.annotation.Nullable
     public Integer getIsTaker() {
         return isTaker;
     }
@@ -1645,6 +1720,7 @@ public class InlineResponse20018Data {
      * Merchant online status
      * @return isOnline
     **/
+    @javax.annotation.Nullable
     public Integer getIsOnline() {
         return isOnline;
     }
@@ -1664,6 +1740,7 @@ public class InlineResponse20018Data {
      * Whether to display seller contact information
      * @return showSellerContactInfo
     **/
+    @javax.annotation.Nullable
     public Boolean getShowSellerContactInfo() {
         return showSellerContactInfo;
     }
@@ -1680,6 +1757,9 @@ public class InlineResponse20018Data {
     }
 
     public InlineResponse20018Data addSupportedPayTypesItem(String supportedPayTypesItem) {
+        if (this.supportedPayTypes == null) {
+            this.supportedPayTypes = new ArrayList<>();
+        }
         this.supportedPayTypes.add(supportedPayTypesItem);
         return this;
     }
@@ -1688,6 +1768,7 @@ public class InlineResponse20018Data {
      * Payment methods supported by current order
      * @return supportedPayTypes
     **/
+    @javax.annotation.Nullable
     public List<String> getSupportedPayTypes() {
         return supportedPayTypes;
     }

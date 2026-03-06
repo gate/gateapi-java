@@ -39,7 +39,7 @@ public class MockOptionsPosition {
     }
 
      /**
-     * Option name, currently only supports USDT options for BTC and ETH
+     * Options contract name. Currently supports all options contract markets.
      * @return optionsName
     **/
     public String getOptionsName() {

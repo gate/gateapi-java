@@ -23,28 +23,484 @@ import java.io.IOException;
  * InlineObject11
  */
 public class InlineObject11 {
-    public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
-    @SerializedName(SERIALIZED_NAME_TRADE_ID)
-    private String tradeId;
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
 
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public InlineObject11 tradeId(String tradeId) {
+    /**
+     * BUY, SELL
+     */
+    @JsonAdapter(SideEnum.Adapter.class)
+    public enum SideEnum {
+        BUY("BUY"),
         
-        this.tradeId = tradeId;
+        SELL("SELL");
+
+        private String value;
+
+        SideEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static SideEnum fromValue(String value) {
+            for (SideEnum b : SideEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<SideEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final SideEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public SideEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return SideEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_SIDE = "side";
+    @SerializedName(SERIALIZED_NAME_SIDE)
+    private SideEnum side;
+
+    /**
+     * Order type (default: &#x60;LIMIT&#x60;; supported types: &#x60;LIMIT&#x60;, &#x60;MARKET&#x60;)
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        LIMIT("LIMIT"),
+        
+        MARKET("MARKET");
+
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private TypeEnum type = TypeEnum.LIMIT;
+
+    /**
+     * Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly
+     */
+    @JsonAdapter(TimeInForceEnum.Adapter.class)
+    public enum TimeInForceEnum {
+        GTC("GTC"),
+        
+        IOC("IOC"),
+        
+        FOK("FOK"),
+        
+        POC("POC");
+
+        private String value;
+
+        TimeInForceEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TimeInForceEnum fromValue(String value) {
+            for (TimeInForceEnum b : TimeInForceEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TimeInForceEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TimeInForceEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TimeInForceEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return TimeInForceEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TIME_IN_FORCE = "time_in_force";
+    @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
+    private TimeInForceEnum timeInForce = TimeInForceEnum.GTC;
+
+    public static final String SERIALIZED_NAME_QTY = "qty";
+    @SerializedName(SERIALIZED_NAME_QTY)
+    private String qty;
+
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
+
+    public static final String SERIALIZED_NAME_QUOTE_QTY = "quote_qty";
+    @SerializedName(SERIALIZED_NAME_QUOTE_QTY)
+    private String quoteQty;
+
+    /**
+     * Reduce-only: &#x60;true&#x60; or &#x60;false&#x60;
+     */
+    @JsonAdapter(ReduceOnlyEnum.Adapter.class)
+    public enum ReduceOnlyEnum {
+        TRUE("true"),
+        
+        FALSE("false");
+
+        private String value;
+
+        ReduceOnlyEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ReduceOnlyEnum fromValue(String value) {
+            for (ReduceOnlyEnum b : ReduceOnlyEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<ReduceOnlyEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ReduceOnlyEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ReduceOnlyEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return ReduceOnlyEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_REDUCE_ONLY = "reduce_only";
+    @SerializedName(SERIALIZED_NAME_REDUCE_ONLY)
+    private ReduceOnlyEnum reduceOnly;
+
+    /**
+     * Position side: &#x60;NONE&#x60;, &#x60;LONG&#x60;, &#x60;SHORT&#x60; Defaults to &#x60;NONE&#x60; (single position mode) if not specified
+     */
+    @JsonAdapter(PositionSideEnum.Adapter.class)
+    public enum PositionSideEnum {
+        LONG("LONG"),
+        
+        SHORT("SHORT"),
+        
+        NONE("NONE");
+
+        private String value;
+
+        PositionSideEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PositionSideEnum fromValue(String value) {
+            for (PositionSideEnum b : PositionSideEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<PositionSideEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PositionSideEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PositionSideEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return PositionSideEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private PositionSideEnum positionSide;
+
+
+    public InlineObject11 text(String text) {
+        
+        this.text = text;
         return this;
     }
 
      /**
-     * Get tradeId
-     * @return tradeId
+     * Client-defined Order ID, supports letters (a-z), numbers (0-9), symbols (-, _) only
+     * @return text
     **/
-    public String getTradeId() {
-        return tradeId;
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
     }
 
 
-    public void setTradeId(String tradeId) {
-        this.tradeId = tradeId;
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public InlineObject11 symbol(String symbol) {
+        
+        this.symbol = symbol;
+        return this;
+    }
+
+     /**
+     * Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier &#x60;BINANCE_SPOT_ADA_USDT&#x60;; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier &#x60;OKX_FUTURE_ADA_USDT&#x60;; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier &#x60;GATE_MARGIN_ADA_USDT&#x60;; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders
+     * @return symbol
+    **/
+    public String getSymbol() {
+        return symbol;
+    }
+
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public InlineObject11 side(SideEnum side) {
+        
+        this.side = side;
+        return this;
+    }
+
+     /**
+     * BUY, SELL
+     * @return side
+    **/
+    public SideEnum getSide() {
+        return side;
+    }
+
+
+    public void setSide(SideEnum side) {
+        this.side = side;
+    }
+
+    public InlineObject11 type(TypeEnum type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * Order type (default: &#x60;LIMIT&#x60;; supported types: &#x60;LIMIT&#x60;, &#x60;MARKET&#x60;)
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public TypeEnum getType() {
+        return type;
+    }
+
+
+    public void setType(TypeEnum type) {
+        this.type = type;
+    }
+
+    public InlineObject11 timeInForce(TimeInForceEnum timeInForce) {
+        
+        this.timeInForce = timeInForce;
+        return this;
+    }
+
+     /**
+     * Default GTC, supports enumerated types: GTC, IOC, FOK, POC GTC: GoodTillCancelled IOC: ImmediateOrCancelled FOK: FillOrKill POC: PendingOrCancelled or PostOnly
+     * @return timeInForce
+    **/
+    @javax.annotation.Nullable
+    public TimeInForceEnum getTimeInForce() {
+        return timeInForce;
+    }
+
+
+    public void setTimeInForce(TimeInForceEnum timeInForce) {
+        this.timeInForce = timeInForce;
+    }
+
+    public InlineObject11 qty(String qty) {
+        
+        this.qty = qty;
+        return this;
+    }
+
+     /**
+     * Order quantity (required unless spot market buy)
+     * @return qty
+    **/
+    @javax.annotation.Nullable
+    public String getQty() {
+        return qty;
+    }
+
+
+    public void setQty(String qty) {
+        this.qty = qty;
+    }
+
+    public InlineObject11 price(String price) {
+        
+        this.price = price;
+        return this;
+    }
+
+     /**
+     * Limit Order Price (Required for Limit Orders)
+     * @return price
+    **/
+    @javax.annotation.Nullable
+    public String getPrice() {
+        return price;
+    }
+
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public InlineObject11 quoteQty(String quoteQty) {
+        
+        this.quoteQty = quoteQty;
+        return this;
+    }
+
+     /**
+     * Order quote quantity; required for spot and margin market buy orders
+     * @return quoteQty
+    **/
+    @javax.annotation.Nullable
+    public String getQuoteQty() {
+        return quoteQty;
+    }
+
+
+    public void setQuoteQty(String quoteQty) {
+        this.quoteQty = quoteQty;
+    }
+
+    public InlineObject11 reduceOnly(ReduceOnlyEnum reduceOnly) {
+        
+        this.reduceOnly = reduceOnly;
+        return this;
+    }
+
+     /**
+     * Reduce-only: &#x60;true&#x60; or &#x60;false&#x60;
+     * @return reduceOnly
+    **/
+    @javax.annotation.Nullable
+    public ReduceOnlyEnum getReduceOnly() {
+        return reduceOnly;
+    }
+
+
+    public void setReduceOnly(ReduceOnlyEnum reduceOnly) {
+        this.reduceOnly = reduceOnly;
+    }
+
+    public InlineObject11 positionSide(PositionSideEnum positionSide) {
+        
+        this.positionSide = positionSide;
+        return this;
+    }
+
+     /**
+     * Position side: &#x60;NONE&#x60;, &#x60;LONG&#x60;, &#x60;SHORT&#x60; Defaults to &#x60;NONE&#x60; (single position mode) if not specified
+     * @return positionSide
+    **/
+    @javax.annotation.Nullable
+    public PositionSideEnum getPositionSide() {
+        return positionSide;
+    }
+
+
+    public void setPositionSide(PositionSideEnum positionSide) {
+        this.positionSide = positionSide;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +511,21 @@ public class InlineObject11 {
             return false;
         }
         InlineObject11 inlineObject11 = (InlineObject11) o;
-        return Objects.equals(this.tradeId, inlineObject11.tradeId);
+        return Objects.equals(this.text, inlineObject11.text) &&
+                Objects.equals(this.symbol, inlineObject11.symbol) &&
+                Objects.equals(this.side, inlineObject11.side) &&
+                Objects.equals(this.type, inlineObject11.type) &&
+                Objects.equals(this.timeInForce, inlineObject11.timeInForce) &&
+                Objects.equals(this.qty, inlineObject11.qty) &&
+                Objects.equals(this.price, inlineObject11.price) &&
+                Objects.equals(this.quoteQty, inlineObject11.quoteQty) &&
+                Objects.equals(this.reduceOnly, inlineObject11.reduceOnly) &&
+                Objects.equals(this.positionSide, inlineObject11.positionSide);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId);
+        return Objects.hash(text, symbol, side, type, timeInForce, qty, price, quoteQty, reduceOnly, positionSide);
     }
 
 
@@ -68,7 +533,16 @@ public class InlineObject11 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject11 {\n");
-        sb.append("      tradeId: ").append(toIndentedString(tradeId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      side: ").append(toIndentedString(side)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      quoteQty: ").append(toIndentedString(quoteQty)).append("\n");
+        sb.append("      reduceOnly: ").append(toIndentedString(reduceOnly)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("}");
         return sb.toString();
     }

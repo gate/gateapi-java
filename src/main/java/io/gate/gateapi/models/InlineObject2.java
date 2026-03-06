@@ -20,216 +20,265 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject2
+ * Place order request parameters
  */
 public class InlineObject2 {
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
+
+    /**
+     * Price type (trigger&#x3D;trigger price, market&#x3D;market price)
+     */
+    @JsonAdapter(PriceTypeEnum.Adapter.class)
+    public enum PriceTypeEnum {
+        TRIGGER("trigger"),
+        
+        MARKET("market");
+
+        private String value;
+
+        PriceTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PriceTypeEnum fromValue(String value) {
+            for (PriceTypeEnum b : PriceTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<PriceTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PriceTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PriceTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return PriceTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_PRICE_TYPE = "price_type";
+    @SerializedName(SERIALIZED_NAME_PRICE_TYPE)
+    private PriceTypeEnum priceType;
+
+    /**
+     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     */
+    @JsonAdapter(SideEnum.Adapter.class)
+    public enum SideEnum {
+        NUMBER_1(1),
+        
+        NUMBER_2(2);
+
+        private Integer value;
+
+        SideEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static SideEnum fromValue(Integer value) {
+            for (SideEnum b : SideEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<SideEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final SideEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public SideEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return SideEnum.fromValue(value);
+            }
+        }
+    }
 
     public static final String SERIALIZED_NAME_SIDE = "side";
     @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
+    private SideEnum side;
 
-    public static final String SERIALIZED_NAME_CRYPTO_CURRENCY = "crypto_currency";
-    @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY)
-    private String cryptoCurrency;
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
-    @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
-    private String fiatCurrency;
+    public static final String SERIALIZED_NAME_VOLUME = "volume";
+    @SerializedName(SERIALIZED_NAME_VOLUME)
+    private String volume;
 
-    public static final String SERIALIZED_NAME_CRYPTO_AMOUNT = "crypto_amount";
-    @SerializedName(SERIALIZED_NAME_CRYPTO_AMOUNT)
-    private String cryptoAmount;
+    public static final String SERIALIZED_NAME_PRICE_TP = "price_tp";
+    @SerializedName(SERIALIZED_NAME_PRICE_TP)
+    private String priceTp;
 
-    public static final String SERIALIZED_NAME_FIAT_AMOUNT = "fiat_amount";
-    @SerializedName(SERIALIZED_NAME_FIAT_AMOUNT)
-    private String fiatAmount;
-
-    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
-    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
-    private String promotionCode;
-
-    public static final String SERIALIZED_NAME_QUOTE_TOKEN = "quote_token";
-    @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
-    private String quoteToken;
-
-    public static final String SERIALIZED_NAME_BANK_ID = "bank_id";
-    @SerializedName(SERIALIZED_NAME_BANK_ID)
-    private String bankId;
+    public static final String SERIALIZED_NAME_PRICE_SL = "price_sl";
+    @SerializedName(SERIALIZED_NAME_PRICE_SL)
+    private String priceSl;
 
 
-    public InlineObject2 type(String type) {
+    public InlineObject2 price(String price) {
         
-        this.type = type;
+        this.price = price;
         return this;
     }
 
      /**
-     * BUY for on-ramp, SELL for off-ramp
-     * @return type
+     * Order price
+     * @return price
     **/
-    public String getType() {
-        return type;
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public InlineObject2 side(String side) {
+    public InlineObject2 priceType(PriceTypeEnum priceType) {
+        
+        this.priceType = priceType;
+        return this;
+    }
+
+     /**
+     * Price type (trigger&#x3D;trigger price, market&#x3D;market price)
+     * @return priceType
+    **/
+    public PriceTypeEnum getPriceType() {
+        return priceType;
+    }
+
+
+    public void setPriceType(PriceTypeEnum priceType) {
+        this.priceType = priceType;
+    }
+
+    public InlineObject2 side(SideEnum side) {
         
         this.side = side;
         return this;
     }
 
      /**
-     * Quote direction returned by the quote API (used for order validation)
+     * Order side (1&#x3D;sell, 2&#x3D;buy)
      * @return side
     **/
-    public String getSide() {
+    public SideEnum getSide() {
         return side;
     }
 
 
-    public void setSide(String side) {
+    public void setSide(SideEnum side) {
         this.side = side;
     }
 
-    public InlineObject2 cryptoCurrency(String cryptoCurrency) {
+    public InlineObject2 symbol(String symbol) {
         
-        this.cryptoCurrency = cryptoCurrency;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)
-     * @return cryptoCurrency
+     * Trading symbol code
+     * @return symbol
     **/
-    public String getCryptoCurrency() {
-        return cryptoCurrency;
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setCryptoCurrency(String cryptoCurrency) {
-        this.cryptoCurrency = cryptoCurrency;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineObject2 fiatCurrency(String fiatCurrency) {
+    public InlineObject2 volume(String volume) {
         
-        this.fiatCurrency = fiatCurrency;
+        this.volume = volume;
         return this;
     }
 
      /**
-     * Fiat currency (supported currencies can be queried from the OTC web fiat quote page)
-     * @return fiatCurrency
+     * Order volume
+     * @return volume
     **/
-    public String getFiatCurrency() {
-        return fiatCurrency;
+    public String getVolume() {
+        return volume;
     }
 
 
-    public void setFiatCurrency(String fiatCurrency) {
-        this.fiatCurrency = fiatCurrency;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
-    public InlineObject2 cryptoAmount(String cryptoAmount) {
+    public InlineObject2 priceTp(String priceTp) {
         
-        this.cryptoAmount = cryptoAmount;
+        this.priceTp = priceTp;
         return this;
     }
 
      /**
-     * Amount of cryptocurrency
-     * @return cryptoAmount
-    **/
-    public String getCryptoAmount() {
-        return cryptoAmount;
-    }
-
-
-    public void setCryptoAmount(String cryptoAmount) {
-        this.cryptoAmount = cryptoAmount;
-    }
-
-    public InlineObject2 fiatAmount(String fiatAmount) {
-        
-        this.fiatAmount = fiatAmount;
-        return this;
-    }
-
-     /**
-     * Fiat amount
-     * @return fiatAmount
-    **/
-    public String getFiatAmount() {
-        return fiatAmount;
-    }
-
-
-    public void setFiatAmount(String fiatAmount) {
-        this.fiatAmount = fiatAmount;
-    }
-
-    public InlineObject2 promotionCode(String promotionCode) {
-        
-        this.promotionCode = promotionCode;
-        return this;
-    }
-
-     /**
-     * Promotion code
-     * @return promotionCode
+     * Take profit price (optional)
+     * @return priceTp
     **/
     @javax.annotation.Nullable
-    public String getPromotionCode() {
-        return promotionCode;
+    public String getPriceTp() {
+        return priceTp;
     }
 
 
-    public void setPromotionCode(String promotionCode) {
-        this.promotionCode = promotionCode;
+    public void setPriceTp(String priceTp) {
+        this.priceTp = priceTp;
     }
 
-    public InlineObject2 quoteToken(String quoteToken) {
+    public InlineObject2 priceSl(String priceSl) {
         
-        this.quoteToken = quoteToken;
+        this.priceSl = priceSl;
         return this;
     }
 
      /**
-     * Parameter returned by the quote API
-     * @return quoteToken
+     * Stop loss price (optional)
+     * @return priceSl
     **/
-    public String getQuoteToken() {
-        return quoteToken;
+    @javax.annotation.Nullable
+    public String getPriceSl() {
+        return priceSl;
     }
 
 
-    public void setQuoteToken(String quoteToken) {
-        this.quoteToken = quoteToken;
-    }
-
-    public InlineObject2 bankId(String bankId) {
-        
-        this.bankId = bankId;
-        return this;
-    }
-
-     /**
-     * Bank card ID used for the order (retrieved via the default bank card API)
-     * @return bankId
-    **/
-    public String getBankId() {
-        return bankId;
-    }
-
-
-    public void setBankId(String bankId) {
-        this.bankId = bankId;
+    public void setPriceSl(String priceSl) {
+        this.priceSl = priceSl;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -240,20 +289,18 @@ public class InlineObject2 {
             return false;
         }
         InlineObject2 inlineObject2 = (InlineObject2) o;
-        return Objects.equals(this.type, inlineObject2.type) &&
+        return Objects.equals(this.price, inlineObject2.price) &&
+                Objects.equals(this.priceType, inlineObject2.priceType) &&
                 Objects.equals(this.side, inlineObject2.side) &&
-                Objects.equals(this.cryptoCurrency, inlineObject2.cryptoCurrency) &&
-                Objects.equals(this.fiatCurrency, inlineObject2.fiatCurrency) &&
-                Objects.equals(this.cryptoAmount, inlineObject2.cryptoAmount) &&
-                Objects.equals(this.fiatAmount, inlineObject2.fiatAmount) &&
-                Objects.equals(this.promotionCode, inlineObject2.promotionCode) &&
-                Objects.equals(this.quoteToken, inlineObject2.quoteToken) &&
-                Objects.equals(this.bankId, inlineObject2.bankId);
+                Objects.equals(this.symbol, inlineObject2.symbol) &&
+                Objects.equals(this.volume, inlineObject2.volume) &&
+                Objects.equals(this.priceTp, inlineObject2.priceTp) &&
+                Objects.equals(this.priceSl, inlineObject2.priceSl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, side, cryptoCurrency, fiatCurrency, cryptoAmount, fiatAmount, promotionCode, quoteToken, bankId);
+        return Objects.hash(price, priceType, side, symbol, volume, priceTp, priceSl);
     }
 
 
@@ -261,15 +308,13 @@ public class InlineObject2 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject2 {\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      priceType: ").append(toIndentedString(priceType)).append("\n");
         sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
-        sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
-        sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
-        sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
-        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
-        sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
-        sb.append("      bankId: ").append(toIndentedString(bankId)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      volume: ").append(toIndentedString(volume)).append("\n");
+        sb.append("      priceTp: ").append(toIndentedString(priceTp)).append("\n");
+        sb.append("      priceSl: ").append(toIndentedString(priceSl)).append("\n");
         sb.append("}");
         return sb.toString();
     }

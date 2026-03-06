@@ -7,6 +7,6 @@ Markets where user can place orders
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** |  | 
-**market** | **String** |  | 
+**type** | **String** |  |  [optional]
+**market** | **String** |  |  [optional]
 

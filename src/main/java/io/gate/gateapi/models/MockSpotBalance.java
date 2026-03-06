@@ -58,7 +58,7 @@ public class MockSpotBalance {
     }
 
      /**
-     * Currency equity, where equity &#x3D; balance - borrowed, represents the net delta exposure of your spot positions, which can be negative. Currently only supports BTC and ETH
+     * Currency equity, where equity &#x3D; balance - borrowed, represents the net delta exposure of your spot positions
      * @return equity
     **/
     public String getEquity() {

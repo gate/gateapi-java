@@ -66,8 +66,8 @@ Method | HTTP request | Description
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
-[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/{order_id} | Modify a Single Auto Order
 [**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
+[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
 
 
 <a name="listFuturesContracts"></a>
@@ -4726,7 +4726,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | ID returned when order is successfully created
+        Integer orderId = 56; // Integer | ID returned when order is successfully created
         try {
             FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredOrder(settle, orderId);
             System.out.println(result);
@@ -4748,7 +4748,77 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **String**| ID returned when order is successfully created |
+ **orderId** | **Integer**| ID returned when order is successfully created |
+
+### Return type
+
+[**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Auto order details |  -  |
+
+<a name="cancelPriceTriggeredOrder"></a>
+# **cancelPriceTriggeredOrder**
+> FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(settle, orderId)
+
+Cancel single auto order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        Integer orderId = 56; // Integer | ID returned when order is successfully created
+        try {
+            FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredOrder(settle, orderId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#cancelPriceTriggeredOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **orderId** | **Integer**| ID returned when order is successfully created |
 
 ### Return type
 
@@ -4796,7 +4866,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | ID returned when order is successfully created
+        Integer orderId = 56; // Integer | ID returned when order is successfully created
         FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = new FuturesUpdatePriceTriggeredOrder(); // FuturesUpdatePriceTriggeredOrder | 
         try {
             TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder);
@@ -4819,7 +4889,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **String**| ID returned when order is successfully created |
+ **orderId** | **Integer**| ID returned when order is successfully created |
  **futuresUpdatePriceTriggeredOrder** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  |
 
 ### Return type
@@ -4839,74 +4909,4 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Order created successfully |  -  |
-
-<a name="cancelPriceTriggeredOrder"></a>
-# **cancelPriceTriggeredOrder**
-> FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(settle, orderId)
-
-Cancel single auto order
-
-### Example
-
-```java
-// Import classes:
-import io.gate.gateapi.ApiClient;
-import io.gate.gateapi.ApiException;
-import io.gate.gateapi.Configuration;
-import io.gate.gateapi.GateApiException;
-import io.gate.gateapi.auth.*;
-import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.FuturesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
-        
-        // Configure APIv4 authorization: apiv4
-        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
-
-        FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
-        String orderId = "orderId_example"; // String | ID returned when order is successfully created
-        try {
-            FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredOrder(settle, orderId);
-            System.out.println(result);
-        } catch (GateApiException e) {
-            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
-            e.printStackTrace();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling FuturesApi#cancelPriceTriggeredOrder");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **String**| ID returned when order is successfully created |
-
-### Return type
-
-[**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Auto order details |  -  |
 

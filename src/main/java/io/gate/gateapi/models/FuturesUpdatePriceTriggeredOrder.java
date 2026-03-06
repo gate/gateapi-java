@@ -29,7 +29,7 @@ public class FuturesUpdatePriceTriggeredOrder {
 
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private String orderId;
+    private Integer orderId;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
@@ -105,6 +105,12 @@ public class FuturesUpdatePriceTriggeredOrder {
     private Boolean close;
 
 
+    public FuturesUpdatePriceTriggeredOrder settle(String settle) {
+        
+        this.settle = settle;
+        return this;
+    }
+
      /**
      * Settlement Currency (e.g., USDT, BTC)
      * @return settle
@@ -115,22 +121,26 @@ public class FuturesUpdatePriceTriggeredOrder {
     }
 
 
-    public FuturesUpdatePriceTriggeredOrder orderId(String orderId) {
+    public void setSettle(String settle) {
+        this.settle = settle;
+    }
+
+    public FuturesUpdatePriceTriggeredOrder orderId(Integer orderId) {
         
         this.orderId = orderId;
         return this;
     }
 
      /**
-     * The order ID of the modified price-triggered order. This ID is returned upon successful creation of the price-triggered order. Note: This ID must be passed in both the request path and request body.
+     * ID of the Pending Take-Profit/Stop-Loss Trigger Order
      * @return orderId
     **/
-    public String getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 

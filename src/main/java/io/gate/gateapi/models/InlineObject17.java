@@ -23,74 +23,51 @@ import java.io.IOException;
  * InlineObject17
  */
 public class InlineObject17 {
-    public static final String SERIALIZED_NAME_ASSET = "asset";
-    @SerializedName(SERIALIZED_NAME_ASSET)
-    private String asset;
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_FIAT_UNIT = "fiat_unit";
-    @SerializedName(SERIALIZED_NAME_FIAT_UNIT)
-    private String fiatUnit;
-
-    public static final String SERIALIZED_NAME_TRADE_TYPE = "trade_type";
-    @SerializedName(SERIALIZED_NAME_TRADE_TYPE)
-    private String tradeType;
+    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
+    @SerializedName(SERIALIZED_NAME_LEVERAGE)
+    private String leverage;
 
 
-    public InlineObject17 asset(String asset) {
+    public InlineObject17 symbol(String symbol) {
         
-        this.asset = asset;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Cryptocurrency
-     * @return asset
+     * Currency pair
+     * @return symbol
     **/
-    public String getAsset() {
-        return asset;
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setAsset(String asset) {
-        this.asset = asset;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineObject17 fiatUnit(String fiatUnit) {
+    public InlineObject17 leverage(String leverage) {
         
-        this.fiatUnit = fiatUnit;
+        this.leverage = leverage;
         return this;
     }
 
      /**
-     * Fiat currency
-     * @return fiatUnit
+     * leverage
+     * @return leverage
     **/
-    public String getFiatUnit() {
-        return fiatUnit;
+    public String getLeverage() {
+        return leverage;
     }
 
 
-    public void setFiatUnit(String fiatUnit) {
-        this.fiatUnit = fiatUnit;
-    }
-
-    public InlineObject17 tradeType(String tradeType) {
-        
-        this.tradeType = tradeType;
-        return this;
-    }
-
-     /**
-     * Buy/Sell, sell/buy
-     * @return tradeType
-    **/
-    public String getTradeType() {
-        return tradeType;
-    }
-
-
-    public void setTradeType(String tradeType) {
-        this.tradeType = tradeType;
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -101,14 +78,13 @@ public class InlineObject17 {
             return false;
         }
         InlineObject17 inlineObject17 = (InlineObject17) o;
-        return Objects.equals(this.asset, inlineObject17.asset) &&
-                Objects.equals(this.fiatUnit, inlineObject17.fiatUnit) &&
-                Objects.equals(this.tradeType, inlineObject17.tradeType);
+        return Objects.equals(this.symbol, inlineObject17.symbol) &&
+                Objects.equals(this.leverage, inlineObject17.leverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(asset, fiatUnit, tradeType);
+        return Objects.hash(symbol, leverage);
     }
 
 
@@ -116,9 +92,8 @@ public class InlineObject17 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject17 {\n");
-        sb.append("      asset: ").append(toIndentedString(asset)).append("\n");
-        sb.append("      fiatUnit: ").append(toIndentedString(fiatUnit)).append("\n");
-        sb.append("      tradeType: ").append(toIndentedString(tradeType)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

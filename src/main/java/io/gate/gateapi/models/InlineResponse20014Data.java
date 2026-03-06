@@ -19,6 +19,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.InlineResponse20014DataMerchantInfo;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20014Data
@@ -82,11 +83,11 @@ public class InlineResponse20014Data {
 
     public static final String SERIALIZED_NAME_COMPLETE_RATE_MONTH = "complete_rate_month";
     @SerializedName(SERIALIZED_NAME_COMPLETE_RATE_MONTH)
-    private Integer completeRateMonth;
+    private BigDecimal completeRateMonth;
 
     public static final String SERIALIZED_NAME_ORDERS_BUY_RATE_MONTH = "orders_buy_rate_month";
     @SerializedName(SERIALIZED_NAME_ORDERS_BUY_RATE_MONTH)
-    private Integer ordersBuyRateMonth;
+    private BigDecimal ordersBuyRateMonth;
 
     public static final String SERIALIZED_NAME_IS_BLACK = "is_black";
     @SerializedName(SERIALIZED_NAME_IS_BLACK)
@@ -138,11 +139,11 @@ public class InlineResponse20014Data {
 
     public static final String SERIALIZED_NAME_TRANSACTIONS_MONTH = "transactions_month";
     @SerializedName(SERIALIZED_NAME_TRANSACTIONS_MONTH)
-    private Integer transactionsMonth;
+    private BigDecimal transactionsMonth;
 
     public static final String SERIALIZED_NAME_TRANSACTIONS_ALL = "transactions_all";
     @SerializedName(SERIALIZED_NAME_TRANSACTIONS_ALL)
-    private Integer transactionsAll;
+    private BigDecimal transactionsAll;
 
     public static final String SERIALIZED_NAME_TRADE_VERSATILE = "trade_versatile";
     @SerializedName(SERIALIZED_NAME_TRADE_VERSATILE)
@@ -159,6 +160,7 @@ public class InlineResponse20014Data {
      * Whether self
      * @return isSelf
     **/
+    @javax.annotation.Nullable
     public Boolean getIsSelf() {
         return isSelf;
     }
@@ -178,6 +180,7 @@ public class InlineResponse20014Data {
      * User registration time (formatted string)
      * @return userTimest
     **/
+    @javax.annotation.Nullable
     public String getUserTimest() {
         return userTimest;
     }
@@ -197,6 +200,7 @@ public class InlineResponse20014Data {
      * Number of counterparties
      * @return counterpartiesNum
     **/
+    @javax.annotation.Nullable
     public Integer getCounterpartiesNum() {
         return counterpartiesNum;
     }
@@ -216,6 +220,7 @@ public class InlineResponse20014Data {
      * Whether email is verified
      * @return emailVerified
     **/
+    @javax.annotation.Nullable
     public String getEmailVerified() {
         return emailVerified;
     }
@@ -235,6 +240,7 @@ public class InlineResponse20014Data {
      * Whether KYC verification is completed
      * @return verified
     **/
+    @javax.annotation.Nullable
     public String getVerified() {
         return verified;
     }
@@ -254,6 +260,7 @@ public class InlineResponse20014Data {
      * Whether phone is bound
      * @return hasPhone
     **/
+    @javax.annotation.Nullable
     public String getHasPhone() {
         return hasPhone;
     }
@@ -273,6 +280,7 @@ public class InlineResponse20014Data {
      * Username
      * @return userName
     **/
+    @javax.annotation.Nullable
     public String getUserName() {
         return userName;
     }
@@ -292,6 +300,7 @@ public class InlineResponse20014Data {
      * User note information
      * @return userNote
     **/
+    @javax.annotation.Nullable
     public String getUserNote() {
         return userNote;
     }
@@ -311,6 +320,7 @@ public class InlineResponse20014Data {
      * Total completed orders
      * @return completeTransactions
     **/
+    @javax.annotation.Nullable
     public String getCompleteTransactions() {
         return completeTransactions;
     }
@@ -330,6 +340,7 @@ public class InlineResponse20014Data {
      * Number of completed buy orders
      * @return paidTransactions
     **/
+    @javax.annotation.Nullable
     public String getPaidTransactions() {
         return paidTransactions;
     }
@@ -349,6 +360,7 @@ public class InlineResponse20014Data {
      * Number of completed sell orders
      * @return acceptedTransactions
     **/
+    @javax.annotation.Nullable
     public String getAcceptedTransactions() {
         return acceptedTransactions;
     }
@@ -368,6 +380,7 @@ public class InlineResponse20014Data {
      * Average time to confirm receipt
      * @return transactionsUsedTime
     **/
+    @javax.annotation.Nullable
     public String getTransactionsUsedTime() {
         return transactionsUsedTime;
     }
@@ -387,6 +400,7 @@ public class InlineResponse20014Data {
      * Cancellation time in last 30 days
      * @return cancelledUsedTimeMonth
     **/
+    @javax.annotation.Nullable
     public String getCancelledUsedTimeMonth() {
         return cancelledUsedTimeMonth;
     }
@@ -406,6 +420,7 @@ public class InlineResponse20014Data {
      * Number of completed orders in last 30 days
      * @return completeTransactionsMonth
     **/
+    @javax.annotation.Nullable
     public String getCompleteTransactionsMonth() {
         return completeTransactionsMonth;
     }
@@ -415,7 +430,7 @@ public class InlineResponse20014Data {
         this.completeTransactionsMonth = completeTransactionsMonth;
     }
 
-    public InlineResponse20014Data completeRateMonth(Integer completeRateMonth) {
+    public InlineResponse20014Data completeRateMonth(BigDecimal completeRateMonth) {
         
         this.completeRateMonth = completeRateMonth;
         return this;
@@ -425,16 +440,17 @@ public class InlineResponse20014Data {
      * Completion rate in last 30 days
      * @return completeRateMonth
     **/
-    public Integer getCompleteRateMonth() {
+    @javax.annotation.Nullable
+    public BigDecimal getCompleteRateMonth() {
         return completeRateMonth;
     }
 
 
-    public void setCompleteRateMonth(Integer completeRateMonth) {
+    public void setCompleteRateMonth(BigDecimal completeRateMonth) {
         this.completeRateMonth = completeRateMonth;
     }
 
-    public InlineResponse20014Data ordersBuyRateMonth(Integer ordersBuyRateMonth) {
+    public InlineResponse20014Data ordersBuyRateMonth(BigDecimal ordersBuyRateMonth) {
         
         this.ordersBuyRateMonth = ordersBuyRateMonth;
         return this;
@@ -444,12 +460,13 @@ public class InlineResponse20014Data {
      * Buy order ratio in last 30 days
      * @return ordersBuyRateMonth
     **/
-    public Integer getOrdersBuyRateMonth() {
+    @javax.annotation.Nullable
+    public BigDecimal getOrdersBuyRateMonth() {
         return ordersBuyRateMonth;
     }
 
 
-    public void setOrdersBuyRateMonth(Integer ordersBuyRateMonth) {
+    public void setOrdersBuyRateMonth(BigDecimal ordersBuyRateMonth) {
         this.ordersBuyRateMonth = ordersBuyRateMonth;
     }
 
@@ -463,6 +480,7 @@ public class InlineResponse20014Data {
      * Whether blocked
      * @return isBlack
     **/
+    @javax.annotation.Nullable
     public Integer getIsBlack() {
         return isBlack;
     }
@@ -482,6 +500,7 @@ public class InlineResponse20014Data {
      * Whether following
      * @return isFollow
     **/
+    @javax.annotation.Nullable
     public Integer getIsFollow() {
         return isFollow;
     }
@@ -501,6 +520,7 @@ public class InlineResponse20014Data {
      * Whether traded with self
      * @return haveTraded
     **/
+    @javax.annotation.Nullable
     public Integer getHaveTraded() {
         return haveTraded;
     }
@@ -520,6 +540,7 @@ public class InlineResponse20014Data {
      * Encrypted UID
      * @return bizUid
     **/
+    @javax.annotation.Nullable
     public String getBizUid() {
         return bizUid;
     }
@@ -539,6 +560,7 @@ public class InlineResponse20014Data {
      * Blue V Crown Shield
      * @return blueVip
     **/
+    @javax.annotation.Nullable
     public Integer getBlueVip() {
         return blueVip;
     }
@@ -558,6 +580,7 @@ public class InlineResponse20014Data {
      * Merchant work status
      * @return workStatus
     **/
+    @javax.annotation.Nullable
     public Integer getWorkStatus() {
         return workStatus;
     }
@@ -577,6 +600,7 @@ public class InlineResponse20014Data {
      * Registration days
      * @return registrationDays
     **/
+    @javax.annotation.Nullable
     public Integer getRegistrationDays() {
         return registrationDays;
     }
@@ -596,6 +620,7 @@ public class InlineResponse20014Data {
      * Days since first trade
      * @return firstTradeDays
     **/
+    @javax.annotation.Nullable
     public Integer getFirstTradeDays() {
         return firstTradeDays;
     }
@@ -615,6 +640,7 @@ public class InlineResponse20014Data {
      * Whether margin replenishment is needed
      * @return needReplenish
     **/
+    @javax.annotation.Nullable
     public Integer getNeedReplenish() {
         return needReplenish;
     }
@@ -634,6 +660,7 @@ public class InlineResponse20014Data {
      * Get merchantInfo
      * @return merchantInfo
     **/
+    @javax.annotation.Nullable
     public InlineResponse20014DataMerchantInfo getMerchantInfo() {
         return merchantInfo;
     }
@@ -653,6 +680,7 @@ public class InlineResponse20014Data {
      * Merchant online status
      * @return onlineStatus
     **/
+    @javax.annotation.Nullable
     public Integer getOnlineStatus() {
         return onlineStatus;
     }
@@ -682,7 +710,7 @@ public class InlineResponse20014Data {
         this.workHours = workHours;
     }
 
-    public InlineResponse20014Data transactionsMonth(Integer transactionsMonth) {
+    public InlineResponse20014Data transactionsMonth(BigDecimal transactionsMonth) {
         
         this.transactionsMonth = transactionsMonth;
         return this;
@@ -692,16 +720,17 @@ public class InlineResponse20014Data {
      * 30-day transaction volume
      * @return transactionsMonth
     **/
-    public Integer getTransactionsMonth() {
+    @javax.annotation.Nullable
+    public BigDecimal getTransactionsMonth() {
         return transactionsMonth;
     }
 
 
-    public void setTransactionsMonth(Integer transactionsMonth) {
+    public void setTransactionsMonth(BigDecimal transactionsMonth) {
         this.transactionsMonth = transactionsMonth;
     }
 
-    public InlineResponse20014Data transactionsAll(Integer transactionsAll) {
+    public InlineResponse20014Data transactionsAll(BigDecimal transactionsAll) {
         
         this.transactionsAll = transactionsAll;
         return this;
@@ -711,12 +740,13 @@ public class InlineResponse20014Data {
      * Total transaction volume
      * @return transactionsAll
     **/
-    public Integer getTransactionsAll() {
+    @javax.annotation.Nullable
+    public BigDecimal getTransactionsAll() {
         return transactionsAll;
     }
 
 
-    public void setTransactionsAll(Integer transactionsAll) {
+    public void setTransactionsAll(BigDecimal transactionsAll) {
         this.transactionsAll = transactionsAll;
     }
 
@@ -730,6 +760,7 @@ public class InlineResponse20014Data {
      * Single user or composite user
      * @return tradeVersatile
     **/
+    @javax.annotation.Nullable
     public Boolean getTradeVersatile() {
         return tradeVersatile;
     }

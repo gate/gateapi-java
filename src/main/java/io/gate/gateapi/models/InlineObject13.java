@@ -23,133 +23,22 @@ import java.io.IOException;
  * InlineObject13
  */
 public class InlineObject13 {
-    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currencyType";
-    @SerializedName(SERIALIZED_NAME_CURRENCY_TYPE)
-    private String currencyType;
-
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchangeType";
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
     @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
     private String exchangeType;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    public static final String SERIALIZED_NAME_FROM_COIN = "from_coin";
+    @SerializedName(SERIALIZED_NAME_FROM_COIN)
+    private String fromCoin;
 
-    public static final String SERIALIZED_NAME_UNIT_PRICE = "unitPrice";
-    @SerializedName(SERIALIZED_NAME_UNIT_PRICE)
-    private String unitPrice;
+    public static final String SERIALIZED_NAME_TO_COIN = "to_coin";
+    @SerializedName(SERIALIZED_NAME_TO_COIN)
+    private String toCoin;
 
-    public static final String SERIALIZED_NAME_NUMBER = "number";
-    @SerializedName(SERIALIZED_NAME_NUMBER)
-    private String number;
+    public static final String SERIALIZED_NAME_FROM_AMOUNT = "from_amount";
+    @SerializedName(SERIALIZED_NAME_FROM_AMOUNT)
+    private String fromAmount;
 
-    public static final String SERIALIZED_NAME_PAY_TYPE = "payType";
-    @SerializedName(SERIALIZED_NAME_PAY_TYPE)
-    private String payType;
-
-    public static final String SERIALIZED_NAME_PAY_TYPE_JSON = "pay_type_json";
-    @SerializedName(SERIALIZED_NAME_PAY_TYPE_JSON)
-    private String payTypeJson;
-
-    public static final String SERIALIZED_NAME_RATE_FIXED = "rateFixed";
-    @SerializedName(SERIALIZED_NAME_RATE_FIXED)
-    private String rateFixed;
-
-    public static final String SERIALIZED_NAME_OID = "oid";
-    @SerializedName(SERIALIZED_NAME_OID)
-    private String oid;
-
-    public static final String SERIALIZED_NAME_MIN_AMOUNT = "minAmount";
-    @SerializedName(SERIALIZED_NAME_MIN_AMOUNT)
-    private String minAmount;
-
-    public static final String SERIALIZED_NAME_MAX_AMOUNT = "maxAmount";
-    @SerializedName(SERIALIZED_NAME_MAX_AMOUNT)
-    private String maxAmount;
-
-    public static final String SERIALIZED_NAME_TIER_LIMIT = "tierLimit";
-    @SerializedName(SERIALIZED_NAME_TIER_LIMIT)
-    private String tierLimit;
-
-    public static final String SERIALIZED_NAME_VERIFIED_LIMIT = "verifiedLimit";
-    @SerializedName(SERIALIZED_NAME_VERIFIED_LIMIT)
-    private String verifiedLimit;
-
-    public static final String SERIALIZED_NAME_REG_TIME_LIMIT = "regTimeLimit";
-    @SerializedName(SERIALIZED_NAME_REG_TIME_LIMIT)
-    private String regTimeLimit;
-
-    public static final String SERIALIZED_NAME_ADVERTISERS_LIMIT = "advertisersLimit";
-    @SerializedName(SERIALIZED_NAME_ADVERTISERS_LIMIT)
-    private String advertisersLimit;
-
-    public static final String SERIALIZED_NAME_HIDE_PAYMENT = "hide_payment";
-    @SerializedName(SERIALIZED_NAME_HIDE_PAYMENT)
-    private String hidePayment;
-
-    public static final String SERIALIZED_NAME_EXPIRE_MIN = "expire_min";
-    @SerializedName(SERIALIZED_NAME_EXPIRE_MIN)
-    private String expireMin;
-
-    public static final String SERIALIZED_NAME_TRADE_TIPS = "trade_tips";
-    @SerializedName(SERIALIZED_NAME_TRADE_TIPS)
-    private String tradeTips;
-
-    public static final String SERIALIZED_NAME_AUTO_REPLY = "auto_reply";
-    @SerializedName(SERIALIZED_NAME_AUTO_REPLY)
-    private String autoReply;
-
-    public static final String SERIALIZED_NAME_MIN_COMPLETED_LIMIT = "min_completed_limit";
-    @SerializedName(SERIALIZED_NAME_MIN_COMPLETED_LIMIT)
-    private String minCompletedLimit;
-
-    public static final String SERIALIZED_NAME_MAX_COMPLETED_LIMIT = "max_completed_limit";
-    @SerializedName(SERIALIZED_NAME_MAX_COMPLETED_LIMIT)
-    private String maxCompletedLimit;
-
-    public static final String SERIALIZED_NAME_COMPLETED_RATE_LIMIT = "completed_rate_limit";
-    @SerializedName(SERIALIZED_NAME_COMPLETED_RATE_LIMIT)
-    private String completedRateLimit;
-
-    public static final String SERIALIZED_NAME_USER_COUNTRY_LIMIT = "user_country_limit";
-    @SerializedName(SERIALIZED_NAME_USER_COUNTRY_LIMIT)
-    private String userCountryLimit;
-
-    public static final String SERIALIZED_NAME_USER_ORDER_LIMIT = "user_order_limit";
-    @SerializedName(SERIALIZED_NAME_USER_ORDER_LIMIT)
-    private String userOrderLimit;
-
-    public static final String SERIALIZED_NAME_RATE_REFERENCE_ID = "rateReferenceId";
-    @SerializedName(SERIALIZED_NAME_RATE_REFERENCE_ID)
-    private String rateReferenceId;
-
-    public static final String SERIALIZED_NAME_RATE_OFFSET = "rateOffset";
-    @SerializedName(SERIALIZED_NAME_RATE_OFFSET)
-    private String rateOffset;
-
-    public static final String SERIALIZED_NAME_FLOAT_TREND = "float_trend";
-    @SerializedName(SERIALIZED_NAME_FLOAT_TREND)
-    private String floatTrend;
-
-
-    public InlineObject13 currencyType(String currencyType) {
-        
-        this.currencyType = currencyType;
-        return this;
-    }
-
-     /**
-     * Cryptocurrency
-     * @return currencyType
-    **/
-    public String getCurrencyType() {
-        return currencyType;
-    }
-
-
-    public void setCurrencyType(String currencyType) {
-        this.currencyType = currencyType;
-    }
 
     public InlineObject13 exchangeType(String exchangeType) {
         
@@ -158,7 +47,7 @@ public class InlineObject13 {
     }
 
      /**
-     * Fiat currency
+     * Exchange Type
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -170,499 +59,61 @@ public class InlineObject13 {
         this.exchangeType = exchangeType;
     }
 
-    public InlineObject13 type(String type) {
+    public InlineObject13 fromCoin(String fromCoin) {
         
-        this.type = type;
+        this.fromCoin = fromCoin;
         return this;
     }
 
      /**
-     * Ad type: 0&#x3D;Sell, 1&#x3D;Buy, 2&#x3D;Edit sell, 3&#x3D;Edit buy
-     * @return type
+     * Asset Sold
+     * @return fromCoin
     **/
-    public String getType() {
-        return type;
+    public String getFromCoin() {
+        return fromCoin;
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public void setFromCoin(String fromCoin) {
+        this.fromCoin = fromCoin;
     }
 
-    public InlineObject13 unitPrice(String unitPrice) {
+    public InlineObject13 toCoin(String toCoin) {
         
-        this.unitPrice = unitPrice;
+        this.toCoin = toCoin;
         return this;
     }
 
      /**
-     * Unit price
-     * @return unitPrice
+     * Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)
+     * @return toCoin
     **/
-    public String getUnitPrice() {
-        return unitPrice;
+    public String getToCoin() {
+        return toCoin;
     }
 
 
-    public void setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setToCoin(String toCoin) {
+        this.toCoin = toCoin;
     }
 
-    public InlineObject13 number(String number) {
+    public InlineObject13 fromAmount(String fromAmount) {
         
-        this.number = number;
+        this.fromAmount = fromAmount;
         return this;
     }
 
      /**
-     * Size
-     * @return number
+     * Amount to sell
+     * @return fromAmount
     **/
-    public String getNumber() {
-        return number;
+    public String getFromAmount() {
+        return fromAmount;
     }
 
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public InlineObject13 payType(String payType) {
-        
-        this.payType = payType;
-        return this;
-    }
-
-     /**
-     * Payment method
-     * @return payType
-    **/
-    @javax.annotation.Nullable
-    public String getPayType() {
-        return payType;
-    }
-
-
-    public void setPayType(String payType) {
-        this.payType = payType;
-    }
-
-    public InlineObject13 payTypeJson(String payTypeJson) {
-        
-        this.payTypeJson = payTypeJson;
-        return this;
-    }
-
-     /**
-     * Payment method JSON string
-     * @return payTypeJson
-    **/
-    @javax.annotation.Nullable
-    public String getPayTypeJson() {
-        return payTypeJson;
-    }
-
-
-    public void setPayTypeJson(String payTypeJson) {
-        this.payTypeJson = payTypeJson;
-    }
-
-    public InlineObject13 rateFixed(String rateFixed) {
-        
-        this.rateFixed = rateFixed;
-        return this;
-    }
-
-     /**
-     * Price type: 0-Floating price, 1-Fixed price
-     * @return rateFixed
-    **/
-    @javax.annotation.Nullable
-    public String getRateFixed() {
-        return rateFixed;
-    }
-
-
-    public void setRateFixed(String rateFixed) {
-        this.rateFixed = rateFixed;
-    }
-
-    public InlineObject13 oid(String oid) {
-        
-        this.oid = oid;
-        return this;
-    }
-
-     /**
-     * Ad ID when editing
-     * @return oid
-    **/
-    @javax.annotation.Nullable
-    public String getOid() {
-        return oid;
-    }
-
-
-    public void setOid(String oid) {
-        this.oid = oid;
-    }
-
-    public InlineObject13 minAmount(String minAmount) {
-        
-        this.minAmount = minAmount;
-        return this;
-    }
-
-     /**
-     * Minimum transaction amount per order
-     * @return minAmount
-    **/
-    public String getMinAmount() {
-        return minAmount;
-    }
-
-
-    public void setMinAmount(String minAmount) {
-        this.minAmount = minAmount;
-    }
-
-    public InlineObject13 maxAmount(String maxAmount) {
-        
-        this.maxAmount = maxAmount;
-        return this;
-    }
-
-     /**
-     * Maximum transaction amount per order
-     * @return maxAmount
-    **/
-    public String getMaxAmount() {
-        return maxAmount;
-    }
-
-
-    public void setMaxAmount(String maxAmount) {
-        this.maxAmount = maxAmount;
-    }
-
-    public InlineObject13 tierLimit(String tierLimit) {
-        
-        this.tierLimit = tierLimit;
-        return this;
-    }
-
-     /**
-     * Order tier limit
-     * @return tierLimit
-    **/
-    @javax.annotation.Nullable
-    public String getTierLimit() {
-        return tierLimit;
-    }
-
-
-    public void setTierLimit(String tierLimit) {
-        this.tierLimit = tierLimit;
-    }
-
-    public InlineObject13 verifiedLimit(String verifiedLimit) {
-        
-        this.verifiedLimit = verifiedLimit;
-        return this;
-    }
-
-     /**
-     * Verification level limit
-     * @return verifiedLimit
-    **/
-    @javax.annotation.Nullable
-    public String getVerifiedLimit() {
-        return verifiedLimit;
-    }
-
-
-    public void setVerifiedLimit(String verifiedLimit) {
-        this.verifiedLimit = verifiedLimit;
-    }
-
-    public InlineObject13 regTimeLimit(String regTimeLimit) {
-        
-        this.regTimeLimit = regTimeLimit;
-        return this;
-    }
-
-     /**
-     * Registration time limit
-     * @return regTimeLimit
-    **/
-    @javax.annotation.Nullable
-    public String getRegTimeLimit() {
-        return regTimeLimit;
-    }
-
-
-    public void setRegTimeLimit(String regTimeLimit) {
-        this.regTimeLimit = regTimeLimit;
-    }
-
-    public InlineObject13 advertisersLimit(String advertisersLimit) {
-        
-        this.advertisersLimit = advertisersLimit;
-        return this;
-    }
-
-     /**
-     * Advertiser restriction
-     * @return advertisersLimit
-    **/
-    @javax.annotation.Nullable
-    public String getAdvertisersLimit() {
-        return advertisersLimit;
-    }
-
-
-    public void setAdvertisersLimit(String advertisersLimit) {
-        this.advertisersLimit = advertisersLimit;
-    }
-
-    public InlineObject13 hidePayment(String hidePayment) {
-        
-        this.hidePayment = hidePayment;
-        return this;
-    }
-
-     /**
-     * Whether to hide payment method: 1&#x3D;Yes, 0&#x3D;No
-     * @return hidePayment
-    **/
-    @javax.annotation.Nullable
-    public String getHidePayment() {
-        return hidePayment;
-    }
-
-
-    public void setHidePayment(String hidePayment) {
-        this.hidePayment = hidePayment;
-    }
-
-    public InlineObject13 expireMin(String expireMin) {
-        
-        this.expireMin = expireMin;
-        return this;
-    }
-
-     /**
-     * Ad expiration time (minutes)
-     * @return expireMin
-    **/
-    @javax.annotation.Nullable
-    public String getExpireMin() {
-        return expireMin;
-    }
-
-
-    public void setExpireMin(String expireMin) {
-        this.expireMin = expireMin;
-    }
-
-    public InlineObject13 tradeTips(String tradeTips) {
-        
-        this.tradeTips = tradeTips;
-        return this;
-    }
-
-     /**
-     * Trading terms
-     * @return tradeTips
-    **/
-    @javax.annotation.Nullable
-    public String getTradeTips() {
-        return tradeTips;
-    }
-
-
-    public void setTradeTips(String tradeTips) {
-        this.tradeTips = tradeTips;
-    }
-
-    public InlineObject13 autoReply(String autoReply) {
-        
-        this.autoReply = autoReply;
-        return this;
-    }
-
-     /**
-     * Auto reply
-     * @return autoReply
-    **/
-    @javax.annotation.Nullable
-    public String getAutoReply() {
-        return autoReply;
-    }
-
-
-    public void setAutoReply(String autoReply) {
-        this.autoReply = autoReply;
-    }
-
-    public InlineObject13 minCompletedLimit(String minCompletedLimit) {
-        
-        this.minCompletedLimit = minCompletedLimit;
-        return this;
-    }
-
-     /**
-     * Minimum limit of completed orders
-     * @return minCompletedLimit
-    **/
-    @javax.annotation.Nullable
-    public String getMinCompletedLimit() {
-        return minCompletedLimit;
-    }
-
-
-    public void setMinCompletedLimit(String minCompletedLimit) {
-        this.minCompletedLimit = minCompletedLimit;
-    }
-
-    public InlineObject13 maxCompletedLimit(String maxCompletedLimit) {
-        
-        this.maxCompletedLimit = maxCompletedLimit;
-        return this;
-    }
-
-     /**
-     * Maximum limit of completed orders
-     * @return maxCompletedLimit
-    **/
-    @javax.annotation.Nullable
-    public String getMaxCompletedLimit() {
-        return maxCompletedLimit;
-    }
-
-
-    public void setMaxCompletedLimit(String maxCompletedLimit) {
-        this.maxCompletedLimit = maxCompletedLimit;
-    }
-
-    public InlineObject13 completedRateLimit(String completedRateLimit) {
-        
-        this.completedRateLimit = completedRateLimit;
-        return this;
-    }
-
-     /**
-     * 30-day completion rate limit
-     * @return completedRateLimit
-    **/
-    @javax.annotation.Nullable
-    public String getCompletedRateLimit() {
-        return completedRateLimit;
-    }
-
-
-    public void setCompletedRateLimit(String completedRateLimit) {
-        this.completedRateLimit = completedRateLimit;
-    }
-
-    public InlineObject13 userCountryLimit(String userCountryLimit) {
-        
-        this.userCountryLimit = userCountryLimit;
-        return this;
-    }
-
-     /**
-     * KYC nationality restriction
-     * @return userCountryLimit
-    **/
-    @javax.annotation.Nullable
-    public String getUserCountryLimit() {
-        return userCountryLimit;
-    }
-
-
-    public void setUserCountryLimit(String userCountryLimit) {
-        this.userCountryLimit = userCountryLimit;
-    }
-
-    public InlineObject13 userOrderLimit(String userOrderLimit) {
-        
-        this.userOrderLimit = userOrderLimit;
-        return this;
-    }
-
-     /**
-     * Order count limit
-     * @return userOrderLimit
-    **/
-    @javax.annotation.Nullable
-    public String getUserOrderLimit() {
-        return userOrderLimit;
-    }
-
-
-    public void setUserOrderLimit(String userOrderLimit) {
-        this.userOrderLimit = userOrderLimit;
-    }
-
-    public InlineObject13 rateReferenceId(String rateReferenceId) {
-        
-        this.rateReferenceId = rateReferenceId;
-        return this;
-    }
-
-     /**
-     * Reference exchange rate ID
-     * @return rateReferenceId
-    **/
-    @javax.annotation.Nullable
-    public String getRateReferenceId() {
-        return rateReferenceId;
-    }
-
-
-    public void setRateReferenceId(String rateReferenceId) {
-        this.rateReferenceId = rateReferenceId;
-    }
-
-    public InlineObject13 rateOffset(String rateOffset) {
-        
-        this.rateOffset = rateOffset;
-        return this;
-    }
-
-     /**
-     * Reference exchange rate offset
-     * @return rateOffset
-    **/
-    @javax.annotation.Nullable
-    public String getRateOffset() {
-        return rateOffset;
-    }
-
-
-    public void setRateOffset(String rateOffset) {
-        this.rateOffset = rateOffset;
-    }
-
-    public InlineObject13 floatTrend(String floatTrend) {
-        
-        this.floatTrend = floatTrend;
-        return this;
-    }
-
-     /**
-     * 444
-     * @return floatTrend
-    **/
-    @javax.annotation.Nullable
-    public String getFloatTrend() {
-        return floatTrend;
-    }
-
-
-    public void setFloatTrend(String floatTrend) {
-        this.floatTrend = floatTrend;
+    public void setFromAmount(String fromAmount) {
+        this.fromAmount = fromAmount;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -673,38 +124,15 @@ public class InlineObject13 {
             return false;
         }
         InlineObject13 inlineObject13 = (InlineObject13) o;
-        return Objects.equals(this.currencyType, inlineObject13.currencyType) &&
-                Objects.equals(this.exchangeType, inlineObject13.exchangeType) &&
-                Objects.equals(this.type, inlineObject13.type) &&
-                Objects.equals(this.unitPrice, inlineObject13.unitPrice) &&
-                Objects.equals(this.number, inlineObject13.number) &&
-                Objects.equals(this.payType, inlineObject13.payType) &&
-                Objects.equals(this.payTypeJson, inlineObject13.payTypeJson) &&
-                Objects.equals(this.rateFixed, inlineObject13.rateFixed) &&
-                Objects.equals(this.oid, inlineObject13.oid) &&
-                Objects.equals(this.minAmount, inlineObject13.minAmount) &&
-                Objects.equals(this.maxAmount, inlineObject13.maxAmount) &&
-                Objects.equals(this.tierLimit, inlineObject13.tierLimit) &&
-                Objects.equals(this.verifiedLimit, inlineObject13.verifiedLimit) &&
-                Objects.equals(this.regTimeLimit, inlineObject13.regTimeLimit) &&
-                Objects.equals(this.advertisersLimit, inlineObject13.advertisersLimit) &&
-                Objects.equals(this.hidePayment, inlineObject13.hidePayment) &&
-                Objects.equals(this.expireMin, inlineObject13.expireMin) &&
-                Objects.equals(this.tradeTips, inlineObject13.tradeTips) &&
-                Objects.equals(this.autoReply, inlineObject13.autoReply) &&
-                Objects.equals(this.minCompletedLimit, inlineObject13.minCompletedLimit) &&
-                Objects.equals(this.maxCompletedLimit, inlineObject13.maxCompletedLimit) &&
-                Objects.equals(this.completedRateLimit, inlineObject13.completedRateLimit) &&
-                Objects.equals(this.userCountryLimit, inlineObject13.userCountryLimit) &&
-                Objects.equals(this.userOrderLimit, inlineObject13.userOrderLimit) &&
-                Objects.equals(this.rateReferenceId, inlineObject13.rateReferenceId) &&
-                Objects.equals(this.rateOffset, inlineObject13.rateOffset) &&
-                Objects.equals(this.floatTrend, inlineObject13.floatTrend);
+        return Objects.equals(this.exchangeType, inlineObject13.exchangeType) &&
+                Objects.equals(this.fromCoin, inlineObject13.fromCoin) &&
+                Objects.equals(this.toCoin, inlineObject13.toCoin) &&
+                Objects.equals(this.fromAmount, inlineObject13.fromAmount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyType, exchangeType, type, unitPrice, number, payType, payTypeJson, rateFixed, oid, minAmount, maxAmount, tierLimit, verifiedLimit, regTimeLimit, advertisersLimit, hidePayment, expireMin, tradeTips, autoReply, minCompletedLimit, maxCompletedLimit, completedRateLimit, userCountryLimit, userOrderLimit, rateReferenceId, rateOffset, floatTrend);
+        return Objects.hash(exchangeType, fromCoin, toCoin, fromAmount);
     }
 
 
@@ -712,33 +140,10 @@ public class InlineObject13 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject13 {\n");
-        sb.append("      currencyType: ").append(toIndentedString(currencyType)).append("\n");
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
-        sb.append("      unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
-        sb.append("      number: ").append(toIndentedString(number)).append("\n");
-        sb.append("      payType: ").append(toIndentedString(payType)).append("\n");
-        sb.append("      payTypeJson: ").append(toIndentedString(payTypeJson)).append("\n");
-        sb.append("      rateFixed: ").append(toIndentedString(rateFixed)).append("\n");
-        sb.append("      oid: ").append(toIndentedString(oid)).append("\n");
-        sb.append("      minAmount: ").append(toIndentedString(minAmount)).append("\n");
-        sb.append("      maxAmount: ").append(toIndentedString(maxAmount)).append("\n");
-        sb.append("      tierLimit: ").append(toIndentedString(tierLimit)).append("\n");
-        sb.append("      verifiedLimit: ").append(toIndentedString(verifiedLimit)).append("\n");
-        sb.append("      regTimeLimit: ").append(toIndentedString(regTimeLimit)).append("\n");
-        sb.append("      advertisersLimit: ").append(toIndentedString(advertisersLimit)).append("\n");
-        sb.append("      hidePayment: ").append(toIndentedString(hidePayment)).append("\n");
-        sb.append("      expireMin: ").append(toIndentedString(expireMin)).append("\n");
-        sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
-        sb.append("      autoReply: ").append(toIndentedString(autoReply)).append("\n");
-        sb.append("      minCompletedLimit: ").append(toIndentedString(minCompletedLimit)).append("\n");
-        sb.append("      maxCompletedLimit: ").append(toIndentedString(maxCompletedLimit)).append("\n");
-        sb.append("      completedRateLimit: ").append(toIndentedString(completedRateLimit)).append("\n");
-        sb.append("      userCountryLimit: ").append(toIndentedString(userCountryLimit)).append("\n");
-        sb.append("      userOrderLimit: ").append(toIndentedString(userOrderLimit)).append("\n");
-        sb.append("      rateReferenceId: ").append(toIndentedString(rateReferenceId)).append("\n");
-        sb.append("      rateOffset: ").append(toIndentedString(rateOffset)).append("\n");
-        sb.append("      floatTrend: ").append(toIndentedString(floatTrend)).append("\n");
+        sb.append("      fromCoin: ").append(toIndentedString(fromCoin)).append("\n");
+        sb.append("      toCoin: ").append(toIndentedString(toCoin)).append("\n");
+        sb.append("      fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

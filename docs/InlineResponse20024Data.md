@@ -5,5 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SRVTM** | **Integer** | Timestamp when message was successfully sent (current timestamp) | 
+**messages** | [**List&lt;InlineResponse20024DataMessages&gt;**](InlineResponse20024DataMessages.md) | Message List |  [optional]
+**memo** | **String** | Payment tip (displayed on homepage only) |  [optional]
+**hasHistory** | **Boolean** | Whether historical records exist |  [optional]
+**txid** | **Integer** | Order ID |  [optional]
+**SRVTM** | **Integer** | Timestamp of the latest message |  [optional]
+**orderStatus** | **String** | Order Status |  [optional]
 

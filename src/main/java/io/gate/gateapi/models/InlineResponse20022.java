@@ -20,8 +20,6 @@ import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.InlineResponse20022Data;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20022
@@ -45,7 +43,7 @@ public class InlineResponse20022 {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private List<InlineResponse20022Data> data = new ArrayList<>();
+    private InlineResponse20022Data data;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
     @SerializedName(SERIALIZED_NAME_VERSION)
@@ -62,6 +60,7 @@ public class InlineResponse20022 {
      * Get timestamp
      * @return timestamp
     **/
+    @javax.annotation.Nullable
     public BigDecimal getTimestamp() {
         return timestamp;
     }
@@ -81,6 +80,7 @@ public class InlineResponse20022 {
      * Get method
      * @return method
     **/
+    @javax.annotation.Nullable
     public String getMethod() {
         return method;
     }
@@ -100,6 +100,7 @@ public class InlineResponse20022 {
      * Get code
      * @return code
     **/
+    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -119,6 +120,7 @@ public class InlineResponse20022 {
      * Get message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -128,14 +130,9 @@ public class InlineResponse20022 {
         this.message = message;
     }
 
-    public InlineResponse20022 data(List<InlineResponse20022Data> data) {
+    public InlineResponse20022 data(InlineResponse20022Data data) {
         
         this.data = data;
-        return this;
-    }
-
-    public InlineResponse20022 addDataItem(InlineResponse20022Data dataItem) {
-        this.data.add(dataItem);
         return this;
     }
 
@@ -143,12 +140,13 @@ public class InlineResponse20022 {
      * Get data
      * @return data
     **/
-    public List<InlineResponse20022Data> getData() {
+    @javax.annotation.Nullable
+    public InlineResponse20022Data getData() {
         return data;
     }
 
 
-    public void setData(List<InlineResponse20022Data> data) {
+    public void setData(InlineResponse20022Data data) {
         this.data = data;
     }
 
@@ -159,9 +157,10 @@ public class InlineResponse20022 {
     }
 
      /**
-     * Get version
+     * Version number
      * @return version
     **/
+    @javax.annotation.Nullable
     public String getVersion() {
         return version;
     }

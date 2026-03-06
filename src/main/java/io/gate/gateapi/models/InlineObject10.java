@@ -23,51 +23,121 @@ import java.io.IOException;
  * InlineObject10
  */
 public class InlineObject10 {
-    public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
-    @SerializedName(SERIALIZED_NAME_TRADE_ID)
-    private String tradeId;
+    public static final String SERIALIZED_NAME_COIN = "coin";
+    @SerializedName(SERIALIZED_NAME_COIN)
+    private String coin;
 
-    public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
-    @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
-    private String paymentMethod;
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
+
+    public static final String SERIALIZED_NAME_FROM = "from";
+    @SerializedName(SERIALIZED_NAME_FROM)
+    private String from;
+
+    public static final String SERIALIZED_NAME_TO = "to";
+    @SerializedName(SERIALIZED_NAME_TO)
+    private String to;
+
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
 
 
-    public InlineObject10 tradeId(String tradeId) {
+    public InlineObject10 coin(String coin) {
         
-        this.tradeId = tradeId;
+        this.coin = coin;
         return this;
     }
 
      /**
-     * Get tradeId
-     * @return tradeId
+     * Currency
+     * @return coin
     **/
-    public String getTradeId() {
-        return tradeId;
+    public String getCoin() {
+        return coin;
     }
 
 
-    public void setTradeId(String tradeId) {
-        this.tradeId = tradeId;
+    public void setCoin(String coin) {
+        this.coin = coin;
     }
 
-    public InlineObject10 paymentMethod(String paymentMethod) {
+    public InlineObject10 amount(String amount) {
         
-        this.paymentMethod = paymentMethod;
+        this.amount = amount;
         return this;
     }
 
      /**
-     * Get paymentMethod
-     * @return paymentMethod
+     * Transfer amount
+     * @return amount
     **/
-    public String getPaymentMethod() {
-        return paymentMethod;
+    public String getAmount() {
+        return amount;
     }
 
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public InlineObject10 from(String from) {
+        
+        this.from = from;
+        return this;
+    }
+
+     /**
+     * Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT
+     * @return from
+    **/
+    public String getFrom() {
+        return from;
+    }
+
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public InlineObject10 to(String to) {
+        
+        this.to = to;
+        return this;
+    }
+
+     /**
+     * Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT
+     * @return to
+    **/
+    public String getTo() {
+        return to;
+    }
+
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public InlineObject10 text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * User-defined ID
+     * @return text
+    **/
+    @javax.annotation.Nullable
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +148,16 @@ public class InlineObject10 {
             return false;
         }
         InlineObject10 inlineObject10 = (InlineObject10) o;
-        return Objects.equals(this.tradeId, inlineObject10.tradeId) &&
-                Objects.equals(this.paymentMethod, inlineObject10.paymentMethod);
+        return Objects.equals(this.coin, inlineObject10.coin) &&
+                Objects.equals(this.amount, inlineObject10.amount) &&
+                Objects.equals(this.from, inlineObject10.from) &&
+                Objects.equals(this.to, inlineObject10.to) &&
+                Objects.equals(this.text, inlineObject10.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId, paymentMethod);
+        return Objects.hash(coin, amount, from, to, text);
     }
 
 
@@ -92,8 +165,11 @@ public class InlineObject10 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject10 {\n");
-        sb.append("      tradeId: ").append(toIndentedString(tradeId)).append("\n");
-        sb.append("      paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+        sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      from: ").append(toIndentedString(from)).append("\n");
+        sb.append("      to: ").append(toIndentedString(to)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -23,170 +23,121 @@ import java.io.IOException;
  * InlineObject1
  */
 public class InlineObject1 {
-    public static final String SERIALIZED_NAME_SIDE = "side";
-    @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
+    public static final String SERIALIZED_NAME_ASSET = "asset";
+    @SerializedName(SERIALIZED_NAME_ASSET)
+    private String asset;
 
-    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
-    @SerializedName(SERIALIZED_NAME_PAY_COIN)
-    private String payCoin;
+    public static final String SERIALIZED_NAME_CHANGE = "change";
+    @SerializedName(SERIALIZED_NAME_CHANGE)
+    private String change;
 
-    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
-    @SerializedName(SERIALIZED_NAME_GET_COIN)
-    private String getCoin;
-
-    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
-    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
-    private String payAmount;
-
-    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
-    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
-    private String getAmount;
-
-    public static final String SERIALIZED_NAME_CREATE_QUOTE_TOKEN = "create_quote_token";
-    @SerializedName(SERIALIZED_NAME_CREATE_QUOTE_TOKEN)
-    private String createQuoteToken;
-
-    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
-    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
-    private String promotionCode;
-
-
-    public InlineObject1 side(String side) {
+    /**
+     * Transaction Type (deposit - transfer in, withdraw - transfer out)
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        DEPOSIT("deposit"),
         
-        this.side = side;
+        WITHDRAW("withdraw");
+
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private TypeEnum type;
+
+
+    public InlineObject1 asset(String asset) {
+        
+        this.asset = asset;
         return this;
     }
 
      /**
-     * PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required
-     * @return side
+     * Asset type, e.g., USDT, currently only USDT is supported
+     * @return asset
     **/
-    public String getSide() {
-        return side;
+    public String getAsset() {
+        return asset;
     }
 
 
-    public void setSide(String side) {
-        this.side = side;
+    public void setAsset(String asset) {
+        this.asset = asset;
     }
 
-    public InlineObject1 payCoin(String payCoin) {
+    public InlineObject1 change(String change) {
         
-        this.payCoin = payCoin;
+        this.change = change;
         return this;
     }
 
      /**
-     * Currency the user pays. Supported currencies can be found on the OTC web quote page.
-     * @return payCoin
+     * Change Quantity, supports up to two decimal places
+     * @return change
     **/
-    public String getPayCoin() {
-        return payCoin;
+    public String getChange() {
+        return change;
     }
 
 
-    public void setPayCoin(String payCoin) {
-        this.payCoin = payCoin;
+    public void setChange(String change) {
+        this.change = change;
     }
 
-    public InlineObject1 getCoin(String getCoin) {
+    public InlineObject1 type(TypeEnum type) {
         
-        this.getCoin = getCoin;
+        this.type = type;
         return this;
     }
 
      /**
-     * Currency the user receives. Supported currencies can be found on the OTC web quote page.
-     * @return getCoin
+     * Transaction Type (deposit - transfer in, withdraw - transfer out)
+     * @return type
     **/
-    public String getGetCoin() {
-        return getCoin;
+    public TypeEnum getType() {
+        return type;
     }
 
 
-    public void setGetCoin(String getCoin) {
-        this.getCoin = getCoin;
-    }
-
-    public InlineObject1 payAmount(String payAmount) {
-        
-        this.payAmount = payAmount;
-        return this;
-    }
-
-     /**
-     * User payment currency amount
-     * @return payAmount
-    **/
-    @javax.annotation.Nullable
-    public String getPayAmount() {
-        return payAmount;
-    }
-
-
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
-    }
-
-    public InlineObject1 getAmount(String getAmount) {
-        
-        this.getAmount = getAmount;
-        return this;
-    }
-
-     /**
-     * Amount of currency received by the user
-     * @return getAmount
-    **/
-    @javax.annotation.Nullable
-    public String getGetAmount() {
-        return getAmount;
-    }
-
-
-    public void setGetAmount(String getAmount) {
-        this.getAmount = getAmount;
-    }
-
-    public InlineObject1 createQuoteToken(String createQuoteToken) {
-        
-        this.createQuoteToken = createQuoteToken;
-        return this;
-    }
-
-     /**
-     * Create quote token: 0: quote preview only; 1: generate quote token for order placement.
-     * @return createQuoteToken
-    **/
-    @javax.annotation.Nullable
-    public String getCreateQuoteToken() {
-        return createQuoteToken;
-    }
-
-
-    public void setCreateQuoteToken(String createQuoteToken) {
-        this.createQuoteToken = createQuoteToken;
-    }
-
-    public InlineObject1 promotionCode(String promotionCode) {
-        
-        this.promotionCode = promotionCode;
-        return this;
-    }
-
-     /**
-     * Promotion code (optional)
-     * @return promotionCode
-    **/
-    @javax.annotation.Nullable
-    public String getPromotionCode() {
-        return promotionCode;
-    }
-
-
-    public void setPromotionCode(String promotionCode) {
-        this.promotionCode = promotionCode;
+    public void setType(TypeEnum type) {
+        this.type = type;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -197,18 +148,14 @@ public class InlineObject1 {
             return false;
         }
         InlineObject1 inlineObject1 = (InlineObject1) o;
-        return Objects.equals(this.side, inlineObject1.side) &&
-                Objects.equals(this.payCoin, inlineObject1.payCoin) &&
-                Objects.equals(this.getCoin, inlineObject1.getCoin) &&
-                Objects.equals(this.payAmount, inlineObject1.payAmount) &&
-                Objects.equals(this.getAmount, inlineObject1.getAmount) &&
-                Objects.equals(this.createQuoteToken, inlineObject1.createQuoteToken) &&
-                Objects.equals(this.promotionCode, inlineObject1.promotionCode);
+        return Objects.equals(this.asset, inlineObject1.asset) &&
+                Objects.equals(this.change, inlineObject1.change) &&
+                Objects.equals(this.type, inlineObject1.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(side, payCoin, getCoin, payAmount, getAmount, createQuoteToken, promotionCode);
+        return Objects.hash(asset, change, type);
     }
 
 
@@ -216,13 +163,9 @@ public class InlineObject1 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject1 {\n");
-        sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
-        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
-        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
-        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
-        sb.append("      createQuoteToken: ").append(toIndentedString(createQuoteToken)).append("\n");
-        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
+        sb.append("      asset: ").append(toIndentedString(asset)).append("\n");
+        sb.append("      change: ").append(toIndentedString(change)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

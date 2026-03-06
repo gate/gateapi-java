@@ -464,7 +464,7 @@ public class BatchOrder {
     private StpActEnum stpAct;
 
     /**
-     * How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+     * 订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - poc: 未满足挂单策略，因为 tif 设置为 poc - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -474,9 +474,25 @@ public class BatchOrder {
         
         CANCELLED("cancelled"),
         
+        LIQUIDATE_CANCELLED("liquidate_cancelled"),
+        
+        DEPTH_NOT_ENOUGH("depth_not_enough"),
+        
+        TRADER_NOT_ENOUGH("trader_not_enough"),
+        
+        SMALL("small"),
+        
         IOC("ioc"),
         
-        STP("stp");
+        POC("poc"),
+        
+        FOK("fok"),
+        
+        STP("stp"),
+        
+        PRICE_PROTECT_CANCELLED("price_protect_cancelled"),
+        
+        UNKNOWN("unknown");
 
         private String value;
 
@@ -1056,7 +1072,7 @@ public class BatchOrder {
     }
 
      /**
-     * How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+     * 订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - poc: 未满足挂单策略，因为 tif 设置为 poc - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知
      * @return finishAs
     **/
     @javax.annotation.Nullable

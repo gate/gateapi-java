@@ -17,195 +17,46 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20022DataLists;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20022Data
  */
 public class InlineResponse20022Data {
-    public static final String SERIALIZED_NAME_INDEX = "index";
-    @SerializedName(SERIALIZED_NAME_INDEX)
-    private Integer index;
-
-    public static final String SERIALIZED_NAME_ASSET = "asset";
-    @SerializedName(SERIALIZED_NAME_ASSET)
-    private String asset;
-
-    public static final String SERIALIZED_NAME_FIAT_UNIT = "fiat_unit";
-    @SerializedName(SERIALIZED_NAME_FIAT_UNIT)
-    private String fiatUnit;
-
-    public static final String SERIALIZED_NAME_ADV_NO = "adv_no";
-    @SerializedName(SERIALIZED_NAME_ADV_NO)
-    private Integer advNo;
-
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
-
-    public static final String SERIALIZED_NAME_MAX_SINGLE_TRANS_AMOUNT = "max_single_trans_amount";
-    @SerializedName(SERIALIZED_NAME_MAX_SINGLE_TRANS_AMOUNT)
-    private String maxSingleTransAmount;
-
-    public static final String SERIALIZED_NAME_MIN_SINGLE_TRANS_AMOUNT = "min_single_trans_amount";
-    @SerializedName(SERIALIZED_NAME_MIN_SINGLE_TRANS_AMOUNT)
-    private String minSingleTransAmount;
-
-    public static final String SERIALIZED_NAME_NICK_NAME = "nick_name";
-    @SerializedName(SERIALIZED_NAME_NICK_NAME)
-    private String nickName;
+    public static final String SERIALIZED_NAME_LISTS = "lists";
+    @SerializedName(SERIALIZED_NAME_LISTS)
+    private List<InlineResponse20022DataLists> lists = null;
 
 
-    public InlineResponse20022Data index(Integer index) {
+    public InlineResponse20022Data lists(List<InlineResponse20022DataLists> lists) {
         
-        this.index = index;
+        this.lists = lists;
+        return this;
+    }
+
+    public InlineResponse20022Data addListsItem(InlineResponse20022DataLists listsItem) {
+        if (this.lists == null) {
+            this.lists = new ArrayList<>();
+        }
+        this.lists.add(listsItem);
         return this;
     }
 
      /**
-     * Serial number
-     * @return index
+     * Get lists
+     * @return lists
     **/
-    public Integer getIndex() {
-        return index;
+    @javax.annotation.Nullable
+    public List<InlineResponse20022DataLists> getLists() {
+        return lists;
     }
 
 
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public InlineResponse20022Data asset(String asset) {
-        
-        this.asset = asset;
-        return this;
-    }
-
-     /**
-     * Cryptocurrency
-     * @return asset
-    **/
-    public String getAsset() {
-        return asset;
-    }
-
-
-    public void setAsset(String asset) {
-        this.asset = asset;
-    }
-
-    public InlineResponse20022Data fiatUnit(String fiatUnit) {
-        
-        this.fiatUnit = fiatUnit;
-        return this;
-    }
-
-     /**
-     * Fiat currency
-     * @return fiatUnit
-    **/
-    public String getFiatUnit() {
-        return fiatUnit;
-    }
-
-
-    public void setFiatUnit(String fiatUnit) {
-        this.fiatUnit = fiatUnit;
-    }
-
-    public InlineResponse20022Data advNo(Integer advNo) {
-        
-        this.advNo = advNo;
-        return this;
-    }
-
-     /**
-     * 广告id
-     * @return advNo
-    **/
-    public Integer getAdvNo() {
-        return advNo;
-    }
-
-
-    public void setAdvNo(Integer advNo) {
-        this.advNo = advNo;
-    }
-
-    public InlineResponse20022Data price(String price) {
-        
-        this.price = price;
-        return this;
-    }
-
-     /**
-     * Price
-     * @return price
-    **/
-    public String getPrice() {
-        return price;
-    }
-
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public InlineResponse20022Data maxSingleTransAmount(String maxSingleTransAmount) {
-        
-        this.maxSingleTransAmount = maxSingleTransAmount;
-        return this;
-    }
-
-     /**
-     * Maximum Cryptocurrency Amount
-     * @return maxSingleTransAmount
-    **/
-    public String getMaxSingleTransAmount() {
-        return maxSingleTransAmount;
-    }
-
-
-    public void setMaxSingleTransAmount(String maxSingleTransAmount) {
-        this.maxSingleTransAmount = maxSingleTransAmount;
-    }
-
-    public InlineResponse20022Data minSingleTransAmount(String minSingleTransAmount) {
-        
-        this.minSingleTransAmount = minSingleTransAmount;
-        return this;
-    }
-
-     /**
-     * Minimum Cryptocurrency Amount
-     * @return minSingleTransAmount
-    **/
-    public String getMinSingleTransAmount() {
-        return minSingleTransAmount;
-    }
-
-
-    public void setMinSingleTransAmount(String minSingleTransAmount) {
-        this.minSingleTransAmount = minSingleTransAmount;
-    }
-
-    public InlineResponse20022Data nickName(String nickName) {
-        
-        this.nickName = nickName;
-        return this;
-    }
-
-     /**
-     * Advertiser Nickname
-     * @return nickName
-    **/
-    public String getNickName() {
-        return nickName;
-    }
-
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setLists(List<InlineResponse20022DataLists> lists) {
+        this.lists = lists;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -216,19 +67,12 @@ public class InlineResponse20022Data {
             return false;
         }
         InlineResponse20022Data inlineResponse20022Data = (InlineResponse20022Data) o;
-        return Objects.equals(this.index, inlineResponse20022Data.index) &&
-                Objects.equals(this.asset, inlineResponse20022Data.asset) &&
-                Objects.equals(this.fiatUnit, inlineResponse20022Data.fiatUnit) &&
-                Objects.equals(this.advNo, inlineResponse20022Data.advNo) &&
-                Objects.equals(this.price, inlineResponse20022Data.price) &&
-                Objects.equals(this.maxSingleTransAmount, inlineResponse20022Data.maxSingleTransAmount) &&
-                Objects.equals(this.minSingleTransAmount, inlineResponse20022Data.minSingleTransAmount) &&
-                Objects.equals(this.nickName, inlineResponse20022Data.nickName);
+        return Objects.equals(this.lists, inlineResponse20022Data.lists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(index, asset, fiatUnit, advNo, price, maxSingleTransAmount, minSingleTransAmount, nickName);
+        return Objects.hash(lists);
     }
 
 
@@ -236,14 +80,7 @@ public class InlineResponse20022Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20022Data {\n");
-        sb.append("      index: ").append(toIndentedString(index)).append("\n");
-        sb.append("      asset: ").append(toIndentedString(asset)).append("\n");
-        sb.append("      fiatUnit: ").append(toIndentedString(fiatUnit)).append("\n");
-        sb.append("      advNo: ").append(toIndentedString(advNo)).append("\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      maxSingleTransAmount: ").append(toIndentedString(maxSingleTransAmount)).append("\n");
-        sb.append("      minSingleTransAmount: ").append(toIndentedString(minSingleTransAmount)).append("\n");
-        sb.append("      nickName: ").append(toIndentedString(nickName)).append("\n");
+        sb.append("      lists: ").append(toIndentedString(lists)).append("\n");
         sb.append("}");
         return sb.toString();
     }

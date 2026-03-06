@@ -18,131 +18,32 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * InlineResponse20028
  */
 public class InlineResponse20028 {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
-
-    public static final String SERIALIZED_NAME_TEXT = "text";
-    @SerializedName(SERIALIZED_NAME_TEXT)
-    private String text;
-
-    public static final String SERIALIZED_NAME_FROM_ACCOUNT_TYPE = "from_account_type";
-    @SerializedName(SERIALIZED_NAME_FROM_ACCOUNT_TYPE)
-    private String fromAccountType;
-
-    public static final String SERIALIZED_NAME_TO_ACCOUNT_TYPE = "to_account_type";
-    @SerializedName(SERIALIZED_NAME_TO_ACCOUNT_TYPE)
-    private String toAccountType;
-
     public static final String SERIALIZED_NAME_COIN = "coin";
     @SerializedName(SERIALIZED_NAME_COIN)
     private String coin;
 
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
+    public static final String SERIALIZED_NAME_MIN_TRANS_AMOUNT = "min_trans_amount";
+    @SerializedName(SERIALIZED_NAME_MIN_TRANS_AMOUNT)
+    private BigDecimal minTransAmount;
 
-    public static final String SERIALIZED_NAME_ACTUAL_RECEIVE = "actual_receive";
-    @SerializedName(SERIALIZED_NAME_ACTUAL_RECEIVE)
-    private String actualReceive;
+    public static final String SERIALIZED_NAME_EST_FEE = "est_fee";
+    @SerializedName(SERIALIZED_NAME_EST_FEE)
+    private BigDecimal estFee;
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
+    public static final String SERIALIZED_NAME_PRECISION = "precision";
+    @SerializedName(SERIALIZED_NAME_PRECISION)
+    private Integer precision;
 
-    public static final String SERIALIZED_NAME_FAIL_REASON = "fail_reason";
-    @SerializedName(SERIALIZED_NAME_FAIL_REASON)
-    private String failReason;
+    public static final String SERIALIZED_NAME_IS_DISABLED = "is_disabled";
+    @SerializedName(SERIALIZED_NAME_IS_DISABLED)
+    private Integer isDisabled;
 
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private Integer createTime;
-
-    public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
-    @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
-    private Integer updateTime;
-
-
-    public InlineResponse20028 id(String id) {
-        
-        this.id = id;
-        return this;
-    }
-
-     /**
-     * Order ID
-     * @return id
-    **/
-    public String getId() {
-        return id;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public InlineResponse20028 text(String text) {
-        
-        this.text = text;
-        return this;
-    }
-
-     /**
-     * Client Custom ID
-     * @return text
-    **/
-    public String getText() {
-        return text;
-    }
-
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public InlineResponse20028 fromAccountType(String fromAccountType) {
-        
-        this.fromAccountType = fromAccountType;
-        return this;
-    }
-
-     /**
-     * Source &#x60;from&#x60; account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)
-     * @return fromAccountType
-    **/
-    public String getFromAccountType() {
-        return fromAccountType;
-    }
-
-
-    public void setFromAccountType(String fromAccountType) {
-        this.fromAccountType = fromAccountType;
-    }
-
-    public InlineResponse20028 toAccountType(String toAccountType) {
-        
-        this.toAccountType = toAccountType;
-        return this;
-    }
-
-     /**
-     * Get toAccountType
-     * @return toAccountType
-    **/
-    public String getToAccountType() {
-        return toAccountType;
-    }
-
-
-    public void setToAccountType(String toAccountType) {
-        this.toAccountType = toAccountType;
-    }
 
     public InlineResponse20028 coin(String coin) {
         
@@ -163,120 +64,80 @@ public class InlineResponse20028 {
         this.coin = coin;
     }
 
-    public InlineResponse20028 amount(String amount) {
+    public InlineResponse20028 minTransAmount(BigDecimal minTransAmount) {
         
-        this.amount = amount;
+        this.minTransAmount = minTransAmount;
         return this;
     }
 
      /**
-     * Transfer amount, the amount requested for the transfer
-     * @return amount
+     * Minimum Transfer Quantity (including estimated fees)
+     * @return minTransAmount
     **/
-    public String getAmount() {
-        return amount;
+    public BigDecimal getMinTransAmount() {
+        return minTransAmount;
     }
 
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setMinTransAmount(BigDecimal minTransAmount) {
+        this.minTransAmount = minTransAmount;
     }
 
-    public InlineResponse20028 actualReceive(String actualReceive) {
+    public InlineResponse20028 estFee(BigDecimal estFee) {
         
-        this.actualReceive = actualReceive;
+        this.estFee = estFee;
         return this;
     }
 
      /**
-     * Actual credited amount (has a value when status &#x3D; SUCCESS; empty for other statuses)
-     * @return actualReceive
+     * Estimated Fee
+     * @return estFee
     **/
-    @javax.annotation.Nullable
-    public String getActualReceive() {
-        return actualReceive;
+    public BigDecimal getEstFee() {
+        return estFee;
     }
 
 
-    public void setActualReceive(String actualReceive) {
-        this.actualReceive = actualReceive;
+    public void setEstFee(BigDecimal estFee) {
+        this.estFee = estFee;
     }
 
-    public InlineResponse20028 status(String status) {
+    public InlineResponse20028 precision(Integer precision) {
         
-        this.status = status;
+        this.precision = precision;
         return this;
     }
 
      /**
-     * Transfer Status - &#x60;FAIL&#x60;: Failed - &#x60;SUCCESS&#x60;: Successful - &#x60;PENDING&#x60;: Transfer in Progress
-     * @return status
+     * Precision
+     * @return precision
     **/
-    public String getStatus() {
-        return status;
+    public Integer getPrecision() {
+        return precision;
     }
 
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPrecision(Integer precision) {
+        this.precision = precision;
     }
 
-    public InlineResponse20028 failReason(String failReason) {
+    public InlineResponse20028 isDisabled(Integer isDisabled) {
         
-        this.failReason = failReason;
+        this.isDisabled = isDisabled;
         return this;
     }
 
      /**
-     * Failure reason (has a value when status &#x3D; FAIL; empty for other statuses)
-     * @return failReason
+     * If it is disabled. 0 means NOT being disabled
+     * @return isDisabled
     **/
-    @javax.annotation.Nullable
-    public String getFailReason() {
-        return failReason;
+    public Integer getIsDisabled() {
+        return isDisabled;
     }
 
 
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
-    }
-
-    public InlineResponse20028 createTime(Integer createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
-     /**
-     * Creation time of order
-     * @return createTime
-    **/
-    public Integer getCreateTime() {
-        return createTime;
-    }
-
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public InlineResponse20028 updateTime(Integer updateTime) {
-        
-        this.updateTime = updateTime;
-        return this;
-    }
-
-     /**
-     * OrderUpdateTime
-     * @return updateTime
-    **/
-    public Integer getUpdateTime() {
-        return updateTime;
-    }
-
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
+    public void setIsDisabled(Integer isDisabled) {
+        this.isDisabled = isDisabled;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -287,22 +148,16 @@ public class InlineResponse20028 {
             return false;
         }
         InlineResponse20028 inlineResponse20028 = (InlineResponse20028) o;
-        return Objects.equals(this.id, inlineResponse20028.id) &&
-                Objects.equals(this.text, inlineResponse20028.text) &&
-                Objects.equals(this.fromAccountType, inlineResponse20028.fromAccountType) &&
-                Objects.equals(this.toAccountType, inlineResponse20028.toAccountType) &&
-                Objects.equals(this.coin, inlineResponse20028.coin) &&
-                Objects.equals(this.amount, inlineResponse20028.amount) &&
-                Objects.equals(this.actualReceive, inlineResponse20028.actualReceive) &&
-                Objects.equals(this.status, inlineResponse20028.status) &&
-                Objects.equals(this.failReason, inlineResponse20028.failReason) &&
-                Objects.equals(this.createTime, inlineResponse20028.createTime) &&
-                Objects.equals(this.updateTime, inlineResponse20028.updateTime);
+        return Objects.equals(this.coin, inlineResponse20028.coin) &&
+                Objects.equals(this.minTransAmount, inlineResponse20028.minTransAmount) &&
+                Objects.equals(this.estFee, inlineResponse20028.estFee) &&
+                Objects.equals(this.precision, inlineResponse20028.precision) &&
+                Objects.equals(this.isDisabled, inlineResponse20028.isDisabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, fromAccountType, toAccountType, coin, amount, actualReceive, status, failReason, createTime, updateTime);
+        return Objects.hash(coin, minTransAmount, estFee, precision, isDisabled);
     }
 
 
@@ -310,17 +165,11 @@ public class InlineResponse20028 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20028 {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
-        sb.append("      text: ").append(toIndentedString(text)).append("\n");
-        sb.append("      fromAccountType: ").append(toIndentedString(fromAccountType)).append("\n");
-        sb.append("      toAccountType: ").append(toIndentedString(toAccountType)).append("\n");
         sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      actualReceive: ").append(toIndentedString(actualReceive)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      failReason: ").append(toIndentedString(failReason)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
+        sb.append("      minTransAmount: ").append(toIndentedString(minTransAmount)).append("\n");
+        sb.append("      estFee: ").append(toIndentedString(estFee)).append("\n");
+        sb.append("      precision: ").append(toIndentedString(precision)).append("\n");
+        sb.append("      isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
         sb.append("}");
         return sb.toString();
     }

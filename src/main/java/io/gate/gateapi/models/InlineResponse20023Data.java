@@ -17,157 +17,203 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20023DataMessages;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse20023Data
  */
 public class InlineResponse20023Data {
-    public static final String SERIALIZED_NAME_MESSAGES = "messages";
-    @SerializedName(SERIALIZED_NAME_MESSAGES)
-    private List<InlineResponse20023DataMessages> messages = new ArrayList<>();
+    public static final String SERIALIZED_NAME_INDEX = "index";
+    @SerializedName(SERIALIZED_NAME_INDEX)
+    private Integer index;
 
-    public static final String SERIALIZED_NAME_MEMO = "memo";
-    @SerializedName(SERIALIZED_NAME_MEMO)
-    private String memo;
+    public static final String SERIALIZED_NAME_ASSET = "asset";
+    @SerializedName(SERIALIZED_NAME_ASSET)
+    private String asset;
 
-    public static final String SERIALIZED_NAME_HAS_HISTORY = "has_history";
-    @SerializedName(SERIALIZED_NAME_HAS_HISTORY)
-    private Boolean hasHistory;
+    public static final String SERIALIZED_NAME_FIAT_UNIT = "fiat_unit";
+    @SerializedName(SERIALIZED_NAME_FIAT_UNIT)
+    private String fiatUnit;
 
-    public static final String SERIALIZED_NAME_TXID = "txid";
-    @SerializedName(SERIALIZED_NAME_TXID)
-    private Integer txid;
+    public static final String SERIALIZED_NAME_ADV_NO = "adv_no";
+    @SerializedName(SERIALIZED_NAME_ADV_NO)
+    private Integer advNo;
 
-    public static final String SERIALIZED_NAME_S_R_V_T_M = "SRVTM";
-    @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
-    private Integer SRVTM;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
-    public static final String SERIALIZED_NAME_ORDER_STATUS = "order_status";
-    @SerializedName(SERIALIZED_NAME_ORDER_STATUS)
-    private String orderStatus;
+    public static final String SERIALIZED_NAME_MAX_SINGLE_TRANS_AMOUNT = "max_single_trans_amount";
+    @SerializedName(SERIALIZED_NAME_MAX_SINGLE_TRANS_AMOUNT)
+    private String maxSingleTransAmount;
+
+    public static final String SERIALIZED_NAME_MIN_SINGLE_TRANS_AMOUNT = "min_single_trans_amount";
+    @SerializedName(SERIALIZED_NAME_MIN_SINGLE_TRANS_AMOUNT)
+    private String minSingleTransAmount;
+
+    public static final String SERIALIZED_NAME_NICK_NAME = "nick_name";
+    @SerializedName(SERIALIZED_NAME_NICK_NAME)
+    private String nickName;
 
 
-    public InlineResponse20023Data messages(List<InlineResponse20023DataMessages> messages) {
+    public InlineResponse20023Data index(Integer index) {
         
-        this.messages = messages;
-        return this;
-    }
-
-    public InlineResponse20023Data addMessagesItem(InlineResponse20023DataMessages messagesItem) {
-        this.messages.add(messagesItem);
+        this.index = index;
         return this;
     }
 
      /**
-     * Message List
-     * @return messages
+     * Serial number
+     * @return index
     **/
-    public List<InlineResponse20023DataMessages> getMessages() {
-        return messages;
+    @javax.annotation.Nullable
+    public Integer getIndex() {
+        return index;
     }
 
 
-    public void setMessages(List<InlineResponse20023DataMessages> messages) {
-        this.messages = messages;
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
-    public InlineResponse20023Data memo(String memo) {
+    public InlineResponse20023Data asset(String asset) {
         
-        this.memo = memo;
+        this.asset = asset;
         return this;
     }
 
      /**
-     * Payment tip (displayed on homepage only)
-     * @return memo
+     * Cryptocurrency
+     * @return asset
     **/
-    public String getMemo() {
-        return memo;
+    @javax.annotation.Nullable
+    public String getAsset() {
+        return asset;
     }
 
 
-    public void setMemo(String memo) {
-        this.memo = memo;
+    public void setAsset(String asset) {
+        this.asset = asset;
     }
 
-    public InlineResponse20023Data hasHistory(Boolean hasHistory) {
+    public InlineResponse20023Data fiatUnit(String fiatUnit) {
         
-        this.hasHistory = hasHistory;
+        this.fiatUnit = fiatUnit;
         return this;
     }
 
      /**
-     * Whether historical records exist
-     * @return hasHistory
+     * Fiat currency
+     * @return fiatUnit
     **/
-    public Boolean getHasHistory() {
-        return hasHistory;
+    @javax.annotation.Nullable
+    public String getFiatUnit() {
+        return fiatUnit;
     }
 
 
-    public void setHasHistory(Boolean hasHistory) {
-        this.hasHistory = hasHistory;
+    public void setFiatUnit(String fiatUnit) {
+        this.fiatUnit = fiatUnit;
     }
 
-    public InlineResponse20023Data txid(Integer txid) {
+    public InlineResponse20023Data advNo(Integer advNo) {
         
-        this.txid = txid;
+        this.advNo = advNo;
         return this;
     }
 
      /**
-     * Order ID
-     * @return txid
+     * Ad ID
+     * @return advNo
     **/
-    public Integer getTxid() {
-        return txid;
+    @javax.annotation.Nullable
+    public Integer getAdvNo() {
+        return advNo;
     }
 
 
-    public void setTxid(Integer txid) {
-        this.txid = txid;
+    public void setAdvNo(Integer advNo) {
+        this.advNo = advNo;
     }
 
-    public InlineResponse20023Data SRVTM(Integer SRVTM) {
+    public InlineResponse20023Data price(String price) {
         
-        this.SRVTM = SRVTM;
+        this.price = price;
         return this;
     }
 
      /**
-     * Timestamp of the latest message
-     * @return SRVTM
+     * Price
+     * @return price
     **/
-    public Integer getSRVTM() {
-        return SRVTM;
+    @javax.annotation.Nullable
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setSRVTM(Integer SRVTM) {
-        this.SRVTM = SRVTM;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public InlineResponse20023Data orderStatus(String orderStatus) {
+    public InlineResponse20023Data maxSingleTransAmount(String maxSingleTransAmount) {
         
-        this.orderStatus = orderStatus;
+        this.maxSingleTransAmount = maxSingleTransAmount;
         return this;
     }
 
      /**
-     * Order Status
-     * @return orderStatus
+     * Maximum Cryptocurrency Amount
+     * @return maxSingleTransAmount
     **/
-    public String getOrderStatus() {
-        return orderStatus;
+    @javax.annotation.Nullable
+    public String getMaxSingleTransAmount() {
+        return maxSingleTransAmount;
     }
 
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setMaxSingleTransAmount(String maxSingleTransAmount) {
+        this.maxSingleTransAmount = maxSingleTransAmount;
+    }
+
+    public InlineResponse20023Data minSingleTransAmount(String minSingleTransAmount) {
+        
+        this.minSingleTransAmount = minSingleTransAmount;
+        return this;
+    }
+
+     /**
+     * Minimum Cryptocurrency Amount
+     * @return minSingleTransAmount
+    **/
+    @javax.annotation.Nullable
+    public String getMinSingleTransAmount() {
+        return minSingleTransAmount;
+    }
+
+
+    public void setMinSingleTransAmount(String minSingleTransAmount) {
+        this.minSingleTransAmount = minSingleTransAmount;
+    }
+
+    public InlineResponse20023Data nickName(String nickName) {
+        
+        this.nickName = nickName;
+        return this;
+    }
+
+     /**
+     * Advertiser Nickname
+     * @return nickName
+    **/
+    @javax.annotation.Nullable
+    public String getNickName() {
+        return nickName;
+    }
+
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -178,17 +224,19 @@ public class InlineResponse20023Data {
             return false;
         }
         InlineResponse20023Data inlineResponse20023Data = (InlineResponse20023Data) o;
-        return Objects.equals(this.messages, inlineResponse20023Data.messages) &&
-                Objects.equals(this.memo, inlineResponse20023Data.memo) &&
-                Objects.equals(this.hasHistory, inlineResponse20023Data.hasHistory) &&
-                Objects.equals(this.txid, inlineResponse20023Data.txid) &&
-                Objects.equals(this.SRVTM, inlineResponse20023Data.SRVTM) &&
-                Objects.equals(this.orderStatus, inlineResponse20023Data.orderStatus);
+        return Objects.equals(this.index, inlineResponse20023Data.index) &&
+                Objects.equals(this.asset, inlineResponse20023Data.asset) &&
+                Objects.equals(this.fiatUnit, inlineResponse20023Data.fiatUnit) &&
+                Objects.equals(this.advNo, inlineResponse20023Data.advNo) &&
+                Objects.equals(this.price, inlineResponse20023Data.price) &&
+                Objects.equals(this.maxSingleTransAmount, inlineResponse20023Data.maxSingleTransAmount) &&
+                Objects.equals(this.minSingleTransAmount, inlineResponse20023Data.minSingleTransAmount) &&
+                Objects.equals(this.nickName, inlineResponse20023Data.nickName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messages, memo, hasHistory, txid, SRVTM, orderStatus);
+        return Objects.hash(index, asset, fiatUnit, advNo, price, maxSingleTransAmount, minSingleTransAmount, nickName);
     }
 
 
@@ -196,12 +244,14 @@ public class InlineResponse20023Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20023Data {\n");
-        sb.append("      messages: ").append(toIndentedString(messages)).append("\n");
-        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
-        sb.append("      hasHistory: ").append(toIndentedString(hasHistory)).append("\n");
-        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
-        sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
-        sb.append("      orderStatus: ").append(toIndentedString(orderStatus)).append("\n");
+        sb.append("      index: ").append(toIndentedString(index)).append("\n");
+        sb.append("      asset: ").append(toIndentedString(asset)).append("\n");
+        sb.append("      fiatUnit: ").append(toIndentedString(fiatUnit)).append("\n");
+        sb.append("      advNo: ").append(toIndentedString(advNo)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      maxSingleTransAmount: ").append(toIndentedString(maxSingleTransAmount)).append("\n");
+        sb.append("      minSingleTransAmount: ").append(toIndentedString(minSingleTransAmount)).append("\n");
+        sb.append("      nickName: ").append(toIndentedString(nickName)).append("\n");
         sb.append("}");
         return sb.toString();
     }

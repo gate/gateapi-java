@@ -293,6 +293,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_FUNDING_RATE_LIMIT)
     private String fundingRateLimit;
 
+    public static final String SERIALIZED_NAME_FUNDING_IMPACT_VALUE = "funding_impact_value";
+    @SerializedName(SERIALIZED_NAME_FUNDING_IMPACT_VALUE)
+    private String fundingImpactValue;
+
 
     public Contract name(String name) {
         
@@ -1173,6 +1177,26 @@ public class Contract {
     public void setFundingRateLimit(String fundingRateLimit) {
         this.fundingRateLimit = fundingRateLimit;
     }
+
+    public Contract fundingImpactValue(String fundingImpactValue) {
+        
+        this.fundingImpactValue = fundingImpactValue;
+        return this;
+    }
+
+     /**
+     * Funding rate depth impact value
+     * @return fundingImpactValue
+    **/
+    @javax.annotation.Nullable
+    public String getFundingImpactValue() {
+        return fundingImpactValue;
+    }
+
+
+    public void setFundingImpactValue(String fundingImpactValue) {
+        this.fundingImpactValue = fundingImpactValue;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1225,12 +1249,13 @@ public class Contract {
                 Objects.equals(this.delistedTime, contract.delistedTime) &&
                 Objects.equals(this.marketOrderSlipRatio, contract.marketOrderSlipRatio) &&
                 Objects.equals(this.marketOrderSizeMax, contract.marketOrderSizeMax) &&
-                Objects.equals(this.fundingRateLimit, contract.fundingRateLimit);
+                Objects.equals(this.fundingRateLimit, contract.fundingRateLimit) &&
+                Objects.equals(this.fundingImpactValue, contract.fundingImpactValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit, fundingImpactValue);
     }
 
 
@@ -1282,6 +1307,7 @@ public class Contract {
         sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
         sb.append("      marketOrderSizeMax: ").append(toIndentedString(marketOrderSizeMax)).append("\n");
         sb.append("      fundingRateLimit: ").append(toIndentedString(fundingRateLimit)).append("\n");
+        sb.append("      fundingImpactValue: ").append(toIndentedString(fundingImpactValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

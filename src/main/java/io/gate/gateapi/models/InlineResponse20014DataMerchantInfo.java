@@ -42,6 +42,7 @@ public class InlineResponse20014DataMerchantInfo {
      * Get type
      * @return type
     **/
+    @javax.annotation.Nullable
     public String getType() {
         return type;
     }
@@ -61,6 +62,7 @@ public class InlineResponse20014DataMerchantInfo {
      * Get market
      * @return market
     **/
+    @javax.annotation.Nullable
     public String getMarket() {
         return market;
     }

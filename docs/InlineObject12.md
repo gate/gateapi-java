@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tradeId** | **String** |  | 
-**reasonId** | **String** |  | 
-**reasonMemo** | **String** |  | 
+**qty** | **String** | modify amount |  [optional]
+**price** | **String** | modify price |  [optional]
 

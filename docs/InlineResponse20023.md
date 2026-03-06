@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timestamp** | [**BigDecimal**](BigDecimal.md) |  | 
-**method** | **String** |  | 
-**code** | **Integer** |  | 
-**message** | **String** |  | 
-**data** | [**InlineResponse20023Data**](InlineResponse20023Data.md) |  | 
-**version** | **String** |  | 
+**timestamp** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**method** | **String** |  |  [optional]
+**code** | **Integer** |  |  [optional]
+**message** | **String** |  |  [optional]
+**data** | [**List&lt;InlineResponse20023Data&gt;**](InlineResponse20023Data.md) |  |  [optional]
+**version** | **String** |  |  [optional]
 

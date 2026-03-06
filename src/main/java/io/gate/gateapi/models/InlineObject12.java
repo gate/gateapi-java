@@ -23,74 +23,53 @@ import java.io.IOException;
  * InlineObject12
  */
 public class InlineObject12 {
-    public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
-    @SerializedName(SERIALIZED_NAME_TRADE_ID)
-    private String tradeId;
+    public static final String SERIALIZED_NAME_QTY = "qty";
+    @SerializedName(SERIALIZED_NAME_QTY)
+    private String qty;
 
-    public static final String SERIALIZED_NAME_REASON_ID = "reason_id";
-    @SerializedName(SERIALIZED_NAME_REASON_ID)
-    private String reasonId;
-
-    public static final String SERIALIZED_NAME_REASON_MEMO = "reason_memo";
-    @SerializedName(SERIALIZED_NAME_REASON_MEMO)
-    private String reasonMemo;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
 
-    public InlineObject12 tradeId(String tradeId) {
+    public InlineObject12 qty(String qty) {
         
-        this.tradeId = tradeId;
+        this.qty = qty;
         return this;
     }
 
      /**
-     * Get tradeId
-     * @return tradeId
+     * modify amount
+     * @return qty
     **/
-    public String getTradeId() {
-        return tradeId;
+    @javax.annotation.Nullable
+    public String getQty() {
+        return qty;
     }
 
 
-    public void setTradeId(String tradeId) {
-        this.tradeId = tradeId;
+    public void setQty(String qty) {
+        this.qty = qty;
     }
 
-    public InlineObject12 reasonId(String reasonId) {
+    public InlineObject12 price(String price) {
         
-        this.reasonId = reasonId;
+        this.price = price;
         return this;
     }
 
      /**
-     * Get reasonId
-     * @return reasonId
+     * modify price
+     * @return price
     **/
-    public String getReasonId() {
-        return reasonId;
+    @javax.annotation.Nullable
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setReasonId(String reasonId) {
-        this.reasonId = reasonId;
-    }
-
-    public InlineObject12 reasonMemo(String reasonMemo) {
-        
-        this.reasonMemo = reasonMemo;
-        return this;
-    }
-
-     /**
-     * Get reasonMemo
-     * @return reasonMemo
-    **/
-    public String getReasonMemo() {
-        return reasonMemo;
-    }
-
-
-    public void setReasonMemo(String reasonMemo) {
-        this.reasonMemo = reasonMemo;
+    public void setPrice(String price) {
+        this.price = price;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -101,14 +80,13 @@ public class InlineObject12 {
             return false;
         }
         InlineObject12 inlineObject12 = (InlineObject12) o;
-        return Objects.equals(this.tradeId, inlineObject12.tradeId) &&
-                Objects.equals(this.reasonId, inlineObject12.reasonId) &&
-                Objects.equals(this.reasonMemo, inlineObject12.reasonMemo);
+        return Objects.equals(this.qty, inlineObject12.qty) &&
+                Objects.equals(this.price, inlineObject12.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId, reasonId, reasonMemo);
+        return Objects.hash(qty, price);
     }
 
 
@@ -116,9 +94,8 @@ public class InlineObject12 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject12 {\n");
-        sb.append("      tradeId: ").append(toIndentedString(tradeId)).append("\n");
-        sb.append("      reasonId: ").append(toIndentedString(reasonId)).append("\n");
-        sb.append("      reasonMemo: ").append(toIndentedString(reasonMemo)).append("\n");
+        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("}");
         return sb.toString();
     }
