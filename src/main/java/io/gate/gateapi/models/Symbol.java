@@ -106,7 +106,7 @@ public class Symbol {
     }
 
      /**
-     * BINANCE,OKX,GATE,CROSSEX
+     * BINANCE,OKX,GATE,BYBIT,CROSSEX
      * @return exchangeType
     **/
     public String getExchangeType() {

@@ -83,7 +83,7 @@ public class InlineResponse202 {
     }
 
      /**
-     * Requested exchange to modify (BINANCE/OKX/GATE/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)
+     * Requested exchange to modify (BINANCE/OKX/GATE/BYBIT/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)
      * @return exchangeType
     **/
     @javax.annotation.Nullable

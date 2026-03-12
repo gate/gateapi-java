@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **fee** | **String** | Fee |  [optional]
 **feeAsset** | **String** | Fee currency |  [optional]
 **rebateFee** | **String** | The income from rebates, converted to USDT |  [optional]
-**source** | **String** | Commission transaction type: Spot, Futures, Options, Alpha |  [optional]
+**source** | **String** | Commission transaction type: Spot, Futures, Options, Alpha、TradFi |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional]
 **subBrokerInfo** | [**BrokerCommissionSubBrokerInfo**](BrokerCommissionSubBrokerInfo.md) |  |  [optional]
 **alphaContractAddr** | **String** | Alpha contract address |  [optional]

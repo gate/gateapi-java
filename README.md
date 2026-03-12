@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.32
-- SDK version: 7.2.32
+- API version: v4.106.34
+- SDK version: 7.2.34
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.32</version>
+    <version>7.2.34</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.32"
+compile "io.gate:gate-api:7.2.34"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.32.jar`
+* `target/gate-api-7.2.34.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -150,6 +150,15 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**deleteSTPGroupUsers**](docs/AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete users from the STP user group
 *AccountApi* | [**getDebitFee**](docs/AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT fee deduction configuration
 *AccountApi* | [**setDebitFee**](docs/AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Configure GT fee deduction
+*AlphaApi* | [**listAlphaAccounts**](docs/AlphaApi.md#listAlphaAccounts) | **GET** /alpha/accounts | Alpha Account API
+*AlphaApi* | [**listAlphaAccountBook**](docs/AlphaApi.md#listAlphaAccountBook) | **GET** /alpha/account_book | Alpha Account Transaction History API
+*AlphaApi* | [**quoteAlphaOrder**](docs/AlphaApi.md#quoteAlphaOrder) | **POST** /alpha/quote | Alpha Quote API
+*AlphaApi* | [**listAlphaOrder**](docs/AlphaApi.md#listAlphaOrder) | **GET** /alpha/orders | Alpha Order List API
+*AlphaApi* | [**placeAlphaOrder**](docs/AlphaApi.md#placeAlphaOrder) | **POST** /alpha/orders | Alpha Order API
+*AlphaApi* | [**getAlphaOrder**](docs/AlphaApi.md#getAlphaOrder) | **GET** /alpha/order | Alpha Single Order Query API
+*AlphaApi* | [**listAlphaCurrencies**](docs/AlphaApi.md#listAlphaCurrencies) | **GET** /alpha/currencies | Query currency information
+*AlphaApi* | [**listAlphaTickers**](docs/AlphaApi.md#listAlphaTickers) | **GET** /alpha/tickers | Query currency ticker
+*AlphaApi* | [**listAlphaTokens**](docs/AlphaApi.md#listAlphaTokens) | **GET** /alpha/tokens | Query Token Information
 *CrossExApi* | [**listCrossexRuleSymbols**](docs/CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | [Public Interface] Query Trading Pair Information
 *CrossExApi* | [**listCrossexRuleRiskLimits**](docs/CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | [Public Interface] Query Risk Limit Information
 *CrossExApi* | [**listCrossexTransferCoins**](docs/CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | [Public Interface] Query Supported Transfer Currencies
@@ -514,11 +523,13 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AccountBalance](docs/AccountBalance.md)
+ - [AccountBookResponse](docs/AccountBookResponse.md)
  - [AccountDetail](docs/AccountDetail.md)
  - [AccountDetailKey](docs/AccountDetailKey.md)
  - [AccountKeyInfo](docs/AccountKeyInfo.md)
  - [AccountKeyInfoPerms](docs/AccountKeyInfoPerms.md)
  - [AccountRateLimit](docs/AccountRateLimit.md)
+ - [AccountsResponse](docs/AccountsResponse.md)
  - [AdsDetailRequest](docs/AdsDetailRequest.md)
  - [AdsListRequest](docs/AdsListRequest.md)
  - [AdsUpdateStatus](docs/AdsUpdateStatus.md)
@@ -580,6 +591,7 @@ Class | Method | HTTP request | Description
  - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
  - [CrossexRuleRiskLimitsTiers](docs/CrossexRuleRiskLimitsTiers.md)
  - [Currency](docs/Currency.md)
+ - [Currency2](docs/Currency2.md)
  - [CurrencyChain](docs/CurrencyChain.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [CurrencyQuota](docs/CurrencyQuota.md)
@@ -824,6 +836,7 @@ Class | Method | HTTP request | Description
  - [OrderListStructList](docs/OrderListStructList.md)
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderResp](docs/OrderResp.md)
+ - [OrderResponse](docs/OrderResponse.md)
  - [PartnerCommissionHistory](docs/PartnerCommissionHistory.md)
  - [PartnerSub](docs/PartnerSub.md)
  - [PartnerSubList](docs/PartnerSubList.md)
@@ -832,6 +845,8 @@ Class | Method | HTTP request | Description
  - [PlaceBizPushOrder](docs/PlaceBizPushOrder.md)
  - [PlaceDualInvestmentOrder](docs/PlaceDualInvestmentOrder.md)
  - [PlaceDualInvestmentOrderParams](docs/PlaceDualInvestmentOrderParams.md)
+ - [PlaceOrderRequest](docs/PlaceOrderRequest.md)
+ - [PlaceOrderResponse](docs/PlaceOrderResponse.md)
  - [Position](docs/Position.md)
  - [PositionClose](docs/PositionClose.md)
  - [PositionCloseOrder](docs/PositionCloseOrder.md)
@@ -845,6 +860,8 @@ Class | Method | HTTP request | Description
  - [PositionListDataList](docs/PositionListDataList.md)
  - [PositionTimerange](docs/PositionTimerange.md)
  - [ProfitLossRange](docs/ProfitLossRange.md)
+ - [QuoteRequest](docs/QuoteRequest.md)
+ - [QuoteResponse](docs/QuoteResponse.md)
  - [RebateUserInfo](docs/RebateUserInfo.md)
  - [RepayCurrencyRes](docs/RepayCurrencyRes.md)
  - [RepayMultiLoan](docs/RepayMultiLoan.md)
@@ -894,6 +911,7 @@ Class | Method | HTTP request | Description
  - [Ticker](docs/Ticker.md)
  - [Ticker2](docs/Ticker2.md)
  - [Ticker2Data](docs/Ticker2Data.md)
+ - [Tokens](docs/Tokens.md)
  - [TotalBalance](docs/TotalBalance.md)
  - [Trade](docs/Trade.md)
  - [TradeFee](docs/TradeFee.md)

@@ -62,7 +62,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String symbols = "symbols_example"; // String | Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        String symbols = "symbols_example"; // String | 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
         try {
             List<Symbol> result = apiInstance.listCrossexRuleSymbols()
                         .symbols(symbols)
@@ -85,7 +85,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **String**| Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional]
+ **symbols** | **String**| 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional]
 
 ### Return type
 
@@ -847,7 +847,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String exchangeType = "BINANCE,OKX,GATE"; // String | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE)
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
         try {
             InlineResponse20035 result = apiInstance.getCrossexAccount()
                         .exchangeType(exchangeType)
@@ -870,7 +870,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeType** | **String**| Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE) | [optional]
+ **exchangeType** | **String**| Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) | [optional]
 
 ### Return type
 
@@ -1344,7 +1344,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "SOL"; // String | Currency
-        String exchangeType = "OKX"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange
         try {
             List<InlineResponse20036> result = apiInstance.getCrossexInterestRate()
                         .coin(coin)
@@ -1485,7 +1485,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
-        String exchangeType = "BINANCE"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange
         try {
             List<InlineResponse20038> result = apiInstance.listCrossexPositions()
                         .symbol(symbol)
@@ -2290,7 +2290,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "SOL"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE
+        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT
         try {
             List<InlineResponse20047> result = apiInstance.listCrossexCoinDiscountRate()
                         .coin(coin)
@@ -2315,7 +2315,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
- **exchangeType** | **String**| OKX/GATE/BINANCE | [optional]
+ **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT | [optional]
 
 ### Return type
 

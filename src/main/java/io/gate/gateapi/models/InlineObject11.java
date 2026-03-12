@@ -332,7 +332,7 @@ public class InlineObject11 {
     }
 
      /**
-     * Unique Identifier for Exchange_Business_Base_Counter Examples: - To place a spot order for ADA/USDT on Binance: Use unique identifier &#x60;BINANCE_SPOT_ADA_USDT&#x60;; - To place a USDT-margin perpetual contract order for ADA/USDT on OKX: Use unique identifier &#x60;OKX_FUTURE_ADA_USDT&#x60;; - To place a spot margin order for ADA/USDT on Gate.io: Use unique identifier &#x60;GATE_MARGIN_ADA_USDT&#x60;; Currently supports three order types: Spot Orders, USDT-margin Perpetual Contract Orders, and Spot Margin Orders
+     * Unique Identifier Exchange_Business_Base_Counter Examples: - To place a Spot order for ADA/USDT on BINANCE: Use identifier &#x60;BINANCE_SPOT_ADA_USDT&#x60;;   - To place a USDT-margined Perpetual Futures order for ADA/USDT on OKX: Use identifier &#x60;OKX_FUTURE_ADA_USDT&#x60;;   - To place a Spot Margin order for ADA/USDT on GATE: Use identifier &#x60;GATE_MARGIN_ADA_USDT&#x60;;   - To place a Spot order for ADA/USDT on BYBIT: Use identifier &#x60;BYBIT_SPOT_ADA_USDT&#x60;;   Currently supports three order types: Spot orders, USDT-margined Perpetual Futures orders, and Spot Margin orders. BYBIT does not currently support Spot Margin orders
      * @return symbol
     **/
     public String getSymbol() {

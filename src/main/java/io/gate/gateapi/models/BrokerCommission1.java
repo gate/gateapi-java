@@ -216,7 +216,7 @@ public class BrokerCommission1 {
     }
 
      /**
-     * Commission transaction type: Spot, Futures, Options, Alpha
+     * Commission transaction type: Spot, Futures, Options, Alpha、TradFi
      * @return source
     **/
     @javax.annotation.Nullable

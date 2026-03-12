@@ -89,7 +89,7 @@ public class InlineObject10 {
     }
 
      /**
-     * Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT
+     * Transfer-in account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX_BYBIT, CROSSEX, SPOT
      * @return from
     **/
     public String getFrom() {
@@ -108,7 +108,7 @@ public class InlineObject10 {
     }
 
      /**
-     * Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT
+     * Transfer-out account: CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX_BYBIT, CROSSEX, SPOT
      * @return to
     **/
     public String getTo() {

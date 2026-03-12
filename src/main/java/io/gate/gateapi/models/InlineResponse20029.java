@@ -113,7 +113,7 @@ public class InlineResponse20029 {
     }
 
      /**
-     * Source &#x60;from&#x60; account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX, SPOT)
+     * Source &#x60;from&#x60; account (CROSSEX_BINANCE, CROSSEX_OKX, CROSSEX_GATE, CROSSEX_BYBIT, CROSSEX, SPOT)
      * @return fromAccountType
     **/
     public String getFromAccountType() {

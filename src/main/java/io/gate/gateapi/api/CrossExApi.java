@@ -140,7 +140,7 @@ public class CrossExApi {
 
         /**
          * Set symbols
-         * @param symbols Trading Pair List, multiple separated by commas  Example values: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
+         * @param symbols 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
          * @return APIlistCrossexRuleSymbolsRequest
          */
         public APIlistCrossexRuleSymbolsRequest symbols(String symbols) {
@@ -1491,7 +1491,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE) (optional)
+         * @param exchangeType Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) (optional)
          * @return APIgetCrossexAccountRequest
          */
         public APIgetCrossexAccountRequest exchangeType(String exchangeType) {
@@ -4432,7 +4432,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType OKX/GATE/BINANCE (optional)
+         * @param exchangeType OKX/GATE/BINANCE/BYBIT (optional)
          * @return APIlistCrossexCoinDiscountRateRequest
          */
         public APIlistCrossexCoinDiscountRateRequest exchangeType(String exchangeType) {

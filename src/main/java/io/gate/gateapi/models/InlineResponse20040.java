@@ -104,7 +104,7 @@ public class InlineResponse20040 {
     }
 
      /**
-     * Original exchange information (Binance: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; Gate: 1–5, lower value ranks higher)
+     * Original exchange information (BINANCE: 0–4, higher value ranks higher; OKX: 0–5, higher value ranks higher; GATE: 1–5, lower value ranks higher; BYBIT: 0–5, higher value ranks higher)
      * @return exchangeAdlRank
     **/
     public String getExchangeAdlRank() {
