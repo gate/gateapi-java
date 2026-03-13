@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexTransfer"></a>
 # **createCrossexTransfer**
-> InlineResponse20030 createCrossexTransfer(inlineObject10)
+> InlineResponse20030 createCrossexTransfer(inlineObject11)
 
 Fund Transfer
 
@@ -355,9 +355,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject10 inlineObject10 = new InlineObject10(); // InlineObject10 | 
+        InlineObject11 inlineObject11 = new InlineObject11(); // InlineObject11 | 
         try {
-            InlineResponse20030 result = apiInstance.createCrossexTransfer(inlineObject10);
+            InlineResponse20030 result = apiInstance.createCrossexTransfer(inlineObject11);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -376,7 +376,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | [optional]
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional]
 
 ### Return type
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexOrder"></a>
 # **createCrossexOrder**
-> InlineResponse20031 createCrossexOrder(inlineObject11)
+> InlineResponse20031 createCrossexOrder(inlineObject12)
 
 Create an order
 
@@ -425,9 +425,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject11 inlineObject11 = new InlineObject11(); // InlineObject11 | 
+        InlineObject12 inlineObject12 = new InlineObject12(); // InlineObject12 | 
         try {
-            InlineResponse20031 result = apiInstance.createCrossexOrder(inlineObject11);
+            InlineResponse20031 result = apiInstance.createCrossexOrder(inlineObject12);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -446,7 +446,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional]
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional]
 
 ### Return type
 
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexOrder"></a>
 # **updateCrossexOrder**
-> InlineResponse20033 updateCrossexOrder(orderId, inlineObject12)
+> InlineResponse20033 updateCrossexOrder(orderId, inlineObject13)
 
 Modify Order
 
@@ -566,9 +566,9 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String orderId = "orderId_example"; // String | Support Order ID or Text for Modify Order
-        InlineObject12 inlineObject12 = new InlineObject12(); // InlineObject12 | 
+        InlineObject13 inlineObject13 = new InlineObject13(); // InlineObject13 | 
         try {
-            InlineResponse20033 result = apiInstance.updateCrossexOrder(orderId, inlineObject12);
+            InlineResponse20033 result = apiInstance.updateCrossexOrder(orderId, inlineObject13);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -588,7 +588,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **String**| Support Order ID or Text for Modify Order |
- **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional]
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | [optional]
 
 ### Return type
 
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexConvertQuote"></a>
 # **createCrossexConvertQuote**
-> InlineResponse20034 createCrossexConvertQuote(inlineObject13)
+> InlineResponse20034 createCrossexConvertQuote(inlineObject14)
 
 Flash Swap Inquiry
 
@@ -707,9 +707,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject13 inlineObject13 = new InlineObject13(); // InlineObject13 | 
+        InlineObject14 inlineObject14 = new InlineObject14(); // InlineObject14 | 
         try {
-            InlineResponse20034 result = apiInstance.createCrossexConvertQuote(inlineObject13);
+            InlineResponse20034 result = apiInstance.createCrossexConvertQuote(inlineObject14);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -728,7 +728,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | [optional]
+ **inlineObject14** | [**InlineObject14**](InlineObject14.md)|  | [optional]
 
 ### Return type
 
@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexConvertOrder"></a>
 # **createCrossexConvertOrder**
-> Object createCrossexConvertOrder(inlineObject14)
+> Object createCrossexConvertOrder(inlineObject15)
 
 Flash Swap Transaction
 
@@ -777,9 +777,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject14 inlineObject14 = new InlineObject14(); // InlineObject14 | 
+        InlineObject15 inlineObject15 = new InlineObject15(); // InlineObject15 | 
         try {
-            Object result = apiInstance.createCrossexConvertOrder(inlineObject14);
+            Object result = apiInstance.createCrossexConvertOrder(inlineObject15);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -798,7 +798,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject14** | [**InlineObject14**](InlineObject14.md)|  | [optional]
+ **inlineObject15** | [**InlineObject15**](InlineObject15.md)|  | [optional]
 
 ### Return type
 
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexAccount"></a>
 # **updateCrossexAccount**
-> InlineResponse202 updateCrossexAccount(inlineObject15)
+> InlineResponse202 updateCrossexAccount(inlineObject16)
 
 Modify Account Contract Position Mode and Account Mode
 
@@ -919,9 +919,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject15 inlineObject15 = new InlineObject15(); // InlineObject15 | 
+        InlineObject16 inlineObject16 = new InlineObject16(); // InlineObject16 | 
         try {
-            InlineResponse202 result = apiInstance.updateCrossexAccount(inlineObject15);
+            InlineResponse202 result = apiInstance.updateCrossexAccount(inlineObject16);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -940,7 +940,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject15** | [**InlineObject15**](InlineObject15.md)|  | [optional]
+ **inlineObject16** | [**InlineObject16**](InlineObject16.md)|  | [optional]
 
 ### Return type
 
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexPositionsLeverage"></a>
 # **updateCrossexPositionsLeverage**
-> InlineResponse2021 updateCrossexPositionsLeverage(inlineObject16)
+> InlineResponse2021 updateCrossexPositionsLeverage(inlineObject17)
 
 Modify Contract Trading Pair Leverage Multiplier
 
@@ -1061,9 +1061,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject16 inlineObject16 = new InlineObject16(); // InlineObject16 | 
+        InlineObject17 inlineObject17 = new InlineObject17(); // InlineObject17 | 
         try {
-            InlineResponse2021 result = apiInstance.updateCrossexPositionsLeverage(inlineObject16);
+            InlineResponse2021 result = apiInstance.updateCrossexPositionsLeverage(inlineObject17);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1082,7 +1082,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject16** | [**InlineObject16**](InlineObject16.md)|  | [optional]
+ **inlineObject17** | [**InlineObject17**](InlineObject17.md)|  | [optional]
 
 ### Return type
 
@@ -1176,7 +1176,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexMarginPositionsLeverage"></a>
 # **updateCrossexMarginPositionsLeverage**
-> InlineResponse2021 updateCrossexMarginPositionsLeverage(inlineObject17)
+> InlineResponse2021 updateCrossexMarginPositionsLeverage(inlineObject18)
 
 Modify Leveraged Trading Pair Leverage Multiplier
 
@@ -1203,9 +1203,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject17 inlineObject17 = new InlineObject17(); // InlineObject17 | 
+        InlineObject18 inlineObject18 = new InlineObject18(); // InlineObject18 | 
         try {
-            InlineResponse2021 result = apiInstance.updateCrossexMarginPositionsLeverage(inlineObject17);
+            InlineResponse2021 result = apiInstance.updateCrossexMarginPositionsLeverage(inlineObject18);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1224,7 +1224,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject17** | [**InlineObject17**](InlineObject17.md)|  | [optional]
+ **inlineObject18** | [**InlineObject18**](InlineObject18.md)|  | [optional]
 
 ### Return type
 
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
 
 <a name="closeCrossexPosition"></a>
 # **closeCrossexPosition**
-> InlineResponse20031 closeCrossexPosition(inlineObject18)
+> InlineResponse20031 closeCrossexPosition(inlineObject19)
 
 Full Close Position
 
@@ -1273,9 +1273,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        InlineObject18 inlineObject18 = new InlineObject18(); // InlineObject18 | 
+        InlineObject19 inlineObject19 = new InlineObject19(); // InlineObject19 | 
         try {
-            InlineResponse20031 result = apiInstance.closeCrossexPosition(inlineObject18);
+            InlineResponse20031 result = apiInstance.closeCrossexPosition(inlineObject19);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1294,7 +1294,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject18** | [**InlineObject18**](InlineObject18.md)|  | [optional]
+ **inlineObject19** | [**InlineObject19**](InlineObject19.md)|  | [optional]
 
 ### Return type
 

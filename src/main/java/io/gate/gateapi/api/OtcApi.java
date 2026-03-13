@@ -20,7 +20,7 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.InlineObject6;
+import io.gate.gateapi.models.InlineObject10;
 import io.gate.gateapi.models.InlineObject7;
 import io.gate.gateapi.models.InlineObject8;
 import io.gate.gateapi.models.InlineObject9;
@@ -60,7 +60,7 @@ public class OtcApi {
 
     /**
      * Build call for createOtcQuote
-     * @param inlineObject6  (required)
+     * @param inlineObject7  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,8 +70,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcQuoteCall(InlineObject6 inlineObject6, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject6;
+    public okhttp3.Call createOtcQuoteCall(InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject7;
 
         // create path and map variables
         String localVarPath = "/otc/quote";
@@ -100,20 +100,20 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOtcQuoteValidateBeforeCall(InlineObject6 inlineObject6, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject6' is set
-        if (inlineObject6 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject6' when calling createOtcQuote(Async)");
+    private okhttp3.Call createOtcQuoteValidateBeforeCall(InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'inlineObject7' is set
+        if (inlineObject7 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject7' when calling createOtcQuote(Async)");
         }
 
-        okhttp3.Call localVarCall = createOtcQuoteCall(inlineObject6, _callback);
+        okhttp3.Call localVarCall = createOtcQuoteCall(inlineObject7, _callback);
         return localVarCall;
     }
 
     /**
      * Fiat and stablecoin quote
      * Create fiat and stablecoin quotes, supporting both PAY and GET directions
-     * @param inlineObject6  (required)
+     * @param inlineObject7  (required)
      * @return InlineResponse2006
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -122,15 +122,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2006 createOtcQuote(InlineObject6 inlineObject6) throws ApiException {
-        ApiResponse<InlineResponse2006> localVarResp = createOtcQuoteWithHttpInfo(inlineObject6);
+    public InlineResponse2006 createOtcQuote(InlineObject7 inlineObject7) throws ApiException {
+        ApiResponse<InlineResponse2006> localVarResp = createOtcQuoteWithHttpInfo(inlineObject7);
         return localVarResp.getData();
     }
 
     /**
      * Fiat and stablecoin quote
      * Create fiat and stablecoin quotes, supporting both PAY and GET directions
-     * @param inlineObject6  (required)
+     * @param inlineObject7  (required)
      * @return ApiResponse&lt;InlineResponse2006&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -139,8 +139,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2006> createOtcQuoteWithHttpInfo(InlineObject6 inlineObject6) throws ApiException {
-        okhttp3.Call localVarCall = createOtcQuoteValidateBeforeCall(inlineObject6, null);
+    public ApiResponse<InlineResponse2006> createOtcQuoteWithHttpInfo(InlineObject7 inlineObject7) throws ApiException {
+        okhttp3.Call localVarCall = createOtcQuoteValidateBeforeCall(inlineObject7, null);
         Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -148,7 +148,7 @@ public class OtcApi {
     /**
      * Fiat and stablecoin quote (asynchronously)
      * Create fiat and stablecoin quotes, supporting both PAY and GET directions
-     * @param inlineObject6  (required)
+     * @param inlineObject7  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -158,8 +158,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcQuoteAsync(InlineObject6 inlineObject6, final ApiCallback<InlineResponse2006> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createOtcQuoteValidateBeforeCall(inlineObject6, _callback);
+    public okhttp3.Call createOtcQuoteAsync(InlineObject7 inlineObject7, final ApiCallback<InlineResponse2006> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createOtcQuoteValidateBeforeCall(inlineObject7, _callback);
         Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -167,7 +167,7 @@ public class OtcApi {
 
     /**
      * Build call for createOtcOrder
-     * @param inlineObject7  (required)
+     * @param inlineObject8  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -177,8 +177,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcOrderCall(InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject7;
+    public okhttp3.Call createOtcOrderCall(InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject8;
 
         // create path and map variables
         String localVarPath = "/otc/order/create";
@@ -207,20 +207,20 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOtcOrderValidateBeforeCall(InlineObject7 inlineObject7, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject7' is set
-        if (inlineObject7 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject7' when calling createOtcOrder(Async)");
+    private okhttp3.Call createOtcOrderValidateBeforeCall(InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'inlineObject8' is set
+        if (inlineObject8 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject8' when calling createOtcOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = createOtcOrderCall(inlineObject7, _callback);
+        okhttp3.Call localVarCall = createOtcOrderCall(inlineObject8, _callback);
         return localVarCall;
     }
 
     /**
      * Create fiat order
      * Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp
-     * @param inlineObject7  (required)
+     * @param inlineObject8  (required)
      * @return InlineResponse2007
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -229,15 +229,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2007 createOtcOrder(InlineObject7 inlineObject7) throws ApiException {
-        ApiResponse<InlineResponse2007> localVarResp = createOtcOrderWithHttpInfo(inlineObject7);
+    public InlineResponse2007 createOtcOrder(InlineObject8 inlineObject8) throws ApiException {
+        ApiResponse<InlineResponse2007> localVarResp = createOtcOrderWithHttpInfo(inlineObject8);
         return localVarResp.getData();
     }
 
     /**
      * Create fiat order
      * Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp
-     * @param inlineObject7  (required)
+     * @param inlineObject8  (required)
      * @return ApiResponse&lt;InlineResponse2007&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -246,8 +246,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2007> createOtcOrderWithHttpInfo(InlineObject7 inlineObject7) throws ApiException {
-        okhttp3.Call localVarCall = createOtcOrderValidateBeforeCall(inlineObject7, null);
+    public ApiResponse<InlineResponse2007> createOtcOrderWithHttpInfo(InlineObject8 inlineObject8) throws ApiException {
+        okhttp3.Call localVarCall = createOtcOrderValidateBeforeCall(inlineObject8, null);
         Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -255,7 +255,7 @@ public class OtcApi {
     /**
      * Create fiat order (asynchronously)
      * Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp
-     * @param inlineObject7  (required)
+     * @param inlineObject8  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -265,8 +265,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcOrderAsync(InlineObject7 inlineObject7, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createOtcOrderValidateBeforeCall(inlineObject7, _callback);
+    public okhttp3.Call createOtcOrderAsync(InlineObject8 inlineObject8, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createOtcOrderValidateBeforeCall(inlineObject8, _callback);
         Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -274,7 +274,7 @@ public class OtcApi {
 
     /**
      * Build call for createStableCoinOrder
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -284,8 +284,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStableCoinOrderCall(InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject8;
+    public okhttp3.Call createStableCoinOrderCall(InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject9;
 
         // create path and map variables
         String localVarPath = "/otc/stable_coin/order/create";
@@ -314,20 +314,20 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createStableCoinOrderValidateBeforeCall(InlineObject8 inlineObject8, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject8' is set
-        if (inlineObject8 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject8' when calling createStableCoinOrder(Async)");
+    private okhttp3.Call createStableCoinOrderValidateBeforeCall(InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'inlineObject9' is set
+        if (inlineObject9 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject9' when calling createStableCoinOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = createStableCoinOrderCall(inlineObject8, _callback);
+        okhttp3.Call localVarCall = createStableCoinOrderCall(inlineObject9, _callback);
         return localVarCall;
     }
 
     /**
      * Create stablecoin order
      * Create stablecoin order
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @return InlineResponse2008
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -336,15 +336,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2008 createStableCoinOrder(InlineObject8 inlineObject8) throws ApiException {
-        ApiResponse<InlineResponse2008> localVarResp = createStableCoinOrderWithHttpInfo(inlineObject8);
+    public InlineResponse2008 createStableCoinOrder(InlineObject9 inlineObject9) throws ApiException {
+        ApiResponse<InlineResponse2008> localVarResp = createStableCoinOrderWithHttpInfo(inlineObject9);
         return localVarResp.getData();
     }
 
     /**
      * Create stablecoin order
      * Create stablecoin order
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @return ApiResponse&lt;InlineResponse2008&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -353,8 +353,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2008> createStableCoinOrderWithHttpInfo(InlineObject8 inlineObject8) throws ApiException {
-        okhttp3.Call localVarCall = createStableCoinOrderValidateBeforeCall(inlineObject8, null);
+    public ApiResponse<InlineResponse2008> createStableCoinOrderWithHttpInfo(InlineObject9 inlineObject9) throws ApiException {
+        okhttp3.Call localVarCall = createStableCoinOrderValidateBeforeCall(inlineObject9, null);
         Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -362,7 +362,7 @@ public class OtcApi {
     /**
      * Create stablecoin order (asynchronously)
      * Create stablecoin order
-     * @param inlineObject8  (required)
+     * @param inlineObject9  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -372,8 +372,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStableCoinOrderAsync(InlineObject8 inlineObject8, final ApiCallback<InlineResponse2008> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createStableCoinOrderValidateBeforeCall(inlineObject8, _callback);
+    public okhttp3.Call createStableCoinOrderAsync(InlineObject9 inlineObject9, final ApiCallback<InlineResponse2008> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createStableCoinOrderValidateBeforeCall(inlineObject9, _callback);
         Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -577,7 +577,7 @@ public class OtcApi {
 
     /**
      * Build call for markOtcOrderPaid
-     * @param inlineObject9  (required)
+     * @param inlineObject10  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -587,8 +587,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call markOtcOrderPaidCall(InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject9;
+    public okhttp3.Call markOtcOrderPaidCall(InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject10;
 
         // create path and map variables
         String localVarPath = "/otc/order/paid";
@@ -617,20 +617,20 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call markOtcOrderPaidValidateBeforeCall(InlineObject9 inlineObject9, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject9' is set
-        if (inlineObject9 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject9' when calling markOtcOrderPaid(Async)");
+    private okhttp3.Call markOtcOrderPaidValidateBeforeCall(InlineObject10 inlineObject10, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'inlineObject10' is set
+        if (inlineObject10 == null) {
+            throw new ApiException("Missing the required parameter 'inlineObject10' when calling markOtcOrderPaid(Async)");
         }
 
-        okhttp3.Call localVarCall = markOtcOrderPaidCall(inlineObject9, _callback);
+        okhttp3.Call localVarCall = markOtcOrderPaidCall(inlineObject10, _callback);
         return localVarCall;
     }
 
     /**
      * Mark fiat order as paid
      * Mark fiat order as paid
-     * @param inlineObject9  (required)
+     * @param inlineObject10  (required)
      * @return InlineResponse2007
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,15 +639,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2007 markOtcOrderPaid(InlineObject9 inlineObject9) throws ApiException {
-        ApiResponse<InlineResponse2007> localVarResp = markOtcOrderPaidWithHttpInfo(inlineObject9);
+    public InlineResponse2007 markOtcOrderPaid(InlineObject10 inlineObject10) throws ApiException {
+        ApiResponse<InlineResponse2007> localVarResp = markOtcOrderPaidWithHttpInfo(inlineObject10);
         return localVarResp.getData();
     }
 
     /**
      * Mark fiat order as paid
      * Mark fiat order as paid
-     * @param inlineObject9  (required)
+     * @param inlineObject10  (required)
      * @return ApiResponse&lt;InlineResponse2007&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -656,8 +656,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2007> markOtcOrderPaidWithHttpInfo(InlineObject9 inlineObject9) throws ApiException {
-        okhttp3.Call localVarCall = markOtcOrderPaidValidateBeforeCall(inlineObject9, null);
+    public ApiResponse<InlineResponse2007> markOtcOrderPaidWithHttpInfo(InlineObject10 inlineObject10) throws ApiException {
+        okhttp3.Call localVarCall = markOtcOrderPaidValidateBeforeCall(inlineObject10, null);
         Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -665,7 +665,7 @@ public class OtcApi {
     /**
      * Mark fiat order as paid (asynchronously)
      * Mark fiat order as paid
-     * @param inlineObject9  (required)
+     * @param inlineObject10  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -675,8 +675,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call markOtcOrderPaidAsync(InlineObject9 inlineObject9, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
-        okhttp3.Call localVarCall = markOtcOrderPaidValidateBeforeCall(inlineObject9, _callback);
+    public okhttp3.Call markOtcOrderPaidAsync(InlineObject10 inlineObject10, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+        okhttp3.Call localVarCall = markOtcOrderPaidValidateBeforeCall(inlineObject10, _callback);
         Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

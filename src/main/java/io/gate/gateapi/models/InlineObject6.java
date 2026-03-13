@@ -20,173 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject6
+ * Order Modification Request Body
  */
 public class InlineObject6 {
-    public static final String SERIALIZED_NAME_SIDE = "side";
-    @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
-    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
-    @SerializedName(SERIALIZED_NAME_PAY_COIN)
-    private String payCoin;
-
-    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
-    @SerializedName(SERIALIZED_NAME_GET_COIN)
-    private String getCoin;
-
-    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
-    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
-    private String payAmount;
-
-    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
-    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
-    private String getAmount;
-
-    public static final String SERIALIZED_NAME_CREATE_QUOTE_TOKEN = "create_quote_token";
-    @SerializedName(SERIALIZED_NAME_CREATE_QUOTE_TOKEN)
-    private String createQuoteToken;
-
-    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
-    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
-    private String promotionCode;
+    public static final String SERIALIZED_NAME_SIZE = "size";
+    @SerializedName(SERIALIZED_NAME_SIZE)
+    private Long size;
 
 
-    public InlineObject6 side(String side) {
+    public InlineObject6 price(String price) {
         
-        this.side = side;
+        this.price = price;
         return this;
     }
 
      /**
-     * PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required
-     * @return side
+     * Order Price
+     * @return price
     **/
-    public String getSide() {
-        return side;
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setSide(String side) {
-        this.side = side;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public InlineObject6 payCoin(String payCoin) {
+    public InlineObject6 size(Long size) {
         
-        this.payCoin = payCoin;
+        this.size = size;
         return this;
     }
 
      /**
-     * Currency the user pays. Supported currencies can be found on the OTC web quote page.
-     * @return payCoin
+     * Trade amount
+     * @return size
     **/
-    public String getPayCoin() {
-        return payCoin;
+    public Long getSize() {
+        return size;
     }
 
 
-    public void setPayCoin(String payCoin) {
-        this.payCoin = payCoin;
-    }
-
-    public InlineObject6 getCoin(String getCoin) {
-        
-        this.getCoin = getCoin;
-        return this;
-    }
-
-     /**
-     * Currency the user receives. Supported currencies can be found on the OTC web quote page.
-     * @return getCoin
-    **/
-    public String getGetCoin() {
-        return getCoin;
-    }
-
-
-    public void setGetCoin(String getCoin) {
-        this.getCoin = getCoin;
-    }
-
-    public InlineObject6 payAmount(String payAmount) {
-        
-        this.payAmount = payAmount;
-        return this;
-    }
-
-     /**
-     * User payment currency amount
-     * @return payAmount
-    **/
-    @javax.annotation.Nullable
-    public String getPayAmount() {
-        return payAmount;
-    }
-
-
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
-    }
-
-    public InlineObject6 getAmount(String getAmount) {
-        
-        this.getAmount = getAmount;
-        return this;
-    }
-
-     /**
-     * Amount of currency received by the user
-     * @return getAmount
-    **/
-    @javax.annotation.Nullable
-    public String getGetAmount() {
-        return getAmount;
-    }
-
-
-    public void setGetAmount(String getAmount) {
-        this.getAmount = getAmount;
-    }
-
-    public InlineObject6 createQuoteToken(String createQuoteToken) {
-        
-        this.createQuoteToken = createQuoteToken;
-        return this;
-    }
-
-     /**
-     * Create quote token: 0: quote preview only; 1: generate quote token for order placement.
-     * @return createQuoteToken
-    **/
-    @javax.annotation.Nullable
-    public String getCreateQuoteToken() {
-        return createQuoteToken;
-    }
-
-
-    public void setCreateQuoteToken(String createQuoteToken) {
-        this.createQuoteToken = createQuoteToken;
-    }
-
-    public InlineObject6 promotionCode(String promotionCode) {
-        
-        this.promotionCode = promotionCode;
-        return this;
-    }
-
-     /**
-     * Promotion code (optional)
-     * @return promotionCode
-    **/
-    @javax.annotation.Nullable
-    public String getPromotionCode() {
-        return promotionCode;
-    }
-
-
-    public void setPromotionCode(String promotionCode) {
-        this.promotionCode = promotionCode;
+    public void setSize(Long size) {
+        this.size = size;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -197,18 +78,13 @@ public class InlineObject6 {
             return false;
         }
         InlineObject6 inlineObject6 = (InlineObject6) o;
-        return Objects.equals(this.side, inlineObject6.side) &&
-                Objects.equals(this.payCoin, inlineObject6.payCoin) &&
-                Objects.equals(this.getCoin, inlineObject6.getCoin) &&
-                Objects.equals(this.payAmount, inlineObject6.payAmount) &&
-                Objects.equals(this.getAmount, inlineObject6.getAmount) &&
-                Objects.equals(this.createQuoteToken, inlineObject6.createQuoteToken) &&
-                Objects.equals(this.promotionCode, inlineObject6.promotionCode);
+        return Objects.equals(this.price, inlineObject6.price) &&
+                Objects.equals(this.size, inlineObject6.size);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(side, payCoin, getCoin, payAmount, getAmount, createQuoteToken, promotionCode);
+        return Objects.hash(price, size);
     }
 
 
@@ -216,13 +92,8 @@ public class InlineObject6 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject6 {\n");
-        sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
-        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
-        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
-        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
-        sb.append("      createQuoteToken: ").append(toIndentedString(createQuoteToken)).append("\n");
-        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("}");
         return sb.toString();
     }

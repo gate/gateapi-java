@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**createOptionsOrder**](OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order
 [**cancelOptionsOrders**](OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all orders with &#39;open&#39; status
 [**getOptionsOrder**](OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Query single order details
+[**amendOptionsOrder**](OptionsApi.md#amendOptionsOrder) | **PUT** /options/orders/{order_id} | Option Order Modification
 [**cancelOptionsOrder**](OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel single order
 [**countdownCancelAllOptions**](OptionsApi.md#countdownCancelAllOptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders
 [**listMyOptionsTrades**](OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | Query personal trading records
@@ -1604,6 +1605,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order detail |  -  |
+
+<a name="amendOptionsOrder"></a>
+# **amendOptionsOrder**
+> OptionsOrder amendOptionsOrder(orderId, inlineObject6)
+
+Option Order Modification
+
+Modify the order price and/or quantity of a specified order; only orders with status &#39;open&#39; are supported
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.OptionsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        OptionsApi apiInstance = new OptionsApi(defaultClient);
+        Long orderId = 12345L; // Long | Order ID returned when order is successfully created
+        InlineObject6 inlineObject6 = new InlineObject6(); // InlineObject6 | 
+        try {
+            OptionsOrder result = apiInstance.amendOptionsOrder(orderId, inlineObject6);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling OptionsApi#amendOptionsOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **Long**| Order ID returned when order is successfully created |
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
+
+### Return type
+
+[**OptionsOrder**](OptionsOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

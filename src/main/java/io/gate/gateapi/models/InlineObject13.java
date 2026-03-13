@@ -23,97 +23,53 @@ import java.io.IOException;
  * InlineObject13
  */
 public class InlineObject13 {
-    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
-    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
-    private String exchangeType;
+    public static final String SERIALIZED_NAME_QTY = "qty";
+    @SerializedName(SERIALIZED_NAME_QTY)
+    private String qty;
 
-    public static final String SERIALIZED_NAME_FROM_COIN = "from_coin";
-    @SerializedName(SERIALIZED_NAME_FROM_COIN)
-    private String fromCoin;
-
-    public static final String SERIALIZED_NAME_TO_COIN = "to_coin";
-    @SerializedName(SERIALIZED_NAME_TO_COIN)
-    private String toCoin;
-
-    public static final String SERIALIZED_NAME_FROM_AMOUNT = "from_amount";
-    @SerializedName(SERIALIZED_NAME_FROM_AMOUNT)
-    private String fromAmount;
+    public static final String SERIALIZED_NAME_PRICE = "price";
+    @SerializedName(SERIALIZED_NAME_PRICE)
+    private String price;
 
 
-    public InlineObject13 exchangeType(String exchangeType) {
+    public InlineObject13 qty(String qty) {
         
-        this.exchangeType = exchangeType;
+        this.qty = qty;
         return this;
     }
 
      /**
-     * Exchange Type
-     * @return exchangeType
+     * modify amount
+     * @return qty
     **/
-    public String getExchangeType() {
-        return exchangeType;
+    @javax.annotation.Nullable
+    public String getQty() {
+        return qty;
     }
 
 
-    public void setExchangeType(String exchangeType) {
-        this.exchangeType = exchangeType;
+    public void setQty(String qty) {
+        this.qty = qty;
     }
 
-    public InlineObject13 fromCoin(String fromCoin) {
+    public InlineObject13 price(String price) {
         
-        this.fromCoin = fromCoin;
+        this.price = price;
         return this;
     }
 
      /**
-     * Asset Sold
-     * @return fromCoin
+     * modify price
+     * @return price
     **/
-    public String getFromCoin() {
-        return fromCoin;
+    @javax.annotation.Nullable
+    public String getPrice() {
+        return price;
     }
 
 
-    public void setFromCoin(String fromCoin) {
-        this.fromCoin = fromCoin;
-    }
-
-    public InlineObject13 toCoin(String toCoin) {
-        
-        this.toCoin = toCoin;
-        return this;
-    }
-
-     /**
-     * Asset name to buy (OKX and GATE only allow BTC, ETH, USDT; BN only allows USDT)
-     * @return toCoin
-    **/
-    public String getToCoin() {
-        return toCoin;
-    }
-
-
-    public void setToCoin(String toCoin) {
-        this.toCoin = toCoin;
-    }
-
-    public InlineObject13 fromAmount(String fromAmount) {
-        
-        this.fromAmount = fromAmount;
-        return this;
-    }
-
-     /**
-     * Amount to sell
-     * @return fromAmount
-    **/
-    public String getFromAmount() {
-        return fromAmount;
-    }
-
-
-    public void setFromAmount(String fromAmount) {
-        this.fromAmount = fromAmount;
+    public void setPrice(String price) {
+        this.price = price;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -124,15 +80,13 @@ public class InlineObject13 {
             return false;
         }
         InlineObject13 inlineObject13 = (InlineObject13) o;
-        return Objects.equals(this.exchangeType, inlineObject13.exchangeType) &&
-                Objects.equals(this.fromCoin, inlineObject13.fromCoin) &&
-                Objects.equals(this.toCoin, inlineObject13.toCoin) &&
-                Objects.equals(this.fromAmount, inlineObject13.fromAmount);
+        return Objects.equals(this.qty, inlineObject13.qty) &&
+                Objects.equals(this.price, inlineObject13.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(exchangeType, fromCoin, toCoin, fromAmount);
+        return Objects.hash(qty, price);
     }
 
 
@@ -140,10 +94,8 @@ public class InlineObject13 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject13 {\n");
-        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
-        sb.append("      fromCoin: ").append(toIndentedString(fromCoin)).append("\n");
-        sb.append("      toCoin: ").append(toIndentedString(toCoin)).append("\n");
-        sb.append("      fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
+        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
+        sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("}");
         return sb.toString();
     }

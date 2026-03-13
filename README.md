@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.34
-- SDK version: 7.2.34
+- API version: v4.106.36
+- SDK version: 7.2.36
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.34</version>
+    <version>7.2.36</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.34"
+compile "io.gate:gate-api:7.2.36"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.34.jar`
+* `target/gate-api-7.2.36.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -367,6 +367,7 @@ Class | Method | HTTP request | Description
 *OptionsApi* | [**createOptionsOrder**](docs/OptionsApi.md#createOptionsOrder) | **POST** /options/orders | Create an options order
 *OptionsApi* | [**cancelOptionsOrders**](docs/OptionsApi.md#cancelOptionsOrders) | **DELETE** /options/orders | Cancel all orders with &#39;open&#39; status
 *OptionsApi* | [**getOptionsOrder**](docs/OptionsApi.md#getOptionsOrder) | **GET** /options/orders/{order_id} | Query single order details
+*OptionsApi* | [**amendOptionsOrder**](docs/OptionsApi.md#amendOptionsOrder) | **PUT** /options/orders/{order_id} | Option Order Modification
 *OptionsApi* | [**cancelOptionsOrder**](docs/OptionsApi.md#cancelOptionsOrder) | **DELETE** /options/orders/{order_id} | Cancel single order
 *OptionsApi* | [**countdownCancelAllOptions**](docs/OptionsApi.md#countdownCancelAllOptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders
 *OptionsApi* | [**listMyOptionsTrades**](docs/OptionsApi.md#listMyOptionsTrades) | **GET** /options/my_trades | Query personal trading records
@@ -674,6 +675,7 @@ Class | Method | HTTP request | Description
  - [InlineObject16](docs/InlineObject16.md)
  - [InlineObject17](docs/InlineObject17.md)
  - [InlineObject18](docs/InlineObject18.md)
+ - [InlineObject19](docs/InlineObject19.md)
  - [InlineObject2](docs/InlineObject2.md)
  - [InlineObject3](docs/InlineObject3.md)
  - [InlineObject4](docs/InlineObject4.md)

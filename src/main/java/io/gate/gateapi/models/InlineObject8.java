@@ -23,25 +23,29 @@ import java.io.IOException;
  * InlineObject8
  */
 public class InlineObject8 {
-    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
-    @SerializedName(SERIALIZED_NAME_PAY_COIN)
-    private String payCoin;
-
-    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
-    @SerializedName(SERIALIZED_NAME_GET_COIN)
-    private String getCoin;
-
-    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
-    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
-    private String payAmount;
-
-    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
-    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
-    private String getAmount;
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
 
     public static final String SERIALIZED_NAME_SIDE = "side";
     @SerializedName(SERIALIZED_NAME_SIDE)
     private String side;
+
+    public static final String SERIALIZED_NAME_CRYPTO_CURRENCY = "crypto_currency";
+    @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY)
+    private String cryptoCurrency;
+
+    public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
+    @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
+    private String fiatCurrency;
+
+    public static final String SERIALIZED_NAME_CRYPTO_AMOUNT = "crypto_amount";
+    @SerializedName(SERIALIZED_NAME_CRYPTO_AMOUNT)
+    private String cryptoAmount;
+
+    public static final String SERIALIZED_NAME_FIAT_AMOUNT = "fiat_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_AMOUNT)
+    private String fiatAmount;
 
     public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
     @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
@@ -51,85 +55,28 @@ public class InlineObject8 {
     @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
     private String quoteToken;
 
+    public static final String SERIALIZED_NAME_BANK_ID = "bank_id";
+    @SerializedName(SERIALIZED_NAME_BANK_ID)
+    private String bankId;
 
-    public InlineObject8 payCoin(String payCoin) {
+
+    public InlineObject8 type(String type) {
         
-        this.payCoin = payCoin;
+        this.type = type;
         return this;
     }
 
      /**
-     * Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.
-     * @return payCoin
+     * BUY for on-ramp, SELL for off-ramp
+     * @return type
     **/
-    @javax.annotation.Nullable
-    public String getPayCoin() {
-        return payCoin;
+    public String getType() {
+        return type;
     }
 
 
-    public void setPayCoin(String payCoin) {
-        this.payCoin = payCoin;
-    }
-
-    public InlineObject8 getCoin(String getCoin) {
-        
-        this.getCoin = getCoin;
-        return this;
-    }
-
-     /**
-     * Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.
-     * @return getCoin
-    **/
-    @javax.annotation.Nullable
-    public String getGetCoin() {
-        return getCoin;
-    }
-
-
-    public void setGetCoin(String getCoin) {
-        this.getCoin = getCoin;
-    }
-
-    public InlineObject8 payAmount(String payAmount) {
-        
-        this.payAmount = payAmount;
-        return this;
-    }
-
-     /**
-     * User payment currency amount
-     * @return payAmount
-    **/
-    @javax.annotation.Nullable
-    public String getPayAmount() {
-        return payAmount;
-    }
-
-
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
-    }
-
-    public InlineObject8 getAmount(String getAmount) {
-        
-        this.getAmount = getAmount;
-        return this;
-    }
-
-     /**
-     * Amount of currency received by the user
-     * @return getAmount
-    **/
-    @javax.annotation.Nullable
-    public String getGetAmount() {
-        return getAmount;
-    }
-
-
-    public void setGetAmount(String getAmount) {
-        this.getAmount = getAmount;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public InlineObject8 side(String side) {
@@ -142,7 +89,6 @@ public class InlineObject8 {
      * Quote direction returned by the quote API (used for order validation)
      * @return side
     **/
-    @javax.annotation.Nullable
     public String getSide() {
         return side;
     }
@@ -152,6 +98,82 @@ public class InlineObject8 {
         this.side = side;
     }
 
+    public InlineObject8 cryptoCurrency(String cryptoCurrency) {
+        
+        this.cryptoCurrency = cryptoCurrency;
+        return this;
+    }
+
+     /**
+     * Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)
+     * @return cryptoCurrency
+    **/
+    public String getCryptoCurrency() {
+        return cryptoCurrency;
+    }
+
+
+    public void setCryptoCurrency(String cryptoCurrency) {
+        this.cryptoCurrency = cryptoCurrency;
+    }
+
+    public InlineObject8 fiatCurrency(String fiatCurrency) {
+        
+        this.fiatCurrency = fiatCurrency;
+        return this;
+    }
+
+     /**
+     * Fiat currency (supported currencies can be queried from the OTC web fiat quote page)
+     * @return fiatCurrency
+    **/
+    public String getFiatCurrency() {
+        return fiatCurrency;
+    }
+
+
+    public void setFiatCurrency(String fiatCurrency) {
+        this.fiatCurrency = fiatCurrency;
+    }
+
+    public InlineObject8 cryptoAmount(String cryptoAmount) {
+        
+        this.cryptoAmount = cryptoAmount;
+        return this;
+    }
+
+     /**
+     * Amount of cryptocurrency
+     * @return cryptoAmount
+    **/
+    public String getCryptoAmount() {
+        return cryptoAmount;
+    }
+
+
+    public void setCryptoAmount(String cryptoAmount) {
+        this.cryptoAmount = cryptoAmount;
+    }
+
+    public InlineObject8 fiatAmount(String fiatAmount) {
+        
+        this.fiatAmount = fiatAmount;
+        return this;
+    }
+
+     /**
+     * Fiat amount
+     * @return fiatAmount
+    **/
+    public String getFiatAmount() {
+        return fiatAmount;
+    }
+
+
+    public void setFiatAmount(String fiatAmount) {
+        this.fiatAmount = fiatAmount;
+    }
+
     public InlineObject8 promotionCode(String promotionCode) {
         
         this.promotionCode = promotionCode;
@@ -159,7 +181,7 @@ public class InlineObject8 {
     }
 
      /**
-     * promotion code 
+     * Promotion code
      * @return promotionCode
     **/
     @javax.annotation.Nullable
@@ -182,7 +204,6 @@ public class InlineObject8 {
      * Parameter returned by the quote API
      * @return quoteToken
     **/
-    @javax.annotation.Nullable
     public String getQuoteToken() {
         return quoteToken;
     }
@@ -190,6 +211,25 @@ public class InlineObject8 {
 
     public void setQuoteToken(String quoteToken) {
         this.quoteToken = quoteToken;
+    }
+
+    public InlineObject8 bankId(String bankId) {
+        
+        this.bankId = bankId;
+        return this;
+    }
+
+     /**
+     * Bank card ID used for the order (retrieved via the default bank card API)
+     * @return bankId
+    **/
+    public String getBankId() {
+        return bankId;
+    }
+
+
+    public void setBankId(String bankId) {
+        this.bankId = bankId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -200,18 +240,20 @@ public class InlineObject8 {
             return false;
         }
         InlineObject8 inlineObject8 = (InlineObject8) o;
-        return Objects.equals(this.payCoin, inlineObject8.payCoin) &&
-                Objects.equals(this.getCoin, inlineObject8.getCoin) &&
-                Objects.equals(this.payAmount, inlineObject8.payAmount) &&
-                Objects.equals(this.getAmount, inlineObject8.getAmount) &&
+        return Objects.equals(this.type, inlineObject8.type) &&
                 Objects.equals(this.side, inlineObject8.side) &&
+                Objects.equals(this.cryptoCurrency, inlineObject8.cryptoCurrency) &&
+                Objects.equals(this.fiatCurrency, inlineObject8.fiatCurrency) &&
+                Objects.equals(this.cryptoAmount, inlineObject8.cryptoAmount) &&
+                Objects.equals(this.fiatAmount, inlineObject8.fiatAmount) &&
                 Objects.equals(this.promotionCode, inlineObject8.promotionCode) &&
-                Objects.equals(this.quoteToken, inlineObject8.quoteToken);
+                Objects.equals(this.quoteToken, inlineObject8.quoteToken) &&
+                Objects.equals(this.bankId, inlineObject8.bankId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(payCoin, getCoin, payAmount, getAmount, side, promotionCode, quoteToken);
+        return Objects.hash(type, side, cryptoCurrency, fiatCurrency, cryptoAmount, fiatAmount, promotionCode, quoteToken, bankId);
     }
 
 
@@ -219,13 +261,15 @@ public class InlineObject8 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject8 {\n");
-        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
-        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
-        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
-        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      side: ").append(toIndentedString(side)).append("\n");
+        sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
+        sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
+        sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
+        sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
         sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
         sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
+        sb.append("      bankId: ").append(toIndentedString(bankId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -23,51 +23,77 @@ import java.io.IOException;
  * InlineObject16
  */
 public class InlineObject16 {
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
+    public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";
+    @SerializedName(SERIALIZED_NAME_POSITION_MODE)
+    private String positionMode;
 
-    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
-    @SerializedName(SERIALIZED_NAME_LEVERAGE)
-    private String leverage;
+    public static final String SERIALIZED_NAME_ACCOUNT_MODE = "account_mode";
+    @SerializedName(SERIALIZED_NAME_ACCOUNT_MODE)
+    private String accountMode;
+
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
 
 
-    public InlineObject16 symbol(String symbol) {
+    public InlineObject16 positionMode(String positionMode) {
         
-        this.symbol = symbol;
+        this.positionMode = positionMode;
         return this;
     }
 
      /**
-     * Currency pair
-     * @return symbol
+     * Futures position mode (SINGLE/DUAL)
+     * @return positionMode
     **/
-    public String getSymbol() {
-        return symbol;
+    @javax.annotation.Nullable
+    public String getPositionMode() {
+        return positionMode;
     }
 
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setPositionMode(String positionMode) {
+        this.positionMode = positionMode;
     }
 
-    public InlineObject16 leverage(String leverage) {
+    public InlineObject16 accountMode(String accountMode) {
         
-        this.leverage = leverage;
+        this.accountMode = accountMode;
         return this;
     }
 
      /**
-     * leverage
-     * @return leverage
+     * Account mode (CROSS_EXCHANGE/ISOLATED_EXCHANGE, default: CROSS_EXCHANGE)
+     * @return accountMode
     **/
-    public String getLeverage() {
-        return leverage;
+    @javax.annotation.Nullable
+    public String getAccountMode() {
+        return accountMode;
     }
 
 
-    public void setLeverage(String leverage) {
-        this.leverage = leverage;
+    public void setAccountMode(String accountMode) {
+        this.accountMode = accountMode;
+    }
+
+    public InlineObject16 exchangeType(String exchangeType) {
+        
+        this.exchangeType = exchangeType;
+        return this;
+    }
+
+     /**
+     * Exchange (BINANCE/OKX/GATE/BYBIT/CROSSEX; when account mode is ISOLATED_EXCHANGE, the exchange must be specified to modify futures position mode)
+     * @return exchangeType
+    **/
+    @javax.annotation.Nullable
+    public String getExchangeType() {
+        return exchangeType;
+    }
+
+
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +104,14 @@ public class InlineObject16 {
             return false;
         }
         InlineObject16 inlineObject16 = (InlineObject16) o;
-        return Objects.equals(this.symbol, inlineObject16.symbol) &&
-                Objects.equals(this.leverage, inlineObject16.leverage);
+        return Objects.equals(this.positionMode, inlineObject16.positionMode) &&
+                Objects.equals(this.accountMode, inlineObject16.accountMode) &&
+                Objects.equals(this.exchangeType, inlineObject16.exchangeType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, leverage);
+        return Objects.hash(positionMode, accountMode, exchangeType);
     }
 
 
@@ -92,8 +119,9 @@ public class InlineObject16 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject16 {\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
+        sb.append("      accountMode: ").append(toIndentedString(accountMode)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

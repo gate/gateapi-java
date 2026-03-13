@@ -20,26 +20,26 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineObject18
+ * InlineObject19
  */
-public class InlineObject18 {
+public class InlineObject19 {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
     private String symbol;
 
-    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
-    @SerializedName(SERIALIZED_NAME_LEVERAGE)
-    private String leverage;
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private String positionSide;
 
 
-    public InlineObject18 symbol(String symbol) {
+    public InlineObject19 symbol(String symbol) {
         
         this.symbol = symbol;
         return this;
     }
 
      /**
-     * Currency pair
+     * Trading Pair 1. Supports leveraged trading pairs, e.g., BINANCE_MARGIN_SOL_USDT 2. Supports contract trading pairs, e.g., OKX_FUTURE_ETH_USDT
      * @return symbol
     **/
     public String getSymbol() {
@@ -51,23 +51,24 @@ public class InlineObject18 {
         this.symbol = symbol;
     }
 
-    public InlineObject18 leverage(String leverage) {
+    public InlineObject19 positionSide(String positionSide) {
         
-        this.leverage = leverage;
+        this.positionSide = positionSide;
         return this;
     }
 
      /**
-     * leverage
-     * @return leverage
+     * Position Direction 1. For leveraged positions, this parameter must be passed 2. For contract positions, pass selectively based on your contract holding method
+     * @return positionSide
     **/
-    public String getLeverage() {
-        return leverage;
+    @javax.annotation.Nullable
+    public String getPositionSide() {
+        return positionSide;
     }
 
 
-    public void setLeverage(String leverage) {
-        this.leverage = leverage;
+    public void setPositionSide(String positionSide) {
+        this.positionSide = positionSide;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +78,23 @@ public class InlineObject18 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineObject18 inlineObject18 = (InlineObject18) o;
-        return Objects.equals(this.symbol, inlineObject18.symbol) &&
-                Objects.equals(this.leverage, inlineObject18.leverage);
+        InlineObject19 inlineObject19 = (InlineObject19) o;
+        return Objects.equals(this.symbol, inlineObject19.symbol) &&
+                Objects.equals(this.positionSide, inlineObject19.positionSide);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, leverage);
+        return Objects.hash(symbol, positionSide);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineObject18 {\n");
+        sb.append("class InlineObject19 {\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
-        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("}");
         return sb.toString();
     }

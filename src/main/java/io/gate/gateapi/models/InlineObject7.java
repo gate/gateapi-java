@@ -23,61 +23,34 @@ import java.io.IOException;
  * InlineObject7
  */
 public class InlineObject7 {
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
-
     public static final String SERIALIZED_NAME_SIDE = "side";
     @SerializedName(SERIALIZED_NAME_SIDE)
     private String side;
 
-    public static final String SERIALIZED_NAME_CRYPTO_CURRENCY = "crypto_currency";
-    @SerializedName(SERIALIZED_NAME_CRYPTO_CURRENCY)
-    private String cryptoCurrency;
+    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
+    @SerializedName(SERIALIZED_NAME_PAY_COIN)
+    private String payCoin;
 
-    public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
-    @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
-    private String fiatCurrency;
+    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
+    @SerializedName(SERIALIZED_NAME_GET_COIN)
+    private String getCoin;
 
-    public static final String SERIALIZED_NAME_CRYPTO_AMOUNT = "crypto_amount";
-    @SerializedName(SERIALIZED_NAME_CRYPTO_AMOUNT)
-    private String cryptoAmount;
+    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
+    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
+    private String payAmount;
 
-    public static final String SERIALIZED_NAME_FIAT_AMOUNT = "fiat_amount";
-    @SerializedName(SERIALIZED_NAME_FIAT_AMOUNT)
-    private String fiatAmount;
+    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
+    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
+    private String getAmount;
+
+    public static final String SERIALIZED_NAME_CREATE_QUOTE_TOKEN = "create_quote_token";
+    @SerializedName(SERIALIZED_NAME_CREATE_QUOTE_TOKEN)
+    private String createQuoteToken;
 
     public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
     @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
     private String promotionCode;
 
-    public static final String SERIALIZED_NAME_QUOTE_TOKEN = "quote_token";
-    @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
-    private String quoteToken;
-
-    public static final String SERIALIZED_NAME_BANK_ID = "bank_id";
-    @SerializedName(SERIALIZED_NAME_BANK_ID)
-    private String bankId;
-
-
-    public InlineObject7 type(String type) {
-        
-        this.type = type;
-        return this;
-    }
-
-     /**
-     * BUY for on-ramp, SELL for off-ramp
-     * @return type
-    **/
-    public String getType() {
-        return type;
-    }
-
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public InlineObject7 side(String side) {
         
@@ -86,7 +59,7 @@ public class InlineObject7 {
     }
 
      /**
-     * Quote direction returned by the quote API (used for order validation)
+     * PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required
      * @return side
     **/
     public String getSide() {
@@ -98,80 +71,102 @@ public class InlineObject7 {
         this.side = side;
     }
 
-    public InlineObject7 cryptoCurrency(String cryptoCurrency) {
+    public InlineObject7 payCoin(String payCoin) {
         
-        this.cryptoCurrency = cryptoCurrency;
+        this.payCoin = payCoin;
         return this;
     }
 
      /**
-     * Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page)
-     * @return cryptoCurrency
+     * Currency the user pays. Supported currencies can be found on the OTC web quote page.
+     * @return payCoin
     **/
-    public String getCryptoCurrency() {
-        return cryptoCurrency;
+    public String getPayCoin() {
+        return payCoin;
     }
 
 
-    public void setCryptoCurrency(String cryptoCurrency) {
-        this.cryptoCurrency = cryptoCurrency;
+    public void setPayCoin(String payCoin) {
+        this.payCoin = payCoin;
     }
 
-    public InlineObject7 fiatCurrency(String fiatCurrency) {
+    public InlineObject7 getCoin(String getCoin) {
         
-        this.fiatCurrency = fiatCurrency;
+        this.getCoin = getCoin;
         return this;
     }
 
      /**
-     * Fiat currency (supported currencies can be queried from the OTC web fiat quote page)
-     * @return fiatCurrency
+     * Currency the user receives. Supported currencies can be found on the OTC web quote page.
+     * @return getCoin
     **/
-    public String getFiatCurrency() {
-        return fiatCurrency;
+    public String getGetCoin() {
+        return getCoin;
     }
 
 
-    public void setFiatCurrency(String fiatCurrency) {
-        this.fiatCurrency = fiatCurrency;
+    public void setGetCoin(String getCoin) {
+        this.getCoin = getCoin;
     }
 
-    public InlineObject7 cryptoAmount(String cryptoAmount) {
+    public InlineObject7 payAmount(String payAmount) {
         
-        this.cryptoAmount = cryptoAmount;
+        this.payAmount = payAmount;
         return this;
     }
 
      /**
-     * Amount of cryptocurrency
-     * @return cryptoAmount
+     * User payment currency amount
+     * @return payAmount
     **/
-    public String getCryptoAmount() {
-        return cryptoAmount;
+    @javax.annotation.Nullable
+    public String getPayAmount() {
+        return payAmount;
     }
 
 
-    public void setCryptoAmount(String cryptoAmount) {
-        this.cryptoAmount = cryptoAmount;
+    public void setPayAmount(String payAmount) {
+        this.payAmount = payAmount;
     }
 
-    public InlineObject7 fiatAmount(String fiatAmount) {
+    public InlineObject7 getAmount(String getAmount) {
         
-        this.fiatAmount = fiatAmount;
+        this.getAmount = getAmount;
         return this;
     }
 
      /**
-     * Fiat amount
-     * @return fiatAmount
+     * Amount of currency received by the user
+     * @return getAmount
     **/
-    public String getFiatAmount() {
-        return fiatAmount;
+    @javax.annotation.Nullable
+    public String getGetAmount() {
+        return getAmount;
     }
 
 
-    public void setFiatAmount(String fiatAmount) {
-        this.fiatAmount = fiatAmount;
+    public void setGetAmount(String getAmount) {
+        this.getAmount = getAmount;
+    }
+
+    public InlineObject7 createQuoteToken(String createQuoteToken) {
+        
+        this.createQuoteToken = createQuoteToken;
+        return this;
+    }
+
+     /**
+     * Create quote token: 0: quote preview only; 1: generate quote token for order placement.
+     * @return createQuoteToken
+    **/
+    @javax.annotation.Nullable
+    public String getCreateQuoteToken() {
+        return createQuoteToken;
+    }
+
+
+    public void setCreateQuoteToken(String createQuoteToken) {
+        this.createQuoteToken = createQuoteToken;
     }
 
     public InlineObject7 promotionCode(String promotionCode) {
@@ -181,7 +176,7 @@ public class InlineObject7 {
     }
 
      /**
-     * Promotion code
+     * Promotion code (optional)
      * @return promotionCode
     **/
     @javax.annotation.Nullable
@@ -193,44 +188,6 @@ public class InlineObject7 {
     public void setPromotionCode(String promotionCode) {
         this.promotionCode = promotionCode;
     }
-
-    public InlineObject7 quoteToken(String quoteToken) {
-        
-        this.quoteToken = quoteToken;
-        return this;
-    }
-
-     /**
-     * Parameter returned by the quote API
-     * @return quoteToken
-    **/
-    public String getQuoteToken() {
-        return quoteToken;
-    }
-
-
-    public void setQuoteToken(String quoteToken) {
-        this.quoteToken = quoteToken;
-    }
-
-    public InlineObject7 bankId(String bankId) {
-        
-        this.bankId = bankId;
-        return this;
-    }
-
-     /**
-     * Bank card ID used for the order (retrieved via the default bank card API)
-     * @return bankId
-    **/
-    public String getBankId() {
-        return bankId;
-    }
-
-
-    public void setBankId(String bankId) {
-        this.bankId = bankId;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -240,20 +197,18 @@ public class InlineObject7 {
             return false;
         }
         InlineObject7 inlineObject7 = (InlineObject7) o;
-        return Objects.equals(this.type, inlineObject7.type) &&
-                Objects.equals(this.side, inlineObject7.side) &&
-                Objects.equals(this.cryptoCurrency, inlineObject7.cryptoCurrency) &&
-                Objects.equals(this.fiatCurrency, inlineObject7.fiatCurrency) &&
-                Objects.equals(this.cryptoAmount, inlineObject7.cryptoAmount) &&
-                Objects.equals(this.fiatAmount, inlineObject7.fiatAmount) &&
-                Objects.equals(this.promotionCode, inlineObject7.promotionCode) &&
-                Objects.equals(this.quoteToken, inlineObject7.quoteToken) &&
-                Objects.equals(this.bankId, inlineObject7.bankId);
+        return Objects.equals(this.side, inlineObject7.side) &&
+                Objects.equals(this.payCoin, inlineObject7.payCoin) &&
+                Objects.equals(this.getCoin, inlineObject7.getCoin) &&
+                Objects.equals(this.payAmount, inlineObject7.payAmount) &&
+                Objects.equals(this.getAmount, inlineObject7.getAmount) &&
+                Objects.equals(this.createQuoteToken, inlineObject7.createQuoteToken) &&
+                Objects.equals(this.promotionCode, inlineObject7.promotionCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, side, cryptoCurrency, fiatCurrency, cryptoAmount, fiatAmount, promotionCode, quoteToken, bankId);
+        return Objects.hash(side, payCoin, getCoin, payAmount, getAmount, createQuoteToken, promotionCode);
     }
 
 
@@ -261,15 +216,13 @@ public class InlineObject7 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject7 {\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
-        sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
-        sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
-        sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
+        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
+        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
+        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
+        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
+        sb.append("      createQuoteToken: ").append(toIndentedString(createQuoteToken)).append("\n");
         sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
-        sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
-        sb.append("      bankId: ").append(toIndentedString(bankId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

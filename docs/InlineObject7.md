@@ -5,13 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | BUY for on-ramp, SELL for off-ramp | 
-**side** | **String** | Quote direction returned by the quote API (used for order validation) | 
-**cryptoCurrency** | **String** | Cryptocurrency (supported currencies can be queried from the OTC web fiat quote page) | 
-**fiatCurrency** | **String** | Fiat currency (supported currencies can be queried from the OTC web fiat quote page) | 
-**cryptoAmount** | **String** | Amount of cryptocurrency | 
-**fiatAmount** | **String** | Fiat amount | 
-**promotionCode** | **String** | Promotion code |  [optional]
-**quoteToken** | **String** | Parameter returned by the quote API | 
-**bankId** | **String** | Bank card ID used for the order (retrieved via the default bank card API) | 
+**side** | **String** | PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required | 
+**payCoin** | **String** | Currency the user pays. Supported currencies can be found on the OTC web quote page. | 
+**getCoin** | **String** | Currency the user receives. Supported currencies can be found on the OTC web quote page. | 
+**payAmount** | **String** | User payment currency amount |  [optional]
+**getAmount** | **String** | Amount of currency received by the user |  [optional]
+**createQuoteToken** | **String** | Create quote token: 0: quote preview only; 1: generate quote token for order placement. |  [optional]
+**promotionCode** | **String** | Promotion code (optional) |  [optional]
 
