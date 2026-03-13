@@ -20,54 +20,31 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order Modification Request Body
+ * 法币订单设置已付款请求体
  */
-public class InlineObject1 {
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
-
-    public static final String SERIALIZED_NAME_SIZE = "size";
-    @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+public class OtcMarkOrderPaidRequest {
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
 
 
-    public InlineObject1 price(String price) {
+    public OtcMarkOrderPaidRequest orderId(String orderId) {
         
-        this.price = price;
+        this.orderId = orderId;
         return this;
     }
 
      /**
-     * Order Price
-     * @return price
+     * Order ID
+     * @return orderId
     **/
-    public String getPrice() {
-        return price;
+    public String getOrderId() {
+        return orderId;
     }
 
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public InlineObject1 size(Long size) {
-        
-        this.size = size;
-        return this;
-    }
-
-     /**
-     * Trade amount
-     * @return size
-    **/
-    public Long getSize() {
-        return size;
-    }
-
-
-    public void setSize(Long size) {
-        this.size = size;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +54,21 @@ public class InlineObject1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineObject1 inlineObject1 = (InlineObject1) o;
-        return Objects.equals(this.price, inlineObject1.price) &&
-                Objects.equals(this.size, inlineObject1.size);
+        OtcMarkOrderPaidRequest otcMarkOrderPaidRequest = (OtcMarkOrderPaidRequest) o;
+        return Objects.equals(this.orderId, otcMarkOrderPaidRequest.orderId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, size);
+        return Objects.hash(orderId);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineObject1 {\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("class OtcMarkOrderPaidRequest {\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

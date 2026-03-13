@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.36
-- SDK version: 7.2.36
+- API version: v4.106.37
+- SDK version: 7.2.37
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.36</version>
+    <version>7.2.37</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.36"
+compile "io.gate:gate-api:7.2.37"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.36.jar`
+* `target/gate-api-7.2.37.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -590,7 +590,15 @@ Class | Method | HTTP request | Description
  - [CrossMarginBalance](docs/CrossMarginBalance.md)
  - [CrossMarginLoan](docs/CrossMarginLoan.md)
  - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
+ - [CrossexAccountUpdateRequest](docs/CrossexAccountUpdateRequest.md)
+ - [CrossexClosePositionRequest](docs/CrossexClosePositionRequest.md)
+ - [CrossexConvertOrderRequest](docs/CrossexConvertOrderRequest.md)
+ - [CrossexConvertQuoteRequest](docs/CrossexConvertQuoteRequest.md)
+ - [CrossexLeverageRequest](docs/CrossexLeverageRequest.md)
+ - [CrossexOrderRequest](docs/CrossexOrderRequest.md)
+ - [CrossexOrderUpdateRequest](docs/CrossexOrderUpdateRequest.md)
  - [CrossexRuleRiskLimitsTiers](docs/CrossexRuleRiskLimitsTiers.md)
+ - [CrossexTransferRequest](docs/CrossexTransferRequest.md)
  - [Currency](docs/Currency.md)
  - [Currency2](docs/Currency2.md)
  - [CurrencyChain](docs/CurrencyChain.md)
@@ -666,24 +674,6 @@ Class | Method | HTTP request | Description
  - [IndexConstituent](docs/IndexConstituent.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
- - [InlineObject10](docs/InlineObject10.md)
- - [InlineObject11](docs/InlineObject11.md)
- - [InlineObject12](docs/InlineObject12.md)
- - [InlineObject13](docs/InlineObject13.md)
- - [InlineObject14](docs/InlineObject14.md)
- - [InlineObject15](docs/InlineObject15.md)
- - [InlineObject16](docs/InlineObject16.md)
- - [InlineObject17](docs/InlineObject17.md)
- - [InlineObject18](docs/InlineObject18.md)
- - [InlineObject19](docs/InlineObject19.md)
- - [InlineObject2](docs/InlineObject2.md)
- - [InlineObject3](docs/InlineObject3.md)
- - [InlineObject4](docs/InlineObject4.md)
- - [InlineObject5](docs/InlineObject5.md)
- - [InlineObject6](docs/InlineObject6.md)
- - [InlineObject7](docs/InlineObject7.md)
- - [InlineObject8](docs/InlineObject8.md)
- - [InlineObject9](docs/InlineObject9.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
@@ -839,6 +829,10 @@ Class | Method | HTTP request | Description
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderResp](docs/OrderResp.md)
  - [OrderResponse](docs/OrderResponse.md)
+ - [OtcMarkOrderPaidRequest](docs/OtcMarkOrderPaidRequest.md)
+ - [OtcOrderRequest](docs/OtcOrderRequest.md)
+ - [OtcQuoteRequest](docs/OtcQuoteRequest.md)
+ - [OtcStableCoinOrderRequest](docs/OtcStableCoinOrderRequest.md)
  - [PartnerCommissionHistory](docs/PartnerCommissionHistory.md)
  - [PartnerSub](docs/PartnerSub.md)
  - [PartnerSubList](docs/PartnerSubList.md)
@@ -915,6 +909,11 @@ Class | Method | HTTP request | Description
  - [Ticker2Data](docs/Ticker2Data.md)
  - [Tokens](docs/Tokens.md)
  - [TotalBalance](docs/TotalBalance.md)
+ - [TradFiClosePositionRequest](docs/TradFiClosePositionRequest.md)
+ - [TradFiOrderRequest](docs/TradFiOrderRequest.md)
+ - [TradFiOrderUpdateRequest](docs/TradFiOrderUpdateRequest.md)
+ - [TradFiPositionUpdateRequest](docs/TradFiPositionUpdateRequest.md)
+ - [TradFiTransactionRequest](docs/TradFiTransactionRequest.md)
  - [Trade](docs/Trade.md)
  - [TradeFee](docs/TradeFee.md)
  - [TrailChangeLog](docs/TrailChangeLog.md)

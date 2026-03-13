@@ -27,11 +27,6 @@ import io.gate.gateapi.models.CreateTransaction;
 import io.gate.gateapi.models.CreateUserResp;
 import io.gate.gateapi.models.DeletePosition;
 import io.gate.gateapi.models.Error;
-import io.gate.gateapi.models.InlineObject1;
-import io.gate.gateapi.models.InlineObject2;
-import io.gate.gateapi.models.InlineObject3;
-import io.gate.gateapi.models.InlineObject4;
-import io.gate.gateapi.models.InlineObject5;
 import io.gate.gateapi.models.Klines;
 import io.gate.gateapi.models.Mt5Account;
 import io.gate.gateapi.models.OrderHistoryList;
@@ -40,6 +35,11 @@ import io.gate.gateapi.models.PositionHistoryList;
 import io.gate.gateapi.models.PositionList;
 import io.gate.gateapi.models.Symbols;
 import io.gate.gateapi.models.Ticker2;
+import io.gate.gateapi.models.TradFiClosePositionRequest;
+import io.gate.gateapi.models.TradFiOrderRequest;
+import io.gate.gateapi.models.TradFiOrderUpdateRequest;
+import io.gate.gateapi.models.TradFiPositionUpdateRequest;
+import io.gate.gateapi.models.TradFiTransactionRequest;
 import io.gate.gateapi.models.TransactionList;
 import io.gate.gateapi.models.UpdateOrder;
 import io.gate.gateapi.models.UpdatePosition;
@@ -1216,7 +1216,7 @@ public class TradFiApi {
 
     /**
      * Build call for createTransaction
-     * @param inlineObject1  (required)
+     * @param tradFiTransactionRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1227,8 +1227,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTransactionCall(InlineObject1 inlineObject1, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject1;
+    public okhttp3.Call createTransactionCall(TradFiTransactionRequest tradFiTransactionRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tradFiTransactionRequest;
 
         // create path and map variables
         String localVarPath = "/tradfi/transactions";
@@ -1257,20 +1257,20 @@ public class TradFiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTransactionValidateBeforeCall(InlineObject1 inlineObject1, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject1' is set
-        if (inlineObject1 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject1' when calling createTransaction(Async)");
+    private okhttp3.Call createTransactionValidateBeforeCall(TradFiTransactionRequest tradFiTransactionRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tradFiTransactionRequest' is set
+        if (tradFiTransactionRequest == null) {
+            throw new ApiException("Missing the required parameter 'tradFiTransactionRequest' when calling createTransaction(Async)");
         }
 
-        okhttp3.Call localVarCall = createTransactionCall(inlineObject1, _callback);
+        okhttp3.Call localVarCall = createTransactionCall(tradFiTransactionRequest, _callback);
         return localVarCall;
     }
 
     /**
      * Fund Deposit and Withdrawal
      * 
-     * @param inlineObject1  (required)
+     * @param tradFiTransactionRequest  (required)
      * @return CreateTransaction
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1280,15 +1280,15 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTransaction createTransaction(InlineObject1 inlineObject1) throws ApiException {
-        ApiResponse<CreateTransaction> localVarResp = createTransactionWithHttpInfo(inlineObject1);
+    public CreateTransaction createTransaction(TradFiTransactionRequest tradFiTransactionRequest) throws ApiException {
+        ApiResponse<CreateTransaction> localVarResp = createTransactionWithHttpInfo(tradFiTransactionRequest);
         return localVarResp.getData();
     }
 
     /**
      * Fund Deposit and Withdrawal
      * 
-     * @param inlineObject1  (required)
+     * @param tradFiTransactionRequest  (required)
      * @return ApiResponse&lt;CreateTransaction&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1298,8 +1298,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTransaction> createTransactionWithHttpInfo(InlineObject1 inlineObject1) throws ApiException {
-        okhttp3.Call localVarCall = createTransactionValidateBeforeCall(inlineObject1, null);
+    public ApiResponse<CreateTransaction> createTransactionWithHttpInfo(TradFiTransactionRequest tradFiTransactionRequest) throws ApiException {
+        okhttp3.Call localVarCall = createTransactionValidateBeforeCall(tradFiTransactionRequest, null);
         Type localVarReturnType = new TypeToken<CreateTransaction>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1307,7 +1307,7 @@ public class TradFiApi {
     /**
      * Fund Deposit and Withdrawal (asynchronously)
      * 
-     * @param inlineObject1  (required)
+     * @param tradFiTransactionRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1318,8 +1318,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTransactionAsync(InlineObject1 inlineObject1, final ApiCallback<CreateTransaction> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createTransactionValidateBeforeCall(inlineObject1, _callback);
+    public okhttp3.Call createTransactionAsync(TradFiTransactionRequest tradFiTransactionRequest, final ApiCallback<CreateTransaction> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createTransactionValidateBeforeCall(tradFiTransactionRequest, _callback);
         Type localVarReturnType = new TypeToken<CreateTransaction>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1429,7 +1429,7 @@ public class TradFiApi {
 
     /**
      * Build call for createTradFiOrder
-     * @param inlineObject2  (required)
+     * @param tradFiOrderRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1440,8 +1440,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTradFiOrderCall(InlineObject2 inlineObject2, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject2;
+    public okhttp3.Call createTradFiOrderCall(TradFiOrderRequest tradFiOrderRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tradFiOrderRequest;
 
         // create path and map variables
         String localVarPath = "/tradfi/orders";
@@ -1470,20 +1470,20 @@ public class TradFiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTradFiOrderValidateBeforeCall(InlineObject2 inlineObject2, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'inlineObject2' is set
-        if (inlineObject2 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject2' when calling createTradFiOrder(Async)");
+    private okhttp3.Call createTradFiOrderValidateBeforeCall(TradFiOrderRequest tradFiOrderRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tradFiOrderRequest' is set
+        if (tradFiOrderRequest == null) {
+            throw new ApiException("Missing the required parameter 'tradFiOrderRequest' when calling createTradFiOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = createTradFiOrderCall(inlineObject2, _callback);
+        okhttp3.Call localVarCall = createTradFiOrderCall(tradFiOrderRequest, _callback);
         return localVarCall;
     }
 
     /**
      * Create an order
      * 
-     * @param inlineObject2  (required)
+     * @param tradFiOrderRequest  (required)
      * @return CreateOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1493,15 +1493,15 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public CreateOrder createTradFiOrder(InlineObject2 inlineObject2) throws ApiException {
-        ApiResponse<CreateOrder> localVarResp = createTradFiOrderWithHttpInfo(inlineObject2);
+    public CreateOrder createTradFiOrder(TradFiOrderRequest tradFiOrderRequest) throws ApiException {
+        ApiResponse<CreateOrder> localVarResp = createTradFiOrderWithHttpInfo(tradFiOrderRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create an order
      * 
-     * @param inlineObject2  (required)
+     * @param tradFiOrderRequest  (required)
      * @return ApiResponse&lt;CreateOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1511,8 +1511,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateOrder> createTradFiOrderWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
-        okhttp3.Call localVarCall = createTradFiOrderValidateBeforeCall(inlineObject2, null);
+    public ApiResponse<CreateOrder> createTradFiOrderWithHttpInfo(TradFiOrderRequest tradFiOrderRequest) throws ApiException {
+        okhttp3.Call localVarCall = createTradFiOrderValidateBeforeCall(tradFiOrderRequest, null);
         Type localVarReturnType = new TypeToken<CreateOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1520,7 +1520,7 @@ public class TradFiApi {
     /**
      * Create an order (asynchronously)
      * 
-     * @param inlineObject2  (required)
+     * @param tradFiOrderRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1531,8 +1531,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTradFiOrderAsync(InlineObject2 inlineObject2, final ApiCallback<CreateOrder> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createTradFiOrderValidateBeforeCall(inlineObject2, _callback);
+    public okhttp3.Call createTradFiOrderAsync(TradFiOrderRequest tradFiOrderRequest, final ApiCallback<CreateOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createTradFiOrderValidateBeforeCall(tradFiOrderRequest, _callback);
         Type localVarReturnType = new TypeToken<CreateOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1541,7 +1541,7 @@ public class TradFiApi {
     /**
      * Build call for updateOrder
      * @param orderId Order ID (required)
-     * @param inlineObject3  (required)
+     * @param tradFiOrderUpdateRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1552,8 +1552,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOrderCall(Integer orderId, InlineObject3 inlineObject3, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject3;
+    public okhttp3.Call updateOrderCall(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tradFiOrderUpdateRequest;
 
         // create path and map variables
         String localVarPath = "/tradfi/orders/{order_id}"
@@ -1583,18 +1583,18 @@ public class TradFiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOrderValidateBeforeCall(Integer orderId, InlineObject3 inlineObject3, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateOrderValidateBeforeCall(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling updateOrder(Async)");
         }
 
-        // verify the required parameter 'inlineObject3' is set
-        if (inlineObject3 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject3' when calling updateOrder(Async)");
+        // verify the required parameter 'tradFiOrderUpdateRequest' is set
+        if (tradFiOrderUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'tradFiOrderUpdateRequest' when calling updateOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = updateOrderCall(orderId, inlineObject3, _callback);
+        okhttp3.Call localVarCall = updateOrderCall(orderId, tradFiOrderUpdateRequest, _callback);
         return localVarCall;
     }
 
@@ -1602,7 +1602,7 @@ public class TradFiApi {
      * Modify order
      * 
      * @param orderId Order ID (required)
-     * @param inlineObject3  (required)
+     * @param tradFiOrderUpdateRequest  (required)
      * @return UpdateOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1612,8 +1612,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateOrder updateOrder(Integer orderId, InlineObject3 inlineObject3) throws ApiException {
-        ApiResponse<UpdateOrder> localVarResp = updateOrderWithHttpInfo(orderId, inlineObject3);
+    public UpdateOrder updateOrder(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest) throws ApiException {
+        ApiResponse<UpdateOrder> localVarResp = updateOrderWithHttpInfo(orderId, tradFiOrderUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -1621,7 +1621,7 @@ public class TradFiApi {
      * Modify order
      * 
      * @param orderId Order ID (required)
-     * @param inlineObject3  (required)
+     * @param tradFiOrderUpdateRequest  (required)
      * @return ApiResponse&lt;UpdateOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1631,8 +1631,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateOrder> updateOrderWithHttpInfo(Integer orderId, InlineObject3 inlineObject3) throws ApiException {
-        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, inlineObject3, null);
+    public ApiResponse<UpdateOrder> updateOrderWithHttpInfo(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, tradFiOrderUpdateRequest, null);
         Type localVarReturnType = new TypeToken<UpdateOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1641,7 +1641,7 @@ public class TradFiApi {
      * Modify order (asynchronously)
      * 
      * @param orderId Order ID (required)
-     * @param inlineObject3  (required)
+     * @param tradFiOrderUpdateRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1652,8 +1652,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOrderAsync(Integer orderId, InlineObject3 inlineObject3, final ApiCallback<UpdateOrder> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, inlineObject3, _callback);
+    public okhttp3.Call updateOrderAsync(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback<UpdateOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, tradFiOrderUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2069,7 +2069,7 @@ public class TradFiApi {
     /**
      * Build call for updatePosition
      * @param positionId Position ID (required)
-     * @param inlineObject4  (required)
+     * @param tradFiPositionUpdateRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2080,8 +2080,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePositionCall(Integer positionId, InlineObject4 inlineObject4, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject4;
+    public okhttp3.Call updatePositionCall(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tradFiPositionUpdateRequest;
 
         // create path and map variables
         String localVarPath = "/tradfi/positions/{position_id}"
@@ -2111,18 +2111,18 @@ public class TradFiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePositionValidateBeforeCall(Integer positionId, InlineObject4 inlineObject4, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePositionValidateBeforeCall(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'positionId' is set
         if (positionId == null) {
             throw new ApiException("Missing the required parameter 'positionId' when calling updatePosition(Async)");
         }
 
-        // verify the required parameter 'inlineObject4' is set
-        if (inlineObject4 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject4' when calling updatePosition(Async)");
+        // verify the required parameter 'tradFiPositionUpdateRequest' is set
+        if (tradFiPositionUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'tradFiPositionUpdateRequest' when calling updatePosition(Async)");
         }
 
-        okhttp3.Call localVarCall = updatePositionCall(positionId, inlineObject4, _callback);
+        okhttp3.Call localVarCall = updatePositionCall(positionId, tradFiPositionUpdateRequest, _callback);
         return localVarCall;
     }
 
@@ -2130,7 +2130,7 @@ public class TradFiApi {
      * Modify position
      * 
      * @param positionId Position ID (required)
-     * @param inlineObject4  (required)
+     * @param tradFiPositionUpdateRequest  (required)
      * @return UpdatePosition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2140,8 +2140,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public UpdatePosition updatePosition(Integer positionId, InlineObject4 inlineObject4) throws ApiException {
-        ApiResponse<UpdatePosition> localVarResp = updatePositionWithHttpInfo(positionId, inlineObject4);
+    public UpdatePosition updatePosition(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest) throws ApiException {
+        ApiResponse<UpdatePosition> localVarResp = updatePositionWithHttpInfo(positionId, tradFiPositionUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -2149,7 +2149,7 @@ public class TradFiApi {
      * Modify position
      * 
      * @param positionId Position ID (required)
-     * @param inlineObject4  (required)
+     * @param tradFiPositionUpdateRequest  (required)
      * @return ApiResponse&lt;UpdatePosition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2159,8 +2159,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdatePosition> updatePositionWithHttpInfo(Integer positionId, InlineObject4 inlineObject4) throws ApiException {
-        okhttp3.Call localVarCall = updatePositionValidateBeforeCall(positionId, inlineObject4, null);
+    public ApiResponse<UpdatePosition> updatePositionWithHttpInfo(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updatePositionValidateBeforeCall(positionId, tradFiPositionUpdateRequest, null);
         Type localVarReturnType = new TypeToken<UpdatePosition>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2169,7 +2169,7 @@ public class TradFiApi {
      * Modify position (asynchronously)
      * 
      * @param positionId Position ID (required)
-     * @param inlineObject4  (required)
+     * @param tradFiPositionUpdateRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2180,8 +2180,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePositionAsync(Integer positionId, InlineObject4 inlineObject4, final ApiCallback<UpdatePosition> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updatePositionValidateBeforeCall(positionId, inlineObject4, _callback);
+    public okhttp3.Call updatePositionAsync(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback<UpdatePosition> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updatePositionValidateBeforeCall(positionId, tradFiPositionUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdatePosition>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2190,7 +2190,7 @@ public class TradFiApi {
     /**
      * Build call for closePosition
      * @param positionId Position ID (required)
-     * @param inlineObject5  (required)
+     * @param tradFiClosePositionRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2201,8 +2201,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call closePositionCall(Integer positionId, InlineObject5 inlineObject5, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject5;
+    public okhttp3.Call closePositionCall(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = tradFiClosePositionRequest;
 
         // create path and map variables
         String localVarPath = "/tradfi/positions/{position_id}/close"
@@ -2232,18 +2232,18 @@ public class TradFiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call closePositionValidateBeforeCall(Integer positionId, InlineObject5 inlineObject5, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call closePositionValidateBeforeCall(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'positionId' is set
         if (positionId == null) {
             throw new ApiException("Missing the required parameter 'positionId' when calling closePosition(Async)");
         }
 
-        // verify the required parameter 'inlineObject5' is set
-        if (inlineObject5 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject5' when calling closePosition(Async)");
+        // verify the required parameter 'tradFiClosePositionRequest' is set
+        if (tradFiClosePositionRequest == null) {
+            throw new ApiException("Missing the required parameter 'tradFiClosePositionRequest' when calling closePosition(Async)");
         }
 
-        okhttp3.Call localVarCall = closePositionCall(positionId, inlineObject5, _callback);
+        okhttp3.Call localVarCall = closePositionCall(positionId, tradFiClosePositionRequest, _callback);
         return localVarCall;
     }
 
@@ -2251,7 +2251,7 @@ public class TradFiApi {
      * Close position
      * 
      * @param positionId Position ID (required)
-     * @param inlineObject5  (required)
+     * @param tradFiClosePositionRequest  (required)
      * @return DeletePosition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2261,8 +2261,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public DeletePosition closePosition(Integer positionId, InlineObject5 inlineObject5) throws ApiException {
-        ApiResponse<DeletePosition> localVarResp = closePositionWithHttpInfo(positionId, inlineObject5);
+    public DeletePosition closePosition(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest) throws ApiException {
+        ApiResponse<DeletePosition> localVarResp = closePositionWithHttpInfo(positionId, tradFiClosePositionRequest);
         return localVarResp.getData();
     }
 
@@ -2270,7 +2270,7 @@ public class TradFiApi {
      * Close position
      * 
      * @param positionId Position ID (required)
-     * @param inlineObject5  (required)
+     * @param tradFiClosePositionRequest  (required)
      * @return ApiResponse&lt;DeletePosition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2280,8 +2280,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeletePosition> closePositionWithHttpInfo(Integer positionId, InlineObject5 inlineObject5) throws ApiException {
-        okhttp3.Call localVarCall = closePositionValidateBeforeCall(positionId, inlineObject5, null);
+    public ApiResponse<DeletePosition> closePositionWithHttpInfo(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest) throws ApiException {
+        okhttp3.Call localVarCall = closePositionValidateBeforeCall(positionId, tradFiClosePositionRequest, null);
         Type localVarReturnType = new TypeToken<DeletePosition>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2290,7 +2290,7 @@ public class TradFiApi {
      * Close position (asynchronously)
      * 
      * @param positionId Position ID (required)
-     * @param inlineObject5  (required)
+     * @param tradFiClosePositionRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2301,8 +2301,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call closePositionAsync(Integer positionId, InlineObject5 inlineObject5, final ApiCallback<DeletePosition> _callback) throws ApiException {
-        okhttp3.Call localVarCall = closePositionValidateBeforeCall(positionId, inlineObject5, _callback);
+    public okhttp3.Call closePositionAsync(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback<DeletePosition> _callback) throws ApiException {
+        okhttp3.Call localVarCall = closePositionValidateBeforeCall(positionId, tradFiClosePositionRequest, _callback);
         Type localVarReturnType = new TypeToken<DeletePosition>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

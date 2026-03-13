@@ -1,5 +1,5 @@
 
-# InlineObject1
+# CrossexOrderUpdateRequest
 
 Order Modification Request Body
 
@@ -7,6 +7,6 @@ Order Modification Request Body
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**price** | **String** | Order Price | 
-**size** | **Long** | Trade amount | 
+**qty** | **String** | modify amount |  [optional]
+**price** | **String** | modify price |  [optional]
 

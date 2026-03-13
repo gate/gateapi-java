@@ -20,54 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order Modification Request Body
+ * 更改杠杆请求体（合约/杠杆通用）
  */
-public class InlineObject1 {
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
+public class CrossexLeverageRequest {
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
-    public static final String SERIALIZED_NAME_SIZE = "size";
-    @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
+    @SerializedName(SERIALIZED_NAME_LEVERAGE)
+    private String leverage;
 
 
-    public InlineObject1 price(String price) {
+    public CrossexLeverageRequest symbol(String symbol) {
         
-        this.price = price;
+        this.symbol = symbol;
         return this;
     }
 
      /**
-     * Order Price
-     * @return price
+     * Currency pair
+     * @return symbol
     **/
-    public String getPrice() {
-        return price;
+    public String getSymbol() {
+        return symbol;
     }
 
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public InlineObject1 size(Long size) {
+    public CrossexLeverageRequest leverage(String leverage) {
         
-        this.size = size;
+        this.leverage = leverage;
         return this;
     }
 
      /**
-     * Trade amount
-     * @return size
+     * leverage
+     * @return leverage
     **/
-    public Long getSize() {
-        return size;
+    public String getLeverage() {
+        return leverage;
     }
 
 
-    public void setSize(Long size) {
-        this.size = size;
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +77,23 @@ public class InlineObject1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineObject1 inlineObject1 = (InlineObject1) o;
-        return Objects.equals(this.price, inlineObject1.price) &&
-                Objects.equals(this.size, inlineObject1.size);
+        CrossexLeverageRequest crossexLeverageRequest = (CrossexLeverageRequest) o;
+        return Objects.equals(this.symbol, crossexLeverageRequest.symbol) &&
+                Objects.equals(this.leverage, crossexLeverageRequest.leverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, size);
+        return Objects.hash(symbol, leverage);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineObject1 {\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("class CrossexLeverageRequest {\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

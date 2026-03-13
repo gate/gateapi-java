@@ -636,7 +636,7 @@ Name | Type | Description  | Notes
 
 <a name="createTransaction"></a>
 # **createTransaction**
-> CreateTransaction createTransaction(inlineObject1)
+> CreateTransaction createTransaction(tradFiTransactionRequest)
 
 Fund Deposit and Withdrawal
 
@@ -661,9 +661,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         TradFiApi apiInstance = new TradFiApi(defaultClient);
-        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+        TradFiTransactionRequest tradFiTransactionRequest = new TradFiTransactionRequest(); // TradFiTransactionRequest | 
         try {
-            CreateTransaction result = apiInstance.createTransaction(inlineObject1);
+            CreateTransaction result = apiInstance.createTransaction(tradFiTransactionRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -682,7 +682,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
+ **tradFiTransactionRequest** | [**TradFiTransactionRequest**](TradFiTransactionRequest.md)|  |
 
 ### Return type
 
@@ -770,7 +770,7 @@ This endpoint does not need any parameter.
 
 <a name="createTradFiOrder"></a>
 # **createTradFiOrder**
-> CreateOrder createTradFiOrder(inlineObject2)
+> CreateOrder createTradFiOrder(tradFiOrderRequest)
 
 Create an order
 
@@ -795,9 +795,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         TradFiApi apiInstance = new TradFiApi(defaultClient);
-        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
+        TradFiOrderRequest tradFiOrderRequest = new TradFiOrderRequest(); // TradFiOrderRequest | 
         try {
-            CreateOrder result = apiInstance.createTradFiOrder(inlineObject2);
+            CreateOrder result = apiInstance.createTradFiOrder(tradFiOrderRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -816,7 +816,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  |
+ **tradFiOrderRequest** | [**TradFiOrderRequest**](TradFiOrderRequest.md)|  |
 
 ### Return type
 
@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 
 <a name="updateOrder"></a>
 # **updateOrder**
-> UpdateOrder updateOrder(orderId, inlineObject3)
+> UpdateOrder updateOrder(orderId, tradFiOrderUpdateRequest)
 
 Modify order
 
@@ -865,9 +865,9 @@ public class Example {
 
         TradFiApi apiInstance = new TradFiApi(defaultClient);
         Integer orderId = 1223; // Integer | Order ID
-        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
+        TradFiOrderUpdateRequest tradFiOrderUpdateRequest = new TradFiOrderUpdateRequest(); // TradFiOrderUpdateRequest | 
         try {
-            UpdateOrder result = apiInstance.updateOrder(orderId, inlineObject3);
+            UpdateOrder result = apiInstance.updateOrder(orderId, tradFiOrderUpdateRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -887,7 +887,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **Integer**| Order ID |
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  |
+ **tradFiOrderUpdateRequest** | [**TradFiOrderUpdateRequest**](TradFiOrderUpdateRequest.md)|  |
 
 ### Return type
 
@@ -1124,7 +1124,7 @@ This endpoint does not need any parameter.
 
 <a name="updatePosition"></a>
 # **updatePosition**
-> UpdatePosition updatePosition(positionId, inlineObject4)
+> UpdatePosition updatePosition(positionId, tradFiPositionUpdateRequest)
 
 Modify position
 
@@ -1150,9 +1150,9 @@ public class Example {
 
         TradFiApi apiInstance = new TradFiApi(defaultClient);
         Integer positionId = 1223; // Integer | Position ID
-        InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
+        TradFiPositionUpdateRequest tradFiPositionUpdateRequest = new TradFiPositionUpdateRequest(); // TradFiPositionUpdateRequest | 
         try {
-            UpdatePosition result = apiInstance.updatePosition(positionId, inlineObject4);
+            UpdatePosition result = apiInstance.updatePosition(positionId, tradFiPositionUpdateRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1172,7 +1172,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **positionId** | **Integer**| Position ID |
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  |
+ **tradFiPositionUpdateRequest** | [**TradFiPositionUpdateRequest**](TradFiPositionUpdateRequest.md)|  |
 
 ### Return type
 
@@ -1195,7 +1195,7 @@ Name | Type | Description  | Notes
 
 <a name="closePosition"></a>
 # **closePosition**
-> DeletePosition closePosition(positionId, inlineObject5)
+> DeletePosition closePosition(positionId, tradFiClosePositionRequest)
 
 Close position
 
@@ -1221,9 +1221,9 @@ public class Example {
 
         TradFiApi apiInstance = new TradFiApi(defaultClient);
         Integer positionId = 1223; // Integer | Position ID
-        InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
+        TradFiClosePositionRequest tradFiClosePositionRequest = new TradFiClosePositionRequest(); // TradFiClosePositionRequest | 
         try {
-            DeletePosition result = apiInstance.closePosition(positionId, inlineObject5);
+            DeletePosition result = apiInstance.closePosition(positionId, tradFiClosePositionRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1243,7 +1243,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **positionId** | **Integer**| Position ID |
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  |
+ **tradFiClosePositionRequest** | [**TradFiClosePositionRequest**](TradFiClosePositionRequest.md)|  |
 
 ### Return type
 

@@ -20,54 +20,31 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order Modification Request Body
+ * 闪兑交易请求体
  */
-public class InlineObject1 {
-    public static final String SERIALIZED_NAME_PRICE = "price";
-    @SerializedName(SERIALIZED_NAME_PRICE)
-    private String price;
-
-    public static final String SERIALIZED_NAME_SIZE = "size";
-    @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+public class CrossexConvertOrderRequest {
+    public static final String SERIALIZED_NAME_QUOTE_ID = "quote_id";
+    @SerializedName(SERIALIZED_NAME_QUOTE_ID)
+    private String quoteId;
 
 
-    public InlineObject1 price(String price) {
+    public CrossexConvertOrderRequest quoteId(String quoteId) {
         
-        this.price = price;
+        this.quoteId = quoteId;
         return this;
     }
 
      /**
-     * Order Price
-     * @return price
+     * Inquiry ID
+     * @return quoteId
     **/
-    public String getPrice() {
-        return price;
+    public String getQuoteId() {
+        return quoteId;
     }
 
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public InlineObject1 size(Long size) {
-        
-        this.size = size;
-        return this;
-    }
-
-     /**
-     * Trade amount
-     * @return size
-    **/
-    public Long getSize() {
-        return size;
-    }
-
-
-    public void setSize(Long size) {
-        this.size = size;
+    public void setQuoteId(String quoteId) {
+        this.quoteId = quoteId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +54,21 @@ public class InlineObject1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineObject1 inlineObject1 = (InlineObject1) o;
-        return Objects.equals(this.price, inlineObject1.price) &&
-                Objects.equals(this.size, inlineObject1.size);
+        CrossexConvertOrderRequest crossexConvertOrderRequest = (CrossexConvertOrderRequest) o;
+        return Objects.equals(this.quoteId, crossexConvertOrderRequest.quoteId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, size);
+        return Objects.hash(quoteId);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineObject1 {\n");
-        sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("class CrossexConvertOrderRequest {\n");
+        sb.append("      quoteId: ").append(toIndentedString(quoteId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

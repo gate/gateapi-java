@@ -22,26 +22,47 @@ import java.io.IOException;
 /**
  * Order Modification Request Body
  */
-public class InlineObject1 {
+public class CrossexOrderUpdateRequest {
+    public static final String SERIALIZED_NAME_QTY = "qty";
+    @SerializedName(SERIALIZED_NAME_QTY)
+    private String qty;
+
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
 
-    public static final String SERIALIZED_NAME_SIZE = "size";
-    @SerializedName(SERIALIZED_NAME_SIZE)
-    private Long size;
+
+    public CrossexOrderUpdateRequest qty(String qty) {
+        
+        this.qty = qty;
+        return this;
+    }
+
+     /**
+     * modify amount
+     * @return qty
+    **/
+    @javax.annotation.Nullable
+    public String getQty() {
+        return qty;
+    }
 
 
-    public InlineObject1 price(String price) {
+    public void setQty(String qty) {
+        this.qty = qty;
+    }
+
+    public CrossexOrderUpdateRequest price(String price) {
         
         this.price = price;
         return this;
     }
 
      /**
-     * Order Price
+     * modify price
      * @return price
     **/
+    @javax.annotation.Nullable
     public String getPrice() {
         return price;
     }
@@ -49,25 +70,6 @@ public class InlineObject1 {
 
     public void setPrice(String price) {
         this.price = price;
-    }
-
-    public InlineObject1 size(Long size) {
-        
-        this.size = size;
-        return this;
-    }
-
-     /**
-     * Trade amount
-     * @return size
-    **/
-    public Long getSize() {
-        return size;
-    }
-
-
-    public void setSize(Long size) {
-        this.size = size;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -77,23 +79,23 @@ public class InlineObject1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineObject1 inlineObject1 = (InlineObject1) o;
-        return Objects.equals(this.price, inlineObject1.price) &&
-                Objects.equals(this.size, inlineObject1.size);
+        CrossexOrderUpdateRequest crossexOrderUpdateRequest = (CrossexOrderUpdateRequest) o;
+        return Objects.equals(this.qty, crossexOrderUpdateRequest.qty) &&
+                Objects.equals(this.price, crossexOrderUpdateRequest.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, size);
+        return Objects.hash(qty, price);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineObject1 {\n");
+        sb.append("class CrossexOrderUpdateRequest {\n");
+        sb.append("      qty: ").append(toIndentedString(qty)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
-        sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("}");
         return sb.toString();
     }
