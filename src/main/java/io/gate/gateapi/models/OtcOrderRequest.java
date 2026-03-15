@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 法币下单请求体
+ * Fiat Order Request Body
  */
 public class OtcOrderRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";

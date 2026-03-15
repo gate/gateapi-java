@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 法币订单设置已付款请求体
+ * Fiat Order Set Paid Request Body
  */
 public class OtcMarkOrderPaidRequest {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";

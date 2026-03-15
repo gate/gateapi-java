@@ -23,6 +23,10 @@ import java.io.IOException;
  * Order Modification Request Body
  */
 public class InlineObject1 {
+    public static final String SERIALIZED_NAME_CONTRACT = "contract";
+    @SerializedName(SERIALIZED_NAME_CONTRACT)
+    private String contract;
+
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
@@ -31,6 +35,25 @@ public class InlineObject1 {
     @SerializedName(SERIALIZED_NAME_SIZE)
     private Long size;
 
+
+    public InlineObject1 contract(String contract) {
+        
+        this.contract = contract;
+        return this;
+    }
+
+     /**
+     * Options contract name
+     * @return contract
+    **/
+    public String getContract() {
+        return contract;
+    }
+
+
+    public void setContract(String contract) {
+        this.contract = contract;
+    }
 
     public InlineObject1 price(String price) {
         
@@ -78,13 +101,14 @@ public class InlineObject1 {
             return false;
         }
         InlineObject1 inlineObject1 = (InlineObject1) o;
-        return Objects.equals(this.price, inlineObject1.price) &&
+        return Objects.equals(this.contract, inlineObject1.contract) &&
+                Objects.equals(this.price, inlineObject1.price) &&
                 Objects.equals(this.size, inlineObject1.size);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, size);
+        return Objects.hash(contract, price, size);
     }
 
 
@@ -92,6 +116,7 @@ public class InlineObject1 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject1 {\n");
+        sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("}");

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 法币和稳定币询价请求体
+ * Fiat and Stablecoin Quote Request Body
  */
 public class OtcQuoteRequest {
     public static final String SERIALIZED_NAME_SIDE = "side";

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 闪兑询价请求体
+ * Flash Swap Quote Request Body
  */
 public class CrossexConvertQuoteRequest {
     public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";

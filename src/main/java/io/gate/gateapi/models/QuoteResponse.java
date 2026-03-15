@@ -191,7 +191,7 @@ public class QuoteResponse {
     }
 
      /**
-     * Slippage tolerance (10 means 10% tolerance)
+     * Trading fee
      * @return orderFee
     **/
     @javax.annotation.Nullable

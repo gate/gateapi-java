@@ -533,7 +533,7 @@ No authorization required
 
 <a name="listAlphaTickers"></a>
 # **listAlphaTickers**
-> List&lt;Ticker2&gt; listAlphaTickers().currency(currency).limit(limit).page(page).execute();
+> List&lt;AlphaTicker&gt; listAlphaTickers().currency(currency).limit(limit).page(page).execute();
 
 Query currency ticker
 
@@ -560,7 +560,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer page = 1; // Integer | Page number
         try {
-            List<Ticker2> result = apiInstance.listAlphaTickers()
+            List<AlphaTicker> result = apiInstance.listAlphaTickers()
                         .currency(currency)
                         .limit(limit)
                         .page(page)
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Ticker2&gt;**](Ticker2.md)
+[**List&lt;AlphaTicker&gt;**](AlphaTicker.md)
 
 ### Authorization
 

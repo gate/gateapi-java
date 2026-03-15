@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 完全平仓请求体
+ * Full Close Position Request Body
  */
 public class CrossexClosePositionRequest {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";

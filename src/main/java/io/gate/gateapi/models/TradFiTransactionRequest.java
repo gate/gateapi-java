@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 资金转入转出请求体
+ * Fund Transfer Request Body
  */
 public class TradFiTransactionRequest {
     public static final String SERIALIZED_NAME_ASSET = "asset";

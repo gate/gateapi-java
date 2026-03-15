@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 更改杠杆请求体（合约/杠杆通用）
+ * Change Leverage Request Body (for futures/margin)
  */
 public class CrossexLeverageRequest {
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";

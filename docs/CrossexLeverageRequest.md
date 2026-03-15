@@ -1,7 +1,7 @@
 
 # CrossexLeverageRequest
 
-更改杠杆请求体（合约/杠杆通用）
+Change Leverage Request Body (for futures/margin)
 
 ## Properties
 

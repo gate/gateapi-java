@@ -1,7 +1,7 @@
 
 # CrossexTransferRequest
 
-资金划转请求体
+Fund Transfer Request Body
 
 ## Properties
 

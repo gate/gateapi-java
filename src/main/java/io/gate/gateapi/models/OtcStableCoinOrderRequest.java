@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 稳定币下单请求体
+ * Stablecoin Order Request Body
  */
 public class OtcStableCoinOrderRequest {
     public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";

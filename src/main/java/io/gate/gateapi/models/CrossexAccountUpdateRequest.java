@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 更改账户请求体
+ * Change Account Request Body
  */
 public class CrossexAccountUpdateRequest {
     public static final String SERIALIZED_NAME_POSITION_MODE = "position_mode";

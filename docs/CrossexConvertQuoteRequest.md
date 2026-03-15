@@ -1,7 +1,7 @@
 
 # CrossexConvertQuoteRequest
 
-闪兑询价请求体
+Flash Swap Quote Request Body
 
 ## Properties
 

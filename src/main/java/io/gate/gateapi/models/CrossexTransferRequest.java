@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 资金划转请求体
+ * Fund Transfer Request Body
  */
 public class CrossexTransferRequest {
     public static final String SERIALIZED_NAME_COIN = "coin";
