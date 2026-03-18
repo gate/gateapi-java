@@ -1894,7 +1894,7 @@ Name | Type | Description  | Notes
 
 <a name="createPriceTriggeredDeliveryOrder"></a>
 # **createPriceTriggeredDeliveryOrder**
-> TriggerOrderResponse createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder)
+> TriggerOrderResponse1 createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder)
 
 Create price-triggered order
 
@@ -1922,7 +1922,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         FuturesPriceTriggeredOrder futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
         try {
-            TriggerOrderResponse result = apiInstance.createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
+            TriggerOrderResponse1 result = apiInstance.createPriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1946,7 +1946,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TriggerOrderResponse**](TriggerOrderResponse.md)
+[**TriggerOrderResponse1**](TriggerOrderResponse1.md)
 
 ### Authorization
 

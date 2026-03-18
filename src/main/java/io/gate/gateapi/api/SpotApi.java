@@ -41,7 +41,7 @@ import io.gate.gateapi.models.SpotPriceTriggeredOrder;
 import io.gate.gateapi.models.SystemTime;
 import io.gate.gateapi.models.Ticker;
 import io.gate.gateapi.models.Trade;
-import io.gate.gateapi.models.TriggerOrderResponse;
+import io.gate.gateapi.models.TriggerOrderResponse1;
 import io.gate.gateapi.models.TriggerTime;
 
 import java.lang.reflect.Type;
@@ -4330,7 +4330,7 @@ public class SpotApi {
      * Create price-triggered order
      * 
      * @param spotPriceTriggeredOrder  (required)
-     * @return TriggerOrderResponse
+     * @return TriggerOrderResponse1
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4338,8 +4338,8 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerOrderResponse createSpotPriceTriggeredOrder(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
-        ApiResponse<TriggerOrderResponse> localVarResp = createSpotPriceTriggeredOrderWithHttpInfo(spotPriceTriggeredOrder);
+    public TriggerOrderResponse1 createSpotPriceTriggeredOrder(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
+        ApiResponse<TriggerOrderResponse1> localVarResp = createSpotPriceTriggeredOrderWithHttpInfo(spotPriceTriggeredOrder);
         return localVarResp.getData();
     }
 
@@ -4347,7 +4347,7 @@ public class SpotApi {
      * Create price-triggered order
      * 
      * @param spotPriceTriggeredOrder  (required)
-     * @return ApiResponse&lt;TriggerOrderResponse&gt;
+     * @return ApiResponse&lt;TriggerOrderResponse1&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4355,9 +4355,9 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerOrderResponse> createSpotPriceTriggeredOrderWithHttpInfo(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
+    public ApiResponse<TriggerOrderResponse1> createSpotPriceTriggeredOrderWithHttpInfo(SpotPriceTriggeredOrder spotPriceTriggeredOrder) throws ApiException {
         okhttp3.Call localVarCall = createSpotPriceTriggeredOrderValidateBeforeCall(spotPriceTriggeredOrder, null);
-        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse1>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4374,9 +4374,9 @@ public class SpotApi {
         <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSpotPriceTriggeredOrderAsync(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
+    public okhttp3.Call createSpotPriceTriggeredOrderAsync(SpotPriceTriggeredOrder spotPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse1> _callback) throws ApiException {
         okhttp3.Call localVarCall = createSpotPriceTriggeredOrderValidateBeforeCall(spotPriceTriggeredOrder, _callback);
-        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse1>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
