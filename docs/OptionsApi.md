@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 
 <a name="amendOptionsOrder"></a>
 # **amendOptionsOrder**
-> OptionsOrder amendOptionsOrder(orderId, inlineObject1)
+> OptionsOrder amendOptionsOrder(orderId, amendOptionsOrderRequest)
 
 Option Order Modification
 
@@ -1642,9 +1642,9 @@ public class Example {
 
         OptionsApi apiInstance = new OptionsApi(defaultClient);
         Long orderId = 12345L; // Long | Order ID returned when order is successfully created
-        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+        AmendOptionsOrderRequest amendOptionsOrderRequest = new AmendOptionsOrderRequest(); // AmendOptionsOrderRequest | 
         try {
-            OptionsOrder result = apiInstance.amendOptionsOrder(orderId, inlineObject1);
+            OptionsOrder result = apiInstance.amendOptionsOrder(orderId, amendOptionsOrderRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1664,7 +1664,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **Long**| Order ID returned when order is successfully created |
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
+ **amendOptionsOrderRequest** | [**AmendOptionsOrderRequest**](AmendOptionsOrderRequest.md)|  |
 
 ### Return type
 

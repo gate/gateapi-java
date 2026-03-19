@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 <a name="listAlphaCurrencies"></a>
 # **listAlphaCurrencies**
-> List&lt;Currency2&gt; listAlphaCurrencies().currency(currency).limit(limit).page(page).execute();
+> List&lt;AlphaCurrency&gt; listAlphaCurrencies().currency(currency).limit(limit).page(page).execute();
 
 Query currency information
 
@@ -486,7 +486,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer page = 1; // Integer | Page number
         try {
-            List<Currency2> result = apiInstance.listAlphaCurrencies()
+            List<AlphaCurrency> result = apiInstance.listAlphaCurrencies()
                         .currency(currency)
                         .limit(limit)
                         .page(page)
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Currency2&gt;**](Currency2.md)
+[**List&lt;AlphaCurrency&gt;**](AlphaCurrency.md)
 
 ### Authorization
 

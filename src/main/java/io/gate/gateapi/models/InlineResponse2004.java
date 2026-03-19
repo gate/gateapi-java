@@ -23,53 +23,101 @@ import java.io.IOException;
  * InlineResponse2004
  */
 public class InlineResponse2004 {
-    public static final String SERIALIZED_NAME_TIME = "time";
-    @SerializedName(SERIALIZED_NAME_TIME)
-    private Long time;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
 
-    public static final String SERIALIZED_NAME_VALUE = "value";
-    @SerializedName(SERIALIZED_NAME_VALUE)
-    private String value;
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private Object data;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
 
 
-    public InlineResponse2004 time(Long time) {
+    public InlineResponse2004 code(Integer code) {
         
-        this.time = time;
+        this.code = code;
         return this;
     }
 
      /**
-     * Get time
-     * @return time
+     * Return code, 0 means success
+     * @return code
     **/
     @javax.annotation.Nullable
-    public Long getTime() {
-        return time;
+    public Integer getCode() {
+        return code;
     }
 
 
-    public void setTime(Long time) {
-        this.time = time;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public InlineResponse2004 value(String value) {
+    public InlineResponse2004 message(String message) {
         
-        this.value = value;
+        this.message = message;
         return this;
     }
 
      /**
-     * Get value
-     * @return value
+     * Response message
+     * @return message
     **/
     @javax.annotation.Nullable
-    public String getValue() {
-        return value;
+    public String getMessage() {
+        return message;
     }
 
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public InlineResponse2004 data(Object data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Redemption result (empty object on success)
+     * @return data
+    **/
+    @javax.annotation.Nullable
+    public Object getData() {
+        return data;
+    }
+
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public InlineResponse2004 timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Response timestamp (in seconds)
+     * @return timestamp
+    **/
+    @javax.annotation.Nullable
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -80,13 +128,15 @@ public class InlineResponse2004 {
             return false;
         }
         InlineResponse2004 inlineResponse2004 = (InlineResponse2004) o;
-        return Objects.equals(this.time, inlineResponse2004.time) &&
-                Objects.equals(this.value, inlineResponse2004.value);
+        return Objects.equals(this.code, inlineResponse2004.code) &&
+                Objects.equals(this.message, inlineResponse2004.message) &&
+                Objects.equals(this.data, inlineResponse2004.data) &&
+                Objects.equals(this.timestamp, inlineResponse2004.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, value);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -94,8 +144,10 @@ public class InlineResponse2004 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2004 {\n");
-        sb.append("      time: ").append(toIndentedString(time)).append("\n");
-        sb.append("      value: ").append(toIndentedString(value)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

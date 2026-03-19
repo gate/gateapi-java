@@ -36,6 +36,10 @@ public class InlineResponse20011 {
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse20011Data data;
 
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Long timestamp;
+
 
     public InlineResponse20011 code(Integer code) {
         
@@ -44,7 +48,7 @@ public class InlineResponse20011 {
     }
 
      /**
-     * Get code
+     * Response status code, 0 means success
      * @return code
     **/
     public Integer getCode() {
@@ -63,7 +67,7 @@ public class InlineResponse20011 {
     }
 
      /**
-     * Get message
+     * 响应消息，成功时为 \&quot;success\&quot;
      * @return message
     **/
     public String getMessage() {
@@ -93,6 +97,25 @@ public class InlineResponse20011 {
     public void setData(InlineResponse20011Data data) {
         this.data = data;
     }
+
+    public InlineResponse20011 timestamp(Long timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Server timestamp (milliseconds)
+     * @return timestamp
+    **/
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -104,12 +127,13 @@ public class InlineResponse20011 {
         InlineResponse20011 inlineResponse20011 = (InlineResponse20011) o;
         return Objects.equals(this.code, inlineResponse20011.code) &&
                 Objects.equals(this.message, inlineResponse20011.message) &&
-                Objects.equals(this.data, inlineResponse20011.data);
+                Objects.equals(this.data, inlineResponse20011.data) &&
+                Objects.equals(this.timestamp, inlineResponse20011.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -120,6 +144,7 @@ public class InlineResponse20011 {
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

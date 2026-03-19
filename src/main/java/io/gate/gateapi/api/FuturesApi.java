@@ -28,6 +28,7 @@ import io.gate.gateapi.models.Contract;
 import io.gate.gateapi.models.ContractStat;
 import io.gate.gateapi.models.CountdownCancelAllFuturesTask;
 import io.gate.gateapi.models.CreateTrailOrder;
+import io.gate.gateapi.models.CreateTrailOrderResponse;
 import io.gate.gateapi.models.FundingRateRecord;
 import io.gate.gateapi.models.FutureCancelOrderResult;
 import io.gate.gateapi.models.FuturesAccount;
@@ -51,12 +52,6 @@ import io.gate.gateapi.models.FuturesRiskLimitTier;
 import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.FuturesUpdatePriceTriggeredOrder;
-import io.gate.gateapi.models.InlineObject;
-import io.gate.gateapi.models.InlineResponse200;
-import io.gate.gateapi.models.InlineResponse2001;
-import io.gate.gateapi.models.InlineResponse2002;
-import io.gate.gateapi.models.InlineResponse2003;
-import io.gate.gateapi.models.InlineResponse201;
 import io.gate.gateapi.models.InsuranceRecord;
 import io.gate.gateapi.models.MyFuturesTrade;
 import io.gate.gateapi.models.MyFuturesTradeTimeRange;
@@ -65,8 +60,13 @@ import io.gate.gateapi.models.PositionClose;
 import io.gate.gateapi.models.PositionTimerange;
 import io.gate.gateapi.models.StopAllTrailOrders;
 import io.gate.gateapi.models.StopTrailOrder;
+import io.gate.gateapi.models.TrailOrderChangeLogResponse;
+import io.gate.gateapi.models.TrailOrderDetailResponse;
+import io.gate.gateapi.models.TrailOrderListResponse;
+import io.gate.gateapi.models.TrailOrderResponse;
 import io.gate.gateapi.models.TriggerOrderResponse;
 import io.gate.gateapi.models.TriggerTime;
+import io.gate.gateapi.models.UpdateDualCompPositionCrossModeRequest;
 import io.gate.gateapi.models.UpdateTrailOrder;
 
 import java.lang.reflect.Type;
@@ -3408,7 +3408,22 @@ public class FuturesApi {
         return new APIgetPositionRequest(settle, contract);
     }
 
-    private okhttp3.Call getLeverageCall(String settle, String contract, String posMarginMode, String dualSide, final ApiCallback _callback) throws ApiException {
+    /**
+     * Build call for getLeverage
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
+     * @param dualSide dual_long - Long, dual_short - Short (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLeverageCall(String settle, String contract, String posMarginMode, String dualSide, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3459,113 +3474,18 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'contract' when calling getLeverage(Async)");
         }
 
+        // verify the required parameter 'posMarginMode' is set
+        if (posMarginMode == null) {
+            throw new ApiException("Missing the required parameter 'posMarginMode' when calling getLeverage(Async)");
+        }
+
+        // verify the required parameter 'dualSide' is set
+        if (dualSide == null) {
+            throw new ApiException("Missing the required parameter 'dualSide' when calling getLeverage(Async)");
+        }
+
         okhttp3.Call localVarCall = getLeverageCall(settle, contract, posMarginMode, dualSide, _callback);
         return localVarCall;
-    }
-
-
-    private ApiResponse<FuturesLeverage> getLeverageWithHttpInfo(String settle, String contract, String posMarginMode, String dualSide) throws ApiException {
-        okhttp3.Call localVarCall = getLeverageValidateBeforeCall(settle, contract, posMarginMode, dualSide, null);
-        Type localVarReturnType = new TypeToken<FuturesLeverage>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    private okhttp3.Call getLeverageAsync(String settle, String contract, String posMarginMode, String dualSide, final ApiCallback<FuturesLeverage> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getLeverageValidateBeforeCall(settle, contract, posMarginMode, dualSide, _callback);
-        Type localVarReturnType = new TypeToken<FuturesLeverage>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    public class APIgetLeverageRequest {
-        private final String settle;
-        private final String contract;
-        private String posMarginMode;
-        private String dualSide;
-
-        private APIgetLeverageRequest(String settle, String contract) {
-            this.settle = settle;
-            this.contract = contract;
-        }
-
-        /**
-         * Set posMarginMode
-         * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (optional)
-         * @return APIgetLeverageRequest
-         */
-        public APIgetLeverageRequest posMarginMode(String posMarginMode) {
-            this.posMarginMode = posMarginMode;
-            return this;
-        }
-
-        /**
-         * Set dualSide
-         * @param dualSide dual_long - Long, dual_short - Short (optional)
-         * @return APIgetLeverageRequest
-         */
-        public APIgetLeverageRequest dualSide(String dualSide) {
-            this.dualSide = dualSide;
-            return this;
-        }
-
-        /**
-         * Build call for getLeverage
-         * @param _callback ApiCallback API callback
-         * @return Call to execute
-         * @throws ApiException If fail to serialize the request body object
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
-         </table>
-         */
-        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getLeverageCall(settle, contract, posMarginMode, dualSide, _callback);
-        }
-
-        /**
-         * Execute getLeverage request
-         * @return FuturesLeverage
-         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
-         </table>
-         */
-        public FuturesLeverage execute() throws ApiException {
-            ApiResponse<FuturesLeverage> localVarResp = getLeverageWithHttpInfo(settle, contract, posMarginMode, dualSide);
-            return localVarResp.getData();
-        }
-
-        /**
-         * Execute getLeverage request with HTTP info returned
-         * @return ApiResponse&lt;FuturesLeverage&gt;
-         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
-         </table>
-         */
-        public ApiResponse<FuturesLeverage> executeWithHttpInfo() throws ApiException {
-            return getLeverageWithHttpInfo(settle, contract, posMarginMode, dualSide);
-        }
-
-        /**
-         * Execute getLeverage request (asynchronously)
-         * @param _callback The callback to be executed when the API call finishes
-         * @return The request call
-         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
-         </table>
-         */
-        public okhttp3.Call executeAsync(final ApiCallback<FuturesLeverage> _callback) throws ApiException {
-            return getLeverageAsync(settle, contract, posMarginMode, dualSide, _callback);
-        }
     }
 
     /**
@@ -3573,15 +3493,63 @@ public class FuturesApi {
      * Get Leverage Information for Specified Mode
      * @param settle Settle currency (required)
      * @param contract Futures contract (required)
-     * @return APIgetLeverageRequest
+     * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
+     * @param dualSide dual_long - Long, dual_short - Short (required)
+     * @return FuturesLeverage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetLeverageRequest getLeverage(String settle, String contract) {
-        return new APIgetLeverageRequest(settle, contract);
+    public FuturesLeverage getLeverage(String settle, String contract, String posMarginMode, String dualSide) throws ApiException {
+        ApiResponse<FuturesLeverage> localVarResp = getLeverageWithHttpInfo(settle, contract, posMarginMode, dualSide);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Leverage Information for Specified Mode
+     * Get Leverage Information for Specified Mode
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
+     * @param dualSide dual_long - Long, dual_short - Short (required)
+     * @return ApiResponse&lt;FuturesLeverage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesLeverage> getLeverageWithHttpInfo(String settle, String contract, String posMarginMode, String dualSide) throws ApiException {
+        okhttp3.Call localVarCall = getLeverageValidateBeforeCall(settle, contract, posMarginMode, dualSide, null);
+        Type localVarReturnType = new TypeToken<FuturesLeverage>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Leverage Information for Specified Mode (asynchronously)
+     * Get Leverage Information for Specified Mode
+     * @param settle Settle currency (required)
+     * @param contract Futures contract (required)
+     * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
+     * @param dualSide dual_long - Long, dual_short - Short (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> query leverage success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLeverageAsync(String settle, String contract, String posMarginMode, String dualSide, final ApiCallback<FuturesLeverage> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getLeverageValidateBeforeCall(settle, contract, posMarginMode, dualSide, _callback);
+        Type localVarReturnType = new TypeToken<FuturesLeverage>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -4134,7 +4102,7 @@ public class FuturesApi {
     /**
      * Build call for updateDualCompPositionCrossMode
      * @param settle Settle currency (required)
-     * @param inlineObject  (required)
+     * @param updateDualCompPositionCrossModeRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4144,8 +4112,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDualCompPositionCrossModeCall(String settle, InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject;
+    public okhttp3.Call updateDualCompPositionCrossModeCall(String settle, UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = updateDualCompPositionCrossModeRequest;
 
         // create path and map variables
         String localVarPath = "/futures/{settle}/dual_comp/positions/cross_mode"
@@ -4175,18 +4143,18 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDualCompPositionCrossModeValidateBeforeCall(String settle, InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateDualCompPositionCrossModeValidateBeforeCall(String settle, UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updateDualCompPositionCrossMode(Async)");
         }
 
-        // verify the required parameter 'inlineObject' is set
-        if (inlineObject == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject' when calling updateDualCompPositionCrossMode(Async)");
+        // verify the required parameter 'updateDualCompPositionCrossModeRequest' is set
+        if (updateDualCompPositionCrossModeRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateDualCompPositionCrossModeRequest' when calling updateDualCompPositionCrossMode(Async)");
         }
 
-        okhttp3.Call localVarCall = updateDualCompPositionCrossModeCall(settle, inlineObject, _callback);
+        okhttp3.Call localVarCall = updateDualCompPositionCrossModeCall(settle, updateDualCompPositionCrossModeRequest, _callback);
         return localVarCall;
     }
 
@@ -4194,7 +4162,7 @@ public class FuturesApi {
      * Switch Between Cross and Isolated Margin Modes Under Hedge Mode
      * 
      * @param settle Settle currency (required)
-     * @param inlineObject  (required)
+     * @param updateDualCompPositionCrossModeRequest  (required)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4203,8 +4171,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public List<Position> updateDualCompPositionCrossMode(String settle, InlineObject inlineObject) throws ApiException {
-        ApiResponse<List<Position>> localVarResp = updateDualCompPositionCrossModeWithHttpInfo(settle, inlineObject);
+    public List<Position> updateDualCompPositionCrossMode(String settle, UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest) throws ApiException {
+        ApiResponse<List<Position>> localVarResp = updateDualCompPositionCrossModeWithHttpInfo(settle, updateDualCompPositionCrossModeRequest);
         return localVarResp.getData();
     }
 
@@ -4212,7 +4180,7 @@ public class FuturesApi {
      * Switch Between Cross and Isolated Margin Modes Under Hedge Mode
      * 
      * @param settle Settle currency (required)
-     * @param inlineObject  (required)
+     * @param updateDualCompPositionCrossModeRequest  (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4221,8 +4189,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Position>> updateDualCompPositionCrossModeWithHttpInfo(String settle, InlineObject inlineObject) throws ApiException {
-        okhttp3.Call localVarCall = updateDualCompPositionCrossModeValidateBeforeCall(settle, inlineObject, null);
+    public ApiResponse<List<Position>> updateDualCompPositionCrossModeWithHttpInfo(String settle, UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateDualCompPositionCrossModeValidateBeforeCall(settle, updateDualCompPositionCrossModeRequest, null);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4231,7 +4199,7 @@ public class FuturesApi {
      * Switch Between Cross and Isolated Margin Modes Under Hedge Mode (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param inlineObject  (required)
+     * @param updateDualCompPositionCrossModeRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4241,8 +4209,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDualCompPositionCrossModeAsync(String settle, InlineObject inlineObject, final ApiCallback<List<Position>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updateDualCompPositionCrossModeValidateBeforeCall(settle, inlineObject, _callback);
+    public okhttp3.Call updateDualCompPositionCrossModeAsync(String settle, UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest, final ApiCallback<List<Position>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateDualCompPositionCrossModeValidateBeforeCall(settle, updateDualCompPositionCrossModeRequest, _callback);
         Type localVarReturnType = new TypeToken<List<Position>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8343,7 +8311,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param createTrailOrder  (required)
-     * @return InlineResponse201
+     * @return CreateTrailOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8351,8 +8319,8 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse201 createTrailOrder(String settle, CreateTrailOrder createTrailOrder) throws ApiException {
-        ApiResponse<InlineResponse201> localVarResp = createTrailOrderWithHttpInfo(settle, createTrailOrder);
+    public CreateTrailOrderResponse createTrailOrder(String settle, CreateTrailOrder createTrailOrder) throws ApiException {
+        ApiResponse<CreateTrailOrderResponse> localVarResp = createTrailOrderWithHttpInfo(settle, createTrailOrder);
         return localVarResp.getData();
     }
 
@@ -8361,7 +8329,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param createTrailOrder  (required)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateTrailOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8369,9 +8337,9 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse201> createTrailOrderWithHttpInfo(String settle, CreateTrailOrder createTrailOrder) throws ApiException {
+    public ApiResponse<CreateTrailOrderResponse> createTrailOrderWithHttpInfo(String settle, CreateTrailOrder createTrailOrder) throws ApiException {
         okhttp3.Call localVarCall = createTrailOrderValidateBeforeCall(settle, createTrailOrder, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTrailOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -8389,9 +8357,9 @@ public class FuturesApi {
         <tr><td> 201 </td><td> Created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTrailOrderAsync(String settle, CreateTrailOrder createTrailOrder, final ApiCallback<InlineResponse201> _callback) throws ApiException {
+    public okhttp3.Call createTrailOrderAsync(String settle, CreateTrailOrder createTrailOrder, final ApiCallback<CreateTrailOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createTrailOrderValidateBeforeCall(settle, createTrailOrder, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTrailOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8460,7 +8428,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param stopTrailOrder  (required)
-     * @return InlineResponse200
+     * @return TrailOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8468,8 +8436,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse200 stopTrailOrder(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
-        ApiResponse<InlineResponse200> localVarResp = stopTrailOrderWithHttpInfo(settle, stopTrailOrder);
+    public TrailOrderResponse stopTrailOrder(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
+        ApiResponse<TrailOrderResponse> localVarResp = stopTrailOrderWithHttpInfo(settle, stopTrailOrder);
         return localVarResp.getData();
     }
 
@@ -8478,7 +8446,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param stopTrailOrder  (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;TrailOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8486,9 +8454,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse200> stopTrailOrderWithHttpInfo(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
+    public ApiResponse<TrailOrderResponse> stopTrailOrderWithHttpInfo(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
         okhttp3.Call localVarCall = stopTrailOrderValidateBeforeCall(settle, stopTrailOrder, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -8506,9 +8474,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopTrailOrderAsync(String settle, StopTrailOrder stopTrailOrder, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+    public okhttp3.Call stopTrailOrderAsync(String settle, StopTrailOrder stopTrailOrder, final ApiCallback<TrailOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = stopTrailOrderValidateBeforeCall(settle, stopTrailOrder, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8577,7 +8545,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param stopAllTrailOrders  (required)
-     * @return InlineResponse2001
+     * @return TrailOrderListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8585,8 +8553,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2001 stopAllTrailOrders(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
-        ApiResponse<InlineResponse2001> localVarResp = stopAllTrailOrdersWithHttpInfo(settle, stopAllTrailOrders);
+    public TrailOrderListResponse stopAllTrailOrders(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
+        ApiResponse<TrailOrderListResponse> localVarResp = stopAllTrailOrdersWithHttpInfo(settle, stopAllTrailOrders);
         return localVarResp.getData();
     }
 
@@ -8595,7 +8563,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param stopAllTrailOrders  (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;TrailOrderListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8603,9 +8571,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2001> stopAllTrailOrdersWithHttpInfo(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
+    public ApiResponse<TrailOrderListResponse> stopAllTrailOrdersWithHttpInfo(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
         okhttp3.Call localVarCall = stopAllTrailOrdersValidateBeforeCall(settle, stopAllTrailOrders, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -8623,9 +8591,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopAllTrailOrdersAsync(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    public okhttp3.Call stopAllTrailOrdersAsync(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback<TrailOrderListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = stopAllTrailOrdersValidateBeforeCall(settle, stopAllTrailOrders, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8720,15 +8688,15 @@ public class FuturesApi {
     }
 
 
-    private ApiResponse<InlineResponse2001> getTrailOrdersWithHttpInfo(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side) throws ApiException {
+    private ApiResponse<TrailOrderListResponse> getTrailOrdersWithHttpInfo(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrdersValidateBeforeCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTrailOrdersAsync(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    private okhttp3.Call getTrailOrdersAsync(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback<TrailOrderListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrdersValidateBeforeCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8889,7 +8857,7 @@ public class FuturesApi {
 
         /**
          * Execute getTrailOrders request
-         * @return InlineResponse2001
+         * @return TrailOrderListResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -8897,14 +8865,14 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2001 execute() throws ApiException {
-            ApiResponse<InlineResponse2001> localVarResp = getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
+        public TrailOrderListResponse execute() throws ApiException {
+            ApiResponse<TrailOrderListResponse> localVarResp = getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTrailOrders request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2001&gt;
+         * @return ApiResponse&lt;TrailOrderListResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -8912,7 +8880,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2001> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<TrailOrderListResponse> executeWithHttpInfo() throws ApiException {
             return getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
         }
 
@@ -8927,7 +8895,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<TrailOrderListResponse> _callback) throws ApiException {
             return getTrailOrdersAsync(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
         }
     }
@@ -9015,7 +8983,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param id Order ID (required)
-     * @return InlineResponse2002
+     * @return TrailOrderDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9023,8 +8991,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2002 getTrailOrderDetail(String settle, Long id) throws ApiException {
-        ApiResponse<InlineResponse2002> localVarResp = getTrailOrderDetailWithHttpInfo(settle, id);
+    public TrailOrderDetailResponse getTrailOrderDetail(String settle, Long id) throws ApiException {
+        ApiResponse<TrailOrderDetailResponse> localVarResp = getTrailOrderDetailWithHttpInfo(settle, id);
         return localVarResp.getData();
     }
 
@@ -9033,7 +9001,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param id Order ID (required)
-     * @return ApiResponse&lt;InlineResponse2002&gt;
+     * @return ApiResponse&lt;TrailOrderDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9041,9 +9009,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2002> getTrailOrderDetailWithHttpInfo(String settle, Long id) throws ApiException {
+    public ApiResponse<TrailOrderDetailResponse> getTrailOrderDetailWithHttpInfo(String settle, Long id) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrderDetailValidateBeforeCall(settle, id, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -9061,9 +9029,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrailOrderDetailAsync(String settle, Long id, final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+    public okhttp3.Call getTrailOrderDetailAsync(String settle, Long id, final ApiCallback<TrailOrderDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrderDetailValidateBeforeCall(settle, id, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9132,7 +9100,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param updateTrailOrder  (required)
-     * @return InlineResponse200
+     * @return TrailOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9140,8 +9108,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse200 updateTrailOrder(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
-        ApiResponse<InlineResponse200> localVarResp = updateTrailOrderWithHttpInfo(settle, updateTrailOrder);
+    public TrailOrderResponse updateTrailOrder(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
+        ApiResponse<TrailOrderResponse> localVarResp = updateTrailOrderWithHttpInfo(settle, updateTrailOrder);
         return localVarResp.getData();
     }
 
@@ -9150,7 +9118,7 @@ public class FuturesApi {
      * 
      * @param settle Settle currency (required)
      * @param updateTrailOrder  (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;TrailOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9158,9 +9126,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse200> updateTrailOrderWithHttpInfo(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
+    public ApiResponse<TrailOrderResponse> updateTrailOrderWithHttpInfo(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
         okhttp3.Call localVarCall = updateTrailOrderValidateBeforeCall(settle, updateTrailOrder, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -9178,9 +9146,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTrailOrderAsync(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+    public okhttp3.Call updateTrailOrderAsync(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback<TrailOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = updateTrailOrderValidateBeforeCall(settle, updateTrailOrder, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9244,15 +9212,15 @@ public class FuturesApi {
     }
 
 
-    private ApiResponse<InlineResponse2003> getTrailOrderChangeLogWithHttpInfo(String settle, Long id, Integer pageNum, Integer pageSize) throws ApiException {
+    private ApiResponse<TrailOrderChangeLogResponse> getTrailOrderChangeLogWithHttpInfo(String settle, Long id, Integer pageNum, Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrderChangeLogValidateBeforeCall(settle, id, pageNum, pageSize, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderChangeLogResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTrailOrderChangeLogAsync(String settle, Long id, Integer pageNum, Integer pageSize, final ApiCallback<InlineResponse2003> _callback) throws ApiException {
+    private okhttp3.Call getTrailOrderChangeLogAsync(String settle, Long id, Integer pageNum, Integer pageSize, final ApiCallback<TrailOrderChangeLogResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrderChangeLogValidateBeforeCall(settle, id, pageNum, pageSize, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderChangeLogResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9305,7 +9273,7 @@ public class FuturesApi {
 
         /**
          * Execute getTrailOrderChangeLog request
-         * @return InlineResponse2003
+         * @return TrailOrderChangeLogResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -9313,14 +9281,14 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2003 execute() throws ApiException {
-            ApiResponse<InlineResponse2003> localVarResp = getTrailOrderChangeLogWithHttpInfo(settle, id, pageNum, pageSize);
+        public TrailOrderChangeLogResponse execute() throws ApiException {
+            ApiResponse<TrailOrderChangeLogResponse> localVarResp = getTrailOrderChangeLogWithHttpInfo(settle, id, pageNum, pageSize);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTrailOrderChangeLog request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2003&gt;
+         * @return ApiResponse&lt;TrailOrderChangeLogResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -9328,7 +9296,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2003> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<TrailOrderChangeLogResponse> executeWithHttpInfo() throws ApiException {
             return getTrailOrderChangeLogWithHttpInfo(settle, id, pageNum, pageSize);
         }
 
@@ -9343,7 +9311,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2003> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<TrailOrderChangeLogResponse> _callback) throws ApiException {
             return getTrailOrderChangeLogAsync(settle, id, pageNum, pageSize, _callback);
         }
     }
@@ -9804,7 +9772,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceTriggeredOrderCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPriceTriggeredOrderCall(String settle, Long orderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9836,7 +9804,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPriceTriggeredOrderValidateBeforeCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPriceTriggeredOrderValidateBeforeCall(String settle, Long orderId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling getPriceTriggeredOrder(Async)");
@@ -9864,7 +9832,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesPriceTriggeredOrder getPriceTriggeredOrder(String settle, Integer orderId) throws ApiException {
+    public FuturesPriceTriggeredOrder getPriceTriggeredOrder(String settle, Long orderId) throws ApiException {
         ApiResponse<FuturesPriceTriggeredOrder> localVarResp = getPriceTriggeredOrderWithHttpInfo(settle, orderId);
         return localVarResp.getData();
     }
@@ -9882,7 +9850,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesPriceTriggeredOrder> getPriceTriggeredOrderWithHttpInfo(String settle, Integer orderId) throws ApiException {
+    public ApiResponse<FuturesPriceTriggeredOrder> getPriceTriggeredOrderWithHttpInfo(String settle, Long orderId) throws ApiException {
         okhttp3.Call localVarCall = getPriceTriggeredOrderValidateBeforeCall(settle, orderId, null);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -9902,7 +9870,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPriceTriggeredOrderAsync(String settle, Integer orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
+    public okhttp3.Call getPriceTriggeredOrderAsync(String settle, Long orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = getPriceTriggeredOrderValidateBeforeCall(settle, orderId, _callback);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -9922,7 +9890,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelPriceTriggeredOrderCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelPriceTriggeredOrderCall(String settle, Long orderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9954,7 +9922,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelPriceTriggeredOrderValidateBeforeCall(String settle, Integer orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelPriceTriggeredOrderValidateBeforeCall(String settle, Long orderId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelPriceTriggeredOrder(Async)");
@@ -9982,7 +9950,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(String settle, Integer orderId) throws ApiException {
+    public FuturesPriceTriggeredOrder cancelPriceTriggeredOrder(String settle, Long orderId) throws ApiException {
         ApiResponse<FuturesPriceTriggeredOrder> localVarResp = cancelPriceTriggeredOrderWithHttpInfo(settle, orderId);
         return localVarResp.getData();
     }
@@ -10000,7 +9968,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderWithHttpInfo(String settle, Integer orderId) throws ApiException {
+    public ApiResponse<FuturesPriceTriggeredOrder> cancelPriceTriggeredOrderWithHttpInfo(String settle, Long orderId) throws ApiException {
         okhttp3.Call localVarCall = cancelPriceTriggeredOrderValidateBeforeCall(settle, orderId, null);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10020,7 +9988,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelPriceTriggeredOrderAsync(String settle, Integer orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
+    public okhttp3.Call cancelPriceTriggeredOrderAsync(String settle, Long orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelPriceTriggeredOrderValidateBeforeCall(settle, orderId, _callback);
         Type localVarReturnType = new TypeToken<FuturesPriceTriggeredOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -10041,7 +10009,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = futuresUpdatePriceTriggeredOrder;
 
         // create path and map variables
@@ -10073,7 +10041,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updatePriceTriggeredOrder(Async)");
@@ -10107,7 +10075,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
         ApiResponse<TriggerOrderResponse> localVarResp = updatePriceTriggeredOrderWithHttpInfo(settle, orderId, futuresUpdatePriceTriggeredOrder);
         return localVarResp.getData();
     }
@@ -10126,7 +10094,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
         okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, null);
         Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -10147,7 +10115,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, Integer orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
+    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, _callback);
         Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

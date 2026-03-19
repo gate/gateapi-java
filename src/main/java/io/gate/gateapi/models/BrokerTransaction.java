@@ -17,70 +17,252 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.BrokerTransaction1;
+import io.gate.gateapi.models.BrokerCommissionSubBrokerInfo;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * BrokerTransaction
  */
 public class BrokerTransaction {
-    public static final String SERIALIZED_NAME_TOTAL = "total";
-    @SerializedName(SERIALIZED_NAME_TOTAL)
-    private Long total;
+    public static final String SERIALIZED_NAME_TRANSACTION_TIME = "transaction_time";
+    @SerializedName(SERIALIZED_NAME_TRANSACTION_TIME)
+    private Long transactionTime;
 
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<BrokerTransaction1> list = null;
+    public static final String SERIALIZED_NAME_USER_ID = "user_id";
+    @SerializedName(SERIALIZED_NAME_USER_ID)
+    private Long userId;
+
+    public static final String SERIALIZED_NAME_GROUP_NAME = "group_name";
+    @SerializedName(SERIALIZED_NAME_GROUP_NAME)
+    private String groupName;
+
+    public static final String SERIALIZED_NAME_FEE = "fee";
+    @SerializedName(SERIALIZED_NAME_FEE)
+    private String fee;
+
+    public static final String SERIALIZED_NAME_CURRENCY_PAIR = "currency_pair";
+    @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
+    private String currencyPair;
+
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
+
+    public static final String SERIALIZED_NAME_FEE_ASSET = "fee_asset";
+    @SerializedName(SERIALIZED_NAME_FEE_ASSET)
+    private String feeAsset;
+
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private String source;
+
+    public static final String SERIALIZED_NAME_SUB_BROKER_INFO = "sub_broker_info";
+    @SerializedName(SERIALIZED_NAME_SUB_BROKER_INFO)
+    private BrokerCommissionSubBrokerInfo subBrokerInfo;
+
+    public static final String SERIALIZED_NAME_ALPHA_CONTRACT_ADDR = "alpha_contract_addr";
+    @SerializedName(SERIALIZED_NAME_ALPHA_CONTRACT_ADDR)
+    private String alphaContractAddr;
 
 
-    public BrokerTransaction total(Long total) {
+    public BrokerTransaction transactionTime(Long transactionTime) {
         
-        this.total = total;
+        this.transactionTime = transactionTime;
         return this;
     }
 
      /**
-     * Total
-     * @return total
+     * Transaction Time. (unix timestamp)
+     * @return transactionTime
     **/
     @javax.annotation.Nullable
-    public Long getTotal() {
-        return total;
+    public Long getTransactionTime() {
+        return transactionTime;
     }
 
 
-    public void setTotal(Long total) {
-        this.total = total;
+    public void setTransactionTime(Long transactionTime) {
+        this.transactionTime = transactionTime;
     }
 
-    public BrokerTransaction list(List<BrokerTransaction1> list) {
+    public BrokerTransaction userId(Long userId) {
         
-        this.list = list;
-        return this;
-    }
-
-    public BrokerTransaction addListItem(BrokerTransaction1 listItem) {
-        if (this.list == null) {
-            this.list = new ArrayList<>();
-        }
-        this.list.add(listItem);
+        this.userId = userId;
         return this;
     }
 
      /**
-     * List of transaction history
-     * @return list
+     * User ID
+     * @return userId
     **/
     @javax.annotation.Nullable
-    public List<BrokerTransaction1> getList() {
-        return list;
+    public Long getUserId() {
+        return userId;
     }
 
 
-    public void setList(List<BrokerTransaction1> list) {
-        this.list = list;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public BrokerTransaction groupName(String groupName) {
+        
+        this.groupName = groupName;
+        return this;
+    }
+
+     /**
+     * Group name
+     * @return groupName
+    **/
+    @javax.annotation.Nullable
+    public String getGroupName() {
+        return groupName;
+    }
+
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public BrokerTransaction fee(String fee) {
+        
+        this.fee = fee;
+        return this;
+    }
+
+     /**
+     * Fee amount (USDT)
+     * @return fee
+    **/
+    @javax.annotation.Nullable
+    public String getFee() {
+        return fee;
+    }
+
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public BrokerTransaction currencyPair(String currencyPair) {
+        
+        this.currencyPair = currencyPair;
+        return this;
+    }
+
+     /**
+     * Currency pair
+     * @return currencyPair
+    **/
+    @javax.annotation.Nullable
+    public String getCurrencyPair() {
+        return currencyPair;
+    }
+
+
+    public void setCurrencyPair(String currencyPair) {
+        this.currencyPair = currencyPair;
+    }
+
+    public BrokerTransaction amount(String amount) {
+        
+        this.amount = amount;
+        return this;
+    }
+
+     /**
+     * Transaction amount
+     * @return amount
+    **/
+    @javax.annotation.Nullable
+    public String getAmount() {
+        return amount;
+    }
+
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public BrokerTransaction feeAsset(String feeAsset) {
+        
+        this.feeAsset = feeAsset;
+        return this;
+    }
+
+     /**
+     * Fee currency
+     * @return feeAsset
+    **/
+    @javax.annotation.Nullable
+    public String getFeeAsset() {
+        return feeAsset;
+    }
+
+
+    public void setFeeAsset(String feeAsset) {
+        this.feeAsset = feeAsset;
+    }
+
+    public BrokerTransaction source(String source) {
+        
+        this.source = source;
+        return this;
+    }
+
+     /**
+     * Commission transaction type: Spot, Futures, Options, Alpha、TradFi
+     * @return source
+    **/
+    @javax.annotation.Nullable
+    public String getSource() {
+        return source;
+    }
+
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public BrokerTransaction subBrokerInfo(BrokerCommissionSubBrokerInfo subBrokerInfo) {
+        
+        this.subBrokerInfo = subBrokerInfo;
+        return this;
+    }
+
+     /**
+     * Get subBrokerInfo
+     * @return subBrokerInfo
+    **/
+    @javax.annotation.Nullable
+    public BrokerCommissionSubBrokerInfo getSubBrokerInfo() {
+        return subBrokerInfo;
+    }
+
+
+    public void setSubBrokerInfo(BrokerCommissionSubBrokerInfo subBrokerInfo) {
+        this.subBrokerInfo = subBrokerInfo;
+    }
+
+    public BrokerTransaction alphaContractAddr(String alphaContractAddr) {
+        
+        this.alphaContractAddr = alphaContractAddr;
+        return this;
+    }
+
+     /**
+     * Alpha contract address
+     * @return alphaContractAddr
+    **/
+    @javax.annotation.Nullable
+    public String getAlphaContractAddr() {
+        return alphaContractAddr;
+    }
+
+
+    public void setAlphaContractAddr(String alphaContractAddr) {
+        this.alphaContractAddr = alphaContractAddr;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,13 +273,21 @@ public class BrokerTransaction {
             return false;
         }
         BrokerTransaction brokerTransaction = (BrokerTransaction) o;
-        return Objects.equals(this.total, brokerTransaction.total) &&
-                Objects.equals(this.list, brokerTransaction.list);
+        return Objects.equals(this.transactionTime, brokerTransaction.transactionTime) &&
+                Objects.equals(this.userId, brokerTransaction.userId) &&
+                Objects.equals(this.groupName, brokerTransaction.groupName) &&
+                Objects.equals(this.fee, brokerTransaction.fee) &&
+                Objects.equals(this.currencyPair, brokerTransaction.currencyPair) &&
+                Objects.equals(this.amount, brokerTransaction.amount) &&
+                Objects.equals(this.feeAsset, brokerTransaction.feeAsset) &&
+                Objects.equals(this.source, brokerTransaction.source) &&
+                Objects.equals(this.subBrokerInfo, brokerTransaction.subBrokerInfo) &&
+                Objects.equals(this.alphaContractAddr, brokerTransaction.alphaContractAddr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, list);
+        return Objects.hash(transactionTime, userId, groupName, fee, currencyPair, amount, feeAsset, source, subBrokerInfo, alphaContractAddr);
     }
 
 
@@ -105,8 +295,16 @@ public class BrokerTransaction {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class BrokerTransaction {\n");
-        sb.append("      total: ").append(toIndentedString(total)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      transactionTime: ").append(toIndentedString(transactionTime)).append("\n");
+        sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      groupName: ").append(toIndentedString(groupName)).append("\n");
+        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
+        sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("      feeAsset: ").append(toIndentedString(feeAsset)).append("\n");
+        sb.append("      source: ").append(toIndentedString(source)).append("\n");
+        sb.append("      subBrokerInfo: ").append(toIndentedString(subBrokerInfo)).append("\n");
+        sb.append("      alphaContractAddr: ").append(toIndentedString(alphaContractAddr)).append("\n");
         sb.append("}");
         return sb.toString();
     }

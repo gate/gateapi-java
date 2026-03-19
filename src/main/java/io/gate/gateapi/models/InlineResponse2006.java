@@ -24,9 +24,62 @@ import java.io.IOException;
  * InlineResponse2006
  */
 public class InlineResponse2006 {
+    /**
+     * Response Code. &#x60;0&#x60; &#x3D; Success; &#x60;2002&#x60; &#x3D; User not logged in; &#x60;50105&#x60; &#x3D; Input parameter validation failed
+     */
+    @JsonAdapter(CodeEnum.Adapter.class)
+    public enum CodeEnum {
+        NUMBER_0(0),
+        
+        NUMBER_2002(2002),
+        
+        NUMBER_50105(50105);
+
+        private Integer value;
+
+        CodeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CodeEnum fromValue(Integer value) {
+            for (CodeEnum b : CodeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<CodeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CodeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CodeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return CodeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
+    private CodeEnum code;
+
+    public static final String SERIALIZED_NAME_LABEL = "label";
+    @SerializedName(SERIALIZED_NAME_LABEL)
+    private String label;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
     @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -37,23 +90,44 @@ public class InlineResponse2006 {
     private InlineResponse2006Data data;
 
 
-    public InlineResponse2006 code(Integer code) {
+    public InlineResponse2006 code(CodeEnum code) {
         
         this.code = code;
         return this;
     }
 
      /**
-     * Get code
+     * Response Code. &#x60;0&#x60; &#x3D; Success; &#x60;2002&#x60; &#x3D; User not logged in; &#x60;50105&#x60; &#x3D; Input parameter validation failed
      * @return code
     **/
-    public Integer getCode() {
+    @javax.annotation.Nullable
+    public CodeEnum getCode() {
         return code;
     }
 
 
-    public void setCode(Integer code) {
+    public void setCode(CodeEnum code) {
         this.code = code;
+    }
+
+    public InlineResponse2006 label(String label) {
+        
+        this.label = label;
+        return this;
+    }
+
+     /**
+     * Error identifier code. Empty string on success, machine-readable error label on error
+     * @return label
+    **/
+    @javax.annotation.Nullable
+    public String getLabel() {
+        return label;
+    }
+
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public InlineResponse2006 message(String message) {
@@ -66,6 +140,7 @@ public class InlineResponse2006 {
      * Get message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -85,6 +160,7 @@ public class InlineResponse2006 {
      * Get data
      * @return data
     **/
+    @javax.annotation.Nullable
     public InlineResponse2006Data getData() {
         return data;
     }
@@ -103,13 +179,14 @@ public class InlineResponse2006 {
         }
         InlineResponse2006 inlineResponse2006 = (InlineResponse2006) o;
         return Objects.equals(this.code, inlineResponse2006.code) &&
+                Objects.equals(this.label, inlineResponse2006.label) &&
                 Objects.equals(this.message, inlineResponse2006.message) &&
                 Objects.equals(this.data, inlineResponse2006.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data);
+        return Objects.hash(code, label, message, data);
     }
 
 
@@ -118,6 +195,7 @@ public class InlineResponse2006 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2006 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      label: ").append(toIndentedString(label)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");

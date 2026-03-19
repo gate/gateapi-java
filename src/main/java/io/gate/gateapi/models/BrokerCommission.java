@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.BrokerCommission1;
+import io.gate.gateapi.models.BrokerCommissionItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class BrokerCommission {
 
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
-    private List<BrokerCommission1> list = null;
+    private List<BrokerCommissionItem> list = null;
 
 
     public BrokerCommission total(Long total) {
@@ -55,13 +55,13 @@ public class BrokerCommission {
         this.total = total;
     }
 
-    public BrokerCommission list(List<BrokerCommission1> list) {
+    public BrokerCommission list(List<BrokerCommissionItem> list) {
         
         this.list = list;
         return this;
     }
 
-    public BrokerCommission addListItem(BrokerCommission1 listItem) {
+    public BrokerCommission addListItem(BrokerCommissionItem listItem) {
         if (this.list == null) {
             this.list = new ArrayList<>();
         }
@@ -74,12 +74,12 @@ public class BrokerCommission {
      * @return list
     **/
     @javax.annotation.Nullable
-    public List<BrokerCommission1> getList() {
+    public List<BrokerCommissionItem> getList() {
         return list;
     }
 
 
-    public void setList(List<BrokerCommission1> list) {
+    public void setList(List<BrokerCommissionItem> list) {
         this.list = list;
     }
     @Override

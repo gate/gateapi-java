@@ -17,46 +17,104 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.TrailOrder;
+import io.gate.gateapi.models.InlineResponse2001Data;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse2001
  */
 public class InlineResponse2001 {
-    public static final String SERIALIZED_NAME_ORDERS = "orders";
-    @SerializedName(SERIALIZED_NAME_ORDERS)
-    private List<TrailOrder> orders = null;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse2001Data data;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
 
 
-    public InlineResponse2001 orders(List<TrailOrder> orders) {
+    public InlineResponse2001 code(Integer code) {
         
-        this.orders = orders;
-        return this;
-    }
-
-    public InlineResponse2001 addOrdersItem(TrailOrder ordersItem) {
-        if (this.orders == null) {
-            this.orders = new ArrayList<>();
-        }
-        this.orders.add(ordersItem);
+        this.code = code;
         return this;
     }
 
      /**
-     * Get orders
-     * @return orders
+     * Return code, 0 means success
+     * @return code
     **/
-    @javax.annotation.Nullable
-    public List<TrailOrder> getOrders() {
-        return orders;
+    public Integer getCode() {
+        return code;
     }
 
 
-    public void setOrders(List<TrailOrder> orders) {
-        this.orders = orders;
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public InlineResponse2001 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Response message
+     * @return message
+    **/
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public InlineResponse2001 data(InlineResponse2001Data data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Get data
+     * @return data
+    **/
+    public InlineResponse2001Data getData() {
+        return data;
+    }
+
+
+    public void setData(InlineResponse2001Data data) {
+        this.data = data;
+    }
+
+    public InlineResponse2001 timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Response timestamp (in seconds)
+     * @return timestamp
+    **/
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,12 +125,15 @@ public class InlineResponse2001 {
             return false;
         }
         InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-        return Objects.equals(this.orders, inlineResponse2001.orders);
+        return Objects.equals(this.code, inlineResponse2001.code) &&
+                Objects.equals(this.message, inlineResponse2001.message) &&
+                Objects.equals(this.data, inlineResponse2001.data) &&
+                Objects.equals(this.timestamp, inlineResponse2001.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orders);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -80,7 +141,10 @@ public class InlineResponse2001 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2001 {\n");
-        sb.append("      orders: ").append(toIndentedString(orders)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

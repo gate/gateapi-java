@@ -17,134 +17,149 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20011DataList;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * InlineResponse20011Data
+ * Activity entry data
  */
 public class InlineResponse20011Data {
-    public static final String SERIALIZED_NAME_PN = "pn";
-    @SerializedName(SERIALIZED_NAME_PN)
-    private Integer pn;
+    public static final String SERIALIZED_NAME_ICON_URL = "icon_url";
+    @SerializedName(SERIALIZED_NAME_ICON_URL)
+    private String iconUrl;
 
-    public static final String SERIALIZED_NAME_PS = "ps";
-    @SerializedName(SERIALIZED_NAME_PS)
-    private Integer ps;
+    public static final String SERIALIZED_NAME_ICON_URL_DARK = "icon_url_dark";
+    @SerializedName(SERIALIZED_NAME_ICON_URL_DARK)
+    private String iconUrlDark;
 
-    public static final String SERIALIZED_NAME_TOTAL_PN = "total_pn";
-    @SerializedName(SERIALIZED_NAME_TOTAL_PN)
-    private Integer totalPn;
+    public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+    @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+    private String sourceType;
 
-    public static final String SERIALIZED_NAME_COUNT = "count";
-    @SerializedName(SERIALIZED_NAME_COUNT)
-    private Integer count;
+    public static final String SERIALIZED_NAME_TITLE = "title";
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    private String title;
 
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20011DataList> list = new ArrayList<>();
+    public static final String SERIALIZED_NAME_URL_TYPE = "url_type";
+    @SerializedName(SERIALIZED_NAME_URL_TYPE)
+    private String urlType;
+
+    public static final String SERIALIZED_NAME_URL = "url";
+    @SerializedName(SERIALIZED_NAME_URL)
+    private String url;
 
 
-    public InlineResponse20011Data pn(Integer pn) {
+    public InlineResponse20011Data iconUrl(String iconUrl) {
         
-        this.pn = pn;
+        this.iconUrl = iconUrl;
         return this;
     }
 
      /**
-     * Get pn
-     * @return pn
+     * Activity entry icon URL (light mode)
+     * @return iconUrl
     **/
-    public Integer getPn() {
-        return pn;
+    public String getIconUrl() {
+        return iconUrl;
     }
 
 
-    public void setPn(Integer pn) {
-        this.pn = pn;
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
     }
 
-    public InlineResponse20011Data ps(Integer ps) {
+    public InlineResponse20011Data iconUrlDark(String iconUrlDark) {
         
-        this.ps = ps;
+        this.iconUrlDark = iconUrlDark;
         return this;
     }
 
      /**
-     * Get ps
-     * @return ps
+     * Activity entry icon URL (dark mode)
+     * @return iconUrlDark
     **/
-    public Integer getPs() {
-        return ps;
+    public String getIconUrlDark() {
+        return iconUrlDark;
     }
 
 
-    public void setPs(Integer ps) {
-        this.ps = ps;
+    public void setIconUrlDark(String iconUrlDark) {
+        this.iconUrlDark = iconUrlDark;
     }
 
-    public InlineResponse20011Data totalPn(Integer totalPn) {
+    public InlineResponse20011Data sourceType(String sourceType) {
         
-        this.totalPn = totalPn;
+        this.sourceType = sourceType;
         return this;
     }
 
      /**
-     * Get totalPn
-     * @return totalPn
+     * Source type, e.g., activity for campaign
+     * @return sourceType
     **/
-    public Integer getTotalPn() {
-        return totalPn;
+    public String getSourceType() {
+        return sourceType;
     }
 
 
-    public void setTotalPn(Integer totalPn) {
-        this.totalPn = totalPn;
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
     }
 
-    public InlineResponse20011Data count(Integer count) {
+    public InlineResponse20011Data title(String title) {
         
-        this.count = count;
+        this.title = title;
         return this;
     }
 
      /**
-     * Get count
-     * @return count
+     * Activity entry title
+     * @return title
     **/
-    public Integer getCount() {
-        return count;
+    public String getTitle() {
+        return title;
     }
 
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public InlineResponse20011Data list(List<InlineResponse20011DataList> list) {
+    public InlineResponse20011Data urlType(String urlType) {
         
-        this.list = list;
-        return this;
-    }
-
-    public InlineResponse20011Data addListItem(InlineResponse20011DataList listItem) {
-        this.list.add(listItem);
+        this.urlType = urlType;
         return this;
     }
 
      /**
-     * Get list
-     * @return list
+     * Redirect link type, e.g., h5 for H5 page
+     * @return urlType
     **/
-    public List<InlineResponse20011DataList> getList() {
-        return list;
+    public String getUrlType() {
+        return urlType;
     }
 
 
-    public void setList(List<InlineResponse20011DataList> list) {
-        this.list = list;
+    public void setUrlType(String urlType) {
+        this.urlType = urlType;
+    }
+
+    public InlineResponse20011Data url(String url) {
+        
+        this.url = url;
+        return this;
+    }
+
+     /**
+     * Activity entry redirect URL
+     * @return url
+    **/
+    public String getUrl() {
+        return url;
+    }
+
+
+    public void setUrl(String url) {
+        this.url = url;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -155,16 +170,17 @@ public class InlineResponse20011Data {
             return false;
         }
         InlineResponse20011Data inlineResponse20011Data = (InlineResponse20011Data) o;
-        return Objects.equals(this.pn, inlineResponse20011Data.pn) &&
-                Objects.equals(this.ps, inlineResponse20011Data.ps) &&
-                Objects.equals(this.totalPn, inlineResponse20011Data.totalPn) &&
-                Objects.equals(this.count, inlineResponse20011Data.count) &&
-                Objects.equals(this.list, inlineResponse20011Data.list);
+        return Objects.equals(this.iconUrl, inlineResponse20011Data.iconUrl) &&
+                Objects.equals(this.iconUrlDark, inlineResponse20011Data.iconUrlDark) &&
+                Objects.equals(this.sourceType, inlineResponse20011Data.sourceType) &&
+                Objects.equals(this.title, inlineResponse20011Data.title) &&
+                Objects.equals(this.urlType, inlineResponse20011Data.urlType) &&
+                Objects.equals(this.url, inlineResponse20011Data.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pn, ps, totalPn, count, list);
+        return Objects.hash(iconUrl, iconUrlDark, sourceType, title, urlType, url);
     }
 
 
@@ -172,11 +188,12 @@ public class InlineResponse20011Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20011Data {\n");
-        sb.append("      pn: ").append(toIndentedString(pn)).append("\n");
-        sb.append("      ps: ").append(toIndentedString(ps)).append("\n");
-        sb.append("      totalPn: ").append(toIndentedString(totalPn)).append("\n");
-        sb.append("      count: ").append(toIndentedString(count)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
+        sb.append("      iconUrlDark: ").append(toIndentedString(iconUrlDark)).append("\n");
+        sb.append("      sourceType: ").append(toIndentedString(sourceType)).append("\n");
+        sb.append("      title: ").append(toIndentedString(title)).append("\n");
+        sb.append("      urlType: ").append(toIndentedString(urlType)).append("\n");
+        sb.append("      url: ").append(toIndentedString(url)).append("\n");
         sb.append("}");
         return sb.toString();
     }

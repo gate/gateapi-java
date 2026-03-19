@@ -1,13 +1,16 @@
 
 # InlineResponse20011Data
 
+Activity entry data
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pn** | **Integer** |  | 
-**ps** | **Integer** |  | 
-**totalPn** | **Integer** |  | 
-**count** | **Integer** |  | 
-**list** | [**List&lt;InlineResponse20011DataList&gt;**](InlineResponse20011DataList.md) |  | 
+**iconUrl** | **String** | Activity entry icon URL (light mode) | 
+**iconUrlDark** | **String** | Activity entry icon URL (dark mode) | 
+**sourceType** | **String** | Source type, e.g., activity for campaign | 
+**title** | **String** | Activity entry title | 
+**urlType** | **String** | Redirect link type, e.g., h5 for H5 page | 
+**url** | **String** | Activity entry redirect URL | 
 

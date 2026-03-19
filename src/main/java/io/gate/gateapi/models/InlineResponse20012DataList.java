@@ -18,6 +18,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20012DataList
@@ -27,45 +29,81 @@ public class InlineResponse20012DataList {
     @SerializedName(SERIALIZED_NAME_ID)
     private Integer id;
 
-    public static final String SERIALIZED_NAME_TRADE_NO = "trade_no";
-    @SerializedName(SERIALIZED_NAME_TRADE_NO)
-    private String tradeNo;
+    public static final String SERIALIZED_NAME_TYPE_ID = "type_id";
+    @SerializedName(SERIALIZED_NAME_TYPE_ID)
+    private Integer typeId;
 
-    public static final String SERIALIZED_NAME_PAY_COIN = "pay_coin";
-    @SerializedName(SERIALIZED_NAME_PAY_COIN)
-    private String payCoin;
+    public static final String SERIALIZED_NAME_TYPE_NAME = "type_name";
+    @SerializedName(SERIALIZED_NAME_TYPE_NAME)
+    private String typeName;
 
-    public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
-    @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
-    private String payAmount;
+    public static final String SERIALIZED_NAME_COMPETITION_NAME = "competition_name";
+    @SerializedName(SERIALIZED_NAME_COMPETITION_NAME)
+    private String competitionName;
 
-    public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
-    @SerializedName(SERIALIZED_NAME_GET_COIN)
-    private String getCoin;
+    public static final String SERIALIZED_NAME_START_AT = "start_at";
+    @SerializedName(SERIALIZED_NAME_START_AT)
+    private Integer startAt;
 
-    public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
-    @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
-    private String getAmount;
+    public static final String SERIALIZED_NAME_END_AT = "end_at";
+    @SerializedName(SERIALIZED_NAME_END_AT)
+    private Integer endAt;
 
-    public static final String SERIALIZED_NAME_RATE = "rate";
-    @SerializedName(SERIALIZED_NAME_RATE)
-    private String rate;
+    public static final String SERIALIZED_NAME_IMG = "img";
+    @SerializedName(SERIALIZED_NAME_IMG)
+    private String img;
 
-    public static final String SERIALIZED_NAME_RATE_RECI = "rate_reci";
-    @SerializedName(SERIALIZED_NAME_RATE_RECI)
-    private String rateReci;
+    public static final String SERIALIZED_NAME_IMG_DARK = "img_dark";
+    @SerializedName(SERIALIZED_NAME_IMG_DARK)
+    private String imgDark;
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
+    public static final String SERIALIZED_NAME_URL = "url";
+    @SerializedName(SERIALIZED_NAME_URL)
+    private String url;
 
-    public static final String SERIALIZED_NAME_CREATE_TIMEST = "create_timest";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIMEST)
-    private Integer createTimest;
+    public static final String SERIALIZED_NAME_HOT = "hot";
+    @SerializedName(SERIALIZED_NAME_HOT)
+    private Integer hot;
 
-    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
-    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private String createTime;
+    public static final String SERIALIZED_NAME_MASTER_ONE_LINE = "master_one_line";
+    @SerializedName(SERIALIZED_NAME_MASTER_ONE_LINE)
+    private String masterOneLine;
+
+    public static final String SERIALIZED_NAME_MASTER_TWO_LINE = "master_two_line";
+    @SerializedName(SERIALIZED_NAME_MASTER_TWO_LINE)
+    private String masterTwoLine;
+
+    public static final String SERIALIZED_NAME_SLAVE_ONE_LINE = "slave_one_line";
+    @SerializedName(SERIALIZED_NAME_SLAVE_ONE_LINE)
+    private String slaveOneLine;
+
+    public static final String SERIALIZED_NAME_SLAVE_TWO_LINE = "slave_two_line";
+    @SerializedName(SERIALIZED_NAME_SLAVE_TWO_LINE)
+    private String slaveTwoLine;
+
+    public static final String SERIALIZED_NAME_COMPETITION_TITLE = "competition_title";
+    @SerializedName(SERIALIZED_NAME_COMPETITION_TITLE)
+    private String competitionTitle;
+
+    public static final String SERIALIZED_NAME_TOP_ID = "top_id";
+    @SerializedName(SERIALIZED_NAME_TOP_ID)
+    private Integer topId;
+
+    public static final String SERIALIZED_NAME_PARENT_ID = "parent_id";
+    @SerializedName(SERIALIZED_NAME_PARENT_ID)
+    private Integer parentId;
+
+    public static final String SERIALIZED_NAME_NEW_IMG = "new_img";
+    @SerializedName(SERIALIZED_NAME_NEW_IMG)
+    private String newImg;
+
+    public static final String SERIALIZED_NAME_NEW_IMG_DARK = "new_img_dark";
+    @SerializedName(SERIALIZED_NAME_NEW_IMG_DARK)
+    private String newImgDark;
+
+    public static final String SERIALIZED_NAME_TAG = "tag";
+    @SerializedName(SERIALIZED_NAME_TAG)
+    private List<String> tag = new ArrayList<>();
 
 
     public InlineResponse20012DataList id(Integer id) {
@@ -75,10 +113,9 @@ public class InlineResponse20012DataList {
     }
 
      /**
-     * Order ID
+     * Activity ID
      * @return id
     **/
-    @javax.annotation.Nullable
     public Integer getId() {
         return id;
     }
@@ -88,204 +125,370 @@ public class InlineResponse20012DataList {
         this.id = id;
     }
 
-    public InlineResponse20012DataList tradeNo(String tradeNo) {
+    public InlineResponse20012DataList typeId(Integer typeId) {
         
-        this.tradeNo = tradeNo;
+        this.typeId = typeId;
         return this;
     }
 
      /**
-     * Transaction reference number
-     * @return tradeNo
+     * Activity type ID
+     * @return typeId
     **/
-    @javax.annotation.Nullable
-    public String getTradeNo() {
-        return tradeNo;
+    public Integer getTypeId() {
+        return typeId;
     }
 
 
-    public void setTradeNo(String tradeNo) {
-        this.tradeNo = tradeNo;
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 
-    public InlineResponse20012DataList payCoin(String payCoin) {
+    public InlineResponse20012DataList typeName(String typeName) {
         
-        this.payCoin = payCoin;
+        this.typeName = typeName;
         return this;
     }
 
      /**
-     * Payment currency
-     * @return payCoin
+     * Activity type name
+     * @return typeName
     **/
-    @javax.annotation.Nullable
-    public String getPayCoin() {
-        return payCoin;
+    public String getTypeName() {
+        return typeName;
     }
 
 
-    public void setPayCoin(String payCoin) {
-        this.payCoin = payCoin;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
-    public InlineResponse20012DataList payAmount(String payAmount) {
+    public InlineResponse20012DataList competitionName(String competitionName) {
         
-        this.payAmount = payAmount;
+        this.competitionName = competitionName;
         return this;
     }
 
      /**
-     * Payment amount
-     * @return payAmount
+     * Activity name
+     * @return competitionName
     **/
-    @javax.annotation.Nullable
-    public String getPayAmount() {
-        return payAmount;
+    public String getCompetitionName() {
+        return competitionName;
     }
 
 
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
+    public void setCompetitionName(String competitionName) {
+        this.competitionName = competitionName;
     }
 
-    public InlineResponse20012DataList getCoin(String getCoin) {
+    public InlineResponse20012DataList startAt(Integer startAt) {
         
-        this.getCoin = getCoin;
+        this.startAt = startAt;
         return this;
     }
 
      /**
-     * Received currency
-     * @return getCoin
+     * Activity start time (Unix timestamp, in seconds)
+     * @return startAt
     **/
-    @javax.annotation.Nullable
-    public String getGetCoin() {
-        return getCoin;
+    public Integer getStartAt() {
+        return startAt;
     }
 
 
-    public void setGetCoin(String getCoin) {
-        this.getCoin = getCoin;
+    public void setStartAt(Integer startAt) {
+        this.startAt = startAt;
     }
 
-    public InlineResponse20012DataList getAmount(String getAmount) {
+    public InlineResponse20012DataList endAt(Integer endAt) {
         
-        this.getAmount = getAmount;
+        this.endAt = endAt;
         return this;
     }
 
      /**
-     * Received amount
-     * @return getAmount
+     * Activity end time (Unix timestamp, in seconds)
+     * @return endAt
     **/
-    @javax.annotation.Nullable
-    public String getGetAmount() {
-        return getAmount;
+    public Integer getEndAt() {
+        return endAt;
     }
 
 
-    public void setGetAmount(String getAmount) {
-        this.getAmount = getAmount;
+    public void setEndAt(Integer endAt) {
+        this.endAt = endAt;
     }
 
-    public InlineResponse20012DataList rate(String rate) {
+    public InlineResponse20012DataList img(String img) {
         
-        this.rate = rate;
+        this.img = img;
         return this;
     }
 
      /**
-     * Exchange rate
-     * @return rate
+     * Activity image URL (light mode)
+     * @return img
     **/
-    @javax.annotation.Nullable
-    public String getRate() {
-        return rate;
+    public String getImg() {
+        return img;
     }
 
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public InlineResponse20012DataList rateReci(String rateReci) {
+    public InlineResponse20012DataList imgDark(String imgDark) {
         
-        this.rateReci = rateReci;
+        this.imgDark = imgDark;
         return this;
     }
 
      /**
-     * Reciprocal of the exchange rate
-     * @return rateReci
+     * Activity image URL (dark mode)
+     * @return imgDark
     **/
-    @javax.annotation.Nullable
-    public String getRateReci() {
-        return rateReci;
+    public String getImgDark() {
+        return imgDark;
     }
 
 
-    public void setRateReci(String rateReci) {
-        this.rateReci = rateReci;
+    public void setImgDark(String imgDark) {
+        this.imgDark = imgDark;
     }
 
-    public InlineResponse20012DataList status(String status) {
+    public InlineResponse20012DataList url(String url) {
         
-        this.status = status;
+        this.url = url;
         return this;
     }
 
      /**
-     * PROCESSING: in progress / DONE: completed / FAILED: failed
-     * @return status
+     * Activity redirect link
+     * @return url
     **/
-    @javax.annotation.Nullable
-    public String getStatus() {
-        return status;
+    public String getUrl() {
+        return url;
     }
 
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public InlineResponse20012DataList createTimest(Integer createTimest) {
+    public InlineResponse20012DataList hot(Integer hot) {
         
-        this.createTimest = createTimest;
+        this.hot = hot;
         return this;
     }
 
      /**
-     * timetimestamp
-     * @return createTimest
+     * Popularity score
+     * @return hot
     **/
-    @javax.annotation.Nullable
-    public Integer getCreateTimest() {
-        return createTimest;
+    public Integer getHot() {
+        return hot;
     }
 
 
-    public void setCreateTimest(Integer createTimest) {
-        this.createTimest = createTimest;
+    public void setHot(Integer hot) {
+        this.hot = hot;
     }
 
-    public InlineResponse20012DataList createTime(String createTime) {
+    public InlineResponse20012DataList masterOneLine(String masterOneLine) {
         
-        this.createTime = createTime;
+        this.masterOneLine = masterOneLine;
         return this;
     }
 
      /**
-     * Created time
-     * @return createTime
+     * Main title first line
+     * @return masterOneLine
     **/
-    @javax.annotation.Nullable
-    public String getCreateTime() {
-        return createTime;
+    public String getMasterOneLine() {
+        return masterOneLine;
     }
 
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setMasterOneLine(String masterOneLine) {
+        this.masterOneLine = masterOneLine;
+    }
+
+    public InlineResponse20012DataList masterTwoLine(String masterTwoLine) {
+        
+        this.masterTwoLine = masterTwoLine;
+        return this;
+    }
+
+     /**
+     * Main title second line
+     * @return masterTwoLine
+    **/
+    public String getMasterTwoLine() {
+        return masterTwoLine;
+    }
+
+
+    public void setMasterTwoLine(String masterTwoLine) {
+        this.masterTwoLine = masterTwoLine;
+    }
+
+    public InlineResponse20012DataList slaveOneLine(String slaveOneLine) {
+        
+        this.slaveOneLine = slaveOneLine;
+        return this;
+    }
+
+     /**
+     * Subtitle first line
+     * @return slaveOneLine
+    **/
+    public String getSlaveOneLine() {
+        return slaveOneLine;
+    }
+
+
+    public void setSlaveOneLine(String slaveOneLine) {
+        this.slaveOneLine = slaveOneLine;
+    }
+
+    public InlineResponse20012DataList slaveTwoLine(String slaveTwoLine) {
+        
+        this.slaveTwoLine = slaveTwoLine;
+        return this;
+    }
+
+     /**
+     * Subtitle second line
+     * @return slaveTwoLine
+    **/
+    public String getSlaveTwoLine() {
+        return slaveTwoLine;
+    }
+
+
+    public void setSlaveTwoLine(String slaveTwoLine) {
+        this.slaveTwoLine = slaveTwoLine;
+    }
+
+    public InlineResponse20012DataList competitionTitle(String competitionTitle) {
+        
+        this.competitionTitle = competitionTitle;
+        return this;
+    }
+
+     /**
+     * Activity title
+     * @return competitionTitle
+    **/
+    public String getCompetitionTitle() {
+        return competitionTitle;
+    }
+
+
+    public void setCompetitionTitle(String competitionTitle) {
+        this.competitionTitle = competitionTitle;
+    }
+
+    public InlineResponse20012DataList topId(Integer topId) {
+        
+        this.topId = topId;
+        return this;
+    }
+
+     /**
+     * Pin ID, 0 means not pinned
+     * @return topId
+    **/
+    public Integer getTopId() {
+        return topId;
+    }
+
+
+    public void setTopId(Integer topId) {
+        this.topId = topId;
+    }
+
+    public InlineResponse20012DataList parentId(Integer parentId) {
+        
+        this.parentId = parentId;
+        return this;
+    }
+
+     /**
+     * Parent activity ID, 0 means no parent activity
+     * @return parentId
+    **/
+    public Integer getParentId() {
+        return parentId;
+    }
+
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public InlineResponse20012DataList newImg(String newImg) {
+        
+        this.newImg = newImg;
+        return this;
+    }
+
+     /**
+     * New activity image URL (light mode)
+     * @return newImg
+    **/
+    public String getNewImg() {
+        return newImg;
+    }
+
+
+    public void setNewImg(String newImg) {
+        this.newImg = newImg;
+    }
+
+    public InlineResponse20012DataList newImgDark(String newImgDark) {
+        
+        this.newImgDark = newImgDark;
+        return this;
+    }
+
+     /**
+     * New activity image URL (dark mode)
+     * @return newImgDark
+    **/
+    public String getNewImgDark() {
+        return newImgDark;
+    }
+
+
+    public void setNewImgDark(String newImgDark) {
+        this.newImgDark = newImgDark;
+    }
+
+    public InlineResponse20012DataList tag(List<String> tag) {
+        
+        this.tag = tag;
+        return this;
+    }
+
+    public InlineResponse20012DataList addTagItem(String tagItem) {
+        this.tag.add(tagItem);
+        return this;
+    }
+
+     /**
+     * Activity tag list
+     * @return tag
+    **/
+    public List<String> getTag() {
+        return tag;
+    }
+
+
+    public void setTag(List<String> tag) {
+        this.tag = tag;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -297,21 +500,30 @@ public class InlineResponse20012DataList {
         }
         InlineResponse20012DataList inlineResponse20012DataList = (InlineResponse20012DataList) o;
         return Objects.equals(this.id, inlineResponse20012DataList.id) &&
-                Objects.equals(this.tradeNo, inlineResponse20012DataList.tradeNo) &&
-                Objects.equals(this.payCoin, inlineResponse20012DataList.payCoin) &&
-                Objects.equals(this.payAmount, inlineResponse20012DataList.payAmount) &&
-                Objects.equals(this.getCoin, inlineResponse20012DataList.getCoin) &&
-                Objects.equals(this.getAmount, inlineResponse20012DataList.getAmount) &&
-                Objects.equals(this.rate, inlineResponse20012DataList.rate) &&
-                Objects.equals(this.rateReci, inlineResponse20012DataList.rateReci) &&
-                Objects.equals(this.status, inlineResponse20012DataList.status) &&
-                Objects.equals(this.createTimest, inlineResponse20012DataList.createTimest) &&
-                Objects.equals(this.createTime, inlineResponse20012DataList.createTime);
+                Objects.equals(this.typeId, inlineResponse20012DataList.typeId) &&
+                Objects.equals(this.typeName, inlineResponse20012DataList.typeName) &&
+                Objects.equals(this.competitionName, inlineResponse20012DataList.competitionName) &&
+                Objects.equals(this.startAt, inlineResponse20012DataList.startAt) &&
+                Objects.equals(this.endAt, inlineResponse20012DataList.endAt) &&
+                Objects.equals(this.img, inlineResponse20012DataList.img) &&
+                Objects.equals(this.imgDark, inlineResponse20012DataList.imgDark) &&
+                Objects.equals(this.url, inlineResponse20012DataList.url) &&
+                Objects.equals(this.hot, inlineResponse20012DataList.hot) &&
+                Objects.equals(this.masterOneLine, inlineResponse20012DataList.masterOneLine) &&
+                Objects.equals(this.masterTwoLine, inlineResponse20012DataList.masterTwoLine) &&
+                Objects.equals(this.slaveOneLine, inlineResponse20012DataList.slaveOneLine) &&
+                Objects.equals(this.slaveTwoLine, inlineResponse20012DataList.slaveTwoLine) &&
+                Objects.equals(this.competitionTitle, inlineResponse20012DataList.competitionTitle) &&
+                Objects.equals(this.topId, inlineResponse20012DataList.topId) &&
+                Objects.equals(this.parentId, inlineResponse20012DataList.parentId) &&
+                Objects.equals(this.newImg, inlineResponse20012DataList.newImg) &&
+                Objects.equals(this.newImgDark, inlineResponse20012DataList.newImgDark) &&
+                Objects.equals(this.tag, inlineResponse20012DataList.tag);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tradeNo, payCoin, payAmount, getCoin, getAmount, rate, rateReci, status, createTimest, createTime);
+        return Objects.hash(id, typeId, typeName, competitionName, startAt, endAt, img, imgDark, url, hot, masterOneLine, masterTwoLine, slaveOneLine, slaveTwoLine, competitionTitle, topId, parentId, newImg, newImgDark, tag);
     }
 
 
@@ -320,16 +532,25 @@ public class InlineResponse20012DataList {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20012DataList {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
-        sb.append("      tradeNo: ").append(toIndentedString(tradeNo)).append("\n");
-        sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
-        sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
-        sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
-        sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
-        sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("      rateReci: ").append(toIndentedString(rateReci)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      createTimest: ").append(toIndentedString(createTimest)).append("\n");
-        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
+        sb.append("      typeId: ").append(toIndentedString(typeId)).append("\n");
+        sb.append("      typeName: ").append(toIndentedString(typeName)).append("\n");
+        sb.append("      competitionName: ").append(toIndentedString(competitionName)).append("\n");
+        sb.append("      startAt: ").append(toIndentedString(startAt)).append("\n");
+        sb.append("      endAt: ").append(toIndentedString(endAt)).append("\n");
+        sb.append("      img: ").append(toIndentedString(img)).append("\n");
+        sb.append("      imgDark: ").append(toIndentedString(imgDark)).append("\n");
+        sb.append("      url: ").append(toIndentedString(url)).append("\n");
+        sb.append("      hot: ").append(toIndentedString(hot)).append("\n");
+        sb.append("      masterOneLine: ").append(toIndentedString(masterOneLine)).append("\n");
+        sb.append("      masterTwoLine: ").append(toIndentedString(masterTwoLine)).append("\n");
+        sb.append("      slaveOneLine: ").append(toIndentedString(slaveOneLine)).append("\n");
+        sb.append("      slaveTwoLine: ").append(toIndentedString(slaveTwoLine)).append("\n");
+        sb.append("      competitionTitle: ").append(toIndentedString(competitionTitle)).append("\n");
+        sb.append("      topId: ").append(toIndentedString(topId)).append("\n");
+        sb.append("      parentId: ").append(toIndentedString(parentId)).append("\n");
+        sb.append("      newImg: ").append(toIndentedString(newImg)).append("\n");
+        sb.append("      newImgDark: ").append(toIndentedString(newImgDark)).append("\n");
+        sb.append("      tag: ").append(toIndentedString(tag)).append("\n");
         sb.append("}");
         return sb.toString();
     }

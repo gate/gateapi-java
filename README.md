@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.41
-- SDK version: 7.2.41
+- API version: v4.106.42
+- SDK version: 7.2.42
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.41</version>
+    <version>7.2.42</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.41"
+compile "io.gate:gate-api:7.2.42"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.41.jar`
+* `target/gate-api-7.2.42.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -105,7 +105,7 @@ import io.gate.gateapi.Configuration;
 import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.AccountApi;
+import io.gate.gateapi.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -115,15 +115,15 @@ public class Example {
         // Configure APIv4 authorization: apiv4
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-        AccountApi apiInstance = new AccountApi(defaultClient);
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
         try {
-            AccountDetail result = apiInstance.getAccountDetail();
+            InlineResponse20011 result = apiInstance.getMyActivityEntry();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#getAccountDetail");
+            System.err.println("Exception when calling DefaultApi#getMyActivityEntry");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
@@ -140,6 +140,9 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**getMyActivityEntry**](docs/DefaultApi.md#getMyActivityEntry) | **GET** /rewards/activity/my-activity-entry | My activity entry
+*DefaultApi* | [**listActivities**](docs/DefaultApi.md#listActivities) | **GET** /rewards/activity/activity-list | Recommended activity list
+*DefaultApi* | [**listActivityTypes**](docs/DefaultApi.md#listActivityTypes) | **GET** /rewards/activity/activity-type | Activity type list
 *AccountApi* | [**getAccountDetail**](docs/AccountApi.md#getAccountDetail) | **GET** /account/detail | Retrieve user account information
 *AccountApi* | [**getAccountMainKeys**](docs/AccountApi.md#getAccountMainKeys) | **GET** /account/main_keys | Query All Main Account Key Information
 *AccountApi* | [**getAccountRateLimit**](docs/AccountApi.md#getAccountRateLimit) | **GET** /account/rate_limit | Get user transaction rate limit information
@@ -159,6 +162,8 @@ Class | Method | HTTP request | Description
 *AlphaApi* | [**listAlphaCurrencies**](docs/AlphaApi.md#listAlphaCurrencies) | **GET** /alpha/currencies | Query currency information
 *AlphaApi* | [**listAlphaTickers**](docs/AlphaApi.md#listAlphaTickers) | **GET** /alpha/tickers | Query currency ticker
 *AlphaApi* | [**listAlphaTokens**](docs/AlphaApi.md#listAlphaTokens) | **GET** /alpha/tokens | Query Token Information
+*CouponApi* | [**listUserCoupons**](docs/CouponApi.md#listUserCoupons) | **GET** /coupon/user-coupon-list | Coupon Center list
+*CouponApi* | [**getUserCouponDetail**](docs/CouponApi.md#getUserCouponDetail) | **GET** /coupon/user-coupon-detail | Coupon Center details
 *CrossExApi* | [**listCrossexRuleSymbols**](docs/CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | [Public Interface] Query Trading Pair Information
 *CrossExApi* | [**listCrossexRuleRiskLimits**](docs/CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | [Public Interface] Query Risk Limit Information
 *CrossExApi* | [**listCrossexTransferCoins**](docs/CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | [Public Interface] Query Supported Transfer Currencies
@@ -233,6 +238,12 @@ Class | Method | HTTP request | Description
 *EarnApi* | [**orderList**](docs/EarnApi.md#orderList) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
 *EarnApi* | [**awardList**](docs/EarnApi.md#awardList) | **GET** /earn/staking/award_list | On-chain coin-earning dividend records
 *EarnApi* | [**assetList**](docs/EarnApi.md#assetList) | **GET** /earn/staking/assets | On-chain coin-earning assets
+*EarnApi* | [**listEarnFixedTermProducts**](docs/EarnApi.md#listEarnFixedTermProducts) | **GET** /earn/fixed-term/product | Get product list
+*EarnApi* | [**listEarnFixedTermProductsByAsset**](docs/EarnApi.md#listEarnFixedTermProductsByAsset) | **GET** /earn/fixed-term/product/{asset}/list | Get product list by single currency
+*EarnApi* | [**listEarnFixedTermLends**](docs/EarnApi.md#listEarnFixedTermLends) | **GET** /earn/fixed-term/user/lend | Subscription list
+*EarnApi* | [**createEarnFixedTermLend**](docs/EarnApi.md#createEarnFixedTermLend) | **POST** /earn/fixed-term/user/lend | Subscription
+*EarnApi* | [**createEarnFixedTermPreRedeem**](docs/EarnApi.md#createEarnFixedTermPreRedeem) | **POST** /earn/fixed-term/user/pre-redeem | Redeem
+*EarnApi* | [**listEarnFixedTermHistory**](docs/EarnApi.md#listEarnFixedTermHistory) | **GET** /earn/fixed-term/user/history | Subscription history
 *EarnUniApi* | [**listUniCurrencies**](docs/EarnUniApi.md#listUniCurrencies) | **GET** /earn/uni/currencies | Query lending currency list
 *EarnUniApi* | [**getUniCurrency**](docs/EarnUniApi.md#getUniCurrency) | **GET** /earn/uni/currencies/{currency} | Query single lending currency details
 *EarnUniApi* | [**listUserUniLends**](docs/EarnUniApi.md#listUserUniLends) | **GET** /earn/uni/lends | Query user&#39;s lending order list
@@ -249,6 +260,12 @@ Class | Method | HTTP request | Description
 *FlashSwapApi* | [**createFlashSwapOrder**](docs/FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
 *FlashSwapApi* | [**getFlashSwapOrder**](docs/FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
 *FlashSwapApi* | [**previewFlashSwapOrder**](docs/FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Flash swap order preview
+*FlashSwapApi* | [**createFlashSwapMultiCurrencyManyToOneOrder**](docs/FlashSwapApi.md#createFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash-swap/multi-currency/many-to-one/order/create | Flash Swap - Multi-currency exchange - Place order (many-to-one)
+*FlashSwapApi* | [**previewFlashSwapMultiCurrencyManyToOneOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash-swap/multi-currency/many-to-one/order/preview | Flash Swap - Multi-currency exchange - Preview (many-to-one)
+*FlashSwapApi* | [**createFlashSwapOrderV1**](docs/FlashSwapApi.md#createFlashSwapOrderV1) | **POST** /flash-swap/order/create | Flash Swap - Place order (one-to-one)
+*FlashSwapApi* | [**createFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#createFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash-swap/multi-currency/one-to-many/order/create | Flash Swap - Multi-currency exchange - Place order (one-to-many)
+*FlashSwapApi* | [**previewFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash-swap/multi-currency/one-to-many/order/preview | Flash Swap - Multi-currency exchange - Preview (one-to-many)
+*FlashSwapApi* | [**previewFlashSwapOrderV1**](docs/FlashSwapApi.md#previewFlashSwapOrderV1) | **GET** /flash-swap/order/preview | Flash Swap - Preview (one-to-one)
 *FuturesApi* | [**listFuturesContracts**](docs/FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
 *FuturesApi* | [**getFuturesContract**](docs/FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 *FuturesApi* | [**listFuturesOrderBook**](docs/FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
@@ -313,6 +330,11 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 *FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
 *FuturesApi* | [**updatePriceTriggeredOrder**](docs/FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
+*LaunchApi* | [**listLaunchPoolProjects**](docs/LaunchApi.md#listLaunchPoolProjects) | **GET** /launch/project-list | Query LaunchPool project list
+*LaunchApi* | [**createLaunchPoolOrder**](docs/LaunchApi.md#createLaunchPoolOrder) | **POST** /launch/create-order | Create LaunchPool staking order
+*LaunchApi* | [**redeemLaunchPool**](docs/LaunchApi.md#redeemLaunchPool) | **POST** /launch/redeem | Redeem LaunchPool staked assets
+*LaunchApi* | [**listLaunchPoolPledgeRecords**](docs/LaunchApi.md#listLaunchPoolPledgeRecords) | **GET** /launch/user-pledge-records | Query user pledge records
+*LaunchApi* | [**listLaunchPoolRewardRecords**](docs/LaunchApi.md#listLaunchPoolRewardRecords) | **GET** /launch/get-user-reward-records | Query user reward records
 *MarginApi* | [**listMarginAccounts**](docs/MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
 *MarginApi* | [**listMarginAccountBook**](docs/MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | Query margin account balance change history
 *MarginApi* | [**listFundingAccounts**](docs/MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
@@ -410,6 +432,8 @@ Class | Method | HTTP request | Description
 *RebateApi* | [**rebateBrokerTransactionHistory**](docs/RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | Broker obtains user&#39;s trading history
 *RebateApi* | [**rebateUserInfo**](docs/RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User obtains rebate information
 *RebateApi* | [**userSubRelation**](docs/RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User subordinate relationship
+*RebateApi* | [**getPartnerApplicationRecent**](docs/RebateApi.md#getPartnerApplicationRecent) | **GET** /rebate/partner/applications/recent | Get recent partner application records
+*RebateApi* | [**getPartnerEligibility**](docs/RebateApi.md#getPartnerEligibility) | **GET** /rebate/partner/eligibility | Check partner application eligibility
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | Query all currency information
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Query single currency information
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | Query all supported currency pairs
@@ -442,6 +466,8 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**cancelSpotPriceTriggeredOrderList**](docs/SpotApi.md#cancelSpotPriceTriggeredOrderList) | **DELETE** /spot/price_orders | Cancel all auto orders
 *SpotApi* | [**getSpotPriceTriggeredOrder**](docs/SpotApi.md#getSpotPriceTriggeredOrder) | **GET** /spot/price_orders/{order_id} | Query single auto order details
 *SpotApi* | [**cancelSpotPriceTriggeredOrder**](docs/SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel single auto order
+*SquareApi* | [**listSquareAiSearch**](docs/SquareApi.md#listSquareAiSearch) | **GET** /social/message/search | AI MCP Dynamic Search
+*SquareApi* | [**listLiveReplay**](docs/SquareApi.md#listLiveReplay) | **GET** /social/live/tag_coin_live_replay | Gate AI Assistant live stream data retrieval
 *SubAccountApi* | [**listSubAccounts**](docs/SubAccountApi.md#listSubAccounts) | **GET** /sub_accounts | List sub-accounts
 *SubAccountApi* | [**createSubAccounts**](docs/SubAccountApi.md#createSubAccounts) | **POST** /sub_accounts | Create a new sub-account
 *SubAccountApi* | [**getSubAccount**](docs/SubAccountApi.md#getSubAccount) | **GET** /sub_accounts/{user_id} | Get sub-account
@@ -516,6 +542,8 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listSmallBalanceHistory**](docs/WalletApi.md#listSmallBalanceHistory) | **GET** /wallet/small_balance_history | Get convertible small balance currency history
 *WalletApi* | [**listPushOrders**](docs/WalletApi.md#listPushOrders) | **GET** /wallet/push | Get UID transfer history
 *WalletApi* | [**getLowCapExchangeList**](docs/WalletApi.md#getLowCapExchangeList) | **GET** /wallet/getLowCapExchangeList | Retrieve the list of low-liquidity or low-cap tokens
+*WelfareApi* | [**getUserIdentity**](docs/WelfareApi.md#getUserIdentity) | **GET** /rewards/getUserIdentity | Get user identity
+*WelfareApi* | [**getBeginnerTaskList**](docs/WelfareApi.md#getBeginnerTaskList) | **GET** /rewards/getBeginnerTaskList | Get beginner task list
 *WithdrawalApi* | [**withdraw**](docs/WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
 *WithdrawalApi* | [**withdrawPushOrder**](docs/WithdrawalApi.md#withdrawPushOrder) | **POST** /withdrawals/push | UID transfer
 *WithdrawalApi* | [**cancelWithdrawal**](docs/WithdrawalApi.md#cancelWithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
@@ -538,10 +566,17 @@ Class | Method | HTTP request | Description
  - [AgencyCommissionHistory](docs/AgencyCommissionHistory.md)
  - [AgencyTransaction](docs/AgencyTransaction.md)
  - [AgencyTransactionHistory](docs/AgencyTransactionHistory.md)
+ - [AlphaCurrency](docs/AlphaCurrency.md)
  - [AlphaTicker](docs/AlphaTicker.md)
+ - [AmendOptionsOrderRequest](docs/AmendOptionsOrderRequest.md)
+ - [ApiResponseExSkillGetBeginnerTaskListResp](docs/ApiResponseExSkillGetBeginnerTaskListResp.md)
+ - [ApiResponseExSkillGetBeginnerTaskListRespData](docs/ApiResponseExSkillGetBeginnerTaskListRespData.md)
+ - [ApiResponseExSkillGetBeginnerTaskListRespDataTasks](docs/ApiResponseExSkillGetBeginnerTaskListRespDataTasks.md)
+ - [ApiResponseExSkillGetUserIdentityResp](docs/ApiResponseExSkillGetUserIdentityResp.md)
  - [AutoRepaySetting](docs/AutoRepaySetting.md)
  - [AwardListStruct](docs/AwardListStruct.md)
  - [AwardListStructList](docs/AwardListStructList.md)
+ - [BaseResponse](docs/BaseResponse.md)
  - [BatchAmendItem](docs/BatchAmendItem.md)
  - [BatchAmendOrderReq](docs/BatchAmendOrderReq.md)
  - [BatchFundingRatesRequest](docs/BatchFundingRatesRequest.md)
@@ -550,10 +585,10 @@ Class | Method | HTTP request | Description
  - [BatchOrder](docs/BatchOrder.md)
  - [BorrowCurrencyInfo](docs/BorrowCurrencyInfo.md)
  - [BrokerCommission](docs/BrokerCommission.md)
- - [BrokerCommission1](docs/BrokerCommission1.md)
+ - [BrokerCommissionItem](docs/BrokerCommissionItem.md)
  - [BrokerCommissionSubBrokerInfo](docs/BrokerCommissionSubBrokerInfo.md)
  - [BrokerTransaction](docs/BrokerTransaction.md)
- - [BrokerTransaction1](docs/BrokerTransaction1.md)
+ - [BrokerTransactionHistory](docs/BrokerTransactionHistory.md)
  - [CancelBatchOrder](docs/CancelBatchOrder.md)
  - [CancelOrder](docs/CancelOrder.md)
  - [CancelOrderResult](docs/CancelOrderResult.md)
@@ -582,7 +617,10 @@ Class | Method | HTTP request | Description
  - [CreateMultiCollateralOrder](docs/CreateMultiCollateralOrder.md)
  - [CreateOrder](docs/CreateOrder.md)
  - [CreateOrderData](docs/CreateOrderData.md)
+ - [CreateOrderV4](docs/CreateOrderV4.md)
  - [CreateTrailOrder](docs/CreateTrailOrder.md)
+ - [CreateTrailOrderResponse](docs/CreateTrailOrderResponse.md)
+ - [CreateTrailOrderResult](docs/CreateTrailOrderResult.md)
  - [CreateTransaction](docs/CreateTransaction.md)
  - [CreateUniLend](docs/CreateUniLend.md)
  - [CreateUniLoan](docs/CreateUniLoan.md)
@@ -591,17 +629,39 @@ Class | Method | HTTP request | Description
  - [CrossMarginBalance](docs/CrossMarginBalance.md)
  - [CrossMarginLoan](docs/CrossMarginLoan.md)
  - [CrossMarginRepayment](docs/CrossMarginRepayment.md)
+ - [CrossexAccount](docs/CrossexAccount.md)
+ - [CrossexAccountAsset](docs/CrossexAccountAsset.md)
+ - [CrossexAccountBookRecord](docs/CrossexAccountBookRecord.md)
  - [CrossexAccountUpdateRequest](docs/CrossexAccountUpdateRequest.md)
+ - [CrossexAccountUpdateResponse](docs/CrossexAccountUpdateResponse.md)
+ - [CrossexAdlRank](docs/CrossexAdlRank.md)
  - [CrossexClosePositionRequest](docs/CrossexClosePositionRequest.md)
+ - [CrossexCoinDiscountRate](docs/CrossexCoinDiscountRate.md)
  - [CrossexConvertOrderRequest](docs/CrossexConvertOrderRequest.md)
  - [CrossexConvertQuoteRequest](docs/CrossexConvertQuoteRequest.md)
+ - [CrossexConvertQuoteResponse](docs/CrossexConvertQuoteResponse.md)
+ - [CrossexFee](docs/CrossexFee.md)
+ - [CrossexHistoricalMarginPosition](docs/CrossexHistoricalMarginPosition.md)
+ - [CrossexHistoricalPosition](docs/CrossexHistoricalPosition.md)
+ - [CrossexInterestRate](docs/CrossexInterestRate.md)
  - [CrossexLeverageRequest](docs/CrossexLeverageRequest.md)
+ - [CrossexLeverageResponse](docs/CrossexLeverageResponse.md)
+ - [CrossexMarginInterestRecord](docs/CrossexMarginInterestRecord.md)
+ - [CrossexMarginPosition](docs/CrossexMarginPosition.md)
+ - [CrossexOrder](docs/CrossexOrder.md)
+ - [CrossexOrderActionResponse](docs/CrossexOrderActionResponse.md)
  - [CrossexOrderRequest](docs/CrossexOrderRequest.md)
  - [CrossexOrderUpdateRequest](docs/CrossexOrderUpdateRequest.md)
- - [CrossexRuleRiskLimitsTiers](docs/CrossexRuleRiskLimitsTiers.md)
+ - [CrossexPosition](docs/CrossexPosition.md)
+ - [CrossexRiskLimit](docs/CrossexRiskLimit.md)
+ - [CrossexRiskLimitTier](docs/CrossexRiskLimitTier.md)
+ - [CrossexSpecialFee](docs/CrossexSpecialFee.md)
+ - [CrossexTrade](docs/CrossexTrade.md)
+ - [CrossexTransferCoin](docs/CrossexTransferCoin.md)
+ - [CrossexTransferRecord](docs/CrossexTransferRecord.md)
  - [CrossexTransferRequest](docs/CrossexTransferRequest.md)
+ - [CrossexTransferResponse](docs/CrossexTransferResponse.md)
  - [Currency](docs/Currency.md)
- - [Currency2](docs/Currency2.md)
  - [CurrencyChain](docs/CurrencyChain.md)
  - [CurrencyPair](docs/CurrencyPair.md)
  - [CurrencyQuota](docs/CurrencyQuota.md)
@@ -617,6 +677,7 @@ Class | Method | HTTP request | Description
  - [DeliveryMyTrade](docs/DeliveryMyTrade.md)
  - [DeliveryOrder](docs/DeliveryOrder.md)
  - [DeliveryOrderBook](docs/DeliveryOrderBook.md)
+ - [DeliveryOrderBookItem](docs/DeliveryOrderBookItem.md)
  - [DeliveryPosition](docs/DeliveryPosition.md)
  - [DeliveryPositionClose](docs/DeliveryPositionClose.md)
  - [DeliverySettlement](docs/DeliverySettlement.md)
@@ -627,13 +688,46 @@ Class | Method | HTTP request | Description
  - [DualGetBalance](docs/DualGetBalance.md)
  - [DualGetOrders](docs/DualGetOrders.md)
  - [DualGetPlans](docs/DualGetPlans.md)
- - [Error](docs/Error.md)
+ - [Eligibility](docs/Eligibility.md)
+ - [EligibilityResponse](docs/EligibilityResponse.md)
+ - [EligibilityResponseAllOf](docs/EligibilityResponseAllOf.md)
+ - [ErrCodeMsg](docs/ErrCodeMsg.md)
  - [Eth2RateList](docs/Eth2RateList.md)
  - [Eth2Swap](docs/Eth2Swap.md)
  - [FindCoin](docs/FindCoin.md)
+ - [FixedTermBonusInfo](docs/FixedTermBonusInfo.md)
+ - [FixedTermCouponInfo](docs/FixedTermCouponInfo.md)
+ - [FixedTermHistoryRecord](docs/FixedTermHistoryRecord.md)
+ - [FixedTermLendOrder](docs/FixedTermLendOrder.md)
+ - [FixedTermLendRequest](docs/FixedTermLendRequest.md)
+ - [FixedTermProduct](docs/FixedTermProduct.md)
+ - [FixedTermProductInfo](docs/FixedTermProductInfo.md)
+ - [FixedTermProductSimple](docs/FixedTermProductSimple.md)
  - [FlashSwapCurrencyPair](docs/FlashSwapCurrencyPair.md)
+ - [FlashSwapErrorResponse](docs/FlashSwapErrorResponse.md)
+ - [FlashSwapMultiCurrencyCreateParam](docs/FlashSwapMultiCurrencyCreateParam.md)
+ - [FlashSwapMultiCurrencyManyToOneOrderCreateReq](docs/FlashSwapMultiCurrencyManyToOneOrderCreateReq.md)
+ - [FlashSwapMultiCurrencyManyToOneOrderCreateResp](docs/FlashSwapMultiCurrencyManyToOneOrderCreateResp.md)
+ - [FlashSwapMultiCurrencyManyToOneOrderCreateRespData](docs/FlashSwapMultiCurrencyManyToOneOrderCreateRespData.md)
+ - [FlashSwapMultiCurrencyManyToOneOrderPreviewReq](docs/FlashSwapMultiCurrencyManyToOneOrderPreviewReq.md)
+ - [FlashSwapMultiCurrencyManyToOneOrderPreviewResp](docs/FlashSwapMultiCurrencyManyToOneOrderPreviewResp.md)
+ - [FlashSwapMultiCurrencyManyToOneOrderPreviewRespData](docs/FlashSwapMultiCurrencyManyToOneOrderPreviewRespData.md)
+ - [FlashSwapMultiCurrencyOneToManyOrderCreateReq](docs/FlashSwapMultiCurrencyOneToManyOrderCreateReq.md)
+ - [FlashSwapMultiCurrencyOneToManyOrderCreateResp](docs/FlashSwapMultiCurrencyOneToManyOrderCreateResp.md)
+ - [FlashSwapMultiCurrencyOneToManyOrderCreateRespData](docs/FlashSwapMultiCurrencyOneToManyOrderCreateRespData.md)
+ - [FlashSwapMultiCurrencyOneToManyOrderPreviewReq](docs/FlashSwapMultiCurrencyOneToManyOrderPreviewReq.md)
+ - [FlashSwapMultiCurrencyOneToManyOrderPreviewResp](docs/FlashSwapMultiCurrencyOneToManyOrderPreviewResp.md)
+ - [FlashSwapMultiCurrencyOneToManyOrderPreviewRespData](docs/FlashSwapMultiCurrencyOneToManyOrderPreviewRespData.md)
+ - [FlashSwapMultiCurrencyOrder](docs/FlashSwapMultiCurrencyOrder.md)
+ - [FlashSwapMultiCurrencyPreviewOrder](docs/FlashSwapMultiCurrencyPreviewOrder.md)
+ - [FlashSwapMultiCurrencyPreviewParam](docs/FlashSwapMultiCurrencyPreviewParam.md)
  - [FlashSwapOrder](docs/FlashSwapOrder.md)
+ - [FlashSwapOrderCreateReq](docs/FlashSwapOrderCreateReq.md)
+ - [FlashSwapOrderCreateResp](docs/FlashSwapOrderCreateResp.md)
+ - [FlashSwapOrderCreateRespData](docs/FlashSwapOrderCreateRespData.md)
  - [FlashSwapOrderPreview](docs/FlashSwapOrderPreview.md)
+ - [FlashSwapOrderPreviewResp](docs/FlashSwapOrderPreviewResp.md)
+ - [FlashSwapOrderPreviewRespData](docs/FlashSwapOrderPreviewRespData.md)
  - [FlashSwapOrderRequest](docs/FlashSwapOrderRequest.md)
  - [FlashSwapPreviewRequest](docs/FlashSwapPreviewRequest.md)
  - [FundingAccount](docs/FundingAccount.md)
@@ -657,7 +751,6 @@ Class | Method | HTTP request | Description
  - [FuturesOrderAmendment](docs/FuturesOrderAmendment.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
- - [FuturesOrderBookItem1](docs/FuturesOrderBookItem1.md)
  - [FuturesPositionCrossMode](docs/FuturesPositionCrossMode.md)
  - [FuturesPremiumIndex](docs/FuturesPremiumIndex.md)
  - [FuturesPriceTrigger](docs/FuturesPriceTrigger.md)
@@ -674,96 +767,55 @@ Class | Method | HTTP request | Description
  - [GetTransactionDetailsRequest](docs/GetTransactionDetailsRequest.md)
  - [IndexConstituent](docs/IndexConstituent.md)
  - [InlineObject](docs/InlineObject.md)
- - [InlineObject1](docs/InlineObject1.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
- - [InlineResponse20010Data](docs/InlineResponse20010Data.md)
- - [InlineResponse20010DataLists](docs/InlineResponse20010DataLists.md)
  - [InlineResponse20011](docs/InlineResponse20011.md)
  - [InlineResponse20011Data](docs/InlineResponse20011Data.md)
- - [InlineResponse20011DataCryptoCurrencyInfo](docs/InlineResponse20011DataCryptoCurrencyInfo.md)
- - [InlineResponse20011DataFiatCurrencyInfo](docs/InlineResponse20011DataFiatCurrencyInfo.md)
- - [InlineResponse20011DataList](docs/InlineResponse20011DataList.md)
  - [InlineResponse20012](docs/InlineResponse20012.md)
  - [InlineResponse20012Data](docs/InlineResponse20012Data.md)
  - [InlineResponse20012DataList](docs/InlineResponse20012DataList.md)
  - [InlineResponse20013](docs/InlineResponse20013.md)
  - [InlineResponse20013Data](docs/InlineResponse20013Data.md)
- - [InlineResponse20014](docs/InlineResponse20014.md)
- - [InlineResponse20014Data](docs/InlineResponse20014Data.md)
- - [InlineResponse20014DataMerchantInfo](docs/InlineResponse20014DataMerchantInfo.md)
- - [InlineResponse20015](docs/InlineResponse20015.md)
- - [InlineResponse20015Data](docs/InlineResponse20015Data.md)
- - [InlineResponse20016](docs/InlineResponse20016.md)
- - [InlineResponse20016Data](docs/InlineResponse20016Data.md)
- - [InlineResponse20016List](docs/InlineResponse20016List.md)
- - [InlineResponse20017](docs/InlineResponse20017.md)
- - [InlineResponse20017Data](docs/InlineResponse20017Data.md)
- - [InlineResponse20017DataConvertInfo](docs/InlineResponse20017DataConvertInfo.md)
- - [InlineResponse20017DataList](docs/InlineResponse20017DataList.md)
- - [InlineResponse20017DataTransTime](docs/InlineResponse20017DataTransTime.md)
- - [InlineResponse20018](docs/InlineResponse20018.md)
- - [InlineResponse20018Data](docs/InlineResponse20018Data.md)
- - [InlineResponse20019](docs/InlineResponse20019.md)
+ - [InlineResponse20013DataList](docs/InlineResponse20013DataList.md)
+ - [InlineResponse2001Data](docs/InlineResponse2001Data.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse20020](docs/InlineResponse20020.md)
- - [InlineResponse20020Data](docs/InlineResponse20020Data.md)
- - [InlineResponse20021](docs/InlineResponse20021.md)
- - [InlineResponse20021Data](docs/InlineResponse20021Data.md)
- - [InlineResponse20022](docs/InlineResponse20022.md)
- - [InlineResponse20022Data](docs/InlineResponse20022Data.md)
- - [InlineResponse20022DataLists](docs/InlineResponse20022DataLists.md)
- - [InlineResponse20023](docs/InlineResponse20023.md)
- - [InlineResponse20023Data](docs/InlineResponse20023Data.md)
- - [InlineResponse20024](docs/InlineResponse20024.md)
- - [InlineResponse20024Data](docs/InlineResponse20024Data.md)
- - [InlineResponse20024DataMessages](docs/InlineResponse20024DataMessages.md)
- - [InlineResponse20024DataMsgObj](docs/InlineResponse20024DataMsgObj.md)
- - [InlineResponse20025](docs/InlineResponse20025.md)
- - [InlineResponse20025Data](docs/InlineResponse20025Data.md)
- - [InlineResponse20026](docs/InlineResponse20026.md)
- - [InlineResponse20026Data](docs/InlineResponse20026Data.md)
- - [InlineResponse20027](docs/InlineResponse20027.md)
- - [InlineResponse20028](docs/InlineResponse20028.md)
- - [InlineResponse20029](docs/InlineResponse20029.md)
+ - [InlineResponse2002Data](docs/InlineResponse2002Data.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
- - [InlineResponse20030](docs/InlineResponse20030.md)
- - [InlineResponse20031](docs/InlineResponse20031.md)
- - [InlineResponse20032](docs/InlineResponse20032.md)
- - [InlineResponse20033](docs/InlineResponse20033.md)
- - [InlineResponse20034](docs/InlineResponse20034.md)
- - [InlineResponse20035](docs/InlineResponse20035.md)
- - [InlineResponse20035Assets](docs/InlineResponse20035Assets.md)
- - [InlineResponse20036](docs/InlineResponse20036.md)
- - [InlineResponse20037](docs/InlineResponse20037.md)
- - [InlineResponse20037SpecialFeeList](docs/InlineResponse20037SpecialFeeList.md)
- - [InlineResponse20038](docs/InlineResponse20038.md)
- - [InlineResponse20039](docs/InlineResponse20039.md)
+ - [InlineResponse2003Data](docs/InlineResponse2003Data.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
- - [InlineResponse20040](docs/InlineResponse20040.md)
- - [InlineResponse20041](docs/InlineResponse20041.md)
- - [InlineResponse20042](docs/InlineResponse20042.md)
- - [InlineResponse20043](docs/InlineResponse20043.md)
- - [InlineResponse20044](docs/InlineResponse20044.md)
- - [InlineResponse20045](docs/InlineResponse20045.md)
- - [InlineResponse20046](docs/InlineResponse20046.md)
- - [InlineResponse20047](docs/InlineResponse20047.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
+ - [InlineResponse2005Data](docs/InlineResponse2005Data.md)
  - [InlineResponse2006](docs/InlineResponse2006.md)
  - [InlineResponse2006Data](docs/InlineResponse2006Data.md)
+ - [InlineResponse2006DataHelpUrl](docs/InlineResponse2006DataHelpUrl.md)
+ - [InlineResponse2006DataJumpUrl](docs/InlineResponse2006DataJumpUrl.md)
+ - [InlineResponse2006DataList](docs/InlineResponse2006DataList.md)
+ - [InlineResponse2006DataProgressConfig](docs/InlineResponse2006DataProgressConfig.md)
  - [InlineResponse2007](docs/InlineResponse2007.md)
+ - [InlineResponse2007Data](docs/InlineResponse2007Data.md)
  - [InlineResponse2008](docs/InlineResponse2008.md)
+ - [InlineResponse2008Data](docs/InlineResponse2008Data.md)
+ - [InlineResponse2008DataItems](docs/InlineResponse2008DataItems.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
  - [InlineResponse2009Data](docs/InlineResponse2009Data.md)
- - [InlineResponse201](docs/InlineResponse201.md)
- - [InlineResponse201Data](docs/InlineResponse201Data.md)
- - [InlineResponse202](docs/InlineResponse202.md)
- - [InlineResponse2021](docs/InlineResponse2021.md)
+ - [InlineResponse2009DataList](docs/InlineResponse2009DataList.md)
+ - [InlineResponse2009DataLive](docs/InlineResponse2009DataLive.md)
+ - [InlineResponse2009DataLiveHost](docs/InlineResponse2009DataLiveHost.md)
+ - [InlineResponse2009DataVideo](docs/InlineResponse2009DataVideo.md)
+ - [InlineResponse200Data](docs/InlineResponse200Data.md)
+ - [InlineResponse400](docs/InlineResponse400.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [Klines](docs/Klines.md)
  - [KlinesData](docs/KlinesData.md)
  - [KlinesDataList](docs/KlinesDataList.md)
+ - [LadderApr](docs/LadderApr.md)
+ - [LaunchPoolV4CreateOrderResponse](docs/LaunchPoolV4CreateOrderResponse.md)
+ - [LaunchPoolV4ErrorResponse](docs/LaunchPoolV4ErrorResponse.md)
+ - [LaunchPoolV4PledgeRecord](docs/LaunchPoolV4PledgeRecord.md)
+ - [LaunchPoolV4Project](docs/LaunchPoolV4Project.md)
+ - [LaunchPoolV4RewardPool](docs/LaunchPoolV4RewardPool.md)
+ - [LaunchPoolV4RewardRecord](docs/LaunchPoolV4RewardRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
  - [MarginAccount](docs/MarginAccount.md)
@@ -830,10 +882,66 @@ Class | Method | HTTP request | Description
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderResp](docs/OrderResp.md)
  - [OrderResponse](docs/OrderResponse.md)
+ - [OtcActionResponse](docs/OtcActionResponse.md)
+ - [OtcBankListItem](docs/OtcBankListItem.md)
+ - [OtcBankListResponse](docs/OtcBankListResponse.md)
+ - [OtcBankListResult](docs/OtcBankListResult.md)
  - [OtcMarkOrderPaidRequest](docs/OtcMarkOrderPaidRequest.md)
+ - [OtcOrderDetail](docs/OtcOrderDetail.md)
+ - [OtcOrderDetailResponse](docs/OtcOrderDetailResponse.md)
+ - [OtcOrderListCryptoCurrencyInfo](docs/OtcOrderListCryptoCurrencyInfo.md)
+ - [OtcOrderListFiatCurrencyInfo](docs/OtcOrderListFiatCurrencyInfo.md)
+ - [OtcOrderListItem](docs/OtcOrderListItem.md)
+ - [OtcOrderListResponse](docs/OtcOrderListResponse.md)
+ - [OtcOrderListResult](docs/OtcOrderListResult.md)
  - [OtcOrderRequest](docs/OtcOrderRequest.md)
  - [OtcQuoteRequest](docs/OtcQuoteRequest.md)
+ - [OtcQuoteResponse](docs/OtcQuoteResponse.md)
+ - [OtcQuoteResult](docs/OtcQuoteResult.md)
+ - [OtcStableCoinOrderCreateResponse](docs/OtcStableCoinOrderCreateResponse.md)
+ - [OtcStableCoinOrderListItem](docs/OtcStableCoinOrderListItem.md)
+ - [OtcStableCoinOrderListResponse](docs/OtcStableCoinOrderListResponse.md)
+ - [OtcStableCoinOrderListResult](docs/OtcStableCoinOrderListResult.md)
  - [OtcStableCoinOrderRequest](docs/OtcStableCoinOrderRequest.md)
+ - [OtcUserDefaultBank](docs/OtcUserDefaultBank.md)
+ - [OtcUserDefaultBankResponse](docs/OtcUserDefaultBankResponse.md)
+ - [OtherContact](docs/OtherContact.md)
+ - [P2pAdDetail](docs/P2pAdDetail.md)
+ - [P2pAdDetailResponse](docs/P2pAdDetailResponse.md)
+ - [P2pAdsListItem](docs/P2pAdsListItem.md)
+ - [P2pAdsListResponse](docs/P2pAdsListResponse.md)
+ - [P2pAdsUpdateStatusResponse](docs/P2pAdsUpdateStatusResponse.md)
+ - [P2pAdsUpdateStatusResult](docs/P2pAdsUpdateStatusResult.md)
+ - [P2pChatListResponse](docs/P2pChatListResponse.md)
+ - [P2pChatListResult](docs/P2pChatListResult.md)
+ - [P2pChatMessage](docs/P2pChatMessage.md)
+ - [P2pChatMessagePayload](docs/P2pChatMessagePayload.md)
+ - [P2pCounterpartyUserInfo](docs/P2pCounterpartyUserInfo.md)
+ - [P2pCounterpartyUserInfoResponse](docs/P2pCounterpartyUserInfoResponse.md)
+ - [P2pMerchantMarketInfo](docs/P2pMerchantMarketInfo.md)
+ - [P2pMerchantUserInfo](docs/P2pMerchantUserInfo.md)
+ - [P2pMerchantUserInfoResponse](docs/P2pMerchantUserInfoResponse.md)
+ - [P2pMyAd](docs/P2pMyAd.md)
+ - [P2pMyAdsListResponse](docs/P2pMyAdsListResponse.md)
+ - [P2pMyAdsListResult](docs/P2pMyAdsListResult.md)
+ - [P2pPaymentMethodAccount](docs/P2pPaymentMethodAccount.md)
+ - [P2pPaymentMethodGroup](docs/P2pPaymentMethodGroup.md)
+ - [P2pPaymentMethodsResponse](docs/P2pPaymentMethodsResponse.md)
+ - [P2pSendChatMessageResponse](docs/P2pSendChatMessageResponse.md)
+ - [P2pSendChatMessageResult](docs/P2pSendChatMessageResult.md)
+ - [P2pTransactionActionResponse](docs/P2pTransactionActionResponse.md)
+ - [P2pTransactionConvertInfo](docs/P2pTransactionConvertInfo.md)
+ - [P2pTransactionDetail](docs/P2pTransactionDetail.md)
+ - [P2pTransactionDetailResponse](docs/P2pTransactionDetailResponse.md)
+ - [P2pTransactionListItem](docs/P2pTransactionListItem.md)
+ - [P2pTransactionListResponse](docs/P2pTransactionListResponse.md)
+ - [P2pTransactionListResult](docs/P2pTransactionListResult.md)
+ - [P2pTransactionTimeMarker](docs/P2pTransactionTimeMarker.md)
+ - [P2pUploadChatFileResponse](docs/P2pUploadChatFileResponse.md)
+ - [P2pUploadChatFileResult](docs/P2pUploadChatFileResult.md)
+ - [PartnerApplication](docs/PartnerApplication.md)
+ - [PartnerApplicationResponse](docs/PartnerApplicationResponse.md)
+ - [PartnerApplicationResponseAllOf](docs/PartnerApplicationResponseAllOf.md)
  - [PartnerCommissionHistory](docs/PartnerCommissionHistory.md)
  - [PartnerSub](docs/PartnerSub.md)
  - [PartnerSubList](docs/PartnerSubList.md)
@@ -860,6 +968,7 @@ Class | Method | HTTP request | Description
  - [QuoteRequest](docs/QuoteRequest.md)
  - [QuoteResponse](docs/QuoteResponse.md)
  - [RebateUserInfo](docs/RebateUserInfo.md)
+ - [RedeemV4](docs/RedeemV4.md)
  - [RepayCurrencyRes](docs/RepayCurrencyRes.md)
  - [RepayMultiLoan](docs/RepayMultiLoan.md)
  - [RepayRecordCurrency](docs/RepayRecordCurrency.md)
@@ -906,19 +1015,25 @@ Class | Method | HTTP request | Description
  - [SymbolsDataList](docs/SymbolsDataList.md)
  - [SystemTime](docs/SystemTime.md)
  - [Ticker](docs/Ticker.md)
- - [Ticker2](docs/Ticker2.md)
- - [Ticker2Data](docs/Ticker2Data.md)
  - [Tokens](docs/Tokens.md)
  - [TotalBalance](docs/TotalBalance.md)
  - [TradFiClosePositionRequest](docs/TradFiClosePositionRequest.md)
+ - [TradFiError](docs/TradFiError.md)
  - [TradFiOrderRequest](docs/TradFiOrderRequest.md)
  - [TradFiOrderUpdateRequest](docs/TradFiOrderUpdateRequest.md)
  - [TradFiPositionUpdateRequest](docs/TradFiPositionUpdateRequest.md)
+ - [TradFiTicker](docs/TradFiTicker.md)
+ - [TradFiTickerData](docs/TradFiTickerData.md)
  - [TradFiTransactionRequest](docs/TradFiTransactionRequest.md)
  - [Trade](docs/Trade.md)
  - [TradeFee](docs/TradeFee.md)
  - [TrailChangeLog](docs/TrailChangeLog.md)
  - [TrailOrder](docs/TrailOrder.md)
+ - [TrailOrderChangeLogResponse](docs/TrailOrderChangeLogResponse.md)
+ - [TrailOrderDetailResponse](docs/TrailOrderDetailResponse.md)
+ - [TrailOrderListResponse](docs/TrailOrderListResponse.md)
+ - [TrailOrderResponse](docs/TrailOrderResponse.md)
+ - [TransactionConfig](docs/TransactionConfig.md)
  - [TransactionID](docs/TransactionID.md)
  - [TransactionList](docs/TransactionList.md)
  - [TransactionListData](docs/TransactionListData.md)
@@ -932,9 +1047,11 @@ Class | Method | HTTP request | Description
  - [UidPushOrder](docs/UidPushOrder.md)
  - [UidPushWithdrawal](docs/UidPushWithdrawal.md)
  - [UidPushWithdrawalResp](docs/UidPushWithdrawalResp.md)
+ - [UniChartPoint](docs/UniChartPoint.md)
  - [UniCurrency](docs/UniCurrency.md)
  - [UniCurrencyInterest](docs/UniCurrencyInterest.md)
  - [UniCurrencyPair](docs/UniCurrencyPair.md)
+ - [UniEstimatedRate](docs/UniEstimatedRate.md)
  - [UniInterestRecord](docs/UniInterestRecord.md)
  - [UniLend](docs/UniLend.md)
  - [UniLendInterest](docs/UniLendInterest.md)
@@ -945,7 +1062,6 @@ Class | Method | HTTP request | Description
  - [UnifiedAccount](docs/UnifiedAccount.md)
  - [UnifiedBalance](docs/UnifiedBalance.md)
  - [UnifiedBorrowable](docs/UnifiedBorrowable.md)
- - [UnifiedBorrowable1](docs/UnifiedBorrowable1.md)
  - [UnifiedCollateralReq](docs/UnifiedCollateralReq.md)
  - [UnifiedCollateralRes](docs/UnifiedCollateralRes.md)
  - [UnifiedCurrency](docs/UnifiedCurrency.md)
@@ -965,6 +1081,7 @@ Class | Method | HTTP request | Description
  - [UnifiedRiskUnits](docs/UnifiedRiskUnits.md)
  - [UnifiedSettings](docs/UnifiedSettings.md)
  - [UnifiedTransferable](docs/UnifiedTransferable.md)
+ - [UpdateDualCompPositionCrossModeRequest](docs/UpdateDualCompPositionCrossModeRequest.md)
  - [UpdateOrder](docs/UpdateOrder.md)
  - [UpdateOrderData](docs/UpdateOrderData.md)
  - [UpdatePosition](docs/UpdatePosition.md)

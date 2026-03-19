@@ -27,6 +27,14 @@ import io.gate.gateapi.models.DualGetPlans;
 import io.gate.gateapi.models.Eth2RateList;
 import io.gate.gateapi.models.Eth2Swap;
 import io.gate.gateapi.models.FindCoin;
+import io.gate.gateapi.models.FixedTermLendRequest;
+import io.gate.gateapi.models.InlineObject;
+import io.gate.gateapi.models.InlineResponse200;
+import io.gate.gateapi.models.InlineResponse2001;
+import io.gate.gateapi.models.InlineResponse2002;
+import io.gate.gateapi.models.InlineResponse2003;
+import io.gate.gateapi.models.InlineResponse2004;
+import io.gate.gateapi.models.InlineResponse2005;
 import io.gate.gateapi.models.OrderListStruct;
 import io.gate.gateapi.models.PlaceDualInvestmentOrder;
 import io.gate.gateapi.models.PlaceDualInvestmentOrderParams;
@@ -1990,6 +1998,1052 @@ public class EarnApi {
      */
     public APIassetListRequest assetList() {
         return new APIassetListRequest();
+    }
+
+    private okhttp3.Call listEarnFixedTermProductsCall(Integer page, Integer limit, String asset, Integer type, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/fixed-term/product";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (asset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asset", asset));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEarnFixedTermProductsValidateBeforeCall(Integer page, Integer limit, String asset, Integer type, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'page' is set
+        if (page == null) {
+            throw new ApiException("Missing the required parameter 'page' when calling listEarnFixedTermProducts(Async)");
+        }
+
+        // verify the required parameter 'limit' is set
+        if (limit == null) {
+            throw new ApiException("Missing the required parameter 'limit' when calling listEarnFixedTermProducts(Async)");
+        }
+
+        okhttp3.Call localVarCall = listEarnFixedTermProductsCall(page, limit, asset, type, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<InlineResponse200> listEarnFixedTermProductsWithHttpInfo(Integer page, Integer limit, String asset, Integer type) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listEarnFixedTermProductsAsync(Integer page, Integer limit, String asset, Integer type, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistEarnFixedTermProductsRequest {
+        private final Integer page;
+        private final Integer limit;
+        private String asset;
+        private Integer type;
+
+        private APIlistEarnFixedTermProductsRequest(Integer page, Integer limit) {
+            this.page = page;
+            this.limit = limit;
+        }
+
+        /**
+         * Set asset
+         * @param asset Currency (optional)
+         * @return APIlistEarnFixedTermProductsRequest
+         */
+        public APIlistEarnFixedTermProductsRequest asset(String asset) {
+            this.asset = asset;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Product type: 1 for regular, 2 for VIP (optional)
+         * @return APIlistEarnFixedTermProductsRequest
+         */
+        public APIlistEarnFixedTermProductsRequest type(Integer type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Build call for listEarnFixedTermProducts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEarnFixedTermProductsCall(page, limit, asset, type, _callback);
+        }
+
+        /**
+         * Execute listEarnFixedTermProducts request
+         * @return InlineResponse200
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public InlineResponse200 execute() throws ApiException {
+            ApiResponse<InlineResponse200> localVarResp = listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEarnFixedTermProducts request with HTTP info returned
+         * @return ApiResponse&lt;InlineResponse200&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<InlineResponse200> executeWithHttpInfo() throws ApiException {
+            return listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
+        }
+
+        /**
+         * Execute listEarnFixedTermProducts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse200> _callback) throws ApiException {
+            return listEarnFixedTermProductsAsync(page, limit, asset, type, _callback);
+        }
+    }
+
+    /**
+     * Get product list
+     * Query fixed-term earn product list. Supports filtering by currency, product type, status, etc. Returns product interest rate, lock-up period, quota, and reward campaign information
+     * @param page Page number (required)
+     * @param limit Page size (required)
+     * @return APIlistEarnFixedTermProductsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistEarnFixedTermProductsRequest listEarnFixedTermProducts(Integer page, Integer limit) {
+        return new APIlistEarnFixedTermProductsRequest(page, limit);
+    }
+
+    private okhttp3.Call listEarnFixedTermProductsByAssetCall(String asset, String type, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/fixed-term/product/{asset}/list"
+            .replaceAll("\\{" + "asset" + "\\}", localVarApiClient.escapeString(asset));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEarnFixedTermProductsByAssetValidateBeforeCall(String asset, String type, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'asset' is set
+        if (asset == null) {
+            throw new ApiException("Missing the required parameter 'asset' when calling listEarnFixedTermProductsByAsset(Async)");
+        }
+
+        okhttp3.Call localVarCall = listEarnFixedTermProductsByAssetCall(asset, type, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<InlineResponse2001> listEarnFixedTermProductsByAssetWithHttpInfo(String asset, String type) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermProductsByAssetValidateBeforeCall(asset, type, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listEarnFixedTermProductsByAssetAsync(String asset, String type, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermProductsByAssetValidateBeforeCall(asset, type, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistEarnFixedTermProductsByAssetRequest {
+        private final String asset;
+        private String type;
+
+        private APIlistEarnFixedTermProductsByAssetRequest(String asset) {
+            this.asset = asset;
+        }
+
+        /**
+         * Set type
+         * @param type Product type: \&quot;\&quot; or 1 for regular product list, 2 for VIP product list, 0 for all products (optional)
+         * @return APIlistEarnFixedTermProductsByAssetRequest
+         */
+        public APIlistEarnFixedTermProductsByAssetRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Build call for listEarnFixedTermProductsByAsset
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEarnFixedTermProductsByAssetCall(asset, type, _callback);
+        }
+
+        /**
+         * Execute listEarnFixedTermProductsByAsset request
+         * @return InlineResponse2001
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public InlineResponse2001 execute() throws ApiException {
+            ApiResponse<InlineResponse2001> localVarResp = listEarnFixedTermProductsByAssetWithHttpInfo(asset, type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEarnFixedTermProductsByAsset request with HTTP info returned
+         * @return ApiResponse&lt;InlineResponse2001&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<InlineResponse2001> executeWithHttpInfo() throws ApiException {
+            return listEarnFixedTermProductsByAssetWithHttpInfo(asset, type);
+        }
+
+        /**
+         * Execute listEarnFixedTermProductsByAsset request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+            return listEarnFixedTermProductsByAssetAsync(asset, type, _callback);
+        }
+    }
+
+    /**
+     * Get product list by single currency
+     * Sort by product term in ascending order
+     * @param asset Currency name, e.g., USDT, BTC (required)
+     * @return APIlistEarnFixedTermProductsByAssetRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistEarnFixedTermProductsByAssetRequest listEarnFixedTermProductsByAsset(String asset) {
+        return new APIlistEarnFixedTermProductsByAssetRequest(asset);
+    }
+
+    private okhttp3.Call listEarnFixedTermLendsCall(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/fixed-term/user/lend";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (productId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("product_id", productId));
+        }
+
+        if (orderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_id", orderId));
+        }
+
+        if (asset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asset", asset));
+        }
+
+        if (orderType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_type", orderType));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (subBusiness != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sub_business", subBusiness));
+        }
+
+        if (businessFilter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("business_filter", businessFilter));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEarnFixedTermLendsValidateBeforeCall(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'orderType' is set
+        if (orderType == null) {
+            throw new ApiException("Missing the required parameter 'orderType' when calling listEarnFixedTermLends(Async)");
+        }
+
+        // verify the required parameter 'page' is set
+        if (page == null) {
+            throw new ApiException("Missing the required parameter 'page' when calling listEarnFixedTermLends(Async)");
+        }
+
+        // verify the required parameter 'limit' is set
+        if (limit == null) {
+            throw new ApiException("Missing the required parameter 'limit' when calling listEarnFixedTermLends(Async)");
+        }
+
+        okhttp3.Call localVarCall = listEarnFixedTermLendsCall(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<InlineResponse2002> listEarnFixedTermLendsWithHttpInfo(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermLendsValidateBeforeCall(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listEarnFixedTermLendsAsync(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter, final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermLendsValidateBeforeCall(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistEarnFixedTermLendsRequest {
+        private final String orderType;
+        private final Integer page;
+        private final Integer limit;
+        private Integer productId;
+        private Long orderId;
+        private String asset;
+        private Integer subBusiness;
+        private String businessFilter;
+
+        private APIlistEarnFixedTermLendsRequest(String orderType, Integer page, Integer limit) {
+            this.orderType = orderType;
+            this.page = page;
+            this.limit = limit;
+        }
+
+        /**
+         * Set productId
+         * @param productId Product ID (optional)
+         * @return APIlistEarnFixedTermLendsRequest
+         */
+        public APIlistEarnFixedTermLendsRequest productId(Integer productId) {
+            this.productId = productId;
+            return this;
+        }
+
+        /**
+         * Set orderId
+         * @param orderId Order ID (optional)
+         * @return APIlistEarnFixedTermLendsRequest
+         */
+        public APIlistEarnFixedTermLendsRequest orderId(Long orderId) {
+            this.orderId = orderId;
+            return this;
+        }
+
+        /**
+         * Set asset
+         * @param asset Currency (optional)
+         * @return APIlistEarnFixedTermLendsRequest
+         */
+        public APIlistEarnFixedTermLendsRequest asset(String asset) {
+            this.asset = asset;
+            return this;
+        }
+
+        /**
+         * Set subBusiness
+         * @param subBusiness Sub-business (optional)
+         * @return APIlistEarnFixedTermLendsRequest
+         */
+        public APIlistEarnFixedTermLendsRequest subBusiness(Integer subBusiness) {
+            this.subBusiness = subBusiness;
+            return this;
+        }
+
+        /**
+         * Set businessFilter
+         * @param businessFilter Business filter conditions, JSON array format, e.g., [{\&quot;business\&quot;:1, \&quot;sub_business\&quot;: 0}]. business: 1 for regular, 2 for VIP (optional)
+         * @return APIlistEarnFixedTermLendsRequest
+         */
+        public APIlistEarnFixedTermLendsRequest businessFilter(String businessFilter) {
+            this.businessFilter = businessFilter;
+            return this;
+        }
+
+        /**
+         * Build call for listEarnFixedTermLends
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEarnFixedTermLendsCall(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, _callback);
+        }
+
+        /**
+         * Execute listEarnFixedTermLends request
+         * @return InlineResponse2002
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public InlineResponse2002 execute() throws ApiException {
+            ApiResponse<InlineResponse2002> localVarResp = listEarnFixedTermLendsWithHttpInfo(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEarnFixedTermLends request with HTTP info returned
+         * @return ApiResponse&lt;InlineResponse2002&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<InlineResponse2002> executeWithHttpInfo() throws ApiException {
+            return listEarnFixedTermLendsWithHttpInfo(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter);
+        }
+
+        /**
+         * Execute listEarnFixedTermLends request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+            return listEarnFixedTermLendsAsync(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, _callback);
+        }
+    }
+
+    /**
+     * Subscription list
+     * Query the user&#39;s fixed-term earn subscription order list. Supports filtering by product, currency, order type, etc. Returns order details, earnings, rewards, and interest rate boost coupon information
+     * @param orderType Order type: 1 for current orders, 2 for historical orders (required)
+     * @param page Page number (required)
+     * @param limit Page size (required)
+     * @return APIlistEarnFixedTermLendsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistEarnFixedTermLendsRequest listEarnFixedTermLends(String orderType, Integer page, Integer limit) {
+        return new APIlistEarnFixedTermLendsRequest(orderType, page, limit);
+    }
+
+    /**
+     * Build call for createEarnFixedTermLend
+     * @param fixedTermLendRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEarnFixedTermLendCall(FixedTermLendRequest fixedTermLendRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = fixedTermLendRequest;
+
+        // create path and map variables
+        String localVarPath = "/earn/fixed-term/user/lend";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEarnFixedTermLendValidateBeforeCall(FixedTermLendRequest fixedTermLendRequest, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermLendCall(fixedTermLendRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Subscription
+     * Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon
+     * @param fixedTermLendRequest  (optional)
+     * @return InlineResponse2003
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse2003 createEarnFixedTermLend(FixedTermLendRequest fixedTermLendRequest) throws ApiException {
+        ApiResponse<InlineResponse2003> localVarResp = createEarnFixedTermLendWithHttpInfo(fixedTermLendRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Subscription
+     * Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon
+     * @param fixedTermLendRequest  (optional)
+     * @return ApiResponse&lt;InlineResponse2003&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse2003> createEarnFixedTermLendWithHttpInfo(FixedTermLendRequest fixedTermLendRequest) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermLendValidateBeforeCall(fixedTermLendRequest, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Subscription (asynchronously)
+     * Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon
+     * @param fixedTermLendRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEarnFixedTermLendAsync(FixedTermLendRequest fixedTermLendRequest, final ApiCallback<InlineResponse2003> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermLendValidateBeforeCall(fixedTermLendRequest, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createEarnFixedTermPreRedeem
+     * @param inlineObject  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEarnFixedTermPreRedeemCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = inlineObject;
+
+        // create path and map variables
+        String localVarPath = "/earn/fixed-term/user/pre-redeem";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEarnFixedTermPreRedeemValidateBeforeCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemCall(inlineObject, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Redeem
+     * Early redemption of a fixed-term earn order, order ID is required
+     * @param inlineObject  (optional)
+     * @return InlineResponse2004
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public InlineResponse2004 createEarnFixedTermPreRedeem(InlineObject inlineObject) throws ApiException {
+        ApiResponse<InlineResponse2004> localVarResp = createEarnFixedTermPreRedeemWithHttpInfo(inlineObject);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Redeem
+     * Early redemption of a fixed-term earn order, order ID is required
+     * @param inlineObject  (optional)
+     * @return ApiResponse&lt;InlineResponse2004&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InlineResponse2004> createEarnFixedTermPreRedeemWithHttpInfo(InlineObject inlineObject) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemValidateBeforeCall(inlineObject, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Redeem (asynchronously)
+     * Early redemption of a fixed-term earn order, order ID is required
+     * @param inlineObject  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEarnFixedTermPreRedeemAsync(InlineObject inlineObject, final ApiCallback<InlineResponse2004> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemValidateBeforeCall(inlineObject, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listEarnFixedTermHistoryCall(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/fixed-term/user/history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (productId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("product_id", productId));
+        }
+
+        if (orderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_id", orderId));
+        }
+
+        if (asset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asset", asset));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (startAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_at", startAt));
+        }
+
+        if (endAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_at", endAt));
+        }
+
+        if (subBusiness != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sub_business", subBusiness));
+        }
+
+        if (businessFilter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("business_filter", businessFilter));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEarnFixedTermHistoryValidateBeforeCall(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling listEarnFixedTermHistory(Async)");
+        }
+
+        // verify the required parameter 'page' is set
+        if (page == null) {
+            throw new ApiException("Missing the required parameter 'page' when calling listEarnFixedTermHistory(Async)");
+        }
+
+        // verify the required parameter 'limit' is set
+        if (limit == null) {
+            throw new ApiException("Missing the required parameter 'limit' when calling listEarnFixedTermHistory(Async)");
+        }
+
+        okhttp3.Call localVarCall = listEarnFixedTermHistoryCall(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<InlineResponse2005> listEarnFixedTermHistoryWithHttpInfo(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermHistoryValidateBeforeCall(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listEarnFixedTermHistoryAsync(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter, final ApiCallback<InlineResponse2005> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermHistoryValidateBeforeCall(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, _callback);
+        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistEarnFixedTermHistoryRequest {
+        private final String type;
+        private final Integer page;
+        private final Integer limit;
+        private Integer productId;
+        private String orderId;
+        private String asset;
+        private Integer startAt;
+        private Integer endAt;
+        private Integer subBusiness;
+        private String businessFilter;
+
+        private APIlistEarnFixedTermHistoryRequest(String type, Integer page, Integer limit) {
+            this.type = type;
+            this.page = page;
+            this.limit = limit;
+        }
+
+        /**
+         * Set productId
+         * @param productId Product ID (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest productId(Integer productId) {
+            this.productId = productId;
+            return this;
+        }
+
+        /**
+         * Set orderId
+         * @param orderId Order ID (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest orderId(String orderId) {
+            this.orderId = orderId;
+            return this;
+        }
+
+        /**
+         * Set asset
+         * @param asset Currency (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest asset(String asset) {
+            this.asset = asset;
+            return this;
+        }
+
+        /**
+         * Set startAt
+         * @param startAt Start timestamp (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest startAt(Integer startAt) {
+            this.startAt = startAt;
+            return this;
+        }
+
+        /**
+         * Set endAt
+         * @param endAt End Timestamp (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest endAt(Integer endAt) {
+            this.endAt = endAt;
+            return this;
+        }
+
+        /**
+         * Set subBusiness
+         * @param subBusiness Sub-business (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest subBusiness(Integer subBusiness) {
+            this.subBusiness = subBusiness;
+            return this;
+        }
+
+        /**
+         * Set businessFilter
+         * @param businessFilter Business filter conditions, JSON array format, e.g., [{\&quot;business\&quot;:1, \&quot;sub_business\&quot;: 0}]. business: 1 for regular, 2 for VIP (optional)
+         * @return APIlistEarnFixedTermHistoryRequest
+         */
+        public APIlistEarnFixedTermHistoryRequest businessFilter(String businessFilter) {
+            this.businessFilter = businessFilter;
+            return this;
+        }
+
+        /**
+         * Build call for listEarnFixedTermHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEarnFixedTermHistoryCall(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, _callback);
+        }
+
+        /**
+         * Execute listEarnFixedTermHistory request
+         * @return InlineResponse2005
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public InlineResponse2005 execute() throws ApiException {
+            ApiResponse<InlineResponse2005> localVarResp = listEarnFixedTermHistoryWithHttpInfo(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEarnFixedTermHistory request with HTTP info returned
+         * @return ApiResponse&lt;InlineResponse2005&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<InlineResponse2005> executeWithHttpInfo() throws ApiException {
+            return listEarnFixedTermHistoryWithHttpInfo(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter);
+        }
+
+        /**
+         * Execute listEarnFixedTermHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2005> _callback) throws ApiException {
+            return listEarnFixedTermHistoryAsync(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, _callback);
+        }
+    }
+
+    /**
+     * Subscription history
+     * Query the user&#39;s fixed-term earn history records. Supports filtering by type (subscription, redemption, interest, bonus rewards) and time range
+     * @param type 1 for subscription, 2 for redemption, 3 for interest, 4 for bonus reward (required)
+     * @param page Page number (required)
+     * @param limit Page size (required)
+     * @return APIlistEarnFixedTermHistoryRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistEarnFixedTermHistoryRequest listEarnFixedTermHistory(String type, Integer page, Integer limit) {
+        return new APIlistEarnFixedTermHistoryRequest(type, page, limit);
     }
 
 }

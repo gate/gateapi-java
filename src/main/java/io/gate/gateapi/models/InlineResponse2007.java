@@ -17,42 +17,121 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse2007Data;
 import java.io.IOException;
 
 /**
  * InlineResponse2007
  */
 public class InlineResponse2007 {
+    /**
+     * Response code. &#x60;0&#x60; &#x3D; success; &#x60;2002&#x60; &#x3D; user not logged in; &#x60;50105&#x60; &#x3D; parameter validation failed; &#x60;10001&#x60; &#x3D; coupon record does not exist or does not belong to current user; &#x60;10000&#x60; &#x3D; invalid parameter (e.g., task coupon missing coupon_info)
+     */
+    @JsonAdapter(CodeEnum.Adapter.class)
+    public enum CodeEnum {
+        NUMBER_0(0),
+        
+        NUMBER_2002(2002),
+        
+        NUMBER_50105(50105),
+        
+        NUMBER_10001(10001),
+        
+        NUMBER_10000(10000);
+
+        private Integer value;
+
+        CodeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CodeEnum fromValue(Integer value) {
+            for (CodeEnum b : CodeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<CodeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CodeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CodeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return CodeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
+    private CodeEnum code;
+
+    public static final String SERIALIZED_NAME_LABEL = "label";
+    @SerializedName(SERIALIZED_NAME_LABEL)
+    private String label;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Integer timestamp;
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse2007Data data;
 
 
-    public InlineResponse2007 code(Integer code) {
+    public InlineResponse2007 code(CodeEnum code) {
         
         this.code = code;
         return this;
     }
 
      /**
-     * Get code
+     * Response code. &#x60;0&#x60; &#x3D; success; &#x60;2002&#x60; &#x3D; user not logged in; &#x60;50105&#x60; &#x3D; parameter validation failed; &#x60;10001&#x60; &#x3D; coupon record does not exist or does not belong to current user; &#x60;10000&#x60; &#x3D; invalid parameter (e.g., task coupon missing coupon_info)
      * @return code
     **/
-    public Integer getCode() {
+    @javax.annotation.Nullable
+    public CodeEnum getCode() {
         return code;
     }
 
 
-    public void setCode(Integer code) {
+    public void setCode(CodeEnum code) {
         this.code = code;
+    }
+
+    public InlineResponse2007 label(String label) {
+        
+        this.label = label;
+        return this;
+    }
+
+     /**
+     * Error identifier code. Empty string on success, machine-readable error label on error
+     * @return label
+    **/
+    @javax.annotation.Nullable
+    public String getLabel() {
+        return label;
+    }
+
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public InlineResponse2007 message(String message) {
@@ -65,6 +144,7 @@ public class InlineResponse2007 {
      * Get message
      * @return message
     **/
+    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -74,23 +154,24 @@ public class InlineResponse2007 {
         this.message = message;
     }
 
-    public InlineResponse2007 timestamp(Integer timestamp) {
+    public InlineResponse2007 data(InlineResponse2007Data data) {
         
-        this.timestamp = timestamp;
+        this.data = data;
         return this;
     }
 
      /**
-     * Get timestamp
-     * @return timestamp
+     * Get data
+     * @return data
     **/
-    public Integer getTimestamp() {
-        return timestamp;
+    @javax.annotation.Nullable
+    public InlineResponse2007Data getData() {
+        return data;
     }
 
 
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
+    public void setData(InlineResponse2007Data data) {
+        this.data = data;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -102,13 +183,14 @@ public class InlineResponse2007 {
         }
         InlineResponse2007 inlineResponse2007 = (InlineResponse2007) o;
         return Objects.equals(this.code, inlineResponse2007.code) &&
+                Objects.equals(this.label, inlineResponse2007.label) &&
                 Objects.equals(this.message, inlineResponse2007.message) &&
-                Objects.equals(this.timestamp, inlineResponse2007.timestamp);
+                Objects.equals(this.data, inlineResponse2007.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, timestamp);
+        return Objects.hash(code, label, message, data);
     }
 
 
@@ -117,8 +199,9 @@ public class InlineResponse2007 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2007 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      label: ").append(toIndentedString(label)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.FuturesOrderBookItem1;
+import io.gate.gateapi.models.DeliveryOrderBookItem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +40,11 @@ public class OptionsOrderBook {
 
     public static final String SERIALIZED_NAME_ASKS = "asks";
     @SerializedName(SERIALIZED_NAME_ASKS)
-    private List<FuturesOrderBookItem1> asks = new ArrayList<>();
+    private List<DeliveryOrderBookItem> asks = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_BIDS = "bids";
     @SerializedName(SERIALIZED_NAME_BIDS)
-    private List<FuturesOrderBookItem1> bids = new ArrayList<>();
+    private List<DeliveryOrderBookItem> bids = new ArrayList<>();
 
 
     public OptionsOrderBook id(Long id) {
@@ -107,13 +107,13 @@ public class OptionsOrderBook {
         this.update = update;
     }
 
-    public OptionsOrderBook asks(List<FuturesOrderBookItem1> asks) {
+    public OptionsOrderBook asks(List<DeliveryOrderBookItem> asks) {
         
         this.asks = asks;
         return this;
     }
 
-    public OptionsOrderBook addAsksItem(FuturesOrderBookItem1 asksItem) {
+    public OptionsOrderBook addAsksItem(DeliveryOrderBookItem asksItem) {
         this.asks.add(asksItem);
         return this;
     }
@@ -122,22 +122,22 @@ public class OptionsOrderBook {
      * Ask Depth
      * @return asks
     **/
-    public List<FuturesOrderBookItem1> getAsks() {
+    public List<DeliveryOrderBookItem> getAsks() {
         return asks;
     }
 
 
-    public void setAsks(List<FuturesOrderBookItem1> asks) {
+    public void setAsks(List<DeliveryOrderBookItem> asks) {
         this.asks = asks;
     }
 
-    public OptionsOrderBook bids(List<FuturesOrderBookItem1> bids) {
+    public OptionsOrderBook bids(List<DeliveryOrderBookItem> bids) {
         
         this.bids = bids;
         return this;
     }
 
-    public OptionsOrderBook addBidsItem(FuturesOrderBookItem1 bidsItem) {
+    public OptionsOrderBook addBidsItem(DeliveryOrderBookItem bidsItem) {
         this.bids.add(bidsItem);
         return this;
     }
@@ -146,12 +146,12 @@ public class OptionsOrderBook {
      * Bid Depth
      * @return bids
     **/
-    public List<FuturesOrderBookItem1> getBids() {
+    public List<DeliveryOrderBookItem> getBids() {
         return bids;
     }
 
 
-    public void setBids(List<FuturesOrderBookItem1> bids) {
+    public void setBids(List<DeliveryOrderBookItem> bids) {
         this.bids = bids;
     }
     @Override

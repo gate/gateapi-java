@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 <a name="p2pMerchantAccountGetUserInfo"></a>
 # **p2pMerchantAccountGetUserInfo**
-> InlineResponse20014 p2pMerchantAccountGetUserInfo()
+> P2pMerchantUserInfoResponse p2pMerchantAccountGetUserInfo()
 
 Get account information
 
@@ -51,7 +51,7 @@ public class Example {
 
         P2pApi apiInstance = new P2pApi(defaultClient);
         try {
-            InlineResponse20014 result = apiInstance.p2pMerchantAccountGetUserInfo();
+            P2pMerchantUserInfoResponse result = apiInstance.p2pMerchantAccountGetUserInfo();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -71,7 +71,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**P2pMerchantUserInfoResponse**](P2pMerchantUserInfoResponse.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ This endpoint does not need any parameter.
 
 <a name="p2pMerchantAccountGetCounterpartyUserInfo"></a>
 # **p2pMerchantAccountGetCounterpartyUserInfo**
-> InlineResponse20015 p2pMerchantAccountGetCounterpartyUserInfo(getCounterpartyUserInfoRequest)
+> P2pCounterpartyUserInfoResponse p2pMerchantAccountGetCounterpartyUserInfo(getCounterpartyUserInfoRequest)
 
 Get counterparty information
 
@@ -116,7 +116,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest = new GetCounterpartyUserInfoRequest(); // GetCounterpartyUserInfoRequest | 
         try {
-            InlineResponse20015 result = apiInstance.p2pMerchantAccountGetCounterpartyUserInfo(getCounterpartyUserInfoRequest);
+            P2pCounterpartyUserInfoResponse result = apiInstance.p2pMerchantAccountGetCounterpartyUserInfo(getCounterpartyUserInfoRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**P2pCounterpartyUserInfoResponse**](P2pCounterpartyUserInfoResponse.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantAccountGetMyselfPayment"></a>
 # **p2pMerchantAccountGetMyselfPayment**
-> InlineResponse20016 p2pMerchantAccountGetMyselfPayment(getMyselfPaymentRequest)
+> P2pPaymentMethodsResponse p2pMerchantAccountGetMyselfPayment(getMyselfPaymentRequest)
 
 Get payment method list
 
@@ -184,7 +184,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         GetMyselfPaymentRequest getMyselfPaymentRequest = new GetMyselfPaymentRequest(); // GetMyselfPaymentRequest | 
         try {
-            InlineResponse20016 result = apiInstance.p2pMerchantAccountGetMyselfPayment(getMyselfPaymentRequest);
+            P2pPaymentMethodsResponse result = apiInstance.p2pMerchantAccountGetMyselfPayment(getMyselfPaymentRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**P2pPaymentMethodsResponse**](P2pPaymentMethodsResponse.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantTransactionGetPendingTransactionList"></a>
 # **p2pMerchantTransactionGetPendingTransactionList**
-> InlineResponse20017 p2pMerchantTransactionGetPendingTransactionList(getPendingTransactionListRequest)
+> P2pTransactionListResponse p2pMerchantTransactionGetPendingTransactionList(getPendingTransactionListRequest)
 
 Get pending orders
 
@@ -252,7 +252,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         GetPendingTransactionListRequest getPendingTransactionListRequest = new GetPendingTransactionListRequest(); // GetPendingTransactionListRequest | 
         try {
-            InlineResponse20017 result = apiInstance.p2pMerchantTransactionGetPendingTransactionList(getPendingTransactionListRequest);
+            P2pTransactionListResponse result = apiInstance.p2pMerchantTransactionGetPendingTransactionList(getPendingTransactionListRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**P2pTransactionListResponse**](P2pTransactionListResponse.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantTransactionGetCompletedTransactionList"></a>
 # **p2pMerchantTransactionGetCompletedTransactionList**
-> InlineResponse20017 p2pMerchantTransactionGetCompletedTransactionList(getCompletedTransactionListRequest)
+> P2pTransactionListResponse p2pMerchantTransactionGetCompletedTransactionList(getCompletedTransactionListRequest)
 
 Get all/historical orders
 
@@ -320,7 +320,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         GetCompletedTransactionListRequest getCompletedTransactionListRequest = new GetCompletedTransactionListRequest(); // GetCompletedTransactionListRequest | 
         try {
-            InlineResponse20017 result = apiInstance.p2pMerchantTransactionGetCompletedTransactionList(getCompletedTransactionListRequest);
+            P2pTransactionListResponse result = apiInstance.p2pMerchantTransactionGetCompletedTransactionList(getCompletedTransactionListRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**P2pTransactionListResponse**](P2pTransactionListResponse.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantTransactionGetTransactionDetails"></a>
 # **p2pMerchantTransactionGetTransactionDetails**
-> InlineResponse20018 p2pMerchantTransactionGetTransactionDetails(getTransactionDetailsRequest)
+> P2pTransactionDetailResponse p2pMerchantTransactionGetTransactionDetails(getTransactionDetailsRequest)
 
 Query order details
 
@@ -388,7 +388,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         GetTransactionDetailsRequest getTransactionDetailsRequest = new GetTransactionDetailsRequest(); // GetTransactionDetailsRequest | 
         try {
-            InlineResponse20018 result = apiInstance.p2pMerchantTransactionGetTransactionDetails(getTransactionDetailsRequest);
+            P2pTransactionDetailResponse result = apiInstance.p2pMerchantTransactionGetTransactionDetails(getTransactionDetailsRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**P2pTransactionDetailResponse**](P2pTransactionDetailResponse.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantTransactionConfirmPayment"></a>
 # **p2pMerchantTransactionConfirmPayment**
-> InlineResponse20019 p2pMerchantTransactionConfirmPayment(confirmPayment)
+> P2pTransactionActionResponse p2pMerchantTransactionConfirmPayment(confirmPayment)
 
 Confirm payment
 
@@ -456,7 +456,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         ConfirmPayment confirmPayment = new ConfirmPayment(); // ConfirmPayment | 
         try {
-            InlineResponse20019 result = apiInstance.p2pMerchantTransactionConfirmPayment(confirmPayment);
+            P2pTransactionActionResponse result = apiInstance.p2pMerchantTransactionConfirmPayment(confirmPayment);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**P2pTransactionActionResponse**](P2pTransactionActionResponse.md)
 
 ### Authorization
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantTransactionConfirmReceipt"></a>
 # **p2pMerchantTransactionConfirmReceipt**
-> InlineResponse20019 p2pMerchantTransactionConfirmReceipt(confirmReceipt)
+> P2pTransactionActionResponse p2pMerchantTransactionConfirmReceipt(confirmReceipt)
 
 Confirm receipt
 
@@ -524,7 +524,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         ConfirmReceipt confirmReceipt = new ConfirmReceipt(); // ConfirmReceipt | 
         try {
-            InlineResponse20019 result = apiInstance.p2pMerchantTransactionConfirmReceipt(confirmReceipt);
+            P2pTransactionActionResponse result = apiInstance.p2pMerchantTransactionConfirmReceipt(confirmReceipt);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**P2pTransactionActionResponse**](P2pTransactionActionResponse.md)
 
 ### Authorization
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantTransactionCancel"></a>
 # **p2pMerchantTransactionCancel**
-> InlineResponse20019 p2pMerchantTransactionCancel(cancelOrder)
+> P2pTransactionActionResponse p2pMerchantTransactionCancel(cancelOrder)
 
 Cancel order
 
@@ -592,7 +592,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         CancelOrder cancelOrder = new CancelOrder(); // CancelOrder | 
         try {
-            InlineResponse20019 result = apiInstance.p2pMerchantTransactionCancel(cancelOrder);
+            P2pTransactionActionResponse result = apiInstance.p2pMerchantTransactionCancel(cancelOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**P2pTransactionActionResponse**](P2pTransactionActionResponse.md)
 
 ### Authorization
 
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantBooksAdsUpdateStatus"></a>
 # **p2pMerchantBooksAdsUpdateStatus**
-> InlineResponse20020 p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus, tradeType)
+> P2pAdsUpdateStatusResponse p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus, tradeType)
 
 Update ad status
 
@@ -729,7 +729,7 @@ public class Example {
         AdsUpdateStatus adsUpdateStatus = new AdsUpdateStatus(); // AdsUpdateStatus | 
         String tradeType = "sell"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         try {
-            InlineResponse20020 result = apiInstance.p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus, tradeType);
+            P2pAdsUpdateStatusResponse result = apiInstance.p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus, tradeType);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -753,7 +753,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**P2pAdsUpdateStatusResponse**](P2pAdsUpdateStatusResponse.md)
 
 ### Authorization
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantBooksAdsDetail"></a>
 # **p2pMerchantBooksAdsDetail**
-> InlineResponse20021 p2pMerchantBooksAdsDetail(adsDetailRequest)
+> P2pAdDetailResponse p2pMerchantBooksAdsDetail(adsDetailRequest)
 
 Query ad details
 
@@ -798,7 +798,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         AdsDetailRequest adsDetailRequest = new AdsDetailRequest(); // AdsDetailRequest | 
         try {
-            InlineResponse20021 result = apiInstance.p2pMerchantBooksAdsDetail(adsDetailRequest);
+            P2pAdDetailResponse result = apiInstance.p2pMerchantBooksAdsDetail(adsDetailRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**P2pAdDetailResponse**](P2pAdDetailResponse.md)
 
 ### Authorization
 
@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantBooksMyAdsList"></a>
 # **p2pMerchantBooksMyAdsList**
-> InlineResponse20022 p2pMerchantBooksMyAdsList(myAdsListRequest)
+> P2pMyAdsListResponse p2pMerchantBooksMyAdsList(myAdsListRequest)
 
 Get my ad list
 
@@ -866,7 +866,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         MyAdsListRequest myAdsListRequest = new MyAdsListRequest(); // MyAdsListRequest | 
         try {
-            InlineResponse20022 result = apiInstance.p2pMerchantBooksMyAdsList(myAdsListRequest);
+            P2pMyAdsListResponse result = apiInstance.p2pMerchantBooksMyAdsList(myAdsListRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -889,7 +889,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**P2pMyAdsListResponse**](P2pMyAdsListResponse.md)
 
 ### Authorization
 
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantBooksAdsList"></a>
 # **p2pMerchantBooksAdsList**
-> InlineResponse20023 p2pMerchantBooksAdsList(adsListRequest)
+> P2pAdsListResponse p2pMerchantBooksAdsList(adsListRequest)
 
 Get Advertisement List
 
@@ -936,7 +936,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         AdsListRequest adsListRequest = new AdsListRequest(); // AdsListRequest | 
         try {
-            InlineResponse20023 result = apiInstance.p2pMerchantBooksAdsList(adsListRequest);
+            P2pAdsListResponse result = apiInstance.p2pMerchantBooksAdsList(adsListRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -959,7 +959,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**P2pAdsListResponse**](P2pAdsListResponse.md)
 
 ### Authorization
 
@@ -977,7 +977,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantChatGetChatsList"></a>
 # **p2pMerchantChatGetChatsList**
-> InlineResponse20024 p2pMerchantChatGetChatsList(getChatsListRequest)
+> P2pChatListResponse p2pMerchantChatGetChatsList(getChatsListRequest)
 
 Get chat history
 
@@ -1004,7 +1004,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         GetChatsListRequest getChatsListRequest = new GetChatsListRequest(); // GetChatsListRequest | 
         try {
-            InlineResponse20024 result = apiInstance.p2pMerchantChatGetChatsList(getChatsListRequest);
+            P2pChatListResponse result = apiInstance.p2pMerchantChatGetChatsList(getChatsListRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1027,7 +1027,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**P2pChatListResponse**](P2pChatListResponse.md)
 
 ### Authorization
 
@@ -1045,7 +1045,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantChatSendChatMessage"></a>
 # **p2pMerchantChatSendChatMessage**
-> InlineResponse20025 p2pMerchantChatSendChatMessage(sendChatMessageRequest)
+> P2pSendChatMessageResponse p2pMerchantChatSendChatMessage(sendChatMessageRequest)
 
 Send text message
 
@@ -1072,7 +1072,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         SendChatMessageRequest sendChatMessageRequest = new SendChatMessageRequest(); // SendChatMessageRequest | 
         try {
-            InlineResponse20025 result = apiInstance.p2pMerchantChatSendChatMessage(sendChatMessageRequest);
+            P2pSendChatMessageResponse result = apiInstance.p2pMerchantChatSendChatMessage(sendChatMessageRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1095,7 +1095,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**P2pSendChatMessageResponse**](P2pSendChatMessageResponse.md)
 
 ### Authorization
 
@@ -1113,7 +1113,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantChatUploadChatFile"></a>
 # **p2pMerchantChatUploadChatFile**
-> InlineResponse20026 p2pMerchantChatUploadChatFile(uploadChatFile)
+> P2pUploadChatFileResponse p2pMerchantChatUploadChatFile(uploadChatFile)
 
 Upload chat file
 
@@ -1140,7 +1140,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         UploadChatFile uploadChatFile = new UploadChatFile(); // UploadChatFile | 
         try {
-            InlineResponse20026 result = apiInstance.p2pMerchantChatUploadChatFile(uploadChatFile);
+            P2pUploadChatFileResponse result = apiInstance.p2pMerchantChatUploadChatFile(uploadChatFile);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1163,7 +1163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**P2pUploadChatFileResponse**](P2pUploadChatFileResponse.md)
 
 ### Authorization
 

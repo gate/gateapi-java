@@ -17,36 +17,104 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.TrailOrder;
+import io.gate.gateapi.models.InlineResponse200Data;
 import java.io.IOException;
 
 /**
  * InlineResponse200
  */
 public class InlineResponse200 {
-    public static final String SERIALIZED_NAME_ORDER = "order";
-    @SerializedName(SERIALIZED_NAME_ORDER)
-    private TrailOrder order;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse200Data data;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
 
 
-    public InlineResponse200 order(TrailOrder order) {
+    public InlineResponse200 code(Integer code) {
         
-        this.order = order;
+        this.code = code;
         return this;
     }
 
      /**
-     * Get order
-     * @return order
+     * Return code, 0 means success
+     * @return code
     **/
-    @javax.annotation.Nullable
-    public TrailOrder getOrder() {
-        return order;
+    public Integer getCode() {
+        return code;
     }
 
 
-    public void setOrder(TrailOrder order) {
-        this.order = order;
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public InlineResponse200 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Response message
+     * @return message
+    **/
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public InlineResponse200 data(InlineResponse200Data data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Get data
+     * @return data
+    **/
+    public InlineResponse200Data getData() {
+        return data;
+    }
+
+
+    public void setData(InlineResponse200Data data) {
+        this.data = data;
+    }
+
+    public InlineResponse200 timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Response timestamp (in seconds)
+     * @return timestamp
+    **/
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,12 +125,15 @@ public class InlineResponse200 {
             return false;
         }
         InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-        return Objects.equals(this.order, inlineResponse200.order);
+        return Objects.equals(this.code, inlineResponse200.code) &&
+                Objects.equals(this.message, inlineResponse200.message) &&
+                Objects.equals(this.data, inlineResponse200.data) &&
+                Objects.equals(this.timestamp, inlineResponse200.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(order);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -70,7 +141,10 @@ public class InlineResponse200 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse200 {\n");
-        sb.append("      order: ").append(toIndentedString(order)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

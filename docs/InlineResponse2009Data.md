@@ -5,11 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Bank ID (required for order placement) | 
-**bankAccountName** | **String** |  | 
-**bankName** | **String** |  | 
-**bankCountry** | **String** |  | 
-**bankAddress** | **String** |  | 
-**bankCode** | **String** |  | 
-**branchCode** | **String** |  | 
+**list** | [**List&lt;InlineResponse2009DataList&gt;**](InlineResponse2009DataList.md) | Live stream/replay list |  [optional]
 

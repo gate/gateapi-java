@@ -5,5 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**order** | [**TrailOrder**](TrailOrder.md) |  |  [optional]
+**code** | **Integer** | Return code, 0 means success | 
+**message** | **String** | Response message | 
+**data** | [**InlineResponse200Data**](InlineResponse200Data.md) |  | 
+**timestamp** | **Integer** | Response timestamp (in seconds) | 
 

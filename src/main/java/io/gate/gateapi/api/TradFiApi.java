@@ -26,7 +26,6 @@ import io.gate.gateapi.models.CreateOrder;
 import io.gate.gateapi.models.CreateTransaction;
 import io.gate.gateapi.models.CreateUserResp;
 import io.gate.gateapi.models.DeletePosition;
-import io.gate.gateapi.models.Error;
 import io.gate.gateapi.models.Klines;
 import io.gate.gateapi.models.Mt5Account;
 import io.gate.gateapi.models.OrderHistoryList;
@@ -34,11 +33,12 @@ import io.gate.gateapi.models.OrderList;
 import io.gate.gateapi.models.PositionHistoryList;
 import io.gate.gateapi.models.PositionList;
 import io.gate.gateapi.models.Symbols;
-import io.gate.gateapi.models.Ticker2;
 import io.gate.gateapi.models.TradFiClosePositionRequest;
+import io.gate.gateapi.models.TradFiError;
 import io.gate.gateapi.models.TradFiOrderRequest;
 import io.gate.gateapi.models.TradFiOrderUpdateRequest;
 import io.gate.gateapi.models.TradFiPositionUpdateRequest;
+import io.gate.gateapi.models.TradFiTicker;
 import io.gate.gateapi.models.TradFiTransactionRequest;
 import io.gate.gateapi.models.TransactionList;
 import io.gate.gateapi.models.UpdateOrder;
@@ -748,7 +748,7 @@ public class TradFiApi {
      * Query trading symbol ticker
      * 
      * @param symbol Trading symbol code (required)
-     * @return Ticker2
+     * @return TradFiTicker
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -757,8 +757,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public Ticker2 querySymbolTicker(String symbol) throws ApiException {
-        ApiResponse<Ticker2> localVarResp = querySymbolTickerWithHttpInfo(symbol);
+    public TradFiTicker querySymbolTicker(String symbol) throws ApiException {
+        ApiResponse<TradFiTicker> localVarResp = querySymbolTickerWithHttpInfo(symbol);
         return localVarResp.getData();
     }
 
@@ -766,7 +766,7 @@ public class TradFiApi {
      * Query trading symbol ticker
      * 
      * @param symbol Trading symbol code (required)
-     * @return ApiResponse&lt;Ticker2&gt;
+     * @return ApiResponse&lt;TradFiTicker&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -775,9 +775,9 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Ticker2> querySymbolTickerWithHttpInfo(String symbol) throws ApiException {
+    public ApiResponse<TradFiTicker> querySymbolTickerWithHttpInfo(String symbol) throws ApiException {
         okhttp3.Call localVarCall = querySymbolTickerValidateBeforeCall(symbol, null);
-        Type localVarReturnType = new TypeToken<Ticker2>(){}.getType();
+        Type localVarReturnType = new TypeToken<TradFiTicker>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -795,9 +795,9 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call querySymbolTickerAsync(String symbol, final ApiCallback<Ticker2> _callback) throws ApiException {
+    public okhttp3.Call querySymbolTickerAsync(String symbol, final ApiCallback<TradFiTicker> _callback) throws ApiException {
         okhttp3.Call localVarCall = querySymbolTickerValidateBeforeCall(symbol, _callback);
-        Type localVarReturnType = new TypeToken<Ticker2>(){}.getType();
+        Type localVarReturnType = new TypeToken<TradFiTicker>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

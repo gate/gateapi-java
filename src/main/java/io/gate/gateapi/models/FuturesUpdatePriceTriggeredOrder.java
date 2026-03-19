@@ -29,7 +29,7 @@ public class FuturesUpdatePriceTriggeredOrder {
 
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private Integer orderId;
+    private Long orderId;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
@@ -125,7 +125,7 @@ public class FuturesUpdatePriceTriggeredOrder {
         this.settle = settle;
     }
 
-    public FuturesUpdatePriceTriggeredOrder orderId(Integer orderId) {
+    public FuturesUpdatePriceTriggeredOrder orderId(Long orderId) {
         
         this.orderId = orderId;
         return this;
@@ -135,12 +135,12 @@ public class FuturesUpdatePriceTriggeredOrder {
      * ID of the Pending Take-Profit/Stop-Loss Trigger Order
      * @return orderId
     **/
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

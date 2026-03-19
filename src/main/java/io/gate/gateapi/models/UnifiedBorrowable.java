@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * UnifiedBorrowable
+ * 统一账户最多可借入额度
  */
 public class UnifiedBorrowable {
     public static final String SERIALIZED_NAME_CURRENCY = "currency";

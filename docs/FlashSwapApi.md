@@ -9,6 +9,12 @@ Method | HTTP request | Description
 [**createFlashSwapOrder**](FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
 [**getFlashSwapOrder**](FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
 [**previewFlashSwapOrder**](FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Flash swap order preview
+[**createFlashSwapMultiCurrencyManyToOneOrder**](FlashSwapApi.md#createFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash-swap/multi-currency/many-to-one/order/create | Flash Swap - Multi-currency exchange - Place order (many-to-one)
+[**previewFlashSwapMultiCurrencyManyToOneOrder**](FlashSwapApi.md#previewFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash-swap/multi-currency/many-to-one/order/preview | Flash Swap - Multi-currency exchange - Preview (many-to-one)
+[**createFlashSwapOrderV1**](FlashSwapApi.md#createFlashSwapOrderV1) | **POST** /flash-swap/order/create | Flash Swap - Place order (one-to-one)
+[**createFlashSwapMultiCurrencyOneToManyOrder**](FlashSwapApi.md#createFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash-swap/multi-currency/one-to-many/order/create | Flash Swap - Multi-currency exchange - Place order (one-to-many)
+[**previewFlashSwapMultiCurrencyOneToManyOrder**](FlashSwapApi.md#previewFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash-swap/multi-currency/one-to-many/order/preview | Flash Swap - Multi-currency exchange - Preview (one-to-many)
+[**previewFlashSwapOrderV1**](FlashSwapApi.md#previewFlashSwapOrderV1) | **GET** /flash-swap/order/preview | Flash Swap - Preview (one-to-one)
 
 
 <a name="listFlashSwapCurrencyPair"></a>
@@ -375,4 +381,445 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Flash swap order preview successful |  -  |
+
+<a name="createFlashSwapMultiCurrencyManyToOneOrder"></a>
+# **createFlashSwapMultiCurrencyManyToOneOrder**
+> FlashSwapMultiCurrencyManyToOneOrderCreateResp createFlashSwapMultiCurrencyManyToOneOrder(flashSwapMultiCurrencyManyToOneOrderCreateReq)
+
+Flash Swap - Multi-currency exchange - Place order (many-to-one)
+
+Create a multi-currency to single target currency exchange order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        FlashSwapMultiCurrencyManyToOneOrderCreateReq flashSwapMultiCurrencyManyToOneOrderCreateReq = new FlashSwapMultiCurrencyManyToOneOrderCreateReq(); // FlashSwapMultiCurrencyManyToOneOrderCreateReq | 
+        try {
+            FlashSwapMultiCurrencyManyToOneOrderCreateResp result = apiInstance.createFlashSwapMultiCurrencyManyToOneOrder(flashSwapMultiCurrencyManyToOneOrderCreateReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#createFlashSwapMultiCurrencyManyToOneOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flashSwapMultiCurrencyManyToOneOrderCreateReq** | [**FlashSwapMultiCurrencyManyToOneOrderCreateReq**](FlashSwapMultiCurrencyManyToOneOrderCreateReq.md)|  |
+
+### Return type
+
+[**FlashSwapMultiCurrencyManyToOneOrderCreateResp**](FlashSwapMultiCurrencyManyToOneOrderCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+<a name="previewFlashSwapMultiCurrencyManyToOneOrder"></a>
+# **previewFlashSwapMultiCurrencyManyToOneOrder**
+> FlashSwapMultiCurrencyManyToOneOrderPreviewResp previewFlashSwapMultiCurrencyManyToOneOrder(flashSwapMultiCurrencyManyToOneOrderPreviewReq)
+
+Flash Swap - Multi-currency exchange - Preview (many-to-one)
+
+Preview quote for multi-currency to single target currency exchange
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        FlashSwapMultiCurrencyManyToOneOrderPreviewReq flashSwapMultiCurrencyManyToOneOrderPreviewReq = new FlashSwapMultiCurrencyManyToOneOrderPreviewReq(); // FlashSwapMultiCurrencyManyToOneOrderPreviewReq | 
+        try {
+            FlashSwapMultiCurrencyManyToOneOrderPreviewResp result = apiInstance.previewFlashSwapMultiCurrencyManyToOneOrder(flashSwapMultiCurrencyManyToOneOrderPreviewReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#previewFlashSwapMultiCurrencyManyToOneOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flashSwapMultiCurrencyManyToOneOrderPreviewReq** | [**FlashSwapMultiCurrencyManyToOneOrderPreviewReq**](FlashSwapMultiCurrencyManyToOneOrderPreviewReq.md)|  |
+
+### Return type
+
+[**FlashSwapMultiCurrencyManyToOneOrderPreviewResp**](FlashSwapMultiCurrencyManyToOneOrderPreviewResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+<a name="createFlashSwapOrderV1"></a>
+# **createFlashSwapOrderV1**
+> FlashSwapOrderCreateResp createFlashSwapOrderV1(flashSwapOrderCreateReq)
+
+Flash Swap - Place order (one-to-one)
+
+Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        FlashSwapOrderCreateReq flashSwapOrderCreateReq = new FlashSwapOrderCreateReq(); // FlashSwapOrderCreateReq | 
+        try {
+            FlashSwapOrderCreateResp result = apiInstance.createFlashSwapOrderV1(flashSwapOrderCreateReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#createFlashSwapOrderV1");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flashSwapOrderCreateReq** | [**FlashSwapOrderCreateReq**](FlashSwapOrderCreateReq.md)|  |
+
+### Return type
+
+[**FlashSwapOrderCreateResp**](FlashSwapOrderCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+<a name="createFlashSwapMultiCurrencyOneToManyOrder"></a>
+# **createFlashSwapMultiCurrencyOneToManyOrder**
+> FlashSwapMultiCurrencyOneToManyOrderCreateResp createFlashSwapMultiCurrencyOneToManyOrder(flashSwapMultiCurrencyOneToManyOrderCreateReq)
+
+Flash Swap - Multi-currency exchange - Place order (one-to-many)
+
+Create a single currency to multiple target currencies exchange order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        FlashSwapMultiCurrencyOneToManyOrderCreateReq flashSwapMultiCurrencyOneToManyOrderCreateReq = new FlashSwapMultiCurrencyOneToManyOrderCreateReq(); // FlashSwapMultiCurrencyOneToManyOrderCreateReq | 
+        try {
+            FlashSwapMultiCurrencyOneToManyOrderCreateResp result = apiInstance.createFlashSwapMultiCurrencyOneToManyOrder(flashSwapMultiCurrencyOneToManyOrderCreateReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#createFlashSwapMultiCurrencyOneToManyOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flashSwapMultiCurrencyOneToManyOrderCreateReq** | [**FlashSwapMultiCurrencyOneToManyOrderCreateReq**](FlashSwapMultiCurrencyOneToManyOrderCreateReq.md)|  |
+
+### Return type
+
+[**FlashSwapMultiCurrencyOneToManyOrderCreateResp**](FlashSwapMultiCurrencyOneToManyOrderCreateResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+<a name="previewFlashSwapMultiCurrencyOneToManyOrder"></a>
+# **previewFlashSwapMultiCurrencyOneToManyOrder**
+> FlashSwapMultiCurrencyOneToManyOrderPreviewResp previewFlashSwapMultiCurrencyOneToManyOrder(flashSwapMultiCurrencyOneToManyOrderPreviewReq)
+
+Flash Swap - Multi-currency exchange - Preview (one-to-many)
+
+Preview quote for single currency to multiple target currencies exchange
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        FlashSwapMultiCurrencyOneToManyOrderPreviewReq flashSwapMultiCurrencyOneToManyOrderPreviewReq = new FlashSwapMultiCurrencyOneToManyOrderPreviewReq(); // FlashSwapMultiCurrencyOneToManyOrderPreviewReq | 
+        try {
+            FlashSwapMultiCurrencyOneToManyOrderPreviewResp result = apiInstance.previewFlashSwapMultiCurrencyOneToManyOrder(flashSwapMultiCurrencyOneToManyOrderPreviewReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#previewFlashSwapMultiCurrencyOneToManyOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **flashSwapMultiCurrencyOneToManyOrderPreviewReq** | [**FlashSwapMultiCurrencyOneToManyOrderPreviewReq**](FlashSwapMultiCurrencyOneToManyOrderPreviewReq.md)|  |
+
+### Return type
+
+[**FlashSwapMultiCurrencyOneToManyOrderPreviewResp**](FlashSwapMultiCurrencyOneToManyOrderPreviewResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
+
+<a name="previewFlashSwapOrderV1"></a>
+# **previewFlashSwapOrderV1**
+> FlashSwapOrderPreviewResp previewFlashSwapOrderV1(sellAsset, buyAsset).sellAmount(sellAmount).buyAmount(buyAmount).execute();
+
+Flash Swap - Preview (one-to-one)
+
+Get one-to-one flash swap quote. Either sell_amount or buy_amount must be specified
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FlashSwapApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FlashSwapApi apiInstance = new FlashSwapApi(defaultClient);
+        String sellAsset = "sellAsset_example"; // String | Currency to sell
+        String buyAsset = "buyAsset_example"; // String | Currency to buy
+        String sellAmount = "sellAmount_example"; // String | Sell amount, either this or buy_amount must be specified
+        String buyAmount = "buyAmount_example"; // String | Buy amount, either this or sell_amount must be specified
+        try {
+            FlashSwapOrderPreviewResp result = apiInstance.previewFlashSwapOrderV1(sellAsset, buyAsset)
+                        .sellAmount(sellAmount)
+                        .buyAmount(buyAmount)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FlashSwapApi#previewFlashSwapOrderV1");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sellAsset** | **String**| Currency to sell |
+ **buyAsset** | **String**| Currency to buy |
+ **sellAmount** | **String**| Sell amount, either this or buy_amount must be specified | [optional]
+ **buyAmount** | **String**| Buy amount, either this or sell_amount must be specified | [optional]
+
+### Return type
+
+[**FlashSwapOrderPreviewResp**](FlashSwapOrderPreviewResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**400** | Invalid parameters |  -  |
+**404** | Record does not exist |  -  |
 

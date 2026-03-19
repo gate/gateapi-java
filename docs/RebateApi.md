@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**rebateBrokerTransactionHistory**](RebateApi.md#rebateBrokerTransactionHistory) | **GET** /rebate/broker/transaction_history | Broker obtains user&#39;s trading history
 [**rebateUserInfo**](RebateApi.md#rebateUserInfo) | **GET** /rebate/user/info | User obtains rebate information
 [**userSubRelation**](RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User subordinate relationship
+[**getPartnerApplicationRecent**](RebateApi.md#getPartnerApplicationRecent) | **GET** /rebate/partner/applications/recent | Get recent partner application records
+[**getPartnerEligibility**](RebateApi.md#getPartnerEligibility) | **GET** /rebate/partner/eligibility | Check partner application eligibility
 
 
 <a name="agencyTransactionHistory"></a>
@@ -530,7 +532,7 @@ Name | Type | Description  | Notes
 
 <a name="rebateBrokerTransactionHistory"></a>
 # **rebateBrokerTransactionHistory**
-> List&lt;BrokerTransaction&gt; rebateBrokerTransactionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
+> List&lt;BrokerTransactionHistory&gt; rebateBrokerTransactionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
 
 Broker obtains user&#39;s trading history
 
@@ -563,7 +565,7 @@ public class Example {
         Long from = 1711929600L; // Long | Start time of the query record. If not specified, defaults to 30 days before the current time
         Long to = 1714521600L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
-            List<BrokerTransaction> result = apiInstance.rebateBrokerTransactionHistory()
+            List<BrokerTransactionHistory> result = apiInstance.rebateBrokerTransactionHistory()
                         .limit(limit)
                         .offset(offset)
                         .userId(userId)
@@ -596,7 +598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;BrokerTransaction&gt;**](BrokerTransaction.md)
+[**List&lt;BrokerTransactionHistory&gt;**](BrokerTransactionHistory.md)
 
 ### Authorization
 
@@ -745,4 +747,136 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List retrieved successfully |  -  |
+
+<a name="getPartnerApplicationRecent"></a>
+# **getPartnerApplicationRecent**
+> PartnerApplicationResponse getPartnerApplicationRecent()
+
+Get recent partner application records
+
+获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.RebateApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        RebateApi apiInstance = new RebateApi(defaultClient);
+        try {
+            PartnerApplicationResponse result = apiInstance.getPartnerApplicationRecent();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RebateApi#getPartnerApplicationRecent");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PartnerApplicationResponse**](PartnerApplicationResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+<a name="getPartnerEligibility"></a>
+# **getPartnerEligibility**
+> EligibilityResponse getPartnerEligibility()
+
+Check partner application eligibility
+
+检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.RebateApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        RebateApi apiInstance = new RebateApi(defaultClient);
+        try {
+            EligibilityResponse result = apiInstance.getPartnerEligibility();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RebateApi#getPartnerEligibility");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EligibilityResponse**](EligibilityResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
 

@@ -21,11 +21,11 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.CreateUniLend;
-import io.gate.gateapi.models.InlineResponse2004;
-import io.gate.gateapi.models.InlineResponse2005;
 import io.gate.gateapi.models.PatchUniLend;
+import io.gate.gateapi.models.UniChartPoint;
 import io.gate.gateapi.models.UniCurrency;
 import io.gate.gateapi.models.UniCurrencyInterest;
+import io.gate.gateapi.models.UniEstimatedRate;
 import io.gate.gateapi.models.UniInterestRecord;
 import io.gate.gateapi.models.UniLend;
 import io.gate.gateapi.models.UniLendInterest;
@@ -1360,7 +1360,7 @@ public class EarnUniApi {
      * @param from Start timestamp in seconds, maximum span 30 days (required)
      * @param to End timestamp in seconds, maximum span 30 days (required)
      * @param asset Currency name (required)
-     * @return List&lt;InlineResponse2004&gt;
+     * @return List&lt;UniChartPoint&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1368,8 +1368,8 @@ public class EarnUniApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public List<InlineResponse2004> listUniChart(Long from, Long to, String asset) throws ApiException {
-        ApiResponse<List<InlineResponse2004>> localVarResp = listUniChartWithHttpInfo(from, to, asset);
+    public List<UniChartPoint> listUniChart(Long from, Long to, String asset) throws ApiException {
+        ApiResponse<List<UniChartPoint>> localVarResp = listUniChartWithHttpInfo(from, to, asset);
         return localVarResp.getData();
     }
 
@@ -1379,7 +1379,7 @@ public class EarnUniApi {
      * @param from Start timestamp in seconds, maximum span 30 days (required)
      * @param to End timestamp in seconds, maximum span 30 days (required)
      * @param asset Currency name (required)
-     * @return ApiResponse&lt;List&lt;InlineResponse2004&gt;&gt;
+     * @return ApiResponse&lt;List&lt;UniChartPoint&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1387,9 +1387,9 @@ public class EarnUniApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<InlineResponse2004>> listUniChartWithHttpInfo(Long from, Long to, String asset) throws ApiException {
+    public ApiResponse<List<UniChartPoint>> listUniChartWithHttpInfo(Long from, Long to, String asset) throws ApiException {
         okhttp3.Call localVarCall = listUniChartValidateBeforeCall(from, to, asset, null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse2004>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<UniChartPoint>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1408,9 +1408,9 @@ public class EarnUniApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUniChartAsync(Long from, Long to, String asset, final ApiCallback<List<InlineResponse2004>> _callback) throws ApiException {
+    public okhttp3.Call listUniChartAsync(Long from, Long to, String asset, final ApiCallback<List<UniChartPoint>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listUniChartValidateBeforeCall(from, to, asset, _callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse2004>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<UniChartPoint>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1464,7 +1464,7 @@ public class EarnUniApi {
     /**
      * Currency estimated annualized interest rate
      * 
-     * @return List&lt;InlineResponse2005&gt;
+     * @return List&lt;UniEstimatedRate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1472,15 +1472,15 @@ public class EarnUniApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public List<InlineResponse2005> listUniRate() throws ApiException {
-        ApiResponse<List<InlineResponse2005>> localVarResp = listUniRateWithHttpInfo();
+    public List<UniEstimatedRate> listUniRate() throws ApiException {
+        ApiResponse<List<UniEstimatedRate>> localVarResp = listUniRateWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Currency estimated annualized interest rate
      * 
-     * @return ApiResponse&lt;List&lt;InlineResponse2005&gt;&gt;
+     * @return ApiResponse&lt;List&lt;UniEstimatedRate&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1488,9 +1488,9 @@ public class EarnUniApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<InlineResponse2005>> listUniRateWithHttpInfo() throws ApiException {
+    public ApiResponse<List<UniEstimatedRate>> listUniRateWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listUniRateValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse2005>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<UniEstimatedRate>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1506,9 +1506,9 @@ public class EarnUniApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUniRateAsync(final ApiCallback<List<InlineResponse2005>> _callback) throws ApiException {
+    public okhttp3.Call listUniRateAsync(final ApiCallback<List<UniEstimatedRate>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listUniRateValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse2005>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<UniEstimatedRate>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

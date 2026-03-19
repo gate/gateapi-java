@@ -22,8 +22,8 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.AccountBookResponse;
 import io.gate.gateapi.models.AccountsResponse;
+import io.gate.gateapi.models.AlphaCurrency;
 import io.gate.gateapi.models.AlphaTicker;
-import io.gate.gateapi.models.Currency2;
 import io.gate.gateapi.models.OrderResponse;
 import io.gate.gateapi.models.PlaceOrderRequest;
 import io.gate.gateapi.models.PlaceOrderResponse;
@@ -945,15 +945,15 @@ public class AlphaApi {
     }
 
 
-    private ApiResponse<List<Currency2>> listAlphaCurrenciesWithHttpInfo(String currency, Integer limit, Integer page) throws ApiException {
+    private ApiResponse<List<AlphaCurrency>> listAlphaCurrenciesWithHttpInfo(String currency, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listAlphaCurrenciesValidateBeforeCall(currency, limit, page, null);
-        Type localVarReturnType = new TypeToken<List<Currency2>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<AlphaCurrency>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listAlphaCurrenciesAsync(String currency, Integer limit, Integer page, final ApiCallback<List<Currency2>> _callback) throws ApiException {
+    private okhttp3.Call listAlphaCurrenciesAsync(String currency, Integer limit, Integer page, final ApiCallback<List<AlphaCurrency>> _callback) throws ApiException {
         okhttp3.Call localVarCall = listAlphaCurrenciesValidateBeforeCall(currency, limit, page, _callback);
-        Type localVarReturnType = new TypeToken<List<Currency2>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<AlphaCurrency>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1013,7 +1013,7 @@ public class AlphaApi {
 
         /**
          * Execute listAlphaCurrencies request
-         * @return List&lt;Currency2&gt;
+         * @return List&lt;AlphaCurrency&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1021,14 +1021,14 @@ public class AlphaApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public List<Currency2> execute() throws ApiException {
-            ApiResponse<List<Currency2>> localVarResp = listAlphaCurrenciesWithHttpInfo(currency, limit, page);
+        public List<AlphaCurrency> execute() throws ApiException {
+            ApiResponse<List<AlphaCurrency>> localVarResp = listAlphaCurrenciesWithHttpInfo(currency, limit, page);
             return localVarResp.getData();
         }
 
         /**
          * Execute listAlphaCurrencies request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;Currency2&gt;&gt;
+         * @return ApiResponse&lt;List&lt;AlphaCurrency&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1036,7 +1036,7 @@ public class AlphaApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<Currency2>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<AlphaCurrency>> executeWithHttpInfo() throws ApiException {
             return listAlphaCurrenciesWithHttpInfo(currency, limit, page);
         }
 
@@ -1051,7 +1051,7 @@ public class AlphaApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<Currency2>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<AlphaCurrency>> _callback) throws ApiException {
             return listAlphaCurrenciesAsync(currency, limit, page, _callback);
         }
     }

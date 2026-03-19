@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse2008Data;
 import java.io.IOException;
 
 /**
@@ -27,9 +28,17 @@ public class InlineResponse2008 {
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
+    public static final String SERIALIZED_NAME_LABEL = "label";
+    @SerializedName(SERIALIZED_NAME_LABEL)
+    private String label;
+
+    public static final String SERIALIZED_NAME_MSG = "msg";
+    @SerializedName(SERIALIZED_NAME_MSG)
+    private String msg;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private InlineResponse2008Data data;
 
 
     public InlineResponse2008 code(Integer code) {
@@ -39,9 +48,10 @@ public class InlineResponse2008 {
     }
 
      /**
-     * Get code
+     * Status code, 0 &#x3D; success
      * @return code
     **/
+    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -51,23 +61,64 @@ public class InlineResponse2008 {
         this.code = code;
     }
 
-    public InlineResponse2008 message(String message) {
+    public InlineResponse2008 label(String label) {
         
-        this.message = message;
+        this.label = label;
         return this;
     }
 
      /**
-     * Get message
-     * @return message
+     * Error identifier code. Empty string on success, machine-readable error label on error
+     * @return label
     **/
-    public String getMessage() {
-        return message;
+    @javax.annotation.Nullable
+    public String getLabel() {
+        return label;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public InlineResponse2008 msg(String msg) {
+        
+        this.msg = msg;
+        return this;
+    }
+
+     /**
+     * Status message
+     * @return msg
+    **/
+    @javax.annotation.Nullable
+    public String getMsg() {
+        return msg;
+    }
+
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public InlineResponse2008 data(InlineResponse2008Data data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Get data
+     * @return data
+    **/
+    @javax.annotation.Nullable
+    public InlineResponse2008Data getData() {
+        return data;
+    }
+
+
+    public void setData(InlineResponse2008Data data) {
+        this.data = data;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,12 +130,14 @@ public class InlineResponse2008 {
         }
         InlineResponse2008 inlineResponse2008 = (InlineResponse2008) o;
         return Objects.equals(this.code, inlineResponse2008.code) &&
-                Objects.equals(this.message, inlineResponse2008.message);
+                Objects.equals(this.label, inlineResponse2008.label) &&
+                Objects.equals(this.msg, inlineResponse2008.msg) &&
+                Objects.equals(this.data, inlineResponse2008.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message);
+        return Objects.hash(code, label, msg, data);
     }
 
 
@@ -93,7 +146,9 @@ public class InlineResponse2008 {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2008 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      label: ").append(toIndentedString(label)).append("\n");
+        sb.append("      msg: ").append(toIndentedString(msg)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }

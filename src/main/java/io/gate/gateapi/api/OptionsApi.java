@@ -20,8 +20,8 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.AmendOptionsOrderRequest;
 import io.gate.gateapi.models.CountdownCancelAllOptionsTask;
-import io.gate.gateapi.models.InlineObject1;
 import io.gate.gateapi.models.OptionsAccount;
 import io.gate.gateapi.models.OptionsAccountBook;
 import io.gate.gateapi.models.OptionsCandlestick;
@@ -3386,7 +3386,7 @@ public class OptionsApi {
     /**
      * Build call for amendOptionsOrder
      * @param orderId Order ID returned when order is successfully created (required)
-     * @param inlineObject1  (required)
+     * @param amendOptionsOrderRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3396,8 +3396,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> Order detail </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendOptionsOrderCall(Long orderId, InlineObject1 inlineObject1, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject1;
+    public okhttp3.Call amendOptionsOrderCall(Long orderId, AmendOptionsOrderRequest amendOptionsOrderRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = amendOptionsOrderRequest;
 
         // create path and map variables
         String localVarPath = "/options/orders/{order_id}"
@@ -3427,18 +3427,18 @@ public class OptionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call amendOptionsOrderValidateBeforeCall(Long orderId, InlineObject1 inlineObject1, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call amendOptionsOrderValidateBeforeCall(Long orderId, AmendOptionsOrderRequest amendOptionsOrderRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling amendOptionsOrder(Async)");
         }
 
-        // verify the required parameter 'inlineObject1' is set
-        if (inlineObject1 == null) {
-            throw new ApiException("Missing the required parameter 'inlineObject1' when calling amendOptionsOrder(Async)");
+        // verify the required parameter 'amendOptionsOrderRequest' is set
+        if (amendOptionsOrderRequest == null) {
+            throw new ApiException("Missing the required parameter 'amendOptionsOrderRequest' when calling amendOptionsOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = amendOptionsOrderCall(orderId, inlineObject1, _callback);
+        okhttp3.Call localVarCall = amendOptionsOrderCall(orderId, amendOptionsOrderRequest, _callback);
         return localVarCall;
     }
 
@@ -3446,7 +3446,7 @@ public class OptionsApi {
      * Option Order Modification
      * Modify the order price and/or quantity of a specified order; only orders with status &#39;open&#39; are supported
      * @param orderId Order ID returned when order is successfully created (required)
-     * @param inlineObject1  (required)
+     * @param amendOptionsOrderRequest  (required)
      * @return OptionsOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3455,8 +3455,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> Order detail </td><td>  -  </td></tr>
      </table>
      */
-    public OptionsOrder amendOptionsOrder(Long orderId, InlineObject1 inlineObject1) throws ApiException {
-        ApiResponse<OptionsOrder> localVarResp = amendOptionsOrderWithHttpInfo(orderId, inlineObject1);
+    public OptionsOrder amendOptionsOrder(Long orderId, AmendOptionsOrderRequest amendOptionsOrderRequest) throws ApiException {
+        ApiResponse<OptionsOrder> localVarResp = amendOptionsOrderWithHttpInfo(orderId, amendOptionsOrderRequest);
         return localVarResp.getData();
     }
 
@@ -3464,7 +3464,7 @@ public class OptionsApi {
      * Option Order Modification
      * Modify the order price and/or quantity of a specified order; only orders with status &#39;open&#39; are supported
      * @param orderId Order ID returned when order is successfully created (required)
-     * @param inlineObject1  (required)
+     * @param amendOptionsOrderRequest  (required)
      * @return ApiResponse&lt;OptionsOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3473,8 +3473,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> Order detail </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OptionsOrder> amendOptionsOrderWithHttpInfo(Long orderId, InlineObject1 inlineObject1) throws ApiException {
-        okhttp3.Call localVarCall = amendOptionsOrderValidateBeforeCall(orderId, inlineObject1, null);
+    public ApiResponse<OptionsOrder> amendOptionsOrderWithHttpInfo(Long orderId, AmendOptionsOrderRequest amendOptionsOrderRequest) throws ApiException {
+        okhttp3.Call localVarCall = amendOptionsOrderValidateBeforeCall(orderId, amendOptionsOrderRequest, null);
         Type localVarReturnType = new TypeToken<OptionsOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3483,7 +3483,7 @@ public class OptionsApi {
      * Option Order Modification (asynchronously)
      * Modify the order price and/or quantity of a specified order; only orders with status &#39;open&#39; are supported
      * @param orderId Order ID returned when order is successfully created (required)
-     * @param inlineObject1  (required)
+     * @param amendOptionsOrderRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3493,8 +3493,8 @@ public class OptionsApi {
         <tr><td> 200 </td><td> Order detail </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call amendOptionsOrderAsync(Long orderId, InlineObject1 inlineObject1, final ApiCallback<OptionsOrder> _callback) throws ApiException {
-        okhttp3.Call localVarCall = amendOptionsOrderValidateBeforeCall(orderId, inlineObject1, _callback);
+    public okhttp3.Call amendOptionsOrderAsync(Long orderId, AmendOptionsOrderRequest amendOptionsOrderRequest, final ApiCallback<OptionsOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = amendOptionsOrderValidateBeforeCall(orderId, amendOptionsOrderRequest, _callback);
         Type localVarReturnType = new TypeToken<OptionsOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

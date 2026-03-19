@@ -107,7 +107,7 @@ No authorization required
 
 <a name="listCrossexRuleRiskLimits"></a>
 # **listCrossexRuleRiskLimits**
-> List&lt;InlineResponse20027&gt; listCrossexRuleRiskLimits(symbols)
+> List&lt;CrossexRiskLimit&gt; listCrossexRuleRiskLimits(symbols)
 
 [Public Interface] Query Risk Limit Information
 
@@ -132,7 +132,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbols = "BINANCE_FUTURE_AAVE_USDT"; // String | Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT
         try {
-            List<InlineResponse20027> result = apiInstance.listCrossexRuleRiskLimits(symbols);
+            List<CrossexRiskLimit> result = apiInstance.listCrossexRuleRiskLimits(symbols);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20027&gt;**](InlineResponse20027.md)
+[**List&lt;CrossexRiskLimit&gt;**](CrossexRiskLimit.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ No authorization required
 
 <a name="listCrossexTransferCoins"></a>
 # **listCrossexTransferCoins**
-> List&lt;InlineResponse20028&gt; listCrossexTransferCoins().coin(coin).execute();
+> List&lt;CrossexTransferCoin&gt; listCrossexTransferCoins().coin(coin).execute();
 
 [Public Interface] Query Supported Transfer Currencies
 
@@ -198,7 +198,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "BTC"; // String | Currency
         try {
-            List<InlineResponse20028> result = apiInstance.listCrossexTransferCoins()
+            List<CrossexTransferCoin> result = apiInstance.listCrossexTransferCoins()
                         .coin(coin)
                         .execute();
             System.out.println(result);
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20028&gt;**](InlineResponse20028.md)
+[**List&lt;CrossexTransferCoin&gt;**](CrossexTransferCoin.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ No authorization required
 
 <a name="listCrossexTransfers"></a>
 # **listCrossexTransfers**
-> List&lt;InlineResponse20029&gt; listCrossexTransfers().coin(coin).orderId(orderId).from(from).to(to).page(page).limit(limit).execute();
+> List&lt;CrossexTransferRecord&gt; listCrossexTransfers().coin(coin).orderId(orderId).from(from).to(to).page(page).limit(limit).execute();
 
 Query Fund Transfer History
 
@@ -275,7 +275,7 @@ public class Example {
         Integer page = 1; // Integer | Page number
         Integer limit = 10,20,30; // Integer | Maximum number returned by list, max 1000
         try {
-            List<InlineResponse20029> result = apiInstance.listCrossexTransfers()
+            List<CrossexTransferRecord> result = apiInstance.listCrossexTransfers()
                         .coin(coin)
                         .orderId(orderId)
                         .from(from)
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20029&gt;**](InlineResponse20029.md)
+[**List&lt;CrossexTransferRecord&gt;**](CrossexTransferRecord.md)
 
 ### Authorization
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexTransfer"></a>
 # **createCrossexTransfer**
-> InlineResponse20030 createCrossexTransfer(crossexTransferRequest)
+> CrossexTransferResponse createCrossexTransfer(crossexTransferRequest)
 
 Fund Transfer
 
@@ -357,7 +357,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexTransferRequest crossexTransferRequest = new CrossexTransferRequest(); // CrossexTransferRequest | 
         try {
-            InlineResponse20030 result = apiInstance.createCrossexTransfer(crossexTransferRequest);
+            CrossexTransferResponse result = apiInstance.createCrossexTransfer(crossexTransferRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**CrossexTransferResponse**](CrossexTransferResponse.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexOrder"></a>
 # **createCrossexOrder**
-> InlineResponse20031 createCrossexOrder(crossexOrderRequest)
+> CrossexOrderActionResponse createCrossexOrder(crossexOrderRequest)
 
 Create an order
 
@@ -427,7 +427,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexOrderRequest crossexOrderRequest = new CrossexOrderRequest(); // CrossexOrderRequest | 
         try {
-            InlineResponse20031 result = apiInstance.createCrossexOrder(crossexOrderRequest);
+            CrossexOrderActionResponse result = apiInstance.createCrossexOrder(crossexOrderRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexOrder"></a>
 # **getCrossexOrder**
-> InlineResponse20032 getCrossexOrder(orderId)
+> CrossexOrder getCrossexOrder(orderId)
 
 Query order details
 
@@ -497,7 +497,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String orderId = "2048522992198912"; // String | 1. Supports querying order IDs returned when creating orders 2. Supports custom IDs specified by users when creating orders (i.e., the text field)
         try {
-            InlineResponse20032 result = apiInstance.getCrossexOrder(orderId);
+            CrossexOrder result = apiInstance.getCrossexOrder(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**CrossexOrder**](CrossexOrder.md)
 
 ### Authorization
 
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexOrder"></a>
 # **updateCrossexOrder**
-> InlineResponse20033 updateCrossexOrder(orderId, crossexOrderUpdateRequest)
+> CrossexOrderActionResponse updateCrossexOrder(orderId, crossexOrderUpdateRequest)
 
 Modify Order
 
@@ -568,7 +568,7 @@ public class Example {
         String orderId = "orderId_example"; // String | Support Order ID or Text for Modify Order
         CrossexOrderUpdateRequest crossexOrderUpdateRequest = new CrossexOrderUpdateRequest(); // CrossexOrderUpdateRequest | 
         try {
-            InlineResponse20033 result = apiInstance.updateCrossexOrder(orderId, crossexOrderUpdateRequest);
+            CrossexOrderActionResponse result = apiInstance.updateCrossexOrder(orderId, crossexOrderUpdateRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -592,7 +592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelCrossexOrder"></a>
 # **cancelCrossexOrder**
-> Object cancelCrossexOrder(orderId)
+> CrossexOrderActionResponse cancelCrossexOrder(orderId)
 
 Cancel Order
 
@@ -639,7 +639,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String orderId = "orderId_example"; // String | Support Order ID or Text for Cancel Order
         try {
-            Object result = apiInstance.cancelCrossexOrder(orderId);
+            CrossexOrderActionResponse result = apiInstance.cancelCrossexOrder(orderId);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -662,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexConvertQuote"></a>
 # **createCrossexConvertQuote**
-> InlineResponse20034 createCrossexConvertQuote(crossexConvertQuoteRequest)
+> CrossexConvertQuoteResponse createCrossexConvertQuote(crossexConvertQuoteRequest)
 
 Flash Swap Inquiry
 
@@ -709,7 +709,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexConvertQuoteRequest crossexConvertQuoteRequest = new CrossexConvertQuoteRequest(); // CrossexConvertQuoteRequest | 
         try {
-            InlineResponse20034 result = apiInstance.createCrossexConvertQuote(crossexConvertQuoteRequest);
+            CrossexConvertQuoteResponse result = apiInstance.createCrossexConvertQuote(crossexConvertQuoteRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**CrossexConvertQuoteResponse**](CrossexConvertQuoteResponse.md)
 
 ### Authorization
 
@@ -820,7 +820,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexAccount"></a>
 # **getCrossexAccount**
-> InlineResponse20035 getCrossexAccount().exchangeType(exchangeType).execute();
+> CrossexAccount getCrossexAccount().exchangeType(exchangeType).execute();
 
 Query Account Assets
 
@@ -849,7 +849,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
         try {
-            InlineResponse20035 result = apiInstance.getCrossexAccount()
+            CrossexAccount result = apiInstance.getCrossexAccount()
                         .exchangeType(exchangeType)
                         .execute();
             System.out.println(result);
@@ -874,7 +874,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**CrossexAccount**](CrossexAccount.md)
 
 ### Authorization
 
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexAccount"></a>
 # **updateCrossexAccount**
-> InlineResponse202 updateCrossexAccount(crossexAccountUpdateRequest)
+> CrossexAccountUpdateResponse updateCrossexAccount(crossexAccountUpdateRequest)
 
 Modify Account Contract Position Mode and Account Mode
 
@@ -921,7 +921,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexAccountUpdateRequest crossexAccountUpdateRequest = new CrossexAccountUpdateRequest(); // CrossexAccountUpdateRequest | 
         try {
-            InlineResponse202 result = apiInstance.updateCrossexAccount(crossexAccountUpdateRequest);
+            CrossexAccountUpdateResponse result = apiInstance.updateCrossexAccount(crossexAccountUpdateRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -944,7 +944,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**CrossexAccountUpdateResponse**](CrossexAccountUpdateResponse.md)
 
 ### Authorization
 
@@ -1034,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexPositionsLeverage"></a>
 # **updateCrossexPositionsLeverage**
-> InlineResponse2021 updateCrossexPositionsLeverage(crossexLeverageRequest)
+> CrossexLeverageResponse updateCrossexPositionsLeverage(crossexLeverageRequest)
 
 Modify Contract Trading Pair Leverage Multiplier
 
@@ -1063,7 +1063,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexLeverageRequest crossexLeverageRequest = new CrossexLeverageRequest(); // CrossexLeverageRequest | 
         try {
-            InlineResponse2021 result = apiInstance.updateCrossexPositionsLeverage(crossexLeverageRequest);
+            CrossexLeverageResponse result = apiInstance.updateCrossexPositionsLeverage(crossexLeverageRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2021**](InlineResponse2021.md)
+[**CrossexLeverageResponse**](CrossexLeverageResponse.md)
 
 ### Authorization
 
@@ -1176,7 +1176,7 @@ Name | Type | Description  | Notes
 
 <a name="updateCrossexMarginPositionsLeverage"></a>
 # **updateCrossexMarginPositionsLeverage**
-> InlineResponse2021 updateCrossexMarginPositionsLeverage(crossexLeverageRequest)
+> CrossexLeverageResponse updateCrossexMarginPositionsLeverage(crossexLeverageRequest)
 
 Modify Leveraged Trading Pair Leverage Multiplier
 
@@ -1205,7 +1205,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexLeverageRequest crossexLeverageRequest = new CrossexLeverageRequest(); // CrossexLeverageRequest | 
         try {
-            InlineResponse2021 result = apiInstance.updateCrossexMarginPositionsLeverage(crossexLeverageRequest);
+            CrossexLeverageResponse result = apiInstance.updateCrossexMarginPositionsLeverage(crossexLeverageRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2021**](InlineResponse2021.md)
+[**CrossexLeverageResponse**](CrossexLeverageResponse.md)
 
 ### Authorization
 
@@ -1246,7 +1246,7 @@ Name | Type | Description  | Notes
 
 <a name="closeCrossexPosition"></a>
 # **closeCrossexPosition**
-> InlineResponse20031 closeCrossexPosition(crossexClosePositionRequest)
+> CrossexOrderActionResponse closeCrossexPosition(crossexClosePositionRequest)
 
 Full Close Position
 
@@ -1275,7 +1275,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexClosePositionRequest crossexClosePositionRequest = new CrossexClosePositionRequest(); // CrossexClosePositionRequest | 
         try {
-            InlineResponse20031 result = apiInstance.closeCrossexPosition(crossexClosePositionRequest);
+            CrossexOrderActionResponse result = apiInstance.closeCrossexPosition(crossexClosePositionRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1298,7 +1298,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**CrossexOrderActionResponse**](CrossexOrderActionResponse.md)
 
 ### Authorization
 
@@ -1316,7 +1316,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexInterestRate"></a>
 # **getCrossexInterestRate**
-> List&lt;InlineResponse20036&gt; getCrossexInterestRate().coin(coin).exchangeType(exchangeType).execute();
+> List&lt;CrossexInterestRate&gt; getCrossexInterestRate().coin(coin).exchangeType(exchangeType).execute();
 
 Query margin asset interest rates
 
@@ -1346,7 +1346,7 @@ public class Example {
         String coin = "SOL"; // String | Currency
         String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange
         try {
-            List<InlineResponse20036> result = apiInstance.getCrossexInterestRate()
+            List<CrossexInterestRate> result = apiInstance.getCrossexInterestRate()
                         .coin(coin)
                         .exchangeType(exchangeType)
                         .execute();
@@ -1373,7 +1373,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20036&gt;**](InlineResponse20036.md)
+[**List&lt;CrossexInterestRate&gt;**](CrossexInterestRate.md)
 
 ### Authorization
 
@@ -1391,7 +1391,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexFee"></a>
 # **getCrossexFee**
-> InlineResponse20037 getCrossexFee()
+> CrossexFee getCrossexFee()
 
 Query User Fee Rates
 
@@ -1419,7 +1419,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         try {
-            InlineResponse20037 result = apiInstance.getCrossexFee();
+            CrossexFee result = apiInstance.getCrossexFee();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1439,7 +1439,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**CrossexFee**](CrossexFee.md)
 
 ### Authorization
 
@@ -1457,7 +1457,7 @@ This endpoint does not need any parameter.
 
 <a name="listCrossexPositions"></a>
 # **listCrossexPositions**
-> List&lt;InlineResponse20038&gt; listCrossexPositions().symbol(symbol).exchangeType(exchangeType).execute();
+> List&lt;CrossexPosition&gt; listCrossexPositions().symbol(symbol).exchangeType(exchangeType).execute();
 
 Query Contract Positions
 
@@ -1487,7 +1487,7 @@ public class Example {
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
         String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange
         try {
-            List<InlineResponse20038> result = apiInstance.listCrossexPositions()
+            List<CrossexPosition> result = apiInstance.listCrossexPositions()
                         .symbol(symbol)
                         .exchangeType(exchangeType)
                         .execute();
@@ -1514,7 +1514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20038&gt;**](InlineResponse20038.md)
+[**List&lt;CrossexPosition&gt;**](CrossexPosition.md)
 
 ### Authorization
 
@@ -1532,7 +1532,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexMarginPositions"></a>
 # **listCrossexMarginPositions**
-> List&lt;InlineResponse20039&gt; listCrossexMarginPositions().symbol(symbol).exchangeType(exchangeType).execute();
+> List&lt;CrossexMarginPosition&gt; listCrossexMarginPositions().symbol(symbol).exchangeType(exchangeType).execute();
 
 Query Leveraged Positions
 
@@ -1562,7 +1562,7 @@ public class Example {
         String symbol = "BINANCE_MARGIN_ADA_USDT"; // String | Currency pair
         String exchangeType = "BINANCE"; // String | Exchange
         try {
-            List<InlineResponse20039> result = apiInstance.listCrossexMarginPositions()
+            List<CrossexMarginPosition> result = apiInstance.listCrossexMarginPositions()
                         .symbol(symbol)
                         .exchangeType(exchangeType)
                         .execute();
@@ -1589,7 +1589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20039&gt;**](InlineResponse20039.md)
+[**List&lt;CrossexMarginPosition&gt;**](CrossexMarginPosition.md)
 
 ### Authorization
 
@@ -1607,7 +1607,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexAdlRank"></a>
 # **listCrossexAdlRank**
-> List&lt;InlineResponse20040&gt; listCrossexAdlRank(symbol)
+> List&lt;CrossexAdlRank&gt; listCrossexAdlRank(symbol)
 
 Query ADL Position Reduction Ranking
 
@@ -1636,7 +1636,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
         try {
-            List<InlineResponse20040> result = apiInstance.listCrossexAdlRank(symbol);
+            List<CrossexAdlRank> result = apiInstance.listCrossexAdlRank(symbol);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1659,7 +1659,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20040&gt;**](InlineResponse20040.md)
+[**List&lt;CrossexAdlRank&gt;**](CrossexAdlRank.md)
 
 ### Authorization
 
@@ -1677,7 +1677,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexOpenOrders"></a>
 # **listCrossexOpenOrders**
-> List&lt;InlineResponse20032&gt; listCrossexOpenOrders().symbol(symbol).exchangeType(exchangeType).businessType(businessType).execute();
+> List&lt;CrossexOrder&gt; listCrossexOpenOrders().symbol(symbol).exchangeType(exchangeType).businessType(businessType).execute();
 
 Query All Current Open Orders
 
@@ -1708,7 +1708,7 @@ public class Example {
         String exchangeType = "BINANCE"; // String | Exchange
         String businessType = "FUTURE、MARGIN"; // String | Business Type
         try {
-            List<InlineResponse20032> result = apiInstance.listCrossexOpenOrders()
+            List<CrossexOrder> result = apiInstance.listCrossexOpenOrders()
                         .symbol(symbol)
                         .exchangeType(exchangeType)
                         .businessType(businessType)
@@ -1737,7 +1737,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20032&gt;**](InlineResponse20032.md)
+[**List&lt;CrossexOrder&gt;**](CrossexOrder.md)
 
 ### Authorization
 
@@ -1755,7 +1755,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexHistoryOrders"></a>
 # **listCrossexHistoryOrders**
-> List&lt;InlineResponse20041&gt; listCrossexHistoryOrders().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
+> List&lt;CrossexOrder&gt; listCrossexHistoryOrders().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
 
 queryorderhistory
 
@@ -1788,7 +1788,7 @@ public class Example {
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
-            List<InlineResponse20041> result = apiInstance.listCrossexHistoryOrders()
+            List<CrossexOrder> result = apiInstance.listCrossexHistoryOrders()
                         .page(page)
                         .limit(limit)
                         .symbol(symbol)
@@ -1821,7 +1821,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20041&gt;**](InlineResponse20041.md)
+[**List&lt;CrossexOrder&gt;**](CrossexOrder.md)
 
 ### Authorization
 
@@ -1839,7 +1839,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexHistoryPositions"></a>
 # **listCrossexHistoryPositions**
-> List&lt;InlineResponse20042&gt; listCrossexHistoryPositions().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
+> List&lt;CrossexHistoricalPosition&gt; listCrossexHistoryPositions().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
 
 Query Contract Position History
 
@@ -1872,7 +1872,7 @@ public class Example {
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
-            List<InlineResponse20042> result = apiInstance.listCrossexHistoryPositions()
+            List<CrossexHistoricalPosition> result = apiInstance.listCrossexHistoryPositions()
                         .page(page)
                         .limit(limit)
                         .symbol(symbol)
@@ -1905,7 +1905,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20042&gt;**](InlineResponse20042.md)
+[**List&lt;CrossexHistoricalPosition&gt;**](CrossexHistoricalPosition.md)
 
 ### Authorization
 
@@ -1923,7 +1923,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexHistoryMarginPositions"></a>
 # **listCrossexHistoryMarginPositions**
-> List&lt;InlineResponse20043&gt; listCrossexHistoryMarginPositions().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
+> List&lt;CrossexHistoricalMarginPosition&gt; listCrossexHistoryMarginPositions().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
 
 Query Leveraged Position History
 
@@ -1956,7 +1956,7 @@ public class Example {
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
-            List<InlineResponse20043> result = apiInstance.listCrossexHistoryMarginPositions()
+            List<CrossexHistoricalMarginPosition> result = apiInstance.listCrossexHistoryMarginPositions()
                         .page(page)
                         .limit(limit)
                         .symbol(symbol)
@@ -1989,7 +1989,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20043&gt;**](InlineResponse20043.md)
+[**List&lt;CrossexHistoricalMarginPosition&gt;**](CrossexHistoricalMarginPosition.md)
 
 ### Authorization
 
@@ -2007,7 +2007,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexHistoryMarginInterests"></a>
 # **listCrossexHistoryMarginInterests**
-> List&lt;InlineResponse20044&gt; listCrossexHistoryMarginInterests().symbol(symbol).from(from).to(to).page(page).limit(limit).exchangeType(exchangeType).execute();
+> List&lt;CrossexMarginInterestRecord&gt; listCrossexHistoryMarginInterests().symbol(symbol).from(from).to(to).page(page).limit(limit).exchangeType(exchangeType).execute();
 
 Query Leveraged Interest Deduction History
 
@@ -2041,7 +2041,7 @@ public class Example {
         Integer limit = 56; // Integer | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         String exchangeType = "exchangeType_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         try {
-            List<InlineResponse20044> result = apiInstance.listCrossexHistoryMarginInterests()
+            List<CrossexMarginInterestRecord> result = apiInstance.listCrossexHistoryMarginInterests()
                         .symbol(symbol)
                         .from(from)
                         .to(to)
@@ -2076,7 +2076,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20044&gt;**](InlineResponse20044.md)
+[**List&lt;CrossexMarginInterestRecord&gt;**](CrossexMarginInterestRecord.md)
 
 ### Authorization
 
@@ -2094,7 +2094,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexHistoryTrades"></a>
 # **listCrossexHistoryTrades**
-> List&lt;InlineResponse20045&gt; listCrossexHistoryTrades().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
+> List&lt;CrossexTrade&gt; listCrossexHistoryTrades().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
 
 queryfilledhistory
 
@@ -2127,7 +2127,7 @@ public class Example {
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
-            List<InlineResponse20045> result = apiInstance.listCrossexHistoryTrades()
+            List<CrossexTrade> result = apiInstance.listCrossexHistoryTrades()
                         .page(page)
                         .limit(limit)
                         .symbol(symbol)
@@ -2160,7 +2160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20045&gt;**](InlineResponse20045.md)
+[**List&lt;CrossexTrade&gt;**](CrossexTrade.md)
 
 ### Authorization
 
@@ -2178,7 +2178,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexAccountBook"></a>
 # **listCrossexAccountBook**
-> List&lt;InlineResponse20046&gt; listCrossexAccountBook().page(page).limit(limit).coin(coin).from(from).to(to).execute();
+> List&lt;CrossexAccountBookRecord&gt; listCrossexAccountBook().page(page).limit(limit).coin(coin).from(from).to(to).execute();
 
 Query Account Asset Change History
 
@@ -2211,7 +2211,7 @@ public class Example {
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
-            List<InlineResponse20046> result = apiInstance.listCrossexAccountBook()
+            List<CrossexAccountBookRecord> result = apiInstance.listCrossexAccountBook()
                         .page(page)
                         .limit(limit)
                         .coin(coin)
@@ -2244,7 +2244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20046&gt;**](InlineResponse20046.md)
+[**List&lt;CrossexAccountBookRecord&gt;**](CrossexAccountBookRecord.md)
 
 ### Authorization
 
@@ -2262,7 +2262,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexCoinDiscountRate"></a>
 # **listCrossexCoinDiscountRate**
-> List&lt;InlineResponse20047&gt; listCrossexCoinDiscountRate().coin(coin).exchangeType(exchangeType).execute();
+> List&lt;CrossexCoinDiscountRate&gt; listCrossexCoinDiscountRate().coin(coin).exchangeType(exchangeType).execute();
 
 Query currency discount rate (discount rate of margin currency in isolated exchange mode)
 
@@ -2292,7 +2292,7 @@ public class Example {
         String coin = "SOL"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT
         try {
-            List<InlineResponse20047> result = apiInstance.listCrossexCoinDiscountRate()
+            List<CrossexCoinDiscountRate> result = apiInstance.listCrossexCoinDiscountRate()
                         .coin(coin)
                         .exchangeType(exchangeType)
                         .execute();
@@ -2319,7 +2319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;InlineResponse20047&gt;**](InlineResponse20047.md)
+[**List&lt;CrossexCoinDiscountRate&gt;**](CrossexCoinDiscountRate.md)
 
 ### Authorization
 

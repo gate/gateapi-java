@@ -23,7 +23,9 @@ import com.google.gson.reflect.TypeToken;
 import io.gate.gateapi.models.AgencyCommissionHistory;
 import io.gate.gateapi.models.AgencyTransactionHistory;
 import io.gate.gateapi.models.BrokerCommission;
-import io.gate.gateapi.models.BrokerTransaction;
+import io.gate.gateapi.models.BrokerTransactionHistory;
+import io.gate.gateapi.models.EligibilityResponse;
+import io.gate.gateapi.models.PartnerApplicationResponse;
 import io.gate.gateapi.models.PartnerCommissionHistory;
 import io.gate.gateapi.models.PartnerSubList;
 import io.gate.gateapi.models.PartnerTransactionHistory;
@@ -1374,15 +1376,15 @@ public class RebateApi {
     }
 
 
-    private ApiResponse<List<BrokerTransaction>> rebateBrokerTransactionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
+    private ApiResponse<List<BrokerTransactionHistory>> rebateBrokerTransactionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
         okhttp3.Call localVarCall = rebateBrokerTransactionHistoryValidateBeforeCall(limit, offset, userId, from, to, null);
-        Type localVarReturnType = new TypeToken<List<BrokerTransaction>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<BrokerTransactionHistory>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call rebateBrokerTransactionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<List<BrokerTransaction>> _callback) throws ApiException {
+    private okhttp3.Call rebateBrokerTransactionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<List<BrokerTransactionHistory>> _callback) throws ApiException {
         okhttp3.Call localVarCall = rebateBrokerTransactionHistoryValidateBeforeCall(limit, offset, userId, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<BrokerTransaction>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<BrokerTransactionHistory>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1464,7 +1466,7 @@ public class RebateApi {
 
         /**
          * Execute rebateBrokerTransactionHistory request
-         * @return List&lt;BrokerTransaction&gt;
+         * @return List&lt;BrokerTransactionHistory&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1472,14 +1474,14 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public List<BrokerTransaction> execute() throws ApiException {
-            ApiResponse<List<BrokerTransaction>> localVarResp = rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
+        public List<BrokerTransactionHistory> execute() throws ApiException {
+            ApiResponse<List<BrokerTransactionHistory>> localVarResp = rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute rebateBrokerTransactionHistory request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;BrokerTransaction&gt;&gt;
+         * @return ApiResponse&lt;List&lt;BrokerTransactionHistory&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1487,7 +1489,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<BrokerTransaction>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<BrokerTransactionHistory>> executeWithHttpInfo() throws ApiException {
             return rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
         }
 
@@ -1502,7 +1504,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<BrokerTransaction>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<BrokerTransactionHistory>> _callback) throws ApiException {
             return rebateBrokerTransactionHistoryAsync(limit, offset, userId, from, to, _callback);
         }
     }
@@ -1726,6 +1728,202 @@ public class RebateApi {
     public okhttp3.Call userSubRelationAsync(String userIdList, final ApiCallback<UserSubRelation> _callback) throws ApiException {
         okhttp3.Call localVarCall = userSubRelationValidateBeforeCall(userIdList, _callback);
         Type localVarReturnType = new TypeToken<UserSubRelation>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getPartnerApplicationRecent
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPartnerApplicationRecentCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/partner/applications/recent";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPartnerApplicationRecentValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerApplicationRecentCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get recent partner application records
+     * 获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。
+     * @return PartnerApplicationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public PartnerApplicationResponse getPartnerApplicationRecent() throws ApiException {
+        ApiResponse<PartnerApplicationResponse> localVarResp = getPartnerApplicationRecentWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get recent partner application records
+     * 获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。
+     * @return ApiResponse&lt;PartnerApplicationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PartnerApplicationResponse> getPartnerApplicationRecentWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getPartnerApplicationRecentValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<PartnerApplicationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get recent partner application records (asynchronously)
+     * 获取当前用户最近的合伙人申请记录。  此接口返回用户最近 30 天内的申请记录，包括申请状态、审核信息、申请材料等详细信息。
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPartnerApplicationRecentAsync(final ApiCallback<PartnerApplicationResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerApplicationRecentValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<PartnerApplicationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getPartnerEligibility
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPartnerEligibilityCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/partner/eligibility";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPartnerEligibilityValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerEligibilityCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Check partner application eligibility
+     * 检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制
+     * @return EligibilityResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public EligibilityResponse getPartnerEligibility() throws ApiException {
+        ApiResponse<EligibilityResponse> localVarResp = getPartnerEligibilityWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Check partner application eligibility
+     * 检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制
+     * @return ApiResponse&lt;EligibilityResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EligibilityResponse> getPartnerEligibilityWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getPartnerEligibilityValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<EligibilityResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Check partner application eligibility (asynchronously)
+     * 检查当前用户是否有资格申请成为合伙人。  此接口会检查多个条件： - 账户状态（是否被封禁） - 是否为子账号 - 是否已经是合伙人 - KYC 认证状态 - 是否在其他代理商的邀请链下 - 是否在黑名单中 - 其他业务规则限制
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getPartnerEligibilityAsync(final ApiCallback<EligibilityResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerEligibilityValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<EligibilityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

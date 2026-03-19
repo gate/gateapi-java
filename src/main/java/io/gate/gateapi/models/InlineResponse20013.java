@@ -24,37 +24,22 @@ import java.io.IOException;
  * InlineResponse20013
  */
 public class InlineResponse20013 {
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse20013Data data;
 
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Long timestamp;
 
-    public InlineResponse20013 message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Get message
-     * @return message
-    **/
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public InlineResponse20013 code(Integer code) {
         
@@ -63,7 +48,7 @@ public class InlineResponse20013 {
     }
 
      /**
-     * Get code
+     * Response status code, 0 means success
      * @return code
     **/
     public Integer getCode() {
@@ -73,6 +58,25 @@ public class InlineResponse20013 {
 
     public void setCode(Integer code) {
         this.code = code;
+    }
+
+    public InlineResponse20013 message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * 响应消息，成功时为 \&quot;success\&quot;
+     * @return message
+    **/
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public InlineResponse20013 data(InlineResponse20013Data data) {
@@ -93,6 +97,25 @@ public class InlineResponse20013 {
     public void setData(InlineResponse20013Data data) {
         this.data = data;
     }
+
+    public InlineResponse20013 timestamp(Long timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Server timestamp (milliseconds)
+     * @return timestamp
+    **/
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -102,14 +125,15 @@ public class InlineResponse20013 {
             return false;
         }
         InlineResponse20013 inlineResponse20013 = (InlineResponse20013) o;
-        return Objects.equals(this.message, inlineResponse20013.message) &&
-                Objects.equals(this.code, inlineResponse20013.code) &&
-                Objects.equals(this.data, inlineResponse20013.data);
+        return Objects.equals(this.code, inlineResponse20013.code) &&
+                Objects.equals(this.message, inlineResponse20013.message) &&
+                Objects.equals(this.data, inlineResponse20013.data) &&
+                Objects.equals(this.timestamp, inlineResponse20013.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(message, code, data);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -117,9 +141,10 @@ public class InlineResponse20013 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20013 {\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

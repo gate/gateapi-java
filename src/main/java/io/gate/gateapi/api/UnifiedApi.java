@@ -25,7 +25,6 @@ import io.gate.gateapi.models.UniLoan;
 import io.gate.gateapi.models.UniLoanInterestRecord;
 import io.gate.gateapi.models.UnifiedAccount;
 import io.gate.gateapi.models.UnifiedBorrowable;
-import io.gate.gateapi.models.UnifiedBorrowable1;
 import io.gate.gateapi.models.UnifiedCollateralReq;
 import io.gate.gateapi.models.UnifiedCollateralRes;
 import io.gate.gateapi.models.UnifiedCurrency;
@@ -619,7 +618,7 @@ public class UnifiedApi {
      * Batch query unified account maximum borrowable amount
      * 
      * @param currencies Specify currency names for querying in an array, separated by commas, maximum 10 currencies (required)
-     * @return List&lt;UnifiedBorrowable1&gt;
+     * @return List&lt;UnifiedBorrowable&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -627,8 +626,8 @@ public class UnifiedApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public List<UnifiedBorrowable1> getUnifiedBorrowableList(List<String> currencies) throws ApiException {
-        ApiResponse<List<UnifiedBorrowable1>> localVarResp = getUnifiedBorrowableListWithHttpInfo(currencies);
+    public List<UnifiedBorrowable> getUnifiedBorrowableList(List<String> currencies) throws ApiException {
+        ApiResponse<List<UnifiedBorrowable>> localVarResp = getUnifiedBorrowableListWithHttpInfo(currencies);
         return localVarResp.getData();
     }
 
@@ -636,7 +635,7 @@ public class UnifiedApi {
      * Batch query unified account maximum borrowable amount
      * 
      * @param currencies Specify currency names for querying in an array, separated by commas, maximum 10 currencies (required)
-     * @return ApiResponse&lt;List&lt;UnifiedBorrowable1&gt;&gt;
+     * @return ApiResponse&lt;List&lt;UnifiedBorrowable&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -644,9 +643,9 @@ public class UnifiedApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UnifiedBorrowable1>> getUnifiedBorrowableListWithHttpInfo(List<String> currencies) throws ApiException {
+    public ApiResponse<List<UnifiedBorrowable>> getUnifiedBorrowableListWithHttpInfo(List<String> currencies) throws ApiException {
         okhttp3.Call localVarCall = getUnifiedBorrowableListValidateBeforeCall(currencies, null);
-        Type localVarReturnType = new TypeToken<List<UnifiedBorrowable1>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<UnifiedBorrowable>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -663,9 +662,9 @@ public class UnifiedApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUnifiedBorrowableListAsync(List<String> currencies, final ApiCallback<List<UnifiedBorrowable1>> _callback) throws ApiException {
+    public okhttp3.Call getUnifiedBorrowableListAsync(List<String> currencies, final ApiCallback<List<UnifiedBorrowable>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getUnifiedBorrowableListValidateBeforeCall(currencies, _callback);
-        Type localVarReturnType = new TypeToken<List<UnifiedBorrowable1>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<UnifiedBorrowable>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -23,51 +23,28 @@ import java.io.IOException;
  * InlineObject
  */
 public class InlineObject {
-    public static final String SERIALIZED_NAME_MODE = "mode";
-    @SerializedName(SERIALIZED_NAME_MODE)
-    private String mode;
-
-    public static final String SERIALIZED_NAME_CONTRACT = "contract";
-    @SerializedName(SERIALIZED_NAME_CONTRACT)
-    private String contract;
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
 
 
-    public InlineObject mode(String mode) {
+    public InlineObject orderId(String orderId) {
         
-        this.mode = mode;
+        this.orderId = orderId;
         return this;
     }
 
      /**
-     * Cross/isolated margin mode. ISOLATED - isolated margin, CROSS - cross margin
-     * @return mode
+     * Order ID
+     * @return orderId
     **/
-    public String getMode() {
-        return mode;
+    public String getOrderId() {
+        return orderId;
     }
 
 
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
-
-    public InlineObject contract(String contract) {
-        
-        this.contract = contract;
-        return this;
-    }
-
-     /**
-     * Futures market
-     * @return contract
-    **/
-    public String getContract() {
-        return contract;
-    }
-
-
-    public void setContract(String contract) {
-        this.contract = contract;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,13 +55,12 @@ public class InlineObject {
             return false;
         }
         InlineObject inlineObject = (InlineObject) o;
-        return Objects.equals(this.mode, inlineObject.mode) &&
-                Objects.equals(this.contract, inlineObject.contract);
+        return Objects.equals(this.orderId, inlineObject.orderId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mode, contract);
+        return Objects.hash(orderId);
     }
 
 
@@ -92,8 +68,7 @@ public class InlineObject {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject {\n");
-        sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
-        sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

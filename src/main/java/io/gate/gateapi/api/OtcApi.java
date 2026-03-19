@@ -20,18 +20,18 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.InlineResponse20010;
-import io.gate.gateapi.models.InlineResponse20011;
-import io.gate.gateapi.models.InlineResponse20012;
-import io.gate.gateapi.models.InlineResponse20013;
-import io.gate.gateapi.models.InlineResponse2006;
-import io.gate.gateapi.models.InlineResponse2007;
-import io.gate.gateapi.models.InlineResponse2008;
-import io.gate.gateapi.models.InlineResponse2009;
+import io.gate.gateapi.models.OtcActionResponse;
+import io.gate.gateapi.models.OtcBankListResponse;
 import io.gate.gateapi.models.OtcMarkOrderPaidRequest;
+import io.gate.gateapi.models.OtcOrderDetailResponse;
+import io.gate.gateapi.models.OtcOrderListResponse;
 import io.gate.gateapi.models.OtcOrderRequest;
 import io.gate.gateapi.models.OtcQuoteRequest;
+import io.gate.gateapi.models.OtcQuoteResponse;
+import io.gate.gateapi.models.OtcStableCoinOrderCreateResponse;
+import io.gate.gateapi.models.OtcStableCoinOrderListResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderRequest;
+import io.gate.gateapi.models.OtcUserDefaultBankResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -114,7 +114,7 @@ public class OtcApi {
      * Fiat and stablecoin quote
      * Create fiat and stablecoin quotes, supporting both PAY and GET directions
      * @param otcQuoteRequest  (required)
-     * @return InlineResponse2006
+     * @return OtcQuoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -122,8 +122,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2006 createOtcQuote(OtcQuoteRequest otcQuoteRequest) throws ApiException {
-        ApiResponse<InlineResponse2006> localVarResp = createOtcQuoteWithHttpInfo(otcQuoteRequest);
+    public OtcQuoteResponse createOtcQuote(OtcQuoteRequest otcQuoteRequest) throws ApiException {
+        ApiResponse<OtcQuoteResponse> localVarResp = createOtcQuoteWithHttpInfo(otcQuoteRequest);
         return localVarResp.getData();
     }
 
@@ -131,7 +131,7 @@ public class OtcApi {
      * Fiat and stablecoin quote
      * Create fiat and stablecoin quotes, supporting both PAY and GET directions
      * @param otcQuoteRequest  (required)
-     * @return ApiResponse&lt;InlineResponse2006&gt;
+     * @return ApiResponse&lt;OtcQuoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -139,9 +139,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2006> createOtcQuoteWithHttpInfo(OtcQuoteRequest otcQuoteRequest) throws ApiException {
+    public ApiResponse<OtcQuoteResponse> createOtcQuoteWithHttpInfo(OtcQuoteRequest otcQuoteRequest) throws ApiException {
         okhttp3.Call localVarCall = createOtcQuoteValidateBeforeCall(otcQuoteRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcQuoteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -158,9 +158,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Quote retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcQuoteAsync(OtcQuoteRequest otcQuoteRequest, final ApiCallback<InlineResponse2006> _callback) throws ApiException {
+    public okhttp3.Call createOtcQuoteAsync(OtcQuoteRequest otcQuoteRequest, final ApiCallback<OtcQuoteResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createOtcQuoteValidateBeforeCall(otcQuoteRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcQuoteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -221,7 +221,7 @@ public class OtcApi {
      * Create fiat order
      * Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp
      * @param otcOrderRequest  (required)
-     * @return InlineResponse2007
+     * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -229,8 +229,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2007 createOtcOrder(OtcOrderRequest otcOrderRequest) throws ApiException {
-        ApiResponse<InlineResponse2007> localVarResp = createOtcOrderWithHttpInfo(otcOrderRequest);
+    public OtcActionResponse createOtcOrder(OtcOrderRequest otcOrderRequest) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = createOtcOrderWithHttpInfo(otcOrderRequest);
         return localVarResp.getData();
     }
 
@@ -238,7 +238,7 @@ public class OtcApi {
      * Create fiat order
      * Create a fiat order, supporting BUY for on-ramp and SELL for off-ramp
      * @param otcOrderRequest  (required)
-     * @return ApiResponse&lt;InlineResponse2007&gt;
+     * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -246,9 +246,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2007> createOtcOrderWithHttpInfo(OtcOrderRequest otcOrderRequest) throws ApiException {
+    public ApiResponse<OtcActionResponse> createOtcOrderWithHttpInfo(OtcOrderRequest otcOrderRequest) throws ApiException {
         okhttp3.Call localVarCall = createOtcOrderValidateBeforeCall(otcOrderRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -265,9 +265,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcOrderAsync(OtcOrderRequest otcOrderRequest, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+    public okhttp3.Call createOtcOrderAsync(OtcOrderRequest otcOrderRequest, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createOtcOrderValidateBeforeCall(otcOrderRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -328,7 +328,7 @@ public class OtcApi {
      * Create stablecoin order
      * Create stablecoin order
      * @param otcStableCoinOrderRequest  (required)
-     * @return InlineResponse2008
+     * @return OtcStableCoinOrderCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -336,8 +336,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2008 createStableCoinOrder(OtcStableCoinOrderRequest otcStableCoinOrderRequest) throws ApiException {
-        ApiResponse<InlineResponse2008> localVarResp = createStableCoinOrderWithHttpInfo(otcStableCoinOrderRequest);
+    public OtcStableCoinOrderCreateResponse createStableCoinOrder(OtcStableCoinOrderRequest otcStableCoinOrderRequest) throws ApiException {
+        ApiResponse<OtcStableCoinOrderCreateResponse> localVarResp = createStableCoinOrderWithHttpInfo(otcStableCoinOrderRequest);
         return localVarResp.getData();
     }
 
@@ -345,7 +345,7 @@ public class OtcApi {
      * Create stablecoin order
      * Create stablecoin order
      * @param otcStableCoinOrderRequest  (required)
-     * @return ApiResponse&lt;InlineResponse2008&gt;
+     * @return ApiResponse&lt;OtcStableCoinOrderCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -353,9 +353,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2008> createStableCoinOrderWithHttpInfo(OtcStableCoinOrderRequest otcStableCoinOrderRequest) throws ApiException {
+    public ApiResponse<OtcStableCoinOrderCreateResponse> createStableCoinOrderWithHttpInfo(OtcStableCoinOrderRequest otcStableCoinOrderRequest) throws ApiException {
         okhttp3.Call localVarCall = createStableCoinOrderValidateBeforeCall(otcStableCoinOrderRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcStableCoinOrderCreateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -372,9 +372,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Stablecoin order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStableCoinOrderAsync(OtcStableCoinOrderRequest otcStableCoinOrderRequest, final ApiCallback<InlineResponse2008> _callback) throws ApiException {
+    public okhttp3.Call createStableCoinOrderAsync(OtcStableCoinOrderRequest otcStableCoinOrderRequest, final ApiCallback<OtcStableCoinOrderCreateResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createStableCoinOrderValidateBeforeCall(otcStableCoinOrderRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcStableCoinOrderCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -428,7 +428,7 @@ public class OtcApi {
     /**
      * Get user&#39;s default bank account information
      * Get user&#39;s default bank account information for order placement
-     * @return InlineResponse2009
+     * @return OtcUserDefaultBankResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -436,15 +436,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2009 getUserDefaultBank() throws ApiException {
-        ApiResponse<InlineResponse2009> localVarResp = getUserDefaultBankWithHttpInfo();
+    public OtcUserDefaultBankResponse getUserDefaultBank() throws ApiException {
+        ApiResponse<OtcUserDefaultBankResponse> localVarResp = getUserDefaultBankWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get user&#39;s default bank account information
      * Get user&#39;s default bank account information for order placement
-     * @return ApiResponse&lt;InlineResponse2009&gt;
+     * @return ApiResponse&lt;OtcUserDefaultBankResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -452,9 +452,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2009> getUserDefaultBankWithHttpInfo() throws ApiException {
+    public ApiResponse<OtcUserDefaultBankResponse> getUserDefaultBankWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getUserDefaultBankValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcUserDefaultBankResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -470,9 +470,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserDefaultBankAsync(final ApiCallback<InlineResponse2009> _callback) throws ApiException {
+    public okhttp3.Call getUserDefaultBankAsync(final ApiCallback<OtcUserDefaultBankResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getUserDefaultBankValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcUserDefaultBankResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -526,7 +526,7 @@ public class OtcApi {
     /**
      * Get user bank card list
      * Get user bank card list for selecting bank card when placing orders
-     * @return InlineResponse20010
+     * @return OtcBankListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -534,15 +534,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20010 getBankList() throws ApiException {
-        ApiResponse<InlineResponse20010> localVarResp = getBankListWithHttpInfo();
+    public OtcBankListResponse getBankList() throws ApiException {
+        ApiResponse<OtcBankListResponse> localVarResp = getBankListWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get user bank card list
      * Get user bank card list for selecting bank card when placing orders
-     * @return ApiResponse&lt;InlineResponse20010&gt;
+     * @return ApiResponse&lt;OtcBankListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -550,9 +550,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20010> getBankListWithHttpInfo() throws ApiException {
+    public ApiResponse<OtcBankListResponse> getBankListWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getBankListValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcBankListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -568,9 +568,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankListAsync(final ApiCallback<InlineResponse20010> _callback) throws ApiException {
+    public okhttp3.Call getBankListAsync(final ApiCallback<OtcBankListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getBankListValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcBankListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -631,7 +631,7 @@ public class OtcApi {
      * Mark fiat order as paid
      * Mark fiat order as paid
      * @param otcMarkOrderPaidRequest  (required)
-     * @return InlineResponse2007
+     * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -639,8 +639,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2007 markOtcOrderPaid(OtcMarkOrderPaidRequest otcMarkOrderPaidRequest) throws ApiException {
-        ApiResponse<InlineResponse2007> localVarResp = markOtcOrderPaidWithHttpInfo(otcMarkOrderPaidRequest);
+    public OtcActionResponse markOtcOrderPaid(OtcMarkOrderPaidRequest otcMarkOrderPaidRequest) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = markOtcOrderPaidWithHttpInfo(otcMarkOrderPaidRequest);
         return localVarResp.getData();
     }
 
@@ -648,7 +648,7 @@ public class OtcApi {
      * Mark fiat order as paid
      * Mark fiat order as paid
      * @param otcMarkOrderPaidRequest  (required)
-     * @return ApiResponse&lt;InlineResponse2007&gt;
+     * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -656,9 +656,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2007> markOtcOrderPaidWithHttpInfo(OtcMarkOrderPaidRequest otcMarkOrderPaidRequest) throws ApiException {
+    public ApiResponse<OtcActionResponse> markOtcOrderPaidWithHttpInfo(OtcMarkOrderPaidRequest otcMarkOrderPaidRequest) throws ApiException {
         okhttp3.Call localVarCall = markOtcOrderPaidValidateBeforeCall(otcMarkOrderPaidRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -675,9 +675,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> The order has been marked as paid </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call markOtcOrderPaidAsync(OtcMarkOrderPaidRequest otcMarkOrderPaidRequest, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+    public okhttp3.Call markOtcOrderPaidAsync(OtcMarkOrderPaidRequest otcMarkOrderPaidRequest, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = markOtcOrderPaidValidateBeforeCall(otcMarkOrderPaidRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -742,7 +742,7 @@ public class OtcApi {
      * Fiat order cancellation
      * Cancel fiat order
      * @param orderId Order ID (required)
-     * @return InlineResponse2007
+     * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -750,8 +750,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order cancelled successfully </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2007 cancelOtcOrder(String orderId) throws ApiException {
-        ApiResponse<InlineResponse2007> localVarResp = cancelOtcOrderWithHttpInfo(orderId);
+    public OtcActionResponse cancelOtcOrder(String orderId) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = cancelOtcOrderWithHttpInfo(orderId);
         return localVarResp.getData();
     }
 
@@ -759,7 +759,7 @@ public class OtcApi {
      * Fiat order cancellation
      * Cancel fiat order
      * @param orderId Order ID (required)
-     * @return ApiResponse&lt;InlineResponse2007&gt;
+     * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -767,9 +767,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order cancelled successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2007> cancelOtcOrderWithHttpInfo(String orderId) throws ApiException {
+    public ApiResponse<OtcActionResponse> cancelOtcOrderWithHttpInfo(String orderId) throws ApiException {
         okhttp3.Call localVarCall = cancelOtcOrderValidateBeforeCall(orderId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -786,9 +786,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Order cancelled successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelOtcOrderAsync(String orderId, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+    public okhttp3.Call cancelOtcOrderAsync(String orderId, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelOtcOrderValidateBeforeCall(orderId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -861,15 +861,15 @@ public class OtcApi {
     }
 
 
-    private ApiResponse<InlineResponse20011> listOtcOrdersWithHttpInfo(String type, String fiatCurrency, String cryptoCurrency, String startTime, String endTime, String status, String pn, String ps) throws ApiException {
+    private ApiResponse<OtcOrderListResponse> listOtcOrdersWithHttpInfo(String type, String fiatCurrency, String cryptoCurrency, String startTime, String endTime, String status, String pn, String ps) throws ApiException {
         okhttp3.Call localVarCall = listOtcOrdersValidateBeforeCall(type, fiatCurrency, cryptoCurrency, startTime, endTime, status, pn, ps, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcOrderListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listOtcOrdersAsync(String type, String fiatCurrency, String cryptoCurrency, String startTime, String endTime, String status, String pn, String ps, final ApiCallback<InlineResponse20011> _callback) throws ApiException {
+    private okhttp3.Call listOtcOrdersAsync(String type, String fiatCurrency, String cryptoCurrency, String startTime, String endTime, String status, String pn, String ps, final ApiCallback<OtcOrderListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listOtcOrdersValidateBeforeCall(type, fiatCurrency, cryptoCurrency, startTime, endTime, status, pn, ps, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcOrderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -984,7 +984,7 @@ public class OtcApi {
 
         /**
          * Execute listOtcOrders request
-         * @return InlineResponse20011
+         * @return OtcOrderListResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -992,14 +992,14 @@ public class OtcApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse20011 execute() throws ApiException {
-            ApiResponse<InlineResponse20011> localVarResp = listOtcOrdersWithHttpInfo(type, fiatCurrency, cryptoCurrency, startTime, endTime, status, pn, ps);
+        public OtcOrderListResponse execute() throws ApiException {
+            ApiResponse<OtcOrderListResponse> localVarResp = listOtcOrdersWithHttpInfo(type, fiatCurrency, cryptoCurrency, startTime, endTime, status, pn, ps);
             return localVarResp.getData();
         }
 
         /**
          * Execute listOtcOrders request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse20011&gt;
+         * @return ApiResponse&lt;OtcOrderListResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1007,7 +1007,7 @@ public class OtcApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse20011> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<OtcOrderListResponse> executeWithHttpInfo() throws ApiException {
             return listOtcOrdersWithHttpInfo(type, fiatCurrency, cryptoCurrency, startTime, endTime, status, pn, ps);
         }
 
@@ -1022,7 +1022,7 @@ public class OtcApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20011> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<OtcOrderListResponse> _callback) throws ApiException {
             return listOtcOrdersAsync(type, fiatCurrency, cryptoCurrency, startTime, endTime, status, pn, ps, _callback);
         }
     }
@@ -1101,15 +1101,15 @@ public class OtcApi {
     }
 
 
-    private ApiResponse<InlineResponse20012> listStableCoinOrdersWithHttpInfo(String pageSize, String pageNumber, String coinName, String startTime, String endTime, String status) throws ApiException {
+    private ApiResponse<OtcStableCoinOrderListResponse> listStableCoinOrdersWithHttpInfo(String pageSize, String pageNumber, String coinName, String startTime, String endTime, String status) throws ApiException {
         okhttp3.Call localVarCall = listStableCoinOrdersValidateBeforeCall(pageSize, pageNumber, coinName, startTime, endTime, status, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcStableCoinOrderListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listStableCoinOrdersAsync(String pageSize, String pageNumber, String coinName, String startTime, String endTime, String status, final ApiCallback<InlineResponse20012> _callback) throws ApiException {
+    private okhttp3.Call listStableCoinOrdersAsync(String pageSize, String pageNumber, String coinName, String startTime, String endTime, String status, final ApiCallback<OtcStableCoinOrderListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listStableCoinOrdersValidateBeforeCall(pageSize, pageNumber, coinName, startTime, endTime, status, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcStableCoinOrderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1202,7 +1202,7 @@ public class OtcApi {
 
         /**
          * Execute listStableCoinOrders request
-         * @return InlineResponse20012
+         * @return OtcStableCoinOrderListResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1210,14 +1210,14 @@ public class OtcApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse20012 execute() throws ApiException {
-            ApiResponse<InlineResponse20012> localVarResp = listStableCoinOrdersWithHttpInfo(pageSize, pageNumber, coinName, startTime, endTime, status);
+        public OtcStableCoinOrderListResponse execute() throws ApiException {
+            ApiResponse<OtcStableCoinOrderListResponse> localVarResp = listStableCoinOrdersWithHttpInfo(pageSize, pageNumber, coinName, startTime, endTime, status);
             return localVarResp.getData();
         }
 
         /**
          * Execute listStableCoinOrders request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse20012&gt;
+         * @return ApiResponse&lt;OtcStableCoinOrderListResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1225,7 +1225,7 @@ public class OtcApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse20012> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<OtcStableCoinOrderListResponse> executeWithHttpInfo() throws ApiException {
             return listStableCoinOrdersWithHttpInfo(pageSize, pageNumber, coinName, startTime, endTime, status);
         }
 
@@ -1240,7 +1240,7 @@ public class OtcApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20012> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<OtcStableCoinOrderListResponse> _callback) throws ApiException {
             return listStableCoinOrdersAsync(pageSize, pageNumber, coinName, startTime, endTime, status, _callback);
         }
     }
@@ -1319,7 +1319,7 @@ public class OtcApi {
      * Fiat order details
      * Query fiat order details
      * @param orderId Order ID (required)
-     * @return InlineResponse20013
+     * @return OtcOrderDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1327,8 +1327,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20013 getOtcOrderDetail(String orderId) throws ApiException {
-        ApiResponse<InlineResponse20013> localVarResp = getOtcOrderDetailWithHttpInfo(orderId);
+    public OtcOrderDetailResponse getOtcOrderDetail(String orderId) throws ApiException {
+        ApiResponse<OtcOrderDetailResponse> localVarResp = getOtcOrderDetailWithHttpInfo(orderId);
         return localVarResp.getData();
     }
 
@@ -1336,7 +1336,7 @@ public class OtcApi {
      * Fiat order details
      * Query fiat order details
      * @param orderId Order ID (required)
-     * @return ApiResponse&lt;InlineResponse20013&gt;
+     * @return ApiResponse&lt;OtcOrderDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1344,9 +1344,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20013> getOtcOrderDetailWithHttpInfo(String orderId) throws ApiException {
+    public ApiResponse<OtcOrderDetailResponse> getOtcOrderDetailWithHttpInfo(String orderId) throws ApiException {
         okhttp3.Call localVarCall = getOtcOrderDetailValidateBeforeCall(orderId, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcOrderDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1363,9 +1363,9 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOtcOrderDetailAsync(String orderId, final ApiCallback<InlineResponse20013> _callback) throws ApiException {
+    public okhttp3.Call getOtcOrderDetailAsync(String orderId, final ApiCallback<OtcOrderDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getOtcOrderDetailValidateBeforeCall(orderId, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
+        Type localVarReturnType = new TypeToken<OtcOrderDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

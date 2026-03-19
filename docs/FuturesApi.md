@@ -1502,7 +1502,7 @@ Name | Type | Description  | Notes
 
 <a name="getLeverage"></a>
 # **getLeverage**
-> FuturesLeverage getLeverage(settle, contract).posMarginMode(posMarginMode).dualSide(dualSide).execute();
+> FuturesLeverage getLeverage(settle, contract, posMarginMode, dualSide)
 
 Get Leverage Information for Specified Mode
 
@@ -1534,10 +1534,7 @@ public class Example {
         String posMarginMode = "isolated"; // String | Position Margin Mode, required for split position mode, values: isolated/cross.
         String dualSide = "dual_long"; // String | dual_long - Long, dual_short - Short
         try {
-            FuturesLeverage result = apiInstance.getLeverage(settle, contract)
-                        .posMarginMode(posMarginMode)
-                        .dualSide(dualSide)
-                        .execute();
+            FuturesLeverage result = apiInstance.getLeverage(settle, contract, posMarginMode, dualSide);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1558,8 +1555,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **contract** | **String**| Futures contract |
- **posMarginMode** | **String**| Position Margin Mode, required for split position mode, values: isolated/cross. | [optional]
- **dualSide** | **String**| dual_long - Long, dual_short - Short | [optional]
+ **posMarginMode** | **String**| Position Margin Mode, required for split position mode, values: isolated/cross. |
+ **dualSide** | **String**| dual_long - Long, dual_short - Short |
 
 ### Return type
 
@@ -1881,7 +1878,7 @@ Name | Type | Description  | Notes
 
 <a name="updateDualCompPositionCrossMode"></a>
 # **updateDualCompPositionCrossMode**
-> List&lt;Position&gt; updateDualCompPositionCrossMode(settle, inlineObject)
+> List&lt;Position&gt; updateDualCompPositionCrossMode(settle, updateDualCompPositionCrossModeRequest)
 
 Switch Between Cross and Isolated Margin Modes Under Hedge Mode
 
@@ -1907,9 +1904,9 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest = new UpdateDualCompPositionCrossModeRequest(); // UpdateDualCompPositionCrossModeRequest | 
         try {
-            List<Position> result = apiInstance.updateDualCompPositionCrossMode(settle, inlineObject);
+            List<Position> result = apiInstance.updateDualCompPositionCrossMode(settle, updateDualCompPositionCrossModeRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1929,7 +1926,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+ **updateDualCompPositionCrossModeRequest** | [**UpdateDualCompPositionCrossModeRequest**](UpdateDualCompPositionCrossModeRequest.md)|  |
 
 ### Return type
 
@@ -3948,7 +3945,7 @@ Name | Type | Description  | Notes
 
 <a name="createTrailOrder"></a>
 # **createTrailOrder**
-> InlineResponse201 createTrailOrder(settle, createTrailOrder)
+> CreateTrailOrderResponse createTrailOrder(settle, createTrailOrder)
 
 Create trail order
 
@@ -3976,7 +3973,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         CreateTrailOrder createTrailOrder = new CreateTrailOrder(); // CreateTrailOrder | 
         try {
-            InlineResponse201 result = apiInstance.createTrailOrder(settle, createTrailOrder);
+            CreateTrailOrderResponse result = apiInstance.createTrailOrder(settle, createTrailOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4000,7 +3997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateTrailOrderResponse**](CreateTrailOrderResponse.md)
 
 ### Authorization
 
@@ -4018,7 +4015,7 @@ Name | Type | Description  | Notes
 
 <a name="stopTrailOrder"></a>
 # **stopTrailOrder**
-> InlineResponse200 stopTrailOrder(settle, stopTrailOrder)
+> TrailOrderResponse stopTrailOrder(settle, stopTrailOrder)
 
 Terminate trail order
 
@@ -4046,7 +4043,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         StopTrailOrder stopTrailOrder = new StopTrailOrder(); // StopTrailOrder | 
         try {
-            InlineResponse200 result = apiInstance.stopTrailOrder(settle, stopTrailOrder);
+            TrailOrderResponse result = apiInstance.stopTrailOrder(settle, stopTrailOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4070,7 +4067,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TrailOrderResponse**](TrailOrderResponse.md)
 
 ### Authorization
 
@@ -4088,7 +4085,7 @@ Name | Type | Description  | Notes
 
 <a name="stopAllTrailOrders"></a>
 # **stopAllTrailOrders**
-> InlineResponse2001 stopAllTrailOrders(settle, stopAllTrailOrders)
+> TrailOrderListResponse stopAllTrailOrders(settle, stopAllTrailOrders)
 
 Batch terminate trail orders
 
@@ -4116,7 +4113,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         StopAllTrailOrders stopAllTrailOrders = new StopAllTrailOrders(); // StopAllTrailOrders | 
         try {
-            InlineResponse2001 result = apiInstance.stopAllTrailOrders(settle, stopAllTrailOrders);
+            TrailOrderListResponse result = apiInstance.stopAllTrailOrders(settle, stopAllTrailOrders);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4140,7 +4137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**TrailOrderListResponse**](TrailOrderListResponse.md)
 
 ### Authorization
 
@@ -4158,7 +4155,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrailOrders"></a>
 # **getTrailOrders**
-> InlineResponse2001 getTrailOrders(settle).contract(contract).isFinished(isFinished).startAt(startAt).endAt(endAt).pageNum(pageNum).pageSize(pageSize).sortBy(sortBy).hideCancel(hideCancel).relatedPosition(relatedPosition).sortByTrigger(sortByTrigger).reduceOnly(reduceOnly).side(side).execute();
+> TrailOrderListResponse getTrailOrders(settle).contract(contract).isFinished(isFinished).startAt(startAt).endAt(endAt).pageNum(pageNum).pageSize(pageSize).sortBy(sortBy).hideCancel(hideCancel).relatedPosition(relatedPosition).sortByTrigger(sortByTrigger).reduceOnly(reduceOnly).side(side).execute();
 
 Get trail order list
 
@@ -4197,7 +4194,7 @@ public class Example {
         Integer reduceOnly = 56; // Integer | Whether reduce only, 1-yes, 2-no
         Integer side = 56; // Integer | Direction, 1-long position, 2-short position
         try {
-            InlineResponse2001 result = apiInstance.getTrailOrders(settle)
+            TrailOrderListResponse result = apiInstance.getTrailOrders(settle)
                         .contract(contract)
                         .isFinished(isFinished)
                         .startAt(startAt)
@@ -4245,7 +4242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**TrailOrderListResponse**](TrailOrderListResponse.md)
 
 ### Authorization
 
@@ -4263,7 +4260,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrailOrderDetail"></a>
 # **getTrailOrderDetail**
-> InlineResponse2002 getTrailOrderDetail(settle, id)
+> TrailOrderDetailResponse getTrailOrderDetail(settle, id)
 
 Get trail order details
 
@@ -4291,7 +4288,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         Long id = 56L; // Long | Order ID
         try {
-            InlineResponse2002 result = apiInstance.getTrailOrderDetail(settle, id);
+            TrailOrderDetailResponse result = apiInstance.getTrailOrderDetail(settle, id);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4315,7 +4312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**TrailOrderDetailResponse**](TrailOrderDetailResponse.md)
 
 ### Authorization
 
@@ -4333,7 +4330,7 @@ Name | Type | Description  | Notes
 
 <a name="updateTrailOrder"></a>
 # **updateTrailOrder**
-> InlineResponse200 updateTrailOrder(settle, updateTrailOrder)
+> TrailOrderResponse updateTrailOrder(settle, updateTrailOrder)
 
 Update trail order
 
@@ -4361,7 +4358,7 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         UpdateTrailOrder updateTrailOrder = new UpdateTrailOrder(); // UpdateTrailOrder | 
         try {
-            InlineResponse200 result = apiInstance.updateTrailOrder(settle, updateTrailOrder);
+            TrailOrderResponse result = apiInstance.updateTrailOrder(settle, updateTrailOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4385,7 +4382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TrailOrderResponse**](TrailOrderResponse.md)
 
 ### Authorization
 
@@ -4403,7 +4400,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrailOrderChangeLog"></a>
 # **getTrailOrderChangeLog**
-> InlineResponse2003 getTrailOrderChangeLog(settle, id).pageNum(pageNum).pageSize(pageSize).execute();
+> TrailOrderChangeLogResponse getTrailOrderChangeLog(settle, id).pageNum(pageNum).pageSize(pageSize).execute();
 
 Get trail order user modification records
 
@@ -4433,7 +4430,7 @@ public class Example {
         Integer pageNum = 1; // Integer | Page number, starting from 1
         Integer pageSize = 20; // Integer | Number of items per page
         try {
-            InlineResponse2003 result = apiInstance.getTrailOrderChangeLog(settle, id)
+            TrailOrderChangeLogResponse result = apiInstance.getTrailOrderChangeLog(settle, id)
                         .pageNum(pageNum)
                         .pageSize(pageSize)
                         .execute();
@@ -4462,7 +4459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**TrailOrderChangeLogResponse**](TrailOrderChangeLogResponse.md)
 
 ### Authorization
 
@@ -4726,7 +4723,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Integer orderId = 56; // Integer | ID returned when order is successfully created
+        Long orderId = 56L; // Long | ID returned when order is successfully created
         try {
             FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredOrder(settle, orderId);
             System.out.println(result);
@@ -4748,7 +4745,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **Integer**| ID returned when order is successfully created |
+ **orderId** | **Long**| ID returned when order is successfully created |
 
 ### Return type
 
@@ -4796,7 +4793,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Integer orderId = 56; // Integer | ID returned when order is successfully created
+        Long orderId = 56L; // Long | ID returned when order is successfully created
         try {
             FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredOrder(settle, orderId);
             System.out.println(result);
@@ -4818,7 +4815,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **Integer**| ID returned when order is successfully created |
+ **orderId** | **Long**| ID returned when order is successfully created |
 
 ### Return type
 
@@ -4866,7 +4863,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Integer orderId = 56; // Integer | ID returned when order is successfully created
+        Long orderId = 56L; // Long | ID returned when order is successfully created
         FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = new FuturesUpdatePriceTriggeredOrder(); // FuturesUpdatePriceTriggeredOrder | 
         try {
             TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder);
@@ -4889,7 +4886,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **Integer**| ID returned when order is successfully created |
+ **orderId** | **Long**| ID returned when order is successfully created |
  **futuresUpdatePriceTriggeredOrder** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  |
 
 ### Return type

@@ -356,7 +356,7 @@ No authorization required
 
 <a name="querySymbolTicker"></a>
 # **querySymbolTicker**
-> Ticker2 querySymbolTicker(symbol)
+> TradFiTicker querySymbolTicker(symbol)
 
 Query trading symbol ticker
 
@@ -379,7 +379,7 @@ public class Example {
         TradFiApi apiInstance = new TradFiApi(defaultClient);
         String symbol = "EURUSD"; // String | Trading symbol code
         try {
-            Ticker2 result = apiInstance.querySymbolTicker(symbol);
+            TradFiTicker result = apiInstance.querySymbolTicker(symbol);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Ticker2**](Ticker2.md)
+[**TradFiTicker**](TradFiTicker.md)
 
 ### Authorization
 

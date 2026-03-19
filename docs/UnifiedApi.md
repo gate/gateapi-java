@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 <a name="getUnifiedBorrowableList"></a>
 # **getUnifiedBorrowableList**
-> List&lt;UnifiedBorrowable1&gt; getUnifiedBorrowableList(currencies)
+> List&lt;UnifiedBorrowable&gt; getUnifiedBorrowableList(currencies)
 
 Batch query unified account maximum borrowable amount
 
@@ -336,7 +336,7 @@ public class Example {
         UnifiedApi apiInstance = new UnifiedApi(defaultClient);
         List<String> currencies = Arrays.asList(); // List<String> | Specify currency names for querying in an array, separated by commas, maximum 10 currencies
         try {
-            List<UnifiedBorrowable1> result = apiInstance.getUnifiedBorrowableList(currencies);
+            List<UnifiedBorrowable> result = apiInstance.getUnifiedBorrowableList(currencies);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;UnifiedBorrowable1&gt;**](UnifiedBorrowable1.md)
+[**List&lt;UnifiedBorrowable&gt;**](UnifiedBorrowable.md)
 
 ### Authorization
 

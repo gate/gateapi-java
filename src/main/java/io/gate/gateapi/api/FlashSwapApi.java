@@ -21,8 +21,20 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.FlashSwapCurrencyPair;
+import io.gate.gateapi.models.FlashSwapErrorResponse;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyManyToOneOrderCreateReq;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyManyToOneOrderCreateResp;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyManyToOneOrderPreviewReq;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyManyToOneOrderPreviewResp;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyOneToManyOrderCreateReq;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyOneToManyOrderCreateResp;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyOneToManyOrderPreviewReq;
+import io.gate.gateapi.models.FlashSwapMultiCurrencyOneToManyOrderPreviewResp;
 import io.gate.gateapi.models.FlashSwapOrder;
+import io.gate.gateapi.models.FlashSwapOrderCreateReq;
+import io.gate.gateapi.models.FlashSwapOrderCreateResp;
 import io.gate.gateapi.models.FlashSwapOrderPreview;
+import io.gate.gateapi.models.FlashSwapOrderPreviewResp;
 import io.gate.gateapi.models.FlashSwapOrderRequest;
 import io.gate.gateapi.models.FlashSwapPreviewRequest;
 
@@ -762,6 +774,773 @@ public class FlashSwapApi {
         Type localVarReturnType = new TypeToken<FlashSwapOrderPreview>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for createFlashSwapMultiCurrencyManyToOneOrder
+     * @param flashSwapMultiCurrencyManyToOneOrderCreateReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFlashSwapMultiCurrencyManyToOneOrderCall(FlashSwapMultiCurrencyManyToOneOrderCreateReq flashSwapMultiCurrencyManyToOneOrderCreateReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = flashSwapMultiCurrencyManyToOneOrderCreateReq;
+
+        // create path and map variables
+        String localVarPath = "/flash-swap/multi-currency/many-to-one/order/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFlashSwapMultiCurrencyManyToOneOrderValidateBeforeCall(FlashSwapMultiCurrencyManyToOneOrderCreateReq flashSwapMultiCurrencyManyToOneOrderCreateReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'flashSwapMultiCurrencyManyToOneOrderCreateReq' is set
+        if (flashSwapMultiCurrencyManyToOneOrderCreateReq == null) {
+            throw new ApiException("Missing the required parameter 'flashSwapMultiCurrencyManyToOneOrderCreateReq' when calling createFlashSwapMultiCurrencyManyToOneOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createFlashSwapMultiCurrencyManyToOneOrderCall(flashSwapMultiCurrencyManyToOneOrderCreateReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Place order (many-to-one)
+     * Create a multi-currency to single target currency exchange order
+     * @param flashSwapMultiCurrencyManyToOneOrderCreateReq  (required)
+     * @return FlashSwapMultiCurrencyManyToOneOrderCreateResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public FlashSwapMultiCurrencyManyToOneOrderCreateResp createFlashSwapMultiCurrencyManyToOneOrder(FlashSwapMultiCurrencyManyToOneOrderCreateReq flashSwapMultiCurrencyManyToOneOrderCreateReq) throws ApiException {
+        ApiResponse<FlashSwapMultiCurrencyManyToOneOrderCreateResp> localVarResp = createFlashSwapMultiCurrencyManyToOneOrderWithHttpInfo(flashSwapMultiCurrencyManyToOneOrderCreateReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Place order (many-to-one)
+     * Create a multi-currency to single target currency exchange order
+     * @param flashSwapMultiCurrencyManyToOneOrderCreateReq  (required)
+     * @return ApiResponse&lt;FlashSwapMultiCurrencyManyToOneOrderCreateResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FlashSwapMultiCurrencyManyToOneOrderCreateResp> createFlashSwapMultiCurrencyManyToOneOrderWithHttpInfo(FlashSwapMultiCurrencyManyToOneOrderCreateReq flashSwapMultiCurrencyManyToOneOrderCreateReq) throws ApiException {
+        okhttp3.Call localVarCall = createFlashSwapMultiCurrencyManyToOneOrderValidateBeforeCall(flashSwapMultiCurrencyManyToOneOrderCreateReq, null);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyManyToOneOrderCreateResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Place order (many-to-one) (asynchronously)
+     * Create a multi-currency to single target currency exchange order
+     * @param flashSwapMultiCurrencyManyToOneOrderCreateReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFlashSwapMultiCurrencyManyToOneOrderAsync(FlashSwapMultiCurrencyManyToOneOrderCreateReq flashSwapMultiCurrencyManyToOneOrderCreateReq, final ApiCallback<FlashSwapMultiCurrencyManyToOneOrderCreateResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createFlashSwapMultiCurrencyManyToOneOrderValidateBeforeCall(flashSwapMultiCurrencyManyToOneOrderCreateReq, _callback);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyManyToOneOrderCreateResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for previewFlashSwapMultiCurrencyManyToOneOrder
+     * @param flashSwapMultiCurrencyManyToOneOrderPreviewReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call previewFlashSwapMultiCurrencyManyToOneOrderCall(FlashSwapMultiCurrencyManyToOneOrderPreviewReq flashSwapMultiCurrencyManyToOneOrderPreviewReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = flashSwapMultiCurrencyManyToOneOrderPreviewReq;
+
+        // create path and map variables
+        String localVarPath = "/flash-swap/multi-currency/many-to-one/order/preview";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call previewFlashSwapMultiCurrencyManyToOneOrderValidateBeforeCall(FlashSwapMultiCurrencyManyToOneOrderPreviewReq flashSwapMultiCurrencyManyToOneOrderPreviewReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'flashSwapMultiCurrencyManyToOneOrderPreviewReq' is set
+        if (flashSwapMultiCurrencyManyToOneOrderPreviewReq == null) {
+            throw new ApiException("Missing the required parameter 'flashSwapMultiCurrencyManyToOneOrderPreviewReq' when calling previewFlashSwapMultiCurrencyManyToOneOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = previewFlashSwapMultiCurrencyManyToOneOrderCall(flashSwapMultiCurrencyManyToOneOrderPreviewReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Preview (many-to-one)
+     * Preview quote for multi-currency to single target currency exchange
+     * @param flashSwapMultiCurrencyManyToOneOrderPreviewReq  (required)
+     * @return FlashSwapMultiCurrencyManyToOneOrderPreviewResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public FlashSwapMultiCurrencyManyToOneOrderPreviewResp previewFlashSwapMultiCurrencyManyToOneOrder(FlashSwapMultiCurrencyManyToOneOrderPreviewReq flashSwapMultiCurrencyManyToOneOrderPreviewReq) throws ApiException {
+        ApiResponse<FlashSwapMultiCurrencyManyToOneOrderPreviewResp> localVarResp = previewFlashSwapMultiCurrencyManyToOneOrderWithHttpInfo(flashSwapMultiCurrencyManyToOneOrderPreviewReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Preview (many-to-one)
+     * Preview quote for multi-currency to single target currency exchange
+     * @param flashSwapMultiCurrencyManyToOneOrderPreviewReq  (required)
+     * @return ApiResponse&lt;FlashSwapMultiCurrencyManyToOneOrderPreviewResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FlashSwapMultiCurrencyManyToOneOrderPreviewResp> previewFlashSwapMultiCurrencyManyToOneOrderWithHttpInfo(FlashSwapMultiCurrencyManyToOneOrderPreviewReq flashSwapMultiCurrencyManyToOneOrderPreviewReq) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapMultiCurrencyManyToOneOrderValidateBeforeCall(flashSwapMultiCurrencyManyToOneOrderPreviewReq, null);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyManyToOneOrderPreviewResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Preview (many-to-one) (asynchronously)
+     * Preview quote for multi-currency to single target currency exchange
+     * @param flashSwapMultiCurrencyManyToOneOrderPreviewReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call previewFlashSwapMultiCurrencyManyToOneOrderAsync(FlashSwapMultiCurrencyManyToOneOrderPreviewReq flashSwapMultiCurrencyManyToOneOrderPreviewReq, final ApiCallback<FlashSwapMultiCurrencyManyToOneOrderPreviewResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapMultiCurrencyManyToOneOrderValidateBeforeCall(flashSwapMultiCurrencyManyToOneOrderPreviewReq, _callback);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyManyToOneOrderPreviewResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createFlashSwapOrderV1
+     * @param flashSwapOrderCreateReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFlashSwapOrderV1Call(FlashSwapOrderCreateReq flashSwapOrderCreateReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = flashSwapOrderCreateReq;
+
+        // create path and map variables
+        String localVarPath = "/flash-swap/order/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFlashSwapOrderV1ValidateBeforeCall(FlashSwapOrderCreateReq flashSwapOrderCreateReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'flashSwapOrderCreateReq' is set
+        if (flashSwapOrderCreateReq == null) {
+            throw new ApiException("Missing the required parameter 'flashSwapOrderCreateReq' when calling createFlashSwapOrderV1(Async)");
+        }
+
+        okhttp3.Call localVarCall = createFlashSwapOrderV1Call(flashSwapOrderCreateReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Flash Swap - Place order (one-to-one)
+     * Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first
+     * @param flashSwapOrderCreateReq  (required)
+     * @return FlashSwapOrderCreateResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public FlashSwapOrderCreateResp createFlashSwapOrderV1(FlashSwapOrderCreateReq flashSwapOrderCreateReq) throws ApiException {
+        ApiResponse<FlashSwapOrderCreateResp> localVarResp = createFlashSwapOrderV1WithHttpInfo(flashSwapOrderCreateReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Flash Swap - Place order (one-to-one)
+     * Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first
+     * @param flashSwapOrderCreateReq  (required)
+     * @return ApiResponse&lt;FlashSwapOrderCreateResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FlashSwapOrderCreateResp> createFlashSwapOrderV1WithHttpInfo(FlashSwapOrderCreateReq flashSwapOrderCreateReq) throws ApiException {
+        okhttp3.Call localVarCall = createFlashSwapOrderV1ValidateBeforeCall(flashSwapOrderCreateReq, null);
+        Type localVarReturnType = new TypeToken<FlashSwapOrderCreateResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Flash Swap - Place order (one-to-one) (asynchronously)
+     * Submit a one-to-one flash swap order. A quote_id must be obtained from the preview endpoint first
+     * @param flashSwapOrderCreateReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFlashSwapOrderV1Async(FlashSwapOrderCreateReq flashSwapOrderCreateReq, final ApiCallback<FlashSwapOrderCreateResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createFlashSwapOrderV1ValidateBeforeCall(flashSwapOrderCreateReq, _callback);
+        Type localVarReturnType = new TypeToken<FlashSwapOrderCreateResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createFlashSwapMultiCurrencyOneToManyOrder
+     * @param flashSwapMultiCurrencyOneToManyOrderCreateReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFlashSwapMultiCurrencyOneToManyOrderCall(FlashSwapMultiCurrencyOneToManyOrderCreateReq flashSwapMultiCurrencyOneToManyOrderCreateReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = flashSwapMultiCurrencyOneToManyOrderCreateReq;
+
+        // create path and map variables
+        String localVarPath = "/flash-swap/multi-currency/one-to-many/order/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFlashSwapMultiCurrencyOneToManyOrderValidateBeforeCall(FlashSwapMultiCurrencyOneToManyOrderCreateReq flashSwapMultiCurrencyOneToManyOrderCreateReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'flashSwapMultiCurrencyOneToManyOrderCreateReq' is set
+        if (flashSwapMultiCurrencyOneToManyOrderCreateReq == null) {
+            throw new ApiException("Missing the required parameter 'flashSwapMultiCurrencyOneToManyOrderCreateReq' when calling createFlashSwapMultiCurrencyOneToManyOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createFlashSwapMultiCurrencyOneToManyOrderCall(flashSwapMultiCurrencyOneToManyOrderCreateReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Place order (one-to-many)
+     * Create a single currency to multiple target currencies exchange order
+     * @param flashSwapMultiCurrencyOneToManyOrderCreateReq  (required)
+     * @return FlashSwapMultiCurrencyOneToManyOrderCreateResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public FlashSwapMultiCurrencyOneToManyOrderCreateResp createFlashSwapMultiCurrencyOneToManyOrder(FlashSwapMultiCurrencyOneToManyOrderCreateReq flashSwapMultiCurrencyOneToManyOrderCreateReq) throws ApiException {
+        ApiResponse<FlashSwapMultiCurrencyOneToManyOrderCreateResp> localVarResp = createFlashSwapMultiCurrencyOneToManyOrderWithHttpInfo(flashSwapMultiCurrencyOneToManyOrderCreateReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Place order (one-to-many)
+     * Create a single currency to multiple target currencies exchange order
+     * @param flashSwapMultiCurrencyOneToManyOrderCreateReq  (required)
+     * @return ApiResponse&lt;FlashSwapMultiCurrencyOneToManyOrderCreateResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FlashSwapMultiCurrencyOneToManyOrderCreateResp> createFlashSwapMultiCurrencyOneToManyOrderWithHttpInfo(FlashSwapMultiCurrencyOneToManyOrderCreateReq flashSwapMultiCurrencyOneToManyOrderCreateReq) throws ApiException {
+        okhttp3.Call localVarCall = createFlashSwapMultiCurrencyOneToManyOrderValidateBeforeCall(flashSwapMultiCurrencyOneToManyOrderCreateReq, null);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyOneToManyOrderCreateResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Place order (one-to-many) (asynchronously)
+     * Create a single currency to multiple target currencies exchange order
+     * @param flashSwapMultiCurrencyOneToManyOrderCreateReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createFlashSwapMultiCurrencyOneToManyOrderAsync(FlashSwapMultiCurrencyOneToManyOrderCreateReq flashSwapMultiCurrencyOneToManyOrderCreateReq, final ApiCallback<FlashSwapMultiCurrencyOneToManyOrderCreateResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createFlashSwapMultiCurrencyOneToManyOrderValidateBeforeCall(flashSwapMultiCurrencyOneToManyOrderCreateReq, _callback);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyOneToManyOrderCreateResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for previewFlashSwapMultiCurrencyOneToManyOrder
+     * @param flashSwapMultiCurrencyOneToManyOrderPreviewReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call previewFlashSwapMultiCurrencyOneToManyOrderCall(FlashSwapMultiCurrencyOneToManyOrderPreviewReq flashSwapMultiCurrencyOneToManyOrderPreviewReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = flashSwapMultiCurrencyOneToManyOrderPreviewReq;
+
+        // create path and map variables
+        String localVarPath = "/flash-swap/multi-currency/one-to-many/order/preview";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call previewFlashSwapMultiCurrencyOneToManyOrderValidateBeforeCall(FlashSwapMultiCurrencyOneToManyOrderPreviewReq flashSwapMultiCurrencyOneToManyOrderPreviewReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'flashSwapMultiCurrencyOneToManyOrderPreviewReq' is set
+        if (flashSwapMultiCurrencyOneToManyOrderPreviewReq == null) {
+            throw new ApiException("Missing the required parameter 'flashSwapMultiCurrencyOneToManyOrderPreviewReq' when calling previewFlashSwapMultiCurrencyOneToManyOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = previewFlashSwapMultiCurrencyOneToManyOrderCall(flashSwapMultiCurrencyOneToManyOrderPreviewReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Preview (one-to-many)
+     * Preview quote for single currency to multiple target currencies exchange
+     * @param flashSwapMultiCurrencyOneToManyOrderPreviewReq  (required)
+     * @return FlashSwapMultiCurrencyOneToManyOrderPreviewResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public FlashSwapMultiCurrencyOneToManyOrderPreviewResp previewFlashSwapMultiCurrencyOneToManyOrder(FlashSwapMultiCurrencyOneToManyOrderPreviewReq flashSwapMultiCurrencyOneToManyOrderPreviewReq) throws ApiException {
+        ApiResponse<FlashSwapMultiCurrencyOneToManyOrderPreviewResp> localVarResp = previewFlashSwapMultiCurrencyOneToManyOrderWithHttpInfo(flashSwapMultiCurrencyOneToManyOrderPreviewReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Preview (one-to-many)
+     * Preview quote for single currency to multiple target currencies exchange
+     * @param flashSwapMultiCurrencyOneToManyOrderPreviewReq  (required)
+     * @return ApiResponse&lt;FlashSwapMultiCurrencyOneToManyOrderPreviewResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FlashSwapMultiCurrencyOneToManyOrderPreviewResp> previewFlashSwapMultiCurrencyOneToManyOrderWithHttpInfo(FlashSwapMultiCurrencyOneToManyOrderPreviewReq flashSwapMultiCurrencyOneToManyOrderPreviewReq) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapMultiCurrencyOneToManyOrderValidateBeforeCall(flashSwapMultiCurrencyOneToManyOrderPreviewReq, null);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyOneToManyOrderPreviewResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Flash Swap - Multi-currency exchange - Preview (one-to-many) (asynchronously)
+     * Preview quote for single currency to multiple target currencies exchange
+     * @param flashSwapMultiCurrencyOneToManyOrderPreviewReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call previewFlashSwapMultiCurrencyOneToManyOrderAsync(FlashSwapMultiCurrencyOneToManyOrderPreviewReq flashSwapMultiCurrencyOneToManyOrderPreviewReq, final ApiCallback<FlashSwapMultiCurrencyOneToManyOrderPreviewResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapMultiCurrencyOneToManyOrderValidateBeforeCall(flashSwapMultiCurrencyOneToManyOrderPreviewReq, _callback);
+        Type localVarReturnType = new TypeToken<FlashSwapMultiCurrencyOneToManyOrderPreviewResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call previewFlashSwapOrderV1Call(String sellAsset, String buyAsset, String sellAmount, String buyAmount, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/flash-swap/order/preview";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (sellAsset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sell_asset", sellAsset));
+        }
+
+        if (sellAmount != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sell_amount", sellAmount));
+        }
+
+        if (buyAsset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("buy_asset", buyAsset));
+        }
+
+        if (buyAmount != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("buy_amount", buyAmount));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call previewFlashSwapOrderV1ValidateBeforeCall(String sellAsset, String buyAsset, String sellAmount, String buyAmount, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sellAsset' is set
+        if (sellAsset == null) {
+            throw new ApiException("Missing the required parameter 'sellAsset' when calling previewFlashSwapOrderV1(Async)");
+        }
+
+        // verify the required parameter 'buyAsset' is set
+        if (buyAsset == null) {
+            throw new ApiException("Missing the required parameter 'buyAsset' when calling previewFlashSwapOrderV1(Async)");
+        }
+
+        okhttp3.Call localVarCall = previewFlashSwapOrderV1Call(sellAsset, buyAsset, sellAmount, buyAmount, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<FlashSwapOrderPreviewResp> previewFlashSwapOrderV1WithHttpInfo(String sellAsset, String buyAsset, String sellAmount, String buyAmount) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapOrderV1ValidateBeforeCall(sellAsset, buyAsset, sellAmount, buyAmount, null);
+        Type localVarReturnType = new TypeToken<FlashSwapOrderPreviewResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call previewFlashSwapOrderV1Async(String sellAsset, String buyAsset, String sellAmount, String buyAmount, final ApiCallback<FlashSwapOrderPreviewResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = previewFlashSwapOrderV1ValidateBeforeCall(sellAsset, buyAsset, sellAmount, buyAmount, _callback);
+        Type localVarReturnType = new TypeToken<FlashSwapOrderPreviewResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpreviewFlashSwapOrderV1Request {
+        private final String sellAsset;
+        private final String buyAsset;
+        private String sellAmount;
+        private String buyAmount;
+
+        private APIpreviewFlashSwapOrderV1Request(String sellAsset, String buyAsset) {
+            this.sellAsset = sellAsset;
+            this.buyAsset = buyAsset;
+        }
+
+        /**
+         * Set sellAmount
+         * @param sellAmount Sell amount, either this or buy_amount must be specified (optional)
+         * @return APIpreviewFlashSwapOrderV1Request
+         */
+        public APIpreviewFlashSwapOrderV1Request sellAmount(String sellAmount) {
+            this.sellAmount = sellAmount;
+            return this;
+        }
+
+        /**
+         * Set buyAmount
+         * @param buyAmount Buy amount, either this or sell_amount must be specified (optional)
+         * @return APIpreviewFlashSwapOrderV1Request
+         */
+        public APIpreviewFlashSwapOrderV1Request buyAmount(String buyAmount) {
+            this.buyAmount = buyAmount;
+            return this;
+        }
+
+        /**
+         * Build call for previewFlashSwapOrderV1
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return previewFlashSwapOrderV1Call(sellAsset, buyAsset, sellAmount, buyAmount, _callback);
+        }
+
+        /**
+         * Execute previewFlashSwapOrderV1 request
+         * @return FlashSwapOrderPreviewResp
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+         </table>
+         */
+        public FlashSwapOrderPreviewResp execute() throws ApiException {
+            ApiResponse<FlashSwapOrderPreviewResp> localVarResp = previewFlashSwapOrderV1WithHttpInfo(sellAsset, buyAsset, sellAmount, buyAmount);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute previewFlashSwapOrderV1 request with HTTP info returned
+         * @return ApiResponse&lt;FlashSwapOrderPreviewResp&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<FlashSwapOrderPreviewResp> executeWithHttpInfo() throws ApiException {
+            return previewFlashSwapOrderV1WithHttpInfo(sellAsset, buyAsset, sellAmount, buyAmount);
+        }
+
+        /**
+         * Execute previewFlashSwapOrderV1 request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<FlashSwapOrderPreviewResp> _callback) throws ApiException {
+            return previewFlashSwapOrderV1Async(sellAsset, buyAsset, sellAmount, buyAmount, _callback);
+        }
+    }
+
+    /**
+     * Flash Swap - Preview (one-to-one)
+     * Get one-to-one flash swap quote. Either sell_amount or buy_amount must be specified
+     * @param sellAsset Currency to sell (required)
+     * @param buyAsset Currency to buy (required)
+     * @return APIpreviewFlashSwapOrderV1Request
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid parameters </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Record does not exist </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpreviewFlashSwapOrderV1Request previewFlashSwapOrderV1(String sellAsset, String buyAsset) {
+        return new APIpreviewFlashSwapOrderV1Request(sellAsset, buyAsset);
     }
 
 }

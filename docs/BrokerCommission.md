@@ -6,5 +6,5 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total** | **Long** | Total |  [optional]
-**list** | [**List&lt;BrokerCommission1&gt;**](BrokerCommission1.md) | List of commission history |  [optional]
+**list** | [**List&lt;BrokerCommissionItem&gt;**](BrokerCommissionItem.md) | List of commission history |  [optional]
 

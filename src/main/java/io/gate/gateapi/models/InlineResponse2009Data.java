@@ -17,172 +17,46 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse2009DataList;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse2009Data
  */
 public class InlineResponse2009Data {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
-
-    public static final String SERIALIZED_NAME_BANK_ACCOUNT_NAME = "bank_account_name";
-    @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_NAME)
-    private String bankAccountName;
-
-    public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
-    @SerializedName(SERIALIZED_NAME_BANK_NAME)
-    private String bankName;
-
-    public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
-    @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
-    private String bankCountry;
-
-    public static final String SERIALIZED_NAME_BANK_ADDRESS = "bank_address";
-    @SerializedName(SERIALIZED_NAME_BANK_ADDRESS)
-    private String bankAddress;
-
-    public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
-    @SerializedName(SERIALIZED_NAME_BANK_CODE)
-    private String bankCode;
-
-    public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
-    @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
-    private String branchCode;
+    public static final String SERIALIZED_NAME_LIST = "list";
+    @SerializedName(SERIALIZED_NAME_LIST)
+    private List<InlineResponse2009DataList> list = null;
 
 
-    public InlineResponse2009Data id(String id) {
+    public InlineResponse2009Data list(List<InlineResponse2009DataList> list) {
         
-        this.id = id;
+        this.list = list;
+        return this;
+    }
+
+    public InlineResponse2009Data addListItem(InlineResponse2009DataList listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<>();
+        }
+        this.list.add(listItem);
         return this;
     }
 
      /**
-     * Bank ID (required for order placement)
-     * @return id
+     * Live stream/replay list
+     * @return list
     **/
-    public String getId() {
-        return id;
+    @javax.annotation.Nullable
+    public List<InlineResponse2009DataList> getList() {
+        return list;
     }
 
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public InlineResponse2009Data bankAccountName(String bankAccountName) {
-        
-        this.bankAccountName = bankAccountName;
-        return this;
-    }
-
-     /**
-     * Get bankAccountName
-     * @return bankAccountName
-    **/
-    public String getBankAccountName() {
-        return bankAccountName;
-    }
-
-
-    public void setBankAccountName(String bankAccountName) {
-        this.bankAccountName = bankAccountName;
-    }
-
-    public InlineResponse2009Data bankName(String bankName) {
-        
-        this.bankName = bankName;
-        return this;
-    }
-
-     /**
-     * Get bankName
-     * @return bankName
-    **/
-    public String getBankName() {
-        return bankName;
-    }
-
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public InlineResponse2009Data bankCountry(String bankCountry) {
-        
-        this.bankCountry = bankCountry;
-        return this;
-    }
-
-     /**
-     * Get bankCountry
-     * @return bankCountry
-    **/
-    public String getBankCountry() {
-        return bankCountry;
-    }
-
-
-    public void setBankCountry(String bankCountry) {
-        this.bankCountry = bankCountry;
-    }
-
-    public InlineResponse2009Data bankAddress(String bankAddress) {
-        
-        this.bankAddress = bankAddress;
-        return this;
-    }
-
-     /**
-     * Get bankAddress
-     * @return bankAddress
-    **/
-    public String getBankAddress() {
-        return bankAddress;
-    }
-
-
-    public void setBankAddress(String bankAddress) {
-        this.bankAddress = bankAddress;
-    }
-
-    public InlineResponse2009Data bankCode(String bankCode) {
-        
-        this.bankCode = bankCode;
-        return this;
-    }
-
-     /**
-     * Get bankCode
-     * @return bankCode
-    **/
-    public String getBankCode() {
-        return bankCode;
-    }
-
-
-    public void setBankCode(String bankCode) {
-        this.bankCode = bankCode;
-    }
-
-    public InlineResponse2009Data branchCode(String branchCode) {
-        
-        this.branchCode = branchCode;
-        return this;
-    }
-
-     /**
-     * Get branchCode
-     * @return branchCode
-    **/
-    public String getBranchCode() {
-        return branchCode;
-    }
-
-
-    public void setBranchCode(String branchCode) {
-        this.branchCode = branchCode;
+    public void setList(List<InlineResponse2009DataList> list) {
+        this.list = list;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -193,18 +67,12 @@ public class InlineResponse2009Data {
             return false;
         }
         InlineResponse2009Data inlineResponse2009Data = (InlineResponse2009Data) o;
-        return Objects.equals(this.id, inlineResponse2009Data.id) &&
-                Objects.equals(this.bankAccountName, inlineResponse2009Data.bankAccountName) &&
-                Objects.equals(this.bankName, inlineResponse2009Data.bankName) &&
-                Objects.equals(this.bankCountry, inlineResponse2009Data.bankCountry) &&
-                Objects.equals(this.bankAddress, inlineResponse2009Data.bankAddress) &&
-                Objects.equals(this.bankCode, inlineResponse2009Data.bankCode) &&
-                Objects.equals(this.branchCode, inlineResponse2009Data.branchCode);
+        return Objects.equals(this.list, inlineResponse2009Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, bankAccountName, bankName, bankCountry, bankAddress, bankCode, branchCode);
+        return Objects.hash(list);
     }
 
 
@@ -212,13 +80,7 @@ public class InlineResponse2009Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2009Data {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
-        sb.append("      bankAccountName: ").append(toIndentedString(bankAccountName)).append("\n");
-        sb.append("      bankName: ").append(toIndentedString(bankName)).append("\n");
-        sb.append("      bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
-        sb.append("      bankAddress: ").append(toIndentedString(bankAddress)).append("\n");
-        sb.append("      bankCode: ").append(toIndentedString(bankCode)).append("\n");
-        sb.append("      branchCode: ").append(toIndentedString(branchCode)).append("\n");
+        sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();
     }

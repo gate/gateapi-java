@@ -17,104 +17,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20010Data;
 import java.io.IOException;
 
 /**
  * InlineResponse20010
  */
 public class InlineResponse20010 {
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
-
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse20010Data data;
-
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Integer timestamp;
+    public static final String SERIALIZED_NAME_SUCCESS = "success";
+    @SerializedName(SERIALIZED_NAME_SUCCESS)
+    private Boolean success;
 
 
-    public InlineResponse20010 code(Integer code) {
+    public InlineResponse20010 success(Boolean success) {
         
-        this.code = code;
+        this.success = success;
         return this;
     }
 
      /**
-     * Get code
-     * @return code
+     * Whether redemption was successful
+     * @return success
     **/
-    public Integer getCode() {
-        return code;
+    @javax.annotation.Nullable
+    public Boolean getSuccess() {
+        return success;
     }
 
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public InlineResponse20010 message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Get message
-     * @return message
-    **/
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public InlineResponse20010 data(InlineResponse20010Data data) {
-        
-        this.data = data;
-        return this;
-    }
-
-     /**
-     * Get data
-     * @return data
-    **/
-    public InlineResponse20010Data getData() {
-        return data;
-    }
-
-
-    public void setData(InlineResponse20010Data data) {
-        this.data = data;
-    }
-
-    public InlineResponse20010 timestamp(Integer timestamp) {
-        
-        this.timestamp = timestamp;
-        return this;
-    }
-
-     /**
-     * Get timestamp
-     * @return timestamp
-    **/
-    public Integer getTimestamp() {
-        return timestamp;
-    }
-
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -125,15 +56,12 @@ public class InlineResponse20010 {
             return false;
         }
         InlineResponse20010 inlineResponse20010 = (InlineResponse20010) o;
-        return Objects.equals(this.code, inlineResponse20010.code) &&
-                Objects.equals(this.message, inlineResponse20010.message) &&
-                Objects.equals(this.data, inlineResponse20010.data) &&
-                Objects.equals(this.timestamp, inlineResponse20010.timestamp);
+        return Objects.equals(this.success, inlineResponse20010.success);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data, timestamp);
+        return Objects.hash(success);
     }
 
 
@@ -141,10 +69,7 @@ public class InlineResponse20010 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20010 {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      success: ").append(toIndentedString(success)).append("\n");
         sb.append("}");
         return sb.toString();
     }

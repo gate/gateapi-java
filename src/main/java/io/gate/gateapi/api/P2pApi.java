@@ -32,20 +32,20 @@ import io.gate.gateapi.models.GetCounterpartyUserInfoRequest;
 import io.gate.gateapi.models.GetMyselfPaymentRequest;
 import io.gate.gateapi.models.GetPendingTransactionListRequest;
 import io.gate.gateapi.models.GetTransactionDetailsRequest;
-import io.gate.gateapi.models.InlineResponse20014;
-import io.gate.gateapi.models.InlineResponse20015;
-import io.gate.gateapi.models.InlineResponse20016;
-import io.gate.gateapi.models.InlineResponse20017;
-import io.gate.gateapi.models.InlineResponse20018;
-import io.gate.gateapi.models.InlineResponse20019;
-import io.gate.gateapi.models.InlineResponse20020;
-import io.gate.gateapi.models.InlineResponse20021;
-import io.gate.gateapi.models.InlineResponse20022;
-import io.gate.gateapi.models.InlineResponse20023;
-import io.gate.gateapi.models.InlineResponse20024;
-import io.gate.gateapi.models.InlineResponse20025;
-import io.gate.gateapi.models.InlineResponse20026;
 import io.gate.gateapi.models.MyAdsListRequest;
+import io.gate.gateapi.models.P2pAdDetailResponse;
+import io.gate.gateapi.models.P2pAdsListResponse;
+import io.gate.gateapi.models.P2pAdsUpdateStatusResponse;
+import io.gate.gateapi.models.P2pChatListResponse;
+import io.gate.gateapi.models.P2pCounterpartyUserInfoResponse;
+import io.gate.gateapi.models.P2pMerchantUserInfoResponse;
+import io.gate.gateapi.models.P2pMyAdsListResponse;
+import io.gate.gateapi.models.P2pPaymentMethodsResponse;
+import io.gate.gateapi.models.P2pSendChatMessageResponse;
+import io.gate.gateapi.models.P2pTransactionActionResponse;
+import io.gate.gateapi.models.P2pTransactionDetailResponse;
+import io.gate.gateapi.models.P2pTransactionListResponse;
+import io.gate.gateapi.models.P2pUploadChatFileResponse;
 import io.gate.gateapi.models.PlaceBizPushOrder;
 import io.gate.gateapi.models.SendChatMessageRequest;
 import io.gate.gateapi.models.UploadChatFile;
@@ -124,7 +124,7 @@ public class P2pApi {
     /**
      * Get account information
      * 
-     * @return InlineResponse20014
+     * @return P2pMerchantUserInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -132,15 +132,15 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20014 p2pMerchantAccountGetUserInfo() throws ApiException {
-        ApiResponse<InlineResponse20014> localVarResp = p2pMerchantAccountGetUserInfoWithHttpInfo();
+    public P2pMerchantUserInfoResponse p2pMerchantAccountGetUserInfo() throws ApiException {
+        ApiResponse<P2pMerchantUserInfoResponse> localVarResp = p2pMerchantAccountGetUserInfoWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get account information
      * 
-     * @return ApiResponse&lt;InlineResponse20014&gt;
+     * @return ApiResponse&lt;P2pMerchantUserInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -148,9 +148,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20014> p2pMerchantAccountGetUserInfoWithHttpInfo() throws ApiException {
+    public ApiResponse<P2pMerchantUserInfoResponse> p2pMerchantAccountGetUserInfoWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetUserInfoValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20014>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pMerchantUserInfoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -166,9 +166,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantAccountGetUserInfoAsync(final ApiCallback<InlineResponse20014> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantAccountGetUserInfoAsync(final ApiCallback<P2pMerchantUserInfoResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetUserInfoValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20014>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pMerchantUserInfoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -229,7 +229,7 @@ public class P2pApi {
      * Get counterparty information
      * 
      * @param getCounterpartyUserInfoRequest  (required)
-     * @return InlineResponse20015
+     * @return P2pCounterpartyUserInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -237,8 +237,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20015 p2pMerchantAccountGetCounterpartyUserInfo(GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest) throws ApiException {
-        ApiResponse<InlineResponse20015> localVarResp = p2pMerchantAccountGetCounterpartyUserInfoWithHttpInfo(getCounterpartyUserInfoRequest);
+    public P2pCounterpartyUserInfoResponse p2pMerchantAccountGetCounterpartyUserInfo(GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest) throws ApiException {
+        ApiResponse<P2pCounterpartyUserInfoResponse> localVarResp = p2pMerchantAccountGetCounterpartyUserInfoWithHttpInfo(getCounterpartyUserInfoRequest);
         return localVarResp.getData();
     }
 
@@ -246,7 +246,7 @@ public class P2pApi {
      * Get counterparty information
      * 
      * @param getCounterpartyUserInfoRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20015&gt;
+     * @return ApiResponse&lt;P2pCounterpartyUserInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -254,9 +254,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20015> p2pMerchantAccountGetCounterpartyUserInfoWithHttpInfo(GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest) throws ApiException {
+    public ApiResponse<P2pCounterpartyUserInfoResponse> p2pMerchantAccountGetCounterpartyUserInfoWithHttpInfo(GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetCounterpartyUserInfoValidateBeforeCall(getCounterpartyUserInfoRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20015>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pCounterpartyUserInfoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -273,9 +273,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantAccountGetCounterpartyUserInfoAsync(GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest, final ApiCallback<InlineResponse20015> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantAccountGetCounterpartyUserInfoAsync(GetCounterpartyUserInfoRequest getCounterpartyUserInfoRequest, final ApiCallback<P2pCounterpartyUserInfoResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetCounterpartyUserInfoValidateBeforeCall(getCounterpartyUserInfoRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20015>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pCounterpartyUserInfoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -331,7 +331,7 @@ public class P2pApi {
      * Get payment method list
      * 
      * @param getMyselfPaymentRequest  (optional)
-     * @return InlineResponse20016
+     * @return P2pPaymentMethodsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -339,8 +339,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20016 p2pMerchantAccountGetMyselfPayment(GetMyselfPaymentRequest getMyselfPaymentRequest) throws ApiException {
-        ApiResponse<InlineResponse20016> localVarResp = p2pMerchantAccountGetMyselfPaymentWithHttpInfo(getMyselfPaymentRequest);
+    public P2pPaymentMethodsResponse p2pMerchantAccountGetMyselfPayment(GetMyselfPaymentRequest getMyselfPaymentRequest) throws ApiException {
+        ApiResponse<P2pPaymentMethodsResponse> localVarResp = p2pMerchantAccountGetMyselfPaymentWithHttpInfo(getMyselfPaymentRequest);
         return localVarResp.getData();
     }
 
@@ -348,7 +348,7 @@ public class P2pApi {
      * Get payment method list
      * 
      * @param getMyselfPaymentRequest  (optional)
-     * @return ApiResponse&lt;InlineResponse20016&gt;
+     * @return ApiResponse&lt;P2pPaymentMethodsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -356,9 +356,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20016> p2pMerchantAccountGetMyselfPaymentWithHttpInfo(GetMyselfPaymentRequest getMyselfPaymentRequest) throws ApiException {
+    public ApiResponse<P2pPaymentMethodsResponse> p2pMerchantAccountGetMyselfPaymentWithHttpInfo(GetMyselfPaymentRequest getMyselfPaymentRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetMyselfPaymentValidateBeforeCall(getMyselfPaymentRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20016>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pPaymentMethodsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -375,9 +375,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantAccountGetMyselfPaymentAsync(GetMyselfPaymentRequest getMyselfPaymentRequest, final ApiCallback<InlineResponse20016> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantAccountGetMyselfPaymentAsync(GetMyselfPaymentRequest getMyselfPaymentRequest, final ApiCallback<P2pPaymentMethodsResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetMyselfPaymentValidateBeforeCall(getMyselfPaymentRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20016>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pPaymentMethodsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -438,7 +438,7 @@ public class P2pApi {
      * Get pending orders
      * 
      * @param getPendingTransactionListRequest  (required)
-     * @return InlineResponse20017
+     * @return P2pTransactionListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -446,8 +446,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20017 p2pMerchantTransactionGetPendingTransactionList(GetPendingTransactionListRequest getPendingTransactionListRequest) throws ApiException {
-        ApiResponse<InlineResponse20017> localVarResp = p2pMerchantTransactionGetPendingTransactionListWithHttpInfo(getPendingTransactionListRequest);
+    public P2pTransactionListResponse p2pMerchantTransactionGetPendingTransactionList(GetPendingTransactionListRequest getPendingTransactionListRequest) throws ApiException {
+        ApiResponse<P2pTransactionListResponse> localVarResp = p2pMerchantTransactionGetPendingTransactionListWithHttpInfo(getPendingTransactionListRequest);
         return localVarResp.getData();
     }
 
@@ -455,7 +455,7 @@ public class P2pApi {
      * Get pending orders
      * 
      * @param getPendingTransactionListRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20017&gt;
+     * @return ApiResponse&lt;P2pTransactionListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -463,9 +463,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20017> p2pMerchantTransactionGetPendingTransactionListWithHttpInfo(GetPendingTransactionListRequest getPendingTransactionListRequest) throws ApiException {
+    public ApiResponse<P2pTransactionListResponse> p2pMerchantTransactionGetPendingTransactionListWithHttpInfo(GetPendingTransactionListRequest getPendingTransactionListRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionGetPendingTransactionListValidateBeforeCall(getPendingTransactionListRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20017>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -482,9 +482,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantTransactionGetPendingTransactionListAsync(GetPendingTransactionListRequest getPendingTransactionListRequest, final ApiCallback<InlineResponse20017> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantTransactionGetPendingTransactionListAsync(GetPendingTransactionListRequest getPendingTransactionListRequest, final ApiCallback<P2pTransactionListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionGetPendingTransactionListValidateBeforeCall(getPendingTransactionListRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20017>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -545,7 +545,7 @@ public class P2pApi {
      * Get all/historical orders
      * 
      * @param getCompletedTransactionListRequest  (required)
-     * @return InlineResponse20017
+     * @return P2pTransactionListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -553,8 +553,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20017 p2pMerchantTransactionGetCompletedTransactionList(GetCompletedTransactionListRequest getCompletedTransactionListRequest) throws ApiException {
-        ApiResponse<InlineResponse20017> localVarResp = p2pMerchantTransactionGetCompletedTransactionListWithHttpInfo(getCompletedTransactionListRequest);
+    public P2pTransactionListResponse p2pMerchantTransactionGetCompletedTransactionList(GetCompletedTransactionListRequest getCompletedTransactionListRequest) throws ApiException {
+        ApiResponse<P2pTransactionListResponse> localVarResp = p2pMerchantTransactionGetCompletedTransactionListWithHttpInfo(getCompletedTransactionListRequest);
         return localVarResp.getData();
     }
 
@@ -562,7 +562,7 @@ public class P2pApi {
      * Get all/historical orders
      * 
      * @param getCompletedTransactionListRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20017&gt;
+     * @return ApiResponse&lt;P2pTransactionListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -570,9 +570,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20017> p2pMerchantTransactionGetCompletedTransactionListWithHttpInfo(GetCompletedTransactionListRequest getCompletedTransactionListRequest) throws ApiException {
+    public ApiResponse<P2pTransactionListResponse> p2pMerchantTransactionGetCompletedTransactionListWithHttpInfo(GetCompletedTransactionListRequest getCompletedTransactionListRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionGetCompletedTransactionListValidateBeforeCall(getCompletedTransactionListRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20017>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -589,9 +589,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantTransactionGetCompletedTransactionListAsync(GetCompletedTransactionListRequest getCompletedTransactionListRequest, final ApiCallback<InlineResponse20017> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantTransactionGetCompletedTransactionListAsync(GetCompletedTransactionListRequest getCompletedTransactionListRequest, final ApiCallback<P2pTransactionListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionGetCompletedTransactionListValidateBeforeCall(getCompletedTransactionListRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20017>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -652,7 +652,7 @@ public class P2pApi {
      * Query order details
      * 
      * @param getTransactionDetailsRequest  (required)
-     * @return InlineResponse20018
+     * @return P2pTransactionDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -660,8 +660,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20018 p2pMerchantTransactionGetTransactionDetails(GetTransactionDetailsRequest getTransactionDetailsRequest) throws ApiException {
-        ApiResponse<InlineResponse20018> localVarResp = p2pMerchantTransactionGetTransactionDetailsWithHttpInfo(getTransactionDetailsRequest);
+    public P2pTransactionDetailResponse p2pMerchantTransactionGetTransactionDetails(GetTransactionDetailsRequest getTransactionDetailsRequest) throws ApiException {
+        ApiResponse<P2pTransactionDetailResponse> localVarResp = p2pMerchantTransactionGetTransactionDetailsWithHttpInfo(getTransactionDetailsRequest);
         return localVarResp.getData();
     }
 
@@ -669,7 +669,7 @@ public class P2pApi {
      * Query order details
      * 
      * @param getTransactionDetailsRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20018&gt;
+     * @return ApiResponse&lt;P2pTransactionDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -677,9 +677,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20018> p2pMerchantTransactionGetTransactionDetailsWithHttpInfo(GetTransactionDetailsRequest getTransactionDetailsRequest) throws ApiException {
+    public ApiResponse<P2pTransactionDetailResponse> p2pMerchantTransactionGetTransactionDetailsWithHttpInfo(GetTransactionDetailsRequest getTransactionDetailsRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionGetTransactionDetailsValidateBeforeCall(getTransactionDetailsRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20018>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -696,9 +696,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantTransactionGetTransactionDetailsAsync(GetTransactionDetailsRequest getTransactionDetailsRequest, final ApiCallback<InlineResponse20018> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantTransactionGetTransactionDetailsAsync(GetTransactionDetailsRequest getTransactionDetailsRequest, final ApiCallback<P2pTransactionDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionGetTransactionDetailsValidateBeforeCall(getTransactionDetailsRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20018>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -759,7 +759,7 @@ public class P2pApi {
      * Confirm payment
      * 
      * @param confirmPayment  (required)
-     * @return InlineResponse20019
+     * @return P2pTransactionActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -767,8 +767,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20019 p2pMerchantTransactionConfirmPayment(ConfirmPayment confirmPayment) throws ApiException {
-        ApiResponse<InlineResponse20019> localVarResp = p2pMerchantTransactionConfirmPaymentWithHttpInfo(confirmPayment);
+    public P2pTransactionActionResponse p2pMerchantTransactionConfirmPayment(ConfirmPayment confirmPayment) throws ApiException {
+        ApiResponse<P2pTransactionActionResponse> localVarResp = p2pMerchantTransactionConfirmPaymentWithHttpInfo(confirmPayment);
         return localVarResp.getData();
     }
 
@@ -776,7 +776,7 @@ public class P2pApi {
      * Confirm payment
      * 
      * @param confirmPayment  (required)
-     * @return ApiResponse&lt;InlineResponse20019&gt;
+     * @return ApiResponse&lt;P2pTransactionActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -784,9 +784,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20019> p2pMerchantTransactionConfirmPaymentWithHttpInfo(ConfirmPayment confirmPayment) throws ApiException {
+    public ApiResponse<P2pTransactionActionResponse> p2pMerchantTransactionConfirmPaymentWithHttpInfo(ConfirmPayment confirmPayment) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionConfirmPaymentValidateBeforeCall(confirmPayment, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -803,9 +803,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantTransactionConfirmPaymentAsync(ConfirmPayment confirmPayment, final ApiCallback<InlineResponse20019> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantTransactionConfirmPaymentAsync(ConfirmPayment confirmPayment, final ApiCallback<P2pTransactionActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionConfirmPaymentValidateBeforeCall(confirmPayment, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -866,7 +866,7 @@ public class P2pApi {
      * Confirm receipt
      * 
      * @param confirmReceipt  (required)
-     * @return InlineResponse20019
+     * @return P2pTransactionActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -874,8 +874,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20019 p2pMerchantTransactionConfirmReceipt(ConfirmReceipt confirmReceipt) throws ApiException {
-        ApiResponse<InlineResponse20019> localVarResp = p2pMerchantTransactionConfirmReceiptWithHttpInfo(confirmReceipt);
+    public P2pTransactionActionResponse p2pMerchantTransactionConfirmReceipt(ConfirmReceipt confirmReceipt) throws ApiException {
+        ApiResponse<P2pTransactionActionResponse> localVarResp = p2pMerchantTransactionConfirmReceiptWithHttpInfo(confirmReceipt);
         return localVarResp.getData();
     }
 
@@ -883,7 +883,7 @@ public class P2pApi {
      * Confirm receipt
      * 
      * @param confirmReceipt  (required)
-     * @return ApiResponse&lt;InlineResponse20019&gt;
+     * @return ApiResponse&lt;P2pTransactionActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -891,9 +891,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20019> p2pMerchantTransactionConfirmReceiptWithHttpInfo(ConfirmReceipt confirmReceipt) throws ApiException {
+    public ApiResponse<P2pTransactionActionResponse> p2pMerchantTransactionConfirmReceiptWithHttpInfo(ConfirmReceipt confirmReceipt) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionConfirmReceiptValidateBeforeCall(confirmReceipt, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -910,9 +910,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantTransactionConfirmReceiptAsync(ConfirmReceipt confirmReceipt, final ApiCallback<InlineResponse20019> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantTransactionConfirmReceiptAsync(ConfirmReceipt confirmReceipt, final ApiCallback<P2pTransactionActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionConfirmReceiptValidateBeforeCall(confirmReceipt, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -973,7 +973,7 @@ public class P2pApi {
      * Cancel order
      * 
      * @param cancelOrder  (required)
-     * @return InlineResponse20019
+     * @return P2pTransactionActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -981,8 +981,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20019 p2pMerchantTransactionCancel(CancelOrder cancelOrder) throws ApiException {
-        ApiResponse<InlineResponse20019> localVarResp = p2pMerchantTransactionCancelWithHttpInfo(cancelOrder);
+    public P2pTransactionActionResponse p2pMerchantTransactionCancel(CancelOrder cancelOrder) throws ApiException {
+        ApiResponse<P2pTransactionActionResponse> localVarResp = p2pMerchantTransactionCancelWithHttpInfo(cancelOrder);
         return localVarResp.getData();
     }
 
@@ -990,7 +990,7 @@ public class P2pApi {
      * Cancel order
      * 
      * @param cancelOrder  (required)
-     * @return ApiResponse&lt;InlineResponse20019&gt;
+     * @return ApiResponse&lt;P2pTransactionActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -998,9 +998,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20019> p2pMerchantTransactionCancelWithHttpInfo(CancelOrder cancelOrder) throws ApiException {
+    public ApiResponse<P2pTransactionActionResponse> p2pMerchantTransactionCancelWithHttpInfo(CancelOrder cancelOrder) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionCancelValidateBeforeCall(cancelOrder, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1017,9 +1017,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantTransactionCancelAsync(CancelOrder cancelOrder, final ApiCallback<InlineResponse20019> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantTransactionCancelAsync(CancelOrder cancelOrder, final ApiCallback<P2pTransactionActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantTransactionCancelValidateBeforeCall(cancelOrder, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pTransactionActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1193,7 +1193,7 @@ public class P2pApi {
      * 
      * @param adsUpdateStatus  (required)
      * @param tradeType Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
-     * @return InlineResponse20020
+     * @return P2pAdsUpdateStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1201,8 +1201,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20020 p2pMerchantBooksAdsUpdateStatus(AdsUpdateStatus adsUpdateStatus, String tradeType) throws ApiException {
-        ApiResponse<InlineResponse20020> localVarResp = p2pMerchantBooksAdsUpdateStatusWithHttpInfo(adsUpdateStatus, tradeType);
+    public P2pAdsUpdateStatusResponse p2pMerchantBooksAdsUpdateStatus(AdsUpdateStatus adsUpdateStatus, String tradeType) throws ApiException {
+        ApiResponse<P2pAdsUpdateStatusResponse> localVarResp = p2pMerchantBooksAdsUpdateStatusWithHttpInfo(adsUpdateStatus, tradeType);
         return localVarResp.getData();
     }
 
@@ -1211,7 +1211,7 @@ public class P2pApi {
      * 
      * @param adsUpdateStatus  (required)
      * @param tradeType Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
-     * @return ApiResponse&lt;InlineResponse20020&gt;
+     * @return ApiResponse&lt;P2pAdsUpdateStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1219,9 +1219,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20020> p2pMerchantBooksAdsUpdateStatusWithHttpInfo(AdsUpdateStatus adsUpdateStatus, String tradeType) throws ApiException {
+    public ApiResponse<P2pAdsUpdateStatusResponse> p2pMerchantBooksAdsUpdateStatusWithHttpInfo(AdsUpdateStatus adsUpdateStatus, String tradeType) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(adsUpdateStatus, tradeType, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20020>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pAdsUpdateStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1239,9 +1239,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksAdsUpdateStatusAsync(AdsUpdateStatus adsUpdateStatus, String tradeType, final ApiCallback<InlineResponse20020> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantBooksAdsUpdateStatusAsync(AdsUpdateStatus adsUpdateStatus, String tradeType, final ApiCallback<P2pAdsUpdateStatusResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(adsUpdateStatus, tradeType, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20020>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pAdsUpdateStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1302,7 +1302,7 @@ public class P2pApi {
      * Query ad details
      * 
      * @param adsDetailRequest  (required)
-     * @return InlineResponse20021
+     * @return P2pAdDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1310,8 +1310,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20021 p2pMerchantBooksAdsDetail(AdsDetailRequest adsDetailRequest) throws ApiException {
-        ApiResponse<InlineResponse20021> localVarResp = p2pMerchantBooksAdsDetailWithHttpInfo(adsDetailRequest);
+    public P2pAdDetailResponse p2pMerchantBooksAdsDetail(AdsDetailRequest adsDetailRequest) throws ApiException {
+        ApiResponse<P2pAdDetailResponse> localVarResp = p2pMerchantBooksAdsDetailWithHttpInfo(adsDetailRequest);
         return localVarResp.getData();
     }
 
@@ -1319,7 +1319,7 @@ public class P2pApi {
      * Query ad details
      * 
      * @param adsDetailRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20021&gt;
+     * @return ApiResponse&lt;P2pAdDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1327,9 +1327,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20021> p2pMerchantBooksAdsDetailWithHttpInfo(AdsDetailRequest adsDetailRequest) throws ApiException {
+    public ApiResponse<P2pAdDetailResponse> p2pMerchantBooksAdsDetailWithHttpInfo(AdsDetailRequest adsDetailRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksAdsDetailValidateBeforeCall(adsDetailRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20021>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pAdDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1346,9 +1346,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksAdsDetailAsync(AdsDetailRequest adsDetailRequest, final ApiCallback<InlineResponse20021> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantBooksAdsDetailAsync(AdsDetailRequest adsDetailRequest, final ApiCallback<P2pAdDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksAdsDetailValidateBeforeCall(adsDetailRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20021>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pAdDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1404,7 +1404,7 @@ public class P2pApi {
      * Get my ad list
      * 
      * @param myAdsListRequest  (optional)
-     * @return InlineResponse20022
+     * @return P2pMyAdsListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1412,8 +1412,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20022 p2pMerchantBooksMyAdsList(MyAdsListRequest myAdsListRequest) throws ApiException {
-        ApiResponse<InlineResponse20022> localVarResp = p2pMerchantBooksMyAdsListWithHttpInfo(myAdsListRequest);
+    public P2pMyAdsListResponse p2pMerchantBooksMyAdsList(MyAdsListRequest myAdsListRequest) throws ApiException {
+        ApiResponse<P2pMyAdsListResponse> localVarResp = p2pMerchantBooksMyAdsListWithHttpInfo(myAdsListRequest);
         return localVarResp.getData();
     }
 
@@ -1421,7 +1421,7 @@ public class P2pApi {
      * Get my ad list
      * 
      * @param myAdsListRequest  (optional)
-     * @return ApiResponse&lt;InlineResponse20022&gt;
+     * @return ApiResponse&lt;P2pMyAdsListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1429,9 +1429,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20022> p2pMerchantBooksMyAdsListWithHttpInfo(MyAdsListRequest myAdsListRequest) throws ApiException {
+    public ApiResponse<P2pMyAdsListResponse> p2pMerchantBooksMyAdsListWithHttpInfo(MyAdsListRequest myAdsListRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksMyAdsListValidateBeforeCall(myAdsListRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pMyAdsListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1448,9 +1448,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksMyAdsListAsync(MyAdsListRequest myAdsListRequest, final ApiCallback<InlineResponse20022> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantBooksMyAdsListAsync(MyAdsListRequest myAdsListRequest, final ApiCallback<P2pMyAdsListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksMyAdsListValidateBeforeCall(myAdsListRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pMyAdsListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1511,7 +1511,7 @@ public class P2pApi {
      * Get Advertisement List
      * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param adsListRequest  (required)
-     * @return InlineResponse20023
+     * @return P2pAdsListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1519,8 +1519,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20023 p2pMerchantBooksAdsList(AdsListRequest adsListRequest) throws ApiException {
-        ApiResponse<InlineResponse20023> localVarResp = p2pMerchantBooksAdsListWithHttpInfo(adsListRequest);
+    public P2pAdsListResponse p2pMerchantBooksAdsList(AdsListRequest adsListRequest) throws ApiException {
+        ApiResponse<P2pAdsListResponse> localVarResp = p2pMerchantBooksAdsListWithHttpInfo(adsListRequest);
         return localVarResp.getData();
     }
 
@@ -1528,7 +1528,7 @@ public class P2pApi {
      * Get Advertisement List
      * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @param adsListRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20023&gt;
+     * @return ApiResponse&lt;P2pAdsListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1536,9 +1536,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20023> p2pMerchantBooksAdsListWithHttpInfo(AdsListRequest adsListRequest) throws ApiException {
+    public ApiResponse<P2pAdsListResponse> p2pMerchantBooksAdsListWithHttpInfo(AdsListRequest adsListRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksAdsListValidateBeforeCall(adsListRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pAdsListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1555,9 +1555,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksAdsListAsync(AdsListRequest adsListRequest, final ApiCallback<InlineResponse20023> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantBooksAdsListAsync(AdsListRequest adsListRequest, final ApiCallback<P2pAdsListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksAdsListValidateBeforeCall(adsListRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pAdsListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1618,7 +1618,7 @@ public class P2pApi {
      * Get chat history
      * 
      * @param getChatsListRequest  (required)
-     * @return InlineResponse20024
+     * @return P2pChatListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1626,8 +1626,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20024 p2pMerchantChatGetChatsList(GetChatsListRequest getChatsListRequest) throws ApiException {
-        ApiResponse<InlineResponse20024> localVarResp = p2pMerchantChatGetChatsListWithHttpInfo(getChatsListRequest);
+    public P2pChatListResponse p2pMerchantChatGetChatsList(GetChatsListRequest getChatsListRequest) throws ApiException {
+        ApiResponse<P2pChatListResponse> localVarResp = p2pMerchantChatGetChatsListWithHttpInfo(getChatsListRequest);
         return localVarResp.getData();
     }
 
@@ -1635,7 +1635,7 @@ public class P2pApi {
      * Get chat history
      * 
      * @param getChatsListRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20024&gt;
+     * @return ApiResponse&lt;P2pChatListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1643,9 +1643,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20024> p2pMerchantChatGetChatsListWithHttpInfo(GetChatsListRequest getChatsListRequest) throws ApiException {
+    public ApiResponse<P2pChatListResponse> p2pMerchantChatGetChatsListWithHttpInfo(GetChatsListRequest getChatsListRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatGetChatsListValidateBeforeCall(getChatsListRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pChatListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1662,9 +1662,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantChatGetChatsListAsync(GetChatsListRequest getChatsListRequest, final ApiCallback<InlineResponse20024> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantChatGetChatsListAsync(GetChatsListRequest getChatsListRequest, final ApiCallback<P2pChatListResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatGetChatsListValidateBeforeCall(getChatsListRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pChatListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1725,7 +1725,7 @@ public class P2pApi {
      * Send text message
      * 
      * @param sendChatMessageRequest  (required)
-     * @return InlineResponse20025
+     * @return P2pSendChatMessageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1733,8 +1733,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20025 p2pMerchantChatSendChatMessage(SendChatMessageRequest sendChatMessageRequest) throws ApiException {
-        ApiResponse<InlineResponse20025> localVarResp = p2pMerchantChatSendChatMessageWithHttpInfo(sendChatMessageRequest);
+    public P2pSendChatMessageResponse p2pMerchantChatSendChatMessage(SendChatMessageRequest sendChatMessageRequest) throws ApiException {
+        ApiResponse<P2pSendChatMessageResponse> localVarResp = p2pMerchantChatSendChatMessageWithHttpInfo(sendChatMessageRequest);
         return localVarResp.getData();
     }
 
@@ -1742,7 +1742,7 @@ public class P2pApi {
      * Send text message
      * 
      * @param sendChatMessageRequest  (required)
-     * @return ApiResponse&lt;InlineResponse20025&gt;
+     * @return ApiResponse&lt;P2pSendChatMessageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1750,9 +1750,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20025> p2pMerchantChatSendChatMessageWithHttpInfo(SendChatMessageRequest sendChatMessageRequest) throws ApiException {
+    public ApiResponse<P2pSendChatMessageResponse> p2pMerchantChatSendChatMessageWithHttpInfo(SendChatMessageRequest sendChatMessageRequest) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatSendChatMessageValidateBeforeCall(sendChatMessageRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pSendChatMessageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1769,9 +1769,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantChatSendChatMessageAsync(SendChatMessageRequest sendChatMessageRequest, final ApiCallback<InlineResponse20025> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantChatSendChatMessageAsync(SendChatMessageRequest sendChatMessageRequest, final ApiCallback<P2pSendChatMessageResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatSendChatMessageValidateBeforeCall(sendChatMessageRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pSendChatMessageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1832,7 +1832,7 @@ public class P2pApi {
      * Upload chat file
      * 
      * @param uploadChatFile  (required)
-     * @return InlineResponse20026
+     * @return P2pUploadChatFileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1840,8 +1840,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20026 p2pMerchantChatUploadChatFile(UploadChatFile uploadChatFile) throws ApiException {
-        ApiResponse<InlineResponse20026> localVarResp = p2pMerchantChatUploadChatFileWithHttpInfo(uploadChatFile);
+    public P2pUploadChatFileResponse p2pMerchantChatUploadChatFile(UploadChatFile uploadChatFile) throws ApiException {
+        ApiResponse<P2pUploadChatFileResponse> localVarResp = p2pMerchantChatUploadChatFileWithHttpInfo(uploadChatFile);
         return localVarResp.getData();
     }
 
@@ -1849,7 +1849,7 @@ public class P2pApi {
      * Upload chat file
      * 
      * @param uploadChatFile  (required)
-     * @return ApiResponse&lt;InlineResponse20026&gt;
+     * @return ApiResponse&lt;P2pUploadChatFileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1857,9 +1857,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20026> p2pMerchantChatUploadChatFileWithHttpInfo(UploadChatFile uploadChatFile) throws ApiException {
+    public ApiResponse<P2pUploadChatFileResponse> p2pMerchantChatUploadChatFileWithHttpInfo(UploadChatFile uploadChatFile) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatUploadChatFileValidateBeforeCall(uploadChatFile, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20026>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pUploadChatFileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1876,9 +1876,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantChatUploadChatFileAsync(UploadChatFile uploadChatFile, final ApiCallback<InlineResponse20026> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantChatUploadChatFileAsync(UploadChatFile uploadChatFile, final ApiCallback<P2pUploadChatFileResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantChatUploadChatFileValidateBeforeCall(uploadChatFile, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20026>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pUploadChatFileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

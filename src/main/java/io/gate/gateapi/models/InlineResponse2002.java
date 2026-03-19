@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse200;
+import io.gate.gateapi.models.InlineResponse2002Data;
 import java.io.IOException;
 
 /**
@@ -34,11 +34,11 @@ public class InlineResponse2002 {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse200 data;
+    private InlineResponse2002Data data;
 
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Long timestamp;
+    private Integer timestamp;
 
 
     public InlineResponse2002 code(Integer code) {
@@ -48,10 +48,9 @@ public class InlineResponse2002 {
     }
 
      /**
-     * Status code, 0 means success
+     * Return code, 0 means success
      * @return code
     **/
-    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -71,7 +70,6 @@ public class InlineResponse2002 {
      * Response message
      * @return message
     **/
-    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -81,7 +79,7 @@ public class InlineResponse2002 {
         this.message = message;
     }
 
-    public InlineResponse2002 data(InlineResponse200 data) {
+    public InlineResponse2002 data(InlineResponse2002Data data) {
         
         this.data = data;
         return this;
@@ -91,33 +89,31 @@ public class InlineResponse2002 {
      * Get data
      * @return data
     **/
-    @javax.annotation.Nullable
-    public InlineResponse200 getData() {
+    public InlineResponse2002Data getData() {
         return data;
     }
 
 
-    public void setData(InlineResponse200 data) {
+    public void setData(InlineResponse2002Data data) {
         this.data = data;
     }
 
-    public InlineResponse2002 timestamp(Long timestamp) {
+    public InlineResponse2002 timestamp(Integer timestamp) {
         
         this.timestamp = timestamp;
         return this;
     }
 
      /**
-     * Response timestamp (milliseconds)
+     * Response timestamp (in seconds)
      * @return timestamp
     **/
-    @javax.annotation.Nullable
-    public Long getTimestamp() {
+    public Integer getTimestamp() {
         return timestamp;
     }
 
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(Integer timestamp) {
         this.timestamp = timestamp;
     }
     @Override
