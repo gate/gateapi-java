@@ -27,6 +27,10 @@ import java.util.Map;
  * UnifiedAccount
  */
 public class UnifiedAccount {
+    public static final String SERIALIZED_NAME_MODE = "mode";
+    @SerializedName(SERIALIZED_NAME_MODE)
+    private String mode;
+
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private Long userId;
@@ -111,6 +115,26 @@ public class UnifiedAccount {
     @SerializedName(SERIALIZED_NAME_IS_ALL_COLLATERAL)
     private Boolean isAllCollateral;
 
+
+    public UnifiedAccount mode(String mode) {
+        
+        this.mode = mode;
+        return this;
+    }
+
+     /**
+     * Unified account mode: - classic: Classic account mode - multi_currency: Multi-currency margin mode - portfolio: Portfolio margin mode - single_currency: Single-currency margin mode
+     * @return mode
+    **/
+    @javax.annotation.Nullable
+    public String getMode() {
+        return mode;
+    }
+
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
 
     public UnifiedAccount userId(Long userId) {
         
@@ -247,7 +271,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total initial margin, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
+     * Total initial margin (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode
      * @return totalInitialMargin
     **/
     @javax.annotation.Nullable
@@ -267,7 +291,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total margin balance, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
+     * Total margin balance (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode
      * @return totalMarginBalance
     **/
     @javax.annotation.Nullable
@@ -287,7 +311,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total maintenance margin is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode
+     * Total maintenance margin (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode
      * @return totalMaintenanceMargin
     **/
     @javax.annotation.Nullable
@@ -307,7 +331,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total initial margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
+     * Total initial margin rate (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode
      * @return totalInitialMarginRate
     **/
     @javax.annotation.Nullable
@@ -327,7 +351,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total maintenance margin rate, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
+     * Total maintenance margin rate (cross), effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode
      * @return totalMaintenanceMarginRate
     **/
     @javax.annotation.Nullable
@@ -367,7 +391,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total unified account assets, valid in single currency margin/cross-currency margin/combined margin mode
+     * Total unified account assets, includes both cross and isolated total assets in single-currency/multi-currency mode, only cross total assets in portfolio margin mode
      * @return unifiedAccountTotal
     **/
     @javax.annotation.Nullable
@@ -387,7 +411,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total unified account borrowed amount, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode
+     * Total unified account borrowed, i.e. total cross borrowed, effective in multi-currency margin/portfolio margin mode, 0 in single-currency margin mode
      * @return unifiedAccountTotalLiab
     **/
     @javax.annotation.Nullable
@@ -407,7 +431,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Total unified account equity, valid in single currency margin/cross-currency margin/combined margin mode
+     * Total unified account equity, includes both cross and isolated total equity in single-currency/multi-currency mode, only cross total equity in portfolio margin mode
      * @return unifiedAccountTotalEquity
     **/
     @javax.annotation.Nullable
@@ -421,7 +445,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Actual leverage ratio, valid in cross-currency margin/combined margin mode
+     * Account leverage multiplier, effective in multi-currency/portfolio margin mode (deprecated). Currency leverage query API: GET /unified/leverage/user_currency_setting
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -538,7 +562,8 @@ public class UnifiedAccount {
             return false;
         }
         UnifiedAccount unifiedAccount = (UnifiedAccount) o;
-        return Objects.equals(this.userId, unifiedAccount.userId) &&
+        return Objects.equals(this.mode, unifiedAccount.mode) &&
+                Objects.equals(this.userId, unifiedAccount.userId) &&
                 Objects.equals(this.refreshTime, unifiedAccount.refreshTime) &&
                 Objects.equals(this.locked, unifiedAccount.locked) &&
                 Objects.equals(this.balances, unifiedAccount.balances) &&
@@ -563,7 +588,7 @@ public class UnifiedAccount {
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, refreshTime, locked, balances, total, borrowed, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin, unifiedAccountTotal, unifiedAccountTotalLiab, unifiedAccountTotalEquity, leverage, spotOrderLoss, optionsOrderLoss, spotHedge, useFunding, isAllCollateral);
+        return Objects.hash(mode, userId, refreshTime, locked, balances, total, borrowed, totalInitialMargin, totalMarginBalance, totalMaintenanceMargin, totalInitialMarginRate, totalMaintenanceMarginRate, totalAvailableMargin, unifiedAccountTotal, unifiedAccountTotalLiab, unifiedAccountTotalEquity, leverage, spotOrderLoss, optionsOrderLoss, spotHedge, useFunding, isAllCollateral);
     }
 
 
@@ -571,6 +596,7 @@ public class UnifiedAccount {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UnifiedAccount {\n");
+        sb.append("      mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      refreshTime: ").append(toIndentedString(refreshTime)).append("\n");
         sb.append("      locked: ").append(toIndentedString(locked)).append("\n");

@@ -18,6 +18,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * UnifiedBalance
@@ -103,6 +104,10 @@ public class UnifiedBalance {
     @SerializedName(SERIALIZED_NAME_ENABLED_COLLATERAL)
     private Boolean enabledCollateral;
 
+    public static final String SERIALIZED_NAME_BALANCE_VERSION = "balance_version";
+    @SerializedName(SERIALIZED_NAME_BALANCE_VERSION)
+    private BigDecimal balanceVersion;
+
 
     public UnifiedBalance available(String available) {
         
@@ -111,7 +116,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Available balance, valid in single currency margin/cross-currency margin/combined margin mode, calculation varies by mode
+     * Cross available balance, deducted futures isolated margin occupation and frozen amount (futures isolated occupation, i.e. futures isolated balance), effective in single-currency/multi-currency/portfolio margin mode.
      * @return available
     **/
     @javax.annotation.Nullable
@@ -131,7 +136,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Locked balance, valid in single currency margin/cross-currency margin/combined margin mode
+     * Frozen amount, effective in single-currency/multi-currency/portfolio margin mode
      * @return freeze
     **/
     @javax.annotation.Nullable
@@ -211,7 +216,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Equity, valid in single currency margin/cross currency margin/combined margin mode
+     * Currency equity amount (cross), effective in single-currency/multi-currency/portfolio margin mode
      * @return equity
     **/
     @javax.annotation.Nullable
@@ -351,7 +356,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Isolated Margin Balance applies to Single-Currency Margin Mode and Cross-Currency Margin Mode, and is 0 in other modes such as Portfolio Margin Mode.
+     * Futures isolated balance, effective in single-currency and multi-currency margin mode, 0 in portfolio margin mode
      * @return isoBalance
     **/
     @javax.annotation.Nullable
@@ -371,7 +376,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     * Cross initial margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode
      * @return im
     **/
     @javax.annotation.Nullable
@@ -391,7 +396,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Cross margin maintenance margin, valid in single-currency margin mode, 0 in other modes such as cross-currency margin/combined margin mode
+     * Cross maintenance margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode
      * @return mm
     **/
     @javax.annotation.Nullable
@@ -411,7 +416,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Full-position initial margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     * Cross initial margin rate, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode
      * @return imr
     **/
     @javax.annotation.Nullable
@@ -431,7 +436,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+     * Cross maintenance margin rate, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode
      * @return mmr
     **/
     @javax.annotation.Nullable
@@ -451,7 +456,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode
+     * Cross margin balance, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode
      * @return marginBalance
     **/
     @javax.annotation.Nullable
@@ -471,7 +476,7 @@ public class UnifiedBalance {
     }
 
      /**
-     * Cross margin available balance, valid in single currency margin mode, 0 in other modes such as cross-currency margin/combined margin mode
+     * Cross available margin, only effective for USDT in single-currency margin mode, 0 in multi-currency/portfolio margin mode
      * @return availableMargin
     **/
     @javax.annotation.Nullable
@@ -503,6 +508,26 @@ public class UnifiedBalance {
     public void setEnabledCollateral(Boolean enabledCollateral) {
         this.enabledCollateral = enabledCollateral;
     }
+
+    public UnifiedBalance balanceVersion(BigDecimal balanceVersion) {
+        
+        this.balanceVersion = balanceVersion;
+        return this;
+    }
+
+     /**
+     * Balance version number
+     * @return balanceVersion
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getBalanceVersion() {
+        return balanceVersion;
+    }
+
+
+    public void setBalanceVersion(BigDecimal balanceVersion) {
+        this.balanceVersion = balanceVersion;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -531,12 +556,13 @@ public class UnifiedBalance {
                 Objects.equals(this.mmr, unifiedBalance.mmr) &&
                 Objects.equals(this.marginBalance, unifiedBalance.marginBalance) &&
                 Objects.equals(this.availableMargin, unifiedBalance.availableMargin) &&
-                Objects.equals(this.enabledCollateral, unifiedBalance.enabledCollateral);
+                Objects.equals(this.enabledCollateral, unifiedBalance.enabledCollateral) &&
+                Objects.equals(this.balanceVersion, unifiedBalance.balanceVersion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(available, freeze, borrowed, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab, spotInUse, funding, fundingVersion, crossBalance, isoBalance, im, mm, imr, mmr, marginBalance, availableMargin, enabledCollateral);
+        return Objects.hash(available, freeze, borrowed, negativeLiab, futuresPosLiab, equity, totalFreeze, totalLiab, spotInUse, funding, fundingVersion, crossBalance, isoBalance, im, mm, imr, mmr, marginBalance, availableMargin, enabledCollateral, balanceVersion);
     }
 
 
@@ -564,6 +590,7 @@ public class UnifiedBalance {
         sb.append("      marginBalance: ").append(toIndentedString(marginBalance)).append("\n");
         sb.append("      availableMargin: ").append(toIndentedString(availableMargin)).append("\n");
         sb.append("      enabledCollateral: ").append(toIndentedString(enabledCollateral)).append("\n");
+        sb.append("      balanceVersion: ").append(toIndentedString(balanceVersion)).append("\n");
         sb.append("}");
         return sb.toString();
     }
