@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Streamer information
  */
-public class InlineResponse2009DataLiveHost {
+public class InlineResponse20010DataLiveHost {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
@@ -44,7 +44,7 @@ public class InlineResponse2009DataLiveHost {
     private Integer tier;
 
 
-    public InlineResponse2009DataLiveHost id(String id) {
+    public InlineResponse20010DataLiveHost id(String id) {
         
         this.id = id;
         return this;
@@ -64,7 +64,7 @@ public class InlineResponse2009DataLiveHost {
         this.id = id;
     }
 
-    public InlineResponse2009DataLiveHost name(String name) {
+    public InlineResponse20010DataLiveHost name(String name) {
         
         this.name = name;
         return this;
@@ -84,7 +84,7 @@ public class InlineResponse2009DataLiveHost {
         this.name = name;
     }
 
-    public InlineResponse2009DataLiveHost avatar(String avatar) {
+    public InlineResponse20010DataLiveHost avatar(String avatar) {
         
         this.avatar = avatar;
         return this;
@@ -104,7 +104,7 @@ public class InlineResponse2009DataLiveHost {
         this.avatar = avatar;
     }
 
-    public InlineResponse2009DataLiveHost fans(Integer fans) {
+    public InlineResponse20010DataLiveHost fans(Integer fans) {
         
         this.fans = fans;
         return this;
@@ -124,7 +124,7 @@ public class InlineResponse2009DataLiveHost {
         this.fans = fans;
     }
 
-    public InlineResponse2009DataLiveHost tier(Integer tier) {
+    public InlineResponse20010DataLiveHost tier(Integer tier) {
         
         this.tier = tier;
         return this;
@@ -151,12 +151,12 @@ public class InlineResponse2009DataLiveHost {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2009DataLiveHost inlineResponse2009DataLiveHost = (InlineResponse2009DataLiveHost) o;
-        return Objects.equals(this.id, inlineResponse2009DataLiveHost.id) &&
-                Objects.equals(this.name, inlineResponse2009DataLiveHost.name) &&
-                Objects.equals(this.avatar, inlineResponse2009DataLiveHost.avatar) &&
-                Objects.equals(this.fans, inlineResponse2009DataLiveHost.fans) &&
-                Objects.equals(this.tier, inlineResponse2009DataLiveHost.tier);
+        InlineResponse20010DataLiveHost inlineResponse20010DataLiveHost = (InlineResponse20010DataLiveHost) o;
+        return Objects.equals(this.id, inlineResponse20010DataLiveHost.id) &&
+                Objects.equals(this.name, inlineResponse20010DataLiveHost.name) &&
+                Objects.equals(this.avatar, inlineResponse20010DataLiveHost.avatar) &&
+                Objects.equals(this.fans, inlineResponse20010DataLiveHost.fans) &&
+                Objects.equals(this.tier, inlineResponse20010DataLiveHost.tier);
     }
 
     @Override
@@ -168,7 +168,7 @@ public class InlineResponse2009DataLiveHost {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2009DataLiveHost {\n");
+        sb.append("class InlineResponse20010DataLiveHost {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      name: ").append(toIndentedString(name)).append("\n");
         sb.append("      avatar: ").append(toIndentedString(avatar)).append("\n");

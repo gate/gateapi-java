@@ -17,17 +17,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2006DataHelpUrl;
-import io.gate.gateapi.models.InlineResponse2006DataJumpUrl;
-import io.gate.gateapi.models.InlineResponse2006DataProgressConfig;
+import io.gate.gateapi.models.InlineResponse2007DataHelpUrl;
+import io.gate.gateapi.models.InlineResponse2007DataJumpUrl;
+import io.gate.gateapi.models.InlineResponse2007DataProgressConfig;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * InlineResponse2006DataList
+ * InlineResponse2007DataList
  */
-public class InlineResponse2006DataList {
+public class InlineResponse2007DataList {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private Integer id;
@@ -141,11 +141,11 @@ public class InlineResponse2006DataList {
 
     public static final String SERIALIZED_NAME_JUMP_URL = "jump_url";
     @SerializedName(SERIALIZED_NAME_JUMP_URL)
-    private InlineResponse2006DataJumpUrl jumpUrl;
+    private InlineResponse2007DataJumpUrl jumpUrl;
 
     public static final String SERIALIZED_NAME_HELP_URL = "help_url";
     @SerializedName(SERIALIZED_NAME_HELP_URL)
-    private InlineResponse2006DataHelpUrl helpUrl;
+    private InlineResponse2007DataHelpUrl helpUrl;
 
     public static final String SERIALIZED_NAME_EXPIRE_TIME = "expire_time";
     @SerializedName(SERIALIZED_NAME_EXPIRE_TIME)
@@ -169,7 +169,7 @@ public class InlineResponse2006DataList {
 
     public static final String SERIALIZED_NAME_PROGRESS_CONFIG = "progress_config";
     @SerializedName(SERIALIZED_NAME_PROGRESS_CONFIG)
-    private InlineResponse2006DataProgressConfig progressConfig;
+    private InlineResponse2007DataProgressConfig progressConfig;
 
     public static final String SERIALIZED_NAME_ACTIVATION_INFO = "activation_info";
     @SerializedName(SERIALIZED_NAME_ACTIVATION_INFO)
@@ -255,7 +255,7 @@ public class InlineResponse2006DataList {
     private List<Object> extra = null;
 
 
-    public InlineResponse2006DataList id(Integer id) {
+    public InlineResponse2007DataList id(Integer id) {
         
         this.id = id;
         return this;
@@ -275,7 +275,7 @@ public class InlineResponse2006DataList {
         this.id = id;
     }
 
-    public InlineResponse2006DataList detailsId(Integer detailsId) {
+    public InlineResponse2007DataList detailsId(Integer detailsId) {
         
         this.detailsId = detailsId;
         return this;
@@ -295,7 +295,7 @@ public class InlineResponse2006DataList {
         this.detailsId = detailsId;
     }
 
-    public InlineResponse2006DataList couponType(String couponType) {
+    public InlineResponse2007DataList couponType(String couponType) {
         
         this.couponType = couponType;
         return this;
@@ -315,7 +315,7 @@ public class InlineResponse2006DataList {
         this.couponType = couponType;
     }
 
-    public InlineResponse2006DataList name(String name) {
+    public InlineResponse2007DataList name(String name) {
         
         this.name = name;
         return this;
@@ -335,7 +335,7 @@ public class InlineResponse2006DataList {
         this.name = name;
     }
 
-    public InlineResponse2006DataList amount(String amount) {
+    public InlineResponse2007DataList amount(String amount) {
         
         this.amount = amount;
         return this;
@@ -355,7 +355,7 @@ public class InlineResponse2006DataList {
         this.amount = amount;
     }
 
-    public InlineResponse2006DataList originAmount(String originAmount) {
+    public InlineResponse2007DataList originAmount(String originAmount) {
         
         this.originAmount = originAmount;
         return this;
@@ -375,7 +375,7 @@ public class InlineResponse2006DataList {
         this.originAmount = originAmount;
     }
 
-    public InlineResponse2006DataList currency(String currency) {
+    public InlineResponse2007DataList currency(String currency) {
         
         this.currency = currency;
         return this;
@@ -395,7 +395,7 @@ public class InlineResponse2006DataList {
         this.currency = currency;
     }
 
-    public InlineResponse2006DataList ruleNew(String ruleNew) {
+    public InlineResponse2007DataList ruleNew(String ruleNew) {
         
         this.ruleNew = ruleNew;
         return this;
@@ -415,7 +415,7 @@ public class InlineResponse2006DataList {
         this.ruleNew = ruleNew;
     }
 
-    public InlineResponse2006DataList status(StatusEnum status) {
+    public InlineResponse2007DataList status(StatusEnum status) {
         
         this.status = status;
         return this;
@@ -435,7 +435,7 @@ public class InlineResponse2006DataList {
         this.status = status;
     }
 
-    public InlineResponse2006DataList jumpUrl(InlineResponse2006DataJumpUrl jumpUrl) {
+    public InlineResponse2007DataList jumpUrl(InlineResponse2007DataJumpUrl jumpUrl) {
         
         this.jumpUrl = jumpUrl;
         return this;
@@ -446,16 +446,16 @@ public class InlineResponse2006DataList {
      * @return jumpUrl
     **/
     @javax.annotation.Nullable
-    public InlineResponse2006DataJumpUrl getJumpUrl() {
+    public InlineResponse2007DataJumpUrl getJumpUrl() {
         return jumpUrl;
     }
 
 
-    public void setJumpUrl(InlineResponse2006DataJumpUrl jumpUrl) {
+    public void setJumpUrl(InlineResponse2007DataJumpUrl jumpUrl) {
         this.jumpUrl = jumpUrl;
     }
 
-    public InlineResponse2006DataList helpUrl(InlineResponse2006DataHelpUrl helpUrl) {
+    public InlineResponse2007DataList helpUrl(InlineResponse2007DataHelpUrl helpUrl) {
         
         this.helpUrl = helpUrl;
         return this;
@@ -466,16 +466,16 @@ public class InlineResponse2006DataList {
      * @return helpUrl
     **/
     @javax.annotation.Nullable
-    public InlineResponse2006DataHelpUrl getHelpUrl() {
+    public InlineResponse2007DataHelpUrl getHelpUrl() {
         return helpUrl;
     }
 
 
-    public void setHelpUrl(InlineResponse2006DataHelpUrl helpUrl) {
+    public void setHelpUrl(InlineResponse2007DataHelpUrl helpUrl) {
         this.helpUrl = helpUrl;
     }
 
-    public InlineResponse2006DataList expireTime(Integer expireTime) {
+    public InlineResponse2007DataList expireTime(Integer expireTime) {
         
         this.expireTime = expireTime;
         return this;
@@ -495,7 +495,7 @@ public class InlineResponse2006DataList {
         this.expireTime = expireTime;
     }
 
-    public InlineResponse2006DataList expireTimeOrderBy(Integer expireTimeOrderBy) {
+    public InlineResponse2007DataList expireTimeOrderBy(Integer expireTimeOrderBy) {
         
         this.expireTimeOrderBy = expireTimeOrderBy;
         return this;
@@ -515,7 +515,7 @@ public class InlineResponse2006DataList {
         this.expireTimeOrderBy = expireTimeOrderBy;
     }
 
-    public InlineResponse2006DataList expireSecond(Integer expireSecond) {
+    public InlineResponse2007DataList expireSecond(Integer expireSecond) {
         
         this.expireSecond = expireSecond;
         return this;
@@ -535,7 +535,7 @@ public class InlineResponse2006DataList {
         this.expireSecond = expireSecond;
     }
 
-    public InlineResponse2006DataList hasUsageHistory(Boolean hasUsageHistory) {
+    public InlineResponse2007DataList hasUsageHistory(Boolean hasUsageHistory) {
         
         this.hasUsageHistory = hasUsageHistory;
         return this;
@@ -555,7 +555,7 @@ public class InlineResponse2006DataList {
         this.hasUsageHistory = hasUsageHistory;
     }
 
-    public InlineResponse2006DataList hasProgress(Boolean hasProgress) {
+    public InlineResponse2007DataList hasProgress(Boolean hasProgress) {
         
         this.hasProgress = hasProgress;
         return this;
@@ -575,7 +575,7 @@ public class InlineResponse2006DataList {
         this.hasProgress = hasProgress;
     }
 
-    public InlineResponse2006DataList progressConfig(InlineResponse2006DataProgressConfig progressConfig) {
+    public InlineResponse2007DataList progressConfig(InlineResponse2007DataProgressConfig progressConfig) {
         
         this.progressConfig = progressConfig;
         return this;
@@ -586,16 +586,16 @@ public class InlineResponse2006DataList {
      * @return progressConfig
     **/
     @javax.annotation.Nullable
-    public InlineResponse2006DataProgressConfig getProgressConfig() {
+    public InlineResponse2007DataProgressConfig getProgressConfig() {
         return progressConfig;
     }
 
 
-    public void setProgressConfig(InlineResponse2006DataProgressConfig progressConfig) {
+    public void setProgressConfig(InlineResponse2007DataProgressConfig progressConfig) {
         this.progressConfig = progressConfig;
     }
 
-    public InlineResponse2006DataList activationInfo(Object activationInfo) {
+    public InlineResponse2007DataList activationInfo(Object activationInfo) {
         
         this.activationInfo = activationInfo;
         return this;
@@ -615,7 +615,7 @@ public class InlineResponse2006DataList {
         this.activationInfo = activationInfo;
     }
 
-    public InlineResponse2006DataList isTaskCoupon(IsTaskCouponEnum isTaskCoupon) {
+    public InlineResponse2007DataList isTaskCoupon(IsTaskCouponEnum isTaskCoupon) {
         
         this.isTaskCoupon = isTaskCoupon;
         return this;
@@ -635,7 +635,7 @@ public class InlineResponse2006DataList {
         this.isTaskCoupon = isTaskCoupon;
     }
 
-    public InlineResponse2006DataList upgradeToast(Boolean upgradeToast) {
+    public InlineResponse2007DataList upgradeToast(Boolean upgradeToast) {
         
         this.upgradeToast = upgradeToast;
         return this;
@@ -655,7 +655,7 @@ public class InlineResponse2006DataList {
         this.upgradeToast = upgradeToast;
     }
 
-    public InlineResponse2006DataList taskTitle(String taskTitle) {
+    public InlineResponse2007DataList taskTitle(String taskTitle) {
         
         this.taskTitle = taskTitle;
         return this;
@@ -675,7 +675,7 @@ public class InlineResponse2006DataList {
         this.taskTitle = taskTitle;
     }
 
-    public InlineResponse2006DataList taskDesc(String taskDesc) {
+    public InlineResponse2007DataList taskDesc(String taskDesc) {
         
         this.taskDesc = taskDesc;
         return this;
@@ -695,7 +695,7 @@ public class InlineResponse2006DataList {
         this.taskDesc = taskDesc;
     }
 
-    public InlineResponse2006DataList taskStartAt(Integer taskStartAt) {
+    public InlineResponse2007DataList taskStartAt(Integer taskStartAt) {
         
         this.taskStartAt = taskStartAt;
         return this;
@@ -715,7 +715,7 @@ public class InlineResponse2006DataList {
         this.taskStartAt = taskStartAt;
     }
 
-    public InlineResponse2006DataList taskExpireAt(Integer taskExpireAt) {
+    public InlineResponse2007DataList taskExpireAt(Integer taskExpireAt) {
         
         this.taskExpireAt = taskExpireAt;
         return this;
@@ -735,7 +735,7 @@ public class InlineResponse2006DataList {
         this.taskExpireAt = taskExpireAt;
     }
 
-    public InlineResponse2006DataList taskCompletedAt(Integer taskCompletedAt) {
+    public InlineResponse2007DataList taskCompletedAt(Integer taskCompletedAt) {
         
         this.taskCompletedAt = taskCompletedAt;
         return this;
@@ -755,13 +755,13 @@ public class InlineResponse2006DataList {
         this.taskCompletedAt = taskCompletedAt;
     }
 
-    public InlineResponse2006DataList extra(List<Object> extra) {
+    public InlineResponse2007DataList extra(List<Object> extra) {
         
         this.extra = extra;
         return this;
     }
 
-    public InlineResponse2006DataList addExtraItem(Object extraItem) {
+    public InlineResponse2007DataList addExtraItem(Object extraItem) {
         if (this.extra == null) {
             this.extra = new ArrayList<>();
         }
@@ -790,33 +790,33 @@ public class InlineResponse2006DataList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2006DataList inlineResponse2006DataList = (InlineResponse2006DataList) o;
-        return Objects.equals(this.id, inlineResponse2006DataList.id) &&
-                Objects.equals(this.detailsId, inlineResponse2006DataList.detailsId) &&
-                Objects.equals(this.couponType, inlineResponse2006DataList.couponType) &&
-                Objects.equals(this.name, inlineResponse2006DataList.name) &&
-                Objects.equals(this.amount, inlineResponse2006DataList.amount) &&
-                Objects.equals(this.originAmount, inlineResponse2006DataList.originAmount) &&
-                Objects.equals(this.currency, inlineResponse2006DataList.currency) &&
-                Objects.equals(this.ruleNew, inlineResponse2006DataList.ruleNew) &&
-                Objects.equals(this.status, inlineResponse2006DataList.status) &&
-                Objects.equals(this.jumpUrl, inlineResponse2006DataList.jumpUrl) &&
-                Objects.equals(this.helpUrl, inlineResponse2006DataList.helpUrl) &&
-                Objects.equals(this.expireTime, inlineResponse2006DataList.expireTime) &&
-                Objects.equals(this.expireTimeOrderBy, inlineResponse2006DataList.expireTimeOrderBy) &&
-                Objects.equals(this.expireSecond, inlineResponse2006DataList.expireSecond) &&
-                Objects.equals(this.hasUsageHistory, inlineResponse2006DataList.hasUsageHistory) &&
-                Objects.equals(this.hasProgress, inlineResponse2006DataList.hasProgress) &&
-                Objects.equals(this.progressConfig, inlineResponse2006DataList.progressConfig) &&
-                Objects.equals(this.activationInfo, inlineResponse2006DataList.activationInfo) &&
-                Objects.equals(this.isTaskCoupon, inlineResponse2006DataList.isTaskCoupon) &&
-                Objects.equals(this.upgradeToast, inlineResponse2006DataList.upgradeToast) &&
-                Objects.equals(this.taskTitle, inlineResponse2006DataList.taskTitle) &&
-                Objects.equals(this.taskDesc, inlineResponse2006DataList.taskDesc) &&
-                Objects.equals(this.taskStartAt, inlineResponse2006DataList.taskStartAt) &&
-                Objects.equals(this.taskExpireAt, inlineResponse2006DataList.taskExpireAt) &&
-                Objects.equals(this.taskCompletedAt, inlineResponse2006DataList.taskCompletedAt) &&
-                Objects.equals(this.extra, inlineResponse2006DataList.extra);
+        InlineResponse2007DataList inlineResponse2007DataList = (InlineResponse2007DataList) o;
+        return Objects.equals(this.id, inlineResponse2007DataList.id) &&
+                Objects.equals(this.detailsId, inlineResponse2007DataList.detailsId) &&
+                Objects.equals(this.couponType, inlineResponse2007DataList.couponType) &&
+                Objects.equals(this.name, inlineResponse2007DataList.name) &&
+                Objects.equals(this.amount, inlineResponse2007DataList.amount) &&
+                Objects.equals(this.originAmount, inlineResponse2007DataList.originAmount) &&
+                Objects.equals(this.currency, inlineResponse2007DataList.currency) &&
+                Objects.equals(this.ruleNew, inlineResponse2007DataList.ruleNew) &&
+                Objects.equals(this.status, inlineResponse2007DataList.status) &&
+                Objects.equals(this.jumpUrl, inlineResponse2007DataList.jumpUrl) &&
+                Objects.equals(this.helpUrl, inlineResponse2007DataList.helpUrl) &&
+                Objects.equals(this.expireTime, inlineResponse2007DataList.expireTime) &&
+                Objects.equals(this.expireTimeOrderBy, inlineResponse2007DataList.expireTimeOrderBy) &&
+                Objects.equals(this.expireSecond, inlineResponse2007DataList.expireSecond) &&
+                Objects.equals(this.hasUsageHistory, inlineResponse2007DataList.hasUsageHistory) &&
+                Objects.equals(this.hasProgress, inlineResponse2007DataList.hasProgress) &&
+                Objects.equals(this.progressConfig, inlineResponse2007DataList.progressConfig) &&
+                Objects.equals(this.activationInfo, inlineResponse2007DataList.activationInfo) &&
+                Objects.equals(this.isTaskCoupon, inlineResponse2007DataList.isTaskCoupon) &&
+                Objects.equals(this.upgradeToast, inlineResponse2007DataList.upgradeToast) &&
+                Objects.equals(this.taskTitle, inlineResponse2007DataList.taskTitle) &&
+                Objects.equals(this.taskDesc, inlineResponse2007DataList.taskDesc) &&
+                Objects.equals(this.taskStartAt, inlineResponse2007DataList.taskStartAt) &&
+                Objects.equals(this.taskExpireAt, inlineResponse2007DataList.taskExpireAt) &&
+                Objects.equals(this.taskCompletedAt, inlineResponse2007DataList.taskCompletedAt) &&
+                Objects.equals(this.extra, inlineResponse2007DataList.extra);
     }
 
     @Override
@@ -828,7 +828,7 @@ public class InlineResponse2006DataList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2006DataList {\n");
+        sb.append("class InlineResponse2007DataList {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      detailsId: ").append(toIndentedString(detailsId)).append("\n");
         sb.append("      couponType: ").append(toIndentedString(couponType)).append("\n");

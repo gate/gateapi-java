@@ -1,5 +1,5 @@
 
-# InlineResponse2009DataLive
+# InlineResponse20010DataLive
 
 Live stream information (has value when content_type=streaming)
 
@@ -17,6 +17,6 @@ Name | Type | Description | Notes
 **hotWeight** | **Integer** | Popularity weight |  [optional]
 **liveType** | **Integer** | Live stream type |  [optional]
 **sessionId** | **String** | Session ID |  [optional]
-**host** | [**InlineResponse2009DataLiveHost**](InlineResponse2009DataLiveHost.md) |  |  [optional]
+**host** | [**InlineResponse20010DataLiveHost**](InlineResponse20010DataLiveHost.md) |  |  [optional]
 **status** | **String** | Live stream status (e.g., streaming) |  [optional]
 

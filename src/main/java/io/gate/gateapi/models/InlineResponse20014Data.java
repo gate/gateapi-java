@@ -17,35 +17,42 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.InlineResponse20014DataList;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * UidPushWithdrawalResp
+ * Activity type data
  */
-public class UidPushWithdrawalResp {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
+public class InlineResponse20014Data {
+    public static final String SERIALIZED_NAME_LIST = "list";
+    @SerializedName(SERIALIZED_NAME_LIST)
+    private List<InlineResponse20014DataList> list = new ArrayList<>();
 
 
-    public UidPushWithdrawalResp id(String id) {
+    public InlineResponse20014Data list(List<InlineResponse20014DataList> list) {
         
-        this.id = id;
+        this.list = list;
+        return this;
+    }
+
+    public InlineResponse20014Data addListItem(InlineResponse20014DataList listItem) {
+        this.list.add(listItem);
         return this;
     }
 
      /**
-     * Order ID
-     * @return id
+     * Activity type list
+     * @return list
     **/
-    @javax.annotation.Nullable
-    public String getId() {
-        return id;
+    public List<InlineResponse20014DataList> getList() {
+        return list;
     }
 
 
-    public void setId(String id) {
-        this.id = id;
+    public void setList(List<InlineResponse20014DataList> list) {
+        this.list = list;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,21 +62,21 @@ public class UidPushWithdrawalResp {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UidPushWithdrawalResp uidPushWithdrawalResp = (UidPushWithdrawalResp) o;
-        return Objects.equals(this.id, uidPushWithdrawalResp.id);
+        InlineResponse20014Data inlineResponse20014Data = (InlineResponse20014Data) o;
+        return Objects.equals(this.list, inlineResponse20014Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(list);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UidPushWithdrawalResp {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("class InlineResponse20014Data {\n");
+        sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();
     }

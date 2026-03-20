@@ -20,9 +20,9 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.InlineResponse20011;
 import io.gate.gateapi.models.InlineResponse20012;
 import io.gate.gateapi.models.InlineResponse20013;
+import io.gate.gateapi.models.InlineResponse20014;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -98,7 +98,7 @@ public class DefaultApi {
     /**
      * My activity entry
      * Query user&#39;s Activity Center entry information, including activity icon and redirect link
-     * @return InlineResponse20011
+     * @return InlineResponse20012
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -106,15 +106,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Successfully returns activity entry information </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20011 getMyActivityEntry() throws ApiException {
-        ApiResponse<InlineResponse20011> localVarResp = getMyActivityEntryWithHttpInfo();
+    public InlineResponse20012 getMyActivityEntry() throws ApiException {
+        ApiResponse<InlineResponse20012> localVarResp = getMyActivityEntryWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * My activity entry
      * Query user&#39;s Activity Center entry information, including activity icon and redirect link
-     * @return ApiResponse&lt;InlineResponse20011&gt;
+     * @return ApiResponse&lt;InlineResponse20012&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -122,9 +122,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Successfully returns activity entry information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20011> getMyActivityEntryWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20012> getMyActivityEntryWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getMyActivityEntryValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -140,9 +140,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Successfully returns activity entry information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyActivityEntryAsync(final ApiCallback<InlineResponse20011> _callback) throws ApiException {
+    public okhttp3.Call getMyActivityEntryAsync(final ApiCallback<InlineResponse20012> _callback) throws ApiException {
         okhttp3.Call localVarCall = getMyActivityEntryValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -207,15 +207,15 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<InlineResponse20012> listActivitiesWithHttpInfo(String recommendType, String typeIds, String keywords, Integer page, Integer pageSize, String sortBy) throws ApiException {
+    private ApiResponse<InlineResponse20013> listActivitiesWithHttpInfo(String recommendType, String typeIds, String keywords, Integer page, Integer pageSize, String sortBy) throws ApiException {
         okhttp3.Call localVarCall = listActivitiesValidateBeforeCall(recommendType, typeIds, keywords, page, pageSize, sortBy, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listActivitiesAsync(String recommendType, String typeIds, String keywords, Integer page, Integer pageSize, String sortBy, final ApiCallback<InlineResponse20012> _callback) throws ApiException {
+    private okhttp3.Call listActivitiesAsync(String recommendType, String typeIds, String keywords, Integer page, Integer pageSize, String sortBy, final ApiCallback<InlineResponse20013> _callback) throws ApiException {
         okhttp3.Call localVarCall = listActivitiesValidateBeforeCall(recommendType, typeIds, keywords, page, pageSize, sortBy, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -308,7 +308,7 @@ public class DefaultApi {
 
         /**
          * Execute listActivities request
-         * @return InlineResponse20012
+         * @return InlineResponse20013
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -316,14 +316,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse20012 execute() throws ApiException {
-            ApiResponse<InlineResponse20012> localVarResp = listActivitiesWithHttpInfo(recommendType, typeIds, keywords, page, pageSize, sortBy);
+        public InlineResponse20013 execute() throws ApiException {
+            ApiResponse<InlineResponse20013> localVarResp = listActivitiesWithHttpInfo(recommendType, typeIds, keywords, page, pageSize, sortBy);
             return localVarResp.getData();
         }
 
         /**
          * Execute listActivities request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse20012&gt;
+         * @return ApiResponse&lt;InlineResponse20013&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -331,7 +331,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse20012> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<InlineResponse20013> executeWithHttpInfo() throws ApiException {
             return listActivitiesWithHttpInfo(recommendType, typeIds, keywords, page, pageSize, sortBy);
         }
 
@@ -346,7 +346,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20012> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20013> _callback) throws ApiException {
             return listActivitiesAsync(recommendType, typeIds, keywords, page, pageSize, sortBy, _callback);
         }
     }
@@ -414,7 +414,7 @@ public class DefaultApi {
     /**
      * Activity type list
      * Query all activity types supported by Activity Center
-     * @return InlineResponse20013
+     * @return InlineResponse20014
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -422,15 +422,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Successfully returns activity type list </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20013 listActivityTypes() throws ApiException {
-        ApiResponse<InlineResponse20013> localVarResp = listActivityTypesWithHttpInfo();
+    public InlineResponse20014 listActivityTypes() throws ApiException {
+        ApiResponse<InlineResponse20014> localVarResp = listActivityTypesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Activity type list
      * Query all activity types supported by Activity Center
-     * @return ApiResponse&lt;InlineResponse20013&gt;
+     * @return ApiResponse&lt;InlineResponse20014&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -438,9 +438,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Successfully returns activity type list </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20013> listActivityTypesWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20014> listActivityTypesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listActivityTypesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20014>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -456,9 +456,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Successfully returns activity type list </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listActivityTypesAsync(final ApiCallback<InlineResponse20013> _callback) throws ApiException {
+    public okhttp3.Call listActivityTypesAsync(final ApiCallback<InlineResponse20014> _callback) throws ApiException {
         okhttp3.Call localVarCall = listActivityTypesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20014>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

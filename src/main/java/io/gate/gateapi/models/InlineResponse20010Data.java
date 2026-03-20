@@ -17,51 +17,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2006DataList;
+import io.gate.gateapi.models.InlineResponse20010DataList;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returned when code&#x3D;0; empty object {} otherwise
+ * InlineResponse20010Data
  */
-public class InlineResponse2006Data {
-    public static final String SERIALIZED_NAME_NEXT_PAGE = "next_page";
-    @SerializedName(SERIALIZED_NAME_NEXT_PAGE)
-    private Boolean nextPage;
-
+public class InlineResponse20010Data {
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse2006DataList> list = null;
+    private List<InlineResponse20010DataList> list = null;
 
 
-    public InlineResponse2006Data nextPage(Boolean nextPage) {
-        
-        this.nextPage = nextPage;
-        return this;
-    }
-
-     /**
-     * Whether there is a next page. &#x60;true&#x60; means more data is available. Pass the &#x60;id&#x60; of the last record as &#x60;last_id&#x60; and &#x60;expire_time_order_by&#x60; as &#x60;expire_time&#x60; in the next request
-     * @return nextPage
-    **/
-    @javax.annotation.Nullable
-    public Boolean getNextPage() {
-        return nextPage;
-    }
-
-
-    public void setNextPage(Boolean nextPage) {
-        this.nextPage = nextPage;
-    }
-
-    public InlineResponse2006Data list(List<InlineResponse2006DataList> list) {
+    public InlineResponse20010Data list(List<InlineResponse20010DataList> list) {
         
         this.list = list;
         return this;
     }
 
-    public InlineResponse2006Data addListItem(InlineResponse2006DataList listItem) {
+    public InlineResponse20010Data addListItem(InlineResponse20010DataList listItem) {
         if (this.list == null) {
             this.list = new ArrayList<>();
         }
@@ -70,16 +46,16 @@ public class InlineResponse2006Data {
     }
 
      /**
-     * Coupon object array, see field details below
+     * Live stream/replay list
      * @return list
     **/
     @javax.annotation.Nullable
-    public List<InlineResponse2006DataList> getList() {
+    public List<InlineResponse20010DataList> getList() {
         return list;
     }
 
 
-    public void setList(List<InlineResponse2006DataList> list) {
+    public void setList(List<InlineResponse20010DataList> list) {
         this.list = list;
     }
     @Override
@@ -90,22 +66,20 @@ public class InlineResponse2006Data {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2006Data inlineResponse2006Data = (InlineResponse2006Data) o;
-        return Objects.equals(this.nextPage, inlineResponse2006Data.nextPage) &&
-                Objects.equals(this.list, inlineResponse2006Data.list);
+        InlineResponse20010Data inlineResponse20010Data = (InlineResponse20010Data) o;
+        return Objects.equals(this.list, inlineResponse20010Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nextPage, list);
+        return Objects.hash(list);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2006Data {\n");
-        sb.append("      nextPage: ").append(toIndentedString(nextPage)).append("\n");
+        sb.append("class InlineResponse20010Data {\n");
         sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();

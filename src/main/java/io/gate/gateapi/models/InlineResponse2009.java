@@ -32,13 +32,9 @@ public class InlineResponse2009 {
     @SerializedName(SERIALIZED_NAME_LABEL)
     private String label;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
-    @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-    private String requestId;
+    public static final String SERIALIZED_NAME_MSG = "msg";
+    @SerializedName(SERIALIZED_NAME_MSG)
+    private String msg;
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
@@ -52,7 +48,7 @@ public class InlineResponse2009 {
     }
 
      /**
-     * Status code, 200 &#x3D; success
+     * Status code, 0 &#x3D; success
      * @return code
     **/
     @javax.annotation.Nullable
@@ -72,7 +68,7 @@ public class InlineResponse2009 {
     }
 
      /**
-     * Status label
+     * Error identifier code. Empty string on success, machine-readable error label on error
      * @return label
     **/
     @javax.annotation.Nullable
@@ -85,44 +81,24 @@ public class InlineResponse2009 {
         this.label = label;
     }
 
-    public InlineResponse2009 message(String message) {
+    public InlineResponse2009 msg(String msg) {
         
-        this.message = message;
+        this.msg = msg;
         return this;
     }
 
      /**
      * Status message
-     * @return message
+     * @return msg
     **/
     @javax.annotation.Nullable
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public InlineResponse2009 requestId(String requestId) {
-        
-        this.requestId = requestId;
-        return this;
-    }
-
-     /**
-     * Request ID
-     * @return requestId
-    **/
-    @javax.annotation.Nullable
-    public String getRequestId() {
-        return requestId;
-    }
-
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public InlineResponse2009 data(InlineResponse2009Data data) {
@@ -155,14 +131,13 @@ public class InlineResponse2009 {
         InlineResponse2009 inlineResponse2009 = (InlineResponse2009) o;
         return Objects.equals(this.code, inlineResponse2009.code) &&
                 Objects.equals(this.label, inlineResponse2009.label) &&
-                Objects.equals(this.message, inlineResponse2009.message) &&
-                Objects.equals(this.requestId, inlineResponse2009.requestId) &&
+                Objects.equals(this.msg, inlineResponse2009.msg) &&
                 Objects.equals(this.data, inlineResponse2009.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, label, message, requestId, data);
+        return Objects.hash(code, label, msg, data);
     }
 
 
@@ -172,8 +147,7 @@ public class InlineResponse2009 {
         sb.append("class InlineResponse2009 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      label: ").append(toIndentedString(label)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      requestId: ").append(toIndentedString(requestId)).append("\n");
+        sb.append("      msg: ").append(toIndentedString(msg)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -23,12 +23,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Activity type data
+ * Activity list data
  */
 public class InlineResponse20013Data {
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
     private List<InlineResponse20013DataList> list = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_PAGE = "page";
+    @SerializedName(SERIALIZED_NAME_PAGE)
+    private Integer page;
+
+    public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
+    @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+    private Integer pageSize;
+
+    public static final String SERIALIZED_NAME_PAGE_COUNT = "pageCount";
+    @SerializedName(SERIALIZED_NAME_PAGE_COUNT)
+    private Integer pageCount;
+
+    public static final String SERIALIZED_NAME_TOTAL_COUNT = "totalCount";
+    @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
+    private Integer totalCount;
+
+    public static final String SERIALIZED_NAME_URL = "url";
+    @SerializedName(SERIALIZED_NAME_URL)
+    private String url;
 
 
     public InlineResponse20013Data list(List<InlineResponse20013DataList> list) {
@@ -43,7 +63,7 @@ public class InlineResponse20013Data {
     }
 
      /**
-     * Activity type list
+     * Activity list
      * @return list
     **/
     public List<InlineResponse20013DataList> getList() {
@@ -54,6 +74,101 @@ public class InlineResponse20013Data {
     public void setList(List<InlineResponse20013DataList> list) {
         this.list = list;
     }
+
+    public InlineResponse20013Data page(Integer page) {
+        
+        this.page = page;
+        return this;
+    }
+
+     /**
+     * Current page number
+     * @return page
+    **/
+    public Integer getPage() {
+        return page;
+    }
+
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public InlineResponse20013Data pageSize(Integer pageSize) {
+        
+        this.pageSize = pageSize;
+        return this;
+    }
+
+     /**
+     * Items per page
+     * @return pageSize
+    **/
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public InlineResponse20013Data pageCount(Integer pageCount) {
+        
+        this.pageCount = pageCount;
+        return this;
+    }
+
+     /**
+     * Total pages
+     * @return pageCount
+    **/
+    public Integer getPageCount() {
+        return pageCount;
+    }
+
+
+    public void setPageCount(Integer pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public InlineResponse20013Data totalCount(Integer totalCount) {
+        
+        this.totalCount = totalCount;
+        return this;
+    }
+
+     /**
+     * Total Records
+     * @return totalCount
+    **/
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public InlineResponse20013Data url(String url) {
+        
+        this.url = url;
+        return this;
+    }
+
+     /**
+     * Activity Center page link
+     * @return url
+    **/
+    public String getUrl() {
+        return url;
+    }
+
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -63,12 +178,17 @@ public class InlineResponse20013Data {
             return false;
         }
         InlineResponse20013Data inlineResponse20013Data = (InlineResponse20013Data) o;
-        return Objects.equals(this.list, inlineResponse20013Data.list);
+        return Objects.equals(this.list, inlineResponse20013Data.list) &&
+                Objects.equals(this.page, inlineResponse20013Data.page) &&
+                Objects.equals(this.pageSize, inlineResponse20013Data.pageSize) &&
+                Objects.equals(this.pageCount, inlineResponse20013Data.pageCount) &&
+                Objects.equals(this.totalCount, inlineResponse20013Data.totalCount) &&
+                Objects.equals(this.url, inlineResponse20013Data.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(list);
+        return Objects.hash(list, page, pageSize, pageCount, totalCount, url);
     }
 
 
@@ -77,6 +197,11 @@ public class InlineResponse20013Data {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20013Data {\n");
         sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      page: ").append(toIndentedString(page)).append("\n");
+        sb.append("      pageSize: ").append(toIndentedString(pageSize)).append("\n");
+        sb.append("      pageCount: ").append(toIndentedString(pageCount)).append("\n");
+        sb.append("      totalCount: ").append(toIndentedString(totalCount)).append("\n");
+        sb.append("      url: ").append(toIndentedString(url)).append("\n");
         sb.append("}");
         return sb.toString();
     }

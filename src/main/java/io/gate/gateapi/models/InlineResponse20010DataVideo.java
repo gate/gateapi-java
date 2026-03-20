@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Replay video information (has value when content_type&#x3D;video)
  */
-public class InlineResponse2009DataVideo {
+public class InlineResponse20010DataVideo {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
@@ -96,7 +96,7 @@ public class InlineResponse2009DataVideo {
     private String tag;
 
 
-    public InlineResponse2009DataVideo id(String id) {
+    public InlineResponse20010DataVideo id(String id) {
         
         this.id = id;
         return this;
@@ -116,7 +116,7 @@ public class InlineResponse2009DataVideo {
         this.id = id;
     }
 
-    public InlineResponse2009DataVideo streamId(String streamId) {
+    public InlineResponse20010DataVideo streamId(String streamId) {
         
         this.streamId = streamId;
         return this;
@@ -136,7 +136,7 @@ public class InlineResponse2009DataVideo {
         this.streamId = streamId;
     }
 
-    public InlineResponse2009DataVideo title(String title) {
+    public InlineResponse20010DataVideo title(String title) {
         
         this.title = title;
         return this;
@@ -156,7 +156,7 @@ public class InlineResponse2009DataVideo {
         this.title = title;
     }
 
-    public InlineResponse2009DataVideo avatar(String avatar) {
+    public InlineResponse20010DataVideo avatar(String avatar) {
         
         this.avatar = avatar;
         return this;
@@ -176,7 +176,7 @@ public class InlineResponse2009DataVideo {
         this.avatar = avatar;
     }
 
-    public InlineResponse2009DataVideo nick(String nick) {
+    public InlineResponse20010DataVideo nick(String nick) {
         
         this.nick = nick;
         return this;
@@ -196,7 +196,7 @@ public class InlineResponse2009DataVideo {
         this.nick = nick;
     }
 
-    public InlineResponse2009DataVideo nickEn(String nickEn) {
+    public InlineResponse20010DataVideo nickEn(String nickEn) {
         
         this.nickEn = nickEn;
         return this;
@@ -216,7 +216,7 @@ public class InlineResponse2009DataVideo {
         this.nickEn = nickEn;
     }
 
-    public InlineResponse2009DataVideo cover(String cover) {
+    public InlineResponse20010DataVideo cover(String cover) {
         
         this.cover = cover;
         return this;
@@ -236,7 +236,7 @@ public class InlineResponse2009DataVideo {
         this.cover = cover;
     }
 
-    public InlineResponse2009DataVideo watched(Integer watched) {
+    public InlineResponse20010DataVideo watched(Integer watched) {
         
         this.watched = watched;
         return this;
@@ -256,7 +256,7 @@ public class InlineResponse2009DataVideo {
         this.watched = watched;
     }
 
-    public InlineResponse2009DataVideo subscriptionRequired(Boolean subscriptionRequired) {
+    public InlineResponse20010DataVideo subscriptionRequired(Boolean subscriptionRequired) {
         
         this.subscriptionRequired = subscriptionRequired;
         return this;
@@ -276,7 +276,7 @@ public class InlineResponse2009DataVideo {
         this.subscriptionRequired = subscriptionRequired;
     }
 
-    public InlineResponse2009DataVideo hasSubscribed(Boolean hasSubscribed) {
+    public InlineResponse20010DataVideo hasSubscribed(Boolean hasSubscribed) {
         
         this.hasSubscribed = hasSubscribed;
         return this;
@@ -296,7 +296,7 @@ public class InlineResponse2009DataVideo {
         this.hasSubscribed = hasSubscribed;
     }
 
-    public InlineResponse2009DataVideo duration(Integer duration) {
+    public InlineResponse20010DataVideo duration(Integer duration) {
         
         this.duration = duration;
         return this;
@@ -316,7 +316,7 @@ public class InlineResponse2009DataVideo {
         this.duration = duration;
     }
 
-    public InlineResponse2009DataVideo weight(Integer weight) {
+    public InlineResponse20010DataVideo weight(Integer weight) {
         
         this.weight = weight;
         return this;
@@ -336,7 +336,7 @@ public class InlineResponse2009DataVideo {
         this.weight = weight;
     }
 
-    public InlineResponse2009DataVideo momentsUid(String momentsUid) {
+    public InlineResponse20010DataVideo momentsUid(String momentsUid) {
         
         this.momentsUid = momentsUid;
         return this;
@@ -356,7 +356,7 @@ public class InlineResponse2009DataVideo {
         this.momentsUid = momentsUid;
     }
 
-    public InlineResponse2009DataVideo sessionId(String sessionId) {
+    public InlineResponse20010DataVideo sessionId(String sessionId) {
         
         this.sessionId = sessionId;
         return this;
@@ -376,7 +376,7 @@ public class InlineResponse2009DataVideo {
         this.sessionId = sessionId;
     }
 
-    public InlineResponse2009DataVideo endedAtFormat(String endedAtFormat) {
+    public InlineResponse20010DataVideo endedAtFormat(String endedAtFormat) {
         
         this.endedAtFormat = endedAtFormat;
         return this;
@@ -396,7 +396,7 @@ public class InlineResponse2009DataVideo {
         this.endedAtFormat = endedAtFormat;
     }
 
-    public InlineResponse2009DataVideo endedAtType(Integer endedAtType) {
+    public InlineResponse20010DataVideo endedAtType(Integer endedAtType) {
         
         this.endedAtType = endedAtType;
         return this;
@@ -416,7 +416,7 @@ public class InlineResponse2009DataVideo {
         this.endedAtType = endedAtType;
     }
 
-    public InlineResponse2009DataVideo tier(Integer tier) {
+    public InlineResponse20010DataVideo tier(Integer tier) {
         
         this.tier = tier;
         return this;
@@ -436,7 +436,7 @@ public class InlineResponse2009DataVideo {
         this.tier = tier;
     }
 
-    public InlineResponse2009DataVideo tag(String tag) {
+    public InlineResponse20010DataVideo tag(String tag) {
         
         this.tag = tag;
         return this;
@@ -463,25 +463,25 @@ public class InlineResponse2009DataVideo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2009DataVideo inlineResponse2009DataVideo = (InlineResponse2009DataVideo) o;
-        return Objects.equals(this.id, inlineResponse2009DataVideo.id) &&
-                Objects.equals(this.streamId, inlineResponse2009DataVideo.streamId) &&
-                Objects.equals(this.title, inlineResponse2009DataVideo.title) &&
-                Objects.equals(this.avatar, inlineResponse2009DataVideo.avatar) &&
-                Objects.equals(this.nick, inlineResponse2009DataVideo.nick) &&
-                Objects.equals(this.nickEn, inlineResponse2009DataVideo.nickEn) &&
-                Objects.equals(this.cover, inlineResponse2009DataVideo.cover) &&
-                Objects.equals(this.watched, inlineResponse2009DataVideo.watched) &&
-                Objects.equals(this.subscriptionRequired, inlineResponse2009DataVideo.subscriptionRequired) &&
-                Objects.equals(this.hasSubscribed, inlineResponse2009DataVideo.hasSubscribed) &&
-                Objects.equals(this.duration, inlineResponse2009DataVideo.duration) &&
-                Objects.equals(this.weight, inlineResponse2009DataVideo.weight) &&
-                Objects.equals(this.momentsUid, inlineResponse2009DataVideo.momentsUid) &&
-                Objects.equals(this.sessionId, inlineResponse2009DataVideo.sessionId) &&
-                Objects.equals(this.endedAtFormat, inlineResponse2009DataVideo.endedAtFormat) &&
-                Objects.equals(this.endedAtType, inlineResponse2009DataVideo.endedAtType) &&
-                Objects.equals(this.tier, inlineResponse2009DataVideo.tier) &&
-                Objects.equals(this.tag, inlineResponse2009DataVideo.tag);
+        InlineResponse20010DataVideo inlineResponse20010DataVideo = (InlineResponse20010DataVideo) o;
+        return Objects.equals(this.id, inlineResponse20010DataVideo.id) &&
+                Objects.equals(this.streamId, inlineResponse20010DataVideo.streamId) &&
+                Objects.equals(this.title, inlineResponse20010DataVideo.title) &&
+                Objects.equals(this.avatar, inlineResponse20010DataVideo.avatar) &&
+                Objects.equals(this.nick, inlineResponse20010DataVideo.nick) &&
+                Objects.equals(this.nickEn, inlineResponse20010DataVideo.nickEn) &&
+                Objects.equals(this.cover, inlineResponse20010DataVideo.cover) &&
+                Objects.equals(this.watched, inlineResponse20010DataVideo.watched) &&
+                Objects.equals(this.subscriptionRequired, inlineResponse20010DataVideo.subscriptionRequired) &&
+                Objects.equals(this.hasSubscribed, inlineResponse20010DataVideo.hasSubscribed) &&
+                Objects.equals(this.duration, inlineResponse20010DataVideo.duration) &&
+                Objects.equals(this.weight, inlineResponse20010DataVideo.weight) &&
+                Objects.equals(this.momentsUid, inlineResponse20010DataVideo.momentsUid) &&
+                Objects.equals(this.sessionId, inlineResponse20010DataVideo.sessionId) &&
+                Objects.equals(this.endedAtFormat, inlineResponse20010DataVideo.endedAtFormat) &&
+                Objects.equals(this.endedAtType, inlineResponse20010DataVideo.endedAtType) &&
+                Objects.equals(this.tier, inlineResponse20010DataVideo.tier) &&
+                Objects.equals(this.tag, inlineResponse20010DataVideo.tag);
     }
 
     @Override
@@ -493,7 +493,7 @@ public class InlineResponse2009DataVideo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2009DataVideo {\n");
+        sb.append("class InlineResponse20010DataVideo {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      streamId: ").append(toIndentedString(streamId)).append("\n");
         sb.append("      title: ").append(toIndentedString(title)).append("\n");

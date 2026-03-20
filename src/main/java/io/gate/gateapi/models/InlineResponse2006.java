@@ -17,157 +17,158 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2006Data;
+import io.gate.gateapi.models.CrossexSpecialFee;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse2006
  */
 public class InlineResponse2006 {
-    /**
-     * Response Code. &#x60;0&#x60; &#x3D; Success; &#x60;2002&#x60; &#x3D; User not logged in; &#x60;50105&#x60; &#x3D; Input parameter validation failed
-     */
-    @JsonAdapter(CodeEnum.Adapter.class)
-    public enum CodeEnum {
-        NUMBER_0(0),
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
+
+    public static final String SERIALIZED_NAME_SPOT_MAKER_FEE = "spot_maker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_MAKER_FEE)
+    private String spotMakerFee;
+
+    public static final String SERIALIZED_NAME_SPOT_TAKER_FEE = "spot_taker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_TAKER_FEE)
+    private String spotTakerFee;
+
+    public static final String SERIALIZED_NAME_FUTURE_MAKER_FEE = "future_maker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_MAKER_FEE)
+    private String futureMakerFee;
+
+    public static final String SERIALIZED_NAME_FUTURE_TAKER_FEE = "future_taker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_TAKER_FEE)
+    private String futureTakerFee;
+
+    public static final String SERIALIZED_NAME_SPECIAL_FEE_LIST = "special_fee_list";
+    @SerializedName(SERIALIZED_NAME_SPECIAL_FEE_LIST)
+    private List<CrossexSpecialFee> specialFeeList = new ArrayList<>();
+
+
+    public InlineResponse2006 exchangeType(String exchangeType) {
         
-        NUMBER_2002(2002),
-        
-        NUMBER_50105(50105);
-
-        private Integer value;
-
-        CodeEnum(Integer value) {
-            this.value = value;
-        }
-
-        public Integer getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static CodeEnum fromValue(Integer value) {
-            for (CodeEnum b : CodeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<CodeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final CodeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public CodeEnum read(final JsonReader jsonReader) throws IOException {
-                Integer value =  jsonReader.nextInt();
-                return CodeEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private CodeEnum code;
-
-    public static final String SERIALIZED_NAME_LABEL = "label";
-    @SerializedName(SERIALIZED_NAME_LABEL)
-    private String label;
-
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse2006Data data;
-
-
-    public InlineResponse2006 code(CodeEnum code) {
-        
-        this.code = code;
+        this.exchangeType = exchangeType;
         return this;
     }
 
      /**
-     * Response Code. &#x60;0&#x60; &#x3D; Success; &#x60;2002&#x60; &#x3D; User not logged in; &#x60;50105&#x60; &#x3D; Input parameter validation failed
-     * @return code
+     * Exchange
+     * @return exchangeType
     **/
     @javax.annotation.Nullable
-    public CodeEnum getCode() {
-        return code;
+    public String getExchangeType() {
+        return exchangeType;
     }
 
 
-    public void setCode(CodeEnum code) {
-        this.code = code;
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
 
-    public InlineResponse2006 label(String label) {
+    public InlineResponse2006 spotMakerFee(String spotMakerFee) {
         
-        this.label = label;
+        this.spotMakerFee = spotMakerFee;
         return this;
     }
 
      /**
-     * Error identifier code. Empty string on success, machine-readable error label on error
-     * @return label
+     * spotMakerfee rate
+     * @return spotMakerFee
     **/
-    @javax.annotation.Nullable
-    public String getLabel() {
-        return label;
+    public String getSpotMakerFee() {
+        return spotMakerFee;
     }
 
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setSpotMakerFee(String spotMakerFee) {
+        this.spotMakerFee = spotMakerFee;
     }
 
-    public InlineResponse2006 message(String message) {
+    public InlineResponse2006 spotTakerFee(String spotTakerFee) {
         
-        this.message = message;
+        this.spotTakerFee = spotTakerFee;
         return this;
     }
 
      /**
-     * Get message
-     * @return message
+     * spotTakerfee rate
+     * @return spotTakerFee
     **/
-    @javax.annotation.Nullable
-    public String getMessage() {
-        return message;
+    public String getSpotTakerFee() {
+        return spotTakerFee;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setSpotTakerFee(String spotTakerFee) {
+        this.spotTakerFee = spotTakerFee;
     }
 
-    public InlineResponse2006 data(InlineResponse2006Data data) {
+    public InlineResponse2006 futureMakerFee(String futureMakerFee) {
         
-        this.data = data;
+        this.futureMakerFee = futureMakerFee;
         return this;
     }
 
      /**
-     * Get data
-     * @return data
+     * contractMakerfee rate
+     * @return futureMakerFee
     **/
-    @javax.annotation.Nullable
-    public InlineResponse2006Data getData() {
-        return data;
+    public String getFutureMakerFee() {
+        return futureMakerFee;
     }
 
 
-    public void setData(InlineResponse2006Data data) {
-        this.data = data;
+    public void setFutureMakerFee(String futureMakerFee) {
+        this.futureMakerFee = futureMakerFee;
+    }
+
+    public InlineResponse2006 futureTakerFee(String futureTakerFee) {
+        
+        this.futureTakerFee = futureTakerFee;
+        return this;
+    }
+
+     /**
+     * contractTakerfee rate
+     * @return futureTakerFee
+    **/
+    public String getFutureTakerFee() {
+        return futureTakerFee;
+    }
+
+
+    public void setFutureTakerFee(String futureTakerFee) {
+        this.futureTakerFee = futureTakerFee;
+    }
+
+    public InlineResponse2006 specialFeeList(List<CrossexSpecialFee> specialFeeList) {
+        
+        this.specialFeeList = specialFeeList;
+        return this;
+    }
+
+    public InlineResponse2006 addSpecialFeeListItem(CrossexSpecialFee specialFeeListItem) {
+        this.specialFeeList.add(specialFeeListItem);
+        return this;
+    }
+
+     /**
+     * Get specialFeeList
+     * @return specialFeeList
+    **/
+    public List<CrossexSpecialFee> getSpecialFeeList() {
+        return specialFeeList;
+    }
+
+
+    public void setSpecialFeeList(List<CrossexSpecialFee> specialFeeList) {
+        this.specialFeeList = specialFeeList;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -178,15 +179,17 @@ public class InlineResponse2006 {
             return false;
         }
         InlineResponse2006 inlineResponse2006 = (InlineResponse2006) o;
-        return Objects.equals(this.code, inlineResponse2006.code) &&
-                Objects.equals(this.label, inlineResponse2006.label) &&
-                Objects.equals(this.message, inlineResponse2006.message) &&
-                Objects.equals(this.data, inlineResponse2006.data);
+        return Objects.equals(this.exchangeType, inlineResponse2006.exchangeType) &&
+                Objects.equals(this.spotMakerFee, inlineResponse2006.spotMakerFee) &&
+                Objects.equals(this.spotTakerFee, inlineResponse2006.spotTakerFee) &&
+                Objects.equals(this.futureMakerFee, inlineResponse2006.futureMakerFee) &&
+                Objects.equals(this.futureTakerFee, inlineResponse2006.futureTakerFee) &&
+                Objects.equals(this.specialFeeList, inlineResponse2006.specialFeeList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, label, message, data);
+        return Objects.hash(exchangeType, spotMakerFee, spotTakerFee, futureMakerFee, futureTakerFee, specialFeeList);
     }
 
 
@@ -194,10 +197,12 @@ public class InlineResponse2006 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2006 {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      label: ").append(toIndentedString(label)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      spotMakerFee: ").append(toIndentedString(spotMakerFee)).append("\n");
+        sb.append("      spotTakerFee: ").append(toIndentedString(spotTakerFee)).append("\n");
+        sb.append("      futureMakerFee: ").append(toIndentedString(futureMakerFee)).append("\n");
+        sb.append("      futureTakerFee: ").append(toIndentedString(futureTakerFee)).append("\n");
+        sb.append("      specialFeeList: ").append(toIndentedString(specialFeeList)).append("\n");
         sb.append("}");
         return sb.toString();
     }

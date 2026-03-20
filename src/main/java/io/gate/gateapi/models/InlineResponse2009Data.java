@@ -17,7 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2009DataList;
+import io.gate.gateapi.models.InlineResponse2009DataItems;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,37 +26,61 @@ import java.util.List;
  * InlineResponse2009Data
  */
 public class InlineResponse2009Data {
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse2009DataList> list = null;
+    public static final String SERIALIZED_NAME_TOTAL = "total";
+    @SerializedName(SERIALIZED_NAME_TOTAL)
+    private Integer total;
+
+    public static final String SERIALIZED_NAME_ITEMS = "items";
+    @SerializedName(SERIALIZED_NAME_ITEMS)
+    private List<InlineResponse2009DataItems> items = null;
 
 
-    public InlineResponse2009Data list(List<InlineResponse2009DataList> list) {
+    public InlineResponse2009Data total(Integer total) {
         
-        this.list = list;
-        return this;
-    }
-
-    public InlineResponse2009Data addListItem(InlineResponse2009DataList listItem) {
-        if (this.list == null) {
-            this.list = new ArrayList<>();
-        }
-        this.list.add(listItem);
+        this.total = total;
         return this;
     }
 
      /**
-     * Live stream/replay list
-     * @return list
+     * Total number of results
+     * @return total
     **/
     @javax.annotation.Nullable
-    public List<InlineResponse2009DataList> getList() {
-        return list;
+    public Integer getTotal() {
+        return total;
     }
 
 
-    public void setList(List<InlineResponse2009DataList> list) {
-        this.list = list;
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public InlineResponse2009Data items(List<InlineResponse2009DataItems> items) {
+        
+        this.items = items;
+        return this;
+    }
+
+    public InlineResponse2009Data addItemsItem(InlineResponse2009DataItems itemsItem) {
+        if (this.items == null) {
+            this.items = new ArrayList<>();
+        }
+        this.items.add(itemsItem);
+        return this;
+    }
+
+     /**
+     * Search result list
+     * @return items
+    **/
+    @javax.annotation.Nullable
+    public List<InlineResponse2009DataItems> getItems() {
+        return items;
+    }
+
+
+    public void setItems(List<InlineResponse2009DataItems> items) {
+        this.items = items;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,12 +91,13 @@ public class InlineResponse2009Data {
             return false;
         }
         InlineResponse2009Data inlineResponse2009Data = (InlineResponse2009Data) o;
-        return Objects.equals(this.list, inlineResponse2009Data.list);
+        return Objects.equals(this.total, inlineResponse2009Data.total) &&
+                Objects.equals(this.items, inlineResponse2009Data.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(list);
+        return Objects.hash(total, items);
     }
 
 
@@ -80,7 +105,8 @@ public class InlineResponse2009Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2009Data {\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      total: ").append(toIndentedString(total)).append("\n");
+        sb.append("      items: ").append(toIndentedString(items)).append("\n");
         sb.append("}");
         return sb.toString();
     }

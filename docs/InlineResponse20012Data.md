@@ -1,16 +1,16 @@
 
 # InlineResponse20012Data
 
-Activity list data
+Activity entry data
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**list** | [**List&lt;InlineResponse20012DataList&gt;**](InlineResponse20012DataList.md) | Activity list | 
-**page** | **Integer** | Current page number | 
-**pageSize** | **Integer** | Items per page | 
-**pageCount** | **Integer** | Total pages | 
-**totalCount** | **Integer** | Total Records | 
-**url** | **String** | Activity Center page link | 
+**iconUrl** | **String** | Activity entry icon URL (light mode) | 
+**iconUrlDark** | **String** | Activity entry icon URL (dark mode) | 
+**sourceType** | **String** | Source type, e.g., activity for campaign | 
+**title** | **String** | Activity entry title | 
+**urlType** | **String** | Redirect link type, e.g., h5 for H5 page | 
+**url** | **String** | Activity entry redirect URL | 
 

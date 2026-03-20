@@ -17,794 +17,70 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2006DataHelpUrl;
-import io.gate.gateapi.models.InlineResponse2006DataJumpUrl;
-import io.gate.gateapi.models.InlineResponse2006DataProgressConfig;
+import io.gate.gateapi.models.InlineResponse2007DataList;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns coupon detail object when code&#x3D;0; empty object {} otherwise
+ * Returned when code&#x3D;0; empty object {} otherwise
  */
 public class InlineResponse2007Data {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private Integer id;
+    public static final String SERIALIZED_NAME_NEXT_PAGE = "next_page";
+    @SerializedName(SERIALIZED_NAME_NEXT_PAGE)
+    private Boolean nextPage;
 
-    public static final String SERIALIZED_NAME_DETAILS_ID = "details_id";
-    @SerializedName(SERIALIZED_NAME_DETAILS_ID)
-    private Integer detailsId;
+    public static final String SERIALIZED_NAME_LIST = "list";
+    @SerializedName(SERIALIZED_NAME_LIST)
+    private List<InlineResponse2007DataList> list = null;
 
-    public static final String SERIALIZED_NAME_COUPON_TYPE = "coupon_type";
-    @SerializedName(SERIALIZED_NAME_COUPON_TYPE)
-    private String couponType;
 
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
+    public InlineResponse2007Data nextPage(Boolean nextPage) {
+        
+        this.nextPage = nextPage;
+        return this;
+    }
 
-    public static final String SERIALIZED_NAME_AMOUNT = "amount";
-    @SerializedName(SERIALIZED_NAME_AMOUNT)
-    private String amount;
+     /**
+     * Whether there is a next page. &#x60;true&#x60; means more data is available. Pass the &#x60;id&#x60; of the last record as &#x60;last_id&#x60; and &#x60;expire_time_order_by&#x60; as &#x60;expire_time&#x60; in the next request
+     * @return nextPage
+    **/
+    @javax.annotation.Nullable
+    public Boolean getNextPage() {
+        return nextPage;
+    }
 
-    public static final String SERIALIZED_NAME_ORIGIN_AMOUNT = "origin_amount";
-    @SerializedName(SERIALIZED_NAME_ORIGIN_AMOUNT)
-    private String originAmount;
 
-    public static final String SERIALIZED_NAME_CURRENCY = "currency";
-    @SerializedName(SERIALIZED_NAME_CURRENCY)
-    private String currency;
+    public void setNextPage(Boolean nextPage) {
+        this.nextPage = nextPage;
+    }
 
-    public static final String SERIALIZED_NAME_RULE_NEW = "rule_new";
-    @SerializedName(SERIALIZED_NAME_RULE_NEW)
-    private String ruleNew;
+    public InlineResponse2007Data list(List<InlineResponse2007DataList> list) {
+        
+        this.list = list;
+        return this;
+    }
 
-    /**
-     * Coupon status. Regular coupon: NOT_ACTIVE (pending activation), ACTIVATED (activated), TO_BE_USED (to be used), EXPIRED (expired), RECYCLED (recycled), INVALID (invalidated), USED (used), UNKNOWN (unknown), LOCKED (locked, P2P only). Task coupon: TASK_START (task not started), TASK_WAIT (task in progress), TASK_DONE (task completed, processing), TASK_EXPIRED (task not completed, expired), TASK_NOT_STARTED_EXPIRED (not started, expired), TASK_RECEIVE_SUCCESS (reward claimed successfully), TASK_RECEIVE_FAIL (reward claim failed)
-     */
-    @JsonAdapter(StatusEnum.Adapter.class)
-    public enum StatusEnum {
-        NOT_ACTIVE("NOT_ACTIVE"),
-        
-        ACTIVATED("ACTIVATED"),
-        
-        TO_BE_USED("TO_BE_USED"),
-        
-        EXPIRED("EXPIRED"),
-        
-        RECYCLED("RECYCLED"),
-        
-        INVALID("INVALID"),
-        
-        USED("USED"),
-        
-        UNKNOWN("UNKNOWN"),
-        
-        LOCKED("LOCKED"),
-        
-        TASK_START("TASK_START"),
-        
-        TASK_WAIT("TASK_WAIT"),
-        
-        TASK_DONE("TASK_DONE"),
-        
-        TASK_EXPIRED("TASK_EXPIRED"),
-        
-        TASK_NOT_STARTED_EXPIRED("TASK_NOT_STARTED_EXPIRED"),
-        
-        TASK_RECEIVE_SUCCESS("TASK_RECEIVE_SUCCESS"),
-        
-        TASK_RECEIVE_FAIL("TASK_RECEIVE_FAIL");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
+    public InlineResponse2007Data addListItem(InlineResponse2007DataList listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<>();
         }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<StatusEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public StatusEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return StatusEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private StatusEnum status;
-
-    public static final String SERIALIZED_NAME_JUMP_URL = "jump_url";
-    @SerializedName(SERIALIZED_NAME_JUMP_URL)
-    private InlineResponse2006DataJumpUrl jumpUrl;
-
-    public static final String SERIALIZED_NAME_HELP_URL = "help_url";
-    @SerializedName(SERIALIZED_NAME_HELP_URL)
-    private InlineResponse2006DataHelpUrl helpUrl;
-
-    public static final String SERIALIZED_NAME_EXPIRE_TIME = "expire_time";
-    @SerializedName(SERIALIZED_NAME_EXPIRE_TIME)
-    private Integer expireTime;
-
-    public static final String SERIALIZED_NAME_EXPIRE_TIME_ORDER_BY = "expire_time_order_by";
-    @SerializedName(SERIALIZED_NAME_EXPIRE_TIME_ORDER_BY)
-    private Integer expireTimeOrderBy;
-
-    public static final String SERIALIZED_NAME_EXPIRE_SECOND = "expire_second";
-    @SerializedName(SERIALIZED_NAME_EXPIRE_SECOND)
-    private Integer expireSecond;
-
-    public static final String SERIALIZED_NAME_HAS_USAGE_HISTORY = "has_usage_history";
-    @SerializedName(SERIALIZED_NAME_HAS_USAGE_HISTORY)
-    private Boolean hasUsageHistory;
-
-    public static final String SERIALIZED_NAME_HAS_PROGRESS = "has_progress";
-    @SerializedName(SERIALIZED_NAME_HAS_PROGRESS)
-    private Boolean hasProgress;
-
-    public static final String SERIALIZED_NAME_PROGRESS_CONFIG = "progress_config";
-    @SerializedName(SERIALIZED_NAME_PROGRESS_CONFIG)
-    private InlineResponse2006DataProgressConfig progressConfig;
-
-    public static final String SERIALIZED_NAME_ACTIVATION_INFO = "activation_info";
-    @SerializedName(SERIALIZED_NAME_ACTIVATION_INFO)
-    private Object activationInfo;
-
-    /**
-     * Whether it is a task coupon. &#x60;0&#x60; &#x3D; regular coupon; &#x60;1&#x60; &#x3D; task coupon
-     */
-    @JsonAdapter(IsTaskCouponEnum.Adapter.class)
-    public enum IsTaskCouponEnum {
-        NUMBER_0(0),
-        
-        NUMBER_1(1);
-
-        private Integer value;
-
-        IsTaskCouponEnum(Integer value) {
-            this.value = value;
-        }
-
-        public Integer getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static IsTaskCouponEnum fromValue(Integer value) {
-            for (IsTaskCouponEnum b : IsTaskCouponEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<IsTaskCouponEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final IsTaskCouponEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public IsTaskCouponEnum read(final JsonReader jsonReader) throws IOException {
-                Integer value =  jsonReader.nextInt();
-                return IsTaskCouponEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_IS_TASK_COUPON = "is_task_coupon";
-    @SerializedName(SERIALIZED_NAME_IS_TASK_COUPON)
-    private IsTaskCouponEnum isTaskCoupon;
-
-    public static final String SERIALIZED_NAME_UPGRADE_TOAST = "upgrade_toast";
-    @SerializedName(SERIALIZED_NAME_UPGRADE_TOAST)
-    private Boolean upgradeToast;
-
-    public static final String SERIALIZED_NAME_FROM_TASK = "from_task";
-    @SerializedName(SERIALIZED_NAME_FROM_TASK)
-    private Boolean fromTask;
-
-    public static final String SERIALIZED_NAME_TASK_TITLE = "task_title";
-    @SerializedName(SERIALIZED_NAME_TASK_TITLE)
-    private String taskTitle;
-
-    public static final String SERIALIZED_NAME_TASK_DESC = "task_desc";
-    @SerializedName(SERIALIZED_NAME_TASK_DESC)
-    private String taskDesc;
-
-    public static final String SERIALIZED_NAME_TASK_START_AT = "task_start_at";
-    @SerializedName(SERIALIZED_NAME_TASK_START_AT)
-    private Integer taskStartAt;
-
-    public static final String SERIALIZED_NAME_TASK_EXPIRE_AT = "task_expire_at";
-    @SerializedName(SERIALIZED_NAME_TASK_EXPIRE_AT)
-    private Integer taskExpireAt;
-
-    public static final String SERIALIZED_NAME_TASK_COMPLETED_AT = "task_completed_at";
-    @SerializedName(SERIALIZED_NAME_TASK_COMPLETED_AT)
-    private Integer taskCompletedAt;
-
-    public static final String SERIALIZED_NAME_EXTRA = "extra";
-    @SerializedName(SERIALIZED_NAME_EXTRA)
-    private List<List<Object>> extra = null;
-
-
-    public InlineResponse2007Data id(Integer id) {
-        
-        this.id = id;
+        this.list.add(listItem);
         return this;
     }
 
      /**
-     * Coupon distribution record ID (coupon_send_issuing_log.id)
-     * @return id
+     * Coupon object array, see field details below
+     * @return list
     **/
     @javax.annotation.Nullable
-    public Integer getId() {
-        return id;
+    public List<InlineResponse2007DataList> getList() {
+        return list;
     }
 
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public InlineResponse2007Data detailsId(Integer detailsId) {
-        
-        this.detailsId = detailsId;
-        return this;
-    }
-
-     /**
-     * User coupon detail table primary key (separate table per type). This field is 0 for task coupons
-     * @return detailsId
-    **/
-    @javax.annotation.Nullable
-    public Integer getDetailsId() {
-        return detailsId;
-    }
-
-
-    public void setDetailsId(Integer detailsId) {
-        this.detailsId = detailsId;
-    }
-
-    public InlineResponse2007Data couponType(String couponType) {
-        
-        this.couponType = couponType;
-        return this;
-    }
-
-     /**
-     * Coupon type, enum values same as the &#x60;coupon_type&#x60; parameter
-     * @return couponType
-    **/
-    @javax.annotation.Nullable
-    public String getCouponType() {
-        return couponType;
-    }
-
-
-    public void setCouponType(String couponType) {
-        this.couponType = couponType;
-    }
-
-    public InlineResponse2007Data name(String name) {
-        
-        this.name = name;
-        return this;
-    }
-
-     /**
-     * Coupon display name (i18n translated)
-     * @return name
-    **/
-    @javax.annotation.Nullable
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public InlineResponse2007Data amount(String amount) {
-        
-        this.amount = amount;
-        return this;
-    }
-
-     /**
-     * Coupon denomination (formatted string with thousand separators). Meaning by type: point card &#x3D; balance, interest rate boost coupon &#x3D; rate percentage (e.g., &#39;5%&#39;), VIP trial card &#x3D; VIP level number, position voucher &#x3D; face value x leverage, others &#x3D; face value
-     * @return amount
-    **/
-    @javax.annotation.Nullable
-    public String getAmount() {
-        return amount;
-    }
-
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public InlineResponse2007Data originAmount(String originAmount) {
-        
-        this.originAmount = originAmount;
-        return this;
-    }
-
-     /**
-     * Original denomination (string with trailing zeros removed). Only returned for point card type, other types do not have this field
-     * @return originAmount
-    **/
-    @javax.annotation.Nullable
-    public String getOriginAmount() {
-        return originAmount;
-    }
-
-
-    public void setOriginAmount(String originAmount) {
-        this.originAmount = originAmount;
-    }
-
-    public InlineResponse2007Data currency(String currency) {
-        
-        this.currency = currency;
-        return this;
-    }
-
-     /**
-     * Denomination unit. Point card &#x3D; &#39;POINT&#39;, interest rate boost coupon &#x3D; &#39;APR&#39;, VIP trial card &#x3D; &#39;VIP&#39;, Alpha cash coupon &#x3D; base currency, others &#x3D; uppercase currency symbol (e.g., &#39;USDT&#39;/&#39;GT&#39;)
-     * @return currency
-    **/
-    @javax.annotation.Nullable
-    public String getCurrency() {
-        return currency;
-    }
-
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public InlineResponse2007Data ruleNew(String ruleNew) {
-        
-        this.ruleNew = ruleNew;
-        return this;
-    }
-
-     /**
-     * Coupon usage rule text (i18n translated). Only has value in the detail endpoint, fixed as empty string in the list endpoint
-     * @return ruleNew
-    **/
-    @javax.annotation.Nullable
-    public String getRuleNew() {
-        return ruleNew;
-    }
-
-
-    public void setRuleNew(String ruleNew) {
-        this.ruleNew = ruleNew;
-    }
-
-    public InlineResponse2007Data status(StatusEnum status) {
-        
-        this.status = status;
-        return this;
-    }
-
-     /**
-     * Coupon status. Regular coupon: NOT_ACTIVE (pending activation), ACTIVATED (activated), TO_BE_USED (to be used), EXPIRED (expired), RECYCLED (recycled), INVALID (invalidated), USED (used), UNKNOWN (unknown), LOCKED (locked, P2P only). Task coupon: TASK_START (task not started), TASK_WAIT (task in progress), TASK_DONE (task completed, processing), TASK_EXPIRED (task not completed, expired), TASK_NOT_STARTED_EXPIRED (not started, expired), TASK_RECEIVE_SUCCESS (reward claimed successfully), TASK_RECEIVE_FAIL (reward claim failed)
-     * @return status
-    **/
-    @javax.annotation.Nullable
-    public StatusEnum getStatus() {
-        return status;
-    }
-
-
-    public void setStatus(StatusEnum status) {
-        this.status = status;
-    }
-
-    public InlineResponse2007Data jumpUrl(InlineResponse2006DataJumpUrl jumpUrl) {
-        
-        this.jumpUrl = jumpUrl;
-        return this;
-    }
-
-     /**
-     * Get jumpUrl
-     * @return jumpUrl
-    **/
-    @javax.annotation.Nullable
-    public InlineResponse2006DataJumpUrl getJumpUrl() {
-        return jumpUrl;
-    }
-
-
-    public void setJumpUrl(InlineResponse2006DataJumpUrl jumpUrl) {
-        this.jumpUrl = jumpUrl;
-    }
-
-    public InlineResponse2007Data helpUrl(InlineResponse2006DataHelpUrl helpUrl) {
-        
-        this.helpUrl = helpUrl;
-        return this;
-    }
-
-     /**
-     * Get helpUrl
-     * @return helpUrl
-    **/
-    @javax.annotation.Nullable
-    public InlineResponse2006DataHelpUrl getHelpUrl() {
-        return helpUrl;
-    }
-
-
-    public void setHelpUrl(InlineResponse2006DataHelpUrl helpUrl) {
-        this.helpUrl = helpUrl;
-    }
-
-    public InlineResponse2007Data expireTime(Integer expireTime) {
-        
-        this.expireTime = expireTime;
-        return this;
-    }
-
-     /**
-     * Expiration time (Unix timestamp). Some types replace this with actual expiration time after activation/use. Point card type returns 0. Rules by type: cash&#x3D;not_received_expired_timest; contract_bonus&#x3D;uses expired_timest after activation/use; contract_bonus_new&#x3D;always uses expired_timest; position_voucher/tradfi_position_voucher&#x3D;uses expire_time after use; robot_bonus&#x3D;not_received_expired_timest; commission_rebate&#x3D;uses use_deadline after use; crypto_loan_interest&#x3D;not_using_expired_timest; copy_trading&#x3D;not_using_expired_timest; alpha_voucher&#x3D;not_received_expired_timest; etf_voucher&#x3D;not_using_expired_timest
-     * @return expireTime
-    **/
-    @javax.annotation.Nullable
-    public Integer getExpireTime() {
-        return expireTime;
-    }
-
-
-    public void setExpireTime(Integer expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public InlineResponse2007Data expireTimeOrderBy(Integer expireTimeOrderBy) {
-        
-        this.expireTimeOrderBy = expireTimeOrderBy;
-        return this;
-    }
-
-     /**
-     * Sorting expiration time (from the original expiration time of the distribution record, unaffected by activation)
-     * @return expireTimeOrderBy
-    **/
-    @javax.annotation.Nullable
-    public Integer getExpireTimeOrderBy() {
-        return expireTimeOrderBy;
-    }
-
-
-    public void setExpireTimeOrderBy(Integer expireTimeOrderBy) {
-        this.expireTimeOrderBy = expireTimeOrderBy;
-    }
-
-    public InlineResponse2007Data expireSecond(Integer expireSecond) {
-        
-        this.expireSecond = expireSecond;
-        return this;
-    }
-
-     /**
-     * Seconds remaining until expiration, returns 0 if expired or point card type
-     * @return expireSecond
-    **/
-    @javax.annotation.Nullable
-    public Integer getExpireSecond() {
-        return expireSecond;
-    }
-
-
-    public void setExpireSecond(Integer expireSecond) {
-        this.expireSecond = expireSecond;
-    }
-
-    public InlineResponse2007Data hasUsageHistory(Boolean hasUsageHistory) {
-        
-        this.hasUsageHistory = hasUsageHistory;
-        return this;
-    }
-
-     /**
-     * Whether there is a usage history. Fixed as true for point card type, determined by type for others
-     * @return hasUsageHistory
-    **/
-    @javax.annotation.Nullable
-    public Boolean getHasUsageHistory() {
-        return hasUsageHistory;
-    }
-
-
-    public void setHasUsageHistory(Boolean hasUsageHistory) {
-        this.hasUsageHistory = hasUsageHistory;
-    }
-
-    public InlineResponse2007Data hasProgress(Boolean hasProgress) {
-        
-        this.hasProgress = hasProgress;
-        return this;
-    }
-
-     /**
-     * Whether to display a progress bar. Only true for commission_rebate, interest_voucher, and qualifying task coupons
-     * @return hasProgress
-    **/
-    @javax.annotation.Nullable
-    public Boolean getHasProgress() {
-        return hasProgress;
-    }
-
-
-    public void setHasProgress(Boolean hasProgress) {
-        this.hasProgress = hasProgress;
-    }
-
-    public InlineResponse2007Data progressConfig(InlineResponse2006DataProgressConfig progressConfig) {
-        
-        this.progressConfig = progressConfig;
-        return this;
-    }
-
-     /**
-     * Get progressConfig
-     * @return progressConfig
-    **/
-    @javax.annotation.Nullable
-    public InlineResponse2006DataProgressConfig getProgressConfig() {
-        return progressConfig;
-    }
-
-
-    public void setProgressConfig(InlineResponse2006DataProgressConfig progressConfig) {
-        this.progressConfig = progressConfig;
-    }
-
-    public InlineResponse2007Data activationInfo(Object activationInfo) {
-        
-        this.activationInfo = activationInfo;
-        return this;
-    }
-
-     /**
-     * Type-specific activation information. Types without specific fields return empty object {}. Fields by type: interest_voucher&#x3D;{supported_pairs (applicable trading pairs), transaction_type}; contract_bonus_new&#x3D;{received_expired_hour (valid hours after activation)}; contract_bonus&#x3D;{check_unified_account_mode, received_expired_days (valid days after activation), abtest}; commission_rebate&#x3D;{market (spot/margin/futures/alpha/etf/tradfi), market_name (market display name)}; robot_bonus&#x3D;{designated_bots (ENABLED &#x3D; designated strategies only / DISABLED &#x3D; unrestricted)}; position_voucher&#x3D;{symbols (applicable trading pairs, empty &#x3D; unrestricted), leverage, need_user_funds (0 &#x3D; no user funds required / 1 &#x3D; user funds required), user_funds_amount, position_bonus (original face value)}; tradfi_position_voucher&#x3D;{symbols, leverage, position_bonus}; etf_voucher&#x3D;{currency_markets (ETF market list, comma-separated), amount (original face value)}
-     * @return activationInfo
-    **/
-    @javax.annotation.Nullable
-    public Object getActivationInfo() {
-        return activationInfo;
-    }
-
-
-    public void setActivationInfo(Object activationInfo) {
-        this.activationInfo = activationInfo;
-    }
-
-    public InlineResponse2007Data isTaskCoupon(IsTaskCouponEnum isTaskCoupon) {
-        
-        this.isTaskCoupon = isTaskCoupon;
-        return this;
-    }
-
-     /**
-     * Whether it is a task coupon. &#x60;0&#x60; &#x3D; regular coupon; &#x60;1&#x60; &#x3D; task coupon
-     * @return isTaskCoupon
-    **/
-    @javax.annotation.Nullable
-    public IsTaskCouponEnum getIsTaskCoupon() {
-        return isTaskCoupon;
-    }
-
-
-    public void setIsTaskCoupon(IsTaskCouponEnum isTaskCoupon) {
-        this.isTaskCoupon = isTaskCoupon;
-    }
-
-    public InlineResponse2007Data upgradeToast(Boolean upgradeToast) {
-        
-        this.upgradeToast = upgradeToast;
-        return this;
-    }
-
-     /**
-     * Whether to prompt the user to upgrade the App (true when the app version is too old to support the coupon)
-     * @return upgradeToast
-    **/
-    @javax.annotation.Nullable
-    public Boolean getUpgradeToast() {
-        return upgradeToast;
-    }
-
-
-    public void setUpgradeToast(Boolean upgradeToast) {
-        this.upgradeToast = upgradeToast;
-    }
-
-    public InlineResponse2007Data fromTask(Boolean fromTask) {
-        
-        this.fromTask = fromTask;
-        return this;
-    }
-
-     /**
-     * [Detail endpoint only] Whether this regular coupon was obtained by completing a task (a sub-coupon automatically issued after task completion). Regular coupons may be true, task coupons are always false
-     * @return fromTask
-    **/
-    @javax.annotation.Nullable
-    public Boolean getFromTask() {
-        return fromTask;
-    }
-
-
-    public void setFromTask(Boolean fromTask) {
-        this.fromTask = fromTask;
-    }
-
-    public InlineResponse2007Data taskTitle(String taskTitle) {
-        
-        this.taskTitle = taskTitle;
-        return this;
-    }
-
-     /**
-     * Task title. Task coupons have value; regular coupons return empty string (but task_title is not assigned when from_task&#x3D;true)
-     * @return taskTitle
-    **/
-    @javax.annotation.Nullable
-    public String getTaskTitle() {
-        return taskTitle;
-    }
-
-
-    public void setTaskTitle(String taskTitle) {
-        this.taskTitle = taskTitle;
-    }
-
-    public InlineResponse2007Data taskDesc(String taskDesc) {
-        
-        this.taskDesc = taskDesc;
-        return this;
-    }
-
-     /**
-     * Task description. Task coupons have value; regular coupons return empty string
-     * @return taskDesc
-    **/
-    @javax.annotation.Nullable
-    public String getTaskDesc() {
-        return taskDesc;
-    }
-
-
-    public void setTaskDesc(String taskDesc) {
-        this.taskDesc = taskDesc;
-    }
-
-    public InlineResponse2007Data taskStartAt(Integer taskStartAt) {
-        
-        this.taskStartAt = taskStartAt;
-        return this;
-    }
-
-     /**
-     * Task start timestamp (Unix). Task coupon: has value when in TASK_EXPIRED status, otherwise 0; regular coupon (from_task&#x3D;true): start time of the source task
-     * @return taskStartAt
-    **/
-    @javax.annotation.Nullable
-    public Integer getTaskStartAt() {
-        return taskStartAt;
-    }
-
-
-    public void setTaskStartAt(Integer taskStartAt) {
-        this.taskStartAt = taskStartAt;
-    }
-
-    public InlineResponse2007Data taskExpireAt(Integer taskExpireAt) {
-        
-        this.taskExpireAt = taskExpireAt;
-        return this;
-    }
-
-     /**
-     * Task validity expiration timestamp (Unix). Task coupon: claim validity deadline (0 means unlimited); regular coupon: fixed at 0
-     * @return taskExpireAt
-    **/
-    @javax.annotation.Nullable
-    public Integer getTaskExpireAt() {
-        return taskExpireAt;
-    }
-
-
-    public void setTaskExpireAt(Integer taskExpireAt) {
-        this.taskExpireAt = taskExpireAt;
-    }
-
-    public InlineResponse2007Data taskCompletedAt(Integer taskCompletedAt) {
-        
-        this.taskCompletedAt = taskCompletedAt;
-        return this;
-    }
-
-     /**
-     * Task completion timestamp (Unix). Task coupon: task completion time (0 means not completed); regular coupon (from_task&#x3D;true): completion time of the source task
-     * @return taskCompletedAt
-    **/
-    @javax.annotation.Nullable
-    public Integer getTaskCompletedAt() {
-        return taskCompletedAt;
-    }
-
-
-    public void setTaskCompletedAt(Integer taskCompletedAt) {
-        this.taskCompletedAt = taskCompletedAt;
-    }
-
-    public InlineResponse2007Data extra(List<List<Object>> extra) {
-        
-        this.extra = extra;
-        return this;
-    }
-
-    public InlineResponse2007Data addExtraItem(List<Object> extraItem) {
-        if (this.extra == null) {
-            this.extra = new ArrayList<>();
-        }
-        this.extra.add(extraItem);
-        return this;
-    }
-
-     /**
-     * [Detail endpoint only] Coupon detail attributes organized by display blocks. The frontend renders them as separate sections. Point card type always returns empty array []. Other types return a 2D array composed of blocks: block 1 &#x3D; coupon name/source/status, block 2 &#x3D; coupon core attributes, block 3 &#x3D; time information. Each item contains: type (display type: string/timestamp/day/hour/status/btn), key (label text, i18n translated), value (string or integer, timestamp type is Unix timestamp)
-     * @return extra
-    **/
-    @javax.annotation.Nullable
-    public List<List<Object>> getExtra() {
-        return extra;
-    }
-
-
-    public void setExtra(List<List<Object>> extra) {
-        this.extra = extra;
+    public void setList(List<InlineResponse2007DataList> list) {
+        this.list = list;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -815,38 +91,13 @@ public class InlineResponse2007Data {
             return false;
         }
         InlineResponse2007Data inlineResponse2007Data = (InlineResponse2007Data) o;
-        return Objects.equals(this.id, inlineResponse2007Data.id) &&
-                Objects.equals(this.detailsId, inlineResponse2007Data.detailsId) &&
-                Objects.equals(this.couponType, inlineResponse2007Data.couponType) &&
-                Objects.equals(this.name, inlineResponse2007Data.name) &&
-                Objects.equals(this.amount, inlineResponse2007Data.amount) &&
-                Objects.equals(this.originAmount, inlineResponse2007Data.originAmount) &&
-                Objects.equals(this.currency, inlineResponse2007Data.currency) &&
-                Objects.equals(this.ruleNew, inlineResponse2007Data.ruleNew) &&
-                Objects.equals(this.status, inlineResponse2007Data.status) &&
-                Objects.equals(this.jumpUrl, inlineResponse2007Data.jumpUrl) &&
-                Objects.equals(this.helpUrl, inlineResponse2007Data.helpUrl) &&
-                Objects.equals(this.expireTime, inlineResponse2007Data.expireTime) &&
-                Objects.equals(this.expireTimeOrderBy, inlineResponse2007Data.expireTimeOrderBy) &&
-                Objects.equals(this.expireSecond, inlineResponse2007Data.expireSecond) &&
-                Objects.equals(this.hasUsageHistory, inlineResponse2007Data.hasUsageHistory) &&
-                Objects.equals(this.hasProgress, inlineResponse2007Data.hasProgress) &&
-                Objects.equals(this.progressConfig, inlineResponse2007Data.progressConfig) &&
-                Objects.equals(this.activationInfo, inlineResponse2007Data.activationInfo) &&
-                Objects.equals(this.isTaskCoupon, inlineResponse2007Data.isTaskCoupon) &&
-                Objects.equals(this.upgradeToast, inlineResponse2007Data.upgradeToast) &&
-                Objects.equals(this.fromTask, inlineResponse2007Data.fromTask) &&
-                Objects.equals(this.taskTitle, inlineResponse2007Data.taskTitle) &&
-                Objects.equals(this.taskDesc, inlineResponse2007Data.taskDesc) &&
-                Objects.equals(this.taskStartAt, inlineResponse2007Data.taskStartAt) &&
-                Objects.equals(this.taskExpireAt, inlineResponse2007Data.taskExpireAt) &&
-                Objects.equals(this.taskCompletedAt, inlineResponse2007Data.taskCompletedAt) &&
-                Objects.equals(this.extra, inlineResponse2007Data.extra);
+        return Objects.equals(this.nextPage, inlineResponse2007Data.nextPage) &&
+                Objects.equals(this.list, inlineResponse2007Data.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, detailsId, couponType, name, amount, originAmount, currency, ruleNew, status, jumpUrl, helpUrl, expireTime, expireTimeOrderBy, expireSecond, hasUsageHistory, hasProgress, progressConfig, activationInfo, isTaskCoupon, upgradeToast, fromTask, taskTitle, taskDesc, taskStartAt, taskExpireAt, taskCompletedAt, extra);
+        return Objects.hash(nextPage, list);
     }
 
 
@@ -854,33 +105,8 @@ public class InlineResponse2007Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse2007Data {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
-        sb.append("      detailsId: ").append(toIndentedString(detailsId)).append("\n");
-        sb.append("      couponType: ").append(toIndentedString(couponType)).append("\n");
-        sb.append("      name: ").append(toIndentedString(name)).append("\n");
-        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("      originAmount: ").append(toIndentedString(originAmount)).append("\n");
-        sb.append("      currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("      ruleNew: ").append(toIndentedString(ruleNew)).append("\n");
-        sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      jumpUrl: ").append(toIndentedString(jumpUrl)).append("\n");
-        sb.append("      helpUrl: ").append(toIndentedString(helpUrl)).append("\n");
-        sb.append("      expireTime: ").append(toIndentedString(expireTime)).append("\n");
-        sb.append("      expireTimeOrderBy: ").append(toIndentedString(expireTimeOrderBy)).append("\n");
-        sb.append("      expireSecond: ").append(toIndentedString(expireSecond)).append("\n");
-        sb.append("      hasUsageHistory: ").append(toIndentedString(hasUsageHistory)).append("\n");
-        sb.append("      hasProgress: ").append(toIndentedString(hasProgress)).append("\n");
-        sb.append("      progressConfig: ").append(toIndentedString(progressConfig)).append("\n");
-        sb.append("      activationInfo: ").append(toIndentedString(activationInfo)).append("\n");
-        sb.append("      isTaskCoupon: ").append(toIndentedString(isTaskCoupon)).append("\n");
-        sb.append("      upgradeToast: ").append(toIndentedString(upgradeToast)).append("\n");
-        sb.append("      fromTask: ").append(toIndentedString(fromTask)).append("\n");
-        sb.append("      taskTitle: ").append(toIndentedString(taskTitle)).append("\n");
-        sb.append("      taskDesc: ").append(toIndentedString(taskDesc)).append("\n");
-        sb.append("      taskStartAt: ").append(toIndentedString(taskStartAt)).append("\n");
-        sb.append("      taskExpireAt: ").append(toIndentedString(taskExpireAt)).append("\n");
-        sb.append("      taskCompletedAt: ").append(toIndentedString(taskCompletedAt)).append("\n");
-        sb.append("      extra: ").append(toIndentedString(extra)).append("\n");
+        sb.append("      nextPage: ").append(toIndentedString(nextPage)).append("\n");
+        sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();
     }

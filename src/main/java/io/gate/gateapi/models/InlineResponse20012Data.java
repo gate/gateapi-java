@@ -17,138 +17,130 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20012DataList;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Activity list data
+ * Activity entry data
  */
 public class InlineResponse20012Data {
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<InlineResponse20012DataList> list = new ArrayList<>();
+    public static final String SERIALIZED_NAME_ICON_URL = "icon_url";
+    @SerializedName(SERIALIZED_NAME_ICON_URL)
+    private String iconUrl;
 
-    public static final String SERIALIZED_NAME_PAGE = "page";
-    @SerializedName(SERIALIZED_NAME_PAGE)
-    private Integer page;
+    public static final String SERIALIZED_NAME_ICON_URL_DARK = "icon_url_dark";
+    @SerializedName(SERIALIZED_NAME_ICON_URL_DARK)
+    private String iconUrlDark;
 
-    public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
-    @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
-    private Integer pageSize;
+    public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+    @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+    private String sourceType;
 
-    public static final String SERIALIZED_NAME_PAGE_COUNT = "pageCount";
-    @SerializedName(SERIALIZED_NAME_PAGE_COUNT)
-    private Integer pageCount;
+    public static final String SERIALIZED_NAME_TITLE = "title";
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    private String title;
 
-    public static final String SERIALIZED_NAME_TOTAL_COUNT = "totalCount";
-    @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
-    private Integer totalCount;
+    public static final String SERIALIZED_NAME_URL_TYPE = "url_type";
+    @SerializedName(SERIALIZED_NAME_URL_TYPE)
+    private String urlType;
 
     public static final String SERIALIZED_NAME_URL = "url";
     @SerializedName(SERIALIZED_NAME_URL)
     private String url;
 
 
-    public InlineResponse20012Data list(List<InlineResponse20012DataList> list) {
+    public InlineResponse20012Data iconUrl(String iconUrl) {
         
-        this.list = list;
-        return this;
-    }
-
-    public InlineResponse20012Data addListItem(InlineResponse20012DataList listItem) {
-        this.list.add(listItem);
+        this.iconUrl = iconUrl;
         return this;
     }
 
      /**
-     * Activity list
-     * @return list
+     * Activity entry icon URL (light mode)
+     * @return iconUrl
     **/
-    public List<InlineResponse20012DataList> getList() {
-        return list;
+    public String getIconUrl() {
+        return iconUrl;
     }
 
 
-    public void setList(List<InlineResponse20012DataList> list) {
-        this.list = list;
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
     }
 
-    public InlineResponse20012Data page(Integer page) {
+    public InlineResponse20012Data iconUrlDark(String iconUrlDark) {
         
-        this.page = page;
+        this.iconUrlDark = iconUrlDark;
         return this;
     }
 
      /**
-     * Current page number
-     * @return page
+     * Activity entry icon URL (dark mode)
+     * @return iconUrlDark
     **/
-    public Integer getPage() {
-        return page;
+    public String getIconUrlDark() {
+        return iconUrlDark;
     }
 
 
-    public void setPage(Integer page) {
-        this.page = page;
+    public void setIconUrlDark(String iconUrlDark) {
+        this.iconUrlDark = iconUrlDark;
     }
 
-    public InlineResponse20012Data pageSize(Integer pageSize) {
+    public InlineResponse20012Data sourceType(String sourceType) {
         
-        this.pageSize = pageSize;
+        this.sourceType = sourceType;
         return this;
     }
 
      /**
-     * Items per page
-     * @return pageSize
+     * Source type, e.g., activity for campaign
+     * @return sourceType
     **/
-    public Integer getPageSize() {
-        return pageSize;
+    public String getSourceType() {
+        return sourceType;
     }
 
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
     }
 
-    public InlineResponse20012Data pageCount(Integer pageCount) {
+    public InlineResponse20012Data title(String title) {
         
-        this.pageCount = pageCount;
+        this.title = title;
         return this;
     }
 
      /**
-     * Total pages
-     * @return pageCount
+     * Activity entry title
+     * @return title
     **/
-    public Integer getPageCount() {
-        return pageCount;
+    public String getTitle() {
+        return title;
     }
 
 
-    public void setPageCount(Integer pageCount) {
-        this.pageCount = pageCount;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public InlineResponse20012Data totalCount(Integer totalCount) {
+    public InlineResponse20012Data urlType(String urlType) {
         
-        this.totalCount = totalCount;
+        this.urlType = urlType;
         return this;
     }
 
      /**
-     * Total Records
-     * @return totalCount
+     * Redirect link type, e.g., h5 for H5 page
+     * @return urlType
     **/
-    public Integer getTotalCount() {
-        return totalCount;
+    public String getUrlType() {
+        return urlType;
     }
 
 
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
+    public void setUrlType(String urlType) {
+        this.urlType = urlType;
     }
 
     public InlineResponse20012Data url(String url) {
@@ -158,7 +150,7 @@ public class InlineResponse20012Data {
     }
 
      /**
-     * Activity Center page link
+     * Activity entry redirect URL
      * @return url
     **/
     public String getUrl() {
@@ -178,17 +170,17 @@ public class InlineResponse20012Data {
             return false;
         }
         InlineResponse20012Data inlineResponse20012Data = (InlineResponse20012Data) o;
-        return Objects.equals(this.list, inlineResponse20012Data.list) &&
-                Objects.equals(this.page, inlineResponse20012Data.page) &&
-                Objects.equals(this.pageSize, inlineResponse20012Data.pageSize) &&
-                Objects.equals(this.pageCount, inlineResponse20012Data.pageCount) &&
-                Objects.equals(this.totalCount, inlineResponse20012Data.totalCount) &&
+        return Objects.equals(this.iconUrl, inlineResponse20012Data.iconUrl) &&
+                Objects.equals(this.iconUrlDark, inlineResponse20012Data.iconUrlDark) &&
+                Objects.equals(this.sourceType, inlineResponse20012Data.sourceType) &&
+                Objects.equals(this.title, inlineResponse20012Data.title) &&
+                Objects.equals(this.urlType, inlineResponse20012Data.urlType) &&
                 Objects.equals(this.url, inlineResponse20012Data.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(list, page, pageSize, pageCount, totalCount, url);
+        return Objects.hash(iconUrl, iconUrlDark, sourceType, title, urlType, url);
     }
 
 
@@ -196,11 +188,11 @@ public class InlineResponse20012Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20012Data {\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
-        sb.append("      page: ").append(toIndentedString(page)).append("\n");
-        sb.append("      pageSize: ").append(toIndentedString(pageSize)).append("\n");
-        sb.append("      pageCount: ").append(toIndentedString(pageCount)).append("\n");
-        sb.append("      totalCount: ").append(toIndentedString(totalCount)).append("\n");
+        sb.append("      iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
+        sb.append("      iconUrlDark: ").append(toIndentedString(iconUrlDark)).append("\n");
+        sb.append("      sourceType: ").append(toIndentedString(sourceType)).append("\n");
+        sb.append("      title: ").append(toIndentedString(title)).append("\n");
+        sb.append("      urlType: ").append(toIndentedString(urlType)).append("\n");
         sb.append("      url: ").append(toIndentedString(url)).append("\n");
         sb.append("}");
         return sb.toString();

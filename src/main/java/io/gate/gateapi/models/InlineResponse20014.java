@@ -17,45 +17,40 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse20010Data;
+import io.gate.gateapi.models.InlineResponse20014Data;
 import java.io.IOException;
 
 /**
- * InlineResponse20010
+ * InlineResponse20014
  */
-public class InlineResponse20010 {
+public class InlineResponse20014 {
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
-
-    public static final String SERIALIZED_NAME_LABEL = "label";
-    @SerializedName(SERIALIZED_NAME_LABEL)
-    private String label;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
-    public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
-    @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-    private String requestId;
-
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse20010Data data;
+    private InlineResponse20014Data data;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Long timestamp;
 
 
-    public InlineResponse20010 code(Integer code) {
+    public InlineResponse20014 code(Integer code) {
         
         this.code = code;
         return this;
     }
 
      /**
-     * Status code, 200 &#x3D; success
+     * Response status code, 0 means success
      * @return code
     **/
-    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -65,37 +60,16 @@ public class InlineResponse20010 {
         this.code = code;
     }
 
-    public InlineResponse20010 label(String label) {
-        
-        this.label = label;
-        return this;
-    }
-
-     /**
-     * Status label
-     * @return label
-    **/
-    @javax.annotation.Nullable
-    public String getLabel() {
-        return label;
-    }
-
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public InlineResponse20010 message(String message) {
+    public InlineResponse20014 message(String message) {
         
         this.message = message;
         return this;
     }
 
      /**
-     * Status message
+     * 响应消息，成功时为 \&quot;success\&quot;
      * @return message
     **/
-    @javax.annotation.Nullable
     public String getMessage() {
         return message;
     }
@@ -105,27 +79,7 @@ public class InlineResponse20010 {
         this.message = message;
     }
 
-    public InlineResponse20010 requestId(String requestId) {
-        
-        this.requestId = requestId;
-        return this;
-    }
-
-     /**
-     * Request ID
-     * @return requestId
-    **/
-    @javax.annotation.Nullable
-    public String getRequestId() {
-        return requestId;
-    }
-
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
-    }
-
-    public InlineResponse20010 data(InlineResponse20010Data data) {
+    public InlineResponse20014 data(InlineResponse20014Data data) {
         
         this.data = data;
         return this;
@@ -135,14 +89,32 @@ public class InlineResponse20010 {
      * Get data
      * @return data
     **/
-    @javax.annotation.Nullable
-    public InlineResponse20010Data getData() {
+    public InlineResponse20014Data getData() {
         return data;
     }
 
 
-    public void setData(InlineResponse20010Data data) {
+    public void setData(InlineResponse20014Data data) {
         this.data = data;
+    }
+
+    public InlineResponse20014 timestamp(Long timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Server timestamp (milliseconds)
+     * @return timestamp
+    **/
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -152,29 +124,27 @@ public class InlineResponse20010 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse20010 inlineResponse20010 = (InlineResponse20010) o;
-        return Objects.equals(this.code, inlineResponse20010.code) &&
-                Objects.equals(this.label, inlineResponse20010.label) &&
-                Objects.equals(this.message, inlineResponse20010.message) &&
-                Objects.equals(this.requestId, inlineResponse20010.requestId) &&
-                Objects.equals(this.data, inlineResponse20010.data);
+        InlineResponse20014 inlineResponse20014 = (InlineResponse20014) o;
+        return Objects.equals(this.code, inlineResponse20014.code) &&
+                Objects.equals(this.message, inlineResponse20014.message) &&
+                Objects.equals(this.data, inlineResponse20014.data) &&
+                Objects.equals(this.timestamp, inlineResponse20014.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, label, message, requestId, data);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse20010 {\n");
+        sb.append("class InlineResponse20014 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      label: ").append(toIndentedString(label)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      requestId: ").append(toIndentedString(requestId)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -5,5 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**list** | [**List&lt;InlineResponse2009DataList&gt;**](InlineResponse2009DataList.md) | Live stream/replay list |  [optional]
+**total** | **Integer** | Total number of results |  [optional]
+**items** | [**List&lt;InlineResponse2009DataItems&gt;**](InlineResponse2009DataItems.md) | Search result list |  [optional]
 

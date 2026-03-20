@@ -18,6 +18,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse20013DataList
@@ -27,9 +29,81 @@ public class InlineResponse20013DataList {
     @SerializedName(SERIALIZED_NAME_ID)
     private Integer id;
 
-    public static final String SERIALIZED_NAME_NAME = "name";
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
+    public static final String SERIALIZED_NAME_TYPE_ID = "type_id";
+    @SerializedName(SERIALIZED_NAME_TYPE_ID)
+    private Integer typeId;
+
+    public static final String SERIALIZED_NAME_TYPE_NAME = "type_name";
+    @SerializedName(SERIALIZED_NAME_TYPE_NAME)
+    private String typeName;
+
+    public static final String SERIALIZED_NAME_COMPETITION_NAME = "competition_name";
+    @SerializedName(SERIALIZED_NAME_COMPETITION_NAME)
+    private String competitionName;
+
+    public static final String SERIALIZED_NAME_START_AT = "start_at";
+    @SerializedName(SERIALIZED_NAME_START_AT)
+    private Integer startAt;
+
+    public static final String SERIALIZED_NAME_END_AT = "end_at";
+    @SerializedName(SERIALIZED_NAME_END_AT)
+    private Integer endAt;
+
+    public static final String SERIALIZED_NAME_IMG = "img";
+    @SerializedName(SERIALIZED_NAME_IMG)
+    private String img;
+
+    public static final String SERIALIZED_NAME_IMG_DARK = "img_dark";
+    @SerializedName(SERIALIZED_NAME_IMG_DARK)
+    private String imgDark;
+
+    public static final String SERIALIZED_NAME_URL = "url";
+    @SerializedName(SERIALIZED_NAME_URL)
+    private String url;
+
+    public static final String SERIALIZED_NAME_HOT = "hot";
+    @SerializedName(SERIALIZED_NAME_HOT)
+    private Integer hot;
+
+    public static final String SERIALIZED_NAME_MASTER_ONE_LINE = "master_one_line";
+    @SerializedName(SERIALIZED_NAME_MASTER_ONE_LINE)
+    private String masterOneLine;
+
+    public static final String SERIALIZED_NAME_MASTER_TWO_LINE = "master_two_line";
+    @SerializedName(SERIALIZED_NAME_MASTER_TWO_LINE)
+    private String masterTwoLine;
+
+    public static final String SERIALIZED_NAME_SLAVE_ONE_LINE = "slave_one_line";
+    @SerializedName(SERIALIZED_NAME_SLAVE_ONE_LINE)
+    private String slaveOneLine;
+
+    public static final String SERIALIZED_NAME_SLAVE_TWO_LINE = "slave_two_line";
+    @SerializedName(SERIALIZED_NAME_SLAVE_TWO_LINE)
+    private String slaveTwoLine;
+
+    public static final String SERIALIZED_NAME_COMPETITION_TITLE = "competition_title";
+    @SerializedName(SERIALIZED_NAME_COMPETITION_TITLE)
+    private String competitionTitle;
+
+    public static final String SERIALIZED_NAME_TOP_ID = "top_id";
+    @SerializedName(SERIALIZED_NAME_TOP_ID)
+    private Integer topId;
+
+    public static final String SERIALIZED_NAME_PARENT_ID = "parent_id";
+    @SerializedName(SERIALIZED_NAME_PARENT_ID)
+    private Integer parentId;
+
+    public static final String SERIALIZED_NAME_NEW_IMG = "new_img";
+    @SerializedName(SERIALIZED_NAME_NEW_IMG)
+    private String newImg;
+
+    public static final String SERIALIZED_NAME_NEW_IMG_DARK = "new_img_dark";
+    @SerializedName(SERIALIZED_NAME_NEW_IMG_DARK)
+    private String newImgDark;
+
+    public static final String SERIALIZED_NAME_TAG = "tag";
+    @SerializedName(SERIALIZED_NAME_TAG)
+    private List<String> tag = new ArrayList<>();
 
 
     public InlineResponse20013DataList id(Integer id) {
@@ -39,7 +113,7 @@ public class InlineResponse20013DataList {
     }
 
      /**
-     * Activity type ID
+     * Activity ID
      * @return id
     **/
     public Integer getId() {
@@ -51,23 +125,370 @@ public class InlineResponse20013DataList {
         this.id = id;
     }
 
-    public InlineResponse20013DataList name(String name) {
+    public InlineResponse20013DataList typeId(Integer typeId) {
         
-        this.name = name;
+        this.typeId = typeId;
+        return this;
+    }
+
+     /**
+     * Activity type ID
+     * @return typeId
+    **/
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    public InlineResponse20013DataList typeName(String typeName) {
+        
+        this.typeName = typeName;
         return this;
     }
 
      /**
      * Activity type name
-     * @return name
+     * @return typeName
     **/
-    public String getName() {
-        return name;
+    public String getTypeName() {
+        return typeName;
     }
 
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public InlineResponse20013DataList competitionName(String competitionName) {
+        
+        this.competitionName = competitionName;
+        return this;
+    }
+
+     /**
+     * Activity name
+     * @return competitionName
+    **/
+    public String getCompetitionName() {
+        return competitionName;
+    }
+
+
+    public void setCompetitionName(String competitionName) {
+        this.competitionName = competitionName;
+    }
+
+    public InlineResponse20013DataList startAt(Integer startAt) {
+        
+        this.startAt = startAt;
+        return this;
+    }
+
+     /**
+     * Activity start time (Unix timestamp, in seconds)
+     * @return startAt
+    **/
+    public Integer getStartAt() {
+        return startAt;
+    }
+
+
+    public void setStartAt(Integer startAt) {
+        this.startAt = startAt;
+    }
+
+    public InlineResponse20013DataList endAt(Integer endAt) {
+        
+        this.endAt = endAt;
+        return this;
+    }
+
+     /**
+     * Activity end time (Unix timestamp, in seconds)
+     * @return endAt
+    **/
+    public Integer getEndAt() {
+        return endAt;
+    }
+
+
+    public void setEndAt(Integer endAt) {
+        this.endAt = endAt;
+    }
+
+    public InlineResponse20013DataList img(String img) {
+        
+        this.img = img;
+        return this;
+    }
+
+     /**
+     * Activity image URL (light mode)
+     * @return img
+    **/
+    public String getImg() {
+        return img;
+    }
+
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public InlineResponse20013DataList imgDark(String imgDark) {
+        
+        this.imgDark = imgDark;
+        return this;
+    }
+
+     /**
+     * Activity image URL (dark mode)
+     * @return imgDark
+    **/
+    public String getImgDark() {
+        return imgDark;
+    }
+
+
+    public void setImgDark(String imgDark) {
+        this.imgDark = imgDark;
+    }
+
+    public InlineResponse20013DataList url(String url) {
+        
+        this.url = url;
+        return this;
+    }
+
+     /**
+     * Activity redirect link
+     * @return url
+    **/
+    public String getUrl() {
+        return url;
+    }
+
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public InlineResponse20013DataList hot(Integer hot) {
+        
+        this.hot = hot;
+        return this;
+    }
+
+     /**
+     * Popularity score
+     * @return hot
+    **/
+    public Integer getHot() {
+        return hot;
+    }
+
+
+    public void setHot(Integer hot) {
+        this.hot = hot;
+    }
+
+    public InlineResponse20013DataList masterOneLine(String masterOneLine) {
+        
+        this.masterOneLine = masterOneLine;
+        return this;
+    }
+
+     /**
+     * Main title first line
+     * @return masterOneLine
+    **/
+    public String getMasterOneLine() {
+        return masterOneLine;
+    }
+
+
+    public void setMasterOneLine(String masterOneLine) {
+        this.masterOneLine = masterOneLine;
+    }
+
+    public InlineResponse20013DataList masterTwoLine(String masterTwoLine) {
+        
+        this.masterTwoLine = masterTwoLine;
+        return this;
+    }
+
+     /**
+     * Main title second line
+     * @return masterTwoLine
+    **/
+    public String getMasterTwoLine() {
+        return masterTwoLine;
+    }
+
+
+    public void setMasterTwoLine(String masterTwoLine) {
+        this.masterTwoLine = masterTwoLine;
+    }
+
+    public InlineResponse20013DataList slaveOneLine(String slaveOneLine) {
+        
+        this.slaveOneLine = slaveOneLine;
+        return this;
+    }
+
+     /**
+     * Subtitle first line
+     * @return slaveOneLine
+    **/
+    public String getSlaveOneLine() {
+        return slaveOneLine;
+    }
+
+
+    public void setSlaveOneLine(String slaveOneLine) {
+        this.slaveOneLine = slaveOneLine;
+    }
+
+    public InlineResponse20013DataList slaveTwoLine(String slaveTwoLine) {
+        
+        this.slaveTwoLine = slaveTwoLine;
+        return this;
+    }
+
+     /**
+     * Subtitle second line
+     * @return slaveTwoLine
+    **/
+    public String getSlaveTwoLine() {
+        return slaveTwoLine;
+    }
+
+
+    public void setSlaveTwoLine(String slaveTwoLine) {
+        this.slaveTwoLine = slaveTwoLine;
+    }
+
+    public InlineResponse20013DataList competitionTitle(String competitionTitle) {
+        
+        this.competitionTitle = competitionTitle;
+        return this;
+    }
+
+     /**
+     * Activity title
+     * @return competitionTitle
+    **/
+    public String getCompetitionTitle() {
+        return competitionTitle;
+    }
+
+
+    public void setCompetitionTitle(String competitionTitle) {
+        this.competitionTitle = competitionTitle;
+    }
+
+    public InlineResponse20013DataList topId(Integer topId) {
+        
+        this.topId = topId;
+        return this;
+    }
+
+     /**
+     * Pin ID, 0 means not pinned
+     * @return topId
+    **/
+    public Integer getTopId() {
+        return topId;
+    }
+
+
+    public void setTopId(Integer topId) {
+        this.topId = topId;
+    }
+
+    public InlineResponse20013DataList parentId(Integer parentId) {
+        
+        this.parentId = parentId;
+        return this;
+    }
+
+     /**
+     * Parent activity ID, 0 means no parent activity
+     * @return parentId
+    **/
+    public Integer getParentId() {
+        return parentId;
+    }
+
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public InlineResponse20013DataList newImg(String newImg) {
+        
+        this.newImg = newImg;
+        return this;
+    }
+
+     /**
+     * New activity image URL (light mode)
+     * @return newImg
+    **/
+    public String getNewImg() {
+        return newImg;
+    }
+
+
+    public void setNewImg(String newImg) {
+        this.newImg = newImg;
+    }
+
+    public InlineResponse20013DataList newImgDark(String newImgDark) {
+        
+        this.newImgDark = newImgDark;
+        return this;
+    }
+
+     /**
+     * New activity image URL (dark mode)
+     * @return newImgDark
+    **/
+    public String getNewImgDark() {
+        return newImgDark;
+    }
+
+
+    public void setNewImgDark(String newImgDark) {
+        this.newImgDark = newImgDark;
+    }
+
+    public InlineResponse20013DataList tag(List<String> tag) {
+        
+        this.tag = tag;
+        return this;
+    }
+
+    public InlineResponse20013DataList addTagItem(String tagItem) {
+        this.tag.add(tagItem);
+        return this;
+    }
+
+     /**
+     * Activity tag list
+     * @return tag
+    **/
+    public List<String> getTag() {
+        return tag;
+    }
+
+
+    public void setTag(List<String> tag) {
+        this.tag = tag;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,12 +500,30 @@ public class InlineResponse20013DataList {
         }
         InlineResponse20013DataList inlineResponse20013DataList = (InlineResponse20013DataList) o;
         return Objects.equals(this.id, inlineResponse20013DataList.id) &&
-                Objects.equals(this.name, inlineResponse20013DataList.name);
+                Objects.equals(this.typeId, inlineResponse20013DataList.typeId) &&
+                Objects.equals(this.typeName, inlineResponse20013DataList.typeName) &&
+                Objects.equals(this.competitionName, inlineResponse20013DataList.competitionName) &&
+                Objects.equals(this.startAt, inlineResponse20013DataList.startAt) &&
+                Objects.equals(this.endAt, inlineResponse20013DataList.endAt) &&
+                Objects.equals(this.img, inlineResponse20013DataList.img) &&
+                Objects.equals(this.imgDark, inlineResponse20013DataList.imgDark) &&
+                Objects.equals(this.url, inlineResponse20013DataList.url) &&
+                Objects.equals(this.hot, inlineResponse20013DataList.hot) &&
+                Objects.equals(this.masterOneLine, inlineResponse20013DataList.masterOneLine) &&
+                Objects.equals(this.masterTwoLine, inlineResponse20013DataList.masterTwoLine) &&
+                Objects.equals(this.slaveOneLine, inlineResponse20013DataList.slaveOneLine) &&
+                Objects.equals(this.slaveTwoLine, inlineResponse20013DataList.slaveTwoLine) &&
+                Objects.equals(this.competitionTitle, inlineResponse20013DataList.competitionTitle) &&
+                Objects.equals(this.topId, inlineResponse20013DataList.topId) &&
+                Objects.equals(this.parentId, inlineResponse20013DataList.parentId) &&
+                Objects.equals(this.newImg, inlineResponse20013DataList.newImg) &&
+                Objects.equals(this.newImgDark, inlineResponse20013DataList.newImgDark) &&
+                Objects.equals(this.tag, inlineResponse20013DataList.tag);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, typeId, typeName, competitionName, startAt, endAt, img, imgDark, url, hot, masterOneLine, masterTwoLine, slaveOneLine, slaveTwoLine, competitionTitle, topId, parentId, newImg, newImgDark, tag);
     }
 
 
@@ -93,7 +532,25 @@ public class InlineResponse20013DataList {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse20013DataList {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
-        sb.append("      name: ").append(toIndentedString(name)).append("\n");
+        sb.append("      typeId: ").append(toIndentedString(typeId)).append("\n");
+        sb.append("      typeName: ").append(toIndentedString(typeName)).append("\n");
+        sb.append("      competitionName: ").append(toIndentedString(competitionName)).append("\n");
+        sb.append("      startAt: ").append(toIndentedString(startAt)).append("\n");
+        sb.append("      endAt: ").append(toIndentedString(endAt)).append("\n");
+        sb.append("      img: ").append(toIndentedString(img)).append("\n");
+        sb.append("      imgDark: ").append(toIndentedString(imgDark)).append("\n");
+        sb.append("      url: ").append(toIndentedString(url)).append("\n");
+        sb.append("      hot: ").append(toIndentedString(hot)).append("\n");
+        sb.append("      masterOneLine: ").append(toIndentedString(masterOneLine)).append("\n");
+        sb.append("      masterTwoLine: ").append(toIndentedString(masterTwoLine)).append("\n");
+        sb.append("      slaveOneLine: ").append(toIndentedString(slaveOneLine)).append("\n");
+        sb.append("      slaveTwoLine: ").append(toIndentedString(slaveTwoLine)).append("\n");
+        sb.append("      competitionTitle: ").append(toIndentedString(competitionTitle)).append("\n");
+        sb.append("      topId: ").append(toIndentedString(topId)).append("\n");
+        sb.append("      parentId: ").append(toIndentedString(parentId)).append("\n");
+        sb.append("      newImg: ").append(toIndentedString(newImg)).append("\n");
+        sb.append("      newImgDark: ").append(toIndentedString(newImgDark)).append("\n");
+        sb.append("      tag: ").append(toIndentedString(tag)).append("\n");
         sb.append("}");
         return sb.toString();
     }

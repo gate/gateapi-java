@@ -5,9 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | Status code, 200 &#x3D; success |  [optional]
-**label** | **String** | Status label |  [optional]
-**message** | **String** | Status message |  [optional]
-**requestId** | **String** | Request ID |  [optional]
+**code** | **Integer** | Status code, 0 &#x3D; success |  [optional]
+**label** | **String** | Error identifier code. Empty string on success, machine-readable error label on error |  [optional]
+**msg** | **String** | Status message |  [optional]
 **data** | [**InlineResponse2009Data**](InlineResponse2009Data.md) |  |  [optional]
 

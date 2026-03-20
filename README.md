@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.44
-- SDK version: 7.2.44
+- API version: v4.106.45
+- SDK version: 7.2.45
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.44</version>
+    <version>7.2.45</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.44"
+compile "io.gate:gate-api:7.2.45"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.44.jar`
+* `target/gate-api-7.2.45.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -117,7 +117,7 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         try {
-            InlineResponse20011 result = apiInstance.getMyActivityEntry();
+            InlineResponse20012 result = apiInstance.getMyActivityEntry();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -638,9 +638,9 @@ Class | Method | HTTP request | Description
  - [CrossexClosePositionRequest](docs/CrossexClosePositionRequest.md)
  - [CrossexCoinDiscountRate](docs/CrossexCoinDiscountRate.md)
  - [CrossexConvertOrderRequest](docs/CrossexConvertOrderRequest.md)
+ - [CrossexConvertOrderResponse](docs/CrossexConvertOrderResponse.md)
  - [CrossexConvertQuoteRequest](docs/CrossexConvertQuoteRequest.md)
  - [CrossexConvertQuoteResponse](docs/CrossexConvertQuoteResponse.md)
- - [CrossexFee](docs/CrossexFee.md)
  - [CrossexHistoricalMarginPosition](docs/CrossexHistoricalMarginPosition.md)
  - [CrossexHistoricalPosition](docs/CrossexHistoricalPosition.md)
  - [CrossexInterestRate](docs/CrossexInterestRate.md)
@@ -770,14 +770,20 @@ Class | Method | HTTP request | Description
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
+ - [InlineResponse20010Data](docs/InlineResponse20010Data.md)
+ - [InlineResponse20010DataList](docs/InlineResponse20010DataList.md)
+ - [InlineResponse20010DataLive](docs/InlineResponse20010DataLive.md)
+ - [InlineResponse20010DataLiveHost](docs/InlineResponse20010DataLiveHost.md)
+ - [InlineResponse20010DataVideo](docs/InlineResponse20010DataVideo.md)
  - [InlineResponse20011](docs/InlineResponse20011.md)
- - [InlineResponse20011Data](docs/InlineResponse20011Data.md)
  - [InlineResponse20012](docs/InlineResponse20012.md)
  - [InlineResponse20012Data](docs/InlineResponse20012Data.md)
- - [InlineResponse20012DataList](docs/InlineResponse20012DataList.md)
  - [InlineResponse20013](docs/InlineResponse20013.md)
  - [InlineResponse20013Data](docs/InlineResponse20013Data.md)
  - [InlineResponse20013DataList](docs/InlineResponse20013DataList.md)
+ - [InlineResponse20014](docs/InlineResponse20014.md)
+ - [InlineResponse20014Data](docs/InlineResponse20014Data.md)
+ - [InlineResponse20014DataList](docs/InlineResponse20014DataList.md)
  - [InlineResponse2001Data](docs/InlineResponse2001Data.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2002Data](docs/InlineResponse2002Data.md)
@@ -787,22 +793,17 @@ Class | Method | HTTP request | Description
  - [InlineResponse2005](docs/InlineResponse2005.md)
  - [InlineResponse2005Data](docs/InlineResponse2005Data.md)
  - [InlineResponse2006](docs/InlineResponse2006.md)
- - [InlineResponse2006Data](docs/InlineResponse2006Data.md)
- - [InlineResponse2006DataHelpUrl](docs/InlineResponse2006DataHelpUrl.md)
- - [InlineResponse2006DataJumpUrl](docs/InlineResponse2006DataJumpUrl.md)
- - [InlineResponse2006DataList](docs/InlineResponse2006DataList.md)
- - [InlineResponse2006DataProgressConfig](docs/InlineResponse2006DataProgressConfig.md)
  - [InlineResponse2007](docs/InlineResponse2007.md)
  - [InlineResponse2007Data](docs/InlineResponse2007Data.md)
+ - [InlineResponse2007DataHelpUrl](docs/InlineResponse2007DataHelpUrl.md)
+ - [InlineResponse2007DataJumpUrl](docs/InlineResponse2007DataJumpUrl.md)
+ - [InlineResponse2007DataList](docs/InlineResponse2007DataList.md)
+ - [InlineResponse2007DataProgressConfig](docs/InlineResponse2007DataProgressConfig.md)
  - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse2008Data](docs/InlineResponse2008Data.md)
- - [InlineResponse2008DataItems](docs/InlineResponse2008DataItems.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
  - [InlineResponse2009Data](docs/InlineResponse2009Data.md)
- - [InlineResponse2009DataList](docs/InlineResponse2009DataList.md)
- - [InlineResponse2009DataLive](docs/InlineResponse2009DataLive.md)
- - [InlineResponse2009DataLiveHost](docs/InlineResponse2009DataLiveHost.md)
- - [InlineResponse2009DataVideo](docs/InlineResponse2009DataVideo.md)
+ - [InlineResponse2009DataItems](docs/InlineResponse2009DataItems.md)
  - [InlineResponse200Data](docs/InlineResponse200Data.md)
  - [InlineResponse400](docs/InlineResponse400.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)

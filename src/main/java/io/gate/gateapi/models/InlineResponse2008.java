@@ -24,40 +24,93 @@ import java.io.IOException;
  * InlineResponse2008
  */
 public class InlineResponse2008 {
+    /**
+     * Response code. &#x60;0&#x60; &#x3D; success; &#x60;2002&#x60; &#x3D; user not logged in; &#x60;50105&#x60; &#x3D; parameter validation failed; &#x60;10001&#x60; &#x3D; coupon record does not exist or does not belong to current user; &#x60;10000&#x60; &#x3D; invalid parameter (e.g., task coupon missing coupon_info)
+     */
+    @JsonAdapter(CodeEnum.Adapter.class)
+    public enum CodeEnum {
+        NUMBER_0(0),
+        
+        NUMBER_2002(2002),
+        
+        NUMBER_50105(50105),
+        
+        NUMBER_10001(10001),
+        
+        NUMBER_10000(10000);
+
+        private Integer value;
+
+        CodeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CodeEnum fromValue(Integer value) {
+            for (CodeEnum b : CodeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<CodeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CodeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CodeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return CodeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
+    private CodeEnum code;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
     @SerializedName(SERIALIZED_NAME_LABEL)
     private String label;
 
-    public static final String SERIALIZED_NAME_MSG = "msg";
-    @SerializedName(SERIALIZED_NAME_MSG)
-    private String msg;
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
     private InlineResponse2008Data data;
 
 
-    public InlineResponse2008 code(Integer code) {
+    public InlineResponse2008 code(CodeEnum code) {
         
         this.code = code;
         return this;
     }
 
      /**
-     * Status code, 0 &#x3D; success
+     * Response code. &#x60;0&#x60; &#x3D; success; &#x60;2002&#x60; &#x3D; user not logged in; &#x60;50105&#x60; &#x3D; parameter validation failed; &#x60;10001&#x60; &#x3D; coupon record does not exist or does not belong to current user; &#x60;10000&#x60; &#x3D; invalid parameter (e.g., task coupon missing coupon_info)
      * @return code
     **/
     @javax.annotation.Nullable
-    public Integer getCode() {
+    public CodeEnum getCode() {
         return code;
     }
 
 
-    public void setCode(Integer code) {
+    public void setCode(CodeEnum code) {
         this.code = code;
     }
 
@@ -81,24 +134,24 @@ public class InlineResponse2008 {
         this.label = label;
     }
 
-    public InlineResponse2008 msg(String msg) {
+    public InlineResponse2008 message(String message) {
         
-        this.msg = msg;
+        this.message = message;
         return this;
     }
 
      /**
-     * Status message
-     * @return msg
+     * Get message
+     * @return message
     **/
     @javax.annotation.Nullable
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public InlineResponse2008 data(InlineResponse2008Data data) {
@@ -131,13 +184,13 @@ public class InlineResponse2008 {
         InlineResponse2008 inlineResponse2008 = (InlineResponse2008) o;
         return Objects.equals(this.code, inlineResponse2008.code) &&
                 Objects.equals(this.label, inlineResponse2008.label) &&
-                Objects.equals(this.msg, inlineResponse2008.msg) &&
+                Objects.equals(this.message, inlineResponse2008.message) &&
                 Objects.equals(this.data, inlineResponse2008.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, label, msg, data);
+        return Objects.hash(code, label, message, data);
     }
 
 
@@ -147,7 +200,7 @@ public class InlineResponse2008 {
         sb.append("class InlineResponse2008 {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      label: ").append(toIndentedString(label)).append("\n");
-        sb.append("      msg: ").append(toIndentedString(msg)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

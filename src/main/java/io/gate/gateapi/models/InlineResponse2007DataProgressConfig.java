@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Progress bar configuration. All fields are empty strings when has_progress is false
  */
-public class InlineResponse2006DataProgressConfig {
+public class InlineResponse2007DataProgressConfig {
     public static final String SERIALIZED_NAME_TOTAL_BALANCE = "total_balance";
     @SerializedName(SERIALIZED_NAME_TOTAL_BALANCE)
     private String totalBalance;
@@ -40,7 +40,7 @@ public class InlineResponse2006DataProgressConfig {
     private String currency;
 
 
-    public InlineResponse2006DataProgressConfig totalBalance(String totalBalance) {
+    public InlineResponse2007DataProgressConfig totalBalance(String totalBalance) {
         
         this.totalBalance = totalBalance;
         return this;
@@ -60,7 +60,7 @@ public class InlineResponse2006DataProgressConfig {
         this.totalBalance = totalBalance;
     }
 
-    public InlineResponse2006DataProgressConfig currentUsed(String currentUsed) {
+    public InlineResponse2007DataProgressConfig currentUsed(String currentUsed) {
         
         this.currentUsed = currentUsed;
         return this;
@@ -80,7 +80,7 @@ public class InlineResponse2006DataProgressConfig {
         this.currentUsed = currentUsed;
     }
 
-    public InlineResponse2006DataProgressConfig currentAchived(String currentAchived) {
+    public InlineResponse2007DataProgressConfig currentAchived(String currentAchived) {
         
         this.currentAchived = currentAchived;
         return this;
@@ -100,7 +100,7 @@ public class InlineResponse2006DataProgressConfig {
         this.currentAchived = currentAchived;
     }
 
-    public InlineResponse2006DataProgressConfig currency(String currency) {
+    public InlineResponse2007DataProgressConfig currency(String currency) {
         
         this.currency = currency;
         return this;
@@ -127,11 +127,11 @@ public class InlineResponse2006DataProgressConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2006DataProgressConfig inlineResponse2006DataProgressConfig = (InlineResponse2006DataProgressConfig) o;
-        return Objects.equals(this.totalBalance, inlineResponse2006DataProgressConfig.totalBalance) &&
-                Objects.equals(this.currentUsed, inlineResponse2006DataProgressConfig.currentUsed) &&
-                Objects.equals(this.currentAchived, inlineResponse2006DataProgressConfig.currentAchived) &&
-                Objects.equals(this.currency, inlineResponse2006DataProgressConfig.currency);
+        InlineResponse2007DataProgressConfig inlineResponse2007DataProgressConfig = (InlineResponse2007DataProgressConfig) o;
+        return Objects.equals(this.totalBalance, inlineResponse2007DataProgressConfig.totalBalance) &&
+                Objects.equals(this.currentUsed, inlineResponse2007DataProgressConfig.currentUsed) &&
+                Objects.equals(this.currentAchived, inlineResponse2007DataProgressConfig.currentAchived) &&
+                Objects.equals(this.currency, inlineResponse2007DataProgressConfig.currency);
     }
 
     @Override
@@ -143,7 +143,7 @@ public class InlineResponse2006DataProgressConfig {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2006DataProgressConfig {\n");
+        sb.append("class InlineResponse2007DataProgressConfig {\n");
         sb.append("      totalBalance: ").append(toIndentedString(totalBalance)).append("\n");
         sb.append("      currentUsed: ").append(toIndentedString(currentUsed)).append("\n");
         sb.append("      currentAchived: ").append(toIndentedString(currentAchived)).append("\n");

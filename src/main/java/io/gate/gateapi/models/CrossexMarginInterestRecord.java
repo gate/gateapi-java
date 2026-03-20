@@ -227,7 +227,7 @@ public class CrossexMarginInterestRecord {
     }
 
      /**
-     * Interest deduction type (&#x60;PERIODIC_POSITION&#x60;: periodic position interest; &#x60;PERIODIC_OPEN_ORDER&#x60;: periodic open-order interest; &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged on order opening)
+     * Interest deduction type (&#x60;PERIODIC_POSITION&#x60; hourly interest on position, &#x60;PERIODIC_OPEN_ORDER&#x60; hourly interest on open orders, &#x60;IMMEDIATE_OPEN_ORDER&#x60; interest charged on order placement, &#x60;PERIODIC_ISOLATED&#x60; hourly interest on debt)
      * @return interestType
     **/
     public String getInterestType() {

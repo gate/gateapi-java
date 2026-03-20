@@ -20,56 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Help Center Link
+ * InlineResponse20014DataList
  */
-public class InlineResponse2006DataHelpUrl {
-    public static final String SERIALIZED_NAME_WEB = "web";
-    @SerializedName(SERIALIZED_NAME_WEB)
-    private String web;
+public class InlineResponse20014DataList {
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private Integer id;
 
-    public static final String SERIALIZED_NAME_APP = "app";
-    @SerializedName(SERIALIZED_NAME_APP)
-    private String app;
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
 
-    public InlineResponse2006DataHelpUrl web(String web) {
+    public InlineResponse20014DataList id(Integer id) {
         
-        this.web = web;
+        this.id = id;
         return this;
     }
 
      /**
-     * Web Help Link
-     * @return web
+     * Activity type ID
+     * @return id
     **/
-    @javax.annotation.Nullable
-    public String getWeb() {
-        return web;
+    public Integer getId() {
+        return id;
     }
 
 
-    public void setWeb(String web) {
-        this.web = web;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public InlineResponse2006DataHelpUrl app(String app) {
+    public InlineResponse20014DataList name(String name) {
         
-        this.app = app;
+        this.name = name;
         return this;
     }
 
      /**
-     * App Help Link
-     * @return app
+     * Activity type name
+     * @return name
     **/
-    @javax.annotation.Nullable
-    public String getApp() {
-        return app;
+    public String getName() {
+        return name;
     }
 
 
-    public void setApp(String app) {
-        this.app = app;
+    public void setName(String name) {
+        this.name = name;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,23 +77,23 @@ public class InlineResponse2006DataHelpUrl {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2006DataHelpUrl inlineResponse2006DataHelpUrl = (InlineResponse2006DataHelpUrl) o;
-        return Objects.equals(this.web, inlineResponse2006DataHelpUrl.web) &&
-                Objects.equals(this.app, inlineResponse2006DataHelpUrl.app);
+        InlineResponse20014DataList inlineResponse20014DataList = (InlineResponse20014DataList) o;
+        return Objects.equals(this.id, inlineResponse20014DataList.id) &&
+                Objects.equals(this.name, inlineResponse20014DataList.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(web, app);
+        return Objects.hash(id, name);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2006DataHelpUrl {\n");
-        sb.append("      web: ").append(toIndentedString(web)).append("\n");
-        sb.append("      app: ").append(toIndentedString(app)).append("\n");
+        sb.append("class InlineResponse20014DataList {\n");
+        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
         return sb.toString();
     }

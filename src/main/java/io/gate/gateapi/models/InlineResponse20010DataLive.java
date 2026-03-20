@@ -17,13 +17,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2009DataLiveHost;
+import io.gate.gateapi.models.InlineResponse20010DataLiveHost;
 import java.io.IOException;
 
 /**
  * Live stream information (has value when content_type&#x3D;streaming)
  */
-public class InlineResponse2009DataLive {
+public class InlineResponse20010DataLive {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
@@ -66,14 +66,14 @@ public class InlineResponse2009DataLive {
 
     public static final String SERIALIZED_NAME_HOST = "host";
     @SerializedName(SERIALIZED_NAME_HOST)
-    private InlineResponse2009DataLiveHost host;
+    private InlineResponse20010DataLiveHost host;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
 
-    public InlineResponse2009DataLive id(String id) {
+    public InlineResponse20010DataLive id(String id) {
         
         this.id = id;
         return this;
@@ -93,7 +93,7 @@ public class InlineResponse2009DataLive {
         this.id = id;
     }
 
-    public InlineResponse2009DataLive uid(String uid) {
+    public InlineResponse20010DataLive uid(String uid) {
         
         this.uid = uid;
         return this;
@@ -113,7 +113,7 @@ public class InlineResponse2009DataLive {
         this.uid = uid;
     }
 
-    public InlineResponse2009DataLive chatGroupId(String chatGroupId) {
+    public InlineResponse20010DataLive chatGroupId(String chatGroupId) {
         
         this.chatGroupId = chatGroupId;
         return this;
@@ -133,7 +133,7 @@ public class InlineResponse2009DataLive {
         this.chatGroupId = chatGroupId;
     }
 
-    public InlineResponse2009DataLive name(String name) {
+    public InlineResponse20010DataLive name(String name) {
         
         this.name = name;
         return this;
@@ -153,7 +153,7 @@ public class InlineResponse2009DataLive {
         this.name = name;
     }
 
-    public InlineResponse2009DataLive cover(String cover) {
+    public InlineResponse20010DataLive cover(String cover) {
         
         this.cover = cover;
         return this;
@@ -173,7 +173,7 @@ public class InlineResponse2009DataLive {
         this.cover = cover;
     }
 
-    public InlineResponse2009DataLive startedAt(String startedAt) {
+    public InlineResponse20010DataLive startedAt(String startedAt) {
         
         this.startedAt = startedAt;
         return this;
@@ -193,7 +193,7 @@ public class InlineResponse2009DataLive {
         this.startedAt = startedAt;
     }
 
-    public InlineResponse2009DataLive subscriptionRequired(Boolean subscriptionRequired) {
+    public InlineResponse20010DataLive subscriptionRequired(Boolean subscriptionRequired) {
         
         this.subscriptionRequired = subscriptionRequired;
         return this;
@@ -213,7 +213,7 @@ public class InlineResponse2009DataLive {
         this.subscriptionRequired = subscriptionRequired;
     }
 
-    public InlineResponse2009DataLive hotWeight(Integer hotWeight) {
+    public InlineResponse20010DataLive hotWeight(Integer hotWeight) {
         
         this.hotWeight = hotWeight;
         return this;
@@ -233,7 +233,7 @@ public class InlineResponse2009DataLive {
         this.hotWeight = hotWeight;
     }
 
-    public InlineResponse2009DataLive liveType(Integer liveType) {
+    public InlineResponse20010DataLive liveType(Integer liveType) {
         
         this.liveType = liveType;
         return this;
@@ -253,7 +253,7 @@ public class InlineResponse2009DataLive {
         this.liveType = liveType;
     }
 
-    public InlineResponse2009DataLive sessionId(String sessionId) {
+    public InlineResponse20010DataLive sessionId(String sessionId) {
         
         this.sessionId = sessionId;
         return this;
@@ -273,7 +273,7 @@ public class InlineResponse2009DataLive {
         this.sessionId = sessionId;
     }
 
-    public InlineResponse2009DataLive host(InlineResponse2009DataLiveHost host) {
+    public InlineResponse20010DataLive host(InlineResponse20010DataLiveHost host) {
         
         this.host = host;
         return this;
@@ -284,16 +284,16 @@ public class InlineResponse2009DataLive {
      * @return host
     **/
     @javax.annotation.Nullable
-    public InlineResponse2009DataLiveHost getHost() {
+    public InlineResponse20010DataLiveHost getHost() {
         return host;
     }
 
 
-    public void setHost(InlineResponse2009DataLiveHost host) {
+    public void setHost(InlineResponse20010DataLiveHost host) {
         this.host = host;
     }
 
-    public InlineResponse2009DataLive status(String status) {
+    public InlineResponse20010DataLive status(String status) {
         
         this.status = status;
         return this;
@@ -320,19 +320,19 @@ public class InlineResponse2009DataLive {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2009DataLive inlineResponse2009DataLive = (InlineResponse2009DataLive) o;
-        return Objects.equals(this.id, inlineResponse2009DataLive.id) &&
-                Objects.equals(this.uid, inlineResponse2009DataLive.uid) &&
-                Objects.equals(this.chatGroupId, inlineResponse2009DataLive.chatGroupId) &&
-                Objects.equals(this.name, inlineResponse2009DataLive.name) &&
-                Objects.equals(this.cover, inlineResponse2009DataLive.cover) &&
-                Objects.equals(this.startedAt, inlineResponse2009DataLive.startedAt) &&
-                Objects.equals(this.subscriptionRequired, inlineResponse2009DataLive.subscriptionRequired) &&
-                Objects.equals(this.hotWeight, inlineResponse2009DataLive.hotWeight) &&
-                Objects.equals(this.liveType, inlineResponse2009DataLive.liveType) &&
-                Objects.equals(this.sessionId, inlineResponse2009DataLive.sessionId) &&
-                Objects.equals(this.host, inlineResponse2009DataLive.host) &&
-                Objects.equals(this.status, inlineResponse2009DataLive.status);
+        InlineResponse20010DataLive inlineResponse20010DataLive = (InlineResponse20010DataLive) o;
+        return Objects.equals(this.id, inlineResponse20010DataLive.id) &&
+                Objects.equals(this.uid, inlineResponse20010DataLive.uid) &&
+                Objects.equals(this.chatGroupId, inlineResponse20010DataLive.chatGroupId) &&
+                Objects.equals(this.name, inlineResponse20010DataLive.name) &&
+                Objects.equals(this.cover, inlineResponse20010DataLive.cover) &&
+                Objects.equals(this.startedAt, inlineResponse20010DataLive.startedAt) &&
+                Objects.equals(this.subscriptionRequired, inlineResponse20010DataLive.subscriptionRequired) &&
+                Objects.equals(this.hotWeight, inlineResponse20010DataLive.hotWeight) &&
+                Objects.equals(this.liveType, inlineResponse20010DataLive.liveType) &&
+                Objects.equals(this.sessionId, inlineResponse20010DataLive.sessionId) &&
+                Objects.equals(this.host, inlineResponse20010DataLive.host) &&
+                Objects.equals(this.status, inlineResponse20010DataLive.status);
     }
 
     @Override
@@ -344,7 +344,7 @@ public class InlineResponse2009DataLive {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2009DataLive {\n");
+        sb.append("class InlineResponse20010DataLive {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
         sb.append("      chatGroupId: ").append(toIndentedString(chatGroupId)).append("\n");

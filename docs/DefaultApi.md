@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getMyActivityEntry"></a>
 # **getMyActivityEntry**
-> InlineResponse20011 getMyActivityEntry()
+> InlineResponse20012 getMyActivityEntry()
 
 My activity entry
 
@@ -39,7 +39,7 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         try {
-            InlineResponse20011 result = apiInstance.getMyActivityEntry();
+            InlineResponse20012 result = apiInstance.getMyActivityEntry();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 
 <a name="listActivities"></a>
 # **listActivities**
-> InlineResponse20012 listActivities().recommendType(recommendType).typeIds(typeIds).keywords(keywords).page(page).pageSize(pageSize).sortBy(sortBy).execute();
+> InlineResponse20013 listActivities().recommendType(recommendType).typeIds(typeIds).keywords(keywords).page(page).pageSize(pageSize).sortBy(sortBy).execute();
 
 Recommended activity list
 
@@ -111,7 +111,7 @@ public class Example {
         Integer pageSize = 10; // Integer | Items per page
         String sortBy = "sortBy_example"; // String | Sort order, e.g., hot for sorting by popularity
         try {
-            InlineResponse20012 result = apiInstance.listActivities()
+            InlineResponse20013 result = apiInstance.listActivities()
                         .recommendType(recommendType)
                         .typeIds(typeIds)
                         .keywords(keywords)
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 <a name="listActivityTypes"></a>
 # **listActivityTypes**
-> InlineResponse20013 listActivityTypes()
+> InlineResponse20014 listActivityTypes()
 
 Activity type list
 
@@ -188,7 +188,7 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         try {
-            InlineResponse20013 result = apiInstance.listActivityTypes();
+            InlineResponse20014 result = apiInstance.listActivityTypes();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -208,7 +208,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 

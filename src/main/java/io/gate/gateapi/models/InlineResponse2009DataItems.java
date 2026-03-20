@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * InlineResponse2008DataItems
+ * InlineResponse2009DataItems
  */
-public class InlineResponse2008DataItems {
+public class InlineResponse2009DataItems {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private Long id;
@@ -52,7 +52,7 @@ public class InlineResponse2008DataItems {
     private Long pageView;
 
 
-    public InlineResponse2008DataItems id(Long id) {
+    public InlineResponse2009DataItems id(Long id) {
         
         this.id = id;
         return this;
@@ -72,7 +72,7 @@ public class InlineResponse2008DataItems {
         this.id = id;
     }
 
-    public InlineResponse2008DataItems content(String content) {
+    public InlineResponse2009DataItems content(String content) {
         
         this.content = content;
         return this;
@@ -92,7 +92,7 @@ public class InlineResponse2008DataItems {
         this.content = content;
     }
 
-    public InlineResponse2008DataItems image(String image) {
+    public InlineResponse2009DataItems image(String image) {
         
         this.image = image;
         return this;
@@ -112,7 +112,7 @@ public class InlineResponse2008DataItems {
         this.image = image;
     }
 
-    public InlineResponse2008DataItems avatar(String avatar) {
+    public InlineResponse2009DataItems avatar(String avatar) {
         
         this.avatar = avatar;
         return this;
@@ -132,7 +132,7 @@ public class InlineResponse2008DataItems {
         this.avatar = avatar;
     }
 
-    public InlineResponse2008DataItems nickname(String nickname) {
+    public InlineResponse2009DataItems nickname(String nickname) {
         
         this.nickname = nickname;
         return this;
@@ -152,7 +152,7 @@ public class InlineResponse2008DataItems {
         this.nickname = nickname;
     }
 
-    public InlineResponse2008DataItems likeCount(Long likeCount) {
+    public InlineResponse2009DataItems likeCount(Long likeCount) {
         
         this.likeCount = likeCount;
         return this;
@@ -172,7 +172,7 @@ public class InlineResponse2008DataItems {
         this.likeCount = likeCount;
     }
 
-    public InlineResponse2008DataItems pageView(Long pageView) {
+    public InlineResponse2009DataItems pageView(Long pageView) {
         
         this.pageView = pageView;
         return this;
@@ -199,14 +199,14 @@ public class InlineResponse2008DataItems {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2008DataItems inlineResponse2008DataItems = (InlineResponse2008DataItems) o;
-        return Objects.equals(this.id, inlineResponse2008DataItems.id) &&
-                Objects.equals(this.content, inlineResponse2008DataItems.content) &&
-                Objects.equals(this.image, inlineResponse2008DataItems.image) &&
-                Objects.equals(this.avatar, inlineResponse2008DataItems.avatar) &&
-                Objects.equals(this.nickname, inlineResponse2008DataItems.nickname) &&
-                Objects.equals(this.likeCount, inlineResponse2008DataItems.likeCount) &&
-                Objects.equals(this.pageView, inlineResponse2008DataItems.pageView);
+        InlineResponse2009DataItems inlineResponse2009DataItems = (InlineResponse2009DataItems) o;
+        return Objects.equals(this.id, inlineResponse2009DataItems.id) &&
+                Objects.equals(this.content, inlineResponse2009DataItems.content) &&
+                Objects.equals(this.image, inlineResponse2009DataItems.image) &&
+                Objects.equals(this.avatar, inlineResponse2009DataItems.avatar) &&
+                Objects.equals(this.nickname, inlineResponse2009DataItems.nickname) &&
+                Objects.equals(this.likeCount, inlineResponse2009DataItems.likeCount) &&
+                Objects.equals(this.pageView, inlineResponse2009DataItems.pageView);
     }
 
     @Override
@@ -218,7 +218,7 @@ public class InlineResponse2008DataItems {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2008DataItems {\n");
+        sb.append("class InlineResponse2009DataItems {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      content: ").append(toIndentedString(content)).append("\n");
         sb.append("      image: ").append(toIndentedString(image)).append("\n");

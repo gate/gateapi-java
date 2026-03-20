@@ -25,7 +25,7 @@ import java.io.IOException;
  */
 public class InlineResponse2007 {
     /**
-     * Response code. &#x60;0&#x60; &#x3D; success; &#x60;2002&#x60; &#x3D; user not logged in; &#x60;50105&#x60; &#x3D; parameter validation failed; &#x60;10001&#x60; &#x3D; coupon record does not exist or does not belong to current user; &#x60;10000&#x60; &#x3D; invalid parameter (e.g., task coupon missing coupon_info)
+     * Response Code. &#x60;0&#x60; &#x3D; Success; &#x60;2002&#x60; &#x3D; User not logged in; &#x60;50105&#x60; &#x3D; Input parameter validation failed
      */
     @JsonAdapter(CodeEnum.Adapter.class)
     public enum CodeEnum {
@@ -33,11 +33,7 @@ public class InlineResponse2007 {
         
         NUMBER_2002(2002),
         
-        NUMBER_50105(50105),
-        
-        NUMBER_10001(10001),
-        
-        NUMBER_10000(10000);
+        NUMBER_50105(50105);
 
         private Integer value;
 
@@ -101,7 +97,7 @@ public class InlineResponse2007 {
     }
 
      /**
-     * Response code. &#x60;0&#x60; &#x3D; success; &#x60;2002&#x60; &#x3D; user not logged in; &#x60;50105&#x60; &#x3D; parameter validation failed; &#x60;10001&#x60; &#x3D; coupon record does not exist or does not belong to current user; &#x60;10000&#x60; &#x3D; invalid parameter (e.g., task coupon missing coupon_info)
+     * Response Code. &#x60;0&#x60; &#x3D; Success; &#x60;2002&#x60; &#x3D; User not logged in; &#x60;50105&#x60; &#x3D; Input parameter validation failed
      * @return code
     **/
     @javax.annotation.Nullable

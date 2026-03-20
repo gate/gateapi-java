@@ -21,7 +21,7 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.CreateOrderV4;
-import io.gate.gateapi.models.InlineResponse20010;
+import io.gate.gateapi.models.InlineResponse20011;
 import io.gate.gateapi.models.LaunchPoolV4CreateOrderResponse;
 import io.gate.gateapi.models.LaunchPoolV4ErrorResponse;
 import io.gate.gateapi.models.LaunchPoolV4PledgeRecord;
@@ -465,7 +465,7 @@ public class LaunchApi {
      * Redeem LaunchPool staked assets
      * Redeem staked assets and end staking mining. This endpoint requires API Key signature authentication.
      * @param redeemV4  (required)
-     * @return InlineResponse20010
+     * @return InlineResponse20011
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -475,8 +475,8 @@ public class LaunchApi {
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse20010 redeemLaunchPool(RedeemV4 redeemV4) throws ApiException {
-        ApiResponse<InlineResponse20010> localVarResp = redeemLaunchPoolWithHttpInfo(redeemV4);
+    public InlineResponse20011 redeemLaunchPool(RedeemV4 redeemV4) throws ApiException {
+        ApiResponse<InlineResponse20011> localVarResp = redeemLaunchPoolWithHttpInfo(redeemV4);
         return localVarResp.getData();
     }
 
@@ -484,7 +484,7 @@ public class LaunchApi {
      * Redeem LaunchPool staked assets
      * Redeem staked assets and end staking mining. This endpoint requires API Key signature authentication.
      * @param redeemV4  (required)
-     * @return ApiResponse&lt;InlineResponse20010&gt;
+     * @return ApiResponse&lt;InlineResponse20011&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -494,9 +494,9 @@ public class LaunchApi {
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse20010> redeemLaunchPoolWithHttpInfo(RedeemV4 redeemV4) throws ApiException {
+    public ApiResponse<InlineResponse20011> redeemLaunchPoolWithHttpInfo(RedeemV4 redeemV4) throws ApiException {
         okhttp3.Call localVarCall = redeemLaunchPoolValidateBeforeCall(redeemV4, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -515,9 +515,9 @@ public class LaunchApi {
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemLaunchPoolAsync(RedeemV4 redeemV4, final ApiCallback<InlineResponse20010> _callback) throws ApiException {
+    public okhttp3.Call redeemLaunchPoolAsync(RedeemV4 redeemV4, final ApiCallback<InlineResponse20011> _callback) throws ApiException {
         okhttp3.Call localVarCall = redeemLaunchPoolValidateBeforeCall(redeemV4, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

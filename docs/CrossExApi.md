@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 
 <a name="createCrossexConvertOrder"></a>
 # **createCrossexConvertOrder**
-> Object createCrossexConvertOrder(crossexConvertOrderRequest)
+> CrossexConvertOrderResponse createCrossexConvertOrder(crossexConvertOrderRequest)
 
 Flash Swap Transaction
 
@@ -779,7 +779,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         CrossexConvertOrderRequest crossexConvertOrderRequest = new CrossexConvertOrderRequest(); // CrossexConvertOrderRequest | 
         try {
-            Object result = apiInstance.createCrossexConvertOrder(crossexConvertOrderRequest);
+            CrossexConvertOrderResponse result = apiInstance.createCrossexConvertOrder(crossexConvertOrderRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -802,7 +802,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**CrossexConvertOrderResponse**](CrossexConvertOrderResponse.md)
 
 ### Authorization
 
@@ -1391,7 +1391,7 @@ Name | Type | Description  | Notes
 
 <a name="getCrossexFee"></a>
 # **getCrossexFee**
-> CrossexFee getCrossexFee()
+> List&lt;InlineResponse2006&gt; getCrossexFee()
 
 Query User Fee Rates
 
@@ -1419,7 +1419,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         try {
-            CrossexFee result = apiInstance.getCrossexFee();
+            List<InlineResponse2006> result = apiInstance.getCrossexFee();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1439,7 +1439,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CrossexFee**](CrossexFee.md)
+[**List&lt;InlineResponse2006&gt;**](InlineResponse2006.md)
 
 ### Authorization
 

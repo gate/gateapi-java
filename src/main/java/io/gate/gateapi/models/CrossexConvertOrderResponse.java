@@ -20,32 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * UidPushWithdrawalResp
+ * CrossexConvertOrderResponse
  */
-public class UidPushWithdrawalResp {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
+public class CrossexConvertOrderResponse {
+    public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
+    @SerializedName(SERIALIZED_NAME_ORDER_ID)
+    private String orderId;
+
+    public static final String SERIALIZED_NAME_TEXT = "text";
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    private String text;
 
 
-    public UidPushWithdrawalResp id(String id) {
+    public CrossexConvertOrderResponse orderId(String orderId) {
         
-        this.id = id;
+        this.orderId = orderId;
         return this;
     }
 
      /**
      * Order ID
-     * @return id
+     * @return orderId
     **/
-    @javax.annotation.Nullable
-    public String getId() {
-        return id;
+    public String getOrderId() {
+        return orderId;
     }
 
 
-    public void setId(String id) {
-        this.id = id;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public CrossexConvertOrderResponse text(String text) {
+        
+        this.text = text;
+        return this;
+    }
+
+     /**
+     * Order ID (cannot be customized)
+     * @return text
+    **/
+    public String getText() {
+        return text;
+    }
+
+
+    public void setText(String text) {
+        this.text = text;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,21 +77,23 @@ public class UidPushWithdrawalResp {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UidPushWithdrawalResp uidPushWithdrawalResp = (UidPushWithdrawalResp) o;
-        return Objects.equals(this.id, uidPushWithdrawalResp.id);
+        CrossexConvertOrderResponse crossexConvertOrderResponse = (CrossexConvertOrderResponse) o;
+        return Objects.equals(this.orderId, crossexConvertOrderResponse.orderId) &&
+                Objects.equals(this.text, crossexConvertOrderResponse.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(orderId, text);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UidPushWithdrawalResp {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("class CrossexConvertOrderResponse {\n");
+        sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

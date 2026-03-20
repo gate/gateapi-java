@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Redirect Link
+ * Help Center Link
  */
-public class InlineResponse2006DataJumpUrl {
+public class InlineResponse2007DataHelpUrl {
     public static final String SERIALIZED_NAME_WEB = "web";
     @SerializedName(SERIALIZED_NAME_WEB)
     private String web;
@@ -31,19 +31,15 @@ public class InlineResponse2006DataJumpUrl {
     @SerializedName(SERIALIZED_NAME_APP)
     private String app;
 
-    public static final String SERIALIZED_NAME_MINI_APP = "mini_app";
-    @SerializedName(SERIALIZED_NAME_MINI_APP)
-    private String miniApp;
 
-
-    public InlineResponse2006DataJumpUrl web(String web) {
+    public InlineResponse2007DataHelpUrl web(String web) {
         
         this.web = web;
         return this;
     }
 
      /**
-     * Web Redirect Link
+     * Web Help Link
      * @return web
     **/
     @javax.annotation.Nullable
@@ -56,14 +52,14 @@ public class InlineResponse2006DataJumpUrl {
         this.web = web;
     }
 
-    public InlineResponse2006DataJumpUrl app(String app) {
+    public InlineResponse2007DataHelpUrl app(String app) {
         
         this.app = app;
         return this;
     }
 
      /**
-     * App Redirect Link
+     * App Help Link
      * @return app
     **/
     @javax.annotation.Nullable
@@ -75,26 +71,6 @@ public class InlineResponse2006DataJumpUrl {
     public void setApp(String app) {
         this.app = app;
     }
-
-    public InlineResponse2006DataJumpUrl miniApp(String miniApp) {
-        
-        this.miniApp = miniApp;
-        return this;
-    }
-
-     /**
-     * Mini Program Redirect Link (empty string for most types)
-     * @return miniApp
-    **/
-    @javax.annotation.Nullable
-    public String getMiniApp() {
-        return miniApp;
-    }
-
-
-    public void setMiniApp(String miniApp) {
-        this.miniApp = miniApp;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -103,25 +79,23 @@ public class InlineResponse2006DataJumpUrl {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2006DataJumpUrl inlineResponse2006DataJumpUrl = (InlineResponse2006DataJumpUrl) o;
-        return Objects.equals(this.web, inlineResponse2006DataJumpUrl.web) &&
-                Objects.equals(this.app, inlineResponse2006DataJumpUrl.app) &&
-                Objects.equals(this.miniApp, inlineResponse2006DataJumpUrl.miniApp);
+        InlineResponse2007DataHelpUrl inlineResponse2007DataHelpUrl = (InlineResponse2007DataHelpUrl) o;
+        return Objects.equals(this.web, inlineResponse2007DataHelpUrl.web) &&
+                Objects.equals(this.app, inlineResponse2007DataHelpUrl.app);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(web, app, miniApp);
+        return Objects.hash(web, app);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2006DataJumpUrl {\n");
+        sb.append("class InlineResponse2007DataHelpUrl {\n");
         sb.append("      web: ").append(toIndentedString(web)).append("\n");
         sb.append("      app: ").append(toIndentedString(app)).append("\n");
-        sb.append("      miniApp: ").append(toIndentedString(miniApp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -17,28 +17,28 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse2009DataLive;
-import io.gate.gateapi.models.InlineResponse2009DataVideo;
+import io.gate.gateapi.models.InlineResponse20010DataLive;
+import io.gate.gateapi.models.InlineResponse20010DataVideo;
 import java.io.IOException;
 
 /**
- * InlineResponse2009DataList
+ * InlineResponse20010DataList
  */
-public class InlineResponse2009DataList {
+public class InlineResponse20010DataList {
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
     private String contentType;
 
     public static final String SERIALIZED_NAME_LIVE = "live";
     @SerializedName(SERIALIZED_NAME_LIVE)
-    private InlineResponse2009DataLive live;
+    private InlineResponse20010DataLive live;
 
     public static final String SERIALIZED_NAME_VIDEO = "video";
     @SerializedName(SERIALIZED_NAME_VIDEO)
-    private InlineResponse2009DataVideo video;
+    private InlineResponse20010DataVideo video;
 
 
-    public InlineResponse2009DataList contentType(String contentType) {
+    public InlineResponse20010DataList contentType(String contentType) {
         
         this.contentType = contentType;
         return this;
@@ -58,7 +58,7 @@ public class InlineResponse2009DataList {
         this.contentType = contentType;
     }
 
-    public InlineResponse2009DataList live(InlineResponse2009DataLive live) {
+    public InlineResponse20010DataList live(InlineResponse20010DataLive live) {
         
         this.live = live;
         return this;
@@ -69,16 +69,16 @@ public class InlineResponse2009DataList {
      * @return live
     **/
     @javax.annotation.Nullable
-    public InlineResponse2009DataLive getLive() {
+    public InlineResponse20010DataLive getLive() {
         return live;
     }
 
 
-    public void setLive(InlineResponse2009DataLive live) {
+    public void setLive(InlineResponse20010DataLive live) {
         this.live = live;
     }
 
-    public InlineResponse2009DataList video(InlineResponse2009DataVideo video) {
+    public InlineResponse20010DataList video(InlineResponse20010DataVideo video) {
         
         this.video = video;
         return this;
@@ -89,12 +89,12 @@ public class InlineResponse2009DataList {
      * @return video
     **/
     @javax.annotation.Nullable
-    public InlineResponse2009DataVideo getVideo() {
+    public InlineResponse20010DataVideo getVideo() {
         return video;
     }
 
 
-    public void setVideo(InlineResponse2009DataVideo video) {
+    public void setVideo(InlineResponse20010DataVideo video) {
         this.video = video;
     }
     @Override
@@ -105,10 +105,10 @@ public class InlineResponse2009DataList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InlineResponse2009DataList inlineResponse2009DataList = (InlineResponse2009DataList) o;
-        return Objects.equals(this.contentType, inlineResponse2009DataList.contentType) &&
-                Objects.equals(this.live, inlineResponse2009DataList.live) &&
-                Objects.equals(this.video, inlineResponse2009DataList.video);
+        InlineResponse20010DataList inlineResponse20010DataList = (InlineResponse20010DataList) o;
+        return Objects.equals(this.contentType, inlineResponse20010DataList.contentType) &&
+                Objects.equals(this.live, inlineResponse20010DataList.live) &&
+                Objects.equals(this.video, inlineResponse20010DataList.video);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class InlineResponse2009DataList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InlineResponse2009DataList {\n");
+        sb.append("class InlineResponse20010DataList {\n");
         sb.append("      contentType: ").append(toIndentedString(contentType)).append("\n");
         sb.append("      live: ").append(toIndentedString(live)).append("\n");
         sb.append("      video: ").append(toIndentedString(video)).append("\n");
