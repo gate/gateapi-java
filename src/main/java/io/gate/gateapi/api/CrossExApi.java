@@ -49,7 +49,7 @@ import io.gate.gateapi.models.CrossexTransferCoin;
 import io.gate.gateapi.models.CrossexTransferRecord;
 import io.gate.gateapi.models.CrossexTransferRequest;
 import io.gate.gateapi.models.CrossexTransferResponse;
-import io.gate.gateapi.models.InlineResponse2006;
+import io.gate.gateapi.models.InlineResponse200;
 import io.gate.gateapi.models.Symbol;
 
 import java.lang.reflect.Type;
@@ -2472,7 +2472,7 @@ public class CrossExApi {
     /**
      * Query User Fee Rates
      * Rate Limit: 200 requests per 10 seconds
-     * @return List&lt;InlineResponse2006&gt;
+     * @return List&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2480,15 +2480,15 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public List<InlineResponse2006> getCrossexFee() throws ApiException {
-        ApiResponse<List<InlineResponse2006>> localVarResp = getCrossexFeeWithHttpInfo();
+    public List<InlineResponse200> getCrossexFee() throws ApiException {
+        ApiResponse<List<InlineResponse200>> localVarResp = getCrossexFeeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Query User Fee Rates
      * Rate Limit: 200 requests per 10 seconds
-     * @return ApiResponse&lt;List&lt;InlineResponse2006&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InlineResponse200&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2496,9 +2496,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<InlineResponse2006>> getCrossexFeeWithHttpInfo() throws ApiException {
+    public ApiResponse<List<InlineResponse200>> getCrossexFeeWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getCrossexFeeValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<InlineResponse2006>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse200>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2514,9 +2514,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCrossexFeeAsync(final ApiCallback<List<InlineResponse2006>> _callback) throws ApiException {
+    public okhttp3.Call getCrossexFeeAsync(final ApiCallback<List<InlineResponse200>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getCrossexFeeValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<InlineResponse2006>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<InlineResponse200>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

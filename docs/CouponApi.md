@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="listUserCoupons"></a>
 # **listUserCoupons**
-> InlineResponse2007 listUserCoupons().expired(expired).limit(limit).lastId(lastId).expireTime(expireTime).orderBy(orderBy).type(type).isTaskCoupon(isTaskCoupon).execute();
+> ListUserCouponsResponse listUserCoupons().expired(expired).limit(limit).lastId(lastId).expireTime(expireTime).orderBy(orderBy).type(type).isTaskCoupon(isTaskCoupon).execute();
 
 Coupon Center list
 
@@ -45,7 +45,7 @@ public class Example {
         String type = "type_example"; // String | Coupon type filter. If not specified, all supported types are returned. Available values: `position_voucher` (position voucher), `tradfi_position_voucher` (TradFi position voucher), `contract_bonus` (futures bonus), `contract_bonus_new` (futures trial coupon), `commission_rebate` (commission rebate coupon), `hold_bonus` (earn trial bonus), `point` (point card), `financial_rate` (interest rate boost coupon), `robot_bonus` (trading bot bonus), `loss_protection_copier` (copy trading loss protection), `vip_card` (VIP trial card), `interest_voucher` (margin interest discount coupon), `p2p` (P2P trading deduction coupon), `cash` (cash coupon), `crypto_loan_interest` (crypto loan interest discount coupon), `copy_trading` (copy trading bonus), `alpha_voucher` (Alpha cash coupon), `etf_voucher` (ETF trial bonus)
         Integer isTaskCoupon = 56; // Integer | Task Coupon Filter. `0` = Return only regular coupons; `1` = Return only task coupons; Omit to return both
         try {
-            InlineResponse2007 result = apiInstance.listUserCoupons()
+            ListUserCouponsResponse result = apiInstance.listUserCoupons()
                         .expired(expired)
                         .limit(limit)
                         .lastId(lastId)
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**ListUserCouponsResponse**](ListUserCouponsResponse.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserCouponDetail"></a>
 # **getUserCouponDetail**
-> InlineResponse2008 getUserCouponDetail(couponType, detailId).isTaskCoupon(isTaskCoupon).execute();
+> GetUserCouponDetailResponse getUserCouponDetail(couponType, detailId).isTaskCoupon(isTaskCoupon).execute();
 
 Coupon Center details
 
@@ -131,7 +131,7 @@ public class Example {
         Integer detailId = 56; // Integer | Coupon ID. **Regular coupon**: pass `details_id` from the list (primary key of each type's user coupon table); **Task coupon**: pass `id` from the list (primary key of the distribution record table)
         Integer isTaskCoupon = 0; // Integer | Coupon source type. `0` = regular coupon (default); `1` = task coupon. This parameter determines the query logic for `detail_id`
         try {
-            InlineResponse2008 result = apiInstance.getUserCouponDetail(couponType, detailId)
+            GetUserCouponDetailResponse result = apiInstance.getUserCouponDetail(couponType, detailId)
                         .isTaskCoupon(isTaskCoupon)
                         .execute();
             System.out.println(result);
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**GetUserCouponDetailResponse**](GetUserCouponDetailResponse.md)
 
 ### Authorization
 

@@ -20,9 +20,10 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.InlineResponse20010;
-import io.gate.gateapi.models.InlineResponse2009;
-import io.gate.gateapi.models.InlineResponse400;
+import io.gate.gateapi.models.ListLiveReplayError;
+import io.gate.gateapi.models.ListLiveReplayResponse;
+import io.gate.gateapi.models.ListSquareAiSearchError;
+import io.gate.gateapi.models.ListSquareAiSearchResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -109,15 +110,15 @@ public class SquareApi {
     }
 
 
-    private ApiResponse<InlineResponse2009> listSquareAiSearchWithHttpInfo(String keyword, String currency, Integer timeRange, Integer sort, Integer limit, Integer page) throws ApiException {
+    private ApiResponse<ListSquareAiSearchResponse> listSquareAiSearchWithHttpInfo(String keyword, String currency, Integer timeRange, Integer sort, Integer limit, Integer page) throws ApiException {
         okhttp3.Call localVarCall = listSquareAiSearchValidateBeforeCall(keyword, currency, timeRange, sort, limit, page, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListSquareAiSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listSquareAiSearchAsync(String keyword, String currency, Integer timeRange, Integer sort, Integer limit, Integer page, final ApiCallback<InlineResponse2009> _callback) throws ApiException {
+    private okhttp3.Call listSquareAiSearchAsync(String keyword, String currency, Integer timeRange, Integer sort, Integer limit, Integer page, final ApiCallback<ListSquareAiSearchResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listSquareAiSearchValidateBeforeCall(keyword, currency, timeRange, sort, limit, page, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListSquareAiSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -211,7 +212,7 @@ public class SquareApi {
 
         /**
          * Execute listSquareAiSearch request
-         * @return InlineResponse2009
+         * @return ListSquareAiSearchResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -220,14 +221,14 @@ public class SquareApi {
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2009 execute() throws ApiException {
-            ApiResponse<InlineResponse2009> localVarResp = listSquareAiSearchWithHttpInfo(keyword, currency, timeRange, sort, limit, page);
+        public ListSquareAiSearchResponse execute() throws ApiException {
+            ApiResponse<ListSquareAiSearchResponse> localVarResp = listSquareAiSearchWithHttpInfo(keyword, currency, timeRange, sort, limit, page);
             return localVarResp.getData();
         }
 
         /**
          * Execute listSquareAiSearch request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2009&gt;
+         * @return ApiResponse&lt;ListSquareAiSearchResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -236,7 +237,7 @@ public class SquareApi {
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2009> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListSquareAiSearchResponse> executeWithHttpInfo() throws ApiException {
             return listSquareAiSearchWithHttpInfo(keyword, currency, timeRange, sort, limit, page);
         }
 
@@ -252,7 +253,7 @@ public class SquareApi {
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2009> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListSquareAiSearchResponse> _callback) throws ApiException {
             return listSquareAiSearchAsync(keyword, currency, timeRange, sort, limit, page, _callback);
         }
     }
@@ -324,15 +325,15 @@ public class SquareApi {
     }
 
 
-    private ApiResponse<InlineResponse20010> listLiveReplayWithHttpInfo(String tag, String coin, String sort, Integer limit) throws ApiException {
+    private ApiResponse<ListLiveReplayResponse> listLiveReplayWithHttpInfo(String tag, String coin, String sort, Integer limit) throws ApiException {
         okhttp3.Call localVarCall = listLiveReplayValidateBeforeCall(tag, coin, sort, limit, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListLiveReplayResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listLiveReplayAsync(String tag, String coin, String sort, Integer limit, final ApiCallback<InlineResponse20010> _callback) throws ApiException {
+    private okhttp3.Call listLiveReplayAsync(String tag, String coin, String sort, Integer limit, final ApiCallback<ListLiveReplayResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listLiveReplayValidateBeforeCall(tag, coin, sort, limit, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListLiveReplayResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -404,7 +405,7 @@ public class SquareApi {
 
         /**
          * Execute listLiveReplay request
-         * @return InlineResponse20010
+         * @return ListLiveReplayResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -413,14 +414,14 @@ public class SquareApi {
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse20010 execute() throws ApiException {
-            ApiResponse<InlineResponse20010> localVarResp = listLiveReplayWithHttpInfo(tag, coin, sort, limit);
+        public ListLiveReplayResponse execute() throws ApiException {
+            ApiResponse<ListLiveReplayResponse> localVarResp = listLiveReplayWithHttpInfo(tag, coin, sort, limit);
             return localVarResp.getData();
         }
 
         /**
          * Execute listLiveReplay request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse20010&gt;
+         * @return ApiResponse&lt;ListLiveReplayResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -429,7 +430,7 @@ public class SquareApi {
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse20010> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListLiveReplayResponse> executeWithHttpInfo() throws ApiException {
             return listLiveReplayWithHttpInfo(tag, coin, sort, limit);
         }
 
@@ -445,7 +446,7 @@ public class SquareApi {
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse20010> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListLiveReplayResponse> _callback) throws ApiException {
             return listLiveReplayAsync(tag, coin, sort, limit, _callback);
         }
     }

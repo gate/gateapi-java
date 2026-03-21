@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | Return code, 0 means success | 
-**message** | **String** | Response message | 
-**data** | [**InlineResponse200Data**](InlineResponse200Data.md) |  | 
-**timestamp** | **Integer** | Response timestamp (in seconds) | 
+**exchangeType** | **String** | Exchange |  [optional]
+**spotMakerFee** | **String** | spotMakerfee rate | 
+**spotTakerFee** | **String** | spotTakerfee rate | 
+**futureMakerFee** | **String** | contractMakerfee rate | 
+**futureTakerFee** | **String** | contractTakerfee rate | 
+**specialFeeList** | [**List&lt;CrossexSpecialFee&gt;**](CrossexSpecialFee.md) |  | 
 

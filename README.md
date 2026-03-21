@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.45
-- SDK version: 7.2.45
+- API version: v4.106.46
+- SDK version: 7.2.46
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.45</version>
+    <version>7.2.46</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.45"
+compile "io.gate:gate-api:7.2.46"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.45.jar`
+* `target/gate-api-7.2.46.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -105,7 +105,7 @@ import io.gate.gateapi.Configuration;
 import io.gate.gateapi.GateApiException;
 import io.gate.gateapi.auth.*;
 import io.gate.gateapi.models.*;
-import io.gate.gateapi.api.DefaultApi;
+import io.gate.gateapi.api.AccountApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -115,15 +115,15 @@ public class Example {
         // Configure APIv4 authorization: apiv4
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        AccountApi apiInstance = new AccountApi(defaultClient);
         try {
-            InlineResponse20012 result = apiInstance.getMyActivityEntry();
+            AccountDetail result = apiInstance.getAccountDetail();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
             e.printStackTrace();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getMyActivityEntry");
+            System.err.println("Exception when calling AccountApi#getAccountDetail");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
@@ -140,9 +140,6 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**getMyActivityEntry**](docs/DefaultApi.md#getMyActivityEntry) | **GET** /rewards/activity/my-activity-entry | My activity entry
-*DefaultApi* | [**listActivities**](docs/DefaultApi.md#listActivities) | **GET** /rewards/activity/activity-list | Recommended activity list
-*DefaultApi* | [**listActivityTypes**](docs/DefaultApi.md#listActivityTypes) | **GET** /rewards/activity/activity-type | Activity type list
 *AccountApi* | [**getAccountDetail**](docs/AccountApi.md#getAccountDetail) | **GET** /account/detail | Retrieve user account information
 *AccountApi* | [**getAccountMainKeys**](docs/AccountApi.md#getAccountMainKeys) | **GET** /account/main_keys | Query All Main Account Key Information
 *AccountApi* | [**getAccountRateLimit**](docs/AccountApi.md#getAccountRateLimit) | **GET** /account/rate_limit | Get user transaction rate limit information
@@ -153,6 +150,9 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**deleteSTPGroupUsers**](docs/AccountApi.md#deleteSTPGroupUsers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete users from the STP user group
 *AccountApi* | [**getDebitFee**](docs/AccountApi.md#getDebitFee) | **GET** /account/debit_fee | Query GT fee deduction configuration
 *AccountApi* | [**setDebitFee**](docs/AccountApi.md#setDebitFee) | **POST** /account/debit_fee | Configure GT fee deduction
+*ActivityApi* | [**getMyActivityEntry**](docs/ActivityApi.md#getMyActivityEntry) | **GET** /rewards/activity/my-activity-entry | My activity entry
+*ActivityApi* | [**listActivities**](docs/ActivityApi.md#listActivities) | **GET** /rewards/activity/activity-list | Recommended activity list
+*ActivityApi* | [**listActivityTypes**](docs/ActivityApi.md#listActivityTypes) | **GET** /rewards/activity/activity-type | Activity type list
 *AlphaApi* | [**listAlphaAccounts**](docs/AlphaApi.md#listAlphaAccounts) | **GET** /alpha/accounts | Alpha Account API
 *AlphaApi* | [**listAlphaAccountBook**](docs/AlphaApi.md#listAlphaAccountBook) | **GET** /alpha/account_book | Alpha Account Transaction History API
 *AlphaApi* | [**quoteAlphaOrder**](docs/AlphaApi.md#quoteAlphaOrder) | **POST** /alpha/quote | Alpha Quote API
@@ -614,6 +614,9 @@ Class | Method | HTTP request | Description
  - [CountdownCancelAllFuturesTask](docs/CountdownCancelAllFuturesTask.md)
  - [CountdownCancelAllOptionsTask](docs/CountdownCancelAllOptionsTask.md)
  - [CountdownCancelAllSpotTask](docs/CountdownCancelAllSpotTask.md)
+ - [CreateEarnFixedTermLendResponse](docs/CreateEarnFixedTermLendResponse.md)
+ - [CreateEarnFixedTermLendResponseData](docs/CreateEarnFixedTermLendResponseData.md)
+ - [CreateEarnFixedTermPreRedeemResponse](docs/CreateEarnFixedTermPreRedeemResponse.md)
  - [CreateMultiCollateralOrder](docs/CreateMultiCollateralOrder.md)
  - [CreateOrder](docs/CreateOrder.md)
  - [CreateOrderData](docs/CreateOrderData.md)
@@ -688,6 +691,7 @@ Class | Method | HTTP request | Description
  - [DualGetBalance](docs/DualGetBalance.md)
  - [DualGetOrders](docs/DualGetOrders.md)
  - [DualGetPlans](docs/DualGetPlans.md)
+ - [EarnFixedTermPreRedeemRequest](docs/EarnFixedTermPreRedeemRequest.md)
  - [Eligibility](docs/Eligibility.md)
  - [EligibilityResponse](docs/EligibilityResponse.md)
  - [EligibilityResponseAllOf](docs/EligibilityResponseAllOf.md)
@@ -759,53 +763,20 @@ Class | Method | HTTP request | Description
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [FuturesUpdatePriceTriggeredOrder](docs/FuturesUpdatePriceTriggeredOrder.md)
+ - [GetBeginnerTaskListError](docs/GetBeginnerTaskListError.md)
  - [GetChatsListRequest](docs/GetChatsListRequest.md)
  - [GetCompletedTransactionListRequest](docs/GetCompletedTransactionListRequest.md)
  - [GetCounterpartyUserInfoRequest](docs/GetCounterpartyUserInfoRequest.md)
+ - [GetMyActivityEntryResponse](docs/GetMyActivityEntryResponse.md)
+ - [GetMyActivityEntryResponseData](docs/GetMyActivityEntryResponseData.md)
  - [GetMyselfPaymentRequest](docs/GetMyselfPaymentRequest.md)
  - [GetPendingTransactionListRequest](docs/GetPendingTransactionListRequest.md)
  - [GetTransactionDetailsRequest](docs/GetTransactionDetailsRequest.md)
+ - [GetUserCouponDetailResponse](docs/GetUserCouponDetailResponse.md)
+ - [GetUserCouponDetailResponseData](docs/GetUserCouponDetailResponseData.md)
+ - [GetUserIdentityError](docs/GetUserIdentityError.md)
  - [IndexConstituent](docs/IndexConstituent.md)
- - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse20010](docs/InlineResponse20010.md)
- - [InlineResponse20010Data](docs/InlineResponse20010Data.md)
- - [InlineResponse20010DataList](docs/InlineResponse20010DataList.md)
- - [InlineResponse20010DataLive](docs/InlineResponse20010DataLive.md)
- - [InlineResponse20010DataLiveHost](docs/InlineResponse20010DataLiveHost.md)
- - [InlineResponse20010DataVideo](docs/InlineResponse20010DataVideo.md)
- - [InlineResponse20011](docs/InlineResponse20011.md)
- - [InlineResponse20012](docs/InlineResponse20012.md)
- - [InlineResponse20012Data](docs/InlineResponse20012Data.md)
- - [InlineResponse20013](docs/InlineResponse20013.md)
- - [InlineResponse20013Data](docs/InlineResponse20013Data.md)
- - [InlineResponse20013DataList](docs/InlineResponse20013DataList.md)
- - [InlineResponse20014](docs/InlineResponse20014.md)
- - [InlineResponse20014Data](docs/InlineResponse20014Data.md)
- - [InlineResponse20014DataList](docs/InlineResponse20014DataList.md)
- - [InlineResponse2001Data](docs/InlineResponse2001Data.md)
- - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse2002Data](docs/InlineResponse2002Data.md)
- - [InlineResponse2003](docs/InlineResponse2003.md)
- - [InlineResponse2003Data](docs/InlineResponse2003Data.md)
- - [InlineResponse2004](docs/InlineResponse2004.md)
- - [InlineResponse2005](docs/InlineResponse2005.md)
- - [InlineResponse2005Data](docs/InlineResponse2005Data.md)
- - [InlineResponse2006](docs/InlineResponse2006.md)
- - [InlineResponse2007](docs/InlineResponse2007.md)
- - [InlineResponse2007Data](docs/InlineResponse2007Data.md)
- - [InlineResponse2007DataHelpUrl](docs/InlineResponse2007DataHelpUrl.md)
- - [InlineResponse2007DataJumpUrl](docs/InlineResponse2007DataJumpUrl.md)
- - [InlineResponse2007DataList](docs/InlineResponse2007DataList.md)
- - [InlineResponse2007DataProgressConfig](docs/InlineResponse2007DataProgressConfig.md)
- - [InlineResponse2008](docs/InlineResponse2008.md)
- - [InlineResponse2008Data](docs/InlineResponse2008Data.md)
- - [InlineResponse2009](docs/InlineResponse2009.md)
- - [InlineResponse2009Data](docs/InlineResponse2009Data.md)
- - [InlineResponse2009DataItems](docs/InlineResponse2009DataItems.md)
- - [InlineResponse200Data](docs/InlineResponse200Data.md)
- - [InlineResponse400](docs/InlineResponse400.md)
  - [InsuranceRecord](docs/InsuranceRecord.md)
  - [Klines](docs/Klines.md)
  - [KlinesData](docs/KlinesData.md)
@@ -819,6 +790,37 @@ Class | Method | HTTP request | Description
  - [LaunchPoolV4RewardRecord](docs/LaunchPoolV4RewardRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
+ - [ListActivitiesResponse](docs/ListActivitiesResponse.md)
+ - [ListActivitiesResponseData](docs/ListActivitiesResponseData.md)
+ - [ListActivitiesResponseDataList](docs/ListActivitiesResponseDataList.md)
+ - [ListActivityTypesResponse](docs/ListActivityTypesResponse.md)
+ - [ListActivityTypesResponseData](docs/ListActivityTypesResponseData.md)
+ - [ListActivityTypesResponseDataList](docs/ListActivityTypesResponseDataList.md)
+ - [ListEarnFixedTermHistoryResponse](docs/ListEarnFixedTermHistoryResponse.md)
+ - [ListEarnFixedTermHistoryResponseData](docs/ListEarnFixedTermHistoryResponseData.md)
+ - [ListEarnFixedTermLendsResponse](docs/ListEarnFixedTermLendsResponse.md)
+ - [ListEarnFixedTermLendsResponseData](docs/ListEarnFixedTermLendsResponseData.md)
+ - [ListEarnFixedTermProductsByAssetResponse](docs/ListEarnFixedTermProductsByAssetResponse.md)
+ - [ListEarnFixedTermProductsByAssetResponseData](docs/ListEarnFixedTermProductsByAssetResponseData.md)
+ - [ListEarnFixedTermProductsResponse](docs/ListEarnFixedTermProductsResponse.md)
+ - [ListEarnFixedTermProductsResponseData](docs/ListEarnFixedTermProductsResponseData.md)
+ - [ListLiveReplayError](docs/ListLiveReplayError.md)
+ - [ListLiveReplayResponse](docs/ListLiveReplayResponse.md)
+ - [ListLiveReplayResponseData](docs/ListLiveReplayResponseData.md)
+ - [ListLiveReplayResponseDataList](docs/ListLiveReplayResponseDataList.md)
+ - [ListLiveReplayResponseDataLive](docs/ListLiveReplayResponseDataLive.md)
+ - [ListLiveReplayResponseDataLiveHost](docs/ListLiveReplayResponseDataLiveHost.md)
+ - [ListLiveReplayResponseDataVideo](docs/ListLiveReplayResponseDataVideo.md)
+ - [ListSquareAiSearchError](docs/ListSquareAiSearchError.md)
+ - [ListSquareAiSearchResponse](docs/ListSquareAiSearchResponse.md)
+ - [ListSquareAiSearchResponseData](docs/ListSquareAiSearchResponseData.md)
+ - [ListSquareAiSearchResponseDataItems](docs/ListSquareAiSearchResponseDataItems.md)
+ - [ListUserCouponsResponse](docs/ListUserCouponsResponse.md)
+ - [ListUserCouponsResponseData](docs/ListUserCouponsResponseData.md)
+ - [ListUserCouponsResponseDataHelpUrl](docs/ListUserCouponsResponseDataHelpUrl.md)
+ - [ListUserCouponsResponseDataJumpUrl](docs/ListUserCouponsResponseDataJumpUrl.md)
+ - [ListUserCouponsResponseDataList](docs/ListUserCouponsResponseDataList.md)
+ - [ListUserCouponsResponseDataProgressConfig](docs/ListUserCouponsResponseDataProgressConfig.md)
  - [MarginAccount](docs/MarginAccount.md)
  - [MarginAccountBook](docs/MarginAccountBook.md)
  - [MarginAccountCurrency](docs/MarginAccountCurrency.md)
@@ -969,6 +971,7 @@ Class | Method | HTTP request | Description
  - [QuoteRequest](docs/QuoteRequest.md)
  - [QuoteResponse](docs/QuoteResponse.md)
  - [RebateUserInfo](docs/RebateUserInfo.md)
+ - [RedeemLaunchPoolResponse](docs/RedeemLaunchPoolResponse.md)
  - [RedeemV4](docs/RedeemV4.md)
  - [RepayCurrencyRes](docs/RepayCurrencyRes.md)
  - [RepayMultiLoan](docs/RepayMultiLoan.md)
@@ -1043,7 +1046,6 @@ Class | Method | HTTP request | Description
  - [TransferOrderStatus](docs/TransferOrderStatus.md)
  - [TransferablesResult](docs/TransferablesResult.md)
  - [TriggerOrderResponse](docs/TriggerOrderResponse.md)
- - [TriggerOrderResponse1](docs/TriggerOrderResponse1.md)
  - [TriggerTime](docs/TriggerTime.md)
  - [UidPushOrder](docs/UidPushOrder.md)
  - [UidPushWithdrawal](docs/UidPushWithdrawal.md)

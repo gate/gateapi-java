@@ -1019,7 +1019,7 @@ Name | Type | Description  | Notes
 
 <a name="listEarnFixedTermProducts"></a>
 # **listEarnFixedTermProducts**
-> InlineResponse200 listEarnFixedTermProducts(page, limit).asset(asset).type(type).execute();
+> ListEarnFixedTermProductsResponse listEarnFixedTermProducts(page, limit).asset(asset).type(type).execute();
 
 Get product list
 
@@ -1047,7 +1047,7 @@ public class Example {
         String asset = "USDT"; // String | Currency
         Integer type = 1; // Integer | Product type: 1 for regular, 2 for VIP
         try {
-            InlineResponse200 result = apiInstance.listEarnFixedTermProducts(page, limit)
+            ListEarnFixedTermProductsResponse result = apiInstance.listEarnFixedTermProducts(page, limit)
                         .asset(asset)
                         .type(type)
                         .execute();
@@ -1076,7 +1076,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**ListEarnFixedTermProductsResponse**](ListEarnFixedTermProductsResponse.md)
 
 ### Authorization
 
@@ -1094,7 +1094,7 @@ No authorization required
 
 <a name="listEarnFixedTermProductsByAsset"></a>
 # **listEarnFixedTermProductsByAsset**
-> InlineResponse2001 listEarnFixedTermProductsByAsset(asset).type(type).execute();
+> ListEarnFixedTermProductsByAssetResponse listEarnFixedTermProductsByAsset(asset).type(type).execute();
 
 Get product list by single currency
 
@@ -1120,7 +1120,7 @@ public class Example {
         String asset = "USDT"; // String | Currency name, e.g., USDT, BTC
         String type = "1"; // String | Product type: \"\" or 1 for regular product list, 2 for VIP product list, 0 for all products
         try {
-            InlineResponse2001 result = apiInstance.listEarnFixedTermProductsByAsset(asset)
+            ListEarnFixedTermProductsByAssetResponse result = apiInstance.listEarnFixedTermProductsByAsset(asset)
                         .type(type)
                         .execute();
             System.out.println(result);
@@ -1146,7 +1146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ListEarnFixedTermProductsByAssetResponse**](ListEarnFixedTermProductsByAssetResponse.md)
 
 ### Authorization
 
@@ -1164,7 +1164,7 @@ No authorization required
 
 <a name="listEarnFixedTermLends"></a>
 # **listEarnFixedTermLends**
-> InlineResponse2002 listEarnFixedTermLends(orderType, page, limit).productId(productId).orderId(orderId).asset(asset).subBusiness(subBusiness).businessFilter(businessFilter).execute();
+> ListEarnFixedTermLendsResponse listEarnFixedTermLends(orderType, page, limit).productId(productId).orderId(orderId).asset(asset).subBusiness(subBusiness).businessFilter(businessFilter).execute();
 
 Subscription list
 
@@ -1200,7 +1200,7 @@ public class Example {
         Integer subBusiness = 56; // Integer | Sub-business
         String businessFilter = "[{\"business\":1, \"sub_business\": 0},{\"business\":2, \"sub_business\": 0}]"; // String | Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP
         try {
-            InlineResponse2002 result = apiInstance.listEarnFixedTermLends(orderType, page, limit)
+            ListEarnFixedTermLendsResponse result = apiInstance.listEarnFixedTermLends(orderType, page, limit)
                         .productId(productId)
                         .orderId(orderId)
                         .asset(asset)
@@ -1236,7 +1236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**ListEarnFixedTermLendsResponse**](ListEarnFixedTermLendsResponse.md)
 
 ### Authorization
 
@@ -1254,7 +1254,7 @@ Name | Type | Description  | Notes
 
 <a name="createEarnFixedTermLend"></a>
 # **createEarnFixedTermLend**
-> InlineResponse2003 createEarnFixedTermLend(fixedTermLendRequest)
+> CreateEarnFixedTermLendResponse createEarnFixedTermLend(fixedTermLendRequest)
 
 Subscription
 
@@ -1283,7 +1283,7 @@ public class Example {
         EarnApi apiInstance = new EarnApi(defaultClient);
         FixedTermLendRequest fixedTermLendRequest = new FixedTermLendRequest(); // FixedTermLendRequest | 
         try {
-            InlineResponse2003 result = apiInstance.createEarnFixedTermLend(fixedTermLendRequest);
+            CreateEarnFixedTermLendResponse result = apiInstance.createEarnFixedTermLend(fixedTermLendRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1306,7 +1306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**CreateEarnFixedTermLendResponse**](CreateEarnFixedTermLendResponse.md)
 
 ### Authorization
 
@@ -1324,7 +1324,7 @@ Name | Type | Description  | Notes
 
 <a name="createEarnFixedTermPreRedeem"></a>
 # **createEarnFixedTermPreRedeem**
-> InlineResponse2004 createEarnFixedTermPreRedeem(inlineObject)
+> CreateEarnFixedTermPreRedeemResponse createEarnFixedTermPreRedeem(earnFixedTermPreRedeemRequest)
 
 Redeem
 
@@ -1351,9 +1351,9 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         EarnApi apiInstance = new EarnApi(defaultClient);
-        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        EarnFixedTermPreRedeemRequest earnFixedTermPreRedeemRequest = new EarnFixedTermPreRedeemRequest(); // EarnFixedTermPreRedeemRequest | 
         try {
-            InlineResponse2004 result = apiInstance.createEarnFixedTermPreRedeem(inlineObject);
+            CreateEarnFixedTermPreRedeemResponse result = apiInstance.createEarnFixedTermPreRedeem(earnFixedTermPreRedeemRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1372,11 +1372,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **earnFixedTermPreRedeemRequest** | [**EarnFixedTermPreRedeemRequest**](EarnFixedTermPreRedeemRequest.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**CreateEarnFixedTermPreRedeemResponse**](CreateEarnFixedTermPreRedeemResponse.md)
 
 ### Authorization
 
@@ -1394,7 +1394,7 @@ Name | Type | Description  | Notes
 
 <a name="listEarnFixedTermHistory"></a>
 # **listEarnFixedTermHistory**
-> InlineResponse2005 listEarnFixedTermHistory(type, page, limit).productId(productId).orderId(orderId).asset(asset).startAt(startAt).endAt(endAt).subBusiness(subBusiness).businessFilter(businessFilter).execute();
+> ListEarnFixedTermHistoryResponse listEarnFixedTermHistory(type, page, limit).productId(productId).orderId(orderId).asset(asset).startAt(startAt).endAt(endAt).subBusiness(subBusiness).businessFilter(businessFilter).execute();
 
 Subscription history
 
@@ -1432,7 +1432,7 @@ public class Example {
         Integer subBusiness = 56; // Integer | Sub-business
         String businessFilter = "[{\"business\":1, \"sub_business\": 0},{\"business\":2, \"sub_business\": 0}]"; // String | Business filter conditions, JSON array format, e.g., [{\"business\":1, \"sub_business\": 0}]. business: 1 for regular, 2 for VIP
         try {
-            InlineResponse2005 result = apiInstance.listEarnFixedTermHistory(type, page, limit)
+            ListEarnFixedTermHistoryResponse result = apiInstance.listEarnFixedTermHistory(type, page, limit)
                         .productId(productId)
                         .orderId(orderId)
                         .asset(asset)
@@ -1472,7 +1472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**ListEarnFixedTermHistoryResponse**](ListEarnFixedTermHistoryResponse.md)
 
 ### Authorization
 

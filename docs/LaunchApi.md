@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 <a name="redeemLaunchPool"></a>
 # **redeemLaunchPool**
-> InlineResponse20011 redeemLaunchPool(redeemV4)
+> RedeemLaunchPoolResponse redeemLaunchPool(redeemV4)
 
 Redeem LaunchPool staked assets
 
@@ -201,7 +201,7 @@ public class Example {
         LaunchApi apiInstance = new LaunchApi(defaultClient);
         RedeemV4 redeemV4 = new RedeemV4(); // RedeemV4 | 
         try {
-            InlineResponse20011 result = apiInstance.redeemLaunchPool(redeemV4);
+            RedeemLaunchPoolResponse result = apiInstance.redeemLaunchPool(redeemV4);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**RedeemLaunchPoolResponse**](RedeemLaunchPoolResponse.md)
 
 ### Authorization
 

@@ -113,7 +113,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/7.2.45/java");
+        setUserAgent("OpenAPI-Generator/7.2.46/java");
 
         // Set default X-Gate-Size-Decimal header for futures API
         addDefaultHeader("X-Gate-Size-Decimal", "1");

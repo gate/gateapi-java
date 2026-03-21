@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="listSquareAiSearch"></a>
 # **listSquareAiSearch**
-> InlineResponse2009 listSquareAiSearch().keyword(keyword).currency(currency).timeRange(timeRange).sort(sort).limit(limit).page(page).execute();
+> ListSquareAiSearchResponse listSquareAiSearch().keyword(keyword).currency(currency).timeRange(timeRange).sort(sort).limit(limit).page(page).execute();
 
 AI MCP Dynamic Search
 
@@ -40,7 +40,7 @@ public class Example {
         Integer limit = 10; // Integer | Return count, 1-50, default 10
         Integer page = 1; // Integer | Page number
         try {
-            InlineResponse2009 result = apiInstance.listSquareAiSearch()
+            ListSquareAiSearchResponse result = apiInstance.listSquareAiSearch()
                         .keyword(keyword)
                         .currency(currency)
                         .timeRange(timeRange)
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**ListSquareAiSearchResponse**](ListSquareAiSearchResponse.md)
 
 ### Authorization
 
@@ -94,7 +94,7 @@ No authorization required
 
 <a name="listLiveReplay"></a>
 # **listLiveReplay**
-> InlineResponse20010 listLiveReplay().tag(tag).coin(coin).sort(sort).limit(limit).execute();
+> ListLiveReplayResponse listLiveReplay().tag(tag).coin(coin).sort(sort).limit(limit).execute();
 
 Gate AI Assistant live stream data retrieval
 
@@ -122,7 +122,7 @@ public class Example {
         String sort = "hot"; // String | Sort order: hot = most popular (default), new = latest
         Integer limit = 3; // Integer | Return count, 1-10, default 3
         try {
-            InlineResponse20010 result = apiInstance.listLiveReplay()
+            ListLiveReplayResponse result = apiInstance.listLiveReplay()
                         .tag(tag)
                         .coin(coin)
                         .sort(sort)
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**ListLiveReplayResponse**](ListLiveReplayResponse.md)
 
 ### Authorization
 

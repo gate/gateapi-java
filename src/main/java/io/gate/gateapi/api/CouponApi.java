@@ -20,8 +20,8 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import io.gate.gateapi.models.InlineResponse2007;
-import io.gate.gateapi.models.InlineResponse2008;
+import io.gate.gateapi.models.GetUserCouponDetailResponse;
+import io.gate.gateapi.models.ListUserCouponsResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -112,15 +112,15 @@ public class CouponApi {
     }
 
 
-    private ApiResponse<InlineResponse2007> listUserCouponsWithHttpInfo(Integer expired, Integer limit, Integer lastId, Integer expireTime, String orderBy, String type, Integer isTaskCoupon) throws ApiException {
+    private ApiResponse<ListUserCouponsResponse> listUserCouponsWithHttpInfo(Integer expired, Integer limit, Integer lastId, Integer expireTime, String orderBy, String type, Integer isTaskCoupon) throws ApiException {
         okhttp3.Call localVarCall = listUserCouponsValidateBeforeCall(expired, limit, lastId, expireTime, orderBy, type, isTaskCoupon, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListUserCouponsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listUserCouponsAsync(Integer expired, Integer limit, Integer lastId, Integer expireTime, String orderBy, String type, Integer isTaskCoupon, final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+    private okhttp3.Call listUserCouponsAsync(Integer expired, Integer limit, Integer lastId, Integer expireTime, String orderBy, String type, Integer isTaskCoupon, final ApiCallback<ListUserCouponsResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listUserCouponsValidateBeforeCall(expired, limit, lastId, expireTime, orderBy, type, isTaskCoupon, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListUserCouponsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -224,7 +224,7 @@ public class CouponApi {
 
         /**
          * Execute listUserCoupons request
-         * @return InlineResponse2007
+         * @return ListUserCouponsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -232,14 +232,14 @@ public class CouponApi {
             <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2007 execute() throws ApiException {
-            ApiResponse<InlineResponse2007> localVarResp = listUserCouponsWithHttpInfo(expired, limit, lastId, expireTime, orderBy, type, isTaskCoupon);
+        public ListUserCouponsResponse execute() throws ApiException {
+            ApiResponse<ListUserCouponsResponse> localVarResp = listUserCouponsWithHttpInfo(expired, limit, lastId, expireTime, orderBy, type, isTaskCoupon);
             return localVarResp.getData();
         }
 
         /**
          * Execute listUserCoupons request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2007&gt;
+         * @return ApiResponse&lt;ListUserCouponsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -247,7 +247,7 @@ public class CouponApi {
             <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2007> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListUserCouponsResponse> executeWithHttpInfo() throws ApiException {
             return listUserCouponsWithHttpInfo(expired, limit, lastId, expireTime, orderBy, type, isTaskCoupon);
         }
 
@@ -262,7 +262,7 @@ public class CouponApi {
             <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2007> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListUserCouponsResponse> _callback) throws ApiException {
             return listUserCouponsAsync(expired, limit, lastId, expireTime, orderBy, type, isTaskCoupon, _callback);
         }
     }
@@ -339,15 +339,15 @@ public class CouponApi {
     }
 
 
-    private ApiResponse<InlineResponse2008> getUserCouponDetailWithHttpInfo(String couponType, Integer detailId, Integer isTaskCoupon) throws ApiException {
+    private ApiResponse<GetUserCouponDetailResponse> getUserCouponDetailWithHttpInfo(String couponType, Integer detailId, Integer isTaskCoupon) throws ApiException {
         okhttp3.Call localVarCall = getUserCouponDetailValidateBeforeCall(couponType, detailId, isTaskCoupon, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserCouponDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserCouponDetailAsync(String couponType, Integer detailId, Integer isTaskCoupon, final ApiCallback<InlineResponse2008> _callback) throws ApiException {
+    private okhttp3.Call getUserCouponDetailAsync(String couponType, Integer detailId, Integer isTaskCoupon, final ApiCallback<GetUserCouponDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = getUserCouponDetailValidateBeforeCall(couponType, detailId, isTaskCoupon, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserCouponDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -389,7 +389,7 @@ public class CouponApi {
 
         /**
          * Execute getUserCouponDetail request
-         * @return InlineResponse2008
+         * @return GetUserCouponDetailResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -397,14 +397,14 @@ public class CouponApi {
             <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2008 execute() throws ApiException {
-            ApiResponse<InlineResponse2008> localVarResp = getUserCouponDetailWithHttpInfo(couponType, detailId, isTaskCoupon);
+        public GetUserCouponDetailResponse execute() throws ApiException {
+            ApiResponse<GetUserCouponDetailResponse> localVarResp = getUserCouponDetailWithHttpInfo(couponType, detailId, isTaskCoupon);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUserCouponDetail request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2008&gt;
+         * @return ApiResponse&lt;GetUserCouponDetailResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -412,7 +412,7 @@ public class CouponApi {
             <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2008> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetUserCouponDetailResponse> executeWithHttpInfo() throws ApiException {
             return getUserCouponDetailWithHttpInfo(couponType, detailId, isTaskCoupon);
         }
 
@@ -427,7 +427,7 @@ public class CouponApi {
             <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2008> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserCouponDetailResponse> _callback) throws ApiException {
             return getUserCouponDetailAsync(couponType, detailId, isTaskCoupon, _callback);
         }
     }

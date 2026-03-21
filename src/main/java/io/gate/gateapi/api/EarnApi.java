@@ -21,20 +21,20 @@ import com.google.gson.reflect.TypeToken;
 
 
 import io.gate.gateapi.models.AwardListStruct;
+import io.gate.gateapi.models.CreateEarnFixedTermLendResponse;
+import io.gate.gateapi.models.CreateEarnFixedTermPreRedeemResponse;
 import io.gate.gateapi.models.DualGetBalance;
 import io.gate.gateapi.models.DualGetOrders;
 import io.gate.gateapi.models.DualGetPlans;
+import io.gate.gateapi.models.EarnFixedTermPreRedeemRequest;
 import io.gate.gateapi.models.Eth2RateList;
 import io.gate.gateapi.models.Eth2Swap;
 import io.gate.gateapi.models.FindCoin;
 import io.gate.gateapi.models.FixedTermLendRequest;
-import io.gate.gateapi.models.InlineObject;
-import io.gate.gateapi.models.InlineResponse200;
-import io.gate.gateapi.models.InlineResponse2001;
-import io.gate.gateapi.models.InlineResponse2002;
-import io.gate.gateapi.models.InlineResponse2003;
-import io.gate.gateapi.models.InlineResponse2004;
-import io.gate.gateapi.models.InlineResponse2005;
+import io.gate.gateapi.models.ListEarnFixedTermHistoryResponse;
+import io.gate.gateapi.models.ListEarnFixedTermLendsResponse;
+import io.gate.gateapi.models.ListEarnFixedTermProductsByAssetResponse;
+import io.gate.gateapi.models.ListEarnFixedTermProductsResponse;
 import io.gate.gateapi.models.OrderListStruct;
 import io.gate.gateapi.models.PlaceDualInvestmentOrder;
 import io.gate.gateapi.models.PlaceDualInvestmentOrderParams;
@@ -2062,15 +2062,15 @@ public class EarnApi {
     }
 
 
-    private ApiResponse<InlineResponse200> listEarnFixedTermProductsWithHttpInfo(Integer page, Integer limit, String asset, Integer type) throws ApiException {
+    private ApiResponse<ListEarnFixedTermProductsResponse> listEarnFixedTermProductsWithHttpInfo(Integer page, Integer limit, String asset, Integer type) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermProductsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listEarnFixedTermProductsAsync(Integer page, Integer limit, String asset, Integer type, final ApiCallback<InlineResponse200> _callback) throws ApiException {
+    private okhttp3.Call listEarnFixedTermProductsAsync(Integer page, Integer limit, String asset, Integer type, final ApiCallback<ListEarnFixedTermProductsResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermProductsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2123,7 +2123,7 @@ public class EarnApi {
 
         /**
          * Execute listEarnFixedTermProducts request
-         * @return InlineResponse200
+         * @return ListEarnFixedTermProductsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2131,14 +2131,14 @@ public class EarnApi {
             <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse200 execute() throws ApiException {
-            ApiResponse<InlineResponse200> localVarResp = listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
+        public ListEarnFixedTermProductsResponse execute() throws ApiException {
+            ApiResponse<ListEarnFixedTermProductsResponse> localVarResp = listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
             return localVarResp.getData();
         }
 
         /**
          * Execute listEarnFixedTermProducts request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse200&gt;
+         * @return ApiResponse&lt;ListEarnFixedTermProductsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2146,7 +2146,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse200> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListEarnFixedTermProductsResponse> executeWithHttpInfo() throws ApiException {
             return listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
         }
 
@@ -2161,7 +2161,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> Product list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse200> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListEarnFixedTermProductsResponse> _callback) throws ApiException {
             return listEarnFixedTermProductsAsync(page, limit, asset, type, _callback);
         }
     }
@@ -2228,15 +2228,15 @@ public class EarnApi {
     }
 
 
-    private ApiResponse<InlineResponse2001> listEarnFixedTermProductsByAssetWithHttpInfo(String asset, String type) throws ApiException {
+    private ApiResponse<ListEarnFixedTermProductsByAssetResponse> listEarnFixedTermProductsByAssetWithHttpInfo(String asset, String type) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermProductsByAssetValidateBeforeCall(asset, type, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermProductsByAssetResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listEarnFixedTermProductsByAssetAsync(String asset, String type, final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+    private okhttp3.Call listEarnFixedTermProductsByAssetAsync(String asset, String type, final ApiCallback<ListEarnFixedTermProductsByAssetResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermProductsByAssetValidateBeforeCall(asset, type, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermProductsByAssetResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2276,7 +2276,7 @@ public class EarnApi {
 
         /**
          * Execute listEarnFixedTermProductsByAsset request
-         * @return InlineResponse2001
+         * @return ListEarnFixedTermProductsByAssetResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2284,14 +2284,14 @@ public class EarnApi {
             <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2001 execute() throws ApiException {
-            ApiResponse<InlineResponse2001> localVarResp = listEarnFixedTermProductsByAssetWithHttpInfo(asset, type);
+        public ListEarnFixedTermProductsByAssetResponse execute() throws ApiException {
+            ApiResponse<ListEarnFixedTermProductsByAssetResponse> localVarResp = listEarnFixedTermProductsByAssetWithHttpInfo(asset, type);
             return localVarResp.getData();
         }
 
         /**
          * Execute listEarnFixedTermProductsByAsset request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2001&gt;
+         * @return ApiResponse&lt;ListEarnFixedTermProductsByAssetResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2299,7 +2299,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2001> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListEarnFixedTermProductsByAssetResponse> executeWithHttpInfo() throws ApiException {
             return listEarnFixedTermProductsByAssetWithHttpInfo(asset, type);
         }
 
@@ -2314,7 +2314,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> Single currency product list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2001> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListEarnFixedTermProductsByAssetResponse> _callback) throws ApiException {
             return listEarnFixedTermProductsByAssetAsync(asset, type, _callback);
         }
     }
@@ -2417,15 +2417,15 @@ public class EarnApi {
     }
 
 
-    private ApiResponse<InlineResponse2002> listEarnFixedTermLendsWithHttpInfo(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter) throws ApiException {
+    private ApiResponse<ListEarnFixedTermLendsResponse> listEarnFixedTermLendsWithHttpInfo(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermLendsValidateBeforeCall(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermLendsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listEarnFixedTermLendsAsync(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter, final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+    private okhttp3.Call listEarnFixedTermLendsAsync(String orderType, Integer page, Integer limit, Integer productId, Long orderId, String asset, Integer subBusiness, String businessFilter, final ApiCallback<ListEarnFixedTermLendsResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermLendsValidateBeforeCall(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermLendsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2513,7 +2513,7 @@ public class EarnApi {
 
         /**
          * Execute listEarnFixedTermLends request
-         * @return InlineResponse2002
+         * @return ListEarnFixedTermLendsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2521,14 +2521,14 @@ public class EarnApi {
             <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2002 execute() throws ApiException {
-            ApiResponse<InlineResponse2002> localVarResp = listEarnFixedTermLendsWithHttpInfo(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter);
+        public ListEarnFixedTermLendsResponse execute() throws ApiException {
+            ApiResponse<ListEarnFixedTermLendsResponse> localVarResp = listEarnFixedTermLendsWithHttpInfo(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter);
             return localVarResp.getData();
         }
 
         /**
          * Execute listEarnFixedTermLends request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2002&gt;
+         * @return ApiResponse&lt;ListEarnFixedTermLendsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2536,7 +2536,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2002> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListEarnFixedTermLendsResponse> executeWithHttpInfo() throws ApiException {
             return listEarnFixedTermLendsWithHttpInfo(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter);
         }
 
@@ -2551,7 +2551,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> Subscription order list retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2002> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListEarnFixedTermLendsResponse> _callback) throws ApiException {
             return listEarnFixedTermLendsAsync(orderType, page, limit, productId, orderId, asset, subBusiness, businessFilter, _callback);
         }
     }
@@ -2624,7 +2624,7 @@ public class EarnApi {
      * Subscription
      * Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon
      * @param fixedTermLendRequest  (optional)
-     * @return InlineResponse2003
+     * @return CreateEarnFixedTermLendResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2632,8 +2632,8 @@ public class EarnApi {
         <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2003 createEarnFixedTermLend(FixedTermLendRequest fixedTermLendRequest) throws ApiException {
-        ApiResponse<InlineResponse2003> localVarResp = createEarnFixedTermLendWithHttpInfo(fixedTermLendRequest);
+    public CreateEarnFixedTermLendResponse createEarnFixedTermLend(FixedTermLendRequest fixedTermLendRequest) throws ApiException {
+        ApiResponse<CreateEarnFixedTermLendResponse> localVarResp = createEarnFixedTermLendWithHttpInfo(fixedTermLendRequest);
         return localVarResp.getData();
     }
 
@@ -2641,7 +2641,7 @@ public class EarnApi {
      * Subscription
      * Subscribe to a fixed-term earn product by specifying the product ID and subscription amount. Optionally enable auto-renewal and apply an interest rate boost coupon
      * @param fixedTermLendRequest  (optional)
-     * @return ApiResponse&lt;InlineResponse2003&gt;
+     * @return ApiResponse&lt;CreateEarnFixedTermLendResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2649,9 +2649,9 @@ public class EarnApi {
         <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2003> createEarnFixedTermLendWithHttpInfo(FixedTermLendRequest fixedTermLendRequest) throws ApiException {
+    public ApiResponse<CreateEarnFixedTermLendResponse> createEarnFixedTermLendWithHttpInfo(FixedTermLendRequest fixedTermLendRequest) throws ApiException {
         okhttp3.Call localVarCall = createEarnFixedTermLendValidateBeforeCall(fixedTermLendRequest, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateEarnFixedTermLendResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2668,16 +2668,16 @@ public class EarnApi {
         <tr><td> 200 </td><td> Subscription successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEarnFixedTermLendAsync(FixedTermLendRequest fixedTermLendRequest, final ApiCallback<InlineResponse2003> _callback) throws ApiException {
+    public okhttp3.Call createEarnFixedTermLendAsync(FixedTermLendRequest fixedTermLendRequest, final ApiCallback<CreateEarnFixedTermLendResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createEarnFixedTermLendValidateBeforeCall(fixedTermLendRequest, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateEarnFixedTermLendResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
      * Build call for createEarnFixedTermPreRedeem
-     * @param inlineObject  (optional)
+     * @param earnFixedTermPreRedeemRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2687,8 +2687,8 @@ public class EarnApi {
         <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEarnFixedTermPreRedeemCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = inlineObject;
+    public okhttp3.Call createEarnFixedTermPreRedeemCall(EarnFixedTermPreRedeemRequest earnFixedTermPreRedeemRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = earnFixedTermPreRedeemRequest;
 
         // create path and map variables
         String localVarPath = "/earn/fixed-term/user/pre-redeem";
@@ -2717,16 +2717,16 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEarnFixedTermPreRedeemValidateBeforeCall(InlineObject inlineObject, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemCall(inlineObject, _callback);
+    private okhttp3.Call createEarnFixedTermPreRedeemValidateBeforeCall(EarnFixedTermPreRedeemRequest earnFixedTermPreRedeemRequest, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemCall(earnFixedTermPreRedeemRequest, _callback);
         return localVarCall;
     }
 
     /**
      * Redeem
      * Early redemption of a fixed-term earn order, order ID is required
-     * @param inlineObject  (optional)
-     * @return InlineResponse2004
+     * @param earnFixedTermPreRedeemRequest  (optional)
+     * @return CreateEarnFixedTermPreRedeemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2734,16 +2734,16 @@ public class EarnApi {
         <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
      </table>
      */
-    public InlineResponse2004 createEarnFixedTermPreRedeem(InlineObject inlineObject) throws ApiException {
-        ApiResponse<InlineResponse2004> localVarResp = createEarnFixedTermPreRedeemWithHttpInfo(inlineObject);
+    public CreateEarnFixedTermPreRedeemResponse createEarnFixedTermPreRedeem(EarnFixedTermPreRedeemRequest earnFixedTermPreRedeemRequest) throws ApiException {
+        ApiResponse<CreateEarnFixedTermPreRedeemResponse> localVarResp = createEarnFixedTermPreRedeemWithHttpInfo(earnFixedTermPreRedeemRequest);
         return localVarResp.getData();
     }
 
     /**
      * Redeem
      * Early redemption of a fixed-term earn order, order ID is required
-     * @param inlineObject  (optional)
-     * @return ApiResponse&lt;InlineResponse2004&gt;
+     * @param earnFixedTermPreRedeemRequest  (optional)
+     * @return ApiResponse&lt;CreateEarnFixedTermPreRedeemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2751,16 +2751,16 @@ public class EarnApi {
         <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InlineResponse2004> createEarnFixedTermPreRedeemWithHttpInfo(InlineObject inlineObject) throws ApiException {
-        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemValidateBeforeCall(inlineObject, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
+    public ApiResponse<CreateEarnFixedTermPreRedeemResponse> createEarnFixedTermPreRedeemWithHttpInfo(EarnFixedTermPreRedeemRequest earnFixedTermPreRedeemRequest) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemValidateBeforeCall(earnFixedTermPreRedeemRequest, null);
+        Type localVarReturnType = new TypeToken<CreateEarnFixedTermPreRedeemResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Redeem (asynchronously)
      * Early redemption of a fixed-term earn order, order ID is required
-     * @param inlineObject  (optional)
+     * @param earnFixedTermPreRedeemRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2770,9 +2770,9 @@ public class EarnApi {
         <tr><td> 200 </td><td> Redemption successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEarnFixedTermPreRedeemAsync(InlineObject inlineObject, final ApiCallback<InlineResponse2004> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemValidateBeforeCall(inlineObject, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
+    public okhttp3.Call createEarnFixedTermPreRedeemAsync(EarnFixedTermPreRedeemRequest earnFixedTermPreRedeemRequest, final ApiCallback<CreateEarnFixedTermPreRedeemResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createEarnFixedTermPreRedeemValidateBeforeCall(earnFixedTermPreRedeemRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateEarnFixedTermPreRedeemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2868,15 +2868,15 @@ public class EarnApi {
     }
 
 
-    private ApiResponse<InlineResponse2005> listEarnFixedTermHistoryWithHttpInfo(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter) throws ApiException {
+    private ApiResponse<ListEarnFixedTermHistoryResponse> listEarnFixedTermHistoryWithHttpInfo(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermHistoryValidateBeforeCall(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermHistoryResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listEarnFixedTermHistoryAsync(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter, final ApiCallback<InlineResponse2005> _callback) throws ApiException {
+    private okhttp3.Call listEarnFixedTermHistoryAsync(String type, Integer page, Integer limit, Integer productId, String orderId, String asset, Integer startAt, Integer endAt, Integer subBusiness, String businessFilter, final ApiCallback<ListEarnFixedTermHistoryResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = listEarnFixedTermHistoryValidateBeforeCall(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, _callback);
-        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListEarnFixedTermHistoryResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2986,7 +2986,7 @@ public class EarnApi {
 
         /**
          * Execute listEarnFixedTermHistory request
-         * @return InlineResponse2005
+         * @return ListEarnFixedTermHistoryResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -2994,14 +2994,14 @@ public class EarnApi {
             <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public InlineResponse2005 execute() throws ApiException {
-            ApiResponse<InlineResponse2005> localVarResp = listEarnFixedTermHistoryWithHttpInfo(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter);
+        public ListEarnFixedTermHistoryResponse execute() throws ApiException {
+            ApiResponse<ListEarnFixedTermHistoryResponse> localVarResp = listEarnFixedTermHistoryWithHttpInfo(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter);
             return localVarResp.getData();
         }
 
         /**
          * Execute listEarnFixedTermHistory request with HTTP info returned
-         * @return ApiResponse&lt;InlineResponse2005&gt;
+         * @return ApiResponse&lt;ListEarnFixedTermHistoryResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -3009,7 +3009,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<InlineResponse2005> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ListEarnFixedTermHistoryResponse> executeWithHttpInfo() throws ApiException {
             return listEarnFixedTermHistoryWithHttpInfo(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter);
         }
 
@@ -3024,7 +3024,7 @@ public class EarnApi {
             <tr><td> 200 </td><td> History records retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<InlineResponse2005> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ListEarnFixedTermHistoryResponse> _callback) throws ApiException {
             return listEarnFixedTermHistoryAsync(type, page, limit, productId, orderId, asset, startAt, endAt, subBusiness, businessFilter, _callback);
         }
     }

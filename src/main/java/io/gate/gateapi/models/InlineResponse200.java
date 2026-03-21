@@ -17,104 +17,158 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.InlineResponse200Data;
+import io.gate.gateapi.models.CrossexSpecialFee;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * InlineResponse200
  */
 public class InlineResponse200 {
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code;
+    public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
+    @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
+    private String exchangeType;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
+    public static final String SERIALIZED_NAME_SPOT_MAKER_FEE = "spot_maker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_MAKER_FEE)
+    private String spotMakerFee;
 
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private InlineResponse200Data data;
+    public static final String SERIALIZED_NAME_SPOT_TAKER_FEE = "spot_taker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_TAKER_FEE)
+    private String spotTakerFee;
 
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Integer timestamp;
+    public static final String SERIALIZED_NAME_FUTURE_MAKER_FEE = "future_maker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_MAKER_FEE)
+    private String futureMakerFee;
+
+    public static final String SERIALIZED_NAME_FUTURE_TAKER_FEE = "future_taker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_TAKER_FEE)
+    private String futureTakerFee;
+
+    public static final String SERIALIZED_NAME_SPECIAL_FEE_LIST = "special_fee_list";
+    @SerializedName(SERIALIZED_NAME_SPECIAL_FEE_LIST)
+    private List<CrossexSpecialFee> specialFeeList = new ArrayList<>();
 
 
-    public InlineResponse200 code(Integer code) {
+    public InlineResponse200 exchangeType(String exchangeType) {
         
-        this.code = code;
+        this.exchangeType = exchangeType;
         return this;
     }
 
      /**
-     * Return code, 0 means success
-     * @return code
+     * Exchange
+     * @return exchangeType
     **/
-    public Integer getCode() {
-        return code;
+    @javax.annotation.Nullable
+    public String getExchangeType() {
+        return exchangeType;
     }
 
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setExchangeType(String exchangeType) {
+        this.exchangeType = exchangeType;
     }
 
-    public InlineResponse200 message(String message) {
+    public InlineResponse200 spotMakerFee(String spotMakerFee) {
         
-        this.message = message;
+        this.spotMakerFee = spotMakerFee;
         return this;
     }
 
      /**
-     * Response message
-     * @return message
+     * spotMakerfee rate
+     * @return spotMakerFee
     **/
-    public String getMessage() {
-        return message;
+    public String getSpotMakerFee() {
+        return spotMakerFee;
     }
 
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setSpotMakerFee(String spotMakerFee) {
+        this.spotMakerFee = spotMakerFee;
     }
 
-    public InlineResponse200 data(InlineResponse200Data data) {
+    public InlineResponse200 spotTakerFee(String spotTakerFee) {
         
-        this.data = data;
+        this.spotTakerFee = spotTakerFee;
         return this;
     }
 
      /**
-     * Get data
-     * @return data
+     * spotTakerfee rate
+     * @return spotTakerFee
     **/
-    public InlineResponse200Data getData() {
-        return data;
+    public String getSpotTakerFee() {
+        return spotTakerFee;
     }
 
 
-    public void setData(InlineResponse200Data data) {
-        this.data = data;
+    public void setSpotTakerFee(String spotTakerFee) {
+        this.spotTakerFee = spotTakerFee;
     }
 
-    public InlineResponse200 timestamp(Integer timestamp) {
+    public InlineResponse200 futureMakerFee(String futureMakerFee) {
         
-        this.timestamp = timestamp;
+        this.futureMakerFee = futureMakerFee;
         return this;
     }
 
      /**
-     * Response timestamp (in seconds)
-     * @return timestamp
+     * contractMakerfee rate
+     * @return futureMakerFee
     **/
-    public Integer getTimestamp() {
-        return timestamp;
+    public String getFutureMakerFee() {
+        return futureMakerFee;
     }
 
 
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
+    public void setFutureMakerFee(String futureMakerFee) {
+        this.futureMakerFee = futureMakerFee;
+    }
+
+    public InlineResponse200 futureTakerFee(String futureTakerFee) {
+        
+        this.futureTakerFee = futureTakerFee;
+        return this;
+    }
+
+     /**
+     * contractTakerfee rate
+     * @return futureTakerFee
+    **/
+    public String getFutureTakerFee() {
+        return futureTakerFee;
+    }
+
+
+    public void setFutureTakerFee(String futureTakerFee) {
+        this.futureTakerFee = futureTakerFee;
+    }
+
+    public InlineResponse200 specialFeeList(List<CrossexSpecialFee> specialFeeList) {
+        
+        this.specialFeeList = specialFeeList;
+        return this;
+    }
+
+    public InlineResponse200 addSpecialFeeListItem(CrossexSpecialFee specialFeeListItem) {
+        this.specialFeeList.add(specialFeeListItem);
+        return this;
+    }
+
+     /**
+     * Get specialFeeList
+     * @return specialFeeList
+    **/
+    public List<CrossexSpecialFee> getSpecialFeeList() {
+        return specialFeeList;
+    }
+
+
+    public void setSpecialFeeList(List<CrossexSpecialFee> specialFeeList) {
+        this.specialFeeList = specialFeeList;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -125,15 +179,17 @@ public class InlineResponse200 {
             return false;
         }
         InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-        return Objects.equals(this.code, inlineResponse200.code) &&
-                Objects.equals(this.message, inlineResponse200.message) &&
-                Objects.equals(this.data, inlineResponse200.data) &&
-                Objects.equals(this.timestamp, inlineResponse200.timestamp);
+        return Objects.equals(this.exchangeType, inlineResponse200.exchangeType) &&
+                Objects.equals(this.spotMakerFee, inlineResponse200.spotMakerFee) &&
+                Objects.equals(this.spotTakerFee, inlineResponse200.spotTakerFee) &&
+                Objects.equals(this.futureMakerFee, inlineResponse200.futureMakerFee) &&
+                Objects.equals(this.futureTakerFee, inlineResponse200.futureTakerFee) &&
+                Objects.equals(this.specialFeeList, inlineResponse200.specialFeeList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data, timestamp);
+        return Objects.hash(exchangeType, spotMakerFee, spotTakerFee, futureMakerFee, futureTakerFee, specialFeeList);
     }
 
 
@@ -141,10 +197,12 @@ public class InlineResponse200 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineResponse200 {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
+        sb.append("      spotMakerFee: ").append(toIndentedString(spotMakerFee)).append("\n");
+        sb.append("      spotTakerFee: ").append(toIndentedString(spotTakerFee)).append("\n");
+        sb.append("      futureMakerFee: ").append(toIndentedString(futureMakerFee)).append("\n");
+        sb.append("      futureTakerFee: ").append(toIndentedString(futureTakerFee)).append("\n");
+        sb.append("      specialFeeList: ").append(toIndentedString(specialFeeList)).append("\n");
         sb.append("}");
         return sb.toString();
     }

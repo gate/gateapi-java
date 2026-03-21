@@ -36,7 +36,7 @@ import io.gate.gateapi.models.DeliveryTicker;
 import io.gate.gateapi.models.DeliveryTrade;
 import io.gate.gateapi.models.FuturesPriceTriggeredOrder;
 import io.gate.gateapi.models.InsuranceRecord;
-import io.gate.gateapi.models.TriggerOrderResponse1;
+import io.gate.gateapi.models.TriggerOrderResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -4033,7 +4033,7 @@ public class DeliveryApi {
      * 
      * @param settle Settle currency (required)
      * @param futuresPriceTriggeredOrder  (required)
-     * @return TriggerOrderResponse1
+     * @return TriggerOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4041,8 +4041,8 @@ public class DeliveryApi {
         <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerOrderResponse1 createPriceTriggeredDeliveryOrder(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder) throws ApiException {
-        ApiResponse<TriggerOrderResponse1> localVarResp = createPriceTriggeredDeliveryOrderWithHttpInfo(settle, futuresPriceTriggeredOrder);
+    public TriggerOrderResponse createPriceTriggeredDeliveryOrder(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder) throws ApiException {
+        ApiResponse<TriggerOrderResponse> localVarResp = createPriceTriggeredDeliveryOrderWithHttpInfo(settle, futuresPriceTriggeredOrder);
         return localVarResp.getData();
     }
 
@@ -4051,7 +4051,7 @@ public class DeliveryApi {
      * 
      * @param settle Settle currency (required)
      * @param futuresPriceTriggeredOrder  (required)
-     * @return ApiResponse&lt;TriggerOrderResponse1&gt;
+     * @return ApiResponse&lt;TriggerOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4059,9 +4059,9 @@ public class DeliveryApi {
         <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerOrderResponse1> createPriceTriggeredDeliveryOrderWithHttpInfo(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder) throws ApiException {
+    public ApiResponse<TriggerOrderResponse> createPriceTriggeredDeliveryOrderWithHttpInfo(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder) throws ApiException {
         okhttp3.Call localVarCall = createPriceTriggeredDeliveryOrderValidateBeforeCall(settle, futuresPriceTriggeredOrder, null);
-        Type localVarReturnType = new TypeToken<TriggerOrderResponse1>(){}.getType();
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4079,9 +4079,9 @@ public class DeliveryApi {
         <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPriceTriggeredDeliveryOrderAsync(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse1> _callback) throws ApiException {
+    public okhttp3.Call createPriceTriggeredDeliveryOrderAsync(String settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createPriceTriggeredDeliveryOrderValidateBeforeCall(settle, futuresPriceTriggeredOrder, _callback);
-        Type localVarReturnType = new TypeToken<TriggerOrderResponse1>(){}.getType();
+        Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

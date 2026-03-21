@@ -22,7 +22,8 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.ApiResponseExSkillGetBeginnerTaskListResp;
 import io.gate.gateapi.models.ApiResponseExSkillGetUserIdentityResp;
-import io.gate.gateapi.models.InlineResponse400;
+import io.gate.gateapi.models.GetBeginnerTaskListError;
+import io.gate.gateapi.models.GetUserIdentityError;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

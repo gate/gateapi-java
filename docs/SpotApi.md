@@ -2114,7 +2114,7 @@ Name | Type | Description  | Notes
 
 <a name="createSpotPriceTriggeredOrder"></a>
 # **createSpotPriceTriggeredOrder**
-> TriggerOrderResponse1 createSpotPriceTriggeredOrder(spotPriceTriggeredOrder)
+> TriggerOrderResponse createSpotPriceTriggeredOrder(spotPriceTriggeredOrder)
 
 Create price-triggered order
 
@@ -2141,7 +2141,7 @@ public class Example {
         SpotApi apiInstance = new SpotApi(defaultClient);
         SpotPriceTriggeredOrder spotPriceTriggeredOrder = new SpotPriceTriggeredOrder(); // SpotPriceTriggeredOrder | 
         try {
-            TriggerOrderResponse1 result = apiInstance.createSpotPriceTriggeredOrder(spotPriceTriggeredOrder);
+            TriggerOrderResponse result = apiInstance.createSpotPriceTriggeredOrder(spotPriceTriggeredOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -2164,7 +2164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TriggerOrderResponse1**](TriggerOrderResponse1.md)
+[**TriggerOrderResponse**](TriggerOrderResponse.md)
 
 ### Authorization
 
