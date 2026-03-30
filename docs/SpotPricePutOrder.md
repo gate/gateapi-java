@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **price** | **String** | Order price | 
 **amount** | **String** | Trading quantity, refers to the trading quantity of the trading currency, i.e., the currency that needs to be traded, for example, the quantity of BTC in BTC_USDT. | 
 **account** | [**AccountEnum**](#AccountEnum) | Trading account type. Unified account must be set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified account  | 
-**timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  |  [optional]
+**timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  | 
 **autoBorrow** | **Boolean** | Whether to borrow coins automatically |  [optional]
 **autoRepay** | **Boolean** | Whether to repay the loan automatically |  [optional]
 **text** | **String** | The source of the order, including: - web: Web - api: API call - app: Mobile app |  [optional]

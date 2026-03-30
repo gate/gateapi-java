@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.46
-- SDK version: 7.2.46
+- API version: v4.106.52
+- SDK version: 7.2.52
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.46</version>
+    <version>7.2.52</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.46"
+compile "io.gate:gate-api:7.2.52"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.46.jar`
+* `target/gate-api-7.2.52.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -224,15 +224,10 @@ Class | Method | HTTP request | Description
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrderList**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrderList) | **DELETE** /delivery/{settle}/price_orders | Cancel all auto orders
 *DeliveryApi* | [**getPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#getPriceTriggeredDeliveryOrder) | **GET** /delivery/{settle}/price_orders/{order_id} | Query single auto order details
 *DeliveryApi* | [**cancelPriceTriggeredDeliveryOrder**](docs/DeliveryApi.md#cancelPriceTriggeredDeliveryOrder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | Cancel single auto order
-*EarnApi* | [**swapETH2**](docs/EarnApi.md#swapETH2) | **POST** /earn/staking/eth2/swap | ETH swap
-*EarnApi* | [**rateListETH2**](docs/EarnApi.md#rateListETH2) | **GET** /earn/staking/eth2/rate_records | GTETH historical return rate query
 *EarnApi* | [**listDualInvestmentPlans**](docs/EarnApi.md#listDualInvestmentPlans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 *EarnApi* | [**listDualOrders**](docs/EarnApi.md#listDualOrders) | **GET** /earn/dual/orders | Dual Investment order list
 *EarnApi* | [**placeDualOrder**](docs/EarnApi.md#placeDualOrder) | **POST** /earn/dual/orders | Place Dual Investment order
 *EarnApi* | [**listDualBalance**](docs/EarnApi.md#listDualBalance) | **GET** /earn/dual/balance | Dual-Currency Earning Assets
-*EarnApi* | [**listStructuredProducts**](docs/EarnApi.md#listStructuredProducts) | **GET** /earn/structured/products | Structured Product List
-*EarnApi* | [**listStructuredOrders**](docs/EarnApi.md#listStructuredOrders) | **GET** /earn/structured/orders | Structured Product Order List
-*EarnApi* | [**placeStructuredOrder**](docs/EarnApi.md#placeStructuredOrder) | **POST** /earn/structured/orders | Place Structured Product Order
 *EarnApi* | [**findCoin**](docs/EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking coins
 *EarnApi* | [**swapStakingCoin**](docs/EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain token swap for earned coins
 *EarnApi* | [**orderList**](docs/EarnApi.md#orderList) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
@@ -260,12 +255,12 @@ Class | Method | HTTP request | Description
 *FlashSwapApi* | [**createFlashSwapOrder**](docs/FlashSwapApi.md#createFlashSwapOrder) | **POST** /flash_swap/orders | Create a flash swap order
 *FlashSwapApi* | [**getFlashSwapOrder**](docs/FlashSwapApi.md#getFlashSwapOrder) | **GET** /flash_swap/orders/{order_id} | Query single flash swap order
 *FlashSwapApi* | [**previewFlashSwapOrder**](docs/FlashSwapApi.md#previewFlashSwapOrder) | **POST** /flash_swap/orders/preview | Flash swap order preview
-*FlashSwapApi* | [**createFlashSwapMultiCurrencyManyToOneOrder**](docs/FlashSwapApi.md#createFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash-swap/multi-currency/many-to-one/order/create | Flash Swap - Multi-currency exchange - Place order (many-to-one)
-*FlashSwapApi* | [**previewFlashSwapMultiCurrencyManyToOneOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash-swap/multi-currency/many-to-one/order/preview | Flash Swap - Multi-currency exchange - Preview (many-to-one)
-*FlashSwapApi* | [**createFlashSwapOrderV1**](docs/FlashSwapApi.md#createFlashSwapOrderV1) | **POST** /flash-swap/order/create | Flash Swap - Place order (one-to-one)
-*FlashSwapApi* | [**createFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#createFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash-swap/multi-currency/one-to-many/order/create | Flash Swap - Multi-currency exchange - Place order (one-to-many)
-*FlashSwapApi* | [**previewFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash-swap/multi-currency/one-to-many/order/preview | Flash Swap - Multi-currency exchange - Preview (one-to-many)
-*FlashSwapApi* | [**previewFlashSwapOrderV1**](docs/FlashSwapApi.md#previewFlashSwapOrderV1) | **GET** /flash-swap/order/preview | Flash Swap - Preview (one-to-one)
+*FlashSwapApi* | [**createFlashSwapMultiCurrencyManyToOneOrder**](docs/FlashSwapApi.md#createFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash_swap/multi-currency/many-to-one/order/create | Flash Swap - Multi-currency exchange - Place order (many-to-one)
+*FlashSwapApi* | [**previewFlashSwapMultiCurrencyManyToOneOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyManyToOneOrder) | **POST** /flash_swap/multi-currency/many-to-one/order/preview | Flash Swap - Multi-currency exchange - Preview (many-to-one)
+*FlashSwapApi* | [**createFlashSwapOrderV1**](docs/FlashSwapApi.md#createFlashSwapOrderV1) | **POST** /flash_swap/order/create | Flash Swap - Place order (one-to-one)
+*FlashSwapApi* | [**createFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#createFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash_swap/multi-currency/one-to-many/order/create | Flash Swap - Multi-currency exchange - Place order (one-to-many)
+*FlashSwapApi* | [**previewFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash_swap/multi-currency/one-to-many/order/preview | Flash Swap - Multi-currency exchange - Preview (one-to-many)
+*FlashSwapApi* | [**previewFlashSwapOrderV1**](docs/FlashSwapApi.md#previewFlashSwapOrderV1) | **GET** /flash_swap/order/preview | Flash Swap - Preview (one-to-one)
 *FuturesApi* | [**listFuturesContracts**](docs/FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
 *FuturesApi* | [**getFuturesContract**](docs/FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 *FuturesApi* | [**listFuturesOrderBook**](docs/FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
@@ -696,8 +691,6 @@ Class | Method | HTTP request | Description
  - [EligibilityResponse](docs/EligibilityResponse.md)
  - [EligibilityResponseAllOf](docs/EligibilityResponseAllOf.md)
  - [ErrCodeMsg](docs/ErrCodeMsg.md)
- - [Eth2RateList](docs/Eth2RateList.md)
- - [Eth2Swap](docs/Eth2Swap.md)
  - [FindCoin](docs/FindCoin.md)
  - [FixedTermBonusInfo](docs/FixedTermBonusInfo.md)
  - [FixedTermCouponInfo](docs/FixedTermCouponInfo.md)
@@ -755,6 +748,7 @@ Class | Method | HTTP request | Description
  - [FuturesOrderAmendment](docs/FuturesOrderAmendment.md)
  - [FuturesOrderBook](docs/FuturesOrderBook.md)
  - [FuturesOrderBookItem](docs/FuturesOrderBookItem.md)
+ - [FuturesOrderTimerange](docs/FuturesOrderTimerange.md)
  - [FuturesPositionCrossMode](docs/FuturesPositionCrossMode.md)
  - [FuturesPremiumIndex](docs/FuturesPremiumIndex.md)
  - [FuturesPriceTrigger](docs/FuturesPriceTrigger.md)
@@ -996,9 +990,6 @@ Class | Method | HTTP request | Description
  - [StopTrailOrder](docs/StopTrailOrder.md)
  - [StpGroup](docs/StpGroup.md)
  - [StpGroupUser](docs/StpGroupUser.md)
- - [StructuredBuy](docs/StructuredBuy.md)
- - [StructuredGetProjectList](docs/StructuredGetProjectList.md)
- - [StructuredOrderList](docs/StructuredOrderList.md)
  - [SubAccount](docs/SubAccount.md)
  - [SubAccountBalance](docs/SubAccountBalance.md)
  - [SubAccountCrossMarginBalance](docs/SubAccountCrossMarginBalance.md)

@@ -794,7 +794,7 @@ public class FlashSwapApi {
         Object localVarPostBody = flashSwapMultiCurrencyManyToOneOrderCreateReq;
 
         // create path and map variables
-        String localVarPath = "/flash-swap/multi-currency/many-to-one/order/create";
+        String localVarPath = "/flash_swap/multi-currency/many-to-one/order/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -909,7 +909,7 @@ public class FlashSwapApi {
         Object localVarPostBody = flashSwapMultiCurrencyManyToOneOrderPreviewReq;
 
         // create path and map variables
-        String localVarPath = "/flash-swap/multi-currency/many-to-one/order/preview";
+        String localVarPath = "/flash_swap/multi-currency/many-to-one/order/preview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1024,7 +1024,7 @@ public class FlashSwapApi {
         Object localVarPostBody = flashSwapOrderCreateReq;
 
         // create path and map variables
-        String localVarPath = "/flash-swap/order/create";
+        String localVarPath = "/flash_swap/order/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1139,7 +1139,7 @@ public class FlashSwapApi {
         Object localVarPostBody = flashSwapMultiCurrencyOneToManyOrderCreateReq;
 
         // create path and map variables
-        String localVarPath = "/flash-swap/multi-currency/one-to-many/order/create";
+        String localVarPath = "/flash_swap/multi-currency/one-to-many/order/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1254,7 +1254,7 @@ public class FlashSwapApi {
         Object localVarPostBody = flashSwapMultiCurrencyOneToManyOrderPreviewReq;
 
         // create path and map variables
-        String localVarPath = "/flash-swap/multi-currency/one-to-many/order/preview";
+        String localVarPath = "/flash_swap/multi-currency/one-to-many/order/preview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1355,7 +1355,7 @@ public class FlashSwapApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/flash-swap/order/preview";
+        String localVarPath = "/flash_swap/order/preview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

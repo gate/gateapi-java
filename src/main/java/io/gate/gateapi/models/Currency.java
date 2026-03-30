@@ -74,6 +74,10 @@ public class Currency {
     @SerializedName(SERIALIZED_NAME_MARKET_CAP)
     private String marketCap;
 
+    public static final String SERIALIZED_NAME_CATEGORY = "category";
+    @SerializedName(SERIALIZED_NAME_CATEGORY)
+    private List<String> category = null;
+
 
     public Currency currency(String currency) {
         
@@ -322,6 +326,34 @@ public class Currency {
     public void setMarketCap(String marketCap) {
         this.marketCap = marketCap;
     }
+
+    public Currency category(List<String> category) {
+        
+        this.category = category;
+        return this;
+    }
+
+    public Currency addCategoryItem(String categoryItem) {
+        if (this.category == null) {
+            this.category = new ArrayList<>();
+        }
+        this.category.add(categoryItem);
+        return this;
+    }
+
+     /**
+     * 币种分类  - stocks: 股票 - metals: 金属 - indices: 指数 - forex: 外汇 - commodities: 大宗商品
+     * @return category
+    **/
+    @javax.annotation.Nullable
+    public List<String> getCategory() {
+        return category;
+    }
+
+
+    public void setCategory(List<String> category) {
+        this.category = category;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -342,12 +374,13 @@ public class Currency {
                 Objects.equals(this.chain, currency.chain) &&
                 Objects.equals(this.chains, currency.chains) &&
                 Objects.equals(this.totalSupply, currency.totalSupply) &&
-                Objects.equals(this.marketCap, currency.marketCap);
+                Objects.equals(this.marketCap, currency.marketCap) &&
+                Objects.equals(this.category, currency.category);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain, chains, totalSupply, marketCap);
+        return Objects.hash(currency, name, delisted, withdrawDisabled, withdrawDelayed, depositDisabled, tradeDisabled, fixedRate, chain, chains, totalSupply, marketCap, category);
     }
 
 
@@ -367,6 +400,7 @@ public class Currency {
         sb.append("      chains: ").append(toIndentedString(chains)).append("\n");
         sb.append("      totalSupply: ").append(toIndentedString(totalSupply)).append("\n");
         sb.append("      marketCap: ").append(toIndentedString(marketCap)).append("\n");
+        sb.append("      category: ").append(toIndentedString(category)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -356,7 +356,6 @@ public class SpotPricePutOrder {
      * time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only 
      * @return timeInForce
     **/
-    @javax.annotation.Nullable
     public TimeInForceEnum getTimeInForce() {
         return timeInForce;
     }

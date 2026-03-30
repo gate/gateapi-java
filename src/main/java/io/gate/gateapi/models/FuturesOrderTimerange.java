@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Futures order details
  */
-public class FuturesOrder {
+public class FuturesOrderTimerange {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
     private Long id;
@@ -37,11 +37,11 @@ public class FuturesOrder {
 
     public static final String SERIALIZED_NAME_UPDATE_TIME = "update_time";
     @SerializedName(SERIALIZED_NAME_UPDATE_TIME)
-    private Double updateTime;
+    private String updateTime;
 
     public static final String SERIALIZED_NAME_FINISH_TIME = "finish_time";
     @SerializedName(SERIALIZED_NAME_FINISH_TIME)
-    private Double finishTime;
+    private String finishTime;
 
     /**
      * How the order was finished:  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set - position_closed: cancelled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention
@@ -436,7 +436,7 @@ public class FuturesOrder {
      * @return updateTime
     **/
     @javax.annotation.Nullable
-    public Double getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
@@ -446,7 +446,7 @@ public class FuturesOrder {
      * @return finishTime
     **/
     @javax.annotation.Nullable
-    public Double getFinishTime() {
+    public String getFinishTime() {
         return finishTime;
     }
 
@@ -471,7 +471,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder contract(String contract) {
+    public FuturesOrderTimerange contract(String contract) {
         
         this.contract = contract;
         return this;
@@ -490,7 +490,7 @@ public class FuturesOrder {
         this.contract = contract;
     }
 
-    public FuturesOrder size(String size) {
+    public FuturesOrderTimerange size(String size) {
         
         this.size = size;
         return this;
@@ -509,7 +509,7 @@ public class FuturesOrder {
         this.size = size;
     }
 
-    public FuturesOrder iceberg(String iceberg) {
+    public FuturesOrderTimerange iceberg(String iceberg) {
         
         this.iceberg = iceberg;
         return this;
@@ -529,7 +529,7 @@ public class FuturesOrder {
         this.iceberg = iceberg;
     }
 
-    public FuturesOrder price(String price) {
+    public FuturesOrderTimerange price(String price) {
         
         this.price = price;
         return this;
@@ -548,7 +548,7 @@ public class FuturesOrder {
         this.price = price;
     }
 
-    public FuturesOrder close(Boolean close) {
+    public FuturesOrderTimerange close(Boolean close) {
         
         this.close = close;
         return this;
@@ -578,7 +578,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder reduceOnly(Boolean reduceOnly) {
+    public FuturesOrderTimerange reduceOnly(Boolean reduceOnly) {
         
         this.reduceOnly = reduceOnly;
         return this;
@@ -618,7 +618,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder tif(TifEnum tif) {
+    public FuturesOrderTimerange tif(TifEnum tif) {
         
         this.tif = tif;
         return this;
@@ -658,7 +658,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder text(String text) {
+    public FuturesOrderTimerange text(String text) {
         
         this.text = text;
         return this;
@@ -708,7 +708,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder autoSize(AutoSizeEnum autoSize) {
+    public FuturesOrderTimerange autoSize(AutoSizeEnum autoSize) {
         
         this.autoSize = autoSize;
         return this;
@@ -738,7 +738,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder stpAct(StpActEnum stpAct) {
+    public FuturesOrderTimerange stpAct(StpActEnum stpAct) {
         
         this.stpAct = stpAct;
         return this;
@@ -768,7 +768,7 @@ public class FuturesOrder {
     }
 
 
-    public FuturesOrder pid(Long pid) {
+    public FuturesOrderTimerange pid(Long pid) {
         
         this.pid = pid;
         return this;
@@ -788,7 +788,7 @@ public class FuturesOrder {
         this.pid = pid;
     }
 
-    public FuturesOrder marketOrderSlipRatio(String marketOrderSlipRatio) {
+    public FuturesOrderTimerange marketOrderSlipRatio(String marketOrderSlipRatio) {
         
         this.marketOrderSlipRatio = marketOrderSlipRatio;
         return this;
@@ -808,7 +808,7 @@ public class FuturesOrder {
         this.marketOrderSlipRatio = marketOrderSlipRatio;
     }
 
-    public FuturesOrder posMarginMode(String posMarginMode) {
+    public FuturesOrderTimerange posMarginMode(String posMarginMode) {
         
         this.posMarginMode = posMarginMode;
         return this;
@@ -835,37 +835,37 @@ public class FuturesOrder {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        FuturesOrder futuresOrder = (FuturesOrder) o;
-        return Objects.equals(this.id, futuresOrder.id) &&
-                Objects.equals(this.user, futuresOrder.user) &&
-                Objects.equals(this.createTime, futuresOrder.createTime) &&
-                Objects.equals(this.updateTime, futuresOrder.updateTime) &&
-                Objects.equals(this.finishTime, futuresOrder.finishTime) &&
-                Objects.equals(this.finishAs, futuresOrder.finishAs) &&
-                Objects.equals(this.status, futuresOrder.status) &&
-                Objects.equals(this.contract, futuresOrder.contract) &&
-                Objects.equals(this.size, futuresOrder.size) &&
-                Objects.equals(this.iceberg, futuresOrder.iceberg) &&
-                Objects.equals(this.price, futuresOrder.price) &&
-                Objects.equals(this.close, futuresOrder.close) &&
-                Objects.equals(this.isClose, futuresOrder.isClose) &&
-                Objects.equals(this.reduceOnly, futuresOrder.reduceOnly) &&
-                Objects.equals(this.isReduceOnly, futuresOrder.isReduceOnly) &&
-                Objects.equals(this.isLiq, futuresOrder.isLiq) &&
-                Objects.equals(this.tif, futuresOrder.tif) &&
-                Objects.equals(this.left, futuresOrder.left) &&
-                Objects.equals(this.fillPrice, futuresOrder.fillPrice) &&
-                Objects.equals(this.text, futuresOrder.text) &&
-                Objects.equals(this.tkfr, futuresOrder.tkfr) &&
-                Objects.equals(this.mkfr, futuresOrder.mkfr) &&
-                Objects.equals(this.refu, futuresOrder.refu) &&
-                Objects.equals(this.autoSize, futuresOrder.autoSize) &&
-                Objects.equals(this.stpId, futuresOrder.stpId) &&
-                Objects.equals(this.stpAct, futuresOrder.stpAct) &&
-                Objects.equals(this.amendText, futuresOrder.amendText) &&
-                Objects.equals(this.pid, futuresOrder.pid) &&
-                Objects.equals(this.marketOrderSlipRatio, futuresOrder.marketOrderSlipRatio) &&
-                Objects.equals(this.posMarginMode, futuresOrder.posMarginMode);
+        FuturesOrderTimerange futuresOrderTimerange = (FuturesOrderTimerange) o;
+        return Objects.equals(this.id, futuresOrderTimerange.id) &&
+                Objects.equals(this.user, futuresOrderTimerange.user) &&
+                Objects.equals(this.createTime, futuresOrderTimerange.createTime) &&
+                Objects.equals(this.updateTime, futuresOrderTimerange.updateTime) &&
+                Objects.equals(this.finishTime, futuresOrderTimerange.finishTime) &&
+                Objects.equals(this.finishAs, futuresOrderTimerange.finishAs) &&
+                Objects.equals(this.status, futuresOrderTimerange.status) &&
+                Objects.equals(this.contract, futuresOrderTimerange.contract) &&
+                Objects.equals(this.size, futuresOrderTimerange.size) &&
+                Objects.equals(this.iceberg, futuresOrderTimerange.iceberg) &&
+                Objects.equals(this.price, futuresOrderTimerange.price) &&
+                Objects.equals(this.close, futuresOrderTimerange.close) &&
+                Objects.equals(this.isClose, futuresOrderTimerange.isClose) &&
+                Objects.equals(this.reduceOnly, futuresOrderTimerange.reduceOnly) &&
+                Objects.equals(this.isReduceOnly, futuresOrderTimerange.isReduceOnly) &&
+                Objects.equals(this.isLiq, futuresOrderTimerange.isLiq) &&
+                Objects.equals(this.tif, futuresOrderTimerange.tif) &&
+                Objects.equals(this.left, futuresOrderTimerange.left) &&
+                Objects.equals(this.fillPrice, futuresOrderTimerange.fillPrice) &&
+                Objects.equals(this.text, futuresOrderTimerange.text) &&
+                Objects.equals(this.tkfr, futuresOrderTimerange.tkfr) &&
+                Objects.equals(this.mkfr, futuresOrderTimerange.mkfr) &&
+                Objects.equals(this.refu, futuresOrderTimerange.refu) &&
+                Objects.equals(this.autoSize, futuresOrderTimerange.autoSize) &&
+                Objects.equals(this.stpId, futuresOrderTimerange.stpId) &&
+                Objects.equals(this.stpAct, futuresOrderTimerange.stpAct) &&
+                Objects.equals(this.amendText, futuresOrderTimerange.amendText) &&
+                Objects.equals(this.pid, futuresOrderTimerange.pid) &&
+                Objects.equals(this.marketOrderSlipRatio, futuresOrderTimerange.marketOrderSlipRatio) &&
+                Objects.equals(this.posMarginMode, futuresOrderTimerange.posMarginMode);
     }
 
     @Override
@@ -877,7 +877,7 @@ public class FuturesOrder {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FuturesOrder {\n");
+        sb.append("class FuturesOrderTimerange {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      user: ").append(toIndentedString(user)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");

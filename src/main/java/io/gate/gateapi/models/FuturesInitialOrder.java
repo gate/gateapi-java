@@ -31,6 +31,10 @@ public class FuturesInitialOrder {
     @SerializedName(SERIALIZED_NAME_SIZE)
     private Long size;
 
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
+
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
@@ -148,6 +152,26 @@ public class FuturesInitialOrder {
 
     public void setSize(Long size) {
         this.size = size;
+    }
+
+    public FuturesInitialOrder amount(String amount) {
+        
+        this.amount = amount;
+        return this;
+    }
+
+     /**
+     * Same as &#x60;size&#x60;; used for decimal contract size. When both &#x60;size&#x60; and &#x60;amount&#x60; are provided, &#x60;amount&#x60; takes precedence.
+     * @return amount
+    **/
+    @javax.annotation.Nullable
+    public String getAmount() {
+        return amount;
+    }
+
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 
     public FuturesInitialOrder price(String price) {
@@ -299,6 +323,7 @@ public class FuturesInitialOrder {
         FuturesInitialOrder futuresInitialOrder = (FuturesInitialOrder) o;
         return Objects.equals(this.contract, futuresInitialOrder.contract) &&
                 Objects.equals(this.size, futuresInitialOrder.size) &&
+                Objects.equals(this.amount, futuresInitialOrder.amount) &&
                 Objects.equals(this.price, futuresInitialOrder.price) &&
                 Objects.equals(this.close, futuresInitialOrder.close) &&
                 Objects.equals(this.tif, futuresInitialOrder.tif) &&
@@ -311,7 +336,7 @@ public class FuturesInitialOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, size, price, close, tif, text, reduceOnly, autoSize, isReduceOnly, isClose);
+        return Objects.hash(contract, size, amount, price, close, tif, text, reduceOnly, autoSize, isReduceOnly, isClose);
     }
 
 
@@ -321,6 +346,7 @@ public class FuturesInitialOrder {
         sb.append("class FuturesInitialOrder {\n");
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      close: ").append(toIndentedString(close)).append("\n");
         sb.append("      tif: ").append(toIndentedString(tif)).append("\n");

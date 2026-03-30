@@ -45,6 +45,7 @@ import io.gate.gateapi.models.FuturesLiquidate;
 import io.gate.gateapi.models.FuturesOrder;
 import io.gate.gateapi.models.FuturesOrderAmendment;
 import io.gate.gateapi.models.FuturesOrderBook;
+import io.gate.gateapi.models.FuturesOrderTimerange;
 import io.gate.gateapi.models.FuturesPositionCrossMode;
 import io.gate.gateapi.models.FuturesPremiumIndex;
 import io.gate.gateapi.models.FuturesPriceTriggeredOrder;
@@ -5693,15 +5694,15 @@ public class FuturesApi {
     }
 
 
-    private ApiResponse<List<FuturesOrder>> getOrdersWithTimeRangeWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+    private ApiResponse<List<FuturesOrderTimerange>> getOrdersWithTimeRangeWithHttpInfo(String settle, String contract, Long from, Long to, Integer limit, Integer offset) throws ApiException {
         okhttp3.Call localVarCall = getOrdersWithTimeRangeValidateBeforeCall(settle, contract, from, to, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<FuturesOrderTimerange>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getOrdersWithTimeRangeAsync(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
+    private okhttp3.Call getOrdersWithTimeRangeAsync(String settle, String contract, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<FuturesOrderTimerange>> _callback) throws ApiException {
         okhttp3.Call localVarCall = getOrdersWithTimeRangeValidateBeforeCall(settle, contract, from, to, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<FuturesOrderTimerange>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5785,7 +5786,7 @@ public class FuturesApi {
 
         /**
          * Execute getOrdersWithTimeRange request
-         * @return List&lt;FuturesOrder&gt;
+         * @return List&lt;FuturesOrderTimerange&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -5793,14 +5794,14 @@ public class FuturesApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  * X-Pagination-Limit - Limit specified for pagination <br>  * X-Pagination-Offset - Offset specified for pagination <br>  </td></tr>
          </table>
          */
-        public List<FuturesOrder> execute() throws ApiException {
-            ApiResponse<List<FuturesOrder>> localVarResp = getOrdersWithTimeRangeWithHttpInfo(settle, contract, from, to, limit, offset);
+        public List<FuturesOrderTimerange> execute() throws ApiException {
+            ApiResponse<List<FuturesOrderTimerange>> localVarResp = getOrdersWithTimeRangeWithHttpInfo(settle, contract, from, to, limit, offset);
             return localVarResp.getData();
         }
 
         /**
          * Execute getOrdersWithTimeRange request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;FuturesOrder&gt;&gt;
+         * @return ApiResponse&lt;List&lt;FuturesOrderTimerange&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -5808,7 +5809,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  * X-Pagination-Limit - Limit specified for pagination <br>  * X-Pagination-Offset - Offset specified for pagination <br>  </td></tr>
          </table>
          */
-        public ApiResponse<List<FuturesOrder>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<FuturesOrderTimerange>> executeWithHttpInfo() throws ApiException {
             return getOrdersWithTimeRangeWithHttpInfo(settle, contract, from, to, limit, offset);
         }
 
@@ -5823,7 +5824,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  * X-Pagination-Limit - Limit specified for pagination <br>  * X-Pagination-Offset - Offset specified for pagination <br>  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<FuturesOrderTimerange>> _callback) throws ApiException {
             return getOrdersWithTimeRangeAsync(settle, contract, from, to, limit, offset, _callback);
         }
     }
@@ -5971,7 +5972,7 @@ public class FuturesApi {
     /**
      * Build call for getFuturesOrder
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6032,7 +6033,7 @@ public class FuturesApi {
      * Query single order details
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6050,7 +6051,7 @@ public class FuturesApi {
      * Query single order details
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6069,7 +6070,7 @@ public class FuturesApi {
      * Query single order details (asynchronously)
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6089,7 +6090,7 @@ public class FuturesApi {
     /**
      * Build call for amendFuturesOrder
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -6161,7 +6162,7 @@ public class FuturesApi {
      * Amend single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
@@ -6181,7 +6182,7 @@ public class FuturesApi {
      * Amend single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -6202,7 +6203,7 @@ public class FuturesApi {
      * Amend single order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -6224,7 +6225,7 @@ public class FuturesApi {
     /**
      * Build call for cancelFuturesOrder
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6290,7 +6291,7 @@ public class FuturesApi {
      * Cancel single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6309,7 +6310,7 @@ public class FuturesApi {
      * Cancel single order
      * 
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6329,7 +6330,7 @@ public class FuturesApi {
      * Cancel single order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook. finished, it can be checked within 60 seconds after the end of the order. After that, only order ID is accepted. (required)
+     * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

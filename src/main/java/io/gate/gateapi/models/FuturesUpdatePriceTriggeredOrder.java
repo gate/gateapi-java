@@ -35,6 +35,10 @@ public class FuturesUpdatePriceTriggeredOrder {
     @SerializedName(SERIALIZED_NAME_SIZE)
     private Long size;
 
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
+
     public static final String SERIALIZED_NAME_PRICE = "price";
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
@@ -164,6 +168,26 @@ public class FuturesUpdatePriceTriggeredOrder {
         this.size = size;
     }
 
+    public FuturesUpdatePriceTriggeredOrder amount(String amount) {
+        
+        this.amount = amount;
+        return this;
+    }
+
+     /**
+     * Same as &#x60;size&#x60;; used for decimal contract size. When both &#x60;size&#x60; and &#x60;amount&#x60; are provided, &#x60;amount&#x60; takes precedence.
+     * @return amount
+    **/
+    @javax.annotation.Nullable
+    public String getAmount() {
+        return amount;
+    }
+
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
     public FuturesUpdatePriceTriggeredOrder price(String price) {
         
         this.price = price;
@@ -275,6 +299,7 @@ public class FuturesUpdatePriceTriggeredOrder {
         return Objects.equals(this.settle, futuresUpdatePriceTriggeredOrder.settle) &&
                 Objects.equals(this.orderId, futuresUpdatePriceTriggeredOrder.orderId) &&
                 Objects.equals(this.size, futuresUpdatePriceTriggeredOrder.size) &&
+                Objects.equals(this.amount, futuresUpdatePriceTriggeredOrder.amount) &&
                 Objects.equals(this.price, futuresUpdatePriceTriggeredOrder.price) &&
                 Objects.equals(this.triggerPrice, futuresUpdatePriceTriggeredOrder.triggerPrice) &&
                 Objects.equals(this.priceType, futuresUpdatePriceTriggeredOrder.priceType) &&
@@ -284,7 +309,7 @@ public class FuturesUpdatePriceTriggeredOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(settle, orderId, size, price, triggerPrice, priceType, autoSize, close);
+        return Objects.hash(settle, orderId, size, amount, price, triggerPrice, priceType, autoSize, close);
     }
 
 
@@ -295,6 +320,7 @@ public class FuturesUpdatePriceTriggeredOrder {
         sb.append("      settle: ").append(toIndentedString(settle)).append("\n");
         sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      triggerPrice: ").append(toIndentedString(triggerPrice)).append("\n");
         sb.append("      priceType: ").append(toIndentedString(priceType)).append("\n");
