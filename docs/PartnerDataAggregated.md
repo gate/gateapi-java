@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **tradingUserCount** | **String** | 交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type&#x3D;0（全部）时返回具体数值，其他业务类型返回 null | 
 **timeRangeDesc** | **String** | Time range description | 
 **businessType** | [**BusinessTypeEnum**](#BusinessTypeEnum) | Business Type | 
-**businessTypeDesc** | [**BusinessTypeDescEnum**](#BusinessTypeDescEnum) | Business type description | 
+**businessTypeDesc** | **String** | 业务类型描述，可取值：全部, 现货, 合约, Alpha, Web3, Perps(DEX), Exchange All, Web3 All, TradFi | 
 
 ## Enum: BusinessTypeEnum
 
@@ -27,18 +27,4 @@ NUMBER_5 | 5
 NUMBER_6 | 6
 NUMBER_7 | 7
 NUMBER_8 | 8
-
-## Enum: BusinessTypeDescEnum
-
-Name | Value
----- | -----
-_ | &quot;全部&quot;
-_ | &quot;现货&quot;
-_ | &quot;合约&quot;
-ALPHA | &quot;Alpha&quot;
-WEB3 | &quot;Web3&quot;
-PERPS_DEX_ | &quot;Perps(DEX)&quot;
-EXCHANGE_ALL | &quot;Exchange All&quot;
-WEB3_ALL | &quot;Web3 All&quot;
-TRADFI | &quot;TradFi&quot;
 

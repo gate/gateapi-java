@@ -112,70 +112,9 @@ public class PartnerDataAggregated {
     @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
     private BusinessTypeEnum businessType;
 
-    /**
-     * Business type description
-     */
-    @JsonAdapter(BusinessTypeDescEnum.Adapter.class)
-    public enum BusinessTypeDescEnum {
-        _("全部"),
-        
-        _("现货"),
-        
-        _("合约"),
-        
-        ALPHA("Alpha"),
-        
-        WEB3("Web3"),
-        
-        PERPS_DEX_("Perps(DEX)"),
-        
-        EXCHANGE_ALL("Exchange All"),
-        
-        WEB3_ALL("Web3 All"),
-        
-        TRADFI("TradFi");
-
-        private String value;
-
-        BusinessTypeDescEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static BusinessTypeDescEnum fromValue(String value) {
-            for (BusinessTypeDescEnum b : BusinessTypeDescEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<BusinessTypeDescEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final BusinessTypeDescEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public BusinessTypeDescEnum read(final JsonReader jsonReader) throws IOException {
-                String value =  jsonReader.nextString();
-                return BusinessTypeDescEnum.fromValue(value);
-            }
-        }
-    }
-
     public static final String SERIALIZED_NAME_BUSINESS_TYPE_DESC = "business_type_desc";
     @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE_DESC)
-    private BusinessTypeDescEnum businessTypeDesc;
+    private String businessTypeDesc;
 
 
     public PartnerDataAggregated rebateAmount(String rebateAmount) {
@@ -313,22 +252,22 @@ public class PartnerDataAggregated {
         this.businessType = businessType;
     }
 
-    public PartnerDataAggregated businessTypeDesc(BusinessTypeDescEnum businessTypeDesc) {
+    public PartnerDataAggregated businessTypeDesc(String businessTypeDesc) {
         
         this.businessTypeDesc = businessTypeDesc;
         return this;
     }
 
      /**
-     * Business type description
+     * 业务类型描述，可取值：全部, 现货, 合约, Alpha, Web3, Perps(DEX), Exchange All, Web3 All, TradFi
      * @return businessTypeDesc
     **/
-    public BusinessTypeDescEnum getBusinessTypeDesc() {
+    public String getBusinessTypeDesc() {
         return businessTypeDesc;
     }
 
 
-    public void setBusinessTypeDesc(BusinessTypeDescEnum businessTypeDesc) {
+    public void setBusinessTypeDesc(String businessTypeDesc) {
         this.businessTypeDesc = businessTypeDesc;
     }
     @Override
