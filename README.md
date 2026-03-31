@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.52
-- SDK version: 7.2.52
+- API version: v4.106.56
+- SDK version: 7.2.56
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.52</version>
+    <version>7.2.56</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.52"
+compile "io.gate:gate-api:7.2.56"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.52.jar`
+* `target/gate-api-7.2.56.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -233,6 +233,17 @@ Class | Method | HTTP request | Description
 *EarnApi* | [**orderList**](docs/EarnApi.md#orderList) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
 *EarnApi* | [**awardList**](docs/EarnApi.md#awardList) | **GET** /earn/staking/award_list | On-chain coin-earning dividend records
 *EarnApi* | [**assetList**](docs/EarnApi.md#assetList) | **GET** /earn/staking/assets | On-chain coin-earning assets
+*EarnApi* | [**createAutoInvestPlan**](docs/EarnApi.md#createAutoInvestPlan) | **POST** /earn/autoinvest/plans/create | Create auto invest plan
+*EarnApi* | [**updateAutoInvestPlan**](docs/EarnApi.md#updateAutoInvestPlan) | **POST** /earn/autoinvest/plans/update | UpdateAuto invest plan
+*EarnApi* | [**stopAutoInvestPlan**](docs/EarnApi.md#stopAutoInvestPlan) | **POST** /earn/autoinvest/plans/stop | StopAuto invest plan
+*EarnApi* | [**addPositionAutoInvestPlan**](docs/EarnApi.md#addPositionAutoInvestPlan) | **POST** /earn/autoinvest/plans/add_position | Add position immediately
+*EarnApi* | [**listAutoInvestCoins**](docs/EarnApi.md#listAutoInvestCoins) | **GET** /earn/autoinvest/coins | QueryCurrencies supporting auto invest
+*EarnApi* | [**getAutoInvestMinAmount**](docs/EarnApi.md#getAutoInvestMinAmount) | **POST** /earn/autoinvest/min_invest_amount | Get minimum investment amount
+*EarnApi* | [**listAutoInvestPlanRecords**](docs/EarnApi.md#listAutoInvestPlanRecords) | **GET** /earn/autoinvest/plans/records | List plan execution records
+*EarnApi* | [**listAutoInvestOrders**](docs/EarnApi.md#listAutoInvestOrders) | **GET** /earn/autoinvest/orders | List plan execution recordsDetails（OrderDetails）
+*EarnApi* | [**listAutoInvestConfig**](docs/EarnApi.md#listAutoInvestConfig) | **GET** /earn/autoinvest/config | List investment currency configuration
+*EarnApi* | [**getAutoInvestPlanDetail**](docs/EarnApi.md#getAutoInvestPlanDetail) | **GET** /earn/autoinvest/plans/detail | QueryAuto invest planDetails
+*EarnApi* | [**listAutoInvestPlans**](docs/EarnApi.md#listAutoInvestPlans) | **GET** /earn/autoinvest/plans/list_info | QueryAuto invest planList
 *EarnApi* | [**listEarnFixedTermProducts**](docs/EarnApi.md#listEarnFixedTermProducts) | **GET** /earn/fixed-term/product | Get product list
 *EarnApi* | [**listEarnFixedTermProductsByAsset**](docs/EarnApi.md#listEarnFixedTermProductsByAsset) | **GET** /earn/fixed-term/product/{asset}/list | Get product list by single currency
 *EarnApi* | [**listEarnFixedTermLends**](docs/EarnApi.md#listEarnFixedTermLends) | **GET** /earn/fixed-term/user/lend | Subscription list
@@ -429,6 +440,7 @@ Class | Method | HTTP request | Description
 *RebateApi* | [**userSubRelation**](docs/RebateApi.md#userSubRelation) | **GET** /rebate/user/sub_relation | User subordinate relationship
 *RebateApi* | [**getPartnerApplicationRecent**](docs/RebateApi.md#getPartnerApplicationRecent) | **GET** /rebate/partner/applications/recent | Get recent partner application records
 *RebateApi* | [**getPartnerEligibility**](docs/RebateApi.md#getPartnerEligibility) | **GET** /rebate/partner/eligibility | Check partner application eligibility
+*RebateApi* | [**getPartnerAgentDataAggregated**](docs/RebateApi.md#getPartnerAgentDataAggregated) | **GET** /rebate/partner/data/aggregated | Aggregated partner agent statistics
 *SpotApi* | [**listCurrencies**](docs/SpotApi.md#listCurrencies) | **GET** /spot/currencies | Query all currency information
 *SpotApi* | [**getCurrency**](docs/SpotApi.md#getCurrency) | **GET** /spot/currencies/{currency} | Query single currency information
 *SpotApi* | [**listCurrencyPairs**](docs/SpotApi.md#listCurrencyPairs) | **GET** /spot/currency_pairs | Query all supported currency pairs
@@ -568,6 +580,23 @@ Class | Method | HTTP request | Description
  - [ApiResponseExSkillGetBeginnerTaskListRespData](docs/ApiResponseExSkillGetBeginnerTaskListRespData.md)
  - [ApiResponseExSkillGetBeginnerTaskListRespDataTasks](docs/ApiResponseExSkillGetBeginnerTaskListRespDataTasks.md)
  - [ApiResponseExSkillGetUserIdentityResp](docs/ApiResponseExSkillGetUserIdentityResp.md)
+ - [AutoInvestCoinsItem](docs/AutoInvestCoinsItem.md)
+ - [AutoInvestConfigItem](docs/AutoInvestConfigItem.md)
+ - [AutoInvestMinInvestAmount](docs/AutoInvestMinInvestAmount.md)
+ - [AutoInvestMinInvestAmountItems](docs/AutoInvestMinInvestAmountItems.md)
+ - [AutoInvestMinInvestAmountResp](docs/AutoInvestMinInvestAmountResp.md)
+ - [AutoInvestOrderItem](docs/AutoInvestOrderItem.md)
+ - [AutoInvestPlanAddPosition](docs/AutoInvestPlanAddPosition.md)
+ - [AutoInvestPlanCreate](docs/AutoInvestPlanCreate.md)
+ - [AutoInvestPlanCreateItems](docs/AutoInvestPlanCreateItems.md)
+ - [AutoInvestPlanCreateResp](docs/AutoInvestPlanCreateResp.md)
+ - [AutoInvestPlanDetail](docs/AutoInvestPlanDetail.md)
+ - [AutoInvestPlanListInfoResp](docs/AutoInvestPlanListInfoResp.md)
+ - [AutoInvestPlanRecordItem](docs/AutoInvestPlanRecordItem.md)
+ - [AutoInvestPlanRecordsResp](docs/AutoInvestPlanRecordsResp.md)
+ - [AutoInvestPlanStop](docs/AutoInvestPlanStop.md)
+ - [AutoInvestPlanUpdate](docs/AutoInvestPlanUpdate.md)
+ - [AutoInvestPortfolioItem](docs/AutoInvestPortfolioItem.md)
  - [AutoRepaySetting](docs/AutoRepaySetting.md)
  - [AwardListStruct](docs/AwardListStruct.md)
  - [AwardListStructList](docs/AwardListStructList.md)
@@ -691,7 +720,7 @@ Class | Method | HTTP request | Description
  - [EligibilityResponse](docs/EligibilityResponse.md)
  - [EligibilityResponseAllOf](docs/EligibilityResponseAllOf.md)
  - [ErrCodeMsg](docs/ErrCodeMsg.md)
- - [FindCoin](docs/FindCoin.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
  - [FixedTermBonusInfo](docs/FixedTermBonusInfo.md)
  - [FixedTermCouponInfo](docs/FixedTermCouponInfo.md)
  - [FixedTermHistoryRecord](docs/FixedTermHistoryRecord.md)
@@ -940,6 +969,9 @@ Class | Method | HTTP request | Description
  - [PartnerApplicationResponse](docs/PartnerApplicationResponse.md)
  - [PartnerApplicationResponseAllOf](docs/PartnerApplicationResponseAllOf.md)
  - [PartnerCommissionHistory](docs/PartnerCommissionHistory.md)
+ - [PartnerDataAggregated](docs/PartnerDataAggregated.md)
+ - [PartnerDataAggregatedResponse](docs/PartnerDataAggregatedResponse.md)
+ - [PartnerDataAggregatedResponseAllOf](docs/PartnerDataAggregatedResponseAllOf.md)
  - [PartnerSub](docs/PartnerSub.md)
  - [PartnerSubList](docs/PartnerSubList.md)
  - [PartnerTransactionHistory](docs/PartnerTransactionHistory.md)

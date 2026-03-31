@@ -20,32 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * FindCoin
+ * Add position immediatelyRequest
  */
-public class FindCoin {
-    public static final String SERIALIZED_NAME_COINTYPE = "cointype";
-    @SerializedName(SERIALIZED_NAME_COINTYPE)
-    private String cointype;
+public class AutoInvestPlanAddPosition {
+    public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";
+    @SerializedName(SERIALIZED_NAME_PLAN_ID)
+    private Long planId;
+
+    public static final String SERIALIZED_NAME_AMOUNT = "amount";
+    @SerializedName(SERIALIZED_NAME_AMOUNT)
+    private String amount;
 
 
-    public FindCoin cointype(String cointype) {
+    public AutoInvestPlanAddPosition planId(Long planId) {
         
-        this.cointype = cointype;
+        this.planId = planId;
         return this;
     }
 
      /**
-     * Currency type: swap - voucher; lock - locked position; debt - US Treasury bond.
-     * @return cointype
+     * Plan ID
+     * @return planId
     **/
-    @javax.annotation.Nullable
-    public String getCointype() {
-        return cointype;
+    public Long getPlanId() {
+        return planId;
     }
 
 
-    public void setCointype(String cointype) {
-        this.cointype = cointype;
+    public void setPlanId(Long planId) {
+        this.planId = planId;
+    }
+
+    public AutoInvestPlanAddPosition amount(String amount) {
+        
+        this.amount = amount;
+        return this;
+    }
+
+     /**
+     * Amount
+     * @return amount
+    **/
+    public String getAmount() {
+        return amount;
+    }
+
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,21 +77,23 @@ public class FindCoin {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        FindCoin findCoin = (FindCoin) o;
-        return Objects.equals(this.cointype, findCoin.cointype);
+        AutoInvestPlanAddPosition autoInvestPlanAddPosition = (AutoInvestPlanAddPosition) o;
+        return Objects.equals(this.planId, autoInvestPlanAddPosition.planId) &&
+                Objects.equals(this.amount, autoInvestPlanAddPosition.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cointype);
+        return Objects.hash(planId, amount);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FindCoin {\n");
-        sb.append("      cointype: ").append(toIndentedString(cointype)).append("\n");
+        sb.append("class AutoInvestPlanAddPosition {\n");
+        sb.append("      planId: ").append(toIndentedString(planId)).append("\n");
+        sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

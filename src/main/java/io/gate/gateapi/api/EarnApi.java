@@ -20,6 +20,19 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.AutoInvestCoinsItem;
+import io.gate.gateapi.models.AutoInvestConfigItem;
+import io.gate.gateapi.models.AutoInvestMinInvestAmount;
+import io.gate.gateapi.models.AutoInvestMinInvestAmountResp;
+import io.gate.gateapi.models.AutoInvestOrderItem;
+import io.gate.gateapi.models.AutoInvestPlanAddPosition;
+import io.gate.gateapi.models.AutoInvestPlanCreate;
+import io.gate.gateapi.models.AutoInvestPlanCreateResp;
+import io.gate.gateapi.models.AutoInvestPlanDetail;
+import io.gate.gateapi.models.AutoInvestPlanListInfoResp;
+import io.gate.gateapi.models.AutoInvestPlanRecordsResp;
+import io.gate.gateapi.models.AutoInvestPlanStop;
+import io.gate.gateapi.models.AutoInvestPlanUpdate;
 import io.gate.gateapi.models.AwardListStruct;
 import io.gate.gateapi.models.CreateEarnFixedTermLendResponse;
 import io.gate.gateapi.models.CreateEarnFixedTermPreRedeemResponse;
@@ -27,7 +40,6 @@ import io.gate.gateapi.models.DualGetBalance;
 import io.gate.gateapi.models.DualGetOrders;
 import io.gate.gateapi.models.DualGetPlans;
 import io.gate.gateapi.models.EarnFixedTermPreRedeemRequest;
-import io.gate.gateapi.models.FindCoin;
 import io.gate.gateapi.models.FixedTermLendRequest;
 import io.gate.gateapi.models.ListEarnFixedTermHistoryResponse;
 import io.gate.gateapi.models.ListEarnFixedTermLendsResponse;
@@ -600,26 +612,18 @@ public class EarnApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for findCoin
-     * @param findCoin  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call findCoinCall(FindCoin findCoin, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = findCoin;
+    private okhttp3.Call findCoinCall(String cointype, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/earn/staking/coins";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (cointype != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cointype", cointype));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -632,7 +636,7 @@ public class EarnApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -642,69 +646,113 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findCoinValidateBeforeCall(FindCoin findCoin, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'findCoin' is set
-        if (findCoin == null) {
-            throw new ApiException("Missing the required parameter 'findCoin' when calling findCoin(Async)");
-        }
-
-        okhttp3.Call localVarCall = findCoinCall(findCoin, _callback);
+    private okhttp3.Call findCoinValidateBeforeCall(String cointype, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = findCoinCall(cointype, _callback);
         return localVarCall;
     }
 
-    /**
-     * Staking coins
-     * 
-     * @param findCoin  (required)
-     * @return List&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<Object> findCoin(FindCoin findCoin) throws ApiException {
-        ApiResponse<List<Object>> localVarResp = findCoinWithHttpInfo(findCoin);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Staking coins
-     * 
-     * @param findCoin  (required)
-     * @return ApiResponse&lt;List&lt;Object&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<Object>> findCoinWithHttpInfo(FindCoin findCoin) throws ApiException {
-        okhttp3.Call localVarCall = findCoinValidateBeforeCall(findCoin, null);
+    private ApiResponse<List<Object>> findCoinWithHttpInfo(String cointype) throws ApiException {
+        okhttp3.Call localVarCall = findCoinValidateBeforeCall(cointype, null);
         Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call findCoinAsync(String cointype, final ApiCallback<List<Object>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = findCoinValidateBeforeCall(cointype, _callback);
+        Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIfindCoinRequest {
+        private String cointype;
+
+        private APIfindCoinRequest() {
+        }
+
+        /**
+         * Set cointype
+         * @param cointype Currency type: swap - voucher; lock - locked position; debt - US Treasury bond. (optional)
+         * @return APIfindCoinRequest
+         */
+        public APIfindCoinRequest cointype(String cointype) {
+            this.cointype = cointype;
+            return this;
+        }
+
+        /**
+         * Build call for findCoin
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return findCoinCall(cointype, _callback);
+        }
+
+        /**
+         * Execute findCoin request
+         * @return List&lt;Object&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<Object> execute() throws ApiException {
+            ApiResponse<List<Object>> localVarResp = findCoinWithHttpInfo(cointype);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute findCoin request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Object&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<Object>> executeWithHttpInfo() throws ApiException {
+            return findCoinWithHttpInfo(cointype);
+        }
+
+        /**
+         * Execute findCoin request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Object>> _callback) throws ApiException {
+            return findCoinAsync(cointype, _callback);
+        }
+    }
+
     /**
-     * Staking coins (asynchronously)
+     * Staking coins
      * 
-     * @param findCoin  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIfindCoinRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findCoinAsync(FindCoin findCoin, final ApiCallback<List<Object>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = findCoinValidateBeforeCall(findCoin, _callback);
-        Type localVarReturnType = new TypeToken<List<Object>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIfindCoinRequest findCoin() {
+        return new APIfindCoinRequest();
     }
 
     /**
@@ -1316,6 +1364,1345 @@ public class EarnApi {
      */
     public APIassetListRequest assetList() {
         return new APIassetListRequest();
+    }
+
+    /**
+     * Build call for createAutoInvestPlan
+     * @param autoInvestPlanCreate  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAutoInvestPlanCall(AutoInvestPlanCreate autoInvestPlanCreate, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = autoInvestPlanCreate;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAutoInvestPlanValidateBeforeCall(AutoInvestPlanCreate autoInvestPlanCreate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'autoInvestPlanCreate' is set
+        if (autoInvestPlanCreate == null) {
+            throw new ApiException("Missing the required parameter 'autoInvestPlanCreate' when calling createAutoInvestPlan(Async)");
+        }
+
+        okhttp3.Call localVarCall = createAutoInvestPlanCall(autoInvestPlanCreate, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create auto invest plan
+     * 
+     * @param autoInvestPlanCreate  (required)
+     * @return AutoInvestPlanCreateResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoInvestPlanCreateResp createAutoInvestPlan(AutoInvestPlanCreate autoInvestPlanCreate) throws ApiException {
+        ApiResponse<AutoInvestPlanCreateResp> localVarResp = createAutoInvestPlanWithHttpInfo(autoInvestPlanCreate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create auto invest plan
+     * 
+     * @param autoInvestPlanCreate  (required)
+     * @return ApiResponse&lt;AutoInvestPlanCreateResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoInvestPlanCreateResp> createAutoInvestPlanWithHttpInfo(AutoInvestPlanCreate autoInvestPlanCreate) throws ApiException {
+        okhttp3.Call localVarCall = createAutoInvestPlanValidateBeforeCall(autoInvestPlanCreate, null);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanCreateResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create auto invest plan (asynchronously)
+     * 
+     * @param autoInvestPlanCreate  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createAutoInvestPlanAsync(AutoInvestPlanCreate autoInvestPlanCreate, final ApiCallback<AutoInvestPlanCreateResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createAutoInvestPlanValidateBeforeCall(autoInvestPlanCreate, _callback);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanCreateResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateAutoInvestPlan
+     * @param autoInvestPlanUpdate  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAutoInvestPlanCall(AutoInvestPlanUpdate autoInvestPlanUpdate, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = autoInvestPlanUpdate;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/update";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAutoInvestPlanValidateBeforeCall(AutoInvestPlanUpdate autoInvestPlanUpdate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'autoInvestPlanUpdate' is set
+        if (autoInvestPlanUpdate == null) {
+            throw new ApiException("Missing the required parameter 'autoInvestPlanUpdate' when calling updateAutoInvestPlan(Async)");
+        }
+
+        okhttp3.Call localVarCall = updateAutoInvestPlanCall(autoInvestPlanUpdate, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * UpdateAuto invest plan
+     * 
+     * @param autoInvestPlanUpdate  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public void updateAutoInvestPlan(AutoInvestPlanUpdate autoInvestPlanUpdate) throws ApiException {
+        updateAutoInvestPlanWithHttpInfo(autoInvestPlanUpdate);
+    }
+
+    /**
+     * UpdateAuto invest plan
+     * 
+     * @param autoInvestPlanUpdate  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> updateAutoInvestPlanWithHttpInfo(AutoInvestPlanUpdate autoInvestPlanUpdate) throws ApiException {
+        okhttp3.Call localVarCall = updateAutoInvestPlanValidateBeforeCall(autoInvestPlanUpdate, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * UpdateAuto invest plan (asynchronously)
+     * 
+     * @param autoInvestPlanUpdate  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAutoInvestPlanAsync(AutoInvestPlanUpdate autoInvestPlanUpdate, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateAutoInvestPlanValidateBeforeCall(autoInvestPlanUpdate, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for stopAutoInvestPlan
+     * @param autoInvestPlanStop  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Stopped successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopAutoInvestPlanCall(AutoInvestPlanStop autoInvestPlanStop, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = autoInvestPlanStop;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/stop";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopAutoInvestPlanValidateBeforeCall(AutoInvestPlanStop autoInvestPlanStop, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'autoInvestPlanStop' is set
+        if (autoInvestPlanStop == null) {
+            throw new ApiException("Missing the required parameter 'autoInvestPlanStop' when calling stopAutoInvestPlan(Async)");
+        }
+
+        okhttp3.Call localVarCall = stopAutoInvestPlanCall(autoInvestPlanStop, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * StopAuto invest plan
+     * 
+     * @param autoInvestPlanStop  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Stopped successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public void stopAutoInvestPlan(AutoInvestPlanStop autoInvestPlanStop) throws ApiException {
+        stopAutoInvestPlanWithHttpInfo(autoInvestPlanStop);
+    }
+
+    /**
+     * StopAuto invest plan
+     * 
+     * @param autoInvestPlanStop  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Stopped successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> stopAutoInvestPlanWithHttpInfo(AutoInvestPlanStop autoInvestPlanStop) throws ApiException {
+        okhttp3.Call localVarCall = stopAutoInvestPlanValidateBeforeCall(autoInvestPlanStop, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * StopAuto invest plan (asynchronously)
+     * 
+     * @param autoInvestPlanStop  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Stopped successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopAutoInvestPlanAsync(AutoInvestPlanStop autoInvestPlanStop, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = stopAutoInvestPlanValidateBeforeCall(autoInvestPlanStop, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for addPositionAutoInvestPlan
+     * @param autoInvestPlanAddPosition  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Add PositionSuccess </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call addPositionAutoInvestPlanCall(AutoInvestPlanAddPosition autoInvestPlanAddPosition, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = autoInvestPlanAddPosition;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/add_position";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addPositionAutoInvestPlanValidateBeforeCall(AutoInvestPlanAddPosition autoInvestPlanAddPosition, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'autoInvestPlanAddPosition' is set
+        if (autoInvestPlanAddPosition == null) {
+            throw new ApiException("Missing the required parameter 'autoInvestPlanAddPosition' when calling addPositionAutoInvestPlan(Async)");
+        }
+
+        okhttp3.Call localVarCall = addPositionAutoInvestPlanCall(autoInvestPlanAddPosition, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Add position immediately
+     * 
+     * @param autoInvestPlanAddPosition  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Add PositionSuccess </td><td>  -  </td></tr>
+     </table>
+     */
+    public void addPositionAutoInvestPlan(AutoInvestPlanAddPosition autoInvestPlanAddPosition) throws ApiException {
+        addPositionAutoInvestPlanWithHttpInfo(autoInvestPlanAddPosition);
+    }
+
+    /**
+     * Add position immediately
+     * 
+     * @param autoInvestPlanAddPosition  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Add PositionSuccess </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> addPositionAutoInvestPlanWithHttpInfo(AutoInvestPlanAddPosition autoInvestPlanAddPosition) throws ApiException {
+        okhttp3.Call localVarCall = addPositionAutoInvestPlanValidateBeforeCall(autoInvestPlanAddPosition, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Add position immediately (asynchronously)
+     * 
+     * @param autoInvestPlanAddPosition  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Add PositionSuccess </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call addPositionAutoInvestPlanAsync(AutoInvestPlanAddPosition autoInvestPlanAddPosition, final ApiCallback<Void> _callback) throws ApiException {
+        okhttp3.Call localVarCall = addPositionAutoInvestPlanValidateBeforeCall(autoInvestPlanAddPosition, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listAutoInvestCoinsCall(String planMoney, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/coins";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (planMoney != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("plan_money", planMoney));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoInvestCoinsValidateBeforeCall(String planMoney, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestCoinsCall(planMoney, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<AutoInvestCoinsItem>> listAutoInvestCoinsWithHttpInfo(String planMoney) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestCoinsValidateBeforeCall(planMoney, null);
+        Type localVarReturnType = new TypeToken<List<AutoInvestCoinsItem>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listAutoInvestCoinsAsync(String planMoney, final ApiCallback<List<AutoInvestCoinsItem>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestCoinsValidateBeforeCall(planMoney, _callback);
+        Type localVarReturnType = new TypeToken<List<AutoInvestCoinsItem>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistAutoInvestCoinsRequest {
+        private String planMoney;
+
+        private APIlistAutoInvestCoinsRequest() {
+        }
+
+        /**
+         * Set planMoney
+         * @param planMoney Pricing currency，Optional: USDT or BTC，Default: USDT (optional)
+         * @return APIlistAutoInvestCoinsRequest
+         */
+        public APIlistAutoInvestCoinsRequest planMoney(String planMoney) {
+            this.planMoney = planMoney;
+            return this;
+        }
+
+        /**
+         * Build call for listAutoInvestCoins
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAutoInvestCoinsCall(planMoney, _callback);
+        }
+
+        /**
+         * Execute listAutoInvestCoins request
+         * @return List&lt;AutoInvestCoinsItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<AutoInvestCoinsItem> execute() throws ApiException {
+            ApiResponse<List<AutoInvestCoinsItem>> localVarResp = listAutoInvestCoinsWithHttpInfo(planMoney);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAutoInvestCoins request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AutoInvestCoinsItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<AutoInvestCoinsItem>> executeWithHttpInfo() throws ApiException {
+            return listAutoInvestCoinsWithHttpInfo(planMoney);
+        }
+
+        /**
+         * Execute listAutoInvestCoins request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AutoInvestCoinsItem>> _callback) throws ApiException {
+            return listAutoInvestCoinsAsync(planMoney, _callback);
+        }
+    }
+
+    /**
+     * QueryCurrencies supporting auto invest
+     * 
+     * @return APIlistAutoInvestCoinsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistAutoInvestCoinsRequest listAutoInvestCoins() {
+        return new APIlistAutoInvestCoinsRequest();
+    }
+
+    /**
+     * Build call for getAutoInvestMinAmount
+     * @param autoInvestMinInvestAmount  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAutoInvestMinAmountCall(AutoInvestMinInvestAmount autoInvestMinInvestAmount, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = autoInvestMinInvestAmount;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/min_invest_amount";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAutoInvestMinAmountValidateBeforeCall(AutoInvestMinInvestAmount autoInvestMinInvestAmount, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'autoInvestMinInvestAmount' is set
+        if (autoInvestMinInvestAmount == null) {
+            throw new ApiException("Missing the required parameter 'autoInvestMinInvestAmount' when calling getAutoInvestMinAmount(Async)");
+        }
+
+        okhttp3.Call localVarCall = getAutoInvestMinAmountCall(autoInvestMinInvestAmount, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get minimum investment amount
+     * 
+     * @param autoInvestMinInvestAmount  (required)
+     * @return AutoInvestMinInvestAmountResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoInvestMinInvestAmountResp getAutoInvestMinAmount(AutoInvestMinInvestAmount autoInvestMinInvestAmount) throws ApiException {
+        ApiResponse<AutoInvestMinInvestAmountResp> localVarResp = getAutoInvestMinAmountWithHttpInfo(autoInvestMinInvestAmount);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get minimum investment amount
+     * 
+     * @param autoInvestMinInvestAmount  (required)
+     * @return ApiResponse&lt;AutoInvestMinInvestAmountResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoInvestMinInvestAmountResp> getAutoInvestMinAmountWithHttpInfo(AutoInvestMinInvestAmount autoInvestMinInvestAmount) throws ApiException {
+        okhttp3.Call localVarCall = getAutoInvestMinAmountValidateBeforeCall(autoInvestMinInvestAmount, null);
+        Type localVarReturnType = new TypeToken<AutoInvestMinInvestAmountResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get minimum investment amount (asynchronously)
+     * 
+     * @param autoInvestMinInvestAmount  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAutoInvestMinAmountAsync(AutoInvestMinInvestAmount autoInvestMinInvestAmount, final ApiCallback<AutoInvestMinInvestAmountResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getAutoInvestMinAmountValidateBeforeCall(autoInvestMinInvestAmount, _callback);
+        Type localVarReturnType = new TypeToken<AutoInvestMinInvestAmountResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listAutoInvestPlanRecordsCall(Long planId, Long page, Long pageSize, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/records";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (planId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("plan_id", planId));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoInvestPlanRecordsValidateBeforeCall(Long planId, Long page, Long pageSize, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'planId' is set
+        if (planId == null) {
+            throw new ApiException("Missing the required parameter 'planId' when calling listAutoInvestPlanRecords(Async)");
+        }
+
+        okhttp3.Call localVarCall = listAutoInvestPlanRecordsCall(planId, page, pageSize, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<AutoInvestPlanRecordsResp> listAutoInvestPlanRecordsWithHttpInfo(Long planId, Long page, Long pageSize) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestPlanRecordsValidateBeforeCall(planId, page, pageSize, null);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanRecordsResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listAutoInvestPlanRecordsAsync(Long planId, Long page, Long pageSize, final ApiCallback<AutoInvestPlanRecordsResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestPlanRecordsValidateBeforeCall(planId, page, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanRecordsResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistAutoInvestPlanRecordsRequest {
+        private final Long planId;
+        private Long page;
+        private Long pageSize;
+
+        private APIlistAutoInvestPlanRecordsRequest(Long planId) {
+            this.planId = planId;
+        }
+
+        /**
+         * Set page
+         * @param page page number (optional)
+         * @return APIlistAutoInvestPlanRecordsRequest
+         */
+        public APIlistAutoInvestPlanRecordsRequest page(Long page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Items per page，Maximum 100 (optional)
+         * @return APIlistAutoInvestPlanRecordsRequest
+         */
+        public APIlistAutoInvestPlanRecordsRequest pageSize(Long pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * Build call for listAutoInvestPlanRecords
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAutoInvestPlanRecordsCall(planId, page, pageSize, _callback);
+        }
+
+        /**
+         * Execute listAutoInvestPlanRecords request
+         * @return AutoInvestPlanRecordsResp
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public AutoInvestPlanRecordsResp execute() throws ApiException {
+            ApiResponse<AutoInvestPlanRecordsResp> localVarResp = listAutoInvestPlanRecordsWithHttpInfo(planId, page, pageSize);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAutoInvestPlanRecords request with HTTP info returned
+         * @return ApiResponse&lt;AutoInvestPlanRecordsResp&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AutoInvestPlanRecordsResp> executeWithHttpInfo() throws ApiException {
+            return listAutoInvestPlanRecordsWithHttpInfo(planId, page, pageSize);
+        }
+
+        /**
+         * Execute listAutoInvestPlanRecords request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AutoInvestPlanRecordsResp> _callback) throws ApiException {
+            return listAutoInvestPlanRecordsAsync(planId, page, pageSize, _callback);
+        }
+    }
+
+    /**
+     * List plan execution records
+     * 
+     * @param planId Plan ID (required)
+     * @return APIlistAutoInvestPlanRecordsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistAutoInvestPlanRecordsRequest listAutoInvestPlanRecords(Long planId) {
+        return new APIlistAutoInvestPlanRecordsRequest(planId);
+    }
+
+    /**
+     * Build call for listAutoInvestOrders
+     * @param planId Plan ID (required)
+     * @param recordId Record ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAutoInvestOrdersCall(Long planId, Long recordId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (planId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("plan_id", planId));
+        }
+
+        if (recordId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("record_id", recordId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoInvestOrdersValidateBeforeCall(Long planId, Long recordId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'planId' is set
+        if (planId == null) {
+            throw new ApiException("Missing the required parameter 'planId' when calling listAutoInvestOrders(Async)");
+        }
+
+        // verify the required parameter 'recordId' is set
+        if (recordId == null) {
+            throw new ApiException("Missing the required parameter 'recordId' when calling listAutoInvestOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = listAutoInvestOrdersCall(planId, recordId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * List plan execution recordsDetails（OrderDetails）
+     * 
+     * @param planId Plan ID (required)
+     * @param recordId Record ID (required)
+     * @return List&lt;AutoInvestOrderItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<AutoInvestOrderItem> listAutoInvestOrders(Long planId, Long recordId) throws ApiException {
+        ApiResponse<List<AutoInvestOrderItem>> localVarResp = listAutoInvestOrdersWithHttpInfo(planId, recordId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List plan execution recordsDetails（OrderDetails）
+     * 
+     * @param planId Plan ID (required)
+     * @param recordId Record ID (required)
+     * @return ApiResponse&lt;List&lt;AutoInvestOrderItem&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<AutoInvestOrderItem>> listAutoInvestOrdersWithHttpInfo(Long planId, Long recordId) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestOrdersValidateBeforeCall(planId, recordId, null);
+        Type localVarReturnType = new TypeToken<List<AutoInvestOrderItem>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List plan execution recordsDetails（OrderDetails） (asynchronously)
+     * 
+     * @param planId Plan ID (required)
+     * @param recordId Record ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAutoInvestOrdersAsync(Long planId, Long recordId, final ApiCallback<List<AutoInvestOrderItem>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestOrdersValidateBeforeCall(planId, recordId, _callback);
+        Type localVarReturnType = new TypeToken<List<AutoInvestOrderItem>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listAutoInvestConfig
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAutoInvestConfigCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/config";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoInvestConfigValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestConfigCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * List investment currency configuration
+     * 
+     * @return List&lt;AutoInvestConfigItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<AutoInvestConfigItem> listAutoInvestConfig() throws ApiException {
+        ApiResponse<List<AutoInvestConfigItem>> localVarResp = listAutoInvestConfigWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List investment currency configuration
+     * 
+     * @return ApiResponse&lt;List&lt;AutoInvestConfigItem&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<AutoInvestConfigItem>> listAutoInvestConfigWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestConfigValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<AutoInvestConfigItem>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List investment currency configuration (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAutoInvestConfigAsync(final ApiCallback<List<AutoInvestConfigItem>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestConfigValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<AutoInvestConfigItem>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAutoInvestPlanDetail
+     * @param planId Plan ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAutoInvestPlanDetailCall(Long planId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/detail";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (planId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("plan_id", planId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAutoInvestPlanDetailValidateBeforeCall(Long planId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'planId' is set
+        if (planId == null) {
+            throw new ApiException("Missing the required parameter 'planId' when calling getAutoInvestPlanDetail(Async)");
+        }
+
+        okhttp3.Call localVarCall = getAutoInvestPlanDetailCall(planId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * QueryAuto invest planDetails
+     * 
+     * @param planId Plan ID (required)
+     * @return AutoInvestPlanDetail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoInvestPlanDetail getAutoInvestPlanDetail(Long planId) throws ApiException {
+        ApiResponse<AutoInvestPlanDetail> localVarResp = getAutoInvestPlanDetailWithHttpInfo(planId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * QueryAuto invest planDetails
+     * 
+     * @param planId Plan ID (required)
+     * @return ApiResponse&lt;AutoInvestPlanDetail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoInvestPlanDetail> getAutoInvestPlanDetailWithHttpInfo(Long planId) throws ApiException {
+        okhttp3.Call localVarCall = getAutoInvestPlanDetailValidateBeforeCall(planId, null);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanDetail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * QueryAuto invest planDetails (asynchronously)
+     * 
+     * @param planId Plan ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAutoInvestPlanDetailAsync(Long planId, final ApiCallback<AutoInvestPlanDetail> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getAutoInvestPlanDetailValidateBeforeCall(planId, _callback);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanDetail>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listAutoInvestPlansCall(String status, Long page, Long pageSize, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/earn/autoinvest/plans/list_info";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAutoInvestPlansValidateBeforeCall(String status, Long page, Long pageSize, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'status' is set
+        if (status == null) {
+            throw new ApiException("Missing the required parameter 'status' when calling listAutoInvestPlans(Async)");
+        }
+
+        okhttp3.Call localVarCall = listAutoInvestPlansCall(status, page, pageSize, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<AutoInvestPlanListInfoResp> listAutoInvestPlansWithHttpInfo(String status, Long page, Long pageSize) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestPlansValidateBeforeCall(status, page, pageSize, null);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanListInfoResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listAutoInvestPlansAsync(String status, Long page, Long pageSize, final ApiCallback<AutoInvestPlanListInfoResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listAutoInvestPlansValidateBeforeCall(status, page, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<AutoInvestPlanListInfoResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistAutoInvestPlansRequest {
+        private final String status;
+        private Long page;
+        private Long pageSize;
+
+        private APIlistAutoInvestPlansRequest(String status) {
+            this.status = status;
+        }
+
+        /**
+         * Set page
+         * @param page page number (optional)
+         * @return APIlistAutoInvestPlansRequest
+         */
+        public APIlistAutoInvestPlansRequest page(Long page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Items per page，Maximum 100 (optional)
+         * @return APIlistAutoInvestPlansRequest
+         */
+        public APIlistAutoInvestPlansRequest pageSize(Long pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * Build call for listAutoInvestPlans
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAutoInvestPlansCall(status, page, pageSize, _callback);
+        }
+
+        /**
+         * Execute listAutoInvestPlans request
+         * @return AutoInvestPlanListInfoResp
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public AutoInvestPlanListInfoResp execute() throws ApiException {
+            ApiResponse<AutoInvestPlanListInfoResp> localVarResp = listAutoInvestPlansWithHttpInfo(status, page, pageSize);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAutoInvestPlans request with HTTP info returned
+         * @return ApiResponse&lt;AutoInvestPlanListInfoResp&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AutoInvestPlanListInfoResp> executeWithHttpInfo() throws ApiException {
+            return listAutoInvestPlansWithHttpInfo(status, page, pageSize);
+        }
+
+        /**
+         * Execute listAutoInvestPlans request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AutoInvestPlanListInfoResp> _callback) throws ApiException {
+            return listAutoInvestPlansAsync(status, page, pageSize, _callback);
+        }
+    }
+
+    /**
+     * QueryAuto invest planList
+     * 
+     * @param status Plan status，History history，Active active (required)
+     * @return APIlistAutoInvestPlansRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistAutoInvestPlansRequest listAutoInvestPlans(String status) {
+        return new APIlistAutoInvestPlansRequest(status);
     }
 
     private okhttp3.Call listEarnFixedTermProductsCall(Integer page, Integer limit, String asset, Integer type, final ApiCallback _callback) throws ApiException {

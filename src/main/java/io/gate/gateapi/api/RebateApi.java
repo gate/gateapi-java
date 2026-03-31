@@ -25,8 +25,10 @@ import io.gate.gateapi.models.AgencyTransactionHistory;
 import io.gate.gateapi.models.BrokerCommission;
 import io.gate.gateapi.models.BrokerTransactionHistory;
 import io.gate.gateapi.models.EligibilityResponse;
+import io.gate.gateapi.models.ErrorResponse;
 import io.gate.gateapi.models.PartnerApplicationResponse;
 import io.gate.gateapi.models.PartnerCommissionHistory;
+import io.gate.gateapi.models.PartnerDataAggregatedResponse;
 import io.gate.gateapi.models.PartnerSubList;
 import io.gate.gateapi.models.PartnerTransactionHistory;
 import io.gate.gateapi.models.RebateUserInfo;
@@ -1926,6 +1928,194 @@ public class RebateApi {
         Type localVarReturnType = new TypeToken<EligibilityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call getPartnerAgentDataAggregatedCall(String startDate, String endDate, Integer businessType, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/rebate/partner/data/aggregated";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        if (businessType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("business_type", businessType));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPartnerAgentDataAggregatedValidateBeforeCall(String startDate, String endDate, Integer businessType, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerAgentDataAggregatedCall(startDate, endDate, businessType, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<PartnerDataAggregatedResponse> getPartnerAgentDataAggregatedWithHttpInfo(String startDate, String endDate, Integer businessType) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerAgentDataAggregatedValidateBeforeCall(startDate, endDate, businessType, null);
+        Type localVarReturnType = new TypeToken<PartnerDataAggregatedResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getPartnerAgentDataAggregatedAsync(String startDate, String endDate, Integer businessType, final ApiCallback<PartnerDataAggregatedResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getPartnerAgentDataAggregatedValidateBeforeCall(startDate, endDate, businessType, _callback);
+        Type localVarReturnType = new TypeToken<PartnerDataAggregatedResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetPartnerAgentDataAggregatedRequest {
+        private String startDate;
+        private String endDate;
+        private Integer businessType;
+
+        private APIgetPartnerAgentDataAggregatedRequest() {
+        }
+
+        /**
+         * Set startDate
+         * @param startDate 查询开始时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日开始时间 (optional)
+         * @return APIgetPartnerAgentDataAggregatedRequest
+         */
+        public APIgetPartnerAgentDataAggregatedRequest startDate(String startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        /**
+         * Set endDate
+         * @param endDate 查询结束时间，格式：yyyy-mm-dd hh:ii:ss（UTC+8）  不传时默认为近 7 日结束时间 (optional)
+         * @return APIgetPartnerAgentDataAggregatedRequest
+         */
+        public APIgetPartnerAgentDataAggregatedRequest endDate(String endDate) {
+            this.endDate = endDate;
+            return this;
+        }
+
+        /**
+         * Set businessType
+         * @param businessType Business type filter: - 0: All (default) - 1: Spot - 2: Futures - 3: Alpha - 4: Web3 - 5: Perps (DEX) - 6: Exchange All - 7: Web3 All - 8: TradFi (optional, default to 0)
+         * @return APIgetPartnerAgentDataAggregatedRequest
+         */
+        public APIgetPartnerAgentDataAggregatedRequest businessType(Integer businessType) {
+            this.businessType = businessType;
+            return this;
+        }
+
+        /**
+         * Build call for getPartnerAgentDataAggregated
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+            <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPartnerAgentDataAggregatedCall(startDate, endDate, businessType, _callback);
+        }
+
+        /**
+         * Execute getPartnerAgentDataAggregated request
+         * @return PartnerDataAggregatedResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+            <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+         </table>
+         */
+        public PartnerDataAggregatedResponse execute() throws ApiException {
+            ApiResponse<PartnerDataAggregatedResponse> localVarResp = getPartnerAgentDataAggregatedWithHttpInfo(startDate, endDate, businessType);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPartnerAgentDataAggregated request with HTTP info returned
+         * @return ApiResponse&lt;PartnerDataAggregatedResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+            <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PartnerDataAggregatedResponse> executeWithHttpInfo() throws ApiException {
+            return getPartnerAgentDataAggregatedWithHttpInfo(startDate, endDate, businessType);
+        }
+
+        /**
+         * Execute getPartnerAgentDataAggregated request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+            <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PartnerDataAggregatedResponse> _callback) throws ApiException {
+            return getPartnerAgentDataAggregatedAsync(startDate, endDate, businessType, _callback);
+        }
+    }
+
+    /**
+     * Aggregated partner agent statistics
+     * 查询指定时间范围内合伙人代理的数据聚合统计，包括返佣金额、交易量、净手续费、客户数和交易人数。  **注意事项：** - 交易人数 &#x60;trading_user_count&#x60; 仅在 &#x60;business_type&#x3D;0&#x60;（全部）时返回 - 时间参数使用 UTC+8 时区 - 如不传时间参数，默认查询近 7 天数据 - 仅限合伙人代理访问，子账号无权限
+     * @return APIgetPartnerAgentDataAggregatedRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized access </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetPartnerAgentDataAggregatedRequest getPartnerAgentDataAggregated() {
+        return new APIgetPartnerAgentDataAggregatedRequest();
     }
 
 }

@@ -1,0 +1,44 @@
+
+# PartnerDataAggregated
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**rebateAmount** | **String** | 返佣金额，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
+**tradeVolume** | **String** | 交易量，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
+**netFee** | **String** | 净手续费，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
+**customerCount** | **Integer** | Customer count (invited users) | 
+**tradingUserCount** | **String** | 交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type&#x3D;0（全部）时返回具体数值，其他业务类型返回 null | 
+**timeRangeDesc** | **String** | Time range description | 
+**businessType** | [**BusinessTypeEnum**](#BusinessTypeEnum) | Business Type | 
+**businessTypeDesc** | [**BusinessTypeDescEnum**](#BusinessTypeDescEnum) | Business type description | 
+
+## Enum: BusinessTypeEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
+NUMBER_3 | 3
+NUMBER_4 | 4
+NUMBER_5 | 5
+NUMBER_6 | 6
+NUMBER_7 | 7
+NUMBER_8 | 8
+
+## Enum: BusinessTypeDescEnum
+
+Name | Value
+---- | -----
+_ | &quot;全部&quot;
+_ | &quot;现货&quot;
+_ | &quot;合约&quot;
+ALPHA | &quot;Alpha&quot;
+WEB3 | &quot;Web3&quot;
+PERPS_DEX_ | &quot;Perps(DEX)&quot;
+EXCHANGE_ALL | &quot;Exchange All&quot;
+WEB3_ALL | &quot;Web3 All&quot;
+TRADFI | &quot;TradFi&quot;
+
