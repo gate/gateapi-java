@@ -37,6 +37,10 @@ public class FuturesPriceTriggeredOrder {
     @SerializedName(SERIALIZED_NAME_ID)
     private Long id;
 
+    public static final String SERIALIZED_NAME_ID_STRING = "id_string";
+    @SerializedName(SERIALIZED_NAME_ID_STRING)
+    private String idString;
+
     public static final String SERIALIZED_NAME_USER = "user";
     @SerializedName(SERIALIZED_NAME_USER)
     private Integer user;
@@ -225,6 +229,16 @@ public class FuturesPriceTriggeredOrder {
 
 
      /**
+     * String form of the auto order ID; the same order as numeric &#x60;id&#x60;, as the decimal string of &#x60;id&#x60; to avoid int64 precision loss in JavaScript and similar environments. Prefer this field to display the order ID or when a string unique identifier is needed; one-to-one with &#x60;id&#x60;. Same meaning as the field of the same name in futures price-trigger REST APIs and in &#x60;futures.orders&#x60; / &#x60;futures.autoorders&#x60; WebSocket pushes.
+     * @return idString
+    **/
+    @javax.annotation.Nullable
+    public String getIdString() {
+        return idString;
+    }
+
+
+     /**
      * User ID
      * @return user
     **/
@@ -335,6 +349,7 @@ public class FuturesPriceTriggeredOrder {
         return Objects.equals(this.initial, futuresPriceTriggeredOrder.initial) &&
                 Objects.equals(this.trigger, futuresPriceTriggeredOrder.trigger) &&
                 Objects.equals(this.id, futuresPriceTriggeredOrder.id) &&
+                Objects.equals(this.idString, futuresPriceTriggeredOrder.idString) &&
                 Objects.equals(this.user, futuresPriceTriggeredOrder.user) &&
                 Objects.equals(this.createTime, futuresPriceTriggeredOrder.createTime) &&
                 Objects.equals(this.finishTime, futuresPriceTriggeredOrder.finishTime) &&
@@ -348,7 +363,7 @@ public class FuturesPriceTriggeredOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(initial, trigger, id, user, createTime, finishTime, tradeId, status, finishAs, reason, orderType, meOrderId);
+        return Objects.hash(initial, trigger, id, idString, user, createTime, finishTime, tradeId, status, finishAs, reason, orderType, meOrderId);
     }
 
 
@@ -359,6 +374,7 @@ public class FuturesPriceTriggeredOrder {
         sb.append("      initial: ").append(toIndentedString(initial)).append("\n");
         sb.append("      trigger: ").append(toIndentedString(trigger)).append("\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      idString: ").append(toIndentedString(idString)).append("\n");
         sb.append("      user: ").append(toIndentedString(user)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      finishTime: ").append(toIndentedString(finishTime)).append("\n");

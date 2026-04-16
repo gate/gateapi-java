@@ -20,32 +20,56 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Order result
+ * ClaimRewardError
  */
-public class CreateOrderData {
-    public static final String SERIALIZED_NAME_ID = "id";
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
+public class ClaimRewardError {
+    public static final String SERIALIZED_NAME_LABEL = "label";
+    @SerializedName(SERIALIZED_NAME_LABEL)
+    private String label;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
 
-    public CreateOrderData id(String id) {
+    public ClaimRewardError label(String label) {
         
-        this.id = id;
+        this.label = label;
         return this;
     }
 
      /**
-     * Queue Task ID (not task ID)
-     * @return id
+     * Error identifier code
+     * @return label
     **/
     @javax.annotation.Nullable
-    public String getId() {
-        return id;
+    public String getLabel() {
+        return label;
     }
 
 
-    public void setId(String id) {
-        this.id = id;
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public ClaimRewardError message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Error details
+     * @return message
+    **/
+    @javax.annotation.Nullable
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,21 +79,23 @@ public class CreateOrderData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateOrderData createOrderData = (CreateOrderData) o;
-        return Objects.equals(this.id, createOrderData.id);
+        ClaimRewardError claimRewardError = (ClaimRewardError) o;
+        return Objects.equals(this.label, claimRewardError.label) &&
+                Objects.equals(this.message, claimRewardError.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(label, message);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateOrderData {\n");
-        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("class ClaimRewardError {\n");
+        sb.append("      label: ").append(toIndentedString(label)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -774,7 +774,7 @@ This endpoint does not need any parameter.
 
 <a name="createTradFiOrder"></a>
 # **createTradFiOrder**
-> CreateOrder createTradFiOrder(tradFiOrderRequest)
+> CreateOrder2 createTradFiOrder(tradFiOrderRequest)
 
 Create an order
 
@@ -801,7 +801,7 @@ public class Example {
         TradFiApi apiInstance = new TradFiApi(defaultClient);
         TradFiOrderRequest tradFiOrderRequest = new TradFiOrderRequest(); // TradFiOrderRequest | 
         try {
-            CreateOrder result = apiInstance.createTradFiOrder(tradFiOrderRequest);
+            CreateOrder2 result = apiInstance.createTradFiOrder(tradFiOrderRequest);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -824,7 +824,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateOrder**](CreateOrder.md)
+[**CreateOrder2**](CreateOrder2.md)
 
 ### Authorization
 

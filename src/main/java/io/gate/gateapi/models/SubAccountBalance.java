@@ -34,6 +34,10 @@ public class SubAccountBalance {
     @SerializedName(SERIALIZED_NAME_AVAILABLE)
     private Map<String, String> available = null;
 
+    public static final String SERIALIZED_NAME_LOCKING = "locking";
+    @SerializedName(SERIALIZED_NAME_LOCKING)
+    private Map<String, String> locking = null;
+
 
     public SubAccountBalance uid(String uid) {
         
@@ -82,6 +86,34 @@ public class SubAccountBalance {
     public void setAvailable(Map<String, String> available) {
         this.available = available;
     }
+
+    public SubAccountBalance locking(Map<String, String> locking) {
+        
+        this.locking = locking;
+        return this;
+    }
+
+    public SubAccountBalance putLockingItem(String key, String lockingItem) {
+        if (this.locking == null) {
+            this.locking = new HashMap<>();
+        }
+        this.locking.put(key, lockingItem);
+        return this;
+    }
+
+     /**
+     * Locked amount by currency
+     * @return locking
+    **/
+    @javax.annotation.Nullable
+    public Map<String, String> getLocking() {
+        return locking;
+    }
+
+
+    public void setLocking(Map<String, String> locking) {
+        this.locking = locking;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -92,12 +124,13 @@ public class SubAccountBalance {
         }
         SubAccountBalance subAccountBalance = (SubAccountBalance) o;
         return Objects.equals(this.uid, subAccountBalance.uid) &&
-                Objects.equals(this.available, subAccountBalance.available);
+                Objects.equals(this.available, subAccountBalance.available) &&
+                Objects.equals(this.locking, subAccountBalance.locking);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(uid, available);
+        return Objects.hash(uid, available, locking);
     }
 
 
@@ -107,6 +140,7 @@ public class SubAccountBalance {
         sb.append("class SubAccountBalance {\n");
         sb.append("      uid: ").append(toIndentedString(uid)).append("\n");
         sb.append("      available: ").append(toIndentedString(available)).append("\n");
+        sb.append("      locking: ").append(toIndentedString(locking)).append("\n");
         sb.append("}");
         return sb.toString();
     }

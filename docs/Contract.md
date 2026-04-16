@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **fundingInterval** | **Integer** | Funding application interval, unit in seconds |  [optional]
 **fundingNextApply** | **Double** | Next funding time |  [optional]
 **riskLimitBase** | **String** | Base risk limit (deprecated) |  [optional]
+**interestRate** | **String** | Interest rate parameter used in funding rate and premium-related calculations for perpetual contracts. Returned as a string decimal ratio (e.g. &#x60;0.0003&#x60;), same convention as &#x60;funding_rate&#x60; (ratio, not percent). |  [optional]
 **riskLimitStep** | **String** | Risk limit adjustment step (deprecated) |  [optional]
 **riskLimitMax** | **String** | Maximum risk limit allowed by the contract (deprecated). It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits |  [optional]
 **orderSizeMin** | **String** | Minimum order size allowed by the contract |  [optional]
@@ -51,6 +52,7 @@ Name | Type | Description | Notes
 **marketOrderSlipRatio** | **String** | The maximum slippage allowed for market orders, with the slippage rate calculated based on the latest market price |  [optional]
 **marketOrderSizeMax** | **String** | The maximum number of contracts supported for market orders, with a default value of 0. When the default value is used, the maximum number of contracts is limited by the &#x60;order_size_max&#x60; field |  [optional]
 **fundingRateLimit** | **String** | Upper and lower limits of funding rate |  [optional]
+**contractType** | **String** | Contract classification type, e.g. stocks, metals, indices, forex, commodities, etc. |  [optional]
 **fundingImpactValue** | **String** | Funding rate depth impact value |  [optional]
 
 ## Enum: TypeEnum

@@ -203,7 +203,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Minimum Units
+     * Minimum share count
      * @return minCopies
     **/
     @javax.annotation.Nullable
@@ -223,7 +223,7 @@ public class DualGetPlans {
     }
 
      /**
-     * Maximum Units
+     * Maximum share count
      * @return maxCopies
     **/
     @javax.annotation.Nullable

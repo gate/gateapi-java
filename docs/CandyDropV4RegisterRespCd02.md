@@ -1,11 +1,9 @@
 
-# CreateOrderData
-
-Order result
+# CandyDropV4RegisterRespCd02
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Queue Task ID (not task ID) |  [optional]
+**success** | **Boolean** | 是否报名成功 |  [optional]
 

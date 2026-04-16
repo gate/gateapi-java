@@ -1566,7 +1566,7 @@ public class WalletApi {
         return new APIlistWithdrawStatusRequest();
     }
 
-    private okhttp3.Call listSubAccountBalancesCall(String subUid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSubAccountBalancesCall(String subUid, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1576,6 +1576,14 @@ public class WalletApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (subUid != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sub_uid", subUid));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -1600,20 +1608,20 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSubAccountBalancesValidateBeforeCall(String subUid, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSubAccountBalancesCall(subUid, _callback);
+    private okhttp3.Call listSubAccountBalancesValidateBeforeCall(String subUid, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountBalancesCall(subUid, page, limit, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<SubAccountBalance>> listSubAccountBalancesWithHttpInfo(String subUid) throws ApiException {
-        okhttp3.Call localVarCall = listSubAccountBalancesValidateBeforeCall(subUid, null);
+    private ApiResponse<List<SubAccountBalance>> listSubAccountBalancesWithHttpInfo(String subUid, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountBalancesValidateBeforeCall(subUid, page, limit, null);
         Type localVarReturnType = new TypeToken<List<SubAccountBalance>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listSubAccountBalancesAsync(String subUid, final ApiCallback<List<SubAccountBalance>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSubAccountBalancesValidateBeforeCall(subUid, _callback);
+    private okhttp3.Call listSubAccountBalancesAsync(String subUid, Integer page, Integer limit, final ApiCallback<List<SubAccountBalance>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSubAccountBalancesValidateBeforeCall(subUid, page, limit, _callback);
         Type localVarReturnType = new TypeToken<List<SubAccountBalance>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1621,6 +1629,8 @@ public class WalletApi {
 
     public class APIlistSubAccountBalancesRequest {
         private String subUid;
+        private Integer page;
+        private Integer limit;
 
         private APIlistSubAccountBalancesRequest() {
         }
@@ -1636,6 +1646,26 @@ public class WalletApi {
         }
 
         /**
+         * Set page
+         * @param page Page number (optional, default to 1)
+         * @return APIlistSubAccountBalancesRequest
+         */
+        public APIlistSubAccountBalancesRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned. Default 20, max 100. (optional, default to 100)
+         * @return APIlistSubAccountBalancesRequest
+         */
+        public APIlistSubAccountBalancesRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
          * Build call for listSubAccountBalances
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1647,7 +1677,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listSubAccountBalancesCall(subUid, _callback);
+            return listSubAccountBalancesCall(subUid, page, limit, _callback);
         }
 
         /**
@@ -1661,7 +1691,7 @@ public class WalletApi {
          </table>
          */
         public List<SubAccountBalance> execute() throws ApiException {
-            ApiResponse<List<SubAccountBalance>> localVarResp = listSubAccountBalancesWithHttpInfo(subUid);
+            ApiResponse<List<SubAccountBalance>> localVarResp = listSubAccountBalancesWithHttpInfo(subUid, page, limit);
             return localVarResp.getData();
         }
 
@@ -1676,7 +1706,7 @@ public class WalletApi {
          </table>
          */
         public ApiResponse<List<SubAccountBalance>> executeWithHttpInfo() throws ApiException {
-            return listSubAccountBalancesWithHttpInfo(subUid);
+            return listSubAccountBalancesWithHttpInfo(subUid, page, limit);
         }
 
         /**
@@ -1691,7 +1721,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SubAccountBalance>> _callback) throws ApiException {
-            return listSubAccountBalancesAsync(subUid, _callback);
+            return listSubAccountBalancesAsync(subUid, page, limit, _callback);
         }
     }
 

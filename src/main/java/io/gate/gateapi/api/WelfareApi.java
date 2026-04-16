@@ -20,8 +20,14 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.ApiResponseExSkillClaimRewardResp;
+import io.gate.gateapi.models.ApiResponseExSkillClaimTaskResp;
 import io.gate.gateapi.models.ApiResponseExSkillGetBeginnerTaskListResp;
 import io.gate.gateapi.models.ApiResponseExSkillGetUserIdentityResp;
+import io.gate.gateapi.models.ClaimRewardError;
+import io.gate.gateapi.models.ClaimTaskError;
+import io.gate.gateapi.models.ExSkillClaimRewardReq;
+import io.gate.gateapi.models.ExSkillClaimTaskReq;
 import io.gate.gateapi.models.GetBeginnerTaskListError;
 import io.gate.gateapi.models.GetUserIdentityError;
 
@@ -201,7 +207,7 @@ public class WelfareApi {
 
     /**
      * Get beginner task list
-     * Get the current user&#39;s beginner task list, including registration tasks (type&#x3D;10) and onboarding tasks (type&#x3D;11). Registration tasks appear first, onboarding tasks after. Results are cached for 60 seconds. The task list is a fixed configuration with limited entries (typically no more than 10), no pagination needed.
+     * 获取当前用户的新客入门任务列表。  默认返回已经归属到当前用户的注册任务（type&#x3D;10）和引导任务（type&#x3D;11），注册任务排在前面，引导任务排在后面。 当用户尚未拥有下载任务、且系统判断用户未下载过 App 时，会动态补充一条“待领取下载任务”卡片。  其中： - 下载任务的 &#x60;task_type &#x3D; 23&#x60; - 待领取下载任务的 &#x60;status &#x3D; 0&#x60;  结果缓存 60 秒。任务列表数量有限（通常不超过 10 条），无需分页。
      * @return ApiResponseExSkillGetBeginnerTaskListResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -218,7 +224,7 @@ public class WelfareApi {
 
     /**
      * Get beginner task list
-     * Get the current user&#39;s beginner task list, including registration tasks (type&#x3D;10) and onboarding tasks (type&#x3D;11). Registration tasks appear first, onboarding tasks after. Results are cached for 60 seconds. The task list is a fixed configuration with limited entries (typically no more than 10), no pagination needed.
+     * 获取当前用户的新客入门任务列表。  默认返回已经归属到当前用户的注册任务（type&#x3D;10）和引导任务（type&#x3D;11），注册任务排在前面，引导任务排在后面。 当用户尚未拥有下载任务、且系统判断用户未下载过 App 时，会动态补充一条“待领取下载任务”卡片。  其中： - 下载任务的 &#x60;task_type &#x3D; 23&#x60; - 待领取下载任务的 &#x60;status &#x3D; 0&#x60;  结果缓存 60 秒。任务列表数量有限（通常不超过 10 条），无需分页。
      * @return ApiResponse&lt;ApiResponseExSkillGetBeginnerTaskListResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -236,7 +242,7 @@ public class WelfareApi {
 
     /**
      * Get beginner task list (asynchronously)
-     * Get the current user&#39;s beginner task list, including registration tasks (type&#x3D;10) and onboarding tasks (type&#x3D;11). Registration tasks appear first, onboarding tasks after. Results are cached for 60 seconds. The task list is a fixed configuration with limited entries (typically no more than 10), no pagination needed.
+     * 获取当前用户的新客入门任务列表。  默认返回已经归属到当前用户的注册任务（type&#x3D;10）和引导任务（type&#x3D;11），注册任务排在前面，引导任务排在后面。 当用户尚未拥有下载任务、且系统判断用户未下载过 App 时，会动态补充一条“待领取下载任务”卡片。  其中： - 下载任务的 &#x60;task_type &#x3D; 23&#x60; - 待领取下载任务的 &#x60;status &#x3D; 0&#x60;  结果缓存 60 秒。任务列表数量有限（通常不超过 10 条），无需分页。
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -250,6 +256,228 @@ public class WelfareApi {
     public okhttp3.Call getBeginnerTaskListAsync(final ApiCallback<ApiResponseExSkillGetBeginnerTaskListResp> _callback) throws ApiException {
         okhttp3.Call localVarCall = getBeginnerTaskListValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ApiResponseExSkillGetBeginnerTaskListResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for claimTask
+     * @param exSkillClaimTaskReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call claimTaskCall(ExSkillClaimTaskReq exSkillClaimTaskReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = exSkillClaimTaskReq;
+
+        // create path and map variables
+        String localVarPath = "/rewards/claimTask";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call claimTaskValidateBeforeCall(ExSkillClaimTaskReq exSkillClaimTaskReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'exSkillClaimTaskReq' is set
+        if (exSkillClaimTaskReq == null) {
+            throw new ApiException("Missing the required parameter 'exSkillClaimTaskReq' when calling claimTask(Async)");
+        }
+
+        okhttp3.Call localVarCall = claimTaskCall(exSkillClaimTaskReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * 领取任务
+     * 领取单个福利任务。  当前主场景为新客下载任务领取，但接口本身支持新客注册、引导、进阶任务类型。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 风控校验（事件码 &#x60;task_center&#x60;） 4. 校验任务配置与任务中心任务 5. 校验是否已存在进行中任务 6. 若为下载任务，校验是否已下载 App 7. 写入 &#x60;welfare_user_tasks_xx&#x60; 8. 上报任务中心  风控透传字段： - 老字段：&#x60;user_id&#x60;、&#x60;ip&#x60;、&#x60;const_id&#x60;、&#x60;is_async&#x60;、&#x60;action&#x60;、&#x60;task_id&#x60; - 新增字段：&#x60;req_method&#x60;、&#x60;traceid&#x60; - 其中：   - &#x60;req_method&#x60; 来自 &#x60;X-Gate-Request-Source&#x60;   - &#x60;ip&#x60; 来自 &#x60;X-Gate-Ip&#x60;   - &#x60;traceid&#x60; 来自 &#x60;X-Gate-Trace-Id&#x60;   - &#x60;const_id&#x60; 固定为空字符串
+     * @param exSkillClaimTaskReq  (required)
+     * @return ApiResponseExSkillClaimTaskResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponseExSkillClaimTaskResp claimTask(ExSkillClaimTaskReq exSkillClaimTaskReq) throws ApiException {
+        ApiResponse<ApiResponseExSkillClaimTaskResp> localVarResp = claimTaskWithHttpInfo(exSkillClaimTaskReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 领取任务
+     * 领取单个福利任务。  当前主场景为新客下载任务领取，但接口本身支持新客注册、引导、进阶任务类型。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 风控校验（事件码 &#x60;task_center&#x60;） 4. 校验任务配置与任务中心任务 5. 校验是否已存在进行中任务 6. 若为下载任务，校验是否已下载 App 7. 写入 &#x60;welfare_user_tasks_xx&#x60; 8. 上报任务中心  风控透传字段： - 老字段：&#x60;user_id&#x60;、&#x60;ip&#x60;、&#x60;const_id&#x60;、&#x60;is_async&#x60;、&#x60;action&#x60;、&#x60;task_id&#x60; - 新增字段：&#x60;req_method&#x60;、&#x60;traceid&#x60; - 其中：   - &#x60;req_method&#x60; 来自 &#x60;X-Gate-Request-Source&#x60;   - &#x60;ip&#x60; 来自 &#x60;X-Gate-Ip&#x60;   - &#x60;traceid&#x60; 来自 &#x60;X-Gate-Trace-Id&#x60;   - &#x60;const_id&#x60; 固定为空字符串
+     * @param exSkillClaimTaskReq  (required)
+     * @return ApiResponse&lt;ApiResponseExSkillClaimTaskResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ApiResponseExSkillClaimTaskResp> claimTaskWithHttpInfo(ExSkillClaimTaskReq exSkillClaimTaskReq) throws ApiException {
+        okhttp3.Call localVarCall = claimTaskValidateBeforeCall(exSkillClaimTaskReq, null);
+        Type localVarReturnType = new TypeToken<ApiResponseExSkillClaimTaskResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * 领取任务 (asynchronously)
+     * 领取单个福利任务。  当前主场景为新客下载任务领取，但接口本身支持新客注册、引导、进阶任务类型。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 风控校验（事件码 &#x60;task_center&#x60;） 4. 校验任务配置与任务中心任务 5. 校验是否已存在进行中任务 6. 若为下载任务，校验是否已下载 App 7. 写入 &#x60;welfare_user_tasks_xx&#x60; 8. 上报任务中心  风控透传字段： - 老字段：&#x60;user_id&#x60;、&#x60;ip&#x60;、&#x60;const_id&#x60;、&#x60;is_async&#x60;、&#x60;action&#x60;、&#x60;task_id&#x60; - 新增字段：&#x60;req_method&#x60;、&#x60;traceid&#x60; - 其中：   - &#x60;req_method&#x60; 来自 &#x60;X-Gate-Request-Source&#x60;   - &#x60;ip&#x60; 来自 &#x60;X-Gate-Ip&#x60;   - &#x60;traceid&#x60; 来自 &#x60;X-Gate-Trace-Id&#x60;   - &#x60;const_id&#x60; 固定为空字符串
+     * @param exSkillClaimTaskReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call claimTaskAsync(ExSkillClaimTaskReq exSkillClaimTaskReq, final ApiCallback<ApiResponseExSkillClaimTaskResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = claimTaskValidateBeforeCall(exSkillClaimTaskReq, _callback);
+        Type localVarReturnType = new TypeToken<ApiResponseExSkillClaimTaskResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for claimReward
+     * @param exSkillClaimRewardReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call claimRewardCall(ExSkillClaimRewardReq exSkillClaimRewardReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = exSkillClaimRewardReq;
+
+        // create path and map variables
+        String localVarPath = "/rewards/claimReward";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call claimRewardValidateBeforeCall(ExSkillClaimRewardReq exSkillClaimRewardReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'exSkillClaimRewardReq' is set
+        if (exSkillClaimRewardReq == null) {
+            throw new ApiException("Missing the required parameter 'exSkillClaimRewardReq' when calling claimReward(Async)");
+        }
+
+        okhttp3.Call localVarCall = claimRewardCall(exSkillClaimRewardReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * 领取任务奖励
+     * 领取单个福利任务奖励。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 查询 &#x60;welfare_user_tasks_xx&#x60;，要求任务状态为 &#x60;StatusDone(2)&#x60; 4. 风控校验（事件码 &#x60;index_page_check&#x60;） 5. 查询任务中心任务详情与奖励信息 6. 若奖励为 m 选 n 奖池，则返回 &#x60;has_m_n_task &#x3D; true&#x60;，不实际发奖 7. 普通奖励则进入福利中心原领奖逻辑  风控透传字段： - 老字段：&#x60;user_id&#x60;、&#x60;ip&#x60;、&#x60;const_id&#x60;、&#x60;is_async&#x60; - 新增字段：&#x60;req_method&#x60;、&#x60;traceid&#x60; - 其中：   - &#x60;req_method&#x60; 来自 &#x60;X-Gate-Request-Source&#x60;   - &#x60;ip&#x60; 来自 &#x60;X-Gate-Ip&#x60;   - &#x60;traceid&#x60; 来自 &#x60;X-Gate-Trace-Id&#x60;   - &#x60;const_id&#x60; 固定为空字符串
+     * @param exSkillClaimRewardReq  (required)
+     * @return ApiResponseExSkillClaimRewardResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponseExSkillClaimRewardResp claimReward(ExSkillClaimRewardReq exSkillClaimRewardReq) throws ApiException {
+        ApiResponse<ApiResponseExSkillClaimRewardResp> localVarResp = claimRewardWithHttpInfo(exSkillClaimRewardReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 领取任务奖励
+     * 领取单个福利任务奖励。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 查询 &#x60;welfare_user_tasks_xx&#x60;，要求任务状态为 &#x60;StatusDone(2)&#x60; 4. 风控校验（事件码 &#x60;index_page_check&#x60;） 5. 查询任务中心任务详情与奖励信息 6. 若奖励为 m 选 n 奖池，则返回 &#x60;has_m_n_task &#x3D; true&#x60;，不实际发奖 7. 普通奖励则进入福利中心原领奖逻辑  风控透传字段： - 老字段：&#x60;user_id&#x60;、&#x60;ip&#x60;、&#x60;const_id&#x60;、&#x60;is_async&#x60; - 新增字段：&#x60;req_method&#x60;、&#x60;traceid&#x60; - 其中：   - &#x60;req_method&#x60; 来自 &#x60;X-Gate-Request-Source&#x60;   - &#x60;ip&#x60; 来自 &#x60;X-Gate-Ip&#x60;   - &#x60;traceid&#x60; 来自 &#x60;X-Gate-Trace-Id&#x60;   - &#x60;const_id&#x60; 固定为空字符串
+     * @param exSkillClaimRewardReq  (required)
+     * @return ApiResponse&lt;ApiResponseExSkillClaimRewardResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ApiResponseExSkillClaimRewardResp> claimRewardWithHttpInfo(ExSkillClaimRewardReq exSkillClaimRewardReq) throws ApiException {
+        okhttp3.Call localVarCall = claimRewardValidateBeforeCall(exSkillClaimRewardReq, null);
+        Type localVarReturnType = new TypeToken<ApiResponseExSkillClaimRewardResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * 领取任务奖励 (asynchronously)
+     * 领取单个福利任务奖励。  处理流程： 1. 读取登录用户 2. 做用户资格校验 3. 查询 &#x60;welfare_user_tasks_xx&#x60;，要求任务状态为 &#x60;StatusDone(2)&#x60; 4. 风控校验（事件码 &#x60;index_page_check&#x60;） 5. 查询任务中心任务详情与奖励信息 6. 若奖励为 m 选 n 奖池，则返回 &#x60;has_m_n_task &#x3D; true&#x60;，不实际发奖 7. 普通奖励则进入福利中心原领奖逻辑  风控透传字段： - 老字段：&#x60;user_id&#x60;、&#x60;ip&#x60;、&#x60;const_id&#x60;、&#x60;is_async&#x60; - 新增字段：&#x60;req_method&#x60;、&#x60;traceid&#x60; - 其中：   - &#x60;req_method&#x60; 来自 &#x60;X-Gate-Request-Source&#x60;   - &#x60;ip&#x60; 来自 &#x60;X-Gate-Ip&#x60;   - &#x60;traceid&#x60; 来自 &#x60;X-Gate-Trace-Id&#x60;   - &#x60;const_id&#x60; 固定为空字符串
+     * @param exSkillClaimRewardReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> The endpoint always returns HTTP 200. Business results are distinguished by the code field </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call claimRewardAsync(ExSkillClaimRewardReq exSkillClaimRewardReq, final ApiCallback<ApiResponseExSkillClaimRewardResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = claimRewardValidateBeforeCall(exSkillClaimRewardReq, _callback);
+        Type localVarReturnType = new TypeToken<ApiResponseExSkillClaimRewardResp>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -17,60 +17,231 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.CreateOrderData;
+import io.gate.gateapi.models.CreateOrderDetail;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CreateOrder
  */
 public class CreateOrder {
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Long timestamp;
+    public static final String SERIALIZED_NAME_ID = "id";
+    @SerializedName(SERIALIZED_NAME_ID)
+    private Long id;
 
-    public static final String SERIALIZED_NAME_DATA = "data";
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateOrderData data;
+    public static final String SERIALIZED_NAME_USER_ID = "user_id";
+    @SerializedName(SERIALIZED_NAME_USER_ID)
+    private Integer userId;
+
+    public static final String SERIALIZED_NAME_FROM = "from";
+    @SerializedName(SERIALIZED_NAME_FROM)
+    private List<CreateOrderDetail> from = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_TO = "to";
+    @SerializedName(SERIALIZED_NAME_TO)
+    private List<CreateOrderDetail> to = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private String source;
+
+    public static final String SERIALIZED_NAME_APP_ID = "app_id";
+    @SerializedName(SERIALIZED_NAME_APP_ID)
+    private String appId;
+
+    public static final String SERIALIZED_NAME_CLIENT_REQ_ID = "client_req_id";
+    @SerializedName(SERIALIZED_NAME_CLIENT_REQ_ID)
+    private String clientReqId;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private Integer status;
+
+    public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
+    @SerializedName(SERIALIZED_NAME_CREATE_TIME)
+    private Long createTime;
 
 
-    public CreateOrder timestamp(Long timestamp) {
+    public CreateOrder id(Long id) {
         
-        this.timestamp = timestamp;
+        this.id = id;
         return this;
     }
 
      /**
-     * Server timestamp (milliseconds)
-     * @return timestamp
+     * Get id
+     * @return id
     **/
-    @javax.annotation.Nullable
-    public Long getTimestamp() {
-        return timestamp;
+    public Long getId() {
+        return id;
     }
 
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public CreateOrder data(CreateOrderData data) {
+    public CreateOrder userId(Integer userId) {
         
-        this.data = data;
+        this.userId = userId;
         return this;
     }
 
      /**
-     * Get data
-     * @return data
+     * Get userId
+     * @return userId
     **/
-    @javax.annotation.Nullable
-    public CreateOrderData getData() {
-        return data;
+    public Integer getUserId() {
+        return userId;
     }
 
 
-    public void setData(CreateOrderData data) {
-        this.data = data;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public CreateOrder from(List<CreateOrderDetail> from) {
+        
+        this.from = from;
+        return this;
+    }
+
+    public CreateOrder addFromItem(CreateOrderDetail fromItem) {
+        this.from.add(fromItem);
+        return this;
+    }
+
+     /**
+     * Get from
+     * @return from
+    **/
+    public List<CreateOrderDetail> getFrom() {
+        return from;
+    }
+
+
+    public void setFrom(List<CreateOrderDetail> from) {
+        this.from = from;
+    }
+
+    public CreateOrder to(List<CreateOrderDetail> to) {
+        
+        this.to = to;
+        return this;
+    }
+
+    public CreateOrder addToItem(CreateOrderDetail toItem) {
+        this.to.add(toItem);
+        return this;
+    }
+
+     /**
+     * Get to
+     * @return to
+    **/
+    public List<CreateOrderDetail> getTo() {
+        return to;
+    }
+
+
+    public void setTo(List<CreateOrderDetail> to) {
+        this.to = to;
+    }
+
+    public CreateOrder source(String source) {
+        
+        this.source = source;
+        return this;
+    }
+
+     /**
+     * Get source
+     * @return source
+    **/
+    public String getSource() {
+        return source;
+    }
+
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public CreateOrder appId(String appId) {
+        
+        this.appId = appId;
+        return this;
+    }
+
+     /**
+     * Get appId
+     * @return appId
+    **/
+    public String getAppId() {
+        return appId;
+    }
+
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public CreateOrder clientReqId(String clientReqId) {
+        
+        this.clientReqId = clientReqId;
+        return this;
+    }
+
+     /**
+     * Get clientReqId
+     * @return clientReqId
+    **/
+    public String getClientReqId() {
+        return clientReqId;
+    }
+
+
+    public void setClientReqId(String clientReqId) {
+        this.clientReqId = clientReqId;
+    }
+
+    public CreateOrder status(Integer status) {
+        
+        this.status = status;
+        return this;
+    }
+
+     /**
+     * Get status
+     * @return status
+    **/
+    public Integer getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public CreateOrder createTime(Long createTime) {
+        
+        this.createTime = createTime;
+        return this;
+    }
+
+     /**
+     * Get createTime
+     * @return createTime
+    **/
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,13 +252,20 @@ public class CreateOrder {
             return false;
         }
         CreateOrder createOrder = (CreateOrder) o;
-        return Objects.equals(this.timestamp, createOrder.timestamp) &&
-                Objects.equals(this.data, createOrder.data);
+        return Objects.equals(this.id, createOrder.id) &&
+                Objects.equals(this.userId, createOrder.userId) &&
+                Objects.equals(this.from, createOrder.from) &&
+                Objects.equals(this.to, createOrder.to) &&
+                Objects.equals(this.source, createOrder.source) &&
+                Objects.equals(this.appId, createOrder.appId) &&
+                Objects.equals(this.clientReqId, createOrder.clientReqId) &&
+                Objects.equals(this.status, createOrder.status) &&
+                Objects.equals(this.createTime, createOrder.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(timestamp, data);
+        return Objects.hash(id, userId, from, to, source, appId, clientReqId, status, createTime);
     }
 
 
@@ -95,8 +273,15 @@ public class CreateOrder {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateOrder {\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
-        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
+        sb.append("      from: ").append(toIndentedString(from)).append("\n");
+        sb.append("      to: ").append(toIndentedString(to)).append("\n");
+        sb.append("      source: ").append(toIndentedString(source)).append("\n");
+        sb.append("      appId: ").append(toIndentedString(appId)).append("\n");
+        sb.append("      clientReqId: ").append(toIndentedString(clientReqId)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

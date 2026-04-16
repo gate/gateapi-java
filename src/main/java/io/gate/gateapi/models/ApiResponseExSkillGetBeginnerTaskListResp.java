@@ -55,7 +55,6 @@ public class ApiResponseExSkillGetBeginnerTaskListResp {
      * Business error code: 0 &#x3D; success, 1007 &#x3D; no task data, 1008 &#x3D; not logged in
      * @return code
     **/
-    @javax.annotation.Nullable
     public Integer getCode() {
         return code;
     }
@@ -135,7 +134,6 @@ public class ApiResponseExSkillGetBeginnerTaskListResp {
      * Server timestamp (milliseconds)
      * @return timestamp
     **/
-    @javax.annotation.Nullable
     public Long getTimestamp() {
         return timestamp;
     }

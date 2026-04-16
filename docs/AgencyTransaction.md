@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **feeAsset** | **String** | Fee currency |  [optional]
 **currencyPair** | **String** | Currency pair |  [optional]
 **amount** | **String** | Transaction amount |  [optional]
-**amountAsset** | **String** | Commission Asset |  [optional]
+**amountAsset** | **String** | Transaction amount currency |  [optional]
 **source** | **String** | Commission source: SPOT - Spot commission, FUTURES - Futures commission |  [optional]
 

@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 <a name="listSubAccountBalances"></a>
 # **listSubAccountBalances**
-> List&lt;SubAccountBalance&gt; listSubAccountBalances().subUid(subUid).execute();
+> List&lt;SubAccountBalance&gt; listSubAccountBalances().subUid(subUid).page(page).limit(limit).execute();
 
 Query sub-account balance information
 
@@ -808,9 +808,13 @@ public class Example {
 
         WalletApi apiInstance = new WalletApi(defaultClient);
         String subUid = "10003"; // String | Sub-account user ID, you can query multiple records separated by `,`. If not specified, it will return records of all sub-accounts
+        Integer page = 1; // Integer | Page number
+        Integer limit = 100; // Integer | Maximum number of records returned. Default 20, max 100.
         try {
             List<SubAccountBalance> result = apiInstance.listSubAccountBalances()
                         .subUid(subUid)
+                        .page(page)
+                        .limit(limit)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -831,6 +835,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subUid** | **String**| Sub-account user ID, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return records of all sub-accounts | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **limit** | **Integer**| Maximum number of records returned. Default 20, max 100. | [optional] [default to 100]
 
 ### Return type
 

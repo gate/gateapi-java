@@ -22,7 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.Categories;
 import io.gate.gateapi.models.ContractDetail;
-import io.gate.gateapi.models.CreateOrder;
+import io.gate.gateapi.models.CreateOrder2;
 import io.gate.gateapi.models.CreateTransaction;
 import io.gate.gateapi.models.CreateUserResp;
 import io.gate.gateapi.models.DeletePosition;
@@ -1484,7 +1484,7 @@ public class TradFiApi {
      * Create an order
      * 
      * @param tradFiOrderRequest  (required)
-     * @return CreateOrder
+     * @return CreateOrder2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1493,8 +1493,8 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public CreateOrder createTradFiOrder(TradFiOrderRequest tradFiOrderRequest) throws ApiException {
-        ApiResponse<CreateOrder> localVarResp = createTradFiOrderWithHttpInfo(tradFiOrderRequest);
+    public CreateOrder2 createTradFiOrder(TradFiOrderRequest tradFiOrderRequest) throws ApiException {
+        ApiResponse<CreateOrder2> localVarResp = createTradFiOrderWithHttpInfo(tradFiOrderRequest);
         return localVarResp.getData();
     }
 
@@ -1502,7 +1502,7 @@ public class TradFiApi {
      * Create an order
      * 
      * @param tradFiOrderRequest  (required)
-     * @return ApiResponse&lt;CreateOrder&gt;
+     * @return ApiResponse&lt;CreateOrder2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1511,9 +1511,9 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateOrder> createTradFiOrderWithHttpInfo(TradFiOrderRequest tradFiOrderRequest) throws ApiException {
+    public ApiResponse<CreateOrder2> createTradFiOrderWithHttpInfo(TradFiOrderRequest tradFiOrderRequest) throws ApiException {
         okhttp3.Call localVarCall = createTradFiOrderValidateBeforeCall(tradFiOrderRequest, null);
-        Type localVarReturnType = new TypeToken<CreateOrder>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateOrder2>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1531,9 +1531,9 @@ public class TradFiApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTradFiOrderAsync(TradFiOrderRequest tradFiOrderRequest, final ApiCallback<CreateOrder> _callback) throws ApiException {
+    public okhttp3.Call createTradFiOrderAsync(TradFiOrderRequest tradFiOrderRequest, final ApiCallback<CreateOrder2> _callback) throws ApiException {
         okhttp3.Call localVarCall = createTradFiOrderValidateBeforeCall(tradFiOrderRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateOrder>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateOrder2>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

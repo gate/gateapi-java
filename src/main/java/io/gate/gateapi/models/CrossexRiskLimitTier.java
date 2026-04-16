@@ -31,6 +31,10 @@ public class CrossexRiskLimitTier {
     @SerializedName(SERIALIZED_NAME_MAX_RISK_LIMIT_VALUE)
     private String maxRiskLimitValue;
 
+    public static final String SERIALIZED_NAME_QUICK_CAL_AMOUNT = "quick_cal_amount";
+    @SerializedName(SERIALIZED_NAME_QUICK_CAL_AMOUNT)
+    private String quickCalAmount;
+
     public static final String SERIALIZED_NAME_LEVERAGE_MAX = "leverage_max";
     @SerializedName(SERIALIZED_NAME_LEVERAGE_MAX)
     private String leverageMax;
@@ -80,6 +84,25 @@ public class CrossexRiskLimitTier {
 
     public void setMaxRiskLimitValue(String maxRiskLimitValue) {
         this.maxRiskLimitValue = maxRiskLimitValue;
+    }
+
+    public CrossexRiskLimitTier quickCalAmount(String quickCalAmount) {
+        
+        this.quickCalAmount = quickCalAmount;
+        return this;
+    }
+
+     /**
+     * Quick-calculation amount
+     * @return quickCalAmount
+    **/
+    public String getQuickCalAmount() {
+        return quickCalAmount;
+    }
+
+
+    public void setQuickCalAmount(String quickCalAmount) {
+        this.quickCalAmount = quickCalAmount;
     }
 
     public CrossexRiskLimitTier leverageMax(String leverageMax) {
@@ -149,6 +172,7 @@ public class CrossexRiskLimitTier {
         CrossexRiskLimitTier crossexRiskLimitTier = (CrossexRiskLimitTier) o;
         return Objects.equals(this.minRiskLimitValue, crossexRiskLimitTier.minRiskLimitValue) &&
                 Objects.equals(this.maxRiskLimitValue, crossexRiskLimitTier.maxRiskLimitValue) &&
+                Objects.equals(this.quickCalAmount, crossexRiskLimitTier.quickCalAmount) &&
                 Objects.equals(this.leverageMax, crossexRiskLimitTier.leverageMax) &&
                 Objects.equals(this.maintenanceRate, crossexRiskLimitTier.maintenanceRate) &&
                 Objects.equals(this.tier, crossexRiskLimitTier.tier);
@@ -156,7 +180,7 @@ public class CrossexRiskLimitTier {
 
     @Override
     public int hashCode() {
-        return Objects.hash(minRiskLimitValue, maxRiskLimitValue, leverageMax, maintenanceRate, tier);
+        return Objects.hash(minRiskLimitValue, maxRiskLimitValue, quickCalAmount, leverageMax, maintenanceRate, tier);
     }
 
 
@@ -166,6 +190,7 @@ public class CrossexRiskLimitTier {
         sb.append("class CrossexRiskLimitTier {\n");
         sb.append("      minRiskLimitValue: ").append(toIndentedString(minRiskLimitValue)).append("\n");
         sb.append("      maxRiskLimitValue: ").append(toIndentedString(maxRiskLimitValue)).append("\n");
+        sb.append("      quickCalAmount: ").append(toIndentedString(quickCalAmount)).append("\n");
         sb.append("      leverageMax: ").append(toIndentedString(leverageMax)).append("\n");
         sb.append("      maintenanceRate: ").append(toIndentedString(maintenanceRate)).append("\n");
         sb.append("      tier: ").append(toIndentedString(tier)).append("\n");

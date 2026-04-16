@@ -27,6 +27,10 @@ public class TriggerOrderResponse {
     @SerializedName(SERIALIZED_NAME_ID)
     private Long id;
 
+    public static final String SERIALIZED_NAME_ID_STRING = "id_string";
+    @SerializedName(SERIALIZED_NAME_ID_STRING)
+    private String idString;
+
 
     public TriggerOrderResponse id(Long id) {
         
@@ -47,6 +51,16 @@ public class TriggerOrderResponse {
     public void setId(Long id) {
         this.id = id;
     }
+
+     /**
+     * String form of the auto order ID; the same order as numeric &#x60;id&#x60;, as the decimal string of &#x60;id&#x60; to avoid int64 precision loss in JavaScript and similar environments. Prefer this field to display the order ID or when a string unique identifier is needed; one-to-one with &#x60;id&#x60;. Same meaning as the field of the same name in futures price-trigger REST APIs and in &#x60;futures.orders&#x60; / &#x60;futures.autoorders&#x60; WebSocket pushes.
+     * @return idString
+    **/
+    @javax.annotation.Nullable
+    public String getIdString() {
+        return idString;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -56,12 +70,13 @@ public class TriggerOrderResponse {
             return false;
         }
         TriggerOrderResponse triggerOrderResponse = (TriggerOrderResponse) o;
-        return Objects.equals(this.id, triggerOrderResponse.id);
+        return Objects.equals(this.id, triggerOrderResponse.id) &&
+                Objects.equals(this.idString, triggerOrderResponse.idString);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, idString);
     }
 
 
@@ -70,6 +85,7 @@ public class TriggerOrderResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class TriggerOrderResponse {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
+        sb.append("      idString: ").append(toIndentedString(idString)).append("\n");
         sb.append("}");
         return sb.toString();
     }

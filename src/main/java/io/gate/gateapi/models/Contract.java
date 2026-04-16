@@ -189,6 +189,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_RISK_LIMIT_BASE)
     private String riskLimitBase;
 
+    public static final String SERIALIZED_NAME_INTEREST_RATE = "interest_rate";
+    @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
+    private String interestRate;
+
     public static final String SERIALIZED_NAME_RISK_LIMIT_STEP = "risk_limit_step";
     @SerializedName(SERIALIZED_NAME_RISK_LIMIT_STEP)
     private String riskLimitStep;
@@ -292,6 +296,10 @@ public class Contract {
     public static final String SERIALIZED_NAME_FUNDING_RATE_LIMIT = "funding_rate_limit";
     @SerializedName(SERIALIZED_NAME_FUNDING_RATE_LIMIT)
     private String fundingRateLimit;
+
+    public static final String SERIALIZED_NAME_CONTRACT_TYPE = "contract_type";
+    @SerializedName(SERIALIZED_NAME_CONTRACT_TYPE)
+    private String contractType;
 
     public static final String SERIALIZED_NAME_FUNDING_IMPACT_VALUE = "funding_impact_value";
     @SerializedName(SERIALIZED_NAME_FUNDING_IMPACT_VALUE)
@@ -656,6 +664,26 @@ public class Contract {
 
     public void setRiskLimitBase(String riskLimitBase) {
         this.riskLimitBase = riskLimitBase;
+    }
+
+    public Contract interestRate(String interestRate) {
+        
+        this.interestRate = interestRate;
+        return this;
+    }
+
+     /**
+     * Interest rate parameter used in funding rate and premium-related calculations for perpetual contracts. Returned as a string decimal ratio (e.g. &#x60;0.0003&#x60;), same convention as &#x60;funding_rate&#x60; (ratio, not percent).
+     * @return interestRate
+    **/
+    @javax.annotation.Nullable
+    public String getInterestRate() {
+        return interestRate;
+    }
+
+
+    public void setInterestRate(String interestRate) {
+        this.interestRate = interestRate;
     }
 
     public Contract riskLimitStep(String riskLimitStep) {
@@ -1178,6 +1206,26 @@ public class Contract {
         this.fundingRateLimit = fundingRateLimit;
     }
 
+    public Contract contractType(String contractType) {
+        
+        this.contractType = contractType;
+        return this;
+    }
+
+     /**
+     * Contract classification type, e.g. stocks, metals, indices, forex, commodities, etc.
+     * @return contractType
+    **/
+    @javax.annotation.Nullable
+    public String getContractType() {
+        return contractType;
+    }
+
+
+    public void setContractType(String contractType) {
+        this.contractType = contractType;
+    }
+
     public Contract fundingImpactValue(String fundingImpactValue) {
         
         this.fundingImpactValue = fundingImpactValue;
@@ -1224,6 +1272,7 @@ public class Contract {
                 Objects.equals(this.fundingInterval, contract.fundingInterval) &&
                 Objects.equals(this.fundingNextApply, contract.fundingNextApply) &&
                 Objects.equals(this.riskLimitBase, contract.riskLimitBase) &&
+                Objects.equals(this.interestRate, contract.interestRate) &&
                 Objects.equals(this.riskLimitStep, contract.riskLimitStep) &&
                 Objects.equals(this.riskLimitMax, contract.riskLimitMax) &&
                 Objects.equals(this.orderSizeMin, contract.orderSizeMin) &&
@@ -1250,12 +1299,13 @@ public class Contract {
                 Objects.equals(this.marketOrderSlipRatio, contract.marketOrderSlipRatio) &&
                 Objects.equals(this.marketOrderSizeMax, contract.marketOrderSizeMax) &&
                 Objects.equals(this.fundingRateLimit, contract.fundingRateLimit) &&
+                Objects.equals(this.contractType, contract.contractType) &&
                 Objects.equals(this.fundingImpactValue, contract.fundingImpactValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit, fundingImpactValue);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, interestRate, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit, contractType, fundingImpactValue);
     }
 
 
@@ -1281,6 +1331,7 @@ public class Contract {
         sb.append("      fundingInterval: ").append(toIndentedString(fundingInterval)).append("\n");
         sb.append("      fundingNextApply: ").append(toIndentedString(fundingNextApply)).append("\n");
         sb.append("      riskLimitBase: ").append(toIndentedString(riskLimitBase)).append("\n");
+        sb.append("      interestRate: ").append(toIndentedString(interestRate)).append("\n");
         sb.append("      riskLimitStep: ").append(toIndentedString(riskLimitStep)).append("\n");
         sb.append("      riskLimitMax: ").append(toIndentedString(riskLimitMax)).append("\n");
         sb.append("      orderSizeMin: ").append(toIndentedString(orderSizeMin)).append("\n");
@@ -1307,6 +1358,7 @@ public class Contract {
         sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
         sb.append("      marketOrderSizeMax: ").append(toIndentedString(marketOrderSizeMax)).append("\n");
         sb.append("      fundingRateLimit: ").append(toIndentedString(fundingRateLimit)).append("\n");
+        sb.append("      contractType: ").append(toIndentedString(contractType)).append("\n");
         sb.append("      fundingImpactValue: ").append(toIndentedString(fundingImpactValue)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -207,7 +207,7 @@ public class AgencyTransaction {
     }
 
      /**
-     * Commission Asset
+     * Transaction amount currency
      * @return amountAsset
     **/
     @javax.annotation.Nullable

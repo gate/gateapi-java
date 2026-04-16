@@ -20,7 +20,21 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.CandyDropV4ActivityCd01;
+import io.gate.gateapi.models.CandyDropV4ActivityRulesCd03;
+import io.gate.gateapi.models.CandyDropV4AirdropRecordCd06;
+import io.gate.gateapi.models.CandyDropV4ErrorCd01;
+import io.gate.gateapi.models.CandyDropV4ParticipationRecordCd05;
+import io.gate.gateapi.models.CandyDropV4RegisterReqCd02;
+import io.gate.gateapi.models.CandyDropV4RegisterRespCd02;
+import io.gate.gateapi.models.CandyDropV4TaskProgressCd04;
 import io.gate.gateapi.models.CreateOrderV4;
+import io.gate.gateapi.models.HodlerAirdropV4ErrorResponse;
+import io.gate.gateapi.models.HodlerAirdropV4OrderRequest;
+import io.gate.gateapi.models.HodlerAirdropV4OrderResponse;
+import io.gate.gateapi.models.HodlerAirdropV4ProjectItem;
+import io.gate.gateapi.models.HodlerAirdropV4UserAirdropRecord;
+import io.gate.gateapi.models.HodlerAirdropV4UserOrderRecord;
 import io.gate.gateapi.models.LaunchPoolV4CreateOrderResponse;
 import io.gate.gateapi.models.LaunchPoolV4ErrorResponse;
 import io.gate.gateapi.models.LaunchPoolV4PledgeRecord;
@@ -961,6 +975,1865 @@ public class LaunchApi {
      */
     public APIlistLaunchPoolRewardRecordsRequest listLaunchPoolRewardRecords() {
         return new APIlistLaunchPoolRewardRecordsRequest();
+    }
+
+    private okhttp3.Call getHodlerAirdropProjectListCall(String status, String keyword, Integer join, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/hodler-airdrop/project-list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (keyword != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("keyword", keyword));
+        }
+
+        if (join != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("join", join));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getHodlerAirdropProjectListValidateBeforeCall(String status, String keyword, Integer join, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropProjectListCall(status, keyword, join, page, size, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<HodlerAirdropV4ProjectItem>> getHodlerAirdropProjectListWithHttpInfo(String status, String keyword, Integer join, Integer page, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropProjectListValidateBeforeCall(status, keyword, join, page, size, null);
+        Type localVarReturnType = new TypeToken<List<HodlerAirdropV4ProjectItem>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getHodlerAirdropProjectListAsync(String status, String keyword, Integer join, Integer page, Integer size, final ApiCallback<List<HodlerAirdropV4ProjectItem>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropProjectListValidateBeforeCall(status, keyword, join, page, size, _callback);
+        Type localVarReturnType = new TypeToken<List<HodlerAirdropV4ProjectItem>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetHodlerAirdropProjectListRequest {
+        private String status;
+        private String keyword;
+        private Integer join;
+        private Integer page;
+        private Integer size;
+
+        private APIgetHodlerAirdropProjectListRequest() {
+        }
+
+        /**
+         * Set status
+         * @param status 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部 (optional)
+         * @return APIgetHodlerAirdropProjectListRequest
+         */
+        public APIgetHodlerAirdropProjectListRequest status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set keyword
+         * @param keyword 币种/项目名称关键词，模糊匹配 (optional)
+         * @return APIgetHodlerAirdropProjectListRequest
+         */
+        public APIgetHodlerAirdropProjectListRequest keyword(String keyword) {
+            this.keyword = keyword;
+            return this;
+        }
+
+        /**
+         * Set join
+         * @param join 参与情况筛选：0全部（默认），1仅已参与 (optional, default to 0)
+         * @return APIgetHodlerAirdropProjectListRequest
+         */
+        public APIgetHodlerAirdropProjectListRequest join(Integer join) {
+            this.join = join;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page 页码，默认1 (optional, default to 1)
+         * @return APIgetHodlerAirdropProjectListRequest
+         */
+        public APIgetHodlerAirdropProjectListRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set size
+         * @param size 每页条数，默认10 (optional, default to 10)
+         * @return APIgetHodlerAirdropProjectListRequest
+         */
+        public APIgetHodlerAirdropProjectListRequest size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+        /**
+         * Build call for getHodlerAirdropProjectList
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getHodlerAirdropProjectListCall(status, keyword, join, page, size, _callback);
+        }
+
+        /**
+         * Execute getHodlerAirdropProjectList request
+         * @return List&lt;HodlerAirdropV4ProjectItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<HodlerAirdropV4ProjectItem> execute() throws ApiException {
+            ApiResponse<List<HodlerAirdropV4ProjectItem>> localVarResp = getHodlerAirdropProjectListWithHttpInfo(status, keyword, join, page, size);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getHodlerAirdropProjectList request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;HodlerAirdropV4ProjectItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<HodlerAirdropV4ProjectItem>> executeWithHttpInfo() throws ApiException {
+            return getHodlerAirdropProjectListWithHttpInfo(status, keyword, join, page, size);
+        }
+
+        /**
+         * Execute getHodlerAirdropProjectList request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<HodlerAirdropV4ProjectItem>> _callback) throws ApiException {
+            return getHodlerAirdropProjectListAsync(status, keyword, join, page, size, _callback);
+        }
+    }
+
+    /**
+     * 查询HODLer Airdrop活动列表
+     * 获取HODLer Airdrop活动列表，支持按状态、币种/项目名称、参与情况筛选。此接口无需用户登录，登录用户可获取个人参与信息。
+     * @return APIgetHodlerAirdropProjectListRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully returns activity list </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetHodlerAirdropProjectListRequest getHodlerAirdropProjectList() {
+        return new APIgetHodlerAirdropProjectListRequest();
+    }
+
+    /**
+     * Build call for hodlerAirdropOrder
+     * @param hodlerAirdropV4OrderRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call hodlerAirdropOrderCall(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = hodlerAirdropV4OrderRequest;
+
+        // create path and map variables
+        String localVarPath = "/launch/hodler-airdrop/order";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call hodlerAirdropOrderValidateBeforeCall(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'hodlerAirdropV4OrderRequest' is set
+        if (hodlerAirdropV4OrderRequest == null) {
+            throw new ApiException("Missing the required parameter 'hodlerAirdropV4OrderRequest' when calling hodlerAirdropOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = hodlerAirdropOrderCall(hodlerAirdropV4OrderRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * 参与HODLer Airdrop活动
+     * 参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+     * @param hodlerAirdropV4OrderRequest  (required)
+     * @return HodlerAirdropV4OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+     </table>
+     */
+    public HodlerAirdropV4OrderResponse hodlerAirdropOrder(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest) throws ApiException {
+        ApiResponse<HodlerAirdropV4OrderResponse> localVarResp = hodlerAirdropOrderWithHttpInfo(hodlerAirdropV4OrderRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 参与HODLer Airdrop活动
+     * 参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+     * @param hodlerAirdropV4OrderRequest  (required)
+     * @return ApiResponse&lt;HodlerAirdropV4OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<HodlerAirdropV4OrderResponse> hodlerAirdropOrderWithHttpInfo(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest) throws ApiException {
+        okhttp3.Call localVarCall = hodlerAirdropOrderValidateBeforeCall(hodlerAirdropV4OrderRequest, null);
+        Type localVarReturnType = new TypeToken<HodlerAirdropV4OrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * 参与HODLer Airdrop活动 (asynchronously)
+     * 参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+     * @param hodlerAirdropV4OrderRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call hodlerAirdropOrderAsync(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest, final ApiCallback<HodlerAirdropV4OrderResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = hodlerAirdropOrderValidateBeforeCall(hodlerAirdropV4OrderRequest, _callback);
+        Type localVarReturnType = new TypeToken<HodlerAirdropV4OrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getHodlerAirdropUserOrderRecordsCall(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/hodler-airdrop/user-order-records";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (keyword != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("keyword", keyword));
+        }
+
+        if (startTimest != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_timest", startTimest));
+        }
+
+        if (endTimest != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_timest", endTimest));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getHodlerAirdropUserOrderRecordsValidateBeforeCall(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropUserOrderRecordsCall(keyword, startTimest, endTimest, page, size, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<HodlerAirdropV4UserOrderRecord>> getHodlerAirdropUserOrderRecordsWithHttpInfo(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropUserOrderRecordsValidateBeforeCall(keyword, startTimest, endTimest, page, size, null);
+        Type localVarReturnType = new TypeToken<List<HodlerAirdropV4UserOrderRecord>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getHodlerAirdropUserOrderRecordsAsync(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size, final ApiCallback<List<HodlerAirdropV4UserOrderRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropUserOrderRecordsValidateBeforeCall(keyword, startTimest, endTimest, page, size, _callback);
+        Type localVarReturnType = new TypeToken<List<HodlerAirdropV4UserOrderRecord>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetHodlerAirdropUserOrderRecordsRequest {
+        private String keyword;
+        private Integer startTimest;
+        private Integer endTimest;
+        private Integer page;
+        private Integer size;
+
+        private APIgetHodlerAirdropUserOrderRecordsRequest() {
+        }
+
+        /**
+         * Set keyword
+         * @param keyword 币种名称关键词筛选 (optional)
+         * @return APIgetHodlerAirdropUserOrderRecordsRequest
+         */
+        public APIgetHodlerAirdropUserOrderRecordsRequest keyword(String keyword) {
+            this.keyword = keyword;
+            return this;
+        }
+
+        /**
+         * Set startTimest
+         * @param startTimest 开始时间戳（秒） (optional)
+         * @return APIgetHodlerAirdropUserOrderRecordsRequest
+         */
+        public APIgetHodlerAirdropUserOrderRecordsRequest startTimest(Integer startTimest) {
+            this.startTimest = startTimest;
+            return this;
+        }
+
+        /**
+         * Set endTimest
+         * @param endTimest 结束时间戳（秒） (optional)
+         * @return APIgetHodlerAirdropUserOrderRecordsRequest
+         */
+        public APIgetHodlerAirdropUserOrderRecordsRequest endTimest(Integer endTimest) {
+            this.endTimest = endTimest;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page 页码，默认1 (optional, default to 1)
+         * @return APIgetHodlerAirdropUserOrderRecordsRequest
+         */
+        public APIgetHodlerAirdropUserOrderRecordsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set size
+         * @param size 每页条数，默认10 (optional, default to 10)
+         * @return APIgetHodlerAirdropUserOrderRecordsRequest
+         */
+        public APIgetHodlerAirdropUserOrderRecordsRequest size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+        /**
+         * Build call for getHodlerAirdropUserOrderRecords
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getHodlerAirdropUserOrderRecordsCall(keyword, startTimest, endTimest, page, size, _callback);
+        }
+
+        /**
+         * Execute getHodlerAirdropUserOrderRecords request
+         * @return List&lt;HodlerAirdropV4UserOrderRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<HodlerAirdropV4UserOrderRecord> execute() throws ApiException {
+            ApiResponse<List<HodlerAirdropV4UserOrderRecord>> localVarResp = getHodlerAirdropUserOrderRecordsWithHttpInfo(keyword, startTimest, endTimest, page, size);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getHodlerAirdropUserOrderRecords request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;HodlerAirdropV4UserOrderRecord&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<HodlerAirdropV4UserOrderRecord>> executeWithHttpInfo() throws ApiException {
+            return getHodlerAirdropUserOrderRecordsWithHttpInfo(keyword, startTimest, endTimest, page, size);
+        }
+
+        /**
+         * Execute getHodlerAirdropUserOrderRecords request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<HodlerAirdropV4UserOrderRecord>> _callback) throws ApiException {
+            return getHodlerAirdropUserOrderRecordsAsync(keyword, startTimest, endTimest, page, size, _callback);
+        }
+    }
+
+    /**
+     * 查询HODLer Airdrop参与记录
+     * 查询用户的HODLer Airdrop参与记录，返回每个活动的有效持仓和空投金额。此接口需要用户登录认证。
+     * @return APIgetHodlerAirdropUserOrderRecordsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetHodlerAirdropUserOrderRecordsRequest getHodlerAirdropUserOrderRecords() {
+        return new APIgetHodlerAirdropUserOrderRecordsRequest();
+    }
+
+    private okhttp3.Call getHodlerAirdropUserAirdropRecordsCall(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/hodler-airdrop/user-airdrop-records";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (keyword != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("keyword", keyword));
+        }
+
+        if (startTimest != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_timest", startTimest));
+        }
+
+        if (endTimest != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_timest", endTimest));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getHodlerAirdropUserAirdropRecordsValidateBeforeCall(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropUserAirdropRecordsCall(keyword, startTimest, endTimest, page, size, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<HodlerAirdropV4UserAirdropRecord>> getHodlerAirdropUserAirdropRecordsWithHttpInfo(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropUserAirdropRecordsValidateBeforeCall(keyword, startTimest, endTimest, page, size, null);
+        Type localVarReturnType = new TypeToken<List<HodlerAirdropV4UserAirdropRecord>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getHodlerAirdropUserAirdropRecordsAsync(String keyword, Integer startTimest, Integer endTimest, Integer page, Integer size, final ApiCallback<List<HodlerAirdropV4UserAirdropRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getHodlerAirdropUserAirdropRecordsValidateBeforeCall(keyword, startTimest, endTimest, page, size, _callback);
+        Type localVarReturnType = new TypeToken<List<HodlerAirdropV4UserAirdropRecord>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetHodlerAirdropUserAirdropRecordsRequest {
+        private String keyword;
+        private Integer startTimest;
+        private Integer endTimest;
+        private Integer page;
+        private Integer size;
+
+        private APIgetHodlerAirdropUserAirdropRecordsRequest() {
+        }
+
+        /**
+         * Set keyword
+         * @param keyword 币种名称关键词筛选 (optional)
+         * @return APIgetHodlerAirdropUserAirdropRecordsRequest
+         */
+        public APIgetHodlerAirdropUserAirdropRecordsRequest keyword(String keyword) {
+            this.keyword = keyword;
+            return this;
+        }
+
+        /**
+         * Set startTimest
+         * @param startTimest 开始时间戳（秒） (optional)
+         * @return APIgetHodlerAirdropUserAirdropRecordsRequest
+         */
+        public APIgetHodlerAirdropUserAirdropRecordsRequest startTimest(Integer startTimest) {
+            this.startTimest = startTimest;
+            return this;
+        }
+
+        /**
+         * Set endTimest
+         * @param endTimest 结束时间戳（秒） (optional)
+         * @return APIgetHodlerAirdropUserAirdropRecordsRequest
+         */
+        public APIgetHodlerAirdropUserAirdropRecordsRequest endTimest(Integer endTimest) {
+            this.endTimest = endTimest;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page 页码，默认1 (optional, default to 1)
+         * @return APIgetHodlerAirdropUserAirdropRecordsRequest
+         */
+        public APIgetHodlerAirdropUserAirdropRecordsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set size
+         * @param size 每页条数，默认10 (optional, default to 10)
+         * @return APIgetHodlerAirdropUserAirdropRecordsRequest
+         */
+        public APIgetHodlerAirdropUserAirdropRecordsRequest size(Integer size) {
+            this.size = size;
+            return this;
+        }
+
+        /**
+         * Build call for getHodlerAirdropUserAirdropRecords
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getHodlerAirdropUserAirdropRecordsCall(keyword, startTimest, endTimest, page, size, _callback);
+        }
+
+        /**
+         * Execute getHodlerAirdropUserAirdropRecords request
+         * @return List&lt;HodlerAirdropV4UserAirdropRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<HodlerAirdropV4UserAirdropRecord> execute() throws ApiException {
+            ApiResponse<List<HodlerAirdropV4UserAirdropRecord>> localVarResp = getHodlerAirdropUserAirdropRecordsWithHttpInfo(keyword, startTimest, endTimest, page, size);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getHodlerAirdropUserAirdropRecords request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;HodlerAirdropV4UserAirdropRecord&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<HodlerAirdropV4UserAirdropRecord>> executeWithHttpInfo() throws ApiException {
+            return getHodlerAirdropUserAirdropRecordsWithHttpInfo(keyword, startTimest, endTimest, page, size);
+        }
+
+        /**
+         * Execute getHodlerAirdropUserAirdropRecords request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<HodlerAirdropV4UserAirdropRecord>> _callback) throws ApiException {
+            return getHodlerAirdropUserAirdropRecordsAsync(keyword, startTimest, endTimest, page, size, _callback);
+        }
+    }
+
+    /**
+     * 查询HODLer Airdrop空投记录
+     * 查询用户已获得的HODLer Airdrop空投发放记录，包含基础空投、额外空投和自动兑换状态。此接口需要用户登录认证。
+     * @return APIgetHodlerAirdropUserAirdropRecordsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetHodlerAirdropUserAirdropRecordsRequest getHodlerAirdropUserAirdropRecords() {
+        return new APIgetHodlerAirdropUserAirdropRecordsRequest();
+    }
+
+    private okhttp3.Call getCandyDropActivityListV4Call(String status, String ruleName, String registerStatus, String currency, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/candydrop/activity-list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (ruleName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("rule_name", ruleName));
+        }
+
+        if (registerStatus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("register_status", registerStatus));
+        }
+
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCandyDropActivityListV4ValidateBeforeCall(String status, String ruleName, String registerStatus, String currency, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropActivityListV4Call(status, ruleName, registerStatus, currency, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CandyDropV4ActivityCd01>> getCandyDropActivityListV4WithHttpInfo(String status, String ruleName, String registerStatus, String currency, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropActivityListV4ValidateBeforeCall(status, ruleName, registerStatus, currency, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<CandyDropV4ActivityCd01>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getCandyDropActivityListV4Async(String status, String ruleName, String registerStatus, String currency, Integer limit, Integer offset, final ApiCallback<List<CandyDropV4ActivityCd01>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropActivityListV4ValidateBeforeCall(status, ruleName, registerStatus, currency, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<CandyDropV4ActivityCd01>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetCandyDropActivityListV4Request {
+        private String status;
+        private String ruleName;
+        private String registerStatus;
+        private String currency;
+        private Integer limit;
+        private Integer offset;
+
+        private APIgetCandyDropActivityListV4Request() {
+        }
+
+        /**
+         * Set status
+         * @param status 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部 (optional)
+         * @return APIgetCandyDropActivityListV4Request
+         */
+        public APIgetCandyDropActivityListV4Request status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set ruleName
+         * @param ruleName 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF) (optional)
+         * @return APIgetCandyDropActivityListV4Request
+         */
+        public APIgetCandyDropActivityListV4Request ruleName(String ruleName) {
+            this.ruleName = ruleName;
+            return this;
+        }
+
+        /**
+         * Set registerStatus
+         * @param registerStatus 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部 (optional)
+         * @return APIgetCandyDropActivityListV4Request
+         */
+        public APIgetCandyDropActivityListV4Request registerStatus(String registerStatus) {
+            this.registerStatus = registerStatus;
+            return this;
+        }
+
+        /**
+         * Set currency
+         * @param currency 币种名称筛选 (optional)
+         * @return APIgetCandyDropActivityListV4Request
+         */
+        public APIgetCandyDropActivityListV4Request currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit 返回条数，默认10，最大30 (optional, default to 10)
+         * @return APIgetCandyDropActivityListV4Request
+         */
+        public APIgetCandyDropActivityListV4Request limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset 偏移量，默认0 (optional, default to 0)
+         * @return APIgetCandyDropActivityListV4Request
+         */
+        public APIgetCandyDropActivityListV4Request offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for getCandyDropActivityListV4
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCandyDropActivityListV4Call(status, ruleName, registerStatus, currency, limit, offset, _callback);
+        }
+
+        /**
+         * Execute getCandyDropActivityListV4 request
+         * @return List&lt;CandyDropV4ActivityCd01&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CandyDropV4ActivityCd01> execute() throws ApiException {
+            ApiResponse<List<CandyDropV4ActivityCd01>> localVarResp = getCandyDropActivityListV4WithHttpInfo(status, ruleName, registerStatus, currency, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCandyDropActivityListV4 request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CandyDropV4ActivityCd01&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CandyDropV4ActivityCd01>> executeWithHttpInfo() throws ApiException {
+            return getCandyDropActivityListV4WithHttpInfo(status, ruleName, registerStatus, currency, limit, offset);
+        }
+
+        /**
+         * Execute getCandyDropActivityListV4 request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CandyDropV4ActivityCd01>> _callback) throws ApiException {
+            return getCandyDropActivityListV4Async(status, ruleName, registerStatus, currency, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * 查询活动列表
+     * 支持多维度筛选 CandyDrop 活动，每次查询返回列表排序的前十条数据。不需要登录。
+     * @return APIgetCandyDropActivityListV4Request
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetCandyDropActivityListV4Request getCandyDropActivityListV4() {
+        return new APIgetCandyDropActivityListV4Request();
+    }
+
+    /**
+     * Build call for registerCandyDropV4
+     * @param candyDropV4RegisterReqCd02  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call registerCandyDropV4Call(CandyDropV4RegisterReqCd02 candyDropV4RegisterReqCd02, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = candyDropV4RegisterReqCd02;
+
+        // create path and map variables
+        String localVarPath = "/launch/candydrop/register";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call registerCandyDropV4ValidateBeforeCall(CandyDropV4RegisterReqCd02 candyDropV4RegisterReqCd02, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'candyDropV4RegisterReqCd02' is set
+        if (candyDropV4RegisterReqCd02 == null) {
+            throw new ApiException("Missing the required parameter 'candyDropV4RegisterReqCd02' when calling registerCandyDropV4(Async)");
+        }
+
+        okhttp3.Call localVarCall = registerCandyDropV4Call(candyDropV4RegisterReqCd02, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * 报名参与活动
+     * 报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+     * @param candyDropV4RegisterReqCd02  (required)
+     * @return CandyDropV4RegisterRespCd02
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public CandyDropV4RegisterRespCd02 registerCandyDropV4(CandyDropV4RegisterReqCd02 candyDropV4RegisterReqCd02) throws ApiException {
+        ApiResponse<CandyDropV4RegisterRespCd02> localVarResp = registerCandyDropV4WithHttpInfo(candyDropV4RegisterReqCd02);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 报名参与活动
+     * 报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+     * @param candyDropV4RegisterReqCd02  (required)
+     * @return ApiResponse&lt;CandyDropV4RegisterRespCd02&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CandyDropV4RegisterRespCd02> registerCandyDropV4WithHttpInfo(CandyDropV4RegisterReqCd02 candyDropV4RegisterReqCd02) throws ApiException {
+        okhttp3.Call localVarCall = registerCandyDropV4ValidateBeforeCall(candyDropV4RegisterReqCd02, null);
+        Type localVarReturnType = new TypeToken<CandyDropV4RegisterRespCd02>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * 报名参与活动 (asynchronously)
+     * 报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+     * @param candyDropV4RegisterReqCd02  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call registerCandyDropV4Async(CandyDropV4RegisterReqCd02 candyDropV4RegisterReqCd02, final ApiCallback<CandyDropV4RegisterRespCd02> _callback) throws ApiException {
+        okhttp3.Call localVarCall = registerCandyDropV4ValidateBeforeCall(candyDropV4RegisterReqCd02, _callback);
+        Type localVarReturnType = new TypeToken<CandyDropV4RegisterRespCd02>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getCandyDropActivityRulesV4Call(Long activityId, String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/candydrop/activity-rules";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (activityId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("activity_id", activityId));
+        }
+
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCandyDropActivityRulesV4ValidateBeforeCall(Long activityId, String currency, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropActivityRulesV4Call(activityId, currency, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<CandyDropV4ActivityRulesCd03> getCandyDropActivityRulesV4WithHttpInfo(Long activityId, String currency) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropActivityRulesV4ValidateBeforeCall(activityId, currency, null);
+        Type localVarReturnType = new TypeToken<CandyDropV4ActivityRulesCd03>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getCandyDropActivityRulesV4Async(Long activityId, String currency, final ApiCallback<CandyDropV4ActivityRulesCd03> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropActivityRulesV4ValidateBeforeCall(activityId, currency, _callback);
+        Type localVarReturnType = new TypeToken<CandyDropV4ActivityRulesCd03>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetCandyDropActivityRulesV4Request {
+        private Long activityId;
+        private String currency;
+
+        private APIgetCandyDropActivityRulesV4Request() {
+        }
+
+        /**
+         * Set activityId
+         * @param activityId 活动ID，与 currency 二选一，至少须传其一 (optional)
+         * @return APIgetCandyDropActivityRulesV4Request
+         */
+        public APIgetCandyDropActivityRulesV4Request activityId(Long activityId) {
+            this.activityId = activityId;
+            return this;
+        }
+
+        /**
+         * Set currency
+         * @param currency 项目/币种名称，与 activity_id 二选一，至少须传其一 (optional)
+         * @return APIgetCandyDropActivityRulesV4Request
+         */
+        public APIgetCandyDropActivityRulesV4Request currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for getCandyDropActivityRulesV4
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCandyDropActivityRulesV4Call(activityId, currency, _callback);
+        }
+
+        /**
+         * Execute getCandyDropActivityRulesV4 request
+         * @return CandyDropV4ActivityRulesCd03
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public CandyDropV4ActivityRulesCd03 execute() throws ApiException {
+            ApiResponse<CandyDropV4ActivityRulesCd03> localVarResp = getCandyDropActivityRulesV4WithHttpInfo(activityId, currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCandyDropActivityRulesV4 request with HTTP info returned
+         * @return ApiResponse&lt;CandyDropV4ActivityRulesCd03&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CandyDropV4ActivityRulesCd03> executeWithHttpInfo() throws ApiException {
+            return getCandyDropActivityRulesV4WithHttpInfo(activityId, currency);
+        }
+
+        /**
+         * Execute getCandyDropActivityRulesV4 request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CandyDropV4ActivityRulesCd03> _callback) throws ApiException {
+            return getCandyDropActivityRulesV4Async(activityId, currency, _callback);
+        }
+    }
+
+    /**
+     * 查询活动规则
+     * 查询特定活动的规则，包括奖池及对应任务数据。不需要登录。
+     * @return APIgetCandyDropActivityRulesV4Request
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetCandyDropActivityRulesV4Request getCandyDropActivityRulesV4() {
+        return new APIgetCandyDropActivityRulesV4Request();
+    }
+
+    private okhttp3.Call getCandyDropTaskProgressV4Call(Long activityId, String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/candydrop/task-progress";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (activityId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("activity_id", activityId));
+        }
+
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCandyDropTaskProgressV4ValidateBeforeCall(Long activityId, String currency, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropTaskProgressV4Call(activityId, currency, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<CandyDropV4TaskProgressCd04> getCandyDropTaskProgressV4WithHttpInfo(Long activityId, String currency) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropTaskProgressV4ValidateBeforeCall(activityId, currency, null);
+        Type localVarReturnType = new TypeToken<CandyDropV4TaskProgressCd04>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getCandyDropTaskProgressV4Async(Long activityId, String currency, final ApiCallback<CandyDropV4TaskProgressCd04> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropTaskProgressV4ValidateBeforeCall(activityId, currency, _callback);
+        Type localVarReturnType = new TypeToken<CandyDropV4TaskProgressCd04>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetCandyDropTaskProgressV4Request {
+        private Long activityId;
+        private String currency;
+
+        private APIgetCandyDropTaskProgressV4Request() {
+        }
+
+        /**
+         * Set activityId
+         * @param activityId 活动ID，与 currency 二选一，至少须传其一 (optional)
+         * @return APIgetCandyDropTaskProgressV4Request
+         */
+        public APIgetCandyDropTaskProgressV4Request activityId(Long activityId) {
+            this.activityId = activityId;
+            return this;
+        }
+
+        /**
+         * Set currency
+         * @param currency 项目/币种名称，与 activity_id 二选一，至少须传其一 (optional)
+         * @return APIgetCandyDropTaskProgressV4Request
+         */
+        public APIgetCandyDropTaskProgressV4Request currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for getCandyDropTaskProgressV4
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCandyDropTaskProgressV4Call(activityId, currency, _callback);
+        }
+
+        /**
+         * Execute getCandyDropTaskProgressV4 request
+         * @return CandyDropV4TaskProgressCd04
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public CandyDropV4TaskProgressCd04 execute() throws ApiException {
+            ApiResponse<CandyDropV4TaskProgressCd04> localVarResp = getCandyDropTaskProgressV4WithHttpInfo(activityId, currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCandyDropTaskProgressV4 request with HTTP info returned
+         * @return ApiResponse&lt;CandyDropV4TaskProgressCd04&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CandyDropV4TaskProgressCd04> executeWithHttpInfo() throws ApiException {
+            return getCandyDropTaskProgressV4WithHttpInfo(activityId, currency);
+        }
+
+        /**
+         * Execute getCandyDropTaskProgressV4 request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CandyDropV4TaskProgressCd04> _callback) throws ApiException {
+            return getCandyDropTaskProgressV4Async(activityId, currency, _callback);
+        }
+    }
+
+    /**
+     * 查询任务完成进度
+     * 查询进行中且已报名/参与的任务完成进度。需要登录。
+     * @return APIgetCandyDropTaskProgressV4Request
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetCandyDropTaskProgressV4Request getCandyDropTaskProgressV4() {
+        return new APIgetCandyDropTaskProgressV4Request();
+    }
+
+    private okhttp3.Call getCandyDropParticipationRecordsV4Call(String currency, String status, Long startTime, Long endTime, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/candydrop/participation-records";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_time", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_time", endTime));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCandyDropParticipationRecordsV4ValidateBeforeCall(String currency, String status, Long startTime, Long endTime, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropParticipationRecordsV4Call(currency, status, startTime, endTime, page, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CandyDropV4ParticipationRecordCd05>> getCandyDropParticipationRecordsV4WithHttpInfo(String currency, String status, Long startTime, Long endTime, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropParticipationRecordsV4ValidateBeforeCall(currency, status, startTime, endTime, page, limit, null);
+        Type localVarReturnType = new TypeToken<List<CandyDropV4ParticipationRecordCd05>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getCandyDropParticipationRecordsV4Async(String currency, String status, Long startTime, Long endTime, Integer page, Integer limit, final ApiCallback<List<CandyDropV4ParticipationRecordCd05>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropParticipationRecordsV4ValidateBeforeCall(currency, status, startTime, endTime, page, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<CandyDropV4ParticipationRecordCd05>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetCandyDropParticipationRecordsV4Request {
+        private String currency;
+        private String status;
+        private Long startTime;
+        private Long endTime;
+        private Integer page;
+        private Integer limit;
+
+        private APIgetCandyDropParticipationRecordsV4Request() {
+        }
+
+        /**
+         * Set currency
+         * @param currency 币种名称筛选 (optional)
+         * @return APIgetCandyDropParticipationRecordsV4Request
+         */
+        public APIgetCandyDropParticipationRecordsV4Request currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖) (optional)
+         * @return APIgetCandyDropParticipationRecordsV4Request
+         */
+        public APIgetCandyDropParticipationRecordsV4Request status(String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set startTime
+         * @param startTime 开始时间（Unix 时间戳秒） (optional)
+         * @return APIgetCandyDropParticipationRecordsV4Request
+         */
+        public APIgetCandyDropParticipationRecordsV4Request startTime(Long startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+        /**
+         * Set endTime
+         * @param endTime 结束时间（Unix 时间戳秒） (optional)
+         * @return APIgetCandyDropParticipationRecordsV4Request
+         */
+        public APIgetCandyDropParticipationRecordsV4Request endTime(Long endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page 页码，默认1 (optional, default to 1)
+         * @return APIgetCandyDropParticipationRecordsV4Request
+         */
+        public APIgetCandyDropParticipationRecordsV4Request page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit 每页条数，默认10，最大30 (optional, default to 10)
+         * @return APIgetCandyDropParticipationRecordsV4Request
+         */
+        public APIgetCandyDropParticipationRecordsV4Request limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for getCandyDropParticipationRecordsV4
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCandyDropParticipationRecordsV4Call(currency, status, startTime, endTime, page, limit, _callback);
+        }
+
+        /**
+         * Execute getCandyDropParticipationRecordsV4 request
+         * @return List&lt;CandyDropV4ParticipationRecordCd05&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CandyDropV4ParticipationRecordCd05> execute() throws ApiException {
+            ApiResponse<List<CandyDropV4ParticipationRecordCd05>> localVarResp = getCandyDropParticipationRecordsV4WithHttpInfo(currency, status, startTime, endTime, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCandyDropParticipationRecordsV4 request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CandyDropV4ParticipationRecordCd05&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CandyDropV4ParticipationRecordCd05>> executeWithHttpInfo() throws ApiException {
+            return getCandyDropParticipationRecordsV4WithHttpInfo(currency, status, startTime, endTime, page, limit);
+        }
+
+        /**
+         * Execute getCandyDropParticipationRecordsV4 request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CandyDropV4ParticipationRecordCd05>> _callback) throws ApiException {
+            return getCandyDropParticipationRecordsV4Async(currency, status, startTime, endTime, page, limit, _callback);
+        }
+    }
+
+    /**
+     * 查询参与记录
+     * 查询用户的 CandyDrop 参与详情。需要登录。
+     * @return APIgetCandyDropParticipationRecordsV4Request
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetCandyDropParticipationRecordsV4Request getCandyDropParticipationRecordsV4() {
+        return new APIgetCandyDropParticipationRecordsV4Request();
+    }
+
+    private okhttp3.Call getCandyDropAirdropRecordsV4Call(String currency, Long startTime, Long endTime, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/launch/candydrop/airdrop-records";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_time", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_time", endTime));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCandyDropAirdropRecordsV4ValidateBeforeCall(String currency, Long startTime, Long endTime, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropAirdropRecordsV4Call(currency, startTime, endTime, page, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CandyDropV4AirdropRecordCd06>> getCandyDropAirdropRecordsV4WithHttpInfo(String currency, Long startTime, Long endTime, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropAirdropRecordsV4ValidateBeforeCall(currency, startTime, endTime, page, limit, null);
+        Type localVarReturnType = new TypeToken<List<CandyDropV4AirdropRecordCd06>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getCandyDropAirdropRecordsV4Async(String currency, Long startTime, Long endTime, Integer page, Integer limit, final ApiCallback<List<CandyDropV4AirdropRecordCd06>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCandyDropAirdropRecordsV4ValidateBeforeCall(currency, startTime, endTime, page, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<CandyDropV4AirdropRecordCd06>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetCandyDropAirdropRecordsV4Request {
+        private String currency;
+        private Long startTime;
+        private Long endTime;
+        private Integer page;
+        private Integer limit;
+
+        private APIgetCandyDropAirdropRecordsV4Request() {
+        }
+
+        /**
+         * Set currency
+         * @param currency 币种名称筛选 (optional)
+         * @return APIgetCandyDropAirdropRecordsV4Request
+         */
+        public APIgetCandyDropAirdropRecordsV4Request currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Set startTime
+         * @param startTime 开始时间（Unix 时间戳秒） (optional)
+         * @return APIgetCandyDropAirdropRecordsV4Request
+         */
+        public APIgetCandyDropAirdropRecordsV4Request startTime(Long startTime) {
+            this.startTime = startTime;
+            return this;
+        }
+
+        /**
+         * Set endTime
+         * @param endTime 结束时间（Unix 时间戳秒） (optional)
+         * @return APIgetCandyDropAirdropRecordsV4Request
+         */
+        public APIgetCandyDropAirdropRecordsV4Request endTime(Long endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page 页码，默认1 (optional, default to 1)
+         * @return APIgetCandyDropAirdropRecordsV4Request
+         */
+        public APIgetCandyDropAirdropRecordsV4Request page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit 每页条数，默认10，最大30 (optional, default to 10)
+         * @return APIgetCandyDropAirdropRecordsV4Request
+         */
+        public APIgetCandyDropAirdropRecordsV4Request limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for getCandyDropAirdropRecordsV4
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCandyDropAirdropRecordsV4Call(currency, startTime, endTime, page, limit, _callback);
+        }
+
+        /**
+         * Execute getCandyDropAirdropRecordsV4 request
+         * @return List&lt;CandyDropV4AirdropRecordCd06&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CandyDropV4AirdropRecordCd06> execute() throws ApiException {
+            ApiResponse<List<CandyDropV4AirdropRecordCd06>> localVarResp = getCandyDropAirdropRecordsV4WithHttpInfo(currency, startTime, endTime, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCandyDropAirdropRecordsV4 request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CandyDropV4AirdropRecordCd06&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CandyDropV4AirdropRecordCd06>> executeWithHttpInfo() throws ApiException {
+            return getCandyDropAirdropRecordsV4WithHttpInfo(currency, startTime, endTime, page, limit);
+        }
+
+        /**
+         * Execute getCandyDropAirdropRecordsV4 request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CandyDropV4AirdropRecordCd06>> _callback) throws ApiException {
+            return getCandyDropAirdropRecordsV4Async(currency, startTime, endTime, page, limit, _callback);
+        }
+    }
+
+    /**
+     * 查询空投记录
+     * 查询用户的 CandyDrop 空投详情。需要登录。
+     * @return APIgetCandyDropAirdropRecordsV4Request
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetCandyDropAirdropRecordsV4Request getCandyDropAirdropRecordsV4() {
+        return new APIgetCandyDropAirdropRecordsV4Request();
     }
 
 }
