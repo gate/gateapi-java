@@ -109,7 +109,7 @@ public class ApiResponseAssetSwapConfig {
     }
 
      /**
-     * 成功时为前端配置（ConfigResp），失败时为 null
+     * 成功时为前端配置，失败时为 null
      * @return data
     **/
     @javax.annotation.Nullable

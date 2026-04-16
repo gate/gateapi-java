@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.66
-- SDK version: 7.2.66
+- API version: v4.106.67
+- SDK version: 7.2.67
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.66</version>
+    <version>7.2.67</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.66"
+compile "io.gate:gate-api:7.2.67"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.66.jar`
+* `target/gate-api-7.2.67.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -698,7 +698,6 @@ Class | Method | HTTP request | Description
  - [CollateralCurrentRate](docs/CollateralCurrentRate.md)
  - [CollateralFixRate](docs/CollateralFixRate.md)
  - [CollateralLtv](docs/CollateralLtv.md)
- - [ConfigResp](docs/ConfigResp.md)
  - [ConfirmPayment](docs/ConfirmPayment.md)
  - [ConfirmReceipt](docs/ConfirmReceipt.md)
  - [Contract](docs/Contract.md)
@@ -1012,7 +1011,6 @@ Class | Method | HTTP request | Description
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderPreviewV1Req](docs/OrderPreviewV1Req.md)
  - [OrderPreviewV1Resp](docs/OrderPreviewV1Resp.md)
- - [OrderQueryV1Resp](docs/OrderQueryV1Resp.md)
  - [OrderResp](docs/OrderResp.md)
  - [OrderResponse](docs/OrderResponse.md)
  - [OtcActionResponse](docs/OtcActionResponse.md)

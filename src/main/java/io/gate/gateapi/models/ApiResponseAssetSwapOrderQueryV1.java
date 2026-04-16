@@ -109,7 +109,7 @@ public class ApiResponseAssetSwapOrderQueryV1 {
     }
 
      /**
-     * 成功时为订单详情（CreateOrder），失败时为 null
+     * 成功时为订单详情，失败时为 null
      * @return data
     **/
     @javax.annotation.Nullable
