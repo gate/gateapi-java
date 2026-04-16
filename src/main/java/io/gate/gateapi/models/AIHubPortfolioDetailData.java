@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.StrategyType;
-import io.gate.gateapi.models.oas_any_type_not_mapped;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -46,15 +45,15 @@ public class AIHubPortfolioDetailData {
 
     public static final String SERIALIZED_NAME_BASE_INFO = "base_info";
     @SerializedName(SERIALIZED_NAME_BASE_INFO)
-    private Map<String, oas_any_type_not_mapped> baseInfo = new HashMap<>();
+    private Map<String, String> baseInfo = new HashMap<>();
 
     public static final String SERIALIZED_NAME_METRICS = "metrics";
     @SerializedName(SERIALIZED_NAME_METRICS)
-    private Map<String, oas_any_type_not_mapped> metrics = new HashMap<>();
+    private Map<String, String> metrics = new HashMap<>();
 
     public static final String SERIALIZED_NAME_POSITION = "position";
     @SerializedName(SERIALIZED_NAME_POSITION)
-    private Map<String, oas_any_type_not_mapped> position = null;
+    private Map<String, String> position = null;
 
     public static final String SERIALIZED_NAME_STOP_SUPPORTED = "stop_supported";
     @SerializedName(SERIALIZED_NAME_STOP_SUPPORTED)
@@ -137,13 +136,13 @@ public class AIHubPortfolioDetailData {
         this.status = status;
     }
 
-    public AIHubPortfolioDetailData baseInfo(Map<String, oas_any_type_not_mapped> baseInfo) {
+    public AIHubPortfolioDetailData baseInfo(Map<String, String> baseInfo) {
         
         this.baseInfo = baseInfo;
         return this;
     }
 
-    public AIHubPortfolioDetailData putBaseInfoItem(String key, oas_any_type_not_mapped baseInfoItem) {
+    public AIHubPortfolioDetailData putBaseInfoItem(String key, String baseInfoItem) {
         this.baseInfo.put(key, baseInfoItem);
         return this;
     }
@@ -152,22 +151,22 @@ public class AIHubPortfolioDetailData {
      * 基础信息，字段按策略类型动态变化
      * @return baseInfo
     **/
-    public Map<String, oas_any_type_not_mapped> getBaseInfo() {
+    public Map<String, String> getBaseInfo() {
         return baseInfo;
     }
 
 
-    public void setBaseInfo(Map<String, oas_any_type_not_mapped> baseInfo) {
+    public void setBaseInfo(Map<String, String> baseInfo) {
         this.baseInfo = baseInfo;
     }
 
-    public AIHubPortfolioDetailData metrics(Map<String, oas_any_type_not_mapped> metrics) {
+    public AIHubPortfolioDetailData metrics(Map<String, String> metrics) {
         
         this.metrics = metrics;
         return this;
     }
 
-    public AIHubPortfolioDetailData putMetricsItem(String key, oas_any_type_not_mapped metricsItem) {
+    public AIHubPortfolioDetailData putMetricsItem(String key, String metricsItem) {
         this.metrics.put(key, metricsItem);
         return this;
     }
@@ -176,22 +175,22 @@ public class AIHubPortfolioDetailData {
      * 指标信息，字段按策略类型动态变化
      * @return metrics
     **/
-    public Map<String, oas_any_type_not_mapped> getMetrics() {
+    public Map<String, String> getMetrics() {
         return metrics;
     }
 
 
-    public void setMetrics(Map<String, oas_any_type_not_mapped> metrics) {
+    public void setMetrics(Map<String, String> metrics) {
         this.metrics = metrics;
     }
 
-    public AIHubPortfolioDetailData position(Map<String, oas_any_type_not_mapped> position) {
+    public AIHubPortfolioDetailData position(Map<String, String> position) {
         
         this.position = position;
         return this;
     }
 
-    public AIHubPortfolioDetailData putPositionItem(String key, oas_any_type_not_mapped positionItem) {
+    public AIHubPortfolioDetailData putPositionItem(String key, String positionItem) {
         if (this.position == null) {
             this.position = new HashMap<>();
         }
@@ -204,12 +203,12 @@ public class AIHubPortfolioDetailData {
      * @return position
     **/
     @javax.annotation.Nullable
-    public Map<String, oas_any_type_not_mapped> getPosition() {
+    public Map<String, String> getPosition() {
         return position;
     }
 
 
-    public void setPosition(Map<String, oas_any_type_not_mapped> position) {
+    public void setPosition(Map<String, String> position) {
         this.position = position;
     }
 

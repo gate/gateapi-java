@@ -14,5 +14,5 @@ Name | Type | Description | Notes
 **backtestApr** | **String** |  |  [optional]
 **maxDrawdown** | **String** |  |  [optional]
 **summary** | **String** |  | 
-**strategyParamsPreview** | [**Map&lt;String, oas_any_type_not_mapped&gt;**](oas_any_type_not_mapped.md) | 推荐参数预览；按策略类型动态变化 |  [optional]
+**strategyParamsPreview** | **Map&lt;String, String&gt;** | 推荐参数预览；按策略类型动态变化 |  [optional]
 

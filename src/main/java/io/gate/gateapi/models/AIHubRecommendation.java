@@ -18,7 +18,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.StrategyType;
-import io.gate.gateapi.models.oas_any_type_not_mapped;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -58,7 +57,7 @@ public class AIHubRecommendation {
 
     public static final String SERIALIZED_NAME_STRATEGY_PARAMS_PREVIEW = "strategy_params_preview";
     @SerializedName(SERIALIZED_NAME_STRATEGY_PARAMS_PREVIEW)
-    private Map<String, oas_any_type_not_mapped> strategyParamsPreview = null;
+    private Map<String, String> strategyParamsPreview = null;
 
 
     public AIHubRecommendation recommendationId(String recommendationId) {
@@ -196,13 +195,13 @@ public class AIHubRecommendation {
         this.summary = summary;
     }
 
-    public AIHubRecommendation strategyParamsPreview(Map<String, oas_any_type_not_mapped> strategyParamsPreview) {
+    public AIHubRecommendation strategyParamsPreview(Map<String, String> strategyParamsPreview) {
         
         this.strategyParamsPreview = strategyParamsPreview;
         return this;
     }
 
-    public AIHubRecommendation putStrategyParamsPreviewItem(String key, oas_any_type_not_mapped strategyParamsPreviewItem) {
+    public AIHubRecommendation putStrategyParamsPreviewItem(String key, String strategyParamsPreviewItem) {
         if (this.strategyParamsPreview == null) {
             this.strategyParamsPreview = new HashMap<>();
         }
@@ -215,12 +214,12 @@ public class AIHubRecommendation {
      * @return strategyParamsPreview
     **/
     @javax.annotation.Nullable
-    public Map<String, oas_any_type_not_mapped> getStrategyParamsPreview() {
+    public Map<String, String> getStrategyParamsPreview() {
         return strategyParamsPreview;
     }
 
 
-    public void setStrategyParamsPreview(Map<String, oas_any_type_not_mapped> strategyParamsPreview) {
+    public void setStrategyParamsPreview(Map<String, String> strategyParamsPreview) {
         this.strategyParamsPreview = strategyParamsPreview;
     }
     @Override
