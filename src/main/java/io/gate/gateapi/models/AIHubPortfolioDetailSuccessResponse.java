@@ -21,7 +21,7 @@ import io.gate.gateapi.models.AIHubPortfolioDetailData;
 import java.io.IOException;
 
 /**
- * 查询策略详情成功时的响应体。
+ * The response body when querying policy details is successful.
  */
 public class AIHubPortfolioDetailSuccessResponse {
     public static final String SERIALIZED_NAME_CODE = "code";

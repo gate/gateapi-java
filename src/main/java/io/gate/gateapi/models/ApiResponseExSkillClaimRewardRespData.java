@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 领取奖励结果
+ * Get reward results
  */
 public class ApiResponseExSkillClaimRewardRespData {
     public static final String SERIALIZED_NAME_HAS_M_N_TASK = "has_m_n_task";
@@ -39,7 +39,7 @@ public class ApiResponseExSkillClaimRewardRespData {
     }
 
      /**
-     * 是否为 m 选 n 奖池任务。为 true 时仅提示跳转，不实际发奖
+     * Whether to choose n prize pool tasks for m. When it is true, it only prompts a jump and does not actually issue prizes.
      * @return hasMNTask
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class ApiResponseExSkillClaimRewardRespData {
     }
 
      /**
-     * 卡券奖励全称。非卡券奖励或无法解析时为空字符串
+     * The full name of the card reward. It is an empty string when it is not a coupon reward or cannot be parsed.
      * @return couponFullName
     **/
     @javax.annotation.Nullable

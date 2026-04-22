@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **tradingUserCount** | **String** | 交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type&#x3D;0（全部）时返回具体数值，其他业务类型返回 null | 
 **timeRangeDesc** | **String** | Time range description | 
 **businessType** | [**BusinessTypeEnum**](#BusinessTypeEnum) | Business Type | 
-**businessTypeDesc** | **String** | Business type description. Allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi | 
+**businessTypeDesc** | **String** | Business type description; allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi | 
 
 ## Enum: BusinessTypeEnum
 

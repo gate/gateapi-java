@@ -1,15 +1,15 @@
 
 # ApiResponseExSkillClaimTaskResp
 
-领取任务响应
+Receive task response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | 业务错误码，0 表示成功 |  [optional]
+**code** | **Integer** | Business error code, 0 means success |  [optional]
 **label** | **String** | Error identifier code. Empty string on success, machine-readable error label on error |  [optional]
 **message** | **String** | Error description |  [optional]
-**data** | [**Object**](.md) | 成功时为空对象 {} |  [optional]
+**data** | [**Object**](.md) | Empty object {} on success |  [optional]
 **timestamp** | **Long** | Server timestamp (milliseconds) |  [optional]
 

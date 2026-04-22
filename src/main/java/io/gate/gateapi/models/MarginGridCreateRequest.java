@@ -21,7 +21,7 @@ import io.gate.gateapi.models.MarginGridCreateParams;
 import java.io.IOException;
 
 /**
- * 创建杠杆网格策略的请求体。
+ * Create the request body for the Leverage Grid strategy.
  */
 public class MarginGridCreateRequest {
     /**

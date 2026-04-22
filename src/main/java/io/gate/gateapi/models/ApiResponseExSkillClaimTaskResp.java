@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 领取任务响应
+ * Receive task response
  */
 public class ApiResponseExSkillClaimTaskResp {
     public static final String SERIALIZED_NAME_CODE = "code";
@@ -51,7 +51,7 @@ public class ApiResponseExSkillClaimTaskResp {
     }
 
      /**
-     * 业务错误码，0 表示成功
+     * Business error code, 0 means success
      * @return code
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class ApiResponseExSkillClaimTaskResp {
     }
 
      /**
-     * 成功时为空对象 {}
+     * Empty object {} on success
      * @return data
     **/
     @javax.annotation.Nullable

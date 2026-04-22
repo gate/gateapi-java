@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**prizePoolType** | **Integer** | 奖池类型 |  [optional]
-**prizeAll** | **String** | 奖池总额度 |  [optional]
-**prizeLimit** | **String** | 每人瓜分上限 |  [optional]
-**tasks** | [**List&lt;CandyDropV4TaskCd03&gt;**](CandyDropV4TaskCd03.md) | 任务列表 |  [optional]
+**prizePoolType** | **Integer** | Prize pool type |  [optional]
+**prizeAll** | **String** | Total prize pool amount |  [optional]
+**prizeLimit** | **String** | Maximum share per person |  [optional]
+**tasks** | [**List&lt;CandyDropV4TaskCd03&gt;**](CandyDropV4TaskCd03.md) | task list |  [optional]
 

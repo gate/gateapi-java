@@ -87,7 +87,7 @@ public class CandyDropV4ParticipationRecordCd05 {
     }
 
      /**
-     * 项目状态：ongoing/awaiting_draw/won/not_win
+     * Project status: ongoing/awaiting_draw/won/not_win
      * @return status
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class CandyDropV4ParticipationRecordCd05 {
     }
 
      /**
-     * 参与时间（UTC格式化）
+     * Participation time (UTC formatted)
      * @return registerTime
     **/
     @javax.annotation.Nullable

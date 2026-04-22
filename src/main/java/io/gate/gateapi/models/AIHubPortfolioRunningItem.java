@@ -21,7 +21,7 @@ import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
 
 /**
- * 运行中策略列表中的单条记录。
+ * A single record in the list of running policies.
  */
 public class AIHubPortfolioRunningItem {
     public static final String SERIALIZED_NAME_STRATEGY_ID = "strategy_id";

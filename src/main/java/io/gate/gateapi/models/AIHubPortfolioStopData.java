@@ -21,7 +21,7 @@ import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
 
 /**
- * 终止策略成功后返回的结果信息。
+ * The result information returned after the termination strategy is successful.
  */
 public class AIHubPortfolioStopData {
     public static final String SERIALIZED_NAME_STRATEGY_ID = "strategy_id";
@@ -86,7 +86,7 @@ public class AIHubPortfolioStopData {
     }
 
      /**
-     * 当前实现返回 &#x60;stopping&#x60;
+     * The current implementation returns &#x60;stopping&#x60;
      * @return status
     **/
     public String getStatus() {

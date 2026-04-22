@@ -1,11 +1,11 @@
 
 # HodlerAirdropV4OrderRequest
 
-参与活动请求体
+Participation activity request body
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hodlerId** | **Integer** | 活动ID，必填 | 
+**hodlerId** | **Integer** | Activity ID, required | 
 

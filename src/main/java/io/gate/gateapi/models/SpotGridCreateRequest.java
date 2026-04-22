@@ -21,7 +21,7 @@ import io.gate.gateapi.models.SpotGridCreateParams;
 import java.io.IOException;
 
 /**
- * 创建现货网格策略的请求体。
+ * Create the request body for the spot grid policy.
  */
 public class SpotGridCreateRequest {
     /**

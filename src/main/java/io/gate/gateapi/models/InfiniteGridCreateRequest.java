@@ -21,7 +21,7 @@ import io.gate.gateapi.models.InfiniteGridCreateParams;
 import java.io.IOException;
 
 /**
- * 创建无限网格策略的请求体。
+ * Create the request body for the infinite grid policy.
  */
 public class InfiniteGridCreateRequest {
     /**

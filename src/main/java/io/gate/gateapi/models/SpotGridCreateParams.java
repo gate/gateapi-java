@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 现货网格策略的创建参数。
+ * Creation parameters for the spot grid strategy.
  */
 public class SpotGridCreateParams {
     public static final String SERIALIZED_NAME_MONEY = "money";
@@ -118,7 +118,7 @@ public class SpotGridCreateParams {
     }
 
      /**
-     * 投入金额
+     * Amount of investment
      * @return money
     **/
     public String getMoney() {
@@ -175,7 +175,7 @@ public class SpotGridCreateParams {
     }
 
      /**
-     * 网格数量
+     * Number of grids
      * minimum: 1
      * @return gridNum
     **/

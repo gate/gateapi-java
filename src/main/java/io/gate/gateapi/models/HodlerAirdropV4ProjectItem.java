@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * HODLer Airdrop活动列表项
+ * HODLer Airdrop activity list item
  */
 public class HodlerAirdropV4ProjectItem {
     public static final String SERIALIZED_NAME_HODLER_ID = "hodler_id";
@@ -36,7 +36,7 @@ public class HodlerAirdropV4ProjectItem {
     private String asset;
 
     /**
-     * 项目状态
+     * Project status
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -158,7 +158,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 空投币种
+     * Airdrop currency
      * @return asset
     **/
     public String getAsset() {
@@ -177,7 +177,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 项目状态
+     * Project status
      * @return status
     **/
     public StatusEnum getStatus() {
@@ -196,7 +196,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 空投总量
+     * Total airdrop amount
      * @return totalAmount
     **/
     public String getTotalAmount() {
@@ -215,7 +215,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 活动开始时间，格式 Y-m-d H:i:s，UTC
+     * Event start time, format Y-m-d H:i:s, UTC
      * @return openTimest
     **/
     public String getOpenTimest() {
@@ -234,7 +234,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 活动结束时间，格式 Y-m-d H:i:s，UTC
+     * Event end time, format Y-m-d H:i:s, UTC
      * @return closeTimest
     **/
     public String getCloseTimest() {
@@ -253,7 +253,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 每枚GT可获得的空投币数量，计算中时返回空字符串
+     * The number of airdrop coins that can be obtained for each GT. When the calculation is in progress, an empty string is returned.
      * @return perGtRewardToken
     **/
     @javax.annotation.Nullable
@@ -273,7 +273,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 参与人数
+     * Number of participants
      * @return userCount
     **/
     @javax.annotation.Nullable
@@ -293,7 +293,7 @@ public class HodlerAirdropV4ProjectItem {
     }
 
      /**
-     * 个人参与GT上限
+     * Personal GT limit
      * @return maxQueueAmount
     **/
     @javax.annotation.Nullable

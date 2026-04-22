@@ -55,7 +55,7 @@ public class Recommend {
     }
 
      /**
-     * 字符串键到字符串值的映射，对应 Go 的 map[string]string。
+     * Mapping of string keys to string values, corresponding to Go&#39;s map[string]string.
      * @return balance
     **/
     public Map<String, String> getBalance() {
@@ -79,7 +79,7 @@ public class Recommend {
     }
 
      /**
-     * 字符串键到字符串值的映射，对应 Go 的 map[string]string。
+     * Mapping of string keys to string values, corresponding to Go&#39;s map[string]string.
      * @return btcFaith
     **/
     public Map<String, String> getBtcFaith() {
@@ -103,7 +103,7 @@ public class Recommend {
     }
 
      /**
-     * 字符串键到字符串值的映射，对应 Go 的 map[string]string。
+     * Mapping of string keys to string values, corresponding to Go&#39;s map[string]string.
      * @return conservative
     **/
     public Map<String, String> getConservative() {
@@ -127,7 +127,7 @@ public class Recommend {
     }
 
      /**
-     * 字符串键到字符串值的映射，对应 Go 的 map[string]string。
+     * Mapping of string keys to string values, corresponding to Go&#39;s map[string]string.
      * @return gtFaith
     **/
     public Map<String, String> getGtFaith() {

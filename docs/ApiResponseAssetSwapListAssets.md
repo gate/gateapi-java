@@ -1,15 +1,15 @@
 
 # ApiResponseAssetSwapListAssets
 
-资产配置优化-币种列表统一响应
+Asset allocation optimization - unified response to currency list
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | 业务错误码，0 表示成功 | 
-**label** | **String** | 错误标识码，成功时为空字符串 |  [optional]
-**message** | **String** | 描述信息 | 
-**data** | **Object** | 成功时为币种列表数据，失败时为 null | 
+**code** | **Integer** | Business error code, 0 means success | 
+**label** | **String** | Error identification code, empty string on success |  [optional]
+**message** | **String** | Description information | 
+**data** | **Object** | Currency list data on success, null on failure | 
 **timestamp** | **Long** | Server timestamp (milliseconds) | 
 

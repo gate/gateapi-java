@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 预览请求的卖出侧单项：币种 + 数量。语义与 &#x60;CreateParam&#x60; 在 &#x60;from&#x60; 侧类似（均为 &#x60;asset&#x60; + &#x60;amount&#x60;）。
+ * Preview the selling side of the request: currency + quantity. The semantics are similar to &#x60;CreateParam&#x60; on the &#x60;from&#x60; side (both &#x60;asset&#x60; + &#x60;amount&#x60;).
  */
 public class PreviewFromParam {
     public static final String SERIALIZED_NAME_ASSET = "asset";
@@ -39,7 +39,7 @@ public class PreviewFromParam {
     }
 
      /**
-     * 要换出的币种符号。
+     * The currency symbol to be swapped out.
      * @return asset
     **/
     public String getAsset() {
@@ -58,7 +58,7 @@ public class PreviewFromParam {
     }
 
      /**
-     * 该币种换出数量，十进制字符串。
+     * The currency swap quantity, decimal string.
      * @return amount
     **/
     public String getAmount() {

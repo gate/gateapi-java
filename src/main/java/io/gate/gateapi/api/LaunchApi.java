@@ -1058,7 +1058,7 @@ public class LaunchApi {
 
         /**
          * Set status
-         * @param status 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部 (optional)
+         * @param status Activity status filtering, optional values: ACTIVE (in progress + preheating), UNDERWAY (in progress), PREHEAT (preheating), FINISH (ended), return all if not passed (optional)
          * @return APIgetHodlerAirdropProjectListRequest
          */
         public APIgetHodlerAirdropProjectListRequest status(String status) {
@@ -1068,7 +1068,7 @@ public class LaunchApi {
 
         /**
          * Set keyword
-         * @param keyword 币种/项目名称关键词，模糊匹配 (optional)
+         * @param keyword Currency/project name keywords, fuzzy matching (optional)
          * @return APIgetHodlerAirdropProjectListRequest
          */
         public APIgetHodlerAirdropProjectListRequest keyword(String keyword) {
@@ -1078,7 +1078,7 @@ public class LaunchApi {
 
         /**
          * Set join
-         * @param join 参与情况筛选：0全部（默认），1仅已参与 (optional, default to 0)
+         * @param join Participation filter: 0 all (default), 1 only participated (optional, default to 0)
          * @return APIgetHodlerAirdropProjectListRequest
          */
         public APIgetHodlerAirdropProjectListRequest join(Integer join) {
@@ -1088,7 +1088,7 @@ public class LaunchApi {
 
         /**
          * Set page
-         * @param page 页码，默认1 (optional, default to 1)
+         * @param page Page number, default 1 (optional, default to 1)
          * @return APIgetHodlerAirdropProjectListRequest
          */
         public APIgetHodlerAirdropProjectListRequest page(Integer page) {
@@ -1098,7 +1098,7 @@ public class LaunchApi {
 
         /**
          * Set size
-         * @param size 每页条数，默认10 (optional, default to 10)
+         * @param size Number of items per page, default 10 (optional, default to 10)
          * @return APIgetHodlerAirdropProjectListRequest
          */
         public APIgetHodlerAirdropProjectListRequest size(Integer size) {
@@ -1171,8 +1171,8 @@ public class LaunchApi {
     }
 
     /**
-     * 查询HODLer Airdrop活动列表
-     * 获取HODLer Airdrop活动列表，支持按状态、币种/项目名称、参与情况筛选。此接口无需用户登录，登录用户可获取个人参与信息。
+     * Check the list of HODLer Airdrop activities
+     * Get the HODLer Airdrop activity list, which supports filtering by status, currency/project name, and participation status. This interface does not require user login, and logged in users can obtain personal participation information.
      * @return APIgetHodlerAirdropProjectListRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1194,9 +1194,9 @@ public class LaunchApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully participated in the event </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Incorrect request parameters or failed business verification (insufficient KYC, sub-account restrictions, enterprise user restrictions, etc.) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call hodlerAirdropOrderCall(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest, final ApiCallback _callback) throws ApiException {
@@ -1240,17 +1240,17 @@ public class LaunchApi {
     }
 
     /**
-     * 参与HODLer Airdrop活动
-     * 参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+     * Participate in the HODLer Airdrop event
+     * To participate in designated HODLer Airdrop activities, you need to hold GT. This interface requires user login authentication and must meet KYC requirements. It does not support sub-accounts and enterprise/institutional users.
      * @param hodlerAirdropV4OrderRequest  (required)
      * @return HodlerAirdropV4OrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully participated in the event </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Incorrect request parameters or failed business verification (insufficient KYC, sub-account restrictions, enterprise user restrictions, etc.) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
      </table>
      */
     public HodlerAirdropV4OrderResponse hodlerAirdropOrder(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest) throws ApiException {
@@ -1259,17 +1259,17 @@ public class LaunchApi {
     }
 
     /**
-     * 参与HODLer Airdrop活动
-     * 参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+     * Participate in the HODLer Airdrop event
+     * To participate in designated HODLer Airdrop activities, you need to hold GT. This interface requires user login authentication and must meet KYC requirements. It does not support sub-accounts and enterprise/institutional users.
      * @param hodlerAirdropV4OrderRequest  (required)
      * @return ApiResponse&lt;HodlerAirdropV4OrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully participated in the event </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Incorrect request parameters or failed business verification (insufficient KYC, sub-account restrictions, enterprise user restrictions, etc.) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<HodlerAirdropV4OrderResponse> hodlerAirdropOrderWithHttpInfo(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest) throws ApiException {
@@ -1279,8 +1279,8 @@ public class LaunchApi {
     }
 
     /**
-     * 参与HODLer Airdrop活动 (asynchronously)
-     * 参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+     * Participate in the HODLer Airdrop event (asynchronously)
+     * To participate in designated HODLer Airdrop activities, you need to hold GT. This interface requires user login authentication and must meet KYC requirements. It does not support sub-accounts and enterprise/institutional users.
      * @param hodlerAirdropV4OrderRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1288,9 +1288,9 @@ public class LaunchApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功参与活动 </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully participated in the event </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Incorrect request parameters or failed business verification (insufficient KYC, sub-account restrictions, enterprise user restrictions, etc.) </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call hodlerAirdropOrderAsync(HodlerAirdropV4OrderRequest hodlerAirdropV4OrderRequest, final ApiCallback<HodlerAirdropV4OrderResponse> _callback) throws ApiException {
@@ -1381,7 +1381,7 @@ public class LaunchApi {
 
         /**
          * Set keyword
-         * @param keyword 币种名称关键词筛选 (optional)
+         * @param keyword Currency name keyword filtering (optional)
          * @return APIgetHodlerAirdropUserOrderRecordsRequest
          */
         public APIgetHodlerAirdropUserOrderRecordsRequest keyword(String keyword) {
@@ -1391,7 +1391,7 @@ public class LaunchApi {
 
         /**
          * Set startTimest
-         * @param startTimest 开始时间戳（秒） (optional)
+         * @param startTimest Start timestamp (seconds) (optional)
          * @return APIgetHodlerAirdropUserOrderRecordsRequest
          */
         public APIgetHodlerAirdropUserOrderRecordsRequest startTimest(Integer startTimest) {
@@ -1401,7 +1401,7 @@ public class LaunchApi {
 
         /**
          * Set endTimest
-         * @param endTimest 结束时间戳（秒） (optional)
+         * @param endTimest end timestamp (seconds) (optional)
          * @return APIgetHodlerAirdropUserOrderRecordsRequest
          */
         public APIgetHodlerAirdropUserOrderRecordsRequest endTimest(Integer endTimest) {
@@ -1411,7 +1411,7 @@ public class LaunchApi {
 
         /**
          * Set page
-         * @param page 页码，默认1 (optional, default to 1)
+         * @param page Page number, default 1 (optional, default to 1)
          * @return APIgetHodlerAirdropUserOrderRecordsRequest
          */
         public APIgetHodlerAirdropUserOrderRecordsRequest page(Integer page) {
@@ -1421,7 +1421,7 @@ public class LaunchApi {
 
         /**
          * Set size
-         * @param size 每页条数，默认10 (optional, default to 10)
+         * @param size Number of items per page, default 10 (optional, default to 10)
          * @return APIgetHodlerAirdropUserOrderRecordsRequest
          */
         public APIgetHodlerAirdropUserOrderRecordsRequest size(Integer size) {
@@ -1437,9 +1437,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1453,9 +1453,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public List<HodlerAirdropV4UserOrderRecord> execute() throws ApiException {
@@ -1470,9 +1470,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<HodlerAirdropV4UserOrderRecord>> executeWithHttpInfo() throws ApiException {
@@ -1487,9 +1487,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<HodlerAirdropV4UserOrderRecord>> _callback) throws ApiException {
@@ -1498,15 +1498,15 @@ public class LaunchApi {
     }
 
     /**
-     * 查询HODLer Airdrop参与记录
-     * 查询用户的HODLer Airdrop参与记录，返回每个活动的有效持仓和空投金额。此接口需要用户登录认证。
+     * Check HODLer Airdrop participation records
+     * Query the user&#39;s HODLer Airdrop participation record and return the effective holdings and airdrop amount of each activity. This interface requires user login authentication.
      * @return APIgetHodlerAirdropUserOrderRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
      </table>
      */
     public APIgetHodlerAirdropUserOrderRecordsRequest getHodlerAirdropUserOrderRecords() {
@@ -1594,7 +1594,7 @@ public class LaunchApi {
 
         /**
          * Set keyword
-         * @param keyword 币种名称关键词筛选 (optional)
+         * @param keyword Currency name keyword filtering (optional)
          * @return APIgetHodlerAirdropUserAirdropRecordsRequest
          */
         public APIgetHodlerAirdropUserAirdropRecordsRequest keyword(String keyword) {
@@ -1604,7 +1604,7 @@ public class LaunchApi {
 
         /**
          * Set startTimest
-         * @param startTimest 开始时间戳（秒） (optional)
+         * @param startTimest Start timestamp (seconds) (optional)
          * @return APIgetHodlerAirdropUserAirdropRecordsRequest
          */
         public APIgetHodlerAirdropUserAirdropRecordsRequest startTimest(Integer startTimest) {
@@ -1614,7 +1614,7 @@ public class LaunchApi {
 
         /**
          * Set endTimest
-         * @param endTimest 结束时间戳（秒） (optional)
+         * @param endTimest end timestamp (seconds) (optional)
          * @return APIgetHodlerAirdropUserAirdropRecordsRequest
          */
         public APIgetHodlerAirdropUserAirdropRecordsRequest endTimest(Integer endTimest) {
@@ -1624,7 +1624,7 @@ public class LaunchApi {
 
         /**
          * Set page
-         * @param page 页码，默认1 (optional, default to 1)
+         * @param page Page number, default 1 (optional, default to 1)
          * @return APIgetHodlerAirdropUserAirdropRecordsRequest
          */
         public APIgetHodlerAirdropUserAirdropRecordsRequest page(Integer page) {
@@ -1634,7 +1634,7 @@ public class LaunchApi {
 
         /**
          * Set size
-         * @param size 每页条数，默认10 (optional, default to 10)
+         * @param size Number of items per page, default 10 (optional, default to 10)
          * @return APIgetHodlerAirdropUserAirdropRecordsRequest
          */
         public APIgetHodlerAirdropUserAirdropRecordsRequest size(Integer size) {
@@ -1650,9 +1650,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1666,9 +1666,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public List<HodlerAirdropV4UserAirdropRecord> execute() throws ApiException {
@@ -1683,9 +1683,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<List<HodlerAirdropV4UserAirdropRecord>> executeWithHttpInfo() throws ApiException {
@@ -1700,9 +1700,9 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-            <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<HodlerAirdropV4UserAirdropRecord>> _callback) throws ApiException {
@@ -1711,15 +1711,15 @@ public class LaunchApi {
     }
 
     /**
-     * 查询HODLer Airdrop空投记录
-     * 查询用户已获得的HODLer Airdrop空投发放记录，包含基础空投、额外空投和自动兑换状态。此接口需要用户登录认证。
+     * Query HODLer Airdrop records
+     * Query the HODLer Airdrop airdrop distribution record that the user has obtained, including basic airdrops, additional airdrops and automatic redemption status. This interface requires user login authentication.
      * @return APIgetHodlerAirdropUserAirdropRecordsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> 用户未登录 </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> User is not logged in </td><td>  -  </td></tr>
      </table>
      */
     public APIgetHodlerAirdropUserAirdropRecordsRequest getHodlerAirdropUserAirdropRecords() {
@@ -1812,7 +1812,7 @@ public class LaunchApi {
 
         /**
          * Set status
-         * @param status 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部 (optional)
+         * @param status Activity status filtering: ongoing (in progress), upcoming (about to start), ended (ended), if not passed, all will be returned (optional)
          * @return APIgetCandyDropActivityListV4Request
          */
         public APIgetCandyDropActivityListV4Request status(String status) {
@@ -1822,7 +1822,7 @@ public class LaunchApi {
 
         /**
          * Set ruleName
-         * @param ruleName 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF) (optional)
+         * @param ruleName Task type filtering: spot (spot), futures (contract), deposit (recharge), invite (invitation), trading_bot (trading robot), simple_earn (Yu Bibao), first_deposit (first deposit), alpha (Alpha), flash_swap (flash swap), tradfi (TradFi), etf (ETF) (optional)
          * @return APIgetCandyDropActivityListV4Request
          */
         public APIgetCandyDropActivityListV4Request ruleName(String ruleName) {
@@ -1832,7 +1832,7 @@ public class LaunchApi {
 
         /**
          * Set registerStatus
-         * @param registerStatus 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部 (optional)
+         * @param registerStatus Participation status screening: registered (already participated), unregistered (not participated), if not passed, all will be returned (optional)
          * @return APIgetCandyDropActivityListV4Request
          */
         public APIgetCandyDropActivityListV4Request registerStatus(String registerStatus) {
@@ -1842,7 +1842,7 @@ public class LaunchApi {
 
         /**
          * Set currency
-         * @param currency 币种名称筛选 (optional)
+         * @param currency Currency name filter (optional)
          * @return APIgetCandyDropActivityListV4Request
          */
         public APIgetCandyDropActivityListV4Request currency(String currency) {
@@ -1852,7 +1852,7 @@ public class LaunchApi {
 
         /**
          * Set limit
-         * @param limit 返回条数，默认10，最大30 (optional, default to 10)
+         * @param limit Number of items returned, default 10, maximum 30 (optional, default to 10)
          * @return APIgetCandyDropActivityListV4Request
          */
         public APIgetCandyDropActivityListV4Request limit(Integer limit) {
@@ -1862,7 +1862,7 @@ public class LaunchApi {
 
         /**
          * Set offset
-         * @param offset 偏移量，默认0 (optional, default to 0)
+         * @param offset Offset, default 0 (optional, default to 0)
          * @return APIgetCandyDropActivityListV4Request
          */
         public APIgetCandyDropActivityListV4Request offset(Integer offset) {
@@ -1878,7 +1878,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the activity list array </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -1893,7 +1893,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the activity list array </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -1909,7 +1909,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the activity list array </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -1925,7 +1925,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the activity list array </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -1935,13 +1935,13 @@ public class LaunchApi {
     }
 
     /**
-     * 查询活动列表
-     * 支持多维度筛选 CandyDrop 活动，每次查询返回列表排序的前十条数据。不需要登录。
+     * Query activity list
+     * Supports multi-dimensional filtering of CandyDrop activities, and each query returns the top ten data sorted by the list. No login required.
      * @return APIgetCandyDropActivityListV4Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回活动列表数组 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully returns the activity list array </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
@@ -1958,7 +1958,7 @@ public class LaunchApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Registration successful </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
@@ -2004,15 +2004,15 @@ public class LaunchApi {
     }
 
     /**
-     * 报名参与活动
-     * 报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+     * Sign up for events
+     * Sign up for select CandyDrop events. Login is required and API Key signature authentication is required.
      * @param candyDropV4RegisterReqCd02  (required)
      * @return CandyDropV4RegisterRespCd02
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Registration successful </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
@@ -2023,15 +2023,15 @@ public class LaunchApi {
     }
 
     /**
-     * 报名参与活动
-     * 报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+     * Sign up for events
+     * Sign up for select CandyDrop events. Login is required and API Key signature authentication is required.
      * @param candyDropV4RegisterReqCd02  (required)
      * @return ApiResponse&lt;CandyDropV4RegisterRespCd02&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Registration successful </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
@@ -2043,8 +2043,8 @@ public class LaunchApi {
     }
 
     /**
-     * 报名参与活动 (asynchronously)
-     * 报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+     * Sign up for events (asynchronously)
+     * Sign up for select CandyDrop events. Login is required and API Key signature authentication is required.
      * @param candyDropV4RegisterReqCd02  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2052,7 +2052,7 @@ public class LaunchApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 报名成功 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Registration successful </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
@@ -2130,7 +2130,7 @@ public class LaunchApi {
 
         /**
          * Set activityId
-         * @param activityId 活动ID，与 currency 二选一，至少须传其一 (optional)
+         * @param activityId Activity ID, choose one from currency, at least one of them must be passed (optional)
          * @return APIgetCandyDropActivityRulesV4Request
          */
         public APIgetCandyDropActivityRulesV4Request activityId(Long activityId) {
@@ -2140,7 +2140,7 @@ public class LaunchApi {
 
         /**
          * Set currency
-         * @param currency 项目/币种名称，与 activity_id 二选一，至少须传其一 (optional)
+         * @param currency Project/currency name, choose one from activity_id, at least one of them must be passed (optional)
          * @return APIgetCandyDropActivityRulesV4Request
          */
         public APIgetCandyDropActivityRulesV4Request currency(String currency) {
@@ -2156,7 +2156,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successful return to activity rules </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -2171,7 +2171,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successful return to activity rules </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -2187,7 +2187,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successful return to activity rules </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -2203,7 +2203,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successful return to activity rules </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
          </table>
          */
@@ -2213,13 +2213,13 @@ public class LaunchApi {
     }
 
     /**
-     * 查询活动规则
-     * 查询特定活动的规则，包括奖池及对应任务数据。不需要登录。
+     * Query activity rules
+     * Query the rules of a specific activity, including prize pool and corresponding task data. No login required.
      * @return APIgetCandyDropActivityRulesV4Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回活动规则 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful return to activity rules </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
@@ -2293,7 +2293,7 @@ public class LaunchApi {
 
         /**
          * Set activityId
-         * @param activityId 活动ID，与 currency 二选一，至少须传其一 (optional)
+         * @param activityId Activity ID, choose one from currency, at least one of them must be passed (optional)
          * @return APIgetCandyDropTaskProgressV4Request
          */
         public APIgetCandyDropTaskProgressV4Request activityId(Long activityId) {
@@ -2303,7 +2303,7 @@ public class LaunchApi {
 
         /**
          * Set currency
-         * @param currency 项目/币种名称，与 activity_id 二选一，至少须传其一 (optional)
+         * @param currency Project/currency name, choose one from activity_id, at least one of them must be passed (optional)
          * @return APIgetCandyDropTaskProgressV4Request
          */
         public APIgetCandyDropTaskProgressV4Request currency(String currency) {
@@ -2319,7 +2319,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully return task progress </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2335,7 +2335,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully return task progress </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2352,7 +2352,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully return task progress </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2369,7 +2369,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully return task progress </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2380,13 +2380,13 @@ public class LaunchApi {
     }
 
     /**
-     * 查询任务完成进度
-     * 查询进行中且已报名/参与的任务完成进度。需要登录。
+     * Query task completion progress
+     * Check the completion progress of tasks that are in progress and have been registered/participated. Login required.
      * @return APIgetCandyDropTaskProgressV4Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回任务进度 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully return task progress </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
@@ -2481,7 +2481,7 @@ public class LaunchApi {
 
         /**
          * Set currency
-         * @param currency 币种名称筛选 (optional)
+         * @param currency Currency name filter (optional)
          * @return APIgetCandyDropParticipationRecordsV4Request
          */
         public APIgetCandyDropParticipationRecordsV4Request currency(String currency) {
@@ -2491,7 +2491,7 @@ public class LaunchApi {
 
         /**
          * Set status
-         * @param status 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖) (optional)
+         * @param status Status filtering: ongoing (in progress), awaiting_draw (to be drawn), won (already won), not_win (not won) (optional)
          * @return APIgetCandyDropParticipationRecordsV4Request
          */
         public APIgetCandyDropParticipationRecordsV4Request status(String status) {
@@ -2501,7 +2501,7 @@ public class LaunchApi {
 
         /**
          * Set startTime
-         * @param startTime 开始时间（Unix 时间戳秒） (optional)
+         * @param startTime Start time (Unix timestamp seconds) (optional)
          * @return APIgetCandyDropParticipationRecordsV4Request
          */
         public APIgetCandyDropParticipationRecordsV4Request startTime(Long startTime) {
@@ -2511,7 +2511,7 @@ public class LaunchApi {
 
         /**
          * Set endTime
-         * @param endTime 结束时间（Unix 时间戳秒） (optional)
+         * @param endTime End time (Unix timestamp seconds) (optional)
          * @return APIgetCandyDropParticipationRecordsV4Request
          */
         public APIgetCandyDropParticipationRecordsV4Request endTime(Long endTime) {
@@ -2521,7 +2521,7 @@ public class LaunchApi {
 
         /**
          * Set page
-         * @param page 页码，默认1 (optional, default to 1)
+         * @param page Page number, default 1 (optional, default to 1)
          * @return APIgetCandyDropParticipationRecordsV4Request
          */
         public APIgetCandyDropParticipationRecordsV4Request page(Integer page) {
@@ -2531,7 +2531,7 @@ public class LaunchApi {
 
         /**
          * Set limit
-         * @param limit 每页条数，默认10，最大30 (optional, default to 10)
+         * @param limit Number of items per page, default 10, maximum 30 (optional, default to 10)
          * @return APIgetCandyDropParticipationRecordsV4Request
          */
         public APIgetCandyDropParticipationRecordsV4Request limit(Integer limit) {
@@ -2547,7 +2547,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2563,7 +2563,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2580,7 +2580,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2597,7 +2597,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2608,13 +2608,13 @@ public class LaunchApi {
     }
 
     /**
-     * 查询参与记录
-     * 查询用户的 CandyDrop 参与详情。需要登录。
+     * Query participation records
+     * Query the user&#39;s CandyDrop participation details. Login required.
      * @return APIgetCandyDropParticipationRecordsV4Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回参与记录列表 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully returned the participation record list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>
@@ -2704,7 +2704,7 @@ public class LaunchApi {
 
         /**
          * Set currency
-         * @param currency 币种名称筛选 (optional)
+         * @param currency Currency name filter (optional)
          * @return APIgetCandyDropAirdropRecordsV4Request
          */
         public APIgetCandyDropAirdropRecordsV4Request currency(String currency) {
@@ -2714,7 +2714,7 @@ public class LaunchApi {
 
         /**
          * Set startTime
-         * @param startTime 开始时间（Unix 时间戳秒） (optional)
+         * @param startTime Start time (Unix timestamp seconds) (optional)
          * @return APIgetCandyDropAirdropRecordsV4Request
          */
         public APIgetCandyDropAirdropRecordsV4Request startTime(Long startTime) {
@@ -2724,7 +2724,7 @@ public class LaunchApi {
 
         /**
          * Set endTime
-         * @param endTime 结束时间（Unix 时间戳秒） (optional)
+         * @param endTime End time (Unix timestamp seconds) (optional)
          * @return APIgetCandyDropAirdropRecordsV4Request
          */
         public APIgetCandyDropAirdropRecordsV4Request endTime(Long endTime) {
@@ -2734,7 +2734,7 @@ public class LaunchApi {
 
         /**
          * Set page
-         * @param page 页码，默认1 (optional, default to 1)
+         * @param page Page number, default 1 (optional, default to 1)
          * @return APIgetCandyDropAirdropRecordsV4Request
          */
         public APIgetCandyDropAirdropRecordsV4Request page(Integer page) {
@@ -2744,7 +2744,7 @@ public class LaunchApi {
 
         /**
          * Set limit
-         * @param limit 每页条数，默认10，最大30 (optional, default to 10)
+         * @param limit Number of items per page, default 10, maximum 30 (optional, default to 10)
          * @return APIgetCandyDropAirdropRecordsV4Request
          */
         public APIgetCandyDropAirdropRecordsV4Request limit(Integer limit) {
@@ -2760,7 +2760,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2776,7 +2776,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2793,7 +2793,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2810,7 +2810,7 @@ public class LaunchApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
             <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
             <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
          </table>
@@ -2821,13 +2821,13 @@ public class LaunchApi {
     }
 
     /**
-     * 查询空投记录
-     * 查询用户的 CandyDrop 空投详情。需要登录。
+     * Query airdrop records
+     * Query the user&#39;s CandyDrop airdrop details. Login required.
      * @return APIgetCandyDropAirdropRecordsV4Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 成功返回空投记录列表 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully returns the airdrop record list </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> User not authenticated </td><td>  -  </td></tr>
      </table>

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 用户参与记录单项
+ * User participation record single item
  */
 public class HodlerAirdropV4UserOrderRecord {
     public static final String SERIALIZED_NAME_HODLER_ID = "hodler_id";
@@ -74,7 +74,7 @@ public class HodlerAirdropV4UserOrderRecord {
     }
 
      /**
-     * 空投币种
+     * Airdrop currency
      * @return asset
     **/
     public String getAsset() {
@@ -93,7 +93,7 @@ public class HodlerAirdropV4UserOrderRecord {
     }
 
      /**
-     * 有效持仓GT数量（参与活动时持有的GT平均数量）
+     * Effective number of GT positions (average number of GT held when participating in the event)
      * @return userGtAvgAmount
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class HodlerAirdropV4UserOrderRecord {
     }
 
      /**
-     * 基础空投金额，活动结束前为空字符串
+     * Basic airdrop amount, it will be an empty string before the end of the activity
      * @return receiveAmountBase
     **/
     @javax.annotation.Nullable
@@ -133,7 +133,7 @@ public class HodlerAirdropV4UserOrderRecord {
     }
 
      /**
-     * 额外空投金额（余币宝加成），活动结束前为空字符串
+     * Additional airdrop amount (Yubibao bonus), it will be an empty string before the end of the event
      * @return receiveAmountExt
     **/
     @javax.annotation.Nullable
@@ -153,7 +153,7 @@ public class HodlerAirdropV4UserOrderRecord {
     }
 
      /**
-     * 活动结束时间，格式 Y-m-d H:i:s，UTC
+     * Event end time, format Y-m-d H:i:s, UTC
      * @return closeTimest
     **/
     public String getCloseTimest() {

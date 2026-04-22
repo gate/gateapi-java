@@ -54,7 +54,7 @@ public class CandyDropV4ActivityRulesCd03 {
     }
 
      /**
-     * 项目/币种名称
+     * Project/currency name
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -74,7 +74,7 @@ public class CandyDropV4ActivityRulesCd03 {
     }
 
      /**
-     * 总奖池
+     * total prize pool
      * @return totalRewards
     **/
     @javax.annotation.Nullable
@@ -94,7 +94,7 @@ public class CandyDropV4ActivityRulesCd03 {
     }
 
      /**
-     * 活动开始时间（UTC格式化）
+     * Event start time (UTC formatted)
      * @return startTime
     **/
     @javax.annotation.Nullable
@@ -114,7 +114,7 @@ public class CandyDropV4ActivityRulesCd03 {
     }
 
      /**
-     * 活动结束时间（UTC格式化）
+     * Event end time (UTC format)
      * @return endTime
     **/
     @javax.annotation.Nullable
@@ -142,7 +142,7 @@ public class CandyDropV4ActivityRulesCd03 {
     }
 
      /**
-     * 奖池列表
+     * Prize pool list
      * @return prizePools
     **/
     @javax.annotation.Nullable

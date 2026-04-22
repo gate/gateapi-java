@@ -21,7 +21,7 @@ import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
 
 /**
- * 创建策略成功后返回的策略信息。
+ * Policy information returned after the policy is successfully created.
  */
 public class AIHubCreateData {
     public static final String SERIALIZED_NAME_STRATEGY_ID = "strategy_id";
@@ -109,7 +109,7 @@ public class AIHubCreateData {
     }
 
      /**
-     * 创建成功后的初始状态，通常为 &#x60;running&#x60;
+     * The initial state after successful creation, usually &#x60;running&#x60;
      * @return status
     **/
     public String getStatus() {

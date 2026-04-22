@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * AIHub 支持的完整策略类型枚举。
+ * The complete enumeration of policy types supported by AIHub.
  */
 @JsonAdapter(StrategyType.Adapter.class)
 public enum StrategyType {

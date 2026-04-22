@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Long** | Activity ID |  [optional]
-**currency** | **String** | 项目/币种名称 |  [optional]
-**totalRewards** | **String** | 总奖池 |  [optional]
-**startTime** | **String** | 活动开始时间（UTC格式化） |  [optional]
-**endTime** | **String** | 活动结束时间（UTC格式化） |  [optional]
-**ruleName** | **List&lt;String&gt;** | 任务类型列表 |  [optional]
-**participants** | **Long** | 参与人数 |  [optional]
-**userMaxRewards** | **String** | 最高可得奖励 |  [optional]
+**currency** | **String** | Project/currency name |  [optional]
+**totalRewards** | **String** | total prize pool |  [optional]
+**startTime** | **String** | Event start time (UTC formatted) |  [optional]
+**endTime** | **String** | Event end time (UTC format) |  [optional]
+**ruleName** | **List&lt;String&gt;** | Task type list |  [optional]
+**participants** | **Long** | Number of participants |  [optional]
+**userMaxRewards** | **String** | Maximum reward available |  [optional]
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**taskName** | **String** | 任务主标题 |  [optional]
-**taskDesc** | **String** | 任务副标题 |  [optional]
-**value** | **String** | 任务进度数据（交易量/充值量等） |  [optional]
+**taskName** | **String** | Task main title |  [optional]
+**taskDesc** | **String** | Task subtitle |  [optional]
+**value** | **String** | Task progress data (transaction volume/recharge volume, etc.) |  [optional]
 

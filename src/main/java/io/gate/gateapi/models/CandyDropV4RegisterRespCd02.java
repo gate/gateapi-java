@@ -35,7 +35,7 @@ public class CandyDropV4RegisterRespCd02 {
     }
 
      /**
-     * 是否报名成功
+     * Whether the registration is successful
      * @return success
     **/
     @javax.annotation.Nullable

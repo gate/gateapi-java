@@ -5,5 +5,5 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **Boolean** | 是否报名成功 |  [optional]
+**success** | **Boolean** | Whether the registration is successful |  [optional]
 

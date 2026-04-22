@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 无限网格策略的创建参数。
+ * Creation parameters for infinite grid strategies.
  */
 public class InfiniteGridCreateParams {
     public static final String SERIALIZED_NAME_MONEY = "money";
@@ -137,7 +137,7 @@ public class InfiniteGridCreateParams {
     }
 
      /**
-     * 价格地板
+     * price floor
      * @return priceFloor
     **/
     public String getPriceFloor() {
@@ -156,7 +156,7 @@ public class InfiniteGridCreateParams {
     }
 
      /**
-     * 每格利润
+     * Profit per square
      * @return profitPerGrid
     **/
     public String getProfitPerGrid() {

@@ -21,7 +21,7 @@ import io.gate.gateapi.models.AIHubPortfolioRunningData;
 import java.io.IOException;
 
 /**
- * 查询运行中策略列表成功时的响应体。
+ * The response body when querying the running policy list is successful.
  */
 public class AIHubPortfolioRunningSuccessResponse {
     public static final String SERIALIZED_NAME_CODE = "code";

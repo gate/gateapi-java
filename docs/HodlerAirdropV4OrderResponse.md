@@ -1,11 +1,11 @@
 
 # HodlerAirdropV4OrderResponse
 
-参与活动响应
+Participate in event response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**interestCoin** | **List&lt;String&gt;** | 获得空投的币种列表 | 
+**interestCoin** | **List&lt;String&gt;** | Get the list of airdropped currencies | 
 

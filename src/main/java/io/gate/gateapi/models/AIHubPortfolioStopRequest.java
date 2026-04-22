@@ -21,7 +21,7 @@ import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
 
 /**
- * 终止运行中策略的请求体。
+ * The request body to terminate a running policy.
  */
 public class AIHubPortfolioStopRequest {
     public static final String SERIALIZED_NAME_STRATEGY_ID = "strategy_id";

@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 单条策略推荐信息。
+ * A single piece of strategy recommendation information.
  */
 public class AIHubRecommendation {
     public static final String SERIALIZED_NAME_RECOMMENDATION_ID = "recommendation_id";
@@ -210,7 +210,7 @@ public class AIHubRecommendation {
     }
 
      /**
-     * 推荐参数预览；按策略类型动态变化
+     * Recommended parameter preview; dynamic changes by strategy type
      * @return strategyParamsPreview
     **/
     @javax.annotation.Nullable

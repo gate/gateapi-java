@@ -1,7 +1,7 @@
 
 # FuturesGridCreateParams
 
-合约网格策略的创建参数。
+Creation parameters for the contract grid strategy.
 
 ## Properties
 

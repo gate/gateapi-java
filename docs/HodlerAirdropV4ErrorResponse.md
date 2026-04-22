@@ -1,14 +1,14 @@
 
 # HodlerAirdropV4ErrorResponse
 
-v4接口统一错误响应
+v4 interface unified error response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **label** | [**LabelEnum**](#LabelEnum) | Error label | 
-**message** | **String** | 错误信息（多语言） | 
+**message** | **String** | Error messages (multilingual) | 
 
 ## Enum: LabelEnum
 

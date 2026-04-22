@@ -21,7 +21,7 @@ import io.gate.gateapi.models.AIHubPortfolioStopData;
 import java.io.IOException;
 
 /**
- * 终止策略成功时的响应体。
+ * The response body when the termination strategy is successful.
  */
 public class AIHubPortfolioStopSuccessResponse {
     public static final String SERIALIZED_NAME_CODE = "code";

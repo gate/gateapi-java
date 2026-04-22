@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 用户空投发放记录单项
+ * User airdrop distribution record single item
  */
 public class HodlerAirdropV4UserAirdropRecord {
     public static final String SERIALIZED_NAME_HODLER_ID = "hodler_id";
@@ -74,7 +74,7 @@ public class HodlerAirdropV4UserAirdropRecord {
     }
 
      /**
-     * 空投币种
+     * Airdrop currency
      * @return asset
     **/
     public String getAsset() {
@@ -93,7 +93,7 @@ public class HodlerAirdropV4UserAirdropRecord {
     }
 
      /**
-     * 基础空投金额
+     * Basic airdrop amount
      * @return receiveAmountBase
     **/
     @javax.annotation.Nullable
@@ -113,7 +113,7 @@ public class HodlerAirdropV4UserAirdropRecord {
     }
 
      /**
-     * 额外空投金额（余币宝加成）
+     * Additional airdrop amount (Yubibao bonus)
      * @return receiveAmountExt
     **/
     @javax.annotation.Nullable
@@ -133,7 +133,7 @@ public class HodlerAirdropV4UserAirdropRecord {
     }
 
      /**
-     * 空投发放时间，格式 Y-m-d H:i:s，UTC；未发放时可能为空字符串
+     * Airdrop distribution time, format Y-m-d H:i:s, UTC; may be an empty string when not distributed
      * @return deliveryTimest
     **/
     public String getDeliveryTimest() {
@@ -152,7 +152,7 @@ public class HodlerAirdropV4UserAirdropRecord {
     }
 
      /**
-     * 自动兑换状态，0未兑换 1已兑换为GT
+     * Automatic exchange status, 0 has not been exchanged, 1 has been exchanged for GT
      * @return exchange
     **/
     @javax.annotation.Nullable

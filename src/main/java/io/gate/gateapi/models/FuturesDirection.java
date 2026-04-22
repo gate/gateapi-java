@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 合约类策略支持的方向枚举。
+ * Direction enumeration supported by contract-based strategies.
  */
 @JsonAdapter(FuturesDirection.Adapter.class)
 public enum FuturesDirection {

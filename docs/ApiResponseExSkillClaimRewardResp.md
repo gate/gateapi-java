@@ -1,13 +1,13 @@
 
 # ApiResponseExSkillClaimRewardResp
 
-领取任务奖励响应
+Receive mission reward response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | 业务错误码，0 表示成功 |  [optional]
+**code** | **Integer** | Business error code, 0 means success |  [optional]
 **label** | **String** | Error identifier code. Empty string on success, machine-readable error label on error |  [optional]
 **message** | **String** | Error description |  [optional]
 **data** | [**ApiResponseExSkillClaimRewardRespData**](ApiResponseExSkillClaimRewardRespData.md) |  |  [optional]

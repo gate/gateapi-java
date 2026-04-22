@@ -39,7 +39,7 @@ public class CandyDropV4RegisterReqCd02 {
     }
 
      /**
-     * 活动ID（可选，与 currency 配合使用）
+     * Activity ID (optional, used with currency)
      * @return activityId
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class CandyDropV4RegisterReqCd02 {
     }
 
      /**
-     * 项目/币种名称（必填）
+     * Project/currency name (required)
      * @return currency
     **/
     public String getCurrency() {

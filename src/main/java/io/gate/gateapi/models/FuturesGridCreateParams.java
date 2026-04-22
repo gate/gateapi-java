@@ -21,7 +21,7 @@ import io.gate.gateapi.models.FuturesDirection;
 import java.io.IOException;
 
 /**
- * 合约网格策略的创建参数。
+ * Creation parameters for the contract grid strategy.
  */
 public class FuturesGridCreateParams {
     public static final String SERIALIZED_NAME_MONEY = "money";

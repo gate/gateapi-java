@@ -1,7 +1,7 @@
 
 # AIHubPortfolioStopSuccessResponse
 
-终止策略成功时的响应体。
+The response body when the termination strategy is successful.
 
 ## Properties
 

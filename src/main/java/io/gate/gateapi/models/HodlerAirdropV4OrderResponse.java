@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 参与活动响应
+ * Participate in event response
  */
 public class HodlerAirdropV4OrderResponse {
     public static final String SERIALIZED_NAME_INTEREST_COIN = "interest_coin";
@@ -42,7 +42,7 @@ public class HodlerAirdropV4OrderResponse {
     }
 
      /**
-     * 获得空投的币种列表
+     * Get the list of airdropped currencies
      * @return interestCoin
     **/
     public List<String> getInterestCoin() {

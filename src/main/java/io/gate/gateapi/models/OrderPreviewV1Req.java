@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 资产配置优化**预览**请求。&#x60;from&#x60; 为卖出数量；&#x60;to&#x60; 为目标币种及**分配比例 ratio**（不是绝对数量）。 正式下单请使用 &#x60;OrderCreateV1Req&#x60;，其 &#x60;to&#x60; 为 &#x60;amount&#x60;。
+ * Asset allocation optimization **preview** request. &#x60;from&#x60; is the selling quantity; &#x60;to&#x60; is the target currency and **distribution ratio ratio** (not the absolute quantity). Please use &#x60;OrderCreateV1Req&#x60; to place a formal order, and its &#x60;to&#x60; is &#x60;amount&#x60;.
  */
 public class OrderPreviewV1Req {
     public static final String SERIALIZED_NAME_FROM = "from";
@@ -48,7 +48,7 @@ public class OrderPreviewV1Req {
     }
 
      /**
-     * 卖出侧；每项为币种 + 换出数量 &#x60;amount&#x60;（字符串十进制）。
+     * Sell ​​side; each item is the currency + the swap amount &#x60;amount&#x60; (string decimal).
      * @return from
     **/
     public List<PreviewFromParam> getFrom() {
@@ -72,7 +72,7 @@ public class OrderPreviewV1Req {
     }
 
      /**
-     * 目标侧；每项为币种 + **比例** &#x60;ratio&#x60;（字符串十进制，如 &#x60;0.5&#x60;）。 典型来源：&#x60;GET /asset-swap/config&#x60; → &#x60;recommend_v2&#x60; 某分组下策略的 &#x60;schemes[].name&#x60; / &#x60;schemes[].ratio&#x60;。
+     * Target side; each item is currency + **ratio** &#x60;ratio&#x60; (string decimal, such as &#x60;0.5&#x60;). Typical source: &#x60;GET /asset-swap/config&#x60; → &#x60;recommend_v2&#x60; &#x60;schemes[].name&#x60; / &#x60;schemes[].ratio&#x60; of the strategy under a certain group.
      * @return to
     **/
     public List<PreviewToParam> getTo() {

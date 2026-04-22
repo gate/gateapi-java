@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 策略推荐结果数据。
+ * Strategy recommendation result data.
  */
 public class AIHubDiscoverData {
     public static final String SERIALIZED_NAME_SCENE = "scene";
@@ -95,7 +95,7 @@ public class AIHubDiscoverData {
     }
 
      /**
-     * 本期不支持的筛选条件
+     * Filter conditions not supported in this issue
      * @return unsupportedFilters
     **/
     public List<String> getUnsupportedFilters() {

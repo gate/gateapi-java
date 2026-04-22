@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 策略推荐接口支持的场景枚举。
+ * Enumeration of scenarios supported by the policy recommendation interface.
  */
 @JsonAdapter(DiscoverScene.Adapter.class)
 public enum DiscoverScene {

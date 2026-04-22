@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 运行中策略列表数据。
+ * Running policy list data.
  */
 public class AIHubPortfolioRunningData {
     public static final String SERIALIZED_NAME_ITEMS = "items";

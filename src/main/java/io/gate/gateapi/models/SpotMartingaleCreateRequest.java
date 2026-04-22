@@ -21,7 +21,7 @@ import io.gate.gateapi.models.SpotMartingaleCreateParams;
 import java.io.IOException;
 
 /**
- * 创建现货马丁策略的请求体。
+ * Create the request body of the Spot Martin strategy.
  */
 public class SpotMartingaleCreateRequest {
     /**

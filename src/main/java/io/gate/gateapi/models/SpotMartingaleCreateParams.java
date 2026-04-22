@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 现货马丁策略的创建参数。
+ * Creation parameters of spot martin strategy.
  */
 public class SpotMartingaleCreateParams {
     public static final String SERIALIZED_NAME_INVEST_AMOUNT = "invest_amount";

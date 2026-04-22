@@ -9,16 +9,16 @@ Method | HTTP request | Description
 [**redeemLaunchPool**](LaunchApi.md#redeemLaunchPool) | **POST** /launch/redeem | Redeem LaunchPool staked assets
 [**listLaunchPoolPledgeRecords**](LaunchApi.md#listLaunchPoolPledgeRecords) | **GET** /launch/user-pledge-records | Query user pledge records
 [**listLaunchPoolRewardRecords**](LaunchApi.md#listLaunchPoolRewardRecords) | **GET** /launch/get-user-reward-records | Query user reward records
-[**getHodlerAirdropProjectList**](LaunchApi.md#getHodlerAirdropProjectList) | **GET** /launch/hodler-airdrop/project-list | 查询HODLer Airdrop活动列表
-[**hodlerAirdropOrder**](LaunchApi.md#hodlerAirdropOrder) | **POST** /launch/hodler-airdrop/order | 参与HODLer Airdrop活动
-[**getHodlerAirdropUserOrderRecords**](LaunchApi.md#getHodlerAirdropUserOrderRecords) | **GET** /launch/hodler-airdrop/user-order-records | 查询HODLer Airdrop参与记录
-[**getHodlerAirdropUserAirdropRecords**](LaunchApi.md#getHodlerAirdropUserAirdropRecords) | **GET** /launch/hodler-airdrop/user-airdrop-records | 查询HODLer Airdrop空投记录
-[**getCandyDropActivityListV4**](LaunchApi.md#getCandyDropActivityListV4) | **GET** /launch/candydrop/activity-list | 查询活动列表
-[**registerCandyDropV4**](LaunchApi.md#registerCandyDropV4) | **POST** /launch/candydrop/register | 报名参与活动
-[**getCandyDropActivityRulesV4**](LaunchApi.md#getCandyDropActivityRulesV4) | **GET** /launch/candydrop/activity-rules | 查询活动规则
-[**getCandyDropTaskProgressV4**](LaunchApi.md#getCandyDropTaskProgressV4) | **GET** /launch/candydrop/task-progress | 查询任务完成进度
-[**getCandyDropParticipationRecordsV4**](LaunchApi.md#getCandyDropParticipationRecordsV4) | **GET** /launch/candydrop/participation-records | 查询参与记录
-[**getCandyDropAirdropRecordsV4**](LaunchApi.md#getCandyDropAirdropRecordsV4) | **GET** /launch/candydrop/airdrop-records | 查询空投记录
+[**getHodlerAirdropProjectList**](LaunchApi.md#getHodlerAirdropProjectList) | **GET** /launch/hodler-airdrop/project-list | Check the list of HODLer Airdrop activities
+[**hodlerAirdropOrder**](LaunchApi.md#hodlerAirdropOrder) | **POST** /launch/hodler-airdrop/order | Participate in the HODLer Airdrop event
+[**getHodlerAirdropUserOrderRecords**](LaunchApi.md#getHodlerAirdropUserOrderRecords) | **GET** /launch/hodler-airdrop/user-order-records | Check HODLer Airdrop participation records
+[**getHodlerAirdropUserAirdropRecords**](LaunchApi.md#getHodlerAirdropUserAirdropRecords) | **GET** /launch/hodler-airdrop/user-airdrop-records | Query HODLer Airdrop records
+[**getCandyDropActivityListV4**](LaunchApi.md#getCandyDropActivityListV4) | **GET** /launch/candydrop/activity-list | Query activity list
+[**registerCandyDropV4**](LaunchApi.md#registerCandyDropV4) | **POST** /launch/candydrop/register | Sign up for events
+[**getCandyDropActivityRulesV4**](LaunchApi.md#getCandyDropActivityRulesV4) | **GET** /launch/candydrop/activity-rules | Query activity rules
+[**getCandyDropTaskProgressV4**](LaunchApi.md#getCandyDropTaskProgressV4) | **GET** /launch/candydrop/task-progress | Query task completion progress
+[**getCandyDropParticipationRecordsV4**](LaunchApi.md#getCandyDropParticipationRecordsV4) | **GET** /launch/candydrop/participation-records | Query participation records
+[**getCandyDropAirdropRecordsV4**](LaunchApi.md#getCandyDropAirdropRecordsV4) | **GET** /launch/candydrop/airdrop-records | Query airdrop records
 
 
 <a name="listLaunchPoolProjects"></a>
@@ -431,9 +431,9 @@ Name | Type | Description  | Notes
 # **getHodlerAirdropProjectList**
 > List&lt;HodlerAirdropV4ProjectItem&gt; getHodlerAirdropProjectList().status(status).keyword(keyword).join(join).page(page).size(size).execute();
 
-查询HODLer Airdrop活动列表
+Check the list of HODLer Airdrop activities
 
-获取HODLer Airdrop活动列表，支持按状态、币种/项目名称、参与情况筛选。此接口无需用户登录，登录用户可获取个人参与信息。
+Get the HODLer Airdrop activity list, which supports filtering by status, currency/project name, and participation status. This interface does not require user login, and logged in users can obtain personal participation information.
 
 ### Example
 
@@ -452,11 +452,11 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        String status = "status_example"; // String | 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部
-        String keyword = "keyword_example"; // String | 币种/项目名称关键词，模糊匹配
-        Integer join = 0; // Integer | 参与情况筛选：0全部（默认），1仅已参与
-        Integer page = 1; // Integer | 页码，默认1
-        Integer size = 10; // Integer | 每页条数，默认10
+        String status = "status_example"; // String | Activity status filtering, optional values: ACTIVE (in progress + preheating), UNDERWAY (in progress), PREHEAT (preheating), FINISH (ended), return all if not passed
+        String keyword = "keyword_example"; // String | Currency/project name keywords, fuzzy matching
+        Integer join = 0; // Integer | Participation filter: 0 all (default), 1 only participated
+        Integer page = 1; // Integer | Page number, default 1
+        Integer size = 10; // Integer | Number of items per page, default 10
         try {
             List<HodlerAirdropV4ProjectItem> result = apiInstance.getHodlerAirdropProjectList()
                         .status(status)
@@ -483,11 +483,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| 活动状态筛选，可选值：ACTIVE（进行中+预热中）、UNDERWAY（进行中）、PREHEAT（预热中）、FINISH（已结束），不传返回全部 | [optional] [enum: ACTIVE, UNDERWAY, PREHEAT, FINISH]
- **keyword** | **String**| 币种/项目名称关键词，模糊匹配 | [optional]
- **join** | **Integer**| 参与情况筛选：0全部（默认），1仅已参与 | [optional] [default to 0] [enum: 0, 1]
- **page** | **Integer**| 页码，默认1 | [optional] [default to 1]
- **size** | **Integer**| 每页条数，默认10 | [optional] [default to 10]
+ **status** | **String**| Activity status filtering, optional values: ACTIVE (in progress + preheating), UNDERWAY (in progress), PREHEAT (preheating), FINISH (ended), return all if not passed | [optional] [enum: ACTIVE, UNDERWAY, PREHEAT, FINISH]
+ **keyword** | **String**| Currency/project name keywords, fuzzy matching | [optional]
+ **join** | **Integer**| Participation filter: 0 all (default), 1 only participated | [optional] [default to 0] [enum: 0, 1]
+ **page** | **Integer**| Page number, default 1 | [optional] [default to 1]
+ **size** | **Integer**| Number of items per page, default 10 | [optional] [default to 10]
 
 ### Return type
 
@@ -512,9 +512,9 @@ No authorization required
 # **hodlerAirdropOrder**
 > HodlerAirdropV4OrderResponse hodlerAirdropOrder(hodlerAirdropV4OrderRequest)
 
-参与HODLer Airdrop活动
+Participate in the HODLer Airdrop event
 
-参与指定的HODLer Airdrop活动，需持有GT。此接口需要用户登录认证，且须满足KYC要求，不支持子账户、企业/机构用户。
+To participate in designated HODLer Airdrop activities, you need to hold GT. This interface requires user login authentication and must meet KYC requirements. It does not support sub-accounts and enterprise/institutional users.
 
 ### Example
 
@@ -576,17 +576,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功参与活动 |  -  |
-**400** | 请求参数错误或业务校验失败（KYC不足、子账户限制、企业用户限制等） |  -  |
-**401** | 用户未登录 |  -  |
+**200** | Successfully participated in the event |  -  |
+**400** | Incorrect request parameters or failed business verification (insufficient KYC, sub-account restrictions, enterprise user restrictions, etc.) |  -  |
+**401** | User is not logged in |  -  |
 
 <a name="getHodlerAirdropUserOrderRecords"></a>
 # **getHodlerAirdropUserOrderRecords**
 > List&lt;HodlerAirdropV4UserOrderRecord&gt; getHodlerAirdropUserOrderRecords().keyword(keyword).startTimest(startTimest).endTimest(endTimest).page(page).size(size).execute();
 
-查询HODLer Airdrop参与记录
+Check HODLer Airdrop participation records
 
-查询用户的HODLer Airdrop参与记录，返回每个活动的有效持仓和空投金额。此接口需要用户登录认证。
+Query the user&#39;s HODLer Airdrop participation record and return the effective holdings and airdrop amount of each activity. This interface requires user login authentication.
 
 ### Example
 
@@ -609,11 +609,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        String keyword = "keyword_example"; // String | 币种名称关键词筛选
-        Integer startTimest = 56; // Integer | 开始时间戳（秒）
-        Integer endTimest = 56; // Integer | 结束时间戳（秒）
-        Integer page = 1; // Integer | 页码，默认1
-        Integer size = 10; // Integer | 每页条数，默认10
+        String keyword = "keyword_example"; // String | Currency name keyword filtering
+        Integer startTimest = 56; // Integer | Start timestamp (seconds)
+        Integer endTimest = 56; // Integer | end timestamp (seconds)
+        Integer page = 1; // Integer | Page number, default 1
+        Integer size = 10; // Integer | Number of items per page, default 10
         try {
             List<HodlerAirdropV4UserOrderRecord> result = apiInstance.getHodlerAirdropUserOrderRecords()
                         .keyword(keyword)
@@ -640,11 +640,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyword** | **String**| 币种名称关键词筛选 | [optional]
- **startTimest** | **Integer**| 开始时间戳（秒） | [optional]
- **endTimest** | **Integer**| 结束时间戳（秒） | [optional]
- **page** | **Integer**| 页码，默认1 | [optional] [default to 1]
- **size** | **Integer**| 每页条数，默认10 | [optional] [default to 10]
+ **keyword** | **String**| Currency name keyword filtering | [optional]
+ **startTimest** | **Integer**| Start timestamp (seconds) | [optional]
+ **endTimest** | **Integer**| end timestamp (seconds) | [optional]
+ **page** | **Integer**| Page number, default 1 | [optional] [default to 1]
+ **size** | **Integer**| Number of items per page, default 10 | [optional] [default to 10]
 
 ### Return type
 
@@ -662,17 +662,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回参与记录列表 |  -  |
+**200** | Successfully returned the participation record list |  -  |
 **400** | Invalid request parameters |  -  |
-**401** | 用户未登录 |  -  |
+**401** | User is not logged in |  -  |
 
 <a name="getHodlerAirdropUserAirdropRecords"></a>
 # **getHodlerAirdropUserAirdropRecords**
 > List&lt;HodlerAirdropV4UserAirdropRecord&gt; getHodlerAirdropUserAirdropRecords().keyword(keyword).startTimest(startTimest).endTimest(endTimest).page(page).size(size).execute();
 
-查询HODLer Airdrop空投记录
+Query HODLer Airdrop records
 
-查询用户已获得的HODLer Airdrop空投发放记录，包含基础空投、额外空投和自动兑换状态。此接口需要用户登录认证。
+Query the HODLer Airdrop airdrop distribution record that the user has obtained, including basic airdrops, additional airdrops and automatic redemption status. This interface requires user login authentication.
 
 ### Example
 
@@ -695,11 +695,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        String keyword = "keyword_example"; // String | 币种名称关键词筛选
-        Integer startTimest = 56; // Integer | 开始时间戳（秒）
-        Integer endTimest = 56; // Integer | 结束时间戳（秒）
-        Integer page = 1; // Integer | 页码，默认1
-        Integer size = 10; // Integer | 每页条数，默认10
+        String keyword = "keyword_example"; // String | Currency name keyword filtering
+        Integer startTimest = 56; // Integer | Start timestamp (seconds)
+        Integer endTimest = 56; // Integer | end timestamp (seconds)
+        Integer page = 1; // Integer | Page number, default 1
+        Integer size = 10; // Integer | Number of items per page, default 10
         try {
             List<HodlerAirdropV4UserAirdropRecord> result = apiInstance.getHodlerAirdropUserAirdropRecords()
                         .keyword(keyword)
@@ -726,11 +726,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyword** | **String**| 币种名称关键词筛选 | [optional]
- **startTimest** | **Integer**| 开始时间戳（秒） | [optional]
- **endTimest** | **Integer**| 结束时间戳（秒） | [optional]
- **page** | **Integer**| 页码，默认1 | [optional] [default to 1]
- **size** | **Integer**| 每页条数，默认10 | [optional] [default to 10]
+ **keyword** | **String**| Currency name keyword filtering | [optional]
+ **startTimest** | **Integer**| Start timestamp (seconds) | [optional]
+ **endTimest** | **Integer**| end timestamp (seconds) | [optional]
+ **page** | **Integer**| Page number, default 1 | [optional] [default to 1]
+ **size** | **Integer**| Number of items per page, default 10 | [optional] [default to 10]
 
 ### Return type
 
@@ -748,17 +748,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回空投记录列表 |  -  |
+**200** | Successfully returns the airdrop record list |  -  |
 **400** | Invalid request parameters |  -  |
-**401** | 用户未登录 |  -  |
+**401** | User is not logged in |  -  |
 
 <a name="getCandyDropActivityListV4"></a>
 # **getCandyDropActivityListV4**
 > List&lt;CandyDropV4ActivityCd01&gt; getCandyDropActivityListV4().status(status).ruleName(ruleName).registerStatus(registerStatus).currency(currency).limit(limit).offset(offset).execute();
 
-查询活动列表
+Query activity list
 
-支持多维度筛选 CandyDrop 活动，每次查询返回列表排序的前十条数据。不需要登录。
+Supports multi-dimensional filtering of CandyDrop activities, and each query returns the top ten data sorted by the list. No login required.
 
 ### Example
 
@@ -777,12 +777,12 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        String status = "status_example"; // String | 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部
-        String ruleName = "ruleName_example"; // String | 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF)
-        String registerStatus = "registerStatus_example"; // String | 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部
-        String currency = "currency_example"; // String | 币种名称筛选
-        Integer limit = 10; // Integer | 返回条数，默认10，最大30
-        Integer offset = 0; // Integer | 偏移量，默认0
+        String status = "status_example"; // String | Activity status filtering: ongoing (in progress), upcoming (about to start), ended (ended), if not passed, all will be returned
+        String ruleName = "ruleName_example"; // String | Task type filtering: spot (spot), futures (contract), deposit (recharge), invite (invitation), trading_bot (trading robot), simple_earn (Yu Bibao), first_deposit (first deposit), alpha (Alpha), flash_swap (flash swap), tradfi (TradFi), etf (ETF)
+        String registerStatus = "registerStatus_example"; // String | Participation status screening: registered (already participated), unregistered (not participated), if not passed, all will be returned
+        String currency = "currency_example"; // String | Currency name filter
+        Integer limit = 10; // Integer | Number of items returned, default 10, maximum 30
+        Integer offset = 0; // Integer | Offset, default 0
         try {
             List<CandyDropV4ActivityCd01> result = apiInstance.getCandyDropActivityListV4()
                         .status(status)
@@ -810,12 +810,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| 活动状态筛选：ongoing(进行中)、upcoming(即将开始)、ended(已结束)，不传则返回全部 | [optional] [enum: ongoing, upcoming, ended]
- **ruleName** | **String**| 任务类型筛选：spot(现货)、futures(合约)、deposit(充值)、invite(邀请)、trading_bot(交易机器人)、simple_earn(余币宝)、first_deposit(首笔入金)、alpha(Alpha)、flash_swap(闪兑)、tradfi(TradFi)、etf(ETF) | [optional]
- **registerStatus** | **String**| 参与情况筛选：registered(已参与)、unregistered(未参与)，不传则返回全部 | [optional] [enum: registered, unregistered]
- **currency** | **String**| 币种名称筛选 | [optional]
- **limit** | **Integer**| 返回条数，默认10，最大30 | [optional] [default to 10]
- **offset** | **Integer**| 偏移量，默认0 | [optional] [default to 0]
+ **status** | **String**| Activity status filtering: ongoing (in progress), upcoming (about to start), ended (ended), if not passed, all will be returned | [optional] [enum: ongoing, upcoming, ended]
+ **ruleName** | **String**| Task type filtering: spot (spot), futures (contract), deposit (recharge), invite (invitation), trading_bot (trading robot), simple_earn (Yu Bibao), first_deposit (first deposit), alpha (Alpha), flash_swap (flash swap), tradfi (TradFi), etf (ETF) | [optional]
+ **registerStatus** | **String**| Participation status screening: registered (already participated), unregistered (not participated), if not passed, all will be returned | [optional] [enum: registered, unregistered]
+ **currency** | **String**| Currency name filter | [optional]
+ **limit** | **Integer**| Number of items returned, default 10, maximum 30 | [optional] [default to 10]
+ **offset** | **Integer**| Offset, default 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -833,16 +833,16 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回活动列表数组 |  -  |
+**200** | Successfully returns the activity list array |  -  |
 **400** | Invalid request parameters |  -  |
 
 <a name="registerCandyDropV4"></a>
 # **registerCandyDropV4**
 > CandyDropV4RegisterRespCd02 registerCandyDropV4(candyDropV4RegisterReqCd02)
 
-报名参与活动
+Sign up for events
 
-报名参与特定 CandyDrop 活动。需要登录，需要 API Key 签名认证。
+Sign up for select CandyDrop events. Login is required and API Key signature authentication is required.
 
 ### Example
 
@@ -904,7 +904,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 报名成功 |  -  |
+**200** | Registration successful |  -  |
 **400** | Request failed |  -  |
 **401** | User not authenticated |  -  |
 
@@ -912,9 +912,9 @@ Name | Type | Description  | Notes
 # **getCandyDropActivityRulesV4**
 > CandyDropV4ActivityRulesCd03 getCandyDropActivityRulesV4().activityId(activityId).currency(currency).execute();
 
-查询活动规则
+Query activity rules
 
-查询特定活动的规则，包括奖池及对应任务数据。不需要登录。
+Query the rules of a specific activity, including prize pool and corresponding task data. No login required.
 
 ### Example
 
@@ -933,8 +933,8 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        Long activityId = 56L; // Long | 活动ID，与 currency 二选一，至少须传其一
-        String currency = "currency_example"; // String | 项目/币种名称，与 activity_id 二选一，至少须传其一
+        Long activityId = 56L; // Long | Activity ID, choose one from currency, at least one of them must be passed
+        String currency = "currency_example"; // String | Project/currency name, choose one from activity_id, at least one of them must be passed
         try {
             CandyDropV4ActivityRulesCd03 result = apiInstance.getCandyDropActivityRulesV4()
                         .activityId(activityId)
@@ -958,8 +958,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **Long**| 活动ID，与 currency 二选一，至少须传其一 | [optional]
- **currency** | **String**| 项目/币种名称，与 activity_id 二选一，至少须传其一 | [optional]
+ **activityId** | **Long**| Activity ID, choose one from currency, at least one of them must be passed | [optional]
+ **currency** | **String**| Project/currency name, choose one from activity_id, at least one of them must be passed | [optional]
 
 ### Return type
 
@@ -977,16 +977,16 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回活动规则 |  -  |
+**200** | Successful return to activity rules |  -  |
 **400** | Invalid request parameters |  -  |
 
 <a name="getCandyDropTaskProgressV4"></a>
 # **getCandyDropTaskProgressV4**
 > CandyDropV4TaskProgressCd04 getCandyDropTaskProgressV4().activityId(activityId).currency(currency).execute();
 
-查询任务完成进度
+Query task completion progress
 
-查询进行中且已报名/参与的任务完成进度。需要登录。
+Check the completion progress of tasks that are in progress and have been registered/participated. Login required.
 
 ### Example
 
@@ -1009,8 +1009,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        Long activityId = 56L; // Long | 活动ID，与 currency 二选一，至少须传其一
-        String currency = "currency_example"; // String | 项目/币种名称，与 activity_id 二选一，至少须传其一
+        Long activityId = 56L; // Long | Activity ID, choose one from currency, at least one of them must be passed
+        String currency = "currency_example"; // String | Project/currency name, choose one from activity_id, at least one of them must be passed
         try {
             CandyDropV4TaskProgressCd04 result = apiInstance.getCandyDropTaskProgressV4()
                         .activityId(activityId)
@@ -1034,8 +1034,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **Long**| 活动ID，与 currency 二选一，至少须传其一 | [optional]
- **currency** | **String**| 项目/币种名称，与 activity_id 二选一，至少须传其一 | [optional]
+ **activityId** | **Long**| Activity ID, choose one from currency, at least one of them must be passed | [optional]
+ **currency** | **String**| Project/currency name, choose one from activity_id, at least one of them must be passed | [optional]
 
 ### Return type
 
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回任务进度 |  -  |
+**200** | Successfully return task progress |  -  |
 **400** | Invalid request parameters |  -  |
 **401** | User not authenticated |  -  |
 
@@ -1061,9 +1061,9 @@ Name | Type | Description  | Notes
 # **getCandyDropParticipationRecordsV4**
 > List&lt;CandyDropV4ParticipationRecordCd05&gt; getCandyDropParticipationRecordsV4().currency(currency).status(status).startTime(startTime).endTime(endTime).page(page).limit(limit).execute();
 
-查询参与记录
+Query participation records
 
-查询用户的 CandyDrop 参与详情。需要登录。
+Query the user&#39;s CandyDrop participation details. Login required.
 
 ### Example
 
@@ -1086,12 +1086,12 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        String currency = "currency_example"; // String | 币种名称筛选
-        String status = "status_example"; // String | 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖)
-        Long startTime = 56L; // Long | 开始时间（Unix 时间戳秒）
-        Long endTime = 56L; // Long | 结束时间（Unix 时间戳秒）
-        Integer page = 1; // Integer | 页码，默认1
-        Integer limit = 10; // Integer | 每页条数，默认10，最大30
+        String currency = "currency_example"; // String | Currency name filter
+        String status = "status_example"; // String | Status filtering: ongoing (in progress), awaiting_draw (to be drawn), won (already won), not_win (not won)
+        Long startTime = 56L; // Long | Start time (Unix timestamp seconds)
+        Long endTime = 56L; // Long | End time (Unix timestamp seconds)
+        Integer page = 1; // Integer | Page number, default 1
+        Integer limit = 10; // Integer | Number of items per page, default 10, maximum 30
         try {
             List<CandyDropV4ParticipationRecordCd05> result = apiInstance.getCandyDropParticipationRecordsV4()
                         .currency(currency)
@@ -1119,12 +1119,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| 币种名称筛选 | [optional]
- **status** | **String**| 状态筛选：ongoing(进行中)、awaiting_draw(待开奖)、won(已中奖)、not_win(未中奖) | [optional] [enum: ongoing, awaiting_draw, won, not_win]
- **startTime** | **Long**| 开始时间（Unix 时间戳秒） | [optional]
- **endTime** | **Long**| 结束时间（Unix 时间戳秒） | [optional]
- **page** | **Integer**| 页码，默认1 | [optional] [default to 1]
- **limit** | **Integer**| 每页条数，默认10，最大30 | [optional] [default to 10]
+ **currency** | **String**| Currency name filter | [optional]
+ **status** | **String**| Status filtering: ongoing (in progress), awaiting_draw (to be drawn), won (already won), not_win (not won) | [optional] [enum: ongoing, awaiting_draw, won, not_win]
+ **startTime** | **Long**| Start time (Unix timestamp seconds) | [optional]
+ **endTime** | **Long**| End time (Unix timestamp seconds) | [optional]
+ **page** | **Integer**| Page number, default 1 | [optional] [default to 1]
+ **limit** | **Integer**| Number of items per page, default 10, maximum 30 | [optional] [default to 10]
 
 ### Return type
 
@@ -1142,7 +1142,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回参与记录列表 |  -  |
+**200** | Successfully returned the participation record list |  -  |
 **400** | Invalid request parameters |  -  |
 **401** | User not authenticated |  -  |
 
@@ -1150,9 +1150,9 @@ Name | Type | Description  | Notes
 # **getCandyDropAirdropRecordsV4**
 > List&lt;CandyDropV4AirdropRecordCd06&gt; getCandyDropAirdropRecordsV4().currency(currency).startTime(startTime).endTime(endTime).page(page).limit(limit).execute();
 
-查询空投记录
+Query airdrop records
 
-查询用户的 CandyDrop 空投详情。需要登录。
+Query the user&#39;s CandyDrop airdrop details. Login required.
 
 ### Example
 
@@ -1175,11 +1175,11 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         LaunchApi apiInstance = new LaunchApi(defaultClient);
-        String currency = "currency_example"; // String | 币种名称筛选
-        Long startTime = 56L; // Long | 开始时间（Unix 时间戳秒）
-        Long endTime = 56L; // Long | 结束时间（Unix 时间戳秒）
-        Integer page = 1; // Integer | 页码，默认1
-        Integer limit = 10; // Integer | 每页条数，默认10，最大30
+        String currency = "currency_example"; // String | Currency name filter
+        Long startTime = 56L; // Long | Start time (Unix timestamp seconds)
+        Long endTime = 56L; // Long | End time (Unix timestamp seconds)
+        Integer page = 1; // Integer | Page number, default 1
+        Integer limit = 10; // Integer | Number of items per page, default 10, maximum 30
         try {
             List<CandyDropV4AirdropRecordCd06> result = apiInstance.getCandyDropAirdropRecordsV4()
                         .currency(currency)
@@ -1206,11 +1206,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| 币种名称筛选 | [optional]
- **startTime** | **Long**| 开始时间（Unix 时间戳秒） | [optional]
- **endTime** | **Long**| 结束时间（Unix 时间戳秒） | [optional]
- **page** | **Integer**| 页码，默认1 | [optional] [default to 1]
- **limit** | **Integer**| 每页条数，默认10，最大30 | [optional] [default to 10]
+ **currency** | **String**| Currency name filter | [optional]
+ **startTime** | **Long**| Start time (Unix timestamp seconds) | [optional]
+ **endTime** | **Long**| End time (Unix timestamp seconds) | [optional]
+ **page** | **Integer**| Page number, default 1 | [optional] [default to 1]
+ **limit** | **Integer**| Number of items per page, default 10, maximum 30 | [optional] [default to 10]
 
 ### Return type
 
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | 成功返回空投记录列表 |  -  |
+**200** | Successfully returns the airdrop record list |  -  |
 **400** | Invalid request parameters |  -  |
 **401** | User not authenticated |  -  |
 

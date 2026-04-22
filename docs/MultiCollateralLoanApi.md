@@ -812,7 +812,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         MultiCollateralLoanApi apiInstance = new MultiCollateralLoanApi(defaultClient);
-        List<String> currencies = Arrays.asList(); // List<String> | Specify currency name query array, separated by commas, maximum 100 items
+        List<String> currencies = Arrays.asList(); // List<String> | Specify currency name query array, separated by commas, maximum 100
         String vipLevel = "\"0\""; // String | VIP level, defaults to 0 if not specified
         try {
             List<CollateralCurrentRate> result = apiInstance.getMultiCollateralCurrentRate(currencies)
@@ -836,7 +836,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency name query array, separated by commas, maximum 100 items |
+ **currencies** | [**List&lt;String&gt;**](String.md)| Specify currency name query array, separated by commas, maximum 100 |
  **vipLevel** | **String**| VIP level, defaults to 0 if not specified | [optional] [default to &quot;0&quot;]
 
 ### Return type

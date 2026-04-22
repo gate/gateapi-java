@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **String** | 项目/币种名称 |  [optional]
-**totalRewards** | **String** | 总奖池 |  [optional]
-**startTime** | **String** | 活动开始时间（UTC格式化） |  [optional]
-**endTime** | **String** | 活动结束时间（UTC格式化） |  [optional]
-**prizePools** | [**List&lt;CandyDropV4PrizePoolCd03&gt;**](CandyDropV4PrizePoolCd03.md) | 奖池列表 |  [optional]
+**currency** | **String** | Project/currency name |  [optional]
+**totalRewards** | **String** | total prize pool |  [optional]
+**startTime** | **String** | Event start time (UTC formatted) |  [optional]
+**endTime** | **String** | Event end time (UTC format) |  [optional]
+**prizePools** | [**List&lt;CandyDropV4PrizePoolCd03&gt;**](CandyDropV4PrizePoolCd03.md) | Prize pool list |  [optional]
 

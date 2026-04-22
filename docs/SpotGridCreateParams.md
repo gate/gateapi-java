@@ -1,16 +1,16 @@
 
 # SpotGridCreateParams
 
-现货网格策略的创建参数。
+Creation parameters for the spot grid strategy.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**money** | **String** | 投入金额 | 
+**money** | **String** | Amount of investment | 
 **lowPrice** | **String** | Range lower limit | 
 **highPrice** | **String** | Range upper limit | 
-**gridNum** | **Integer** | 网格数量 | 
+**gridNum** | **Integer** | Number of grids | 
 **priceType** | [**PriceTypeEnum**](#PriceTypeEnum) |  | 
 **triggerPrice** | **String** |  |  [optional]
 **stopProfit** | **String** |  |  [optional]

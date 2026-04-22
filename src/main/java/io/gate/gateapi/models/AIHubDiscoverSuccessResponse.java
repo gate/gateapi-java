@@ -21,7 +21,7 @@ import io.gate.gateapi.models.AIHubDiscoverData;
 import java.io.IOException;
 
 /**
- * 获取策略推荐成功时的响应体。
+ * Get the response body when the strategy recommendation is successful.
  */
 public class AIHubDiscoverSuccessResponse {
     public static final String SERIALIZED_NAME_CODE = "code";

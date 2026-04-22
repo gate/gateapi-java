@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 资产配置优化下单请求。**&#x60;from&#x60; 与 &#x60;to&#x60; 数组元素均为 &#x60;CreateParam&#x60;，字段均为 &#x60;asset&#x60; + &#x60;amount&#x60;。** 不存在 &#x60;ratio&#x60; 字段；若从预览接口抄参，须将预览中的 &#x60;to[].ratio&#x60; 转换为下单所需的 &#x60;to[].amount&#x60;（按产品约定，通常依据预览返回的订单明细等），不可直接复用 &#x60;ratio&#x60; 字符串作为 &#x60;amount&#x60;。
+ * Asset allocation optimization order request. **The array elements of &#x60;from&#x60; and &#x60;to&#x60; are both &#x60;CreateParam&#x60;, and the fields are &#x60;asset&#x60; + &#x60;amount&#x60;. ** There is no &#x60;ratio&#x60; field; if you copy parameters from the preview interface, you must convert the &#x60;to[].ratio&#x60; in the preview into the &#x60;to[].amount&#x60; required for placing an order (according to the product agreement, usually based on the order details returned by the preview, etc.). The &#x60;ratio&#x60; string cannot be directly reused as &#x60;amount&#x60;.
  */
 public class OrderCreateV1Req {
     public static final String SERIALIZED_NAME_FROM = "from";
@@ -47,7 +47,7 @@ public class OrderCreateV1Req {
     }
 
      /**
-     * 卖出侧列表，至少一项；每项为要换出的币种及数量 &#x60;amount&#x60;。
+     * Sell ​​side list, at least one item; each item is the currency and amount &#x60;amount&#x60; to be swapped out.
      * @return from
     **/
     public List<CreateParam> getFrom() {
@@ -71,7 +71,7 @@ public class OrderCreateV1Req {
     }
 
      /**
-     * 目标侧列表，至少一项；每项为目标币种及**数量** &#x60;amount&#x60;（非比例）。 与 &#x60;OrderPreviewV1Req.to&#x60;（&#x60;PreviewToParam&#x60;，含 &#x60;ratio&#x60;）结构语义不同，勿混用。
+     * Target side list, at least one item; each item is the target currency and **amount** &#x60;amount&#x60; (non-proportional). The structural semantics are different from &#x60;OrderPreviewV1Req.to&#x60; (&#x60;PreviewToParam&#x60;, including &#x60;ratio&#x60;), so do not mix them.
      * @return to
     **/
     public List<CreateParam> getTo() {

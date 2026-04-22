@@ -21,7 +21,7 @@ import io.gate.gateapi.models.ApiResponseExSkillClaimRewardRespData;
 import java.io.IOException;
 
 /**
- * 领取任务奖励响应
+ * Receive mission reward response
  */
 public class ApiResponseExSkillClaimRewardResp {
     public static final String SERIALIZED_NAME_CODE = "code";
@@ -52,7 +52,7 @@ public class ApiResponseExSkillClaimRewardResp {
     }
 
      /**
-     * 业务错误码，0 表示成功
+     * Business error code, 0 means success
      * @return code
     **/
     @javax.annotation.Nullable

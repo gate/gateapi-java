@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * **仅用于预览** &#x60;OrderPreviewV1Req.to&#x60;。目标币种 + **比例 ratio**。 **禁止**与下单 &#x60;CreateParam&#x60; 混淆：下单的 &#x60;to&#x60; 必须使用 **&#x60;amount&#x60;**，没有 &#x60;ratio&#x60; 字段。
+ * **For preview only** &#x60;OrderPreviewV1Req.to&#x60;. Target currency + **ratio ratio**. **Forbidden** is confused with the order &#x60;CreateParam&#x60;: the &#x60;to&#x60; of the order must be **&#x60;amount&#x60;**, and there is no &#x60;ratio&#x60; field.
  */
 public class PreviewToParam {
     public static final String SERIALIZED_NAME_ASSET = "asset";
@@ -39,7 +39,7 @@ public class PreviewToParam {
     }
 
      /**
-     * 目标币种符号；常与 config 中 &#x60;recommend_v2.*[].schemes[].name&#x60; 对应。
+     * Target currency symbol; often corresponds to &#x60;recommend_v2.*[].schemes[].name&#x60; in config.
      * @return asset
     **/
     public String getAsset() {
@@ -58,7 +58,7 @@ public class PreviewToParam {
     }
 
      /**
-     * 该目标币种在组合中的权重比例，**十进制字符串**（如 &#x60;0.2&#x60;、&#x60;0.5&#x60;）。 常与 &#x60;GET /asset-swap/config&#x60; 的 &#x60;recommend_v2&#x60; 下某策略的 &#x60;schemes[].ratio&#x60; 一致。
+     * The weight ratio of the target currency in the portfolio, **decimal string** (such as &#x60;0.2&#x60;, &#x60;0.5&#x60;). Often consistent with the &#x60;schemes[].ratio&#x60; of a strategy under &#x60;recommend_v2&#x60; of &#x60;GET /asset-swap/config&#x60;.
      * @return ratio
     **/
     public String getRatio() {

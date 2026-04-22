@@ -661,7 +661,7 @@ public class Order {
     }
 
      /**
-     * Trading quantity When &#x60;type&#x60; is &#x60;limit&#x60;, it refers to the base currency (the currency being traded), such as &#x60;BTC&#x60; in &#x60;BTC_USDT&#x60; When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currencies based on the side: - &#x60;side&#x60;: &#x60;buy&#x60; refers to quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60;: &#x60;sell&#x60; refers to base currency, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;
+     * 交易数量 &#x60;type&#x60;为&#x60;limit&#x60;时，指交易货币，即需要交易的货币，如&#x60;BTC_USDT&#x60;中指&#x60;BTC&#x60;。 &#x60;type&#x60;为&#x60;market&#x60;时，根据买卖不同指代不同 - &#x60;side&#x60; : &#x60;buy&#x60; 指代计价货币，&#x60;BTC_USDT&#x60;中指&#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; 指代交易货币，&#x60;BTC_USDT&#x60;中指&#x60;BTC&#x60;
      * @return amount
     **/
     public String getAmount() {

@@ -1,7 +1,7 @@
 
 # SpotGridCreateRequest
 
-创建现货网格策略的请求体。
+Create the request body for the spot grid policy.
 
 ## Properties
 

@@ -1,7 +1,7 @@
 
 # ContractMartingaleCreateParams
 
-合约马丁策略的创建参数。
+The creation parameters of the contract Martin strategy.
 
 ## Properties
 

@@ -21,7 +21,7 @@ import io.gate.gateapi.models.AIHubCreateData;
 import java.io.IOException;
 
 /**
- * 创建策略成功时的响应体。
+ * The response body when the creation strategy is successful.
  */
 public class AIHubCreateSuccessResponse {
     public static final String SERIALIZED_NAME_CODE = "code";

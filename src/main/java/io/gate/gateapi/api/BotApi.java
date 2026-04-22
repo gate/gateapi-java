@@ -179,7 +179,7 @@ public class BotApi {
 
         /**
          * Set market
-         * @param market 交易对，例如 &#x60;BTC_USDT&#x60; (optional)
+         * @param market Trading pair, such as &#x60;BTC_USDT&#x60; (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest market(String market) {
@@ -189,7 +189,7 @@ public class BotApi {
 
         /**
          * Set strategyType
-         * @param strategyType 推荐目标策略类型；&#x60;contract_martingale&#x60; 不允许 (optional)
+         * @param strategyType Recommended target policy type; &#x60;contract_martingale&#x60; not allowed (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest strategyType(String strategyType) {
@@ -199,7 +199,7 @@ public class BotApi {
 
         /**
          * Set direction
-         * @param direction 行情方向 (optional)
+         * @param direction Market direction (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest direction(String direction) {
@@ -209,7 +209,7 @@ public class BotApi {
 
         /**
          * Set investAmount
-         * @param investAmount 投入金额，字符串透传 (optional)
+         * @param investAmount Investment amount, string transparent transmission (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest investAmount(String investAmount) {
@@ -219,7 +219,7 @@ public class BotApi {
 
         /**
          * Set scene
-         * @param scene 推荐场景；为空时 bot-service 可按实现逻辑自动推断 (optional)
+         * @param scene Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic. (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest scene(String scene) {
@@ -229,7 +229,7 @@ public class BotApi {
 
         /**
          * Set refreshRecommendationId
-         * @param refreshRecommendationId 推荐刷新上下文。&#x60;scene&#x3D;refresh&#x60; 时使用；当 &#x60;scene&#x60; 为空但该字段存在时，bot-service 也会自动判定为 &#x60;refresh&#x60;。 正式最小格式为 &#x60;strategy_type|market&#x60;；若直接透传上一条推荐的 &#x60;recommendation_id&#x60;，第三段 &#x60;backtest_id&#x60; 会被忽略。 (optional)
+         * @param refreshRecommendationId It is recommended to refresh the context. Used when &#x60;scene&#x3D;refresh&#x60; is used; when &#x60;scene&#x60; is empty but the field exists, bot-service will also automatically determine as &#x60;refresh&#x60;. The official minimum format is &#x60;strategy_type|market&#x60;; if the &#x60;recommendation_id&#x60; of the previous recommendation is directly passed through, the third paragraph &#x60;backtest_id&#x60; will be ignored. (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest refreshRecommendationId(String refreshRecommendationId) {
@@ -239,7 +239,7 @@ public class BotApi {
 
         /**
          * Set limit
-         * @param limit 返回数量；&#x60;scene&#x3D;filter&#x60; 时实际结果最多 10 条 (optional)
+         * @param limit Return quantity; when &#x60;scene&#x3D;filter&#x60; is used, the actual results are up to 10 (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest limit(Integer limit) {
@@ -249,7 +249,7 @@ public class BotApi {
 
         /**
          * Set maxDrawdownLte
-         * @param maxDrawdownLte 最大回撤上限 (optional)
+         * @param maxDrawdownLte Maximum drawdown limit (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest maxDrawdownLte(String maxDrawdownLte) {
@@ -259,7 +259,7 @@ public class BotApi {
 
         /**
          * Set backtestAprGte
-         * @param backtestAprGte 回测年化下限 (optional)
+         * @param backtestAprGte Backtest annualized lower limit (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest backtestAprGte(String backtestAprGte) {
@@ -269,7 +269,7 @@ public class BotApi {
 
         /**
          * Set xGateServiceId
-         * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
+         * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest xGateServiceId(String xGateServiceId) {
@@ -279,7 +279,7 @@ public class BotApi {
 
         /**
          * Set xGateAppLang
-         * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+         * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest xGateAppLang(String xGateAppLang) {
@@ -289,7 +289,7 @@ public class BotApi {
 
         /**
          * Set xRequestId
-         * @param xRequestId 请求链路 ID；调用方可透传 (optional)
+         * @param xRequestId Request link ID; caller can transmit transparently (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest xRequestId(String xRequestId) {
@@ -299,7 +299,7 @@ public class BotApi {
 
         /**
          * Set xTraceId
-         * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+         * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest xTraceId(String xTraceId) {
@@ -315,7 +315,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -329,7 +329,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public AIHubDiscoverSuccessResponse execute() throws ApiException {
@@ -344,7 +344,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<AIHubDiscoverSuccessResponse> executeWithHttpInfo() throws ApiException {
@@ -359,7 +359,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<AIHubDiscoverSuccessResponse> _callback) throws ApiException {
@@ -368,13 +368,13 @@ public class BotApi {
     }
 
     /**
-     * 获取 AIHub 策略推荐
+     * Get AIHub strategy recommendations
      * discover 域唯一正式接口。  支持场景： - &#x60;top1&#x60; - &#x60;bundle&#x60; - &#x60;filter&#x60; - &#x60;refresh&#x60;  约束： - 主动推荐池仅包含 &#x60;spot_grid&#x60;、&#x60;futures_grid&#x60;、&#x60;spot_martingale&#x60; - 可返回但不主动推荐 &#x60;infinite_grid&#x60;、&#x60;margin_grid&#x60; - 不得返回 &#x60;contract_martingale&#x60;、&#x60;smart-position&#x60;、&#x60;spot-future-arbitrage&#x60; - &#x60;scene&#x3D;filter&#x60; 时只允许按 &#x60;market&#x60;、&#x60;backtest_apr_gte&#x60;、&#x60;max_drawdown_lte&#x60; 过滤 - &#x60;scene&#x3D;refresh&#x60; 通过 &#x60;refresh_recommendation_id&#x60; 承接刷新上下文；正式最小格式只要求 &#x60;strategy_type|market&#x60; - 若上游直接透传上一条推荐的 &#x60;recommendation_id&#x60;，其中第三段 &#x60;backtest_id&#x60; 当前会被忽略
      * @return APIgetAIHubStrategyRecommendRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public APIgetAIHubStrategyRecommendRequest getAIHubStrategyRecommend() {
@@ -384,17 +384,17 @@ public class BotApi {
     /**
      * Build call for postAIHubSpotGridCreate
      * @param spotGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubSpotGridCreateCall(SpotGridCreateRequest spotGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -454,19 +454,19 @@ public class BotApi {
     }
 
     /**
-     * 创建现货网格
-     * 根据传入参数创建现货网格策略。
+     * Create spot grid
+     * Create a spot grid strategy based on the incoming parameters.
      * @param spotGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubCreateSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubCreateSuccessResponse postAIHubSpotGridCreate(SpotGridCreateRequest spotGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -475,19 +475,19 @@ public class BotApi {
     }
 
     /**
-     * 创建现货网格
-     * 根据传入参数创建现货网格策略。
+     * Create spot grid
+     * Create a spot grid strategy based on the incoming parameters.
      * @param spotGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubCreateSuccessResponse> postAIHubSpotGridCreateWithHttpInfo(SpotGridCreateRequest spotGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -497,20 +497,20 @@ public class BotApi {
     }
 
     /**
-     * 创建现货网格 (asynchronously)
-     * 根据传入参数创建现货网格策略。
+     * Create spot grid (asynchronously)
+     * Create a spot grid strategy based on the incoming parameters.
      * @param spotGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubSpotGridCreateAsync(SpotGridCreateRequest spotGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
@@ -523,17 +523,17 @@ public class BotApi {
     /**
      * Build call for postAIHubMarginGridCreate
      * @param marginGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubMarginGridCreateCall(MarginGridCreateRequest marginGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -593,19 +593,19 @@ public class BotApi {
     }
 
     /**
-     * 创建杠杆网格
-     * 根据传入参数创建杠杆网格策略。
+     * Create a lever grid
+     * Create a leverage grid strategy based on the passed parameters.
      * @param marginGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubCreateSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubCreateSuccessResponse postAIHubMarginGridCreate(MarginGridCreateRequest marginGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -614,19 +614,19 @@ public class BotApi {
     }
 
     /**
-     * 创建杠杆网格
-     * 根据传入参数创建杠杆网格策略。
+     * Create a lever grid
+     * Create a leverage grid strategy based on the passed parameters.
      * @param marginGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubCreateSuccessResponse> postAIHubMarginGridCreateWithHttpInfo(MarginGridCreateRequest marginGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -636,20 +636,20 @@ public class BotApi {
     }
 
     /**
-     * 创建杠杆网格 (asynchronously)
-     * 根据传入参数创建杠杆网格策略。
+     * Create a lever grid (asynchronously)
+     * Create a leverage grid strategy based on the passed parameters.
      * @param marginGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubMarginGridCreateAsync(MarginGridCreateRequest marginGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
@@ -662,17 +662,17 @@ public class BotApi {
     /**
      * Build call for postAIHubInfiniteGridCreate
      * @param infiniteGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubInfiniteGridCreateCall(InfiniteGridCreateRequest infiniteGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -732,19 +732,19 @@ public class BotApi {
     }
 
     /**
-     * 创建无限网格
-     * 根据传入参数创建无限网格策略。
+     * Create infinite grid
+     * Create an infinite grid strategy based on passed parameters.
      * @param infiniteGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubCreateSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubCreateSuccessResponse postAIHubInfiniteGridCreate(InfiniteGridCreateRequest infiniteGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -753,19 +753,19 @@ public class BotApi {
     }
 
     /**
-     * 创建无限网格
-     * 根据传入参数创建无限网格策略。
+     * Create infinite grid
+     * Create an infinite grid strategy based on passed parameters.
      * @param infiniteGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubCreateSuccessResponse> postAIHubInfiniteGridCreateWithHttpInfo(InfiniteGridCreateRequest infiniteGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -775,20 +775,20 @@ public class BotApi {
     }
 
     /**
-     * 创建无限网格 (asynchronously)
-     * 根据传入参数创建无限网格策略。
+     * Create infinite grid (asynchronously)
+     * Create an infinite grid strategy based on passed parameters.
      * @param infiniteGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubInfiniteGridCreateAsync(InfiniteGridCreateRequest infiniteGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
@@ -801,17 +801,17 @@ public class BotApi {
     /**
      * Build call for postAIHubFuturesGridCreate
      * @param futuresGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubFuturesGridCreateCall(FuturesGridCreateRequest futuresGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -871,19 +871,19 @@ public class BotApi {
     }
 
     /**
-     * 创建合约网格
-     * 根据传入参数创建合约网格策略。
+     * Create a contract grid
+     * Create a contract grid strategy based on the incoming parameters.
      * @param futuresGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubCreateSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubCreateSuccessResponse postAIHubFuturesGridCreate(FuturesGridCreateRequest futuresGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -892,19 +892,19 @@ public class BotApi {
     }
 
     /**
-     * 创建合约网格
-     * 根据传入参数创建合约网格策略。
+     * Create a contract grid
+     * Create a contract grid strategy based on the incoming parameters.
      * @param futuresGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubCreateSuccessResponse> postAIHubFuturesGridCreateWithHttpInfo(FuturesGridCreateRequest futuresGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -914,20 +914,20 @@ public class BotApi {
     }
 
     /**
-     * 创建合约网格 (asynchronously)
-     * 根据传入参数创建合约网格策略。
+     * Create a contract grid (asynchronously)
+     * Create a contract grid strategy based on the incoming parameters.
      * @param futuresGridCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubFuturesGridCreateAsync(FuturesGridCreateRequest futuresGridCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
@@ -940,17 +940,17 @@ public class BotApi {
     /**
      * Build call for postAIHubSpotMartingaleCreate
      * @param spotMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubSpotMartingaleCreateCall(SpotMartingaleCreateRequest spotMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -1010,19 +1010,19 @@ public class BotApi {
     }
 
     /**
-     * 创建现货马丁
-     * 根据传入参数创建现货马丁策略。
+     * Create Spot Martin
+     * Create a spot Martin strategy based on the passed parameters.
      * @param spotMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubCreateSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubCreateSuccessResponse postAIHubSpotMartingaleCreate(SpotMartingaleCreateRequest spotMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -1031,19 +1031,19 @@ public class BotApi {
     }
 
     /**
-     * 创建现货马丁
-     * 根据传入参数创建现货马丁策略。
+     * Create Spot Martin
+     * Create a spot Martin strategy based on the passed parameters.
      * @param spotMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubCreateSuccessResponse> postAIHubSpotMartingaleCreateWithHttpInfo(SpotMartingaleCreateRequest spotMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -1053,20 +1053,20 @@ public class BotApi {
     }
 
     /**
-     * 创建现货马丁 (asynchronously)
-     * 根据传入参数创建现货马丁策略。
+     * Create Spot Martin (asynchronously)
+     * Create a spot Martin strategy based on the passed parameters.
      * @param spotMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubSpotMartingaleCreateAsync(SpotMartingaleCreateRequest spotMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
@@ -1079,17 +1079,17 @@ public class BotApi {
     /**
      * Build call for postAIHubContractMartingaleCreate
      * @param contractMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubContractMartingaleCreateCall(ContractMartingaleCreateRequest contractMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -1149,19 +1149,19 @@ public class BotApi {
     }
 
     /**
-     * 创建合约马丁
-     * 根据传入参数创建合约马丁策略。
+     * Create contract martin
+     * Create a contract Martin strategy based on the input parameters.
      * @param contractMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubCreateSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubCreateSuccessResponse postAIHubContractMartingaleCreate(ContractMartingaleCreateRequest contractMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -1170,19 +1170,19 @@ public class BotApi {
     }
 
     /**
-     * 创建合约马丁
-     * 根据传入参数创建合约马丁策略。
+     * Create contract martin
+     * Create a contract Martin strategy based on the input parameters.
      * @param contractMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubCreateSuccessResponse> postAIHubContractMartingaleCreateWithHttpInfo(ContractMartingaleCreateRequest contractMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -1192,20 +1192,20 @@ public class BotApi {
     }
 
     /**
-     * 创建合约马丁 (asynchronously)
-     * 根据传入参数创建合约马丁策略。
+     * Create contract martin (asynchronously)
+     * Create a contract Martin strategy based on the input parameters.
      * @param contractMartingaleCreateRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubContractMartingaleCreateAsync(ContractMartingaleCreateRequest contractMartingaleCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
@@ -1311,7 +1311,7 @@ public class BotApi {
 
         /**
          * Set strategyType
-         * @param strategyType 按策略类型过滤 (optional)
+         * @param strategyType Filter by policy type (optional)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest strategyType(String strategyType) {
@@ -1321,7 +1321,7 @@ public class BotApi {
 
         /**
          * Set market
-         * @param market 按交易对过滤 (optional)
+         * @param market Filter by trading pair (optional)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest market(String market) {
@@ -1331,7 +1331,7 @@ public class BotApi {
 
         /**
          * Set page
-         * @param page 页码，默认 1 (optional, default to 1)
+         * @param page Page number, default 1 (optional, default to 1)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest page(Integer page) {
@@ -1341,7 +1341,7 @@ public class BotApi {
 
         /**
          * Set pageSize
-         * @param pageSize 分页大小，默认 20，最大 50 (optional, default to 20)
+         * @param pageSize Paging size, default 20, maximum 50 (optional, default to 20)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest pageSize(Integer pageSize) {
@@ -1351,7 +1351,7 @@ public class BotApi {
 
         /**
          * Set xGateServiceId
-         * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
+         * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest xGateServiceId(String xGateServiceId) {
@@ -1361,7 +1361,7 @@ public class BotApi {
 
         /**
          * Set xGateAppLang
-         * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+         * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest xGateAppLang(String xGateAppLang) {
@@ -1371,7 +1371,7 @@ public class BotApi {
 
         /**
          * Set xRequestId
-         * @param xRequestId 请求链路 ID；调用方可透传 (optional)
+         * @param xRequestId Request link ID; caller can transmit transparently (optional)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest xRequestId(String xRequestId) {
@@ -1381,7 +1381,7 @@ public class BotApi {
 
         /**
          * Set xTraceId
-         * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+         * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
          * @return APIgetAIHubPortfolioRunningRequest
          */
         public APIgetAIHubPortfolioRunningRequest xTraceId(String xTraceId) {
@@ -1397,7 +1397,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1411,7 +1411,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public AIHubPortfolioRunningSuccessResponse execute() throws ApiException {
@@ -1426,7 +1426,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<AIHubPortfolioRunningSuccessResponse> executeWithHttpInfo() throws ApiException {
@@ -1441,7 +1441,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<AIHubPortfolioRunningSuccessResponse> _callback) throws ApiException {
@@ -1450,13 +1450,13 @@ public class BotApi {
     }
 
     /**
-     * 查询运行中策略列表
-     * 查询当前用户运行中的 AIHub 策略列表，支持按策略类型、交易对和分页条件过滤。
+     * Query the list of running policies
+     * Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.
      * @return APIgetAIHubPortfolioRunningRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public APIgetAIHubPortfolioRunningRequest getAIHubPortfolioRunning() {
@@ -1561,7 +1561,7 @@ public class BotApi {
 
         /**
          * Set xGateServiceId
-         * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
+         * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
          * @return APIgetAIHubPortfolioDetailRequest
          */
         public APIgetAIHubPortfolioDetailRequest xGateServiceId(String xGateServiceId) {
@@ -1571,7 +1571,7 @@ public class BotApi {
 
         /**
          * Set xGateAppLang
-         * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+         * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
          * @return APIgetAIHubPortfolioDetailRequest
          */
         public APIgetAIHubPortfolioDetailRequest xGateAppLang(String xGateAppLang) {
@@ -1581,7 +1581,7 @@ public class BotApi {
 
         /**
          * Set xRequestId
-         * @param xRequestId 请求链路 ID；调用方可透传 (optional)
+         * @param xRequestId Request link ID; caller can transmit transparently (optional)
          * @return APIgetAIHubPortfolioDetailRequest
          */
         public APIgetAIHubPortfolioDetailRequest xRequestId(String xRequestId) {
@@ -1591,7 +1591,7 @@ public class BotApi {
 
         /**
          * Set xTraceId
-         * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+         * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
          * @return APIgetAIHubPortfolioDetailRequest
          */
         public APIgetAIHubPortfolioDetailRequest xTraceId(String xTraceId) {
@@ -1607,7 +1607,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1621,7 +1621,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public AIHubPortfolioDetailSuccessResponse execute() throws ApiException {
@@ -1636,7 +1636,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public ApiResponse<AIHubPortfolioDetailSuccessResponse> executeWithHttpInfo() throws ApiException {
@@ -1651,7 +1651,7 @@ public class BotApi {
          * @http.response.details
          <table summary="Response Details" border="1">
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+            <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<AIHubPortfolioDetailSuccessResponse> _callback) throws ApiException {
@@ -1660,15 +1660,15 @@ public class BotApi {
     }
 
     /**
-     * 查询单策略详情
-     * 请求中必须同时传 &#x60;strategy_id&#x60; 与 &#x60;strategy_type&#x60;，其中 &#x60;strategy_type&#x60; 用于按策略类型分发到底层详情实现。
-     * @param strategyId 策略 ID (required)
-     * @param strategyType 策略类型；用于底层详情分发 (required)
+     * Query order policy details
+     * Both &#x60;strategy_id&#x60; and &#x60;strategy_type&#x60; must be passed in the request, where &#x60;strategy_type&#x60; is used to distribute to the underlying detailed implementation by strategy type.
+     * @param strategyId Policy ID (required)
+     * @param strategyType Policy type; used for underlying detail distribution (required)
      * @return APIgetAIHubPortfolioDetailRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public APIgetAIHubPortfolioDetailRequest getAIHubPortfolioDetail(String strategyId, String strategyType) {
@@ -1678,17 +1678,17 @@ public class BotApi {
     /**
      * Build call for postAIHubPortfolioStop
      * @param aiHubPortfolioStopRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubPortfolioStopCall(AIHubPortfolioStopRequest aiHubPortfolioStopRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
@@ -1748,19 +1748,19 @@ public class BotApi {
     }
 
     /**
-     * 终止单个运行中策略
-     * 单次请求只允许终止一个策略。 风险提示与二次确认由 OpenClaw 上层承担；本接口只负责执行 stop。
+     * Terminate a single running policy
+     * Only one policy is allowed to be terminated per request. Risk warning and secondary confirmation are borne by the upper layer of OpenClaw; this interface is only responsible for executing stop.
      * @param aiHubPortfolioStopRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return AIHubPortfolioStopSuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public AIHubPortfolioStopSuccessResponse postAIHubPortfolioStop(AIHubPortfolioStopRequest aiHubPortfolioStopRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -1769,19 +1769,19 @@ public class BotApi {
     }
 
     /**
-     * 终止单个运行中策略
-     * 单次请求只允许终止一个策略。 风险提示与二次确认由 OpenClaw 上层承担；本接口只负责执行 stop。
+     * Terminate a single running policy
+     * Only one policy is allowed to be terminated per request. Risk warning and secondary confirmation are borne by the upper layer of OpenClaw; this interface is only responsible for executing stop.
      * @param aiHubPortfolioStopRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @return ApiResponse&lt;AIHubPortfolioStopSuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AIHubPortfolioStopSuccessResponse> postAIHubPortfolioStopWithHttpInfo(AIHubPortfolioStopRequest aiHubPortfolioStopRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
@@ -1791,20 +1791,20 @@ public class BotApi {
     }
 
     /**
-     * 终止单个运行中策略 (asynchronously)
-     * 单次请求只允许终止一个策略。 风险提示与二次确认由 OpenClaw 上层承担；本接口只负责执行 stop。
+     * Terminate a single running policy (asynchronously)
+     * Only one policy is allowed to be terminated per request. Risk warning and secondary confirmation are borne by the upper layer of OpenClaw; this interface is only responsible for executing stop.
      * @param aiHubPortfolioStopRequest  (required)
-     * @param xGateServiceId 调用来源标识；如有需要由 APIv4 注入 (optional)
-     * @param xGateAppLang 语言上下文，例如 &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
-     * @param xRequestId 请求链路 ID；调用方可透传 (optional)
-     * @param xTraceId trace header；可由 APIv4 统一生成 (optional)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> 统一业务响应 </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call postAIHubPortfolioStopAsync(AIHubPortfolioStopRequest aiHubPortfolioStopRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubPortfolioStopSuccessResponse> _callback) throws ApiException {

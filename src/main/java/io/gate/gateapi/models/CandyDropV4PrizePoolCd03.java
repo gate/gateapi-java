@@ -50,7 +50,7 @@ public class CandyDropV4PrizePoolCd03 {
     }
 
      /**
-     * 奖池类型
+     * Prize pool type
      * @return prizePoolType
     **/
     @javax.annotation.Nullable
@@ -70,7 +70,7 @@ public class CandyDropV4PrizePoolCd03 {
     }
 
      /**
-     * 奖池总额度
+     * Total prize pool amount
      * @return prizeAll
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class CandyDropV4PrizePoolCd03 {
     }
 
      /**
-     * 每人瓜分上限
+     * Maximum share per person
      * @return prizeLimit
     **/
     @javax.annotation.Nullable
@@ -118,7 +118,7 @@ public class CandyDropV4PrizePoolCd03 {
     }
 
      /**
-     * 任务列表
+     * task list
      * @return tasks
     **/
     @javax.annotation.Nullable

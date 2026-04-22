@@ -43,7 +43,7 @@ public class CandyDropV4TaskCd03 {
     }
 
      /**
-     * 任务主标题
+     * Task main title
      * @return taskName
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class CandyDropV4TaskCd03 {
     }
 
      /**
-     * 任务副标题，无则返回 -
+     * Task subtitle, if none is returned -
      * @return taskDesc
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class CandyDropV4TaskCd03 {
     }
 
      /**
-     * 专属任务标签文案，未配置则返回 -
+     * Exclusive task label copywriting, if not configured, it will return -
      * @return exclusiveLabel
     **/
     @javax.annotation.Nullable

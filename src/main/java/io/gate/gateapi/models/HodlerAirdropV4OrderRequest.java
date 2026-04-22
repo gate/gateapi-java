@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 参与活动请求体
+ * Participation activity request body
  */
 public class HodlerAirdropV4OrderRequest {
     public static final String SERIALIZED_NAME_HODLER_ID = "hodler_id";
@@ -35,7 +35,7 @@ public class HodlerAirdropV4OrderRequest {
     }
 
      /**
-     * 活动ID，必填
+     * Activity ID, required
      * minimum: 1
      * @return hodlerId
     **/

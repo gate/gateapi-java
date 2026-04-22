@@ -1,7 +1,7 @@
 
 # AIHubPortfolioRunningData
 
-运行中策略列表数据。
+Running policy list data.
 
 ## Properties
 

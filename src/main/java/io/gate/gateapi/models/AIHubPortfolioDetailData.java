@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 策略详情数据。
+ * Policy details data.
  */
 public class AIHubPortfolioDetailData {
     public static final String SERIALIZED_NAME_STRATEGY_ID = "strategy_id";
@@ -148,7 +148,7 @@ public class AIHubPortfolioDetailData {
     }
 
      /**
-     * 基础信息，字段按策略类型动态变化
+     * Basic information, fields change dynamically according to strategy type
      * @return baseInfo
     **/
     public Map<String, String> getBaseInfo() {
@@ -172,7 +172,7 @@ public class AIHubPortfolioDetailData {
     }
 
      /**
-     * 指标信息，字段按策略类型动态变化
+     * Indicator information, fields change dynamically according to strategy type
      * @return metrics
     **/
     public Map<String, String> getMetrics() {
@@ -199,7 +199,7 @@ public class AIHubPortfolioDetailData {
     }
 
      /**
-     * 仓位或持仓信息，字段按策略类型动态变化
+     * Position or position information, fields dynamically change according to strategy type
      * @return position
     **/
     @javax.annotation.Nullable

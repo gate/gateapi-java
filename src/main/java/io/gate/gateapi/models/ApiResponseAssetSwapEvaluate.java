@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 资产配置优化-估值统一响应
+ * Asset allocation optimization-unified response to valuation
  */
 public class ApiResponseAssetSwapEvaluate {
     public static final String SERIALIZED_NAME_CODE = "code";
@@ -51,7 +51,7 @@ public class ApiResponseAssetSwapEvaluate {
     }
 
      /**
-     * 业务错误码，0 表示成功
+     * Business error code, 0 means success
      * @return code
     **/
     public Integer getCode() {
@@ -70,7 +70,7 @@ public class ApiResponseAssetSwapEvaluate {
     }
 
      /**
-     * 错误标识码，成功时为空字符串
+     * Error identification code, empty string on success
      * @return label
     **/
     @javax.annotation.Nullable
@@ -90,7 +90,7 @@ public class ApiResponseAssetSwapEvaluate {
     }
 
      /**
-     * 描述信息
+     * Description information
      * @return message
     **/
     public String getMessage() {
@@ -109,7 +109,7 @@ public class ApiResponseAssetSwapEvaluate {
     }
 
      /**
-     * 成功时为估值分页数据，失败时为 null
+     * Estimated paginated data on success, null on failure
      * @return data
     **/
     @javax.annotation.Nullable

@@ -1656,7 +1656,7 @@ public class MultiCollateralLoanApi {
     /**
      * Query currency&#39;s current interest rate
      * Query the current interest rate of the currency in the previous hour, the current interest rate is updated every hour
-     * @param currencies Specify currency name query array, separated by commas, maximum 100 items (required)
+     * @param currencies Specify currency name query array, separated by commas, maximum 100 (required)
      * @return APIgetMultiCollateralCurrentRateRequest
      * @http.response.details
      <table summary="Response Details" border="1">

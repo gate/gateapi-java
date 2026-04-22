@@ -67,7 +67,7 @@ public class CandyDropV4AirdropRecordCd06 {
     }
 
      /**
-     * 空投时间（UTC格式化）
+     * Airdrop time (UTC format)
      * @return airdropTime
     **/
     @javax.annotation.Nullable
@@ -87,7 +87,7 @@ public class CandyDropV4AirdropRecordCd06 {
     }
 
      /**
-     * 空投奖励
+     * Airdrop rewards
      * @return rewards
     **/
     @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class CandyDropV4AirdropRecordCd06 {
     }
 
      /**
-     * 自动兑换金额
+     * Automatic exchange amount
      * @return convertAmount
     **/
     @javax.annotation.Nullable

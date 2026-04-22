@@ -21,7 +21,7 @@ import io.gate.gateapi.models.FuturesDirection;
 import java.io.IOException;
 
 /**
- * 杠杆网格策略的创建参数。
+ * Creation parameters for the Leverage Grid strategy.
  */
 public class MarginGridCreateParams {
     public static final String SERIALIZED_NAME_MONEY = "money";

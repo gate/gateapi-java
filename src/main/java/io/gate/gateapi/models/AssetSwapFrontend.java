@@ -174,7 +174,7 @@ public class AssetSwapFrontend {
     }
 
      /**
-     * 字符串键到字符串值的映射，对应 Go 的 map[string]string。
+     * Mapping of string keys to string values, corresponding to Go&#39;s map[string]string.
      * @return _default
     **/
     public Map<String, String> getDefault() {
@@ -255,7 +255,7 @@ public class AssetSwapFrontend {
     }
 
      /**
-     * 策略分组键到 RecommendV2Strategy 列表的映射。
+     * Mapping of strategy grouping keys to RecommendV2Strategy lists.
      * @return recommendV2
     **/
     public Map<String, List<RecommendV2Strategy>> getRecommendV2() {

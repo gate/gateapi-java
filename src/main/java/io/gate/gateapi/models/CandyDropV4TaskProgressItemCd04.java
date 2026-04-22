@@ -43,7 +43,7 @@ public class CandyDropV4TaskProgressItemCd04 {
     }
 
      /**
-     * 任务主标题
+     * Task main title
      * @return taskName
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class CandyDropV4TaskProgressItemCd04 {
     }
 
      /**
-     * 任务副标题
+     * Task subtitle
      * @return taskDesc
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class CandyDropV4TaskProgressItemCd04 {
     }
 
      /**
-     * 任务进度数据（交易量/充值量等）
+     * Task progress data (transaction volume/recharge volume, etc.)
      * @return value
     **/
     @javax.annotation.Nullable

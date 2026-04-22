@@ -1,15 +1,15 @@
 
 # ApiResponseAssetSwapEvaluate
 
-资产配置优化-估值统一响应
+Asset allocation optimization-unified response to valuation
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** | 业务错误码，0 表示成功 | 
-**label** | **String** | 错误标识码，成功时为空字符串 |  [optional]
-**message** | **String** | 描述信息 | 
-**data** | **Object** | 成功时为估值分页数据，失败时为 null | 
+**code** | **Integer** | Business error code, 0 means success | 
+**label** | **String** | Error identification code, empty string on success |  [optional]
+**message** | **String** | Description information | 
+**data** | **Object** | Estimated paginated data on success, null on failure | 
 **timestamp** | **Long** | Server timestamp (milliseconds) | 
 
