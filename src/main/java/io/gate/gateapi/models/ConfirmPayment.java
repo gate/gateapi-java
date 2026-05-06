@@ -23,32 +23,32 @@ import java.io.IOException;
  * Confirm payment request
  */
 public class ConfirmPayment {
-    public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
-    @SerializedName(SERIALIZED_NAME_TRADE_ID)
-    private String tradeId;
+    public static final String SERIALIZED_NAME_TXID = "txid";
+    @SerializedName(SERIALIZED_NAME_TXID)
+    private String txid;
 
     public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
     @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
     private String paymentMethod;
 
 
-    public ConfirmPayment tradeId(String tradeId) {
+    public ConfirmPayment txid(String txid) {
         
-        this.tradeId = tradeId;
+        this.txid = txid;
         return this;
     }
 
      /**
-     * Get tradeId
-     * @return tradeId
+     * Order ID
+     * @return txid
     **/
-    public String getTradeId() {
-        return tradeId;
+    public String getTxid() {
+        return txid;
     }
 
 
-    public void setTradeId(String tradeId) {
-        this.tradeId = tradeId;
+    public void setTxid(String txid) {
+        this.txid = txid;
     }
 
     public ConfirmPayment paymentMethod(String paymentMethod) {
@@ -58,9 +58,10 @@ public class ConfirmPayment {
     }
 
      /**
-     * Get paymentMethod
+     * Payment type used for this payment; optional but must be among order-supported types. Use &#x60;supported_pay_types&#x60; on the order or &#x60;pay_type&#x60; list, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;.
      * @return paymentMethod
     **/
+    @javax.annotation.Nullable
     public String getPaymentMethod() {
         return paymentMethod;
     }
@@ -78,13 +79,13 @@ public class ConfirmPayment {
             return false;
         }
         ConfirmPayment confirmPayment = (ConfirmPayment) o;
-        return Objects.equals(this.tradeId, confirmPayment.tradeId) &&
+        return Objects.equals(this.txid, confirmPayment.txid) &&
                 Objects.equals(this.paymentMethod, confirmPayment.paymentMethod);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId, paymentMethod);
+        return Objects.hash(txid, paymentMethod);
     }
 
 
@@ -92,7 +93,7 @@ public class ConfirmPayment {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ConfirmPayment {\n");
-        sb.append("      tradeId: ").append(toIndentedString(tradeId)).append("\n");
+        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
         sb.append("      paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
         sb.append("}");
         return sb.toString();

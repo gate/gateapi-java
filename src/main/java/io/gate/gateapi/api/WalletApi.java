@@ -2285,7 +2285,7 @@ public class WalletApi {
 
         /**
          * Set page
-         * @param page Page number (optional, default to 1)
+         * @param page page number (optional, default to 1)
          * @return APIlistSavedAddressRequest
          */
         public APIlistSavedAddressRequest page(Integer page) {

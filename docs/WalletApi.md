@@ -1099,7 +1099,7 @@ public class Example {
         String currency = "USDT"; // String | Currency
         String chain = "\"\""; // String | Chain name
         String limit = "\"50\""; // String | Maximum number returned, up to 100
-        Integer page = 1; // Integer | Page number
+        Integer page = 1; // Integer | page number
         try {
             List<SavedAddress> result = apiInstance.listSavedAddress(currency)
                         .chain(chain)
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
  **currency** | **String**| Currency |
  **chain** | **String**| Chain name | [optional] [default to &quot;&quot;]
  **limit** | **String**| Maximum number returned, up to 100 | [optional] [default to &quot;50&quot;]
- **page** | **Integer**| Page number | [optional] [default to 1]
+ **page** | **Integer**| page number | [optional] [default to 1]
 
 ### Return type
 

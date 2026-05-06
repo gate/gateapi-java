@@ -7,5 +7,5 @@ Get ad details request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**advNo** | **String** |  | 
+**advNo** | **String** | Advertisement ID. | 
 

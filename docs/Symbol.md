@@ -5,18 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** | ExchangeType_BusinessType_Base_Counter | 
-**exchangeType** | **String** | BINANCE,OKX,GATE,BYBIT,CROSSEX | 
-**businessType** | **String** | SPOT, FUTURE, MARGIN | 
-**state** | **String** | live/suspend | 
-**minSize** | **String** | Minimum order quantity | 
-**minNotional** | **String** | Minimum order value | 
-**lotSize** | **String** | Quantity step size | 
-**tickSize** | **String** | Price step size | 
-**maxNumOrders** | **String** | Maximum number of pending orders | 
-**maxMarketSize** | **String** | Maximum order quantity at market price | 
-**maxLimitSize** | **String** | Maximum order quantity at limit price | 
-**contractSize** | **String** | contract multiplier | 
-**liquidationFee** | **String** | Liquidation rate | 
-**delistTime** | **String** | Millisecond timestamp,0 is normal | 
+**symbol** | **String** | Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter. | 
+**exchangeType** | **String** | Exchange type (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;CROSSEX&#x60;). | 
+**businessType** | **String** | Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin). | 
+**state** | **String** | Status (&#x60;live&#x60; running / &#x60;suspend&#x60; paused). | 
+**minSize** | **String** | Minimum order size allowed by the contract | 
+**minNotional** | **String** | Minimum Order Value | 
+**lotSize** | **String** | Quantity Step | 
+**tickSize** | **String** | Price Step | 
+**maxNumOrders** | **String** | maximumopen orderamount | 
+**maxMarketSize** | **String** | Maximum Market Order Quantity | 
+**maxLimitSize** | **String** | Maximum order quantity for limit orders. | 
+**contractSize** | **String** | Contract Multiplier | 
+**liquidationFee** | **String** | Liquidation Fee Rate | 
+**delistTime** | **String** | Millisecond timestamp; &#x60;0&#x60; means not delisted. | 
 

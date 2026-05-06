@@ -71,7 +71,7 @@ public class GetCompletedTransactionListRequest {
     }
 
      /**
-     * Cryptocurrency
+     * Cryptocurrency symbol.
      * @return cryptoCurrency
     **/
     public String getCryptoCurrency() {
@@ -109,7 +109,7 @@ public class GetCompletedTransactionListRequest {
     }
 
      /**
-     * Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All)
+     * Order side filter: &#x60;buy&#x60; buy orders; &#x60;sell&#x60; sell orders; empty: all.
      * @return selectType
     **/
     @javax.annotation.Nullable
@@ -129,7 +129,7 @@ public class GetCompletedTransactionListRequest {
     }
 
      /**
-     * Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
+     * Order status filter. &#x60;closed&#x60;: filled (&#x60;ACCEPT&#x60;, &#x60;BCLOSED&#x60;); &#x60;cancel&#x60;: canceled (&#x60;CANCEL&#x60;, &#x60;BECANCEL&#x60;, &#x60;SCLOSED&#x60;, &#x60;SCANCEL&#x60;); &#x60;locked&#x60;: locked (&#x60;LOCKED&#x60;); &#x60;open&#x60;: unpaid (&#x60;OPEN&#x60;); &#x60;paid&#x60;: paid (&#x60;PAID&#x60;); &#x60;completed&#x60;: finished or canceled (&#x60;CANCEL&#x60;, &#x60;BECANCEL&#x60;, &#x60;SCLOSED&#x60;, &#x60;SCANCEL&#x60;, &#x60;ACCEPT&#x60;, &#x60;BCLOSED&#x60;); Empty or omitted uses the endpoint default range.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -209,7 +209,7 @@ public class GetCompletedTransactionListRequest {
     }
 
      /**
-     * 1: Include appeal status, 0: None
+     * Whether to flag dispute status in the response. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return queryDispute
     **/
     @javax.annotation.Nullable
@@ -229,7 +229,7 @@ public class GetCompletedTransactionListRequest {
     }
 
      /**
-     * page number
+     * Page number starting at 1; values below 1 are treated as 1.
      * @return page
     **/
     @javax.annotation.Nullable
@@ -249,7 +249,7 @@ public class GetCompletedTransactionListRequest {
     }
 
      /**
-     * Number of orders per page
+     * Orders per page; default 10, max 200.
      * @return perPage
     **/
     @javax.annotation.Nullable

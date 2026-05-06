@@ -7,5 +7,5 @@ Get counterparty user info request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bizUid** | **String** | Counterparty UID (encrypted) | 
+**bizUid** | **String** | Counterparty crypto UID from order list or detail field &#x60;its_uid&#x60;. | 
 

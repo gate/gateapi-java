@@ -23,28 +23,28 @@ import java.io.IOException;
  * Confirm receipt request
  */
 public class ConfirmReceipt {
-    public static final String SERIALIZED_NAME_TRADE_ID = "trade_id";
-    @SerializedName(SERIALIZED_NAME_TRADE_ID)
-    private String tradeId;
+    public static final String SERIALIZED_NAME_TXID = "txid";
+    @SerializedName(SERIALIZED_NAME_TXID)
+    private String txid;
 
 
-    public ConfirmReceipt tradeId(String tradeId) {
+    public ConfirmReceipt txid(String txid) {
         
-        this.tradeId = tradeId;
+        this.txid = txid;
         return this;
     }
 
      /**
-     * Get tradeId
-     * @return tradeId
+     * Order ID
+     * @return txid
     **/
-    public String getTradeId() {
-        return tradeId;
+    public String getTxid() {
+        return txid;
     }
 
 
-    public void setTradeId(String tradeId) {
-        this.tradeId = tradeId;
+    public void setTxid(String txid) {
+        this.txid = txid;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -55,12 +55,12 @@ public class ConfirmReceipt {
             return false;
         }
         ConfirmReceipt confirmReceipt = (ConfirmReceipt) o;
-        return Objects.equals(this.tradeId, confirmReceipt.tradeId);
+        return Objects.equals(this.txid, confirmReceipt.txid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId);
+        return Objects.hash(txid);
     }
 
 
@@ -68,7 +68,7 @@ public class ConfirmReceipt {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ConfirmReceipt {\n");
-        sb.append("      tradeId: ").append(toIndentedString(tradeId)).append("\n");
+        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
         sb.append("}");
         return sb.toString();
     }

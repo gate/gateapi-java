@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.71
-- SDK version: 7.2.71
+- API version: v4.106.78
+- SDK version: 7.2.78
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.71</version>
+    <version>7.2.78</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.71"
+compile "io.gate:gate-api:7.2.78"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.71.jar`
+* `target/gate-api-7.2.78.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -181,9 +181,9 @@ Class | Method | HTTP request | Description
 *BotApi* | [**postAIHubPortfolioStop**](docs/BotApi.md#postAIHubPortfolioStop) | **POST** /bot/portfolio/stop | Terminate a single running policy
 *CouponApi* | [**listUserCoupons**](docs/CouponApi.md#listUserCoupons) | **GET** /coupon/user-coupon-list | Coupon Center list
 *CouponApi* | [**getUserCouponDetail**](docs/CouponApi.md#getUserCouponDetail) | **GET** /coupon/user-coupon-detail | Coupon Center details
-*CrossExApi* | [**listCrossexRuleSymbols**](docs/CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | [Public Interface] Query Trading Pair Information
-*CrossExApi* | [**listCrossexRuleRiskLimits**](docs/CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | [Public Interface] Query Risk Limit Information
-*CrossExApi* | [**listCrossexTransferCoins**](docs/CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | [Public Interface] Query Supported Transfer Currencies
+*CrossExApi* | [**listCrossexRuleSymbols**](docs/CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | 查询币对信息
+*CrossExApi* | [**listCrossexRuleRiskLimits**](docs/CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | 查询风险限额信息
+*CrossExApi* | [**listCrossexTransferCoins**](docs/CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | 查询划转币种支持
 *CrossExApi* | [**listCrossexTransfers**](docs/CrossExApi.md#listCrossexTransfers) | **GET** /crossex/transfers | Query Fund Transfer History
 *CrossExApi* | [**createCrossexTransfer**](docs/CrossExApi.md#createCrossexTransfer) | **POST** /crossex/transfers | Fund Transfer
 *CrossExApi* | [**createCrossexOrder**](docs/CrossExApi.md#createCrossexOrder) | **POST** /crossex/orders | Create an order
@@ -211,7 +211,7 @@ Class | Method | HTTP request | Description
 *CrossExApi* | [**listCrossexHistoryMarginInterests**](docs/CrossExApi.md#listCrossexHistoryMarginInterests) | **GET** /crossex/history_margin_interests | Query Leveraged Interest Deduction History
 *CrossExApi* | [**listCrossexHistoryTrades**](docs/CrossExApi.md#listCrossexHistoryTrades) | **GET** /crossex/history_trades | queryfilledhistory
 *CrossExApi* | [**listCrossexAccountBook**](docs/CrossExApi.md#listCrossexAccountBook) | **GET** /crossex/account_book | Query Account Asset Change History
-*CrossExApi* | [**listCrossexCoinDiscountRate**](docs/CrossExApi.md#listCrossexCoinDiscountRate) | **GET** /crossex/coin_discount_rate | Query currency discount rate (discount rate of margin currency in isolated exchange mode)
+*CrossExApi* | [**listCrossexCoinDiscountRate**](docs/CrossExApi.md#listCrossexCoinDiscountRate) | **GET** /crossex/coin_discount_rate | Query Currency Discount Rate
 *DeliveryApi* | [**listDeliveryContracts**](docs/DeliveryApi.md#listDeliveryContracts) | **GET** /delivery/{settle}/contracts | Query all futures contracts
 *DeliveryApi* | [**getDeliveryContract**](docs/DeliveryApi.md#getDeliveryContract) | **GET** /delivery/{settle}/contracts/{contract} | Query single contract information
 *DeliveryApi* | [**listDeliveryOrderBook**](docs/DeliveryApi.md#listDeliveryOrderBook) | **GET** /delivery/{settle}/order_book | Query futures market depth information
@@ -595,8 +595,11 @@ Class | Method | HTTP request | Description
  - [AIHubCreateSuccessResponse](docs/AIHubCreateSuccessResponse.md)
  - [AIHubDiscoverData](docs/AIHubDiscoverData.md)
  - [AIHubDiscoverSuccessResponse](docs/AIHubDiscoverSuccessResponse.md)
+ - [AIHubPortfolioBaseInfo](docs/AIHubPortfolioBaseInfo.md)
  - [AIHubPortfolioDetailData](docs/AIHubPortfolioDetailData.md)
  - [AIHubPortfolioDetailSuccessResponse](docs/AIHubPortfolioDetailSuccessResponse.md)
+ - [AIHubPortfolioMetrics](docs/AIHubPortfolioMetrics.md)
+ - [AIHubPortfolioPosition](docs/AIHubPortfolioPosition.md)
  - [AIHubPortfolioRunningData](docs/AIHubPortfolioRunningData.md)
  - [AIHubPortfolioRunningItem](docs/AIHubPortfolioRunningItem.md)
  - [AIHubPortfolioRunningSuccessResponse](docs/AIHubPortfolioRunningSuccessResponse.md)
@@ -1049,6 +1052,7 @@ Class | Method | HTTP request | Description
  - [P2pChatMessagePayload](docs/P2pChatMessagePayload.md)
  - [P2pCounterpartyUserInfo](docs/P2pCounterpartyUserInfo.md)
  - [P2pCounterpartyUserInfoResponse](docs/P2pCounterpartyUserInfoResponse.md)
+ - [P2pMerchantBooksPlaceBizPushOrderResponse](docs/P2pMerchantBooksPlaceBizPushOrderResponse.md)
  - [P2pMerchantMarketInfo](docs/P2pMerchantMarketInfo.md)
  - [P2pMerchantUserInfo](docs/P2pMerchantUserInfo.md)
  - [P2pMerchantUserInfoResponse](docs/P2pMerchantUserInfoResponse.md)
@@ -1063,10 +1067,12 @@ Class | Method | HTTP request | Description
  - [P2pTransactionActionResponse](docs/P2pTransactionActionResponse.md)
  - [P2pTransactionConvertInfo](docs/P2pTransactionConvertInfo.md)
  - [P2pTransactionDetail](docs/P2pTransactionDetail.md)
+ - [P2pTransactionDetailPayOthers](docs/P2pTransactionDetailPayOthers.md)
  - [P2pTransactionDetailResponse](docs/P2pTransactionDetailResponse.md)
  - [P2pTransactionListItem](docs/P2pTransactionListItem.md)
  - [P2pTransactionListResponse](docs/P2pTransactionListResponse.md)
  - [P2pTransactionListResult](docs/P2pTransactionListResult.md)
+ - [P2pTransactionListResultPayOthers](docs/P2pTransactionListResultPayOthers.md)
  - [P2pTransactionTimeMarker](docs/P2pTransactionTimeMarker.md)
  - [P2pUploadChatFileResponse](docs/P2pUploadChatFileResponse.md)
  - [P2pUploadChatFileResult](docs/P2pUploadChatFileResult.md)

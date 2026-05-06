@@ -17,11 +17,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.AIHubPortfolioBaseInfo;
+import io.gate.gateapi.models.AIHubPortfolioMetrics;
+import io.gate.gateapi.models.AIHubPortfolioPosition;
 import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Policy details data.
@@ -45,15 +45,15 @@ public class AIHubPortfolioDetailData {
 
     public static final String SERIALIZED_NAME_BASE_INFO = "base_info";
     @SerializedName(SERIALIZED_NAME_BASE_INFO)
-    private Map<String, String> baseInfo = new HashMap<>();
+    private AIHubPortfolioBaseInfo baseInfo;
 
     public static final String SERIALIZED_NAME_METRICS = "metrics";
     @SerializedName(SERIALIZED_NAME_METRICS)
-    private Map<String, String> metrics = new HashMap<>();
+    private AIHubPortfolioMetrics metrics;
 
     public static final String SERIALIZED_NAME_POSITION = "position";
     @SerializedName(SERIALIZED_NAME_POSITION)
-    private Map<String, String> position = null;
+    private AIHubPortfolioPosition position;
 
     public static final String SERIALIZED_NAME_STOP_SUPPORTED = "stop_supported";
     @SerializedName(SERIALIZED_NAME_STOP_SUPPORTED)
@@ -136,79 +136,61 @@ public class AIHubPortfolioDetailData {
         this.status = status;
     }
 
-    public AIHubPortfolioDetailData baseInfo(Map<String, String> baseInfo) {
+    public AIHubPortfolioDetailData baseInfo(AIHubPortfolioBaseInfo baseInfo) {
         
         this.baseInfo = baseInfo;
         return this;
     }
 
-    public AIHubPortfolioDetailData putBaseInfoItem(String key, String baseInfoItem) {
-        this.baseInfo.put(key, baseInfoItem);
-        return this;
-    }
-
      /**
-     * Basic information, fields change dynamically according to strategy type
+     * Get baseInfo
      * @return baseInfo
     **/
-    public Map<String, String> getBaseInfo() {
+    public AIHubPortfolioBaseInfo getBaseInfo() {
         return baseInfo;
     }
 
 
-    public void setBaseInfo(Map<String, String> baseInfo) {
+    public void setBaseInfo(AIHubPortfolioBaseInfo baseInfo) {
         this.baseInfo = baseInfo;
     }
 
-    public AIHubPortfolioDetailData metrics(Map<String, String> metrics) {
+    public AIHubPortfolioDetailData metrics(AIHubPortfolioMetrics metrics) {
         
         this.metrics = metrics;
         return this;
     }
 
-    public AIHubPortfolioDetailData putMetricsItem(String key, String metricsItem) {
-        this.metrics.put(key, metricsItem);
-        return this;
-    }
-
      /**
-     * Indicator information, fields change dynamically according to strategy type
+     * Get metrics
      * @return metrics
     **/
-    public Map<String, String> getMetrics() {
+    public AIHubPortfolioMetrics getMetrics() {
         return metrics;
     }
 
 
-    public void setMetrics(Map<String, String> metrics) {
+    public void setMetrics(AIHubPortfolioMetrics metrics) {
         this.metrics = metrics;
     }
 
-    public AIHubPortfolioDetailData position(Map<String, String> position) {
+    public AIHubPortfolioDetailData position(AIHubPortfolioPosition position) {
         
         this.position = position;
         return this;
     }
 
-    public AIHubPortfolioDetailData putPositionItem(String key, String positionItem) {
-        if (this.position == null) {
-            this.position = new HashMap<>();
-        }
-        this.position.put(key, positionItem);
-        return this;
-    }
-
      /**
-     * Position or position information, fields dynamically change according to strategy type
+     * Get position
      * @return position
     **/
     @javax.annotation.Nullable
-    public Map<String, String> getPosition() {
+    public AIHubPortfolioPosition getPosition() {
         return position;
     }
 
 
-    public void setPosition(Map<String, String> position) {
+    public void setPosition(AIHubPortfolioPosition position) {
         this.position = position;
     }
 

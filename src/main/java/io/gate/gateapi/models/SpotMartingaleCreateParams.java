@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Creation parameters of spot martin strategy.
+ * 现货马丁策略的创建参数（对应 &#x60;MartingaleBot&#x60; 序列化字段）。  - **止损**：使用 &#x60;stop_loss_per_cycle&#x60;（每轮止损比例），与 App 一致；**不使用** &#x60;stop_loss_price&#x60;。 - 可选 **&#x60;trigger_price&#x60;**：触发价。 - &#x60;stop_loss_per_cycle&#x60; 若传入且大于 0，服务端校验区间约为 &#x60;0.001&#x60;～&#x60;0.9999&#x60;（与 &#x60;check_martingale&#x60; 一致）。
  */
 public class SpotMartingaleCreateParams {
     public static final String SERIALIZED_NAME_INVEST_AMOUNT = "invest_amount";
@@ -39,9 +39,13 @@ public class SpotMartingaleCreateParams {
     @SerializedName(SERIALIZED_NAME_TAKE_PROFIT_RATIO)
     private String takeProfitRatio;
 
-    public static final String SERIALIZED_NAME_STOP_LOSS_PRICE = "stop_loss_price";
-    @SerializedName(SERIALIZED_NAME_STOP_LOSS_PRICE)
-    private String stopLossPrice;
+    public static final String SERIALIZED_NAME_STOP_LOSS_PER_CYCLE = "stop_loss_per_cycle";
+    @SerializedName(SERIALIZED_NAME_STOP_LOSS_PER_CYCLE)
+    private String stopLossPerCycle;
+
+    public static final String SERIALIZED_NAME_TRIGGER_PRICE = "trigger_price";
+    @SerializedName(SERIALIZED_NAME_TRIGGER_PRICE)
+    private String triggerPrice;
 
     public static final String SERIALIZED_NAME_PROFIT_SHARING_RATIO = "profit_sharing_ratio";
     @SerializedName(SERIALIZED_NAME_PROFIT_SHARING_RATIO)
@@ -74,7 +78,7 @@ public class SpotMartingaleCreateParams {
     }
 
      /**
-     * Get priceDeviation
+     * Add-position deviation ratio as a decimal string (e.g. a 2% drop is &#x60;0.02&#x60;).
      * @return priceDeviation
     **/
     public String getPriceDeviation() {
@@ -113,7 +117,7 @@ public class SpotMartingaleCreateParams {
     }
 
      /**
-     * Get takeProfitRatio
+     * Take-profit ratio per round as a decimal string.
      * @return takeProfitRatio
     **/
     public String getTakeProfitRatio() {
@@ -125,24 +129,44 @@ public class SpotMartingaleCreateParams {
         this.takeProfitRatio = takeProfitRatio;
     }
 
-    public SpotMartingaleCreateParams stopLossPrice(String stopLossPrice) {
+    public SpotMartingaleCreateParams stopLossPerCycle(String stopLossPerCycle) {
         
-        this.stopLossPrice = stopLossPrice;
+        this.stopLossPerCycle = stopLossPerCycle;
         return this;
     }
 
      /**
-     * Get stopLossPrice
-     * @return stopLossPrice
+     * Stop-loss ratio per round as a decimal string; optional; aligned with app &#x60;stop_loss_per_cycle&#x60;.
+     * @return stopLossPerCycle
     **/
     @javax.annotation.Nullable
-    public String getStopLossPrice() {
-        return stopLossPrice;
+    public String getStopLossPerCycle() {
+        return stopLossPerCycle;
     }
 
 
-    public void setStopLossPrice(String stopLossPrice) {
-        this.stopLossPrice = stopLossPrice;
+    public void setStopLossPerCycle(String stopLossPerCycle) {
+        this.stopLossPerCycle = stopLossPerCycle;
+    }
+
+    public SpotMartingaleCreateParams triggerPrice(String triggerPrice) {
+        
+        this.triggerPrice = triggerPrice;
+        return this;
+    }
+
+     /**
+     * Trigger price; optional.
+     * @return triggerPrice
+    **/
+    @javax.annotation.Nullable
+    public String getTriggerPrice() {
+        return triggerPrice;
+    }
+
+
+    public void setTriggerPrice(String triggerPrice) {
+        this.triggerPrice = triggerPrice;
     }
 
     public SpotMartingaleCreateParams profitSharingRatio(String profitSharingRatio) {
@@ -177,13 +201,14 @@ public class SpotMartingaleCreateParams {
                 Objects.equals(this.priceDeviation, spotMartingaleCreateParams.priceDeviation) &&
                 Objects.equals(this.maxOrders, spotMartingaleCreateParams.maxOrders) &&
                 Objects.equals(this.takeProfitRatio, spotMartingaleCreateParams.takeProfitRatio) &&
-                Objects.equals(this.stopLossPrice, spotMartingaleCreateParams.stopLossPrice) &&
+                Objects.equals(this.stopLossPerCycle, spotMartingaleCreateParams.stopLossPerCycle) &&
+                Objects.equals(this.triggerPrice, spotMartingaleCreateParams.triggerPrice) &&
                 Objects.equals(this.profitSharingRatio, spotMartingaleCreateParams.profitSharingRatio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(investAmount, priceDeviation, maxOrders, takeProfitRatio, stopLossPrice, profitSharingRatio);
+        return Objects.hash(investAmount, priceDeviation, maxOrders, takeProfitRatio, stopLossPerCycle, triggerPrice, profitSharingRatio);
     }
 
 
@@ -195,7 +220,8 @@ public class SpotMartingaleCreateParams {
         sb.append("      priceDeviation: ").append(toIndentedString(priceDeviation)).append("\n");
         sb.append("      maxOrders: ").append(toIndentedString(maxOrders)).append("\n");
         sb.append("      takeProfitRatio: ").append(toIndentedString(takeProfitRatio)).append("\n");
-        sb.append("      stopLossPrice: ").append(toIndentedString(stopLossPrice)).append("\n");
+        sb.append("      stopLossPerCycle: ").append(toIndentedString(stopLossPerCycle)).append("\n");
+        sb.append("      triggerPrice: ").append(toIndentedString(triggerPrice)).append("\n");
         sb.append("      profitSharingRatio: ").append(toIndentedString(profitSharingRatio)).append("\n");
         sb.append("}");
         return sb.toString();

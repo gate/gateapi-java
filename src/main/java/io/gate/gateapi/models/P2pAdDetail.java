@@ -84,7 +84,7 @@ public class P2pAdDetail {
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
     private Integer timestamp;
 
-    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currencyType";
+    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currency_type";
     @SerializedName(SERIALIZED_NAME_CURRENCY_TYPE)
     private String currencyType;
 
@@ -103,10 +103,6 @@ public class P2pAdDetail {
     public static final String SERIALIZED_NAME_AUTO_REPLY = "auto_reply";
     @SerializedName(SERIALIZED_NAME_AUTO_REPLY)
     private String autoReply;
-
-    public static final String SERIALIZED_NAME_NEW_HAND = "new_hand";
-    @SerializedName(SERIALIZED_NAME_NEW_HAND)
-    private String newHand;
 
     public static final String SERIALIZED_NAME_RATE_REF_ID = "rate_ref_id";
     @SerializedName(SERIALIZED_NAME_RATE_REF_ID)
@@ -144,10 +140,6 @@ public class P2pAdDetail {
     @SerializedName(SERIALIZED_NAME_ADVERTISERS_LIMIT)
     private Integer advertisersLimit;
 
-    public static final String SERIALIZED_NAME_VERIFIED_LIMIT = "verified_limit";
-    @SerializedName(SERIALIZED_NAME_VERIFIED_LIMIT)
-    private Integer verifiedLimit;
-
     public static final String SERIALIZED_NAME_MIN_COMPLETED_LIMIT = "min_completed_limit";
     @SerializedName(SERIALIZED_NAME_MIN_COMPLETED_LIMIT)
     private Integer minCompletedLimit;
@@ -163,10 +155,6 @@ public class P2pAdDetail {
     public static final String SERIALIZED_NAME_COMPLETED_RATE_LIMIT = "completed_rate_limit";
     @SerializedName(SERIALIZED_NAME_COMPLETED_RATE_LIMIT)
     private BigDecimal completedRateLimit;
-
-    public static final String SERIALIZED_NAME_USER_COUNTRY_LIMIT = "user_country_limit";
-    @SerializedName(SERIALIZED_NAME_USER_COUNTRY_LIMIT)
-    private Integer userCountryLimit;
 
     public static final String SERIALIZED_NAME_LIMIT_COUNTRY_CN = "limit_country_cn";
     @SerializedName(SERIALIZED_NAME_LIMIT_COUNTRY_CN)
@@ -184,10 +172,6 @@ public class P2pAdDetail {
     @SerializedName(SERIALIZED_NAME_HIDE_PAYMENT)
     private Integer hidePayment;
 
-    public static final String SERIALIZED_NAME_FEE = "fee";
-    @SerializedName(SERIALIZED_NAME_FEE)
-    private Integer fee;
-
 
     public P2pAdDetail rate(String rate) {
         
@@ -196,7 +180,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Price
+     * Advertisement price.
      * @return rate
     **/
     @javax.annotation.Nullable
@@ -216,7 +200,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Buy/Sell order
+     * Ad side: &#x60;buy&#x60; buy-crypto ad; &#x60;sell&#x60; sell-crypto ad.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -236,7 +220,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Cryptocurrency amount
+     * Remaining crypto amount on the ad.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -256,7 +240,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Minimum limit
+     * Minimum trade amount in &#x60;want_type&#x60;.
      * @return minAmount
     **/
     @javax.annotation.Nullable
@@ -276,7 +260,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Maximum limit
+     * Maximum trade amount priced in &#x60;want_type&#x60;.
      * @return maxAmount
     **/
     @javax.annotation.Nullable
@@ -316,7 +300,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Whether Alipay payment is supported
+     * Whether Alipay is supported. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return payAli
     **/
     @javax.annotation.Nullable
@@ -336,7 +320,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Whether bank payment is supported
+     * Whether bank transfer is supported. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return payBank
     **/
     @javax.annotation.Nullable
@@ -356,7 +340,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Whether PayPal payment is supported
+     * Whether PayPal is supported. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return payPaypal
     **/
     @javax.annotation.Nullable
@@ -376,7 +360,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Whether WeChat payment is supported
+     * Whether WeChat Pay is supported. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return payWechat
     **/
     @javax.annotation.Nullable
@@ -416,7 +400,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Payment method list
+     * JSON map of payment type -&gt; payment method ID.
      * @return payTypeJson
     **/
     @javax.annotation.Nullable
@@ -496,7 +480,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Cryptocurrency type
+     * Cryptocurrency symbol.
      * @return currencyType
     **/
     @javax.annotation.Nullable
@@ -589,26 +573,6 @@ public class P2pAdDetail {
         this.autoReply = autoReply;
     }
 
-    public P2pAdDetail newHand(String newHand) {
-        
-        this.newHand = newHand;
-        return this;
-    }
-
-     /**
-     * Merchant-friendly order
-     * @return newHand
-    **/
-    @javax.annotation.Nullable
-    public String getNewHand() {
-        return newHand;
-    }
-
-
-    public void setNewHand(String newHand) {
-        this.newHand = newHand;
-    }
-
     public P2pAdDetail rateRefId(Integer rateRefId) {
         
         this.rateRefId = rateRefId;
@@ -616,7 +580,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Floating price reference ID: 1&#x3D;Platform reference price, 3&#x3D;Spot reference price (≤0 means fixed price, &gt;0 means floating price)
+     * Floating reference: &#x60;1&#x60; platform; &#x60;2&#x60; Gate; &#x60;3&#x60; spot; &#x60;&lt;&#x3D; 0&#x60; means fixed price.
      * @return rateRefId
     **/
     @javax.annotation.Nullable
@@ -656,7 +620,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Status
+     * Ad status: &#x60;OPEN&#x60; listed; &#x60;OFFLIN&#x60; delisted; &#x60;CLOSED&#x60; closed; &#x60;CANCEL&#x60; canceled.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -676,7 +640,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * 0&#x3D;Floating, 1&#x3D;Fixed
+     * Price type: &#x60;0&#x60; floating; &#x60;1&#x60; fixed.
      * @return rateFixed
     **/
     @javax.annotation.Nullable
@@ -696,7 +660,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * 0&#x3D;Upward float, 1&#x3D;Downward float
+     * Floating direction: &#x60;0&#x60; markup; &#x60;1&#x60; markdown.
      * @return floatTrend
     **/
     @javax.annotation.Nullable
@@ -776,7 +740,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Do not trade with advertisers, advertiser limit: 0&#x3D;No limit, 1&#x3D;Limit
+     * Whether trading with the advertiser is restricted. &#x60;0&#x60;: no; &#x60;1&#x60;: yes.
      * @return advertisersLimit
     **/
     @javax.annotation.Nullable
@@ -787,26 +751,6 @@ public class P2pAdDetail {
 
     public void setAdvertisersLimit(Integer advertisersLimit) {
         this.advertisersLimit = advertisersLimit;
-    }
-
-    public P2pAdDetail verifiedLimit(Integer verifiedLimit) {
-        
-        this.verifiedLimit = verifiedLimit;
-        return this;
-    }
-
-     /**
-     * kyclimit
-     * @return verifiedLimit
-    **/
-    @javax.annotation.Nullable
-    public Integer getVerifiedLimit() {
-        return verifiedLimit;
-    }
-
-
-    public void setVerifiedLimit(Integer verifiedLimit) {
-        this.verifiedLimit = verifiedLimit;
     }
 
     public P2pAdDetail minCompletedLimit(Integer minCompletedLimit) {
@@ -889,26 +833,6 @@ public class P2pAdDetail {
         this.completedRateLimit = completedRateLimit;
     }
 
-    public P2pAdDetail userCountryLimit(Integer userCountryLimit) {
-        
-        this.userCountryLimit = userCountryLimit;
-        return this;
-    }
-
-     /**
-     * KYC nationality restriction
-     * @return userCountryLimit
-    **/
-    @javax.annotation.Nullable
-    public Integer getUserCountryLimit() {
-        return userCountryLimit;
-    }
-
-
-    public void setUserCountryLimit(Integer userCountryLimit) {
-        this.userCountryLimit = userCountryLimit;
-    }
-
     public P2pAdDetail limitCountryCn(String limitCountryCn) {
         
         this.limitCountryCn = limitCountryCn;
@@ -956,7 +880,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Whether auto delegation
+     * Whether auto-delegation is enabled. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isHedge
     **/
     @javax.annotation.Nullable
@@ -976,7 +900,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Whether to hide payment method
+     * Whether payment methods are hidden. &#x60;1&#x60;: hidden; &#x60;0&#x60;: visible.
      * @return hidePayment
     **/
     @javax.annotation.Nullable
@@ -987,26 +911,6 @@ public class P2pAdDetail {
 
     public void setHidePayment(Integer hidePayment) {
         this.hidePayment = hidePayment;
-    }
-
-    public P2pAdDetail fee(Integer fee) {
-        
-        this.fee = fee;
-        return this;
-    }
-
-     /**
-     * fee
-     * @return fee
-    **/
-    @javax.annotation.Nullable
-    public Integer getFee() {
-        return fee;
-    }
-
-
-    public void setFee(Integer fee) {
-        this.fee = fee;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1037,7 +941,6 @@ public class P2pAdDetail {
                 Objects.equals(this.hideRate, p2pAdDetail.hideRate) &&
                 Objects.equals(this.tradeTips, p2pAdDetail.tradeTips) &&
                 Objects.equals(this.autoReply, p2pAdDetail.autoReply) &&
-                Objects.equals(this.newHand, p2pAdDetail.newHand) &&
                 Objects.equals(this.rateRefId, p2pAdDetail.rateRefId) &&
                 Objects.equals(this.rateOffset, p2pAdDetail.rateOffset) &&
                 Objects.equals(this.status, p2pAdDetail.status) &&
@@ -1047,22 +950,19 @@ public class P2pAdDetail {
                 Objects.equals(this.tierLimit, p2pAdDetail.tierLimit) &&
                 Objects.equals(this.regTimeLimit, p2pAdDetail.regTimeLimit) &&
                 Objects.equals(this.advertisersLimit, p2pAdDetail.advertisersLimit) &&
-                Objects.equals(this.verifiedLimit, p2pAdDetail.verifiedLimit) &&
                 Objects.equals(this.minCompletedLimit, p2pAdDetail.minCompletedLimit) &&
                 Objects.equals(this.maxCompletedLimit, p2pAdDetail.maxCompletedLimit) &&
                 Objects.equals(this.userOrdersLimit, p2pAdDetail.userOrdersLimit) &&
                 Objects.equals(this.completedRateLimit, p2pAdDetail.completedRateLimit) &&
-                Objects.equals(this.userCountryLimit, p2pAdDetail.userCountryLimit) &&
                 Objects.equals(this.limitCountryCn, p2pAdDetail.limitCountryCn) &&
                 Objects.equals(this.limitCountryEn, p2pAdDetail.limitCountryEn) &&
                 Objects.equals(this.isHedge, p2pAdDetail.isHedge) &&
-                Objects.equals(this.hidePayment, p2pAdDetail.hidePayment) &&
-                Objects.equals(this.fee, p2pAdDetail.fee);
+                Objects.equals(this.hidePayment, p2pAdDetail.hidePayment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rate, type, amount, minAmount, maxAmount, total, payAli, payBank, payPaypal, payWechat, payTypeNum, payTypeJson, lockedAmount, orderid, timestamp, currencyType, wantType, hideRate, tradeTips, autoReply, newHand, rateRefId, rateOffset, status, rateFixed, floatTrend, expireMin, tierLimit, regTimeLimit, advertisersLimit, verifiedLimit, minCompletedLimit, maxCompletedLimit, userOrdersLimit, completedRateLimit, userCountryLimit, limitCountryCn, limitCountryEn, isHedge, hidePayment, fee);
+        return Objects.hash(rate, type, amount, minAmount, maxAmount, total, payAli, payBank, payPaypal, payWechat, payTypeNum, payTypeJson, lockedAmount, orderid, timestamp, currencyType, wantType, hideRate, tradeTips, autoReply, rateRefId, rateOffset, status, rateFixed, floatTrend, expireMin, tierLimit, regTimeLimit, advertisersLimit, minCompletedLimit, maxCompletedLimit, userOrdersLimit, completedRateLimit, limitCountryCn, limitCountryEn, isHedge, hidePayment);
     }
 
 
@@ -1090,7 +990,6 @@ public class P2pAdDetail {
         sb.append("      hideRate: ").append(toIndentedString(hideRate)).append("\n");
         sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
         sb.append("      autoReply: ").append(toIndentedString(autoReply)).append("\n");
-        sb.append("      newHand: ").append(toIndentedString(newHand)).append("\n");
         sb.append("      rateRefId: ").append(toIndentedString(rateRefId)).append("\n");
         sb.append("      rateOffset: ").append(toIndentedString(rateOffset)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
@@ -1100,17 +999,14 @@ public class P2pAdDetail {
         sb.append("      tierLimit: ").append(toIndentedString(tierLimit)).append("\n");
         sb.append("      regTimeLimit: ").append(toIndentedString(regTimeLimit)).append("\n");
         sb.append("      advertisersLimit: ").append(toIndentedString(advertisersLimit)).append("\n");
-        sb.append("      verifiedLimit: ").append(toIndentedString(verifiedLimit)).append("\n");
         sb.append("      minCompletedLimit: ").append(toIndentedString(minCompletedLimit)).append("\n");
         sb.append("      maxCompletedLimit: ").append(toIndentedString(maxCompletedLimit)).append("\n");
         sb.append("      userOrdersLimit: ").append(toIndentedString(userOrdersLimit)).append("\n");
         sb.append("      completedRateLimit: ").append(toIndentedString(completedRateLimit)).append("\n");
-        sb.append("      userCountryLimit: ").append(toIndentedString(userCountryLimit)).append("\n");
         sb.append("      limitCountryCn: ").append(toIndentedString(limitCountryCn)).append("\n");
         sb.append("      limitCountryEn: ").append(toIndentedString(limitCountryEn)).append("\n");
         sb.append("      isHedge: ").append(toIndentedString(isHedge)).append("\n");
         sb.append("      hidePayment: ").append(toIndentedString(hidePayment)).append("\n");
-        sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("}");
         return sb.toString();
     }

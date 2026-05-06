@@ -14,5 +14,5 @@ Name | Type | Description | Notes
 **backtestApr** | **String** |  |  [optional]
 **maxDrawdown** | **String** |  |  [optional]
 **summary** | **String** |  | 
-**strategyParamsPreview** | **Map&lt;String, String&gt;** | Recommended parameter preview; dynamic changes by strategy type |  [optional]
+**strategyParamsPreview** | **String** | Recommended-parameter preview as JSON text (string-encoded so clients deserialize it consistently). The value is a serialized JSON object whose structure varies by strategy type; callers or upper-layer models must parse it. |  [optional]
 

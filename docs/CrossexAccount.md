@@ -18,5 +18,5 @@ Name | Type | Description | Notes
 **updateTime** | **String** | Update time | 
 **accountMode** | **String** | Account Mode. CROSS_EXCHANGE: Cross-Exchange Mode; ISOLATED_EXCHANGE: Split-Exchange Mode |  [optional]
 **exchangeType** | **String** | Exchange Type. When account_mode is CROSS_EXCHANGE, it must be CROSSEX; otherwise, it is another exchange. |  [optional]
-**assets** | [**List&lt;CrossexAccountAsset&gt;**](CrossexAccountAsset.md) |  | 
+**assets** | [**List&lt;CrossexAccountAsset&gt;**](CrossexAccountAsset.md) | 资产列表，按交易所与币种维度返回各账户余额、保证金及盈亏明细 | 
 

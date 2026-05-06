@@ -188,7 +188,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Ad buy/sell direction
+     * Ad side: &#x60;buy&#x60; buy-crypto ad; &#x60;sell&#x60; sell-crypto ad.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -248,7 +248,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Remaining cryptocurrency amount of ad
+     * Remaining crypto amount on the ad.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -388,7 +388,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Payment method configuration details
+     * JSON map of payment type -&gt; payment method ID.
      * @return payTypeJson
     **/
     @javax.annotation.Nullable
@@ -448,7 +448,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Whether merchant trading restriction is allowed
+     * Whether trading with the advertiser is restricted. &#x60;0&#x60;: no; &#x60;1&#x60;: yes.
      * @return advertisersLimit
     **/
     @javax.annotation.Nullable
@@ -608,7 +608,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Whether to hide payment method
+     * Whether payment methods are hidden. &#x60;1&#x60;: hidden; &#x60;0&#x60;: visible.
      * @return hidePayment
     **/
     @javax.annotation.Nullable
@@ -628,7 +628,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Digital currency
+     * Cryptocurrency symbol.
      * @return currencyType
     **/
     @javax.annotation.Nullable
@@ -688,7 +688,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Special ad type
+     * Special ad type. &#x60;0&#x60; normal; &#x60;1&#x60; newcomer guide; &#x60;2&#x60; newcomer discount; &#x60;3&#x60; featured promo; &#x60;4&#x60; KOL ad; &#x60;5&#x60; coupon ad.
      * @return newHand
     **/
     @javax.annotation.Nullable
@@ -708,7 +708,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Ad ID
+     * Advertisement ID.
      * @return id
     **/
     @javax.annotation.Nullable
@@ -728,7 +728,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Ad status
+     * Ad status: &#x60;OPEN&#x60; listed; &#x60;OFFLIN&#x60; delisted; &#x60;CLOSED&#x60; closed; &#x60;CANCEL&#x60; canceled.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -788,7 +788,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Whether ad is currently expired
+     * Whether the ad timed out. &#x60;1&#x60;: timed out; &#x60;0&#x60;: not yet.
      * @return isOutTime
     **/
     @javax.annotation.Nullable
@@ -808,7 +808,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Floating price reference configuration
+     * Floating reference: &#x60;1&#x60; platform; &#x60;2&#x60; Gate; &#x60;3&#x60; spot; &#x60;&lt;&#x3D; 0&#x60; means fixed price.
      * @return rateRefId
     **/
     @javax.annotation.Nullable
@@ -848,7 +848,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Reference price type: 0&#x3D;Floating, 1&#x3D;Fixed
+     * Price type: &#x60;0&#x60; floating; &#x60;1&#x60; fixed.
      * @return rateFixed
     **/
     @javax.annotation.Nullable
@@ -868,7 +868,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Floating order direction
+     * Floating direction: &#x60;0&#x60; markup; &#x60;1&#x60; markdown.
      * @return floatTrend
     **/
     @javax.annotation.Nullable
@@ -888,7 +888,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Whether ad has disputed transactions
+     * Whether the ad had a disputed trade. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return inDispute
     **/
     @javax.annotation.Nullable
@@ -948,7 +948,7 @@ public class P2pMyAd {
     }
 
      /**
-     * Auto delegation
+     * Whether auto-delegation is enabled. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isHedge
     **/
     @javax.annotation.Nullable

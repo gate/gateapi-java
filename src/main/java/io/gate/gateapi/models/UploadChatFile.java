@@ -23,31 +23,82 @@ import java.io.IOException;
  * Upload chat file request
  */
 public class UploadChatFile {
+    /**
+     * File MIME type: supports &#x60;image/jpeg&#x60;, &#x60;image/jpg&#x60;, &#x60;image/png&#x60;, &#x60;video/mp4&#x60;.
+     */
+    @JsonAdapter(ImageContentTypeEnum.Adapter.class)
+    public enum ImageContentTypeEnum {
+        IMAGE_JPEG("image/jpeg"),
+        
+        IMAGE_JPG("image/jpg"),
+        
+        IMAGE_PNG("image/png"),
+        
+        VIDEO_MP4("video/mp4");
+
+        private String value;
+
+        ImageContentTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ImageContentTypeEnum fromValue(String value) {
+            for (ImageContentTypeEnum b : ImageContentTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<ImageContentTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ImageContentTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ImageContentTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return ImageContentTypeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_IMAGE_CONTENT_TYPE = "image_content_type";
     @SerializedName(SERIALIZED_NAME_IMAGE_CONTENT_TYPE)
-    private String imageContentType;
+    private ImageContentTypeEnum imageContentType;
 
     public static final String SERIALIZED_NAME_BASE64_IMG = "base64_img";
     @SerializedName(SERIALIZED_NAME_BASE64_IMG)
     private String base64Img;
 
 
-    public UploadChatFile imageContentType(String imageContentType) {
+    public UploadChatFile imageContentType(ImageContentTypeEnum imageContentType) {
         
         this.imageContentType = imageContentType;
         return this;
     }
 
      /**
-     * File type, currently only images and videos are supported
+     * File MIME type: supports &#x60;image/jpeg&#x60;, &#x60;image/jpg&#x60;, &#x60;image/png&#x60;, &#x60;video/mp4&#x60;.
      * @return imageContentType
     **/
-    public String getImageContentType() {
+    public ImageContentTypeEnum getImageContentType() {
         return imageContentType;
     }
 
 
-    public void setImageContentType(String imageContentType) {
+    public void setImageContentType(ImageContentTypeEnum imageContentType) {
         this.imageContentType = imageContentType;
     }
 
@@ -58,7 +109,7 @@ public class UploadChatFile {
     }
 
      /**
-     * File content (base64 encoded)
+     * Base64 file content; max 20 MB.
      * @return base64Img
     **/
     public String getBase64Img() {

@@ -163,7 +163,7 @@ public class P2pAdsListItem {
     }
 
      /**
-     * Maximum Cryptocurrency Amount
+     * Maximum crypto size per trade.
      * @return maxSingleTransAmount
     **/
     @javax.annotation.Nullable
@@ -183,7 +183,7 @@ public class P2pAdsListItem {
     }
 
      /**
-     * Minimum Cryptocurrency Amount
+     * Minimum crypto size per trade.
      * @return minSingleTransAmount
     **/
     @javax.annotation.Nullable

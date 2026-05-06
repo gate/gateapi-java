@@ -38,6 +38,7 @@ import io.gate.gateapi.models.P2pAdsListResponse;
 import io.gate.gateapi.models.P2pAdsUpdateStatusResponse;
 import io.gate.gateapi.models.P2pChatListResponse;
 import io.gate.gateapi.models.P2pCounterpartyUserInfoResponse;
+import io.gate.gateapi.models.P2pMerchantBooksPlaceBizPushOrderResponse;
 import io.gate.gateapi.models.P2pMerchantUserInfoResponse;
 import io.gate.gateapi.models.P2pMyAdsListResponse;
 import io.gate.gateapi.models.P2pPaymentMethodsResponse;
@@ -1080,7 +1081,7 @@ public class P2pApi {
      * Publish ad order
      * 
      * @param placeBizPushOrder  (required)
-     * @return Object
+     * @return P2pMerchantBooksPlaceBizPushOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1088,8 +1089,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public Object p2pMerchantBooksPlaceBizPushOrder(PlaceBizPushOrder placeBizPushOrder) throws ApiException {
-        ApiResponse<Object> localVarResp = p2pMerchantBooksPlaceBizPushOrderWithHttpInfo(placeBizPushOrder);
+    public P2pMerchantBooksPlaceBizPushOrderResponse p2pMerchantBooksPlaceBizPushOrder(PlaceBizPushOrder placeBizPushOrder) throws ApiException {
+        ApiResponse<P2pMerchantBooksPlaceBizPushOrderResponse> localVarResp = p2pMerchantBooksPlaceBizPushOrderWithHttpInfo(placeBizPushOrder);
         return localVarResp.getData();
     }
 
@@ -1097,7 +1098,7 @@ public class P2pApi {
      * Publish ad order
      * 
      * @param placeBizPushOrder  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;P2pMerchantBooksPlaceBizPushOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1105,9 +1106,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> p2pMerchantBooksPlaceBizPushOrderWithHttpInfo(PlaceBizPushOrder placeBizPushOrder) throws ApiException {
+    public ApiResponse<P2pMerchantBooksPlaceBizPushOrderResponse> p2pMerchantBooksPlaceBizPushOrderWithHttpInfo(PlaceBizPushOrder placeBizPushOrder) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksPlaceBizPushOrderValidateBeforeCall(placeBizPushOrder, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pMerchantBooksPlaceBizPushOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1124,9 +1125,9 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksPlaceBizPushOrderAsync(PlaceBizPushOrder placeBizPushOrder, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantBooksPlaceBizPushOrderAsync(PlaceBizPushOrder placeBizPushOrder, final ApiCallback<P2pMerchantBooksPlaceBizPushOrderResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantBooksPlaceBizPushOrderValidateBeforeCall(placeBizPushOrder, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<P2pMerchantBooksPlaceBizPushOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1134,7 +1135,6 @@ public class P2pApi {
     /**
      * Build call for p2pMerchantBooksAdsUpdateStatus
      * @param adsUpdateStatus  (required)
-     * @param tradeType Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1144,7 +1144,7 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksAdsUpdateStatusCall(AdsUpdateStatus adsUpdateStatus, String tradeType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call p2pMerchantBooksAdsUpdateStatusCall(AdsUpdateStatus adsUpdateStatus, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = adsUpdateStatus;
 
         // create path and map variables
@@ -1152,10 +1152,6 @@ public class P2pApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (tradeType != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("trade_type", tradeType));
-        }
-
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -1178,13 +1174,13 @@ public class P2pApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(AdsUpdateStatus adsUpdateStatus, String tradeType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(AdsUpdateStatus adsUpdateStatus, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'adsUpdateStatus' is set
         if (adsUpdateStatus == null) {
             throw new ApiException("Missing the required parameter 'adsUpdateStatus' when calling p2pMerchantBooksAdsUpdateStatus(Async)");
         }
 
-        okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusCall(adsUpdateStatus, tradeType, _callback);
+        okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusCall(adsUpdateStatus, _callback);
         return localVarCall;
     }
 
@@ -1192,7 +1188,6 @@ public class P2pApi {
      * Update ad status
      * 
      * @param adsUpdateStatus  (required)
-     * @param tradeType Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
      * @return P2pAdsUpdateStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1201,8 +1196,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public P2pAdsUpdateStatusResponse p2pMerchantBooksAdsUpdateStatus(AdsUpdateStatus adsUpdateStatus, String tradeType) throws ApiException {
-        ApiResponse<P2pAdsUpdateStatusResponse> localVarResp = p2pMerchantBooksAdsUpdateStatusWithHttpInfo(adsUpdateStatus, tradeType);
+    public P2pAdsUpdateStatusResponse p2pMerchantBooksAdsUpdateStatus(AdsUpdateStatus adsUpdateStatus) throws ApiException {
+        ApiResponse<P2pAdsUpdateStatusResponse> localVarResp = p2pMerchantBooksAdsUpdateStatusWithHttpInfo(adsUpdateStatus);
         return localVarResp.getData();
     }
 
@@ -1210,7 +1205,6 @@ public class P2pApi {
      * Update ad status
      * 
      * @param adsUpdateStatus  (required)
-     * @param tradeType Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
      * @return ApiResponse&lt;P2pAdsUpdateStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1219,8 +1213,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<P2pAdsUpdateStatusResponse> p2pMerchantBooksAdsUpdateStatusWithHttpInfo(AdsUpdateStatus adsUpdateStatus, String tradeType) throws ApiException {
-        okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(adsUpdateStatus, tradeType, null);
+    public ApiResponse<P2pAdsUpdateStatusResponse> p2pMerchantBooksAdsUpdateStatusWithHttpInfo(AdsUpdateStatus adsUpdateStatus) throws ApiException {
+        okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(adsUpdateStatus, null);
         Type localVarReturnType = new TypeToken<P2pAdsUpdateStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1229,7 +1223,6 @@ public class P2pApi {
      * Update ad status (asynchronously)
      * 
      * @param adsUpdateStatus  (required)
-     * @param tradeType Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1239,8 +1232,8 @@ public class P2pApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call p2pMerchantBooksAdsUpdateStatusAsync(AdsUpdateStatus adsUpdateStatus, String tradeType, final ApiCallback<P2pAdsUpdateStatusResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(adsUpdateStatus, tradeType, _callback);
+    public okhttp3.Call p2pMerchantBooksAdsUpdateStatusAsync(AdsUpdateStatus adsUpdateStatus, final ApiCallback<P2pAdsUpdateStatusResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = p2pMerchantBooksAdsUpdateStatusValidateBeforeCall(adsUpdateStatus, _callback);
         Type localVarReturnType = new TypeToken<P2pAdsUpdateStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

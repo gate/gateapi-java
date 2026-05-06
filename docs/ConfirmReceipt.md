@@ -7,5 +7,5 @@ Confirm receipt request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tradeId** | **String** |  | 
+**txid** | **String** | Order ID | 
 

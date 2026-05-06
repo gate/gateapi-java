@@ -27,9 +27,56 @@ public class SendChatMessageRequest {
     @SerializedName(SERIALIZED_NAME_TXID)
     private Integer txid;
 
+    /**
+     * Message type: &#x60;0&#x60; text; &#x60;1&#x60; file (image or video); defaults to &#x60;0&#x60;.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1);
+
+        private Integer value;
+
+        TypeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(Integer value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_TYPE = "type";
     @SerializedName(SERIALIZED_NAME_TYPE)
-    private Integer type;
+    private TypeEnum type;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
     @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -55,23 +102,23 @@ public class SendChatMessageRequest {
         this.txid = txid;
     }
 
-    public SendChatMessageRequest type(Integer type) {
+    public SendChatMessageRequest type(TypeEnum type) {
         
         this.type = type;
         return this;
     }
 
      /**
-     * 0&#x3D;Text, 1&#x3D;File (video or image), default is 0 if not provided
+     * Message type: &#x60;0&#x60; text; &#x60;1&#x60; file (image or video); defaults to &#x60;0&#x60;.
      * @return type
     **/
     @javax.annotation.Nullable
-    public Integer getType() {
+    public TypeEnum getType() {
         return type;
     }
 
 
-    public void setType(Integer type) {
+    public void setType(TypeEnum type) {
         this.type = type;
     }
 
@@ -82,7 +129,7 @@ public class SendChatMessageRequest {
     }
 
      /**
-     * Message content
+     * Message body. For &#x60;type&#x3D;0&#x60;, plain text up to 500 characters; for &#x60;type&#x3D;1&#x60;, pass the &#x60;file_key&#x60; returned by &#x60;upload_chat_file&#x60;.
      * @return message
     **/
     public String getMessage() {

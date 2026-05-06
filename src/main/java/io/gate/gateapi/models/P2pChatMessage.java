@@ -68,14 +68,6 @@ public class P2pChatMessage {
     @SerializedName(SERIALIZED_NAME_FILE_TYPE)
     private String fileType;
 
-    public static final String SERIALIZED_NAME_WIDTH = "width";
-    @SerializedName(SERIALIZED_NAME_WIDTH)
-    private String width;
-
-    public static final String SERIALIZED_NAME_HEIGHT = "height";
-    @SerializedName(SERIALIZED_NAME_HEIGHT)
-    private String height;
-
 
     public P2pChatMessage isSell(Integer isSell) {
         
@@ -84,7 +76,7 @@ public class P2pChatMessage {
     }
 
      /**
-     * Whether seller
+     * Whether the current user is the seller. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isSell
     **/
     @javax.annotation.Nullable
@@ -104,7 +96,7 @@ public class P2pChatMessage {
     }
 
      /**
-     * Message type
+     * Message type: &#x60;0&#x60; text; &#x60;1&#x60; file; &#x60;2&#x60; template; &#x60;3&#x60; order-share; &#x60;4&#x60; payment-share; &#x60;5&#x60; status update.
      * @return msgType
     **/
     @javax.annotation.Nullable
@@ -124,7 +116,7 @@ public class P2pChatMessage {
     }
 
      /**
-     * Message content
+     * Message content; for file messages, usually URL or file key.
      * @return msg
     **/
     @javax.annotation.Nullable
@@ -204,7 +196,7 @@ public class P2pChatMessage {
     }
 
      /**
-     * Message sender UID
+     * Sender&#39;s crypto UID; system messages may use &#x60;System&#x60; or an empty string.
      * @return uid
     **/
     @javax.annotation.Nullable
@@ -224,7 +216,7 @@ public class P2pChatMessage {
     }
 
      /**
-     * Message type
+     * Display type: &#x60;1&#x60; file message; &#x60;2&#x60; system message.
      * @return type
     **/
     @javax.annotation.Nullable
@@ -284,7 +276,7 @@ public class P2pChatMessage {
     }
 
      /**
-     * File type
+     * File type: &#x60;image&#x60; for images, &#x60;video&#x60; for videos.
      * @return fileType
     **/
     @javax.annotation.Nullable
@@ -295,46 +287,6 @@ public class P2pChatMessage {
 
     public void setFileType(String fileType) {
         this.fileType = fileType;
-    }
-
-    public P2pChatMessage width(String width) {
-        
-        this.width = width;
-        return this;
-    }
-
-     /**
-     * Image width
-     * @return width
-    **/
-    @javax.annotation.Nullable
-    public String getWidth() {
-        return width;
-    }
-
-
-    public void setWidth(String width) {
-        this.width = width;
-    }
-
-    public P2pChatMessage height(String height) {
-        
-        this.height = height;
-        return this;
-    }
-
-     /**
-     * Image height
-     * @return height
-    **/
-    @javax.annotation.Nullable
-    public String getHeight() {
-        return height;
-    }
-
-
-    public void setHeight(String height) {
-        this.height = height;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -355,14 +307,12 @@ public class P2pChatMessage {
                 Objects.equals(this.type, p2pChatMessage.type) &&
                 Objects.equals(this.pic, p2pChatMessage.pic) &&
                 Objects.equals(this.fileKey, p2pChatMessage.fileKey) &&
-                Objects.equals(this.fileType, p2pChatMessage.fileType) &&
-                Objects.equals(this.width, p2pChatMessage.width) &&
-                Objects.equals(this.height, p2pChatMessage.height);
+                Objects.equals(this.fileType, p2pChatMessage.fileType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isSell, msgType, msg, username, timest, msgObj, uid, type, pic, fileKey, fileType, width, height);
+        return Objects.hash(isSell, msgType, msg, username, timest, msgObj, uid, type, pic, fileKey, fileType);
     }
 
 
@@ -381,8 +331,6 @@ public class P2pChatMessage {
         sb.append("      pic: ").append(toIndentedString(pic)).append("\n");
         sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
         sb.append("      fileType: ").append(toIndentedString(fileType)).append("\n");
-        sb.append("      width: ").append(toIndentedString(width)).append("\n");
-        sb.append("      height: ").append(toIndentedString(height)).append("\n");
         sb.append("}");
         return sb.toString();
     }

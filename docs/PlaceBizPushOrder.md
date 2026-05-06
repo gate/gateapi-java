@@ -7,31 +7,40 @@ Place ad order request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currencyType** | **String** | Cryptocurrency | 
+**currencyType** | **String** | Cryptocurrency symbol. | 
 **exchangeType** | **String** | Fiat currency | 
-**type** | **String** | Ad type: 0&#x3D;Sell, 1&#x3D;Buy, 2&#x3D;Edit sell, 3&#x3D;Edit buy | 
-**unitPrice** | **String** | Unit price | 
-**number** | **String** | Size | 
-**payType** | **String** | Payment method | 
-**payTypeJson** | **String** | Payment method JSON string |  [optional]
-**rateFixed** | **String** | Price type: 0-Floating price, 1-Fixed price |  [optional]
-**oid** | **String** | Ad ID when editing |  [optional]
-**minAmount** | **String** | Minimum transaction amount per order | 
-**maxAmount** | **String** | Maximum transaction amount per order | 
-**tierLimit** | **String** | Order tier limit |  [optional]
-**verifiedLimit** | **String** | Verification level limit |  [optional]
-**regTimeLimit** | **String** | Registration time limit |  [optional]
-**advertisersLimit** | **String** | Advertiser restriction |  [optional]
-**hidePayment** | **String** | Whether to hide payment method: 1&#x3D;Yes, 0&#x3D;No |  [optional]
-**expireMin** | **String** | Ad expiration time (minutes) |  [optional]
-**tradeTips** | **String** | Trading terms |  [optional]
-**autoReply** | **String** | Auto reply |  [optional]
-**minCompletedLimit** | **String** | Minimum limit of completed orders |  [optional]
-**maxCompletedLimit** | **String** | Maximum limit of completed orders |  [optional]
-**completedRateLimit** | **String** | 30-day completion rate limit |  [optional]
-**userCountryLimit** | **String** | KYC nationality restriction |  [optional]
-**userOrderLimit** | **String** | Order count limit |  [optional]
-**rateReferenceId** | **String** | Reference exchange rate ID |  [optional]
-**rateOffset** | **String** | Reference exchange rate offset |  [optional]
-**floatTrend** | **String** | 444 |  [optional]
+**type** | [**TypeEnum**](#TypeEnum) | Ad operation type. &#x60;0&#x60;: publish sell ad; &#x60;1&#x60;: publish buy ad; &#x60;2&#x60;: edit sell ad; &#x60;3&#x60;: edit buy ad. | 
+**unitPrice** | **String** | Per-unit price in fixed-price mode. | 
+**number** | **String** | Ad amount priced in &#x60;currencyType&#x60;. | 
+**payType** | **String** | Payment types, comma-separated; from pay type list &#x60;pay_type&#x60;, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;. | 
+**payTypeJson** | **String** | JSON map of payment type -&gt; user&#39;s payment method ID. |  [optional]
+**rateFixed** | **String** | Price type: &#x60;0&#x60; floating; &#x60;1&#x60; fixed. |  [optional]
+**oid** | **String** | Pass ad ID when editing; omit or empty when publishing a new ad. |  [optional]
+**minAmount** | **String** | Minimum trade amount in &#x60;exchangeType&#x60;. | 
+**maxAmount** | **String** | Maximum amount per trade in &#x60;exchangeType&#x60; fiat units. | 
+**tierLimit** | **String** | Minimum counterparty VIP level; &#x60;0&#x60; means no requirement. |  [optional]
+**verifiedLimit** | **String** | Minimum counterparty verification level; &#x60;0&#x60; means no limit. |  [optional]
+**regTimeLimit** | **String** | Minimum counterparty account age in days; &#x60;0&#x60; means no limit. |  [optional]
+**advertisersLimit** | **String** | Whether trading with the advertiser is restricted. &#x60;0&#x60;: no; &#x60;1&#x60;: yes. |  [optional]
+**expireMin** | **String** | Payment timeout in minutes. |  [optional]
+**tradeTips** | **String** | Ad trading terms shown to the taker. |  [optional]
+**autoReply** | **String** | Auto-reply message after order creation. |  [optional]
+**minCompletedLimit** | **String** | Minimum completed orders for counterparty; &#x60;-1&#x60; unlimited. |  [optional]
+**maxCompletedLimit** | **String** | Maximum completed orders for counterparty; &#x60;-1&#x60; unlimited. |  [optional]
+**completedRateLimit** | **String** | Counterparty minimum 30-day completion rate; &#x60;-1&#x60; means no limit. |  [optional]
+**userCountryLimit** | **String** | KYC nationality restriction; &#x60;-1&#x60; means no restriction. |  [optional]
+**userOrderLimit** | **String** | Maximum concurrent orders allowed for the counterparty. &#x60;-1&#x60;: unlimited. |  [optional]
+**rateReferenceId** | **String** | Floating price reference. &#x60;1&#x60;: platform reference; &#x60;2&#x60;: Gate reference; &#x60;3&#x60;: spot reference. |  [optional]
+**rateOffset** | **String** | Absolute floating offset ratio, e.g. &#x60;0.5&#x60; means 0.5%. |  [optional]
+**floatTrend** | **String** | Floating direction: &#x60;0&#x60; markup; &#x60;1&#x60; markdown. |  [optional]
+**teamPaymentUid** | **String** | Team payee UID; optional for non-team merchants. |  [optional]
+
+## Enum: TypeEnum
+
+Name | Value
+---- | -----
+_0 | &quot;0&quot;
+_1 | &quot;1&quot;
+_2 | &quot;2&quot;
+_3 | &quot;3&quot;
 

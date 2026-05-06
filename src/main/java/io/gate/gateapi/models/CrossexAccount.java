@@ -345,7 +345,7 @@ public class CrossexAccount {
     }
 
      /**
-     * Get assets
+     * 资产列表，按交易所与币种维度返回各账户余额、保证金及盈亏明细
      * @return assets
     **/
     public List<CrossexAccountAsset> getAssets() {

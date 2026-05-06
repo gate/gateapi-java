@@ -58,7 +58,7 @@ public class GetTransactionDetailsRequest {
     }
 
      /**
-     * Empty or web3
+     * Channel tag: omit or empty for normal P2P; use &#x60;web3&#x60; for Web3 orders.
      * @return channel
     **/
     @javax.annotation.Nullable

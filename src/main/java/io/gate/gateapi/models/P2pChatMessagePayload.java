@@ -117,7 +117,7 @@ public class P2pChatMessagePayload {
     }
 
      /**
-     * Order status when message was sent
+     * Order status when sending a message. Typical values: &#x60;OPEN&#x60;, &#x60;PAID&#x60;, &#x60;LOCKED&#x60;, &#x60;ACCEPT&#x60;, &#x60;BCLOSED&#x60;, &#x60;CANCEL&#x60;, &#x60;BECANCEL&#x60;, &#x60;SCLOSED&#x60;, &#x60;SCANCEL&#x60;.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -185,7 +185,7 @@ public class P2pChatMessagePayload {
     }
 
      /**
-     * Cancellation reason ID
+     * Cancel reason ID. &#x60;1&#x60; no longer want to buy; &#x60;2&#x60; cannot reach seller; &#x60;3&#x60; will not pay; &#x60;4&#x60; seller account not real; &#x60;5&#x60; payout account issue; &#x60;6&#x60; price mismatch; &#x60;7&#x60; mutually agreed cancel; &#x60;8&#x60; poor communication; &#x60;9&#x60; other; &#x60;10&#x60; seller cannot release with refund; &#x60;11&#x60; terms not met; &#x60;12&#x60; seller payout risk-controlled.
      * @return reasonId
     **/
     @javax.annotation.Nullable
@@ -225,7 +225,7 @@ public class P2pChatMessagePayload {
     }
 
      /**
-     * Cancellation reason title
+     * Cancel reason description.
      * @return reasonMemo
     **/
     @javax.annotation.Nullable
@@ -265,7 +265,7 @@ public class P2pChatMessagePayload {
     }
 
      /**
-     * Whether seller confirmed the reason
+     * Seller confirmation of cancel reason: &#x60;0&#x60; pending; &#x60;1&#x60; confirmed; &#x60;2&#x60; rejected.
      * @return sellerConfirm
     **/
     @javax.annotation.Nullable
@@ -385,7 +385,7 @@ public class P2pChatMessagePayload {
     }
 
      /**
-     * Payment method name
+     * Payment account or masked payment account.
      * @return account
     **/
     @javax.annotation.Nullable
@@ -505,7 +505,7 @@ public class P2pChatMessagePayload {
     }
 
      /**
-     * Whether deleted
+     * Whether the payment method was deleted. &#x60;1&#x60;: deleted; &#x60;0&#x60;: not deleted.
      * @return isDelete
     **/
     @javax.annotation.Nullable

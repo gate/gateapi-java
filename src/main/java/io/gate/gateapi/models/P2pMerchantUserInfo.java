@@ -217,7 +217,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether email is verified
+     * Whether email is verified. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return emailVerified
     **/
     @javax.annotation.Nullable
@@ -237,7 +237,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether KYC verification is completed
+     * Whether KYC is completed. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return verified
     **/
     @javax.annotation.Nullable
@@ -257,7 +257,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether phone is bound
+     * Whether a phone number is bound. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return hasPhone
     **/
     @javax.annotation.Nullable
@@ -477,7 +477,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether blocked
+     * Whether the user is blocked. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isBlack
     **/
     @javax.annotation.Nullable
@@ -497,7 +497,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether following
+     * Whether you follow this user. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isFollow
     **/
     @javax.annotation.Nullable
@@ -517,7 +517,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether traded with self
+     * Whether you have traded with this user before. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return haveTraded
     **/
     @javax.annotation.Nullable
@@ -637,7 +637,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Whether margin replenishment is needed
+     * Whether additional margin is required. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return needReplenish
     **/
     @javax.annotation.Nullable
@@ -677,7 +677,7 @@ public class P2pMerchantUserInfo {
     }
 
      /**
-     * Merchant online status
+     * Merchant online status: &#x60;1&#x60; online; &#x60;0&#x60; offline.
      * @return onlineStatus
     **/
     @javax.annotation.Nullable

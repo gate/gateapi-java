@@ -7,6 +7,14 @@ Ad status update request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**advNo** | **Integer** | Ad ID | 
-**advStatus** | **Integer** | Ad status: 1&#x3D;Active, 3&#x3D;Inactive, 4&#x3D;Closed | 
+**advNo** | **Integer** | Advertisement ID. | 
+**advStatus** | [**AdvStatusEnum**](#AdvStatusEnum) | Ad status. &#x60;1&#x60;: listed; &#x60;3&#x60;: delisted; &#x60;4&#x60;: closed. | 
+
+## Enum: AdvStatusEnum
+
+Name | Value
+---- | -----
+NUMBER_1 | 1
+NUMBER_3 | 3
+NUMBER_4 | 4
 

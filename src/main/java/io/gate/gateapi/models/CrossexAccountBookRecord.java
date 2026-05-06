@@ -35,9 +35,9 @@ public class CrossexAccountBookRecord {
     @SerializedName(SERIALIZED_NAME_BUSINESS_ID)
     private String businessId;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    public static final String SERIALIZED_NAME_STATEMENT_TYPE = "statement_type";
+    @SerializedName(SERIALIZED_NAME_STATEMENT_TYPE)
+    private String statementType;
 
     public static final String SERIALIZED_NAME_EXCHANGE_TYPE = "exchange_type";
     @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
@@ -117,23 +117,23 @@ public class CrossexAccountBookRecord {
         this.businessId = businessId;
     }
 
-    public CrossexAccountBookRecord type(String type) {
+    public CrossexAccountBookRecord statementType(String statementType) {
         
-        this.type = type;
+        this.statementType = statementType;
         return this;
     }
 
      /**
-     * Change type | &#x60;TRANSACTION&#x60; trade &#x60;TRADING_FEE&#x60; fee &#x60;FUNDING_FEE&#x60; futures funding fee &#x60;LIQUIDATION_FEE&#x60; liquidation fee &#x60;TRANSFER_IN&#x60; transfer in &#x60;TRANSFER_OUT&#x60; transfer out &#x60;BANKRUPT_COMPENSATION&#x60; bankruptcy compensation &#x60;AUTO_REPAY&#x60; margin position auto-repay
-     * @return type
+     * Bill entry type | &#x60;TRANSACTION&#x60; trade &#x60;TRADING_FEE&#x60; fee &#x60;FUNDING_FEE&#x60; funding &#x60;LIQUIDATION_FEE&#x60; liquidation &#x60;TRANSFER_IN&#x60; deposit &#x60;TRANSFER_OUT&#x60; withdrawal &#x60;BANKRUPT_COMPENSATION&#x60; bankruptcy subsidy &#x60;AUTO_REPAY&#x60; margin auto-repay
+     * @return statementType
     **/
-    public String getType() {
-        return type;
+    public String getStatementType() {
+        return statementType;
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public void setStatementType(String statementType) {
+        this.statementType = statementType;
     }
 
     public CrossexAccountBookRecord exchangeType(String exchangeType) {
@@ -242,7 +242,7 @@ public class CrossexAccountBookRecord {
         return Objects.equals(this.id, crossexAccountBookRecord.id) &&
                 Objects.equals(this.userId, crossexAccountBookRecord.userId) &&
                 Objects.equals(this.businessId, crossexAccountBookRecord.businessId) &&
-                Objects.equals(this.type, crossexAccountBookRecord.type) &&
+                Objects.equals(this.statementType, crossexAccountBookRecord.statementType) &&
                 Objects.equals(this.exchangeType, crossexAccountBookRecord.exchangeType) &&
                 Objects.equals(this.coin, crossexAccountBookRecord.coin) &&
                 Objects.equals(this.change, crossexAccountBookRecord.change) &&
@@ -252,7 +252,7 @@ public class CrossexAccountBookRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, businessId, type, exchangeType, coin, change, balance, createTime);
+        return Objects.hash(id, userId, businessId, statementType, exchangeType, coin, change, balance, createTime);
     }
 
 
@@ -263,7 +263,7 @@ public class CrossexAccountBookRecord {
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("      businessId: ").append(toIndentedString(businessId)).append("\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
+        sb.append("      statementType: ").append(toIndentedString(statementType)).append("\n");
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
         sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
         sb.append("      change: ").append(toIndentedString(change)).append("\n");

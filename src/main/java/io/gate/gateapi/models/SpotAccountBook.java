@@ -163,7 +163,7 @@ public class SpotAccountBook {
     }
 
      /**
-     * Account book type. Please refer to [account book type](#accountbook-type) for more detail
+     * Account change type; deprecated (see &#x60;code&#x60; for account change type encoding)
      * @return type
     **/
     @javax.annotation.Nullable

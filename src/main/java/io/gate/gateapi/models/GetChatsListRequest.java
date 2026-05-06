@@ -43,9 +43,10 @@ public class GetChatsListRequest {
     }
 
      /**
-     * Order ID
+     * Order ID; omit or &#x60;0&#x60; to return the latest order with chat for the user.
      * @return txid
     **/
+    @javax.annotation.Nullable
     public Integer getTxid() {
         return txid;
     }
@@ -62,7 +63,7 @@ public class GetChatsListRequest {
     }
 
      /**
-     * Pagination timestamp (forward)
+     * Timestamp of the last received message for backward incremental fetch; omit on first load.
      * @return lastreceived
     **/
     @javax.annotation.Nullable
@@ -82,7 +83,7 @@ public class GetChatsListRequest {
     }
 
      /**
-     * Pagination timestamp (backward)
+     * Timestamp of first received message for paging backward; omit on first load.
      * @return firstreceived
     **/
     @javax.annotation.Nullable

@@ -35,7 +35,7 @@ public class AdsDetailRequest {
     }
 
      /**
-     * Get advNo
+     * Advertisement ID.
      * @return advNo
     **/
     public String getAdvNo() {

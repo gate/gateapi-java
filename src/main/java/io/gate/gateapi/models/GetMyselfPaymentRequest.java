@@ -35,7 +35,7 @@ public class GetMyselfPaymentRequest {
     }
 
      /**
-     * Fiat currency
+     * Fiat currency; omit to return all available payment methods.
      * @return fiat
     **/
     @javax.annotation.Nullable

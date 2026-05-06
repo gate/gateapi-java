@@ -143,7 +143,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Get userId
+     * User ID
      * @return userId
     **/
     public String getUserId() {
@@ -181,7 +181,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Customer-defined order ID
+     * Client-defined order ID.
      * @return text
     **/
     public String getText() {
@@ -200,7 +200,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order State:  NEW: The order is legal and waiting to be sent to the exchange  OPEN: The order has been placed on the orderbook of the exchange  PARTIALLY_FILLED: The order has been partially completed  FILLED: The order has been fully executed  FAIL: The order verification in CrossEx did not pass. Please check the order reason  REJECT：The order was rejected by the exchange. Please check the order reason
+     * 订单状态：  NEW：订单已通过校验，等待发送到交易所  OPEN：订单已挂在交易所订单簿上  PARTIALLY_FILLED：订单已部分成交  FILLED：订单已完全成交  FAIL：CrossEx 内部校验未通过，请查看 reason 字段了解失败原因  REJECT：订单被交易所拒绝，请查看 reason 字段了解失败原因
      * @return state
     **/
     public String getState() {
@@ -219,7 +219,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Trading pair unique identifier ,example: BINANCE_SPOT_BTC_USDT, BINANCE_FUTURE_BTC_USDT
+     * Unique trading pair identifiers, e.g. &#x60;BINANCE_SPOT_BTC_USDT&#x60;, &#x60;BINANCE_FUTURE_BTC_USDT&#x60;.
      * @return symbol
     **/
     public String getSymbol() {
@@ -238,7 +238,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Side(BUY,SELL)
+     * Side (&#x60;BUY&#x60; buy / &#x60;SELL&#x60; sell).
      * @return side
     **/
     public String getSide() {
@@ -257,7 +257,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Type(LIMIT, MARKET)
+     * Order type (&#x60;LIMIT&#x60; limit / &#x60;MARKET&#x60; market).
      * @return type
     **/
     public String getType() {
@@ -276,7 +276,7 @@ public class CrossexOrder {
     }
 
      /**
-     * COMMON, LIQ, REDUCE, ADL
+     * Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage).
      * @return attribute
     **/
     public String getAttribute() {
@@ -295,7 +295,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Exchange type(BINANCE,OKX,GATE,BYBIT)
+     * Exchange type (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60;).
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -314,7 +314,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Business type(SPOT,FUTURE,MARGIN)
+     * Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin).
      * @return businessType
     **/
     public String getBusinessType() {
@@ -333,7 +333,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order base quantity
+     * Order quantity in the base currency.
      * @return qty
     **/
     public String getQty() {
@@ -352,7 +352,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order quote quantity
+     * Order quantity in the quote currency.
      * @return quoteQty
     **/
     public String getQuoteQty() {
@@ -371,7 +371,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order price
+     * Order price.
      * @return price
     **/
     public String getPrice() {
@@ -390,7 +390,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Timeinforce (default GTC, enums:GTC,IOC,FOK,POC)
+     * Time in force (default &#x60;GTC&#x60;; enum: &#x60;GTC&#x60; / &#x60;IOC&#x60; / &#x60;FOK&#x60; / &#x60;POC&#x60;).
      * @return timeInForce
     **/
     public String getTimeInForce() {
@@ -409,7 +409,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Executed quantity
+     * Filled base amount.
      * @return executedQty
     **/
     public String getExecutedQty() {
@@ -428,7 +428,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Executed quote quantity
+     * Filled quote amount.
      * @return executedAmount
     **/
     public String getExecutedAmount() {
@@ -447,7 +447,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Average transaction price
+     * Average Filled Price
      * @return executedAvgPrice
     **/
     public String getExecutedAvgPrice() {
@@ -466,7 +466,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Transaction fee coin
+     * Fee currency
      * @return feeCoin
     **/
     public String getFeeCoin() {
@@ -485,7 +485,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Transaction fee amount
+     * Fee amount.
      * @return fee
     **/
     public String getFee() {
@@ -504,7 +504,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Reduce position orders only, \&quot;true\&quot; or \&quot;false\&quot;
+     * Reduce-only order (&#x60;\&quot;true\&quot;&#x60; or &#x60;\&quot;false\&quot;&#x60;).
      * @return reduceOnly
     **/
     public String getReduceOnly() {
@@ -523,7 +523,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order leverage
+     * Order leverage multiplier.
      * @return leverage
     **/
     public String getLeverage() {
@@ -542,7 +542,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Fail message
+     * Failure reason description.
      * @return reason
     **/
     public String getReason() {
@@ -561,7 +561,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Last transaction quantity
+     * Base quantity of the latest fill.
      * @return lastExecutedQty
     **/
     public String getLastExecutedQty() {
@@ -580,7 +580,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Last transaction price
+     * Price of the latest fill.
      * @return lastExecutedPrice
     **/
     public String getLastExecutedPrice() {
@@ -599,7 +599,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Last transaction amount
+     * Quote amount of the latest fill.
      * @return lastExecutedAmount
     **/
     public String getLastExecutedAmount() {
@@ -618,7 +618,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Position side(NONE/LONG/SHORT)
+     * Position side (&#x60;NONE&#x60; flat / &#x60;LONG&#x60; long / &#x60;SHORT&#x60; short).
      * @return positionSide
     **/
     public String getPositionSide() {
@@ -637,7 +637,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Create time
+     * Created time
      * @return createTime
     **/
     public String getCreateTime() {

@@ -59,7 +59,7 @@ public class P2pPaymentMethodAccount {
     @SerializedName(SERIALIZED_NAME_BANKDESC)
     private String bankdesc;
 
-    public static final String SERIALIZED_NAME_HOLD_UID = "holdUid";
+    public static final String SERIALIZED_NAME_HOLD_UID = "hold_uid";
     @SerializedName(SERIALIZED_NAME_HOLD_UID)
     private Integer holdUid;
 
@@ -259,7 +259,7 @@ public class P2pPaymentMethodAccount {
     }
 
      /**
-     * Bank card number
+     * Bank card number or masked card number.
      * @return bankaddr
     **/
     @javax.annotation.Nullable
@@ -339,7 +339,7 @@ public class P2pPaymentMethodAccount {
     }
 
      /**
-     * userfirst name
+     * User verified display name.
      * @return realName
     **/
     @javax.annotation.Nullable
@@ -459,7 +459,7 @@ public class P2pPaymentMethodAccount {
     }
 
      /**
-     * Payment method name
+     * Payment account or masked payment account.
      * @return account
     **/
     @javax.annotation.Nullable

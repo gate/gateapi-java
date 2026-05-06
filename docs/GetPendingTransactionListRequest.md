@@ -7,12 +7,19 @@ Get pending transaction list request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cryptoCurrency** | **String** | Cryptocurrency | 
+**cryptoCurrency** | **String** | Cryptocurrency symbol. | 
 **fiatCurrency** | **String** | Fiat currency | 
-**orderTab** | **String** | Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;))) |  [optional]
-**selectType** | **String** | Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All) |  [optional]
-**status** | **String** | Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED) |  [optional]
+**orderTab** | [**OrderTabEnum**](#OrderTabEnum) | Order tab: &#x60;pending&#x60; in progress (&#x60;OPEN&#x60;, &#x60;PAID&#x60;, &#x60;LOCKED&#x60;, &#x60;TEMP&#x60;); &#x60;dispute&#x60; in dispute; default &#x60;pending&#x60;. |  [optional]
+**selectType** | **String** | Order side filter: &#x60;buy&#x60; buy orders; &#x60;sell&#x60; sell orders; empty: all. |  [optional]
+**status** | **String** | Order status filter. &#x60;open&#x60; unpaid (&#x60;OPEN&#x60;); &#x60;paid&#x60; paid (&#x60;PAID&#x60;); &#x60;locked&#x60; locked (&#x60;LOCKED&#x60;); &#x60;dispute&#x60; in dispute; empty or omitted uses the default range for &#x60;order_tab&#x60;. |  [optional]
 **txid** | **Integer** | Order ID |  [optional]
 **startTime** | **Integer** | Start timestamp, default is 00:00 89 days ago |  [optional]
 **endTime** | **Integer** | End timestamp, default is 23:59:59 today |  [optional]
+
+## Enum: OrderTabEnum
+
+Name | Value
+---- | -----
+PENDING | &quot;pending&quot;
+DISPUTE | &quot;dispute&quot;
 

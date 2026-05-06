@@ -19,9 +19,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * A single piece of strategy recommendation information.
@@ -57,7 +54,7 @@ public class AIHubRecommendation {
 
     public static final String SERIALIZED_NAME_STRATEGY_PARAMS_PREVIEW = "strategy_params_preview";
     @SerializedName(SERIALIZED_NAME_STRATEGY_PARAMS_PREVIEW)
-    private Map<String, String> strategyParamsPreview = null;
+    private String strategyParamsPreview;
 
 
     public AIHubRecommendation recommendationId(String recommendationId) {
@@ -195,31 +192,23 @@ public class AIHubRecommendation {
         this.summary = summary;
     }
 
-    public AIHubRecommendation strategyParamsPreview(Map<String, String> strategyParamsPreview) {
+    public AIHubRecommendation strategyParamsPreview(String strategyParamsPreview) {
         
         this.strategyParamsPreview = strategyParamsPreview;
         return this;
     }
 
-    public AIHubRecommendation putStrategyParamsPreviewItem(String key, String strategyParamsPreviewItem) {
-        if (this.strategyParamsPreview == null) {
-            this.strategyParamsPreview = new HashMap<>();
-        }
-        this.strategyParamsPreview.put(key, strategyParamsPreviewItem);
-        return this;
-    }
-
      /**
-     * Recommended parameter preview; dynamic changes by strategy type
+     * Recommended-parameter preview as JSON text (string-encoded so clients deserialize it consistently). The value is a serialized JSON object whose structure varies by strategy type; callers or upper-layer models must parse it.
      * @return strategyParamsPreview
     **/
     @javax.annotation.Nullable
-    public Map<String, String> getStrategyParamsPreview() {
+    public String getStrategyParamsPreview() {
         return strategyParamsPreview;
     }
 
 
-    public void setStrategyParamsPreview(Map<String, String> strategyParamsPreview) {
+    public void setStrategyParamsPreview(String strategyParamsPreview) {
         this.strategyParamsPreview = strategyParamsPreview;
     }
     @Override

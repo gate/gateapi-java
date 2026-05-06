@@ -27,9 +27,58 @@ public class AdsUpdateStatus {
     @SerializedName(SERIALIZED_NAME_ADV_NO)
     private Integer advNo;
 
+    /**
+     * Ad status. &#x60;1&#x60;: listed; &#x60;3&#x60;: delisted; &#x60;4&#x60;: closed.
+     */
+    @JsonAdapter(AdvStatusEnum.Adapter.class)
+    public enum AdvStatusEnum {
+        NUMBER_1(1),
+        
+        NUMBER_3(3),
+        
+        NUMBER_4(4);
+
+        private Integer value;
+
+        AdvStatusEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AdvStatusEnum fromValue(Integer value) {
+            for (AdvStatusEnum b : AdvStatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AdvStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AdvStatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AdvStatusEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return AdvStatusEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_ADV_STATUS = "adv_status";
     @SerializedName(SERIALIZED_NAME_ADV_STATUS)
-    private Integer advStatus;
+    private AdvStatusEnum advStatus;
 
 
     public AdsUpdateStatus advNo(Integer advNo) {
@@ -39,7 +88,7 @@ public class AdsUpdateStatus {
     }
 
      /**
-     * Ad ID
+     * Advertisement ID.
      * @return advNo
     **/
     public Integer getAdvNo() {
@@ -51,22 +100,22 @@ public class AdsUpdateStatus {
         this.advNo = advNo;
     }
 
-    public AdsUpdateStatus advStatus(Integer advStatus) {
+    public AdsUpdateStatus advStatus(AdvStatusEnum advStatus) {
         
         this.advStatus = advStatus;
         return this;
     }
 
      /**
-     * Ad status: 1&#x3D;Active, 3&#x3D;Inactive, 4&#x3D;Closed
+     * Ad status. &#x60;1&#x60;: listed; &#x60;3&#x60;: delisted; &#x60;4&#x60;: closed.
      * @return advStatus
     **/
-    public Integer getAdvStatus() {
+    public AdvStatusEnum getAdvStatus() {
         return advStatus;
     }
 
 
-    public void setAdvStatus(Integer advStatus) {
+    public void setAdvStatus(AdvStatusEnum advStatus) {
         this.advStatus = advStatus;
     }
     @Override

@@ -128,7 +128,7 @@ public class P2pCounterpartyUserInfo {
     }
 
      /**
-     * Whether email is verified
+     * Whether email is verified. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return emailVerified
     **/
     @javax.annotation.Nullable
@@ -148,7 +148,7 @@ public class P2pCounterpartyUserInfo {
     }
 
      /**
-     * Whether KYC verification is completed
+     * Whether KYC is completed. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return verified
     **/
     @javax.annotation.Nullable
@@ -168,7 +168,7 @@ public class P2pCounterpartyUserInfo {
     }
 
      /**
-     * Whether phone is bound
+     * Whether a phone number is bound. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return hasPhone
     **/
     @javax.annotation.Nullable
@@ -368,7 +368,7 @@ public class P2pCounterpartyUserInfo {
     }
 
      /**
-     * Whether following
+     * Whether you follow this user. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isFollow
     **/
     @javax.annotation.Nullable
@@ -388,7 +388,7 @@ public class P2pCounterpartyUserInfo {
     }
 
      /**
-     * Whether traded with self
+     * Whether you have traded with this user before. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return haveTraded
     **/
     @javax.annotation.Nullable

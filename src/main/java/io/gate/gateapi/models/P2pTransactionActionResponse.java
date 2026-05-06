@@ -18,11 +18,20 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * P2pTransactionActionResponse
  */
 public class P2pTransactionActionResponse {
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private BigDecimal timestamp;
+
+    public static final String SERIALIZED_NAME_METHOD = "method";
+    @SerializedName(SERIALIZED_NAME_METHOD)
+    private String method;
+
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
@@ -31,10 +40,54 @@ public class P2pTransactionActionResponse {
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
-    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
-    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    private Integer timestamp;
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private Object data;
 
+    public static final String SERIALIZED_NAME_VERSION = "version";
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private String version;
+
+
+    public P2pTransactionActionResponse timestamp(BigDecimal timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Response timestamp.
+     * @return timestamp
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(BigDecimal timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public P2pTransactionActionResponse method(String method) {
+        
+        this.method = method;
+        return this;
+    }
+
+     /**
+     * Placeholder for request method.
+     * @return method
+    **/
+    @javax.annotation.Nullable
+    public String getMethod() {
+        return method;
+    }
+
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
 
     public P2pTransactionActionResponse code(Integer code) {
         
@@ -43,7 +96,7 @@ public class P2pTransactionActionResponse {
     }
 
      /**
-     * Get code
+     * Response code, 0 means success
      * @return code
     **/
     @javax.annotation.Nullable
@@ -63,7 +116,7 @@ public class P2pTransactionActionResponse {
     }
 
      /**
-     * Get message
+     * Response message
      * @return message
     **/
     @javax.annotation.Nullable
@@ -76,24 +129,44 @@ public class P2pTransactionActionResponse {
         this.message = message;
     }
 
-    public P2pTransactionActionResponse timestamp(Integer timestamp) {
+    public P2pTransactionActionResponse data(Object data) {
         
-        this.timestamp = timestamp;
+        this.data = data;
         return this;
     }
 
      /**
-     * Get timestamp
-     * @return timestamp
+     * Empty object on success.
+     * @return data
     **/
     @javax.annotation.Nullable
-    public Integer getTimestamp() {
-        return timestamp;
+    public Object getData() {
+        return data;
     }
 
 
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public P2pTransactionActionResponse version(String version) {
+        
+        this.version = version;
+        return this;
+    }
+
+     /**
+     * API version.
+     * @return version
+    **/
+    @javax.annotation.Nullable
+    public String getVersion() {
+        return version;
+    }
+
+
+    public void setVersion(String version) {
+        this.version = version;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -104,14 +177,17 @@ public class P2pTransactionActionResponse {
             return false;
         }
         P2pTransactionActionResponse p2pTransactionActionResponse = (P2pTransactionActionResponse) o;
-        return Objects.equals(this.code, p2pTransactionActionResponse.code) &&
+        return Objects.equals(this.timestamp, p2pTransactionActionResponse.timestamp) &&
+                Objects.equals(this.method, p2pTransactionActionResponse.method) &&
+                Objects.equals(this.code, p2pTransactionActionResponse.code) &&
                 Objects.equals(this.message, p2pTransactionActionResponse.message) &&
-                Objects.equals(this.timestamp, p2pTransactionActionResponse.timestamp);
+                Objects.equals(this.data, p2pTransactionActionResponse.data) &&
+                Objects.equals(this.version, p2pTransactionActionResponse.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, timestamp);
+        return Objects.hash(timestamp, method, code, message, data, version);
     }
 
 
@@ -119,9 +195,12 @@ public class P2pTransactionActionResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class P2pTransactionActionResponse {\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      method: ").append(toIndentedString(method)).append("\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

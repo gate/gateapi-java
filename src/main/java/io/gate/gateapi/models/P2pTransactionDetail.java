@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.P2pTransactionDetailPayOthers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +50,17 @@ public class P2pTransactionDetail {
     @SerializedName(SERIALIZED_NAME_REMAIN_PAY_TIME)
     private Integer remainPayTime;
 
-    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currencyType";
+    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currency_type";
     @SerializedName(SERIALIZED_NAME_CURRENCY_TYPE)
     private String currencyType;
 
     public static final String SERIALIZED_NAME_WANT_TYPE = "want_type";
     @SerializedName(SERIALIZED_NAME_WANT_TYPE)
     private String wantType;
+
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
 
     public static final String SERIALIZED_NAME_RATE = "rate";
     @SerializedName(SERIALIZED_NAME_RATE)
@@ -81,17 +86,9 @@ public class P2pTransactionDetail {
     @SerializedName(SERIALIZED_NAME_REASON_DESC)
     private String reasonDesc;
 
-    public static final String SERIALIZED_NAME_TOAST_ID = "toast_id";
-    @SerializedName(SERIALIZED_NAME_TOAST_ID)
-    private Integer toastId;
-
     public static final String SERIALIZED_NAME_CANCEL_TIME = "cancel_time";
     @SerializedName(SERIALIZED_NAME_CANCEL_TIME)
     private String cancelTime;
-
-    public static final String SERIALIZED_NAME_SELLER_CONFIRM = "seller_confirm";
-    @SerializedName(SERIALIZED_NAME_SELLER_CONFIRM)
-    private Integer sellerConfirm;
 
     public static final String SERIALIZED_NAME_IN_APPEAL = "in_appeal";
     @SerializedName(SERIALIZED_NAME_IN_APPEAL)
@@ -159,7 +156,7 @@ public class P2pTransactionDetail {
 
     public static final String SERIALIZED_NAME_PAY_OTHERS = "pay_others";
     @SerializedName(SERIALIZED_NAME_PAY_OTHERS)
-    private List<String> payOthers = null;
+    private List<P2pTransactionDetailPayOthers> payOthers = null;
 
     public static final String SERIALIZED_NAME_SEL_PAYTYPE = "sel_paytype";
     @SerializedName(SERIALIZED_NAME_SEL_PAYTYPE)
@@ -169,18 +166,6 @@ public class P2pTransactionDetail {
     @SerializedName(SERIALIZED_NAME_ITS_UID)
     private String itsUid;
 
-    public static final String SERIALIZED_NAME_ITS_IS_BLUE_VIP = "its_is_blue_vip";
-    @SerializedName(SERIALIZED_NAME_ITS_IS_BLUE_VIP)
-    private Integer itsIsBlueVip;
-
-    public static final String SERIALIZED_NAME_ITS_TIER = "its_tier";
-    @SerializedName(SERIALIZED_NAME_ITS_TIER)
-    private Integer itsTier;
-
-    public static final String SERIALIZED_NAME_ITS_AVATAR = "its_avatar";
-    @SerializedName(SERIALIZED_NAME_ITS_AVATAR)
-    private String itsAvatar;
-
     public static final String SERIALIZED_NAME_ITS_NICKNAME = "its_nickname";
     @SerializedName(SERIALIZED_NAME_ITS_NICKNAME)
     private String itsNickname;
@@ -189,21 +174,9 @@ public class P2pTransactionDetail {
     @SerializedName(SERIALIZED_NAME_ITS_REALNAME)
     private String itsRealname;
 
-    public static final String SERIALIZED_NAME_IS_FOLLOW = "is_follow";
-    @SerializedName(SERIALIZED_NAME_IS_FOLLOW)
-    private Integer isFollow;
-
-    public static final String SERIALIZED_NAME_IS_BLACK = "is_black";
-    @SerializedName(SERIALIZED_NAME_IS_BLACK)
-    private Integer isBlack;
-
     public static final String SERIALIZED_NAME_HAVE_TRADED = "have_traded";
     @SerializedName(SERIALIZED_NAME_HAVE_TRADED)
     private Integer haveTraded;
-
-    public static final String SERIALIZED_NAME_APPEAL_UNREAD = "appeal_unread";
-    @SerializedName(SERIALIZED_NAME_APPEAL_UNREAD)
-    private Integer appealUnread;
 
     public static final String SERIALIZED_NAME_APPEAL_ALLOW_CANCEL = "appeal_allow_cancel";
     @SerializedName(SERIALIZED_NAME_APPEAL_ALLOW_CANCEL)
@@ -217,93 +190,25 @@ public class P2pTransactionDetail {
     @SerializedName(SERIALIZED_NAME_IM_UNREAD)
     private Integer imUnread;
 
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_SCORE = "score";
-    @SerializedName(SERIALIZED_NAME_SCORE)
-    private String score;
-
     public static final String SERIALIZED_NAME_PAYMENT_VOUCHER_URL = "payment_voucher_url";
     @SerializedName(SERIALIZED_NAME_PAYMENT_VOUCHER_URL)
     private List<String> paymentVoucherUrl = null;
-
-    public static final String SERIALIZED_NAME_COMPLETE_NUMBER = "complete_number";
-    @SerializedName(SERIALIZED_NAME_COMPLETE_NUMBER)
-    private Integer completeNumber;
-
-    public static final String SERIALIZED_NAME_COMPLETE_RATE_MONTH = "complete_rate_month";
-    @SerializedName(SERIALIZED_NAME_COMPLETE_RATE_MONTH)
-    private String completeRateMonth;
-
-    public static final String SERIALIZED_NAME_CHECK_JOURNAL_ACCOUNT = "check_journal_account";
-    @SerializedName(SERIALIZED_NAME_CHECK_JOURNAL_ACCOUNT)
-    private Boolean checkJournalAccount;
-
-    public static final String SERIALIZED_NAME_SHOW_JOURNAL_ACCOUNT = "show_journal_account";
-    @SerializedName(SERIALIZED_NAME_SHOW_JOURNAL_ACCOUNT)
-    private Boolean showJournalAccount;
-
-    public static final String SERIALIZED_NAME_IS_FREEZE_GUARANTEE = "is_freeze_guarantee";
-    @SerializedName(SERIALIZED_NAME_IS_FREEZE_GUARANTEE)
-    private Integer isFreezeGuarantee;
-
-    public static final String SERIALIZED_NAME_USDT_LEFT_GUARANTEE = "usdt_left_guarantee";
-    @SerializedName(SERIALIZED_NAME_USDT_LEFT_GUARANTEE)
-    private String usdtLeftGuarantee;
-
-    public static final String SERIALIZED_NAME_GUARANTEE_CURR_TYPE = "guarantee_curr_type";
-    @SerializedName(SERIALIZED_NAME_GUARANTEE_CURR_TYPE)
-    private String guaranteeCurrType;
 
     public static final String SERIALIZED_NAME_TIMEST_PAID = "timest_paid";
     @SerializedName(SERIALIZED_NAME_TIMEST_PAID)
     private Integer timestPaid;
 
-    public static final String SERIALIZED_NAME_STATE = "state";
-    @SerializedName(SERIALIZED_NAME_STATE)
-    private String state;
-
-    public static final String SERIALIZED_NAME_RELEASE_COIN_SWITCH = "release_coin_switch";
-    @SerializedName(SERIALIZED_NAME_RELEASE_COIN_SWITCH)
-    private Integer releaseCoinSwitch;
-
     public static final String SERIALIZED_NAME_OWN_REALNAME = "own_realname";
     @SerializedName(SERIALIZED_NAME_OWN_REALNAME)
     private String ownRealname;
-
-    public static final String SERIALIZED_NAME_CONFIRMATION_USE_TIME_MONTH = "confirmation_use_time_month";
-    @SerializedName(SERIALIZED_NAME_CONFIRMATION_USE_TIME_MONTH)
-    private Integer confirmationUseTimeMonth;
-
-    public static final String SERIALIZED_NAME_IS_RISK_USER = "is_risk_user";
-    @SerializedName(SERIALIZED_NAME_IS_RISK_USER)
-    private Integer isRiskUser;
-
-    public static final String SERIALIZED_NAME_IS_XT = "is_xt";
-    @SerializedName(SERIALIZED_NAME_IS_XT)
-    private Integer isXt;
 
     public static final String SERIALIZED_NAME_ORDER_TYPE = "order_type";
     @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
     private Integer orderType;
 
-    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
-    @SerializedName(SERIALIZED_NAME_SYMBOL)
-    private String symbol;
-
     public static final String SERIALIZED_NAME_IS_SHOW_RECEIVE = "is_show_receive";
     @SerializedName(SERIALIZED_NAME_IS_SHOW_RECEIVE)
     private Integer isShowReceive;
-
-    public static final String SERIALIZED_NAME_IS_TAKER = "is_taker";
-    @SerializedName(SERIALIZED_NAME_IS_TAKER)
-    private Integer isTaker;
-
-    public static final String SERIALIZED_NAME_IS_ONLINE = "is_online";
-    @SerializedName(SERIALIZED_NAME_IS_ONLINE)
-    private Integer isOnline;
 
     public static final String SERIALIZED_NAME_SHOW_SELLER_CONTACT_INFO = "show_seller_contact_info";
     @SerializedName(SERIALIZED_NAME_SHOW_SELLER_CONTACT_INFO)
@@ -321,7 +226,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether sell order
+     * Whether the current user is the seller. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isSell
     **/
     @javax.annotation.Nullable
@@ -421,7 +326,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Remaining payment time
+     * Seconds left to pay; &#x60;&lt;&#x3D; 0&#x60; means overdue.
      * @return remainPayTime
     **/
     @javax.annotation.Nullable
@@ -441,7 +346,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Cryptocurrency type
+     * Cryptocurrency symbol.
      * @return currencyType
     **/
     @javax.annotation.Nullable
@@ -461,7 +366,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Fiat currency type
+     * Fiat currency
      * @return wantType
     **/
     @javax.annotation.Nullable
@@ -474,6 +379,26 @@ public class P2pTransactionDetail {
         this.wantType = wantType;
     }
 
+    public P2pTransactionDetail symbol(String symbol) {
+        
+        this.symbol = symbol;
+        return this;
+    }
+
+     /**
+     * Fiat currency symbol
+     * @return symbol
+    **/
+    @javax.annotation.Nullable
+    public String getSymbol() {
+        return symbol;
+    }
+
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
     public P2pTransactionDetail rate(String rate) {
         
         this.rate = rate;
@@ -481,7 +406,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Price
+     * Order price in &#x60;want_type&#x60; units.
      * @return rate
     **/
     @javax.annotation.Nullable
@@ -501,7 +426,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Size
+     * Order size in cryptocurrency.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -521,7 +446,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Fiat amount
+     * Total fiat amount of the order.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -541,7 +466,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Order Status
+     * Display status: &#x60;unpay&#x60; unpaid; &#x60;hide_payment&#x60; unpaid with payment info hidden; &#x60;paid&#x60; buyer paid; &#x60;unconfirmed&#x60; awaiting seller confirmation; &#x60;locked&#x60; locked; &#x60;finished&#x60; done; &#x60;cancel&#x60; canceled; &#x60;expired&#x60; expired; &#x60;bclosed&#x60; arbitration filled; &#x60;sclosed&#x60; arbitration canceled.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -561,7 +486,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Cancellation reason ID
+     * Cancel reason ID; empty string means none. Examples: &#x60;1&#x60; no longer want to buy; &#x60;2&#x60; cannot reach seller; &#x60;3&#x60; will not pay; &#x60;4&#x60; seller did not provide a real account; &#x60;6&#x60; price/amount mismatch; &#x60;9&#x60; other; &#x60;10&#x60; seller cannot release and refund issued; &#x60;11&#x60; terms not met; &#x60;12&#x60; seller payout account risk-controlled.
      * @return reasonId
     **/
     @javax.annotation.Nullable
@@ -581,7 +506,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Cancellation reason
+     * Cancel reason description.
      * @return reasonDesc
     **/
     @javax.annotation.Nullable
@@ -592,26 +517,6 @@ public class P2pTransactionDetail {
 
     public void setReasonDesc(String reasonDesc) {
         this.reasonDesc = reasonDesc;
-    }
-
-    public P2pTransactionDetail toastId(Integer toastId) {
-        
-        this.toastId = toastId;
-        return this;
-    }
-
-     /**
-     * Popup ID
-     * @return toastId
-    **/
-    @javax.annotation.Nullable
-    public Integer getToastId() {
-        return toastId;
-    }
-
-
-    public void setToastId(Integer toastId) {
-        this.toastId = toastId;
     }
 
     public P2pTransactionDetail cancelTime(String cancelTime) {
@@ -634,26 +539,6 @@ public class P2pTransactionDetail {
         this.cancelTime = cancelTime;
     }
 
-    public P2pTransactionDetail sellerConfirm(Integer sellerConfirm) {
-        
-        this.sellerConfirm = sellerConfirm;
-        return this;
-    }
-
-     /**
-     * Whether seller confirmed the reason
-     * @return sellerConfirm
-    **/
-    @javax.annotation.Nullable
-    public Integer getSellerConfirm() {
-        return sellerConfirm;
-    }
-
-
-    public void setSellerConfirm(Integer sellerConfirm) {
-        this.sellerConfirm = sellerConfirm;
-    }
-
     public P2pTransactionDetail inAppeal(Integer inAppeal) {
         
         this.inAppeal = inAppeal;
@@ -661,7 +546,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether in dispute
+     * Whether a dispute is active. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return inAppeal
     **/
     @javax.annotation.Nullable
@@ -681,7 +566,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Appeal time limit
+     * Earliest timestamp when a dispute may be opened.
      * @return disputeTime
     **/
     @javax.annotation.Nullable
@@ -701,7 +586,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether order cancellation is allowed
+     * Whether cancellation is allowed. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return cancelable
     **/
     @javax.annotation.Nullable
@@ -721,7 +606,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether to hide payment method
+     * Whether payment methods are hidden. &#x60;1&#x60;: hidden; &#x60;0&#x60;: visible.
      * @return hidePayment
     **/
     @javax.annotation.Nullable
@@ -761,7 +646,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether to display bank
+     * Whether to show bank transfer details. &#x60;1&#x60;: show; &#x60;0&#x60;: hide.
      * @return showBank
     **/
     @javax.annotation.Nullable
@@ -821,7 +706,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Bank ID
+     * Bank account or masked account.
      * @return bankid
     **/
     @javax.annotation.Nullable
@@ -861,7 +746,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether to display Alipay
+     * Whether to show Alipay details. &#x60;1&#x60;: show; &#x60;0&#x60;: hide.
      * @return showAli
     **/
     @javax.annotation.Nullable
@@ -901,7 +786,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether Alipay QR code exists
+     * Whether an Alipay QR exists. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return isAlicode
     **/
     @javax.annotation.Nullable
@@ -921,7 +806,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether to display WeChat
+     * Whether to show WeChat details. &#x60;1&#x60;: show; &#x60;0&#x60;: hide.
      * @return showWechat
     **/
     @javax.annotation.Nullable
@@ -961,7 +846,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether to display other payment methods
+     * Whether to show other payment methods. &#x60;1&#x60;: show; &#x60;0&#x60;: hide.
      * @return showOthers
     **/
     @javax.annotation.Nullable
@@ -974,13 +859,13 @@ public class P2pTransactionDetail {
         this.showOthers = showOthers;
     }
 
-    public P2pTransactionDetail payOthers(List<String> payOthers) {
+    public P2pTransactionDetail payOthers(List<P2pTransactionDetailPayOthers> payOthers) {
         
         this.payOthers = payOthers;
         return this;
     }
 
-    public P2pTransactionDetail addPayOthersItem(String payOthersItem) {
+    public P2pTransactionDetail addPayOthersItem(P2pTransactionDetailPayOthers payOthersItem) {
         if (this.payOthers == null) {
             this.payOthers = new ArrayList<>();
         }
@@ -993,12 +878,12 @@ public class P2pTransactionDetail {
      * @return payOthers
     **/
     @javax.annotation.Nullable
-    public List<String> getPayOthers() {
+    public List<P2pTransactionDetailPayOthers> getPayOthers() {
         return payOthers;
     }
 
 
-    public void setPayOthers(List<String> payOthers) {
+    public void setPayOthers(List<P2pTransactionDetailPayOthers> payOthers) {
         this.payOthers = payOthers;
     }
 
@@ -1009,7 +894,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Payment type
+     * Selected payment type for this order, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;.
      * @return selPaytype
     **/
     @javax.annotation.Nullable
@@ -1029,7 +914,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Counterparty UID
+     * Counterparty crypto UID.
      * @return itsUid
     **/
     @javax.annotation.Nullable
@@ -1040,66 +925,6 @@ public class P2pTransactionDetail {
 
     public void setItsUid(String itsUid) {
         this.itsUid = itsUid;
-    }
-
-    public P2pTransactionDetail itsIsBlueVip(Integer itsIsBlueVip) {
-        
-        this.itsIsBlueVip = itsIsBlueVip;
-        return this;
-    }
-
-     /**
-     * Whether counterparty is Blue V
-     * @return itsIsBlueVip
-    **/
-    @javax.annotation.Nullable
-    public Integer getItsIsBlueVip() {
-        return itsIsBlueVip;
-    }
-
-
-    public void setItsIsBlueVip(Integer itsIsBlueVip) {
-        this.itsIsBlueVip = itsIsBlueVip;
-    }
-
-    public P2pTransactionDetail itsTier(Integer itsTier) {
-        
-        this.itsTier = itsTier;
-        return this;
-    }
-
-     /**
-     * Counterparty VIP tier
-     * @return itsTier
-    **/
-    @javax.annotation.Nullable
-    public Integer getItsTier() {
-        return itsTier;
-    }
-
-
-    public void setItsTier(Integer itsTier) {
-        this.itsTier = itsTier;
-    }
-
-    public P2pTransactionDetail itsAvatar(String itsAvatar) {
-        
-        this.itsAvatar = itsAvatar;
-        return this;
-    }
-
-     /**
-     * Counterparty avatar
-     * @return itsAvatar
-    **/
-    @javax.annotation.Nullable
-    public String getItsAvatar() {
-        return itsAvatar;
-    }
-
-
-    public void setItsAvatar(String itsAvatar) {
-        this.itsAvatar = itsAvatar;
     }
 
     public P2pTransactionDetail itsNickname(String itsNickname) {
@@ -1129,7 +954,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Counterparty username
+     * Counterparty real name or verified display name.
      * @return itsRealname
     **/
     @javax.annotation.Nullable
@@ -1142,46 +967,6 @@ public class P2pTransactionDetail {
         this.itsRealname = itsRealname;
     }
 
-    public P2pTransactionDetail isFollow(Integer isFollow) {
-        
-        this.isFollow = isFollow;
-        return this;
-    }
-
-     /**
-     * Whether following
-     * @return isFollow
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsFollow() {
-        return isFollow;
-    }
-
-
-    public void setIsFollow(Integer isFollow) {
-        this.isFollow = isFollow;
-    }
-
-    public P2pTransactionDetail isBlack(Integer isBlack) {
-        
-        this.isBlack = isBlack;
-        return this;
-    }
-
-     /**
-     * Whether blocked
-     * @return isBlack
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsBlack() {
-        return isBlack;
-    }
-
-
-    public void setIsBlack(Integer isBlack) {
-        this.isBlack = isBlack;
-    }
-
     public P2pTransactionDetail haveTraded(Integer haveTraded) {
         
         this.haveTraded = haveTraded;
@@ -1189,7 +974,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether traded before
+     * Whether you traded with the counterparty before. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return haveTraded
     **/
     @javax.annotation.Nullable
@@ -1202,26 +987,6 @@ public class P2pTransactionDetail {
         this.haveTraded = haveTraded;
     }
 
-    public P2pTransactionDetail appealUnread(Integer appealUnread) {
-        
-        this.appealUnread = appealUnread;
-        return this;
-    }
-
-     /**
-     * Unread appeals
-     * @return appealUnread
-    **/
-    @javax.annotation.Nullable
-    public Integer getAppealUnread() {
-        return appealUnread;
-    }
-
-
-    public void setAppealUnread(Integer appealUnread) {
-        this.appealUnread = appealUnread;
-    }
-
     public P2pTransactionDetail appealAllowCancel(Integer appealAllowCancel) {
         
         this.appealAllowCancel = appealAllowCancel;
@@ -1229,7 +994,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether appeal cancellation is allowed
+     * Whether the dispute can be withdrawn. &#x60;1&#x60;: allowed; &#x60;0&#x60;: not allowed.
      * @return appealAllowCancel
     **/
     @javax.annotation.Nullable
@@ -1249,7 +1014,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Appeal result (including pending appeals)
+     * Dispute outcome or in-dispute notice text.
      * @return appealVerdictHasOpen
     **/
     @javax.annotation.Nullable
@@ -1269,7 +1034,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * IM unread
+     * Unread chat message count.
      * @return imUnread
     **/
     @javax.annotation.Nullable
@@ -1280,46 +1045,6 @@ public class P2pTransactionDetail {
 
     public void setImUnread(Integer imUnread) {
         this.imUnread = imUnread;
-    }
-
-    public P2pTransactionDetail message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Review content
-     * @return message
-    **/
-    @javax.annotation.Nullable
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public P2pTransactionDetail score(String score) {
-        
-        this.score = score;
-        return this;
-    }
-
-     /**
-     * Rating
-     * @return score
-    **/
-    @javax.annotation.Nullable
-    public String getScore() {
-        return score;
-    }
-
-
-    public void setScore(String score) {
-        this.score = score;
     }
 
     public P2pTransactionDetail paymentVoucherUrl(List<String> paymentVoucherUrl) {
@@ -1350,146 +1075,6 @@ public class P2pTransactionDetail {
         this.paymentVoucherUrl = paymentVoucherUrl;
     }
 
-    public P2pTransactionDetail completeNumber(Integer completeNumber) {
-        
-        this.completeNumber = completeNumber;
-        return this;
-    }
-
-     /**
-     * Counterparty transaction volume
-     * @return completeNumber
-    **/
-    @javax.annotation.Nullable
-    public Integer getCompleteNumber() {
-        return completeNumber;
-    }
-
-
-    public void setCompleteNumber(Integer completeNumber) {
-        this.completeNumber = completeNumber;
-    }
-
-    public P2pTransactionDetail completeRateMonth(String completeRateMonth) {
-        
-        this.completeRateMonth = completeRateMonth;
-        return this;
-    }
-
-     /**
-     * Counterparty completion rate
-     * @return completeRateMonth
-    **/
-    @javax.annotation.Nullable
-    public String getCompleteRateMonth() {
-        return completeRateMonth;
-    }
-
-
-    public void setCompleteRateMonth(String completeRateMonth) {
-        this.completeRateMonth = completeRateMonth;
-    }
-
-    public P2pTransactionDetail checkJournalAccount(Boolean checkJournalAccount) {
-        
-        this.checkJournalAccount = checkJournalAccount;
-        return this;
-    }
-
-     /**
-     * Whether transaction record is verified
-     * @return checkJournalAccount
-    **/
-    @javax.annotation.Nullable
-    public Boolean getCheckJournalAccount() {
-        return checkJournalAccount;
-    }
-
-
-    public void setCheckJournalAccount(Boolean checkJournalAccount) {
-        this.checkJournalAccount = checkJournalAccount;
-    }
-
-    public P2pTransactionDetail showJournalAccount(Boolean showJournalAccount) {
-        
-        this.showJournalAccount = showJournalAccount;
-        return this;
-    }
-
-     /**
-     * Whether to display transaction records
-     * @return showJournalAccount
-    **/
-    @javax.annotation.Nullable
-    public Boolean getShowJournalAccount() {
-        return showJournalAccount;
-    }
-
-
-    public void setShowJournalAccount(Boolean showJournalAccount) {
-        this.showJournalAccount = showJournalAccount;
-    }
-
-    public P2pTransactionDetail isFreezeGuarantee(Integer isFreezeGuarantee) {
-        
-        this.isFreezeGuarantee = isFreezeGuarantee;
-        return this;
-    }
-
-     /**
-     * Whether margin is frozen
-     * @return isFreezeGuarantee
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsFreezeGuarantee() {
-        return isFreezeGuarantee;
-    }
-
-
-    public void setIsFreezeGuarantee(Integer isFreezeGuarantee) {
-        this.isFreezeGuarantee = isFreezeGuarantee;
-    }
-
-    public P2pTransactionDetail usdtLeftGuarantee(String usdtLeftGuarantee) {
-        
-        this.usdtLeftGuarantee = usdtLeftGuarantee;
-        return this;
-    }
-
-     /**
-     * Remaining USDT margin
-     * @return usdtLeftGuarantee
-    **/
-    @javax.annotation.Nullable
-    public String getUsdtLeftGuarantee() {
-        return usdtLeftGuarantee;
-    }
-
-
-    public void setUsdtLeftGuarantee(String usdtLeftGuarantee) {
-        this.usdtLeftGuarantee = usdtLeftGuarantee;
-    }
-
-    public P2pTransactionDetail guaranteeCurrType(String guaranteeCurrType) {
-        
-        this.guaranteeCurrType = guaranteeCurrType;
-        return this;
-    }
-
-     /**
-     * Margin currency type
-     * @return guaranteeCurrType
-    **/
-    @javax.annotation.Nullable
-    public String getGuaranteeCurrType() {
-        return guaranteeCurrType;
-    }
-
-
-    public void setGuaranteeCurrType(String guaranteeCurrType) {
-        this.guaranteeCurrType = guaranteeCurrType;
-    }
-
     public P2pTransactionDetail timestPaid(Integer timestPaid) {
         
         this.timestPaid = timestPaid;
@@ -1497,7 +1082,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Payment time
+     * Timestamp when the buyer confirmed payment.
      * @return timestPaid
     **/
     @javax.annotation.Nullable
@@ -1510,46 +1095,6 @@ public class P2pTransactionDetail {
         this.timestPaid = timestPaid;
     }
 
-    public P2pTransactionDetail state(String state) {
-        
-        this.state = state;
-        return this;
-    }
-
-     /**
-     * Order Status
-     * @return state
-    **/
-    @javax.annotation.Nullable
-    public String getState() {
-        return state;
-    }
-
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public P2pTransactionDetail releaseCoinSwitch(Integer releaseCoinSwitch) {
-        
-        this.releaseCoinSwitch = releaseCoinSwitch;
-        return this;
-    }
-
-     /**
-     * Coin release switch configuration
-     * @return releaseCoinSwitch
-    **/
-    @javax.annotation.Nullable
-    public Integer getReleaseCoinSwitch() {
-        return releaseCoinSwitch;
-    }
-
-
-    public void setReleaseCoinSwitch(Integer releaseCoinSwitch) {
-        this.releaseCoinSwitch = releaseCoinSwitch;
-    }
-
     public P2pTransactionDetail ownRealname(String ownRealname) {
         
         this.ownRealname = ownRealname;
@@ -1557,7 +1102,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Username
+     * Current user&#39;s real name or verified display name.
      * @return ownRealname
     **/
     @javax.annotation.Nullable
@@ -1570,66 +1115,6 @@ public class P2pTransactionDetail {
         this.ownRealname = ownRealname;
     }
 
-    public P2pTransactionDetail confirmationUseTimeMonth(Integer confirmationUseTimeMonth) {
-        
-        this.confirmationUseTimeMonth = confirmationUseTimeMonth;
-        return this;
-    }
-
-     /**
-     * Average confirmation time in last 30 days
-     * @return confirmationUseTimeMonth
-    **/
-    @javax.annotation.Nullable
-    public Integer getConfirmationUseTimeMonth() {
-        return confirmationUseTimeMonth;
-    }
-
-
-    public void setConfirmationUseTimeMonth(Integer confirmationUseTimeMonth) {
-        this.confirmationUseTimeMonth = confirmationUseTimeMonth;
-    }
-
-    public P2pTransactionDetail isRiskUser(Integer isRiskUser) {
-        
-        this.isRiskUser = isRiskUser;
-        return this;
-    }
-
-     /**
-     * Whether risk user
-     * @return isRiskUser
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsRiskUser() {
-        return isRiskUser;
-    }
-
-
-    public void setIsRiskUser(Integer isRiskUser) {
-        this.isRiskUser = isRiskUser;
-    }
-
-    public P2pTransactionDetail isXt(Integer isXt) {
-        
-        this.isXt = isXt;
-        return this;
-    }
-
-     /**
-     * Whether XT order
-     * @return isXt
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsXt() {
-        return isXt;
-    }
-
-
-    public void setIsXt(Integer isXt) {
-        this.isXt = isXt;
-    }
-
     public P2pTransactionDetail orderType(Integer orderType) {
         
         this.orderType = orderType;
@@ -1637,7 +1122,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Order Type
+     * Order type: &#x60;1&#x60; standard; &#x60;2&#x60; partner; &#x60;3&#x60; flash swap; &#x60;4&#x60; Web3.
      * @return orderType
     **/
     @javax.annotation.Nullable
@@ -1650,26 +1135,6 @@ public class P2pTransactionDetail {
         this.orderType = orderType;
     }
 
-    public P2pTransactionDetail symbol(String symbol) {
-        
-        this.symbol = symbol;
-        return this;
-    }
-
-     /**
-     * Fiat currency symbol
-     * @return symbol
-    **/
-    @javax.annotation.Nullable
-    public String getSymbol() {
-        return symbol;
-    }
-
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
     public P2pTransactionDetail isShowReceive(Integer isShowReceive) {
         
         this.isShowReceive = isShowReceive;
@@ -1677,7 +1142,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Whether to show confirm receipt during appeal
+     * Whether to show confirm-receipt during dispute. &#x60;1&#x60;: show; &#x60;0&#x60;: hide.
      * @return isShowReceive
     **/
     @javax.annotation.Nullable
@@ -1688,46 +1153,6 @@ public class P2pTransactionDetail {
 
     public void setIsShowReceive(Integer isShowReceive) {
         this.isShowReceive = isShowReceive;
-    }
-
-    public P2pTransactionDetail isTaker(Integer isTaker) {
-        
-        this.isTaker = isTaker;
-        return this;
-    }
-
-     /**
-     * Whether regular user
-     * @return isTaker
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsTaker() {
-        return isTaker;
-    }
-
-
-    public void setIsTaker(Integer isTaker) {
-        this.isTaker = isTaker;
-    }
-
-    public P2pTransactionDetail isOnline(Integer isOnline) {
-        
-        this.isOnline = isOnline;
-        return this;
-    }
-
-     /**
-     * Merchant online status
-     * @return isOnline
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsOnline() {
-        return isOnline;
-    }
-
-
-    public void setIsOnline(Integer isOnline) {
-        this.isOnline = isOnline;
     }
 
     public P2pTransactionDetail showSellerContactInfo(Boolean showSellerContactInfo) {
@@ -1765,7 +1190,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Payment methods supported by current order
+     * Supported payment method types for the order, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;.
      * @return supportedPayTypes
     **/
     @javax.annotation.Nullable
@@ -1794,15 +1219,14 @@ public class P2pTransactionDetail {
                 Objects.equals(this.remainPayTime, p2pTransactionDetail.remainPayTime) &&
                 Objects.equals(this.currencyType, p2pTransactionDetail.currencyType) &&
                 Objects.equals(this.wantType, p2pTransactionDetail.wantType) &&
+                Objects.equals(this.symbol, p2pTransactionDetail.symbol) &&
                 Objects.equals(this.rate, p2pTransactionDetail.rate) &&
                 Objects.equals(this.amount, p2pTransactionDetail.amount) &&
                 Objects.equals(this.total, p2pTransactionDetail.total) &&
                 Objects.equals(this.status, p2pTransactionDetail.status) &&
                 Objects.equals(this.reasonId, p2pTransactionDetail.reasonId) &&
                 Objects.equals(this.reasonDesc, p2pTransactionDetail.reasonDesc) &&
-                Objects.equals(this.toastId, p2pTransactionDetail.toastId) &&
                 Objects.equals(this.cancelTime, p2pTransactionDetail.cancelTime) &&
-                Objects.equals(this.sellerConfirm, p2pTransactionDetail.sellerConfirm) &&
                 Objects.equals(this.inAppeal, p2pTransactionDetail.inAppeal) &&
                 Objects.equals(this.disputeTime, p2pTransactionDetail.disputeTime) &&
                 Objects.equals(this.cancelable, p2pTransactionDetail.cancelable) &&
@@ -1822,47 +1246,24 @@ public class P2pTransactionDetail {
                 Objects.equals(this.payOthers, p2pTransactionDetail.payOthers) &&
                 Objects.equals(this.selPaytype, p2pTransactionDetail.selPaytype) &&
                 Objects.equals(this.itsUid, p2pTransactionDetail.itsUid) &&
-                Objects.equals(this.itsIsBlueVip, p2pTransactionDetail.itsIsBlueVip) &&
-                Objects.equals(this.itsTier, p2pTransactionDetail.itsTier) &&
-                Objects.equals(this.itsAvatar, p2pTransactionDetail.itsAvatar) &&
                 Objects.equals(this.itsNickname, p2pTransactionDetail.itsNickname) &&
                 Objects.equals(this.itsRealname, p2pTransactionDetail.itsRealname) &&
-                Objects.equals(this.isFollow, p2pTransactionDetail.isFollow) &&
-                Objects.equals(this.isBlack, p2pTransactionDetail.isBlack) &&
                 Objects.equals(this.haveTraded, p2pTransactionDetail.haveTraded) &&
-                Objects.equals(this.appealUnread, p2pTransactionDetail.appealUnread) &&
                 Objects.equals(this.appealAllowCancel, p2pTransactionDetail.appealAllowCancel) &&
                 Objects.equals(this.appealVerdictHasOpen, p2pTransactionDetail.appealVerdictHasOpen) &&
                 Objects.equals(this.imUnread, p2pTransactionDetail.imUnread) &&
-                Objects.equals(this.message, p2pTransactionDetail.message) &&
-                Objects.equals(this.score, p2pTransactionDetail.score) &&
                 Objects.equals(this.paymentVoucherUrl, p2pTransactionDetail.paymentVoucherUrl) &&
-                Objects.equals(this.completeNumber, p2pTransactionDetail.completeNumber) &&
-                Objects.equals(this.completeRateMonth, p2pTransactionDetail.completeRateMonth) &&
-                Objects.equals(this.checkJournalAccount, p2pTransactionDetail.checkJournalAccount) &&
-                Objects.equals(this.showJournalAccount, p2pTransactionDetail.showJournalAccount) &&
-                Objects.equals(this.isFreezeGuarantee, p2pTransactionDetail.isFreezeGuarantee) &&
-                Objects.equals(this.usdtLeftGuarantee, p2pTransactionDetail.usdtLeftGuarantee) &&
-                Objects.equals(this.guaranteeCurrType, p2pTransactionDetail.guaranteeCurrType) &&
                 Objects.equals(this.timestPaid, p2pTransactionDetail.timestPaid) &&
-                Objects.equals(this.state, p2pTransactionDetail.state) &&
-                Objects.equals(this.releaseCoinSwitch, p2pTransactionDetail.releaseCoinSwitch) &&
                 Objects.equals(this.ownRealname, p2pTransactionDetail.ownRealname) &&
-                Objects.equals(this.confirmationUseTimeMonth, p2pTransactionDetail.confirmationUseTimeMonth) &&
-                Objects.equals(this.isRiskUser, p2pTransactionDetail.isRiskUser) &&
-                Objects.equals(this.isXt, p2pTransactionDetail.isXt) &&
                 Objects.equals(this.orderType, p2pTransactionDetail.orderType) &&
-                Objects.equals(this.symbol, p2pTransactionDetail.symbol) &&
                 Objects.equals(this.isShowReceive, p2pTransactionDetail.isShowReceive) &&
-                Objects.equals(this.isTaker, p2pTransactionDetail.isTaker) &&
-                Objects.equals(this.isOnline, p2pTransactionDetail.isOnline) &&
                 Objects.equals(this.showSellerContactInfo, p2pTransactionDetail.showSellerContactInfo) &&
                 Objects.equals(this.supportedPayTypes, p2pTransactionDetail.supportedPayTypes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isSell, txid, orderid, timest, lastPayTime, remainPayTime, currencyType, wantType, rate, amount, total, status, reasonId, reasonDesc, toastId, cancelTime, sellerConfirm, inAppeal, disputeTime, cancelable, hidePayment, tradeTips, showBank, bankname, bankbranch, bankid, bankHolderRealname, showAli, aliname, isAlicode, showWechat, wename, showOthers, payOthers, selPaytype, itsUid, itsIsBlueVip, itsTier, itsAvatar, itsNickname, itsRealname, isFollow, isBlack, haveTraded, appealUnread, appealAllowCancel, appealVerdictHasOpen, imUnread, message, score, paymentVoucherUrl, completeNumber, completeRateMonth, checkJournalAccount, showJournalAccount, isFreezeGuarantee, usdtLeftGuarantee, guaranteeCurrType, timestPaid, state, releaseCoinSwitch, ownRealname, confirmationUseTimeMonth, isRiskUser, isXt, orderType, symbol, isShowReceive, isTaker, isOnline, showSellerContactInfo, supportedPayTypes);
+        return Objects.hash(isSell, txid, orderid, timest, lastPayTime, remainPayTime, currencyType, wantType, symbol, rate, amount, total, status, reasonId, reasonDesc, cancelTime, inAppeal, disputeTime, cancelable, hidePayment, tradeTips, showBank, bankname, bankbranch, bankid, bankHolderRealname, showAli, aliname, isAlicode, showWechat, wename, showOthers, payOthers, selPaytype, itsUid, itsNickname, itsRealname, haveTraded, appealAllowCancel, appealVerdictHasOpen, imUnread, paymentVoucherUrl, timestPaid, ownRealname, orderType, isShowReceive, showSellerContactInfo, supportedPayTypes);
     }
 
 
@@ -1878,15 +1279,14 @@ public class P2pTransactionDetail {
         sb.append("      remainPayTime: ").append(toIndentedString(remainPayTime)).append("\n");
         sb.append("      currencyType: ").append(toIndentedString(currencyType)).append("\n");
         sb.append("      wantType: ").append(toIndentedString(wantType)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      total: ").append(toIndentedString(total)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      reasonId: ").append(toIndentedString(reasonId)).append("\n");
         sb.append("      reasonDesc: ").append(toIndentedString(reasonDesc)).append("\n");
-        sb.append("      toastId: ").append(toIndentedString(toastId)).append("\n");
         sb.append("      cancelTime: ").append(toIndentedString(cancelTime)).append("\n");
-        sb.append("      sellerConfirm: ").append(toIndentedString(sellerConfirm)).append("\n");
         sb.append("      inAppeal: ").append(toIndentedString(inAppeal)).append("\n");
         sb.append("      disputeTime: ").append(toIndentedString(disputeTime)).append("\n");
         sb.append("      cancelable: ").append(toIndentedString(cancelable)).append("\n");
@@ -1906,40 +1306,17 @@ public class P2pTransactionDetail {
         sb.append("      payOthers: ").append(toIndentedString(payOthers)).append("\n");
         sb.append("      selPaytype: ").append(toIndentedString(selPaytype)).append("\n");
         sb.append("      itsUid: ").append(toIndentedString(itsUid)).append("\n");
-        sb.append("      itsIsBlueVip: ").append(toIndentedString(itsIsBlueVip)).append("\n");
-        sb.append("      itsTier: ").append(toIndentedString(itsTier)).append("\n");
-        sb.append("      itsAvatar: ").append(toIndentedString(itsAvatar)).append("\n");
         sb.append("      itsNickname: ").append(toIndentedString(itsNickname)).append("\n");
         sb.append("      itsRealname: ").append(toIndentedString(itsRealname)).append("\n");
-        sb.append("      isFollow: ").append(toIndentedString(isFollow)).append("\n");
-        sb.append("      isBlack: ").append(toIndentedString(isBlack)).append("\n");
         sb.append("      haveTraded: ").append(toIndentedString(haveTraded)).append("\n");
-        sb.append("      appealUnread: ").append(toIndentedString(appealUnread)).append("\n");
         sb.append("      appealAllowCancel: ").append(toIndentedString(appealAllowCancel)).append("\n");
         sb.append("      appealVerdictHasOpen: ").append(toIndentedString(appealVerdictHasOpen)).append("\n");
         sb.append("      imUnread: ").append(toIndentedString(imUnread)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      score: ").append(toIndentedString(score)).append("\n");
         sb.append("      paymentVoucherUrl: ").append(toIndentedString(paymentVoucherUrl)).append("\n");
-        sb.append("      completeNumber: ").append(toIndentedString(completeNumber)).append("\n");
-        sb.append("      completeRateMonth: ").append(toIndentedString(completeRateMonth)).append("\n");
-        sb.append("      checkJournalAccount: ").append(toIndentedString(checkJournalAccount)).append("\n");
-        sb.append("      showJournalAccount: ").append(toIndentedString(showJournalAccount)).append("\n");
-        sb.append("      isFreezeGuarantee: ").append(toIndentedString(isFreezeGuarantee)).append("\n");
-        sb.append("      usdtLeftGuarantee: ").append(toIndentedString(usdtLeftGuarantee)).append("\n");
-        sb.append("      guaranteeCurrType: ").append(toIndentedString(guaranteeCurrType)).append("\n");
         sb.append("      timestPaid: ").append(toIndentedString(timestPaid)).append("\n");
-        sb.append("      state: ").append(toIndentedString(state)).append("\n");
-        sb.append("      releaseCoinSwitch: ").append(toIndentedString(releaseCoinSwitch)).append("\n");
         sb.append("      ownRealname: ").append(toIndentedString(ownRealname)).append("\n");
-        sb.append("      confirmationUseTimeMonth: ").append(toIndentedString(confirmationUseTimeMonth)).append("\n");
-        sb.append("      isRiskUser: ").append(toIndentedString(isRiskUser)).append("\n");
-        sb.append("      isXt: ").append(toIndentedString(isXt)).append("\n");
         sb.append("      orderType: ").append(toIndentedString(orderType)).append("\n");
-        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      isShowReceive: ").append(toIndentedString(isShowReceive)).append("\n");
-        sb.append("      isTaker: ").append(toIndentedString(isTaker)).append("\n");
-        sb.append("      isOnline: ").append(toIndentedString(isOnline)).append("\n");
         sb.append("      showSellerContactInfo: ").append(toIndentedString(showSellerContactInfo)).append("\n");
         sb.append("      supportedPayTypes: ").append(toIndentedString(supportedPayTypes)).append("\n");
         sb.append("}");

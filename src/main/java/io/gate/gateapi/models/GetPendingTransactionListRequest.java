@@ -31,9 +31,56 @@ public class GetPendingTransactionListRequest {
     @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
     private String fiatCurrency;
 
+    /**
+     * Order tab: &#x60;pending&#x60; in progress (&#x60;OPEN&#x60;, &#x60;PAID&#x60;, &#x60;LOCKED&#x60;, &#x60;TEMP&#x60;); &#x60;dispute&#x60; in dispute; default &#x60;pending&#x60;.
+     */
+    @JsonAdapter(OrderTabEnum.Adapter.class)
+    public enum OrderTabEnum {
+        PENDING("pending"),
+        
+        DISPUTE("dispute");
+
+        private String value;
+
+        OrderTabEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static OrderTabEnum fromValue(String value) {
+            for (OrderTabEnum b : OrderTabEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<OrderTabEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final OrderTabEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public OrderTabEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return OrderTabEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_ORDER_TAB = "order_tab";
     @SerializedName(SERIALIZED_NAME_ORDER_TAB)
-    private String orderTab;
+    private OrderTabEnum orderTab;
 
     public static final String SERIALIZED_NAME_SELECT_TYPE = "select_type";
     @SerializedName(SERIALIZED_NAME_SELECT_TYPE)
@@ -63,7 +110,7 @@ public class GetPendingTransactionListRequest {
     }
 
      /**
-     * Cryptocurrency
+     * Cryptocurrency symbol.
      * @return cryptoCurrency
     **/
     public String getCryptoCurrency() {
@@ -94,23 +141,23 @@ public class GetPendingTransactionListRequest {
         this.fiatCurrency = fiatCurrency;
     }
 
-    public GetPendingTransactionListRequest orderTab(String orderTab) {
+    public GetPendingTransactionListRequest orderTab(OrderTabEnum orderTab) {
         
         this.orderTab = orderTab;
         return this;
     }
 
      /**
-     * Order tab, default: pending (pending: In Progress (pending: AND status in (&#39;OPEN&#39;,&#39;PAID&#39;, &#39;LOCKED&#39;, &#39;TEMP&#39;)); dispute: In Dispute (status in (&#39;ACCEPT&#39;,&#39;BCLOSED&#39;, &#39;CANCEL&#39;, &#39;BECANCEL&#39;, &#39;SCLOSED&#39;, &#39;SCANCEL&#39;)))
+     * Order tab: &#x60;pending&#x60; in progress (&#x60;OPEN&#x60;, &#x60;PAID&#x60;, &#x60;LOCKED&#x60;, &#x60;TEMP&#x60;); &#x60;dispute&#x60; in dispute; default &#x60;pending&#x60;.
      * @return orderTab
     **/
     @javax.annotation.Nullable
-    public String getOrderTab() {
+    public OrderTabEnum getOrderTab() {
         return orderTab;
     }
 
 
-    public void setOrderTab(String orderTab) {
+    public void setOrderTab(OrderTabEnum orderTab) {
         this.orderTab = orderTab;
     }
 
@@ -121,7 +168,7 @@ public class GetPendingTransactionListRequest {
     }
 
      /**
-     * Buy/Sell (sell&#x3D;Sell, buy&#x3D;Buy, others&#x3D;All)
+     * Order side filter: &#x60;buy&#x60; buy orders; &#x60;sell&#x60; sell orders; empty: all.
      * @return selectType
     **/
     @javax.annotation.Nullable
@@ -141,7 +188,7 @@ public class GetPendingTransactionListRequest {
     }
 
      /**
-     * Order Status (dispute: Disputed Order; closed: ACCEPT, BCLOSED; cancel: CANCEL, BECANCEL, SCLOSED, SCANCEL; locked: LOCKED; open: OPEN; paid: PAID; completed: CANCEL, BECANCEL, SCLOSED, SCANCEL, ACCEPT, BCLOSED)
+     * Order status filter. &#x60;open&#x60; unpaid (&#x60;OPEN&#x60;); &#x60;paid&#x60; paid (&#x60;PAID&#x60;); &#x60;locked&#x60; locked (&#x60;LOCKED&#x60;); &#x60;dispute&#x60; in dispute; empty or omitted uses the default range for &#x60;order_tab&#x60;.
      * @return status
     **/
     @javax.annotation.Nullable

@@ -31,9 +31,60 @@ public class PlaceBizPushOrder {
     @SerializedName(SERIALIZED_NAME_EXCHANGE_TYPE)
     private String exchangeType;
 
+    /**
+     * Ad operation type. &#x60;0&#x60;: publish sell ad; &#x60;1&#x60;: publish buy ad; &#x60;2&#x60;: edit sell ad; &#x60;3&#x60;: edit buy ad.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        _0("0"),
+        
+        _1("1"),
+        
+        _2("2"),
+        
+        _3("3");
+
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_TYPE = "type";
     @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    private TypeEnum type;
 
     public static final String SERIALIZED_NAME_UNIT_PRICE = "unitPrice";
     @SerializedName(SERIALIZED_NAME_UNIT_PRICE)
@@ -83,10 +134,6 @@ public class PlaceBizPushOrder {
     @SerializedName(SERIALIZED_NAME_ADVERTISERS_LIMIT)
     private String advertisersLimit;
 
-    public static final String SERIALIZED_NAME_HIDE_PAYMENT = "hide_payment";
-    @SerializedName(SERIALIZED_NAME_HIDE_PAYMENT)
-    private String hidePayment;
-
     public static final String SERIALIZED_NAME_EXPIRE_MIN = "expire_min";
     @SerializedName(SERIALIZED_NAME_EXPIRE_MIN)
     private String expireMin;
@@ -131,6 +178,10 @@ public class PlaceBizPushOrder {
     @SerializedName(SERIALIZED_NAME_FLOAT_TREND)
     private String floatTrend;
 
+    public static final String SERIALIZED_NAME_TEAM_PAYMENT_UID = "team_payment_uid";
+    @SerializedName(SERIALIZED_NAME_TEAM_PAYMENT_UID)
+    private String teamPaymentUid;
+
 
     public PlaceBizPushOrder currencyType(String currencyType) {
         
@@ -139,7 +190,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Cryptocurrency
+     * Cryptocurrency symbol.
      * @return currencyType
     **/
     public String getCurrencyType() {
@@ -170,22 +221,22 @@ public class PlaceBizPushOrder {
         this.exchangeType = exchangeType;
     }
 
-    public PlaceBizPushOrder type(String type) {
+    public PlaceBizPushOrder type(TypeEnum type) {
         
         this.type = type;
         return this;
     }
 
      /**
-     * Ad type: 0&#x3D;Sell, 1&#x3D;Buy, 2&#x3D;Edit sell, 3&#x3D;Edit buy
+     * Ad operation type. &#x60;0&#x60;: publish sell ad; &#x60;1&#x60;: publish buy ad; &#x60;2&#x60;: edit sell ad; &#x60;3&#x60;: edit buy ad.
      * @return type
     **/
-    public String getType() {
+    public TypeEnum getType() {
         return type;
     }
 
 
-    public void setType(String type) {
+    public void setType(TypeEnum type) {
         this.type = type;
     }
 
@@ -196,7 +247,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Unit price
+     * Per-unit price in fixed-price mode.
      * @return unitPrice
     **/
     public String getUnitPrice() {
@@ -215,7 +266,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Size
+     * Ad amount priced in &#x60;currencyType&#x60;.
      * @return number
     **/
     public String getNumber() {
@@ -234,7 +285,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Payment method
+     * Payment types, comma-separated; from pay type list &#x60;pay_type&#x60;, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;.
      * @return payType
     **/
     public String getPayType() {
@@ -253,7 +304,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Payment method JSON string
+     * JSON map of payment type -&gt; user&#39;s payment method ID.
      * @return payTypeJson
     **/
     @javax.annotation.Nullable
@@ -273,7 +324,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Price type: 0-Floating price, 1-Fixed price
+     * Price type: &#x60;0&#x60; floating; &#x60;1&#x60; fixed.
      * @return rateFixed
     **/
     @javax.annotation.Nullable
@@ -293,7 +344,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Ad ID when editing
+     * Pass ad ID when editing; omit or empty when publishing a new ad.
      * @return oid
     **/
     @javax.annotation.Nullable
@@ -313,7 +364,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Minimum transaction amount per order
+     * Minimum trade amount in &#x60;exchangeType&#x60;.
      * @return minAmount
     **/
     public String getMinAmount() {
@@ -332,7 +383,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Maximum transaction amount per order
+     * Maximum amount per trade in &#x60;exchangeType&#x60; fiat units.
      * @return maxAmount
     **/
     public String getMaxAmount() {
@@ -351,7 +402,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Order tier limit
+     * Minimum counterparty VIP level; &#x60;0&#x60; means no requirement.
      * @return tierLimit
     **/
     @javax.annotation.Nullable
@@ -371,7 +422,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Verification level limit
+     * Minimum counterparty verification level; &#x60;0&#x60; means no limit.
      * @return verifiedLimit
     **/
     @javax.annotation.Nullable
@@ -391,7 +442,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Registration time limit
+     * Minimum counterparty account age in days; &#x60;0&#x60; means no limit.
      * @return regTimeLimit
     **/
     @javax.annotation.Nullable
@@ -411,7 +462,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Advertiser restriction
+     * Whether trading with the advertiser is restricted. &#x60;0&#x60;: no; &#x60;1&#x60;: yes.
      * @return advertisersLimit
     **/
     @javax.annotation.Nullable
@@ -424,26 +475,6 @@ public class PlaceBizPushOrder {
         this.advertisersLimit = advertisersLimit;
     }
 
-    public PlaceBizPushOrder hidePayment(String hidePayment) {
-        
-        this.hidePayment = hidePayment;
-        return this;
-    }
-
-     /**
-     * Whether to hide payment method: 1&#x3D;Yes, 0&#x3D;No
-     * @return hidePayment
-    **/
-    @javax.annotation.Nullable
-    public String getHidePayment() {
-        return hidePayment;
-    }
-
-
-    public void setHidePayment(String hidePayment) {
-        this.hidePayment = hidePayment;
-    }
-
     public PlaceBizPushOrder expireMin(String expireMin) {
         
         this.expireMin = expireMin;
@@ -451,7 +482,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Ad expiration time (minutes)
+     * Payment timeout in minutes.
      * @return expireMin
     **/
     @javax.annotation.Nullable
@@ -471,7 +502,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Trading terms
+     * Ad trading terms shown to the taker.
      * @return tradeTips
     **/
     @javax.annotation.Nullable
@@ -491,7 +522,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Auto reply
+     * Auto-reply message after order creation.
      * @return autoReply
     **/
     @javax.annotation.Nullable
@@ -511,7 +542,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Minimum limit of completed orders
+     * Minimum completed orders for counterparty; &#x60;-1&#x60; unlimited.
      * @return minCompletedLimit
     **/
     @javax.annotation.Nullable
@@ -531,7 +562,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Maximum limit of completed orders
+     * Maximum completed orders for counterparty; &#x60;-1&#x60; unlimited.
      * @return maxCompletedLimit
     **/
     @javax.annotation.Nullable
@@ -551,7 +582,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * 30-day completion rate limit
+     * Counterparty minimum 30-day completion rate; &#x60;-1&#x60; means no limit.
      * @return completedRateLimit
     **/
     @javax.annotation.Nullable
@@ -571,7 +602,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * KYC nationality restriction
+     * KYC nationality restriction; &#x60;-1&#x60; means no restriction.
      * @return userCountryLimit
     **/
     @javax.annotation.Nullable
@@ -591,7 +622,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Order count limit
+     * Maximum concurrent orders allowed for the counterparty. &#x60;-1&#x60;: unlimited.
      * @return userOrderLimit
     **/
     @javax.annotation.Nullable
@@ -611,7 +642,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Reference exchange rate ID
+     * Floating price reference. &#x60;1&#x60;: platform reference; &#x60;2&#x60;: Gate reference; &#x60;3&#x60;: spot reference.
      * @return rateReferenceId
     **/
     @javax.annotation.Nullable
@@ -631,7 +662,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Reference exchange rate offset
+     * Absolute floating offset ratio, e.g. &#x60;0.5&#x60; means 0.5%.
      * @return rateOffset
     **/
     @javax.annotation.Nullable
@@ -651,7 +682,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * 444
+     * Floating direction: &#x60;0&#x60; markup; &#x60;1&#x60; markdown.
      * @return floatTrend
     **/
     @javax.annotation.Nullable
@@ -662,6 +693,26 @@ public class PlaceBizPushOrder {
 
     public void setFloatTrend(String floatTrend) {
         this.floatTrend = floatTrend;
+    }
+
+    public PlaceBizPushOrder teamPaymentUid(String teamPaymentUid) {
+        
+        this.teamPaymentUid = teamPaymentUid;
+        return this;
+    }
+
+     /**
+     * Team payee UID; optional for non-team merchants.
+     * @return teamPaymentUid
+    **/
+    @javax.annotation.Nullable
+    public String getTeamPaymentUid() {
+        return teamPaymentUid;
+    }
+
+
+    public void setTeamPaymentUid(String teamPaymentUid) {
+        this.teamPaymentUid = teamPaymentUid;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -687,7 +738,6 @@ public class PlaceBizPushOrder {
                 Objects.equals(this.verifiedLimit, placeBizPushOrder.verifiedLimit) &&
                 Objects.equals(this.regTimeLimit, placeBizPushOrder.regTimeLimit) &&
                 Objects.equals(this.advertisersLimit, placeBizPushOrder.advertisersLimit) &&
-                Objects.equals(this.hidePayment, placeBizPushOrder.hidePayment) &&
                 Objects.equals(this.expireMin, placeBizPushOrder.expireMin) &&
                 Objects.equals(this.tradeTips, placeBizPushOrder.tradeTips) &&
                 Objects.equals(this.autoReply, placeBizPushOrder.autoReply) &&
@@ -698,12 +748,13 @@ public class PlaceBizPushOrder {
                 Objects.equals(this.userOrderLimit, placeBizPushOrder.userOrderLimit) &&
                 Objects.equals(this.rateReferenceId, placeBizPushOrder.rateReferenceId) &&
                 Objects.equals(this.rateOffset, placeBizPushOrder.rateOffset) &&
-                Objects.equals(this.floatTrend, placeBizPushOrder.floatTrend);
+                Objects.equals(this.floatTrend, placeBizPushOrder.floatTrend) &&
+                Objects.equals(this.teamPaymentUid, placeBizPushOrder.teamPaymentUid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyType, exchangeType, type, unitPrice, number, payType, payTypeJson, rateFixed, oid, minAmount, maxAmount, tierLimit, verifiedLimit, regTimeLimit, advertisersLimit, hidePayment, expireMin, tradeTips, autoReply, minCompletedLimit, maxCompletedLimit, completedRateLimit, userCountryLimit, userOrderLimit, rateReferenceId, rateOffset, floatTrend);
+        return Objects.hash(currencyType, exchangeType, type, unitPrice, number, payType, payTypeJson, rateFixed, oid, minAmount, maxAmount, tierLimit, verifiedLimit, regTimeLimit, advertisersLimit, expireMin, tradeTips, autoReply, minCompletedLimit, maxCompletedLimit, completedRateLimit, userCountryLimit, userOrderLimit, rateReferenceId, rateOffset, floatTrend, teamPaymentUid);
     }
 
 
@@ -726,7 +777,6 @@ public class PlaceBizPushOrder {
         sb.append("      verifiedLimit: ").append(toIndentedString(verifiedLimit)).append("\n");
         sb.append("      regTimeLimit: ").append(toIndentedString(regTimeLimit)).append("\n");
         sb.append("      advertisersLimit: ").append(toIndentedString(advertisersLimit)).append("\n");
-        sb.append("      hidePayment: ").append(toIndentedString(hidePayment)).append("\n");
         sb.append("      expireMin: ").append(toIndentedString(expireMin)).append("\n");
         sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
         sb.append("      autoReply: ").append(toIndentedString(autoReply)).append("\n");
@@ -738,6 +788,7 @@ public class PlaceBizPushOrder {
         sb.append("      rateReferenceId: ").append(toIndentedString(rateReferenceId)).append("\n");
         sb.append("      rateOffset: ").append(toIndentedString(rateOffset)).append("\n");
         sb.append("      floatTrend: ").append(toIndentedString(floatTrend)).append("\n");
+        sb.append("      teamPaymentUid: ").append(toIndentedString(teamPaymentUid)).append("\n");
         sb.append("}");
         return sb.toString();
     }

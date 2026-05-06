@@ -7,5 +7,5 @@ Get payment method list request
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fiat** | **String** | Fiat currency |  [optional]
+**fiat** | **String** | Fiat currency; omit to return all available payment methods. |  [optional]
 

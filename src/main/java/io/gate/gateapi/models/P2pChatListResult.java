@@ -146,7 +146,7 @@ public class P2pChatListResult {
     }
 
      /**
-     * Timestamp of the latest message
+     * Timestamp of the latest message.
      * @return SRVTM
     **/
     @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class P2pChatListResult {
     }
 
      /**
-     * Order Status
+     * Raw order status in DB; typical values: &#x60;OPEN&#x60;, &#x60;PAID&#x60;, &#x60;LOCKED&#x60;, &#x60;ACCEPT&#x60;, &#x60;BCLOSED&#x60;, &#x60;CANCEL&#x60;, &#x60;BECANCEL&#x60;, &#x60;SCLOSED&#x60;, &#x60;SCANCEL&#x60;.
      * @return orderStatus
     **/
     @javax.annotation.Nullable

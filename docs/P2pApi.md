@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantBooksPlaceBizPushOrder"></a>
 # **p2pMerchantBooksPlaceBizPushOrder**
-> Object p2pMerchantBooksPlaceBizPushOrder(placeBizPushOrder)
+> P2pMerchantBooksPlaceBizPushOrderResponse p2pMerchantBooksPlaceBizPushOrder(placeBizPushOrder)
 
 Publish ad order
 
@@ -660,7 +660,7 @@ public class Example {
         P2pApi apiInstance = new P2pApi(defaultClient);
         PlaceBizPushOrder placeBizPushOrder = new PlaceBizPushOrder(); // PlaceBizPushOrder | 
         try {
-            Object result = apiInstance.p2pMerchantBooksPlaceBizPushOrder(placeBizPushOrder);
+            P2pMerchantBooksPlaceBizPushOrderResponse result = apiInstance.p2pMerchantBooksPlaceBizPushOrder(placeBizPushOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**P2pMerchantBooksPlaceBizPushOrderResponse**](P2pMerchantBooksPlaceBizPushOrderResponse.md)
 
 ### Authorization
 
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
 
 <a name="p2pMerchantBooksAdsUpdateStatus"></a>
 # **p2pMerchantBooksAdsUpdateStatus**
-> P2pAdsUpdateStatusResponse p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus, tradeType)
+> P2pAdsUpdateStatusResponse p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus)
 
 Update ad status
 
@@ -727,9 +727,8 @@ public class Example {
 
         P2pApi apiInstance = new P2pApi(defaultClient);
         AdsUpdateStatus adsUpdateStatus = new AdsUpdateStatus(); // AdsUpdateStatus | 
-        String tradeType = "sell"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         try {
-            P2pAdsUpdateStatusResponse result = apiInstance.p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus, tradeType);
+            P2pAdsUpdateStatusResponse result = apiInstance.p2pMerchantBooksAdsUpdateStatus(adsUpdateStatus);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -749,7 +748,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **adsUpdateStatus** | [**AdsUpdateStatus**](AdsUpdateStatus.md)|  |
- **tradeType** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
 
 ### Return type
 

@@ -18,6 +18,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.P2pTransactionConvertInfo;
+import io.gate.gateapi.models.P2pTransactionListResultPayOthers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +38,6 @@ public class P2pTransactionListItem {
     public static final String SERIALIZED_NAME_TIMEST_EXPIRE = "timest_expire";
     @SerializedName(SERIALIZED_NAME_TIMEST_EXPIRE)
     private String timestExpire;
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
-
-    public static final String SERIALIZED_NAME_TRADE_TYPE = "trade_type";
-    @SerializedName(SERIALIZED_NAME_TRADE_TYPE)
-    private String tradeType;
 
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
@@ -70,10 +63,6 @@ public class P2pTransactionListItem {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
-    public static final String SERIALIZED_NAME_ORDER_STATUS = "order_status";
-    @SerializedName(SERIALIZED_NAME_ORDER_STATUS)
-    private String orderStatus;
-
     public static final String SERIALIZED_NAME_ITS_REALNAME = "its_realname";
     @SerializedName(SERIALIZED_NAME_ITS_REALNAME)
     private String itsRealname;
@@ -86,97 +75,25 @@ public class P2pTransactionListItem {
     @SerializedName(SERIALIZED_NAME_ITS_NICK)
     private String itsNick;
 
-    public static final String SERIALIZED_NAME_USER_NOTE = "user_note";
-    @SerializedName(SERIALIZED_NAME_USER_NOTE)
-    private String userNote;
-
-    public static final String SERIALIZED_NAME_SHOW_BANK = "show_bank";
-    @SerializedName(SERIALIZED_NAME_SHOW_BANK)
-    private String showBank;
-
-    public static final String SERIALIZED_NAME_BANKNAME = "bankname";
-    @SerializedName(SERIALIZED_NAME_BANKNAME)
-    private String bankname;
-
-    public static final String SERIALIZED_NAME_BANKBRANCH = "bankbranch";
-    @SerializedName(SERIALIZED_NAME_BANKBRANCH)
-    private String bankbranch;
-
-    public static final String SERIALIZED_NAME_SELLER_REALNAME = "sellerRealname";
+    public static final String SERIALIZED_NAME_SELLER_REALNAME = "seller_realname";
     @SerializedName(SERIALIZED_NAME_SELLER_REALNAME)
     private String sellerRealname;
 
-    public static final String SERIALIZED_NAME_BUYER_REALNAME = "buyerRealname";
+    public static final String SERIALIZED_NAME_BUYER_REALNAME = "buyer_realname";
     @SerializedName(SERIALIZED_NAME_BUYER_REALNAME)
     private String buyerRealname;
-
-    public static final String SERIALIZED_NAME_BANKID = "bankid";
-    @SerializedName(SERIALIZED_NAME_BANKID)
-    private String bankid;
-
-    public static final String SERIALIZED_NAME_BANK_HOLDER_REALNAME = "bank_holder_realname";
-    @SerializedName(SERIALIZED_NAME_BANK_HOLDER_REALNAME)
-    private String bankHolderRealname;
-
-    public static final String SERIALIZED_NAME_SHOW_ALI = "show_ali";
-    @SerializedName(SERIALIZED_NAME_SHOW_ALI)
-    private Integer showAli;
-
-    public static final String SERIALIZED_NAME_ALINAME = "aliname";
-    @SerializedName(SERIALIZED_NAME_ALINAME)
-    private String aliname;
-
-    public static final String SERIALIZED_NAME_SHOW_WECHAT = "show_wechat";
-    @SerializedName(SERIALIZED_NAME_SHOW_WECHAT)
-    private Integer showWechat;
-
-    public static final String SERIALIZED_NAME_WENAME = "wename";
-    @SerializedName(SERIALIZED_NAME_WENAME)
-    private String wename;
-
-    public static final String SERIALIZED_NAME_IS_ALICODE = "is_alicode";
-    @SerializedName(SERIALIZED_NAME_IS_ALICODE)
-    private Integer isAlicode;
-
-    public static final String SERIALIZED_NAME_DISPUTE_TIME = "dispute_time";
-    @SerializedName(SERIALIZED_NAME_DISPUTE_TIME)
-    private Integer disputeTime;
 
     public static final String SERIALIZED_NAME_CANCELABLE = "cancelable";
     @SerializedName(SERIALIZED_NAME_CANCELABLE)
     private Integer cancelable;
 
-    public static final String SERIALIZED_NAME_BLACK_UID = "black_uid";
-    @SerializedName(SERIALIZED_NAME_BLACK_UID)
-    private String blackUid;
-
-    public static final String SERIALIZED_NAME_BLACK_NAME = "black_name";
-    @SerializedName(SERIALIZED_NAME_BLACK_NAME)
-    private String blackName;
-
-    public static final String SERIALIZED_NAME_MEMO = "memo";
-    @SerializedName(SERIALIZED_NAME_MEMO)
-    private String memo;
-
-    public static final String SERIALIZED_NAME_IS_FOLLOW = "is_follow";
-    @SerializedName(SERIALIZED_NAME_IS_FOLLOW)
-    private Integer isFollow;
-
-    public static final String SERIALIZED_NAME_IS_BLACK = "is_black";
-    @SerializedName(SERIALIZED_NAME_IS_BLACK)
-    private Boolean isBlack;
-
-    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currencyType";
+    public static final String SERIALIZED_NAME_CURRENCY_TYPE = "currency_type";
     @SerializedName(SERIALIZED_NAME_CURRENCY_TYPE)
     private String currencyType;
 
     public static final String SERIALIZED_NAME_WANT_TYPE = "want_type";
     @SerializedName(SERIALIZED_NAME_WANT_TYPE)
     private String wantType;
-
-    public static final String SERIALIZED_NAME_IS_HEDGE = "is_hedge";
-    @SerializedName(SERIALIZED_NAME_IS_HEDGE)
-    private Integer isHedge;
 
     public static final String SERIALIZED_NAME_HIDE_PAYMENT = "hide_payment";
     @SerializedName(SERIALIZED_NAME_HIDE_PAYMENT)
@@ -186,77 +103,13 @@ public class P2pTransactionListItem {
     @SerializedName(SERIALIZED_NAME_SEL_PAYTYPE)
     private String selPaytype;
 
-    public static final String SERIALIZED_NAME_SHOW_OTHERS = "show_others";
-    @SerializedName(SERIALIZED_NAME_SHOW_OTHERS)
-    private Integer showOthers;
-
     public static final String SERIALIZED_NAME_PAY_OTHERS = "pay_others";
     @SerializedName(SERIALIZED_NAME_PAY_OTHERS)
-    private List<String> payOthers = null;
+    private List<P2pTransactionListResultPayOthers> payOthers = null;
 
-    public static final String SERIALIZED_NAME_TRADE_TIPS = "trade_tips";
-    @SerializedName(SERIALIZED_NAME_TRADE_TIPS)
-    private String tradeTips;
-
-    public static final String SERIALIZED_NAME_APPEAL_UNREAD = "appeal_unread";
-    @SerializedName(SERIALIZED_NAME_APPEAL_UNREAD)
-    private Integer appealUnread;
-
-    public static final String SERIALIZED_NAME_IM_UNREAD = "im_unread";
-    @SerializedName(SERIALIZED_NAME_IM_UNREAD)
-    private Integer imUnread;
-
-    public static final String SERIALIZED_NAME_IN_DISPUTE = "in_dispute";
-    @SerializedName(SERIALIZED_NAME_IN_DISPUTE)
-    private Boolean inDispute;
-
-    public static final String SERIALIZED_NAME_REASON_ID = "reason_id";
-    @SerializedName(SERIALIZED_NAME_REASON_ID)
-    private String reasonId;
-
-    public static final String SERIALIZED_NAME_REASON_MEMO = "reason_memo";
-    @SerializedName(SERIALIZED_NAME_REASON_MEMO)
-    private String reasonMemo;
-
-    public static final String SERIALIZED_NAME_CANCEL_TIME = "cancel_time";
-    @SerializedName(SERIALIZED_NAME_CANCEL_TIME)
-    private String cancelTime;
-
-    public static final String SERIALIZED_NAME_SELLER_CONFIRM = "seller_confirm";
-    @SerializedName(SERIALIZED_NAME_SELLER_CONFIRM)
-    private Integer sellerConfirm;
-
-    public static final String SERIALIZED_NAME_TOAST_ID = "toast_id";
-    @SerializedName(SERIALIZED_NAME_TOAST_ID)
-    private Integer toastId;
-
-    public static final String SERIALIZED_NAME_DISPUTE_REBACK = "dispute_reback";
-    @SerializedName(SERIALIZED_NAME_DISPUTE_REBACK)
-    private Integer disputeReback;
-
-    public static final String SERIALIZED_NAME_SCORE = "score";
-    @SerializedName(SERIALIZED_NAME_SCORE)
-    private String score;
-
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
-
-    public static final String SERIALIZED_NAME_RELEASE_COIN_SWITCH = "release_coin_switch";
-    @SerializedName(SERIALIZED_NAME_RELEASE_COIN_SWITCH)
-    private Integer releaseCoinSwitch;
-
-    public static final String SERIALIZED_NAME_TIER = "tier";
-    @SerializedName(SERIALIZED_NAME_TIER)
-    private Integer tier;
-
-    public static final String SERIALIZED_NAME_BLUE_VIP = "blue_vip";
-    @SerializedName(SERIALIZED_NAME_BLUE_VIP)
-    private Integer blueVip;
-
-    public static final String SERIALIZED_NAME_OD_TIME = "od_time";
-    @SerializedName(SERIALIZED_NAME_OD_TIME)
-    private Integer odTime;
+    public static final String SERIALIZED_NAME_CD_TIME = "cd_time";
+    @SerializedName(SERIALIZED_NAME_CD_TIME)
+    private Integer cdTime;
 
     public static final String SERIALIZED_NAME_ORDER_TYPE = "order_type";
     @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
@@ -278,7 +131,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * 1&#x3D;Buy, 0&#x3D;Sell
+     * Order side from current user&#39;s view. &#x60;1&#x60;: buy; &#x60;0&#x60;: sell.
      * @return typeBuy
     **/
     @javax.annotation.Nullable
@@ -331,46 +184,6 @@ public class P2pTransactionListItem {
         this.timestExpire = timestExpire;
     }
 
-    public P2pTransactionListItem type(String type) {
-        
-        this.type = type;
-        return this;
-    }
-
-     /**
-     * Buy/Sell order
-     * @return type
-    **/
-    @javax.annotation.Nullable
-    public String getType() {
-        return type;
-    }
-
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public P2pTransactionListItem tradeType(String tradeType) {
-        
-        this.tradeType = tradeType;
-        return this;
-    }
-
-     /**
-     * Buy/Sell order
-     * @return tradeType
-    **/
-    @javax.annotation.Nullable
-    public String getTradeType() {
-        return tradeType;
-    }
-
-
-    public void setTradeType(String tradeType) {
-        this.tradeType = tradeType;
-    }
-
     public P2pTransactionListItem timestamp(Integer timestamp) {
         
         this.timestamp = timestamp;
@@ -398,7 +211,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Exchange rate
+     * Order price in fiat currency.
      * @return rate
     **/
     @javax.annotation.Nullable
@@ -418,7 +231,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Size
+     * Order size in cryptocurrency.
      * @return amount
     **/
     @javax.annotation.Nullable
@@ -438,7 +251,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Total amount
+     * Total fiat amount of the order.
      * @return total
     **/
     @javax.annotation.Nullable
@@ -478,7 +291,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Order Status
+     * Display status: &#x60;unpay&#x60; awaiting payment; &#x60;paid&#x60; buyer paid; &#x60;unconfirmed&#x60; awaiting seller confirmation; &#x60;locked&#x60; locked; &#x60;finished&#x60; completed; &#x60;cancel&#x60; canceled; &#x60;expired&#x60; expired; &#x60;bclosed&#x60; arbitration filled; &#x60;sclosed&#x60; arbitration canceled.
      * @return status
     **/
     @javax.annotation.Nullable
@@ -491,26 +304,6 @@ public class P2pTransactionListItem {
         this.status = status;
     }
 
-    public P2pTransactionListItem orderStatus(String orderStatus) {
-        
-        this.orderStatus = orderStatus;
-        return this;
-    }
-
-     /**
-     * Order status (database value)
-     * @return orderStatus
-    **/
-    @javax.annotation.Nullable
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
     public P2pTransactionListItem itsRealname(String itsRealname) {
         
         this.itsRealname = itsRealname;
@@ -518,7 +311,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Counterparty username
+     * Counterparty real name or verified display name.
      * @return itsRealname
     **/
     @javax.annotation.Nullable
@@ -538,7 +331,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Counterparty UID
+     * Counterparty crypto UID.
      * @return itsUid
     **/
     @javax.annotation.Nullable
@@ -571,86 +364,6 @@ public class P2pTransactionListItem {
         this.itsNick = itsNick;
     }
 
-    public P2pTransactionListItem userNote(String userNote) {
-        
-        this.userNote = userNote;
-        return this;
-    }
-
-     /**
-     * User note
-     * @return userNote
-    **/
-    @javax.annotation.Nullable
-    public String getUserNote() {
-        return userNote;
-    }
-
-
-    public void setUserNote(String userNote) {
-        this.userNote = userNote;
-    }
-
-    public P2pTransactionListItem showBank(String showBank) {
-        
-        this.showBank = showBank;
-        return this;
-    }
-
-     /**
-     * Whether to display bank
-     * @return showBank
-    **/
-    @javax.annotation.Nullable
-    public String getShowBank() {
-        return showBank;
-    }
-
-
-    public void setShowBank(String showBank) {
-        this.showBank = showBank;
-    }
-
-    public P2pTransactionListItem bankname(String bankname) {
-        
-        this.bankname = bankname;
-        return this;
-    }
-
-     /**
-     * Bank name
-     * @return bankname
-    **/
-    @javax.annotation.Nullable
-    public String getBankname() {
-        return bankname;
-    }
-
-
-    public void setBankname(String bankname) {
-        this.bankname = bankname;
-    }
-
-    public P2pTransactionListItem bankbranch(String bankbranch) {
-        
-        this.bankbranch = bankbranch;
-        return this;
-    }
-
-     /**
-     * Bank branch name
-     * @return bankbranch
-    **/
-    @javax.annotation.Nullable
-    public String getBankbranch() {
-        return bankbranch;
-    }
-
-
-    public void setBankbranch(String bankbranch) {
-        this.bankbranch = bankbranch;
-    }
-
     public P2pTransactionListItem sellerRealname(String sellerRealname) {
         
         this.sellerRealname = sellerRealname;
@@ -658,7 +371,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Seller name
+     * Seller real name or verified display name.
      * @return sellerRealname
     **/
     @javax.annotation.Nullable
@@ -678,7 +391,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Buyer name
+     * Buyer real name or verified display name.
      * @return buyerRealname
     **/
     @javax.annotation.Nullable
@@ -691,166 +404,6 @@ public class P2pTransactionListItem {
         this.buyerRealname = buyerRealname;
     }
 
-    public P2pTransactionListItem bankid(String bankid) {
-        
-        this.bankid = bankid;
-        return this;
-    }
-
-     /**
-     * Bank ID
-     * @return bankid
-    **/
-    @javax.annotation.Nullable
-    public String getBankid() {
-        return bankid;
-    }
-
-
-    public void setBankid(String bankid) {
-        this.bankid = bankid;
-    }
-
-    public P2pTransactionListItem bankHolderRealname(String bankHolderRealname) {
-        
-        this.bankHolderRealname = bankHolderRealname;
-        return this;
-    }
-
-     /**
-     * Bank cardholder name
-     * @return bankHolderRealname
-    **/
-    @javax.annotation.Nullable
-    public String getBankHolderRealname() {
-        return bankHolderRealname;
-    }
-
-
-    public void setBankHolderRealname(String bankHolderRealname) {
-        this.bankHolderRealname = bankHolderRealname;
-    }
-
-    public P2pTransactionListItem showAli(Integer showAli) {
-        
-        this.showAli = showAli;
-        return this;
-    }
-
-     /**
-     * Whether to display Alipay
-     * @return showAli
-    **/
-    @javax.annotation.Nullable
-    public Integer getShowAli() {
-        return showAli;
-    }
-
-
-    public void setShowAli(Integer showAli) {
-        this.showAli = showAli;
-    }
-
-    public P2pTransactionListItem aliname(String aliname) {
-        
-        this.aliname = aliname;
-        return this;
-    }
-
-     /**
-     * Alipay account name
-     * @return aliname
-    **/
-    @javax.annotation.Nullable
-    public String getAliname() {
-        return aliname;
-    }
-
-
-    public void setAliname(String aliname) {
-        this.aliname = aliname;
-    }
-
-    public P2pTransactionListItem showWechat(Integer showWechat) {
-        
-        this.showWechat = showWechat;
-        return this;
-    }
-
-     /**
-     * Whether to display WeChat
-     * @return showWechat
-    **/
-    @javax.annotation.Nullable
-    public Integer getShowWechat() {
-        return showWechat;
-    }
-
-
-    public void setShowWechat(Integer showWechat) {
-        this.showWechat = showWechat;
-    }
-
-    public P2pTransactionListItem wename(String wename) {
-        
-        this.wename = wename;
-        return this;
-    }
-
-     /**
-     * WeChat account name
-     * @return wename
-    **/
-    @javax.annotation.Nullable
-    public String getWename() {
-        return wename;
-    }
-
-
-    public void setWename(String wename) {
-        this.wename = wename;
-    }
-
-    public P2pTransactionListItem isAlicode(Integer isAlicode) {
-        
-        this.isAlicode = isAlicode;
-        return this;
-    }
-
-     /**
-     * Whether Alipay QR code exists
-     * @return isAlicode
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsAlicode() {
-        return isAlicode;
-    }
-
-
-    public void setIsAlicode(Integer isAlicode) {
-        this.isAlicode = isAlicode;
-    }
-
-    public P2pTransactionListItem disputeTime(Integer disputeTime) {
-        
-        this.disputeTime = disputeTime;
-        return this;
-    }
-
-     /**
-     * Appeal time
-     * @return disputeTime
-    **/
-    @javax.annotation.Nullable
-    public Integer getDisputeTime() {
-        return disputeTime;
-    }
-
-
-    public void setDisputeTime(Integer disputeTime) {
-        this.disputeTime = disputeTime;
-    }
-
     public P2pTransactionListItem cancelable(Integer cancelable) {
         
         this.cancelable = cancelable;
@@ -858,7 +411,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Whether cancellable
+     * Whether the order can be canceled. &#x60;1&#x60;: yes; &#x60;0&#x60;: no.
      * @return cancelable
     **/
     @javax.annotation.Nullable
@@ -871,106 +424,6 @@ public class P2pTransactionListItem {
         this.cancelable = cancelable;
     }
 
-    public P2pTransactionListItem blackUid(String blackUid) {
-        
-        this.blackUid = blackUid;
-        return this;
-    }
-
-     /**
-     * Blacklist UID
-     * @return blackUid
-    **/
-    @javax.annotation.Nullable
-    public String getBlackUid() {
-        return blackUid;
-    }
-
-
-    public void setBlackUid(String blackUid) {
-        this.blackUid = blackUid;
-    }
-
-    public P2pTransactionListItem blackName(String blackName) {
-        
-        this.blackName = blackName;
-        return this;
-    }
-
-     /**
-     * Blacklist username
-     * @return blackName
-    **/
-    @javax.annotation.Nullable
-    public String getBlackName() {
-        return blackName;
-    }
-
-
-    public void setBlackName(String blackName) {
-        this.blackName = blackName;
-    }
-
-    public P2pTransactionListItem memo(String memo) {
-        
-        this.memo = memo;
-        return this;
-    }
-
-     /**
-     * Blacklist note
-     * @return memo
-    **/
-    @javax.annotation.Nullable
-    public String getMemo() {
-        return memo;
-    }
-
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
-    public P2pTransactionListItem isFollow(Integer isFollow) {
-        
-        this.isFollow = isFollow;
-        return this;
-    }
-
-     /**
-     * Whether following
-     * @return isFollow
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsFollow() {
-        return isFollow;
-    }
-
-
-    public void setIsFollow(Integer isFollow) {
-        this.isFollow = isFollow;
-    }
-
-    public P2pTransactionListItem isBlack(Boolean isBlack) {
-        
-        this.isBlack = isBlack;
-        return this;
-    }
-
-     /**
-     * Whether blocked
-     * @return isBlack
-    **/
-    @javax.annotation.Nullable
-    public Boolean getIsBlack() {
-        return isBlack;
-    }
-
-
-    public void setIsBlack(Boolean isBlack) {
-        this.isBlack = isBlack;
-    }
-
     public P2pTransactionListItem currencyType(String currencyType) {
         
         this.currencyType = currencyType;
@@ -978,7 +431,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Virtual currency
+     * Cryptocurrency symbol.
      * @return currencyType
     **/
     @javax.annotation.Nullable
@@ -1011,26 +464,6 @@ public class P2pTransactionListItem {
         this.wantType = wantType;
     }
 
-    public P2pTransactionListItem isHedge(Integer isHedge) {
-        
-        this.isHedge = isHedge;
-        return this;
-    }
-
-     /**
-     * Whether auto delegation
-     * @return isHedge
-    **/
-    @javax.annotation.Nullable
-    public Integer getIsHedge() {
-        return isHedge;
-    }
-
-
-    public void setIsHedge(Integer isHedge) {
-        this.isHedge = isHedge;
-    }
-
     public P2pTransactionListItem hidePayment(Integer hidePayment) {
         
         this.hidePayment = hidePayment;
@@ -1038,7 +471,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Whether to hide payment method
+     * Whether payment methods are hidden. &#x60;1&#x60;: hidden; &#x60;0&#x60;: visible.
      * @return hidePayment
     **/
     @javax.annotation.Nullable
@@ -1058,7 +491,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Payment type
+     * Selected payment type for this order, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;.
      * @return selPaytype
     **/
     @javax.annotation.Nullable
@@ -1071,33 +504,13 @@ public class P2pTransactionListItem {
         this.selPaytype = selPaytype;
     }
 
-    public P2pTransactionListItem showOthers(Integer showOthers) {
-        
-        this.showOthers = showOthers;
-        return this;
-    }
-
-     /**
-     * Whether to display other payment methods
-     * @return showOthers
-    **/
-    @javax.annotation.Nullable
-    public Integer getShowOthers() {
-        return showOthers;
-    }
-
-
-    public void setShowOthers(Integer showOthers) {
-        this.showOthers = showOthers;
-    }
-
-    public P2pTransactionListItem payOthers(List<String> payOthers) {
+    public P2pTransactionListItem payOthers(List<P2pTransactionListResultPayOthers> payOthers) {
         
         this.payOthers = payOthers;
         return this;
     }
 
-    public P2pTransactionListItem addPayOthersItem(String payOthersItem) {
+    public P2pTransactionListItem addPayOthersItem(P2pTransactionListResultPayOthers payOthersItem) {
         if (this.payOthers == null) {
             this.payOthers = new ArrayList<>();
         }
@@ -1106,337 +519,37 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Other payment methods
+     * Other payment method details; may appear on historical orders.
      * @return payOthers
     **/
     @javax.annotation.Nullable
-    public List<String> getPayOthers() {
+    public List<P2pTransactionListResultPayOthers> getPayOthers() {
         return payOthers;
     }
 
 
-    public void setPayOthers(List<String> payOthers) {
+    public void setPayOthers(List<P2pTransactionListResultPayOthers> payOthers) {
         this.payOthers = payOthers;
     }
 
-    public P2pTransactionListItem tradeTips(String tradeTips) {
+    public P2pTransactionListItem cdTime(Integer cdTime) {
         
-        this.tradeTips = tradeTips;
+        this.cdTime = cdTime;
         return this;
     }
 
      /**
-     * Trading tip
-     * @return tradeTips
+     * Countdown seconds for the current order.
+     * @return cdTime
     **/
     @javax.annotation.Nullable
-    public String getTradeTips() {
-        return tradeTips;
+    public Integer getCdTime() {
+        return cdTime;
     }
 
 
-    public void setTradeTips(String tradeTips) {
-        this.tradeTips = tradeTips;
-    }
-
-    public P2pTransactionListItem appealUnread(Integer appealUnread) {
-        
-        this.appealUnread = appealUnread;
-        return this;
-    }
-
-     /**
-     * Unread appeals
-     * @return appealUnread
-    **/
-    @javax.annotation.Nullable
-    public Integer getAppealUnread() {
-        return appealUnread;
-    }
-
-
-    public void setAppealUnread(Integer appealUnread) {
-        this.appealUnread = appealUnread;
-    }
-
-    public P2pTransactionListItem imUnread(Integer imUnread) {
-        
-        this.imUnread = imUnread;
-        return this;
-    }
-
-     /**
-     * IM unread
-     * @return imUnread
-    **/
-    @javax.annotation.Nullable
-    public Integer getImUnread() {
-        return imUnread;
-    }
-
-
-    public void setImUnread(Integer imUnread) {
-        this.imUnread = imUnread;
-    }
-
-    public P2pTransactionListItem inDispute(Boolean inDispute) {
-        
-        this.inDispute = inDispute;
-        return this;
-    }
-
-     /**
-     * Whether in dispute
-     * @return inDispute
-    **/
-    @javax.annotation.Nullable
-    public Boolean getInDispute() {
-        return inDispute;
-    }
-
-
-    public void setInDispute(Boolean inDispute) {
-        this.inDispute = inDispute;
-    }
-
-    public P2pTransactionListItem reasonId(String reasonId) {
-        
-        this.reasonId = reasonId;
-        return this;
-    }
-
-     /**
-     * Cancellation reason ID
-     * @return reasonId
-    **/
-    @javax.annotation.Nullable
-    public String getReasonId() {
-        return reasonId;
-    }
-
-
-    public void setReasonId(String reasonId) {
-        this.reasonId = reasonId;
-    }
-
-    public P2pTransactionListItem reasonMemo(String reasonMemo) {
-        
-        this.reasonMemo = reasonMemo;
-        return this;
-    }
-
-     /**
-     * Cancellation reason note
-     * @return reasonMemo
-    **/
-    @javax.annotation.Nullable
-    public String getReasonMemo() {
-        return reasonMemo;
-    }
-
-
-    public void setReasonMemo(String reasonMemo) {
-        this.reasonMemo = reasonMemo;
-    }
-
-    public P2pTransactionListItem cancelTime(String cancelTime) {
-        
-        this.cancelTime = cancelTime;
-        return this;
-    }
-
-     /**
-     * Cancellation time
-     * @return cancelTime
-    **/
-    @javax.annotation.Nullable
-    public String getCancelTime() {
-        return cancelTime;
-    }
-
-
-    public void setCancelTime(String cancelTime) {
-        this.cancelTime = cancelTime;
-    }
-
-    public P2pTransactionListItem sellerConfirm(Integer sellerConfirm) {
-        
-        this.sellerConfirm = sellerConfirm;
-        return this;
-    }
-
-     /**
-     * Whether seller confirmed the reason
-     * @return sellerConfirm
-    **/
-    @javax.annotation.Nullable
-    public Integer getSellerConfirm() {
-        return sellerConfirm;
-    }
-
-
-    public void setSellerConfirm(Integer sellerConfirm) {
-        this.sellerConfirm = sellerConfirm;
-    }
-
-    public P2pTransactionListItem toastId(Integer toastId) {
-        
-        this.toastId = toastId;
-        return this;
-    }
-
-     /**
-     * Popup ID
-     * @return toastId
-    **/
-    @javax.annotation.Nullable
-    public Integer getToastId() {
-        return toastId;
-    }
-
-
-    public void setToastId(Integer toastId) {
-        this.toastId = toastId;
-    }
-
-    public P2pTransactionListItem disputeReback(Integer disputeReback) {
-        
-        this.disputeReback = disputeReback;
-        return this;
-    }
-
-     /**
-     * Customer service has new reply to appeal
-     * @return disputeReback
-    **/
-    @javax.annotation.Nullable
-    public Integer getDisputeReback() {
-        return disputeReback;
-    }
-
-
-    public void setDisputeReback(Integer disputeReback) {
-        this.disputeReback = disputeReback;
-    }
-
-    public P2pTransactionListItem score(String score) {
-        
-        this.score = score;
-        return this;
-    }
-
-     /**
-     * Rating
-     * @return score
-    **/
-    @javax.annotation.Nullable
-    public String getScore() {
-        return score;
-    }
-
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public P2pTransactionListItem message(String message) {
-        
-        this.message = message;
-        return this;
-    }
-
-     /**
-     * Review content
-     * @return message
-    **/
-    @javax.annotation.Nullable
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public P2pTransactionListItem releaseCoinSwitch(Integer releaseCoinSwitch) {
-        
-        this.releaseCoinSwitch = releaseCoinSwitch;
-        return this;
-    }
-
-     /**
-     * Coin release switch configuration
-     * @return releaseCoinSwitch
-    **/
-    @javax.annotation.Nullable
-    public Integer getReleaseCoinSwitch() {
-        return releaseCoinSwitch;
-    }
-
-
-    public void setReleaseCoinSwitch(Integer releaseCoinSwitch) {
-        this.releaseCoinSwitch = releaseCoinSwitch;
-    }
-
-    public P2pTransactionListItem tier(Integer tier) {
-        
-        this.tier = tier;
-        return this;
-    }
-
-     /**
-     * VIP level
-     * @return tier
-    **/
-    @javax.annotation.Nullable
-    public Integer getTier() {
-        return tier;
-    }
-
-
-    public void setTier(Integer tier) {
-        this.tier = tier;
-    }
-
-    public P2pTransactionListItem blueVip(Integer blueVip) {
-        
-        this.blueVip = blueVip;
-        return this;
-    }
-
-     /**
-     * Blue V Crown Shield
-     * @return blueVip
-    **/
-    @javax.annotation.Nullable
-    public Integer getBlueVip() {
-        return blueVip;
-    }
-
-
-    public void setBlueVip(Integer blueVip) {
-        this.blueVip = blueVip;
-    }
-
-    public P2pTransactionListItem odTime(Integer odTime) {
-        
-        this.odTime = odTime;
-        return this;
-    }
-
-     /**
-     * Countdown time
-     * @return odTime
-    **/
-    @javax.annotation.Nullable
-    public Integer getOdTime() {
-        return odTime;
-    }
-
-
-    public void setOdTime(Integer odTime) {
-        this.odTime = odTime;
+    public void setCdTime(Integer cdTime) {
+        this.cdTime = cdTime;
     }
 
     public P2pTransactionListItem orderType(Integer orderType) {
@@ -1446,7 +559,7 @@ public class P2pTransactionListItem {
     }
 
      /**
-     * Order Type
+     * Order type: &#x60;1&#x60; standard; &#x60;2&#x60; partner; &#x60;3&#x60; flash swap; &#x60;4&#x60; Web3.
      * @return orderType
     **/
     @javax.annotation.Nullable
@@ -1518,61 +631,24 @@ public class P2pTransactionListItem {
         return Objects.equals(this.typeBuy, p2pTransactionListItem.typeBuy) &&
                 Objects.equals(this.timest, p2pTransactionListItem.timest) &&
                 Objects.equals(this.timestExpire, p2pTransactionListItem.timestExpire) &&
-                Objects.equals(this.type, p2pTransactionListItem.type) &&
-                Objects.equals(this.tradeType, p2pTransactionListItem.tradeType) &&
                 Objects.equals(this.timestamp, p2pTransactionListItem.timestamp) &&
                 Objects.equals(this.rate, p2pTransactionListItem.rate) &&
                 Objects.equals(this.amount, p2pTransactionListItem.amount) &&
                 Objects.equals(this.total, p2pTransactionListItem.total) &&
                 Objects.equals(this.txid, p2pTransactionListItem.txid) &&
                 Objects.equals(this.status, p2pTransactionListItem.status) &&
-                Objects.equals(this.orderStatus, p2pTransactionListItem.orderStatus) &&
                 Objects.equals(this.itsRealname, p2pTransactionListItem.itsRealname) &&
                 Objects.equals(this.itsUid, p2pTransactionListItem.itsUid) &&
                 Objects.equals(this.itsNick, p2pTransactionListItem.itsNick) &&
-                Objects.equals(this.userNote, p2pTransactionListItem.userNote) &&
-                Objects.equals(this.showBank, p2pTransactionListItem.showBank) &&
-                Objects.equals(this.bankname, p2pTransactionListItem.bankname) &&
-                Objects.equals(this.bankbranch, p2pTransactionListItem.bankbranch) &&
                 Objects.equals(this.sellerRealname, p2pTransactionListItem.sellerRealname) &&
                 Objects.equals(this.buyerRealname, p2pTransactionListItem.buyerRealname) &&
-                Objects.equals(this.bankid, p2pTransactionListItem.bankid) &&
-                Objects.equals(this.bankHolderRealname, p2pTransactionListItem.bankHolderRealname) &&
-                Objects.equals(this.showAli, p2pTransactionListItem.showAli) &&
-                Objects.equals(this.aliname, p2pTransactionListItem.aliname) &&
-                Objects.equals(this.showWechat, p2pTransactionListItem.showWechat) &&
-                Objects.equals(this.wename, p2pTransactionListItem.wename) &&
-                Objects.equals(this.isAlicode, p2pTransactionListItem.isAlicode) &&
-                Objects.equals(this.disputeTime, p2pTransactionListItem.disputeTime) &&
                 Objects.equals(this.cancelable, p2pTransactionListItem.cancelable) &&
-                Objects.equals(this.blackUid, p2pTransactionListItem.blackUid) &&
-                Objects.equals(this.blackName, p2pTransactionListItem.blackName) &&
-                Objects.equals(this.memo, p2pTransactionListItem.memo) &&
-                Objects.equals(this.isFollow, p2pTransactionListItem.isFollow) &&
-                Objects.equals(this.isBlack, p2pTransactionListItem.isBlack) &&
                 Objects.equals(this.currencyType, p2pTransactionListItem.currencyType) &&
                 Objects.equals(this.wantType, p2pTransactionListItem.wantType) &&
-                Objects.equals(this.isHedge, p2pTransactionListItem.isHedge) &&
                 Objects.equals(this.hidePayment, p2pTransactionListItem.hidePayment) &&
                 Objects.equals(this.selPaytype, p2pTransactionListItem.selPaytype) &&
-                Objects.equals(this.showOthers, p2pTransactionListItem.showOthers) &&
                 Objects.equals(this.payOthers, p2pTransactionListItem.payOthers) &&
-                Objects.equals(this.tradeTips, p2pTransactionListItem.tradeTips) &&
-                Objects.equals(this.appealUnread, p2pTransactionListItem.appealUnread) &&
-                Objects.equals(this.imUnread, p2pTransactionListItem.imUnread) &&
-                Objects.equals(this.inDispute, p2pTransactionListItem.inDispute) &&
-                Objects.equals(this.reasonId, p2pTransactionListItem.reasonId) &&
-                Objects.equals(this.reasonMemo, p2pTransactionListItem.reasonMemo) &&
-                Objects.equals(this.cancelTime, p2pTransactionListItem.cancelTime) &&
-                Objects.equals(this.sellerConfirm, p2pTransactionListItem.sellerConfirm) &&
-                Objects.equals(this.toastId, p2pTransactionListItem.toastId) &&
-                Objects.equals(this.disputeReback, p2pTransactionListItem.disputeReback) &&
-                Objects.equals(this.score, p2pTransactionListItem.score) &&
-                Objects.equals(this.message, p2pTransactionListItem.message) &&
-                Objects.equals(this.releaseCoinSwitch, p2pTransactionListItem.releaseCoinSwitch) &&
-                Objects.equals(this.tier, p2pTransactionListItem.tier) &&
-                Objects.equals(this.blueVip, p2pTransactionListItem.blueVip) &&
-                Objects.equals(this.odTime, p2pTransactionListItem.odTime) &&
+                Objects.equals(this.cdTime, p2pTransactionListItem.cdTime) &&
                 Objects.equals(this.orderType, p2pTransactionListItem.orderType) &&
                 Objects.equals(this.orderTag, p2pTransactionListItem.orderTag) &&
                 Objects.equals(this.convertInfo, p2pTransactionListItem.convertInfo);
@@ -1580,7 +656,7 @@ public class P2pTransactionListItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(typeBuy, timest, timestExpire, type, tradeType, timestamp, rate, amount, total, txid, status, orderStatus, itsRealname, itsUid, itsNick, userNote, showBank, bankname, bankbranch, sellerRealname, buyerRealname, bankid, bankHolderRealname, showAli, aliname, showWechat, wename, isAlicode, disputeTime, cancelable, blackUid, blackName, memo, isFollow, isBlack, currencyType, wantType, isHedge, hidePayment, selPaytype, showOthers, payOthers, tradeTips, appealUnread, imUnread, inDispute, reasonId, reasonMemo, cancelTime, sellerConfirm, toastId, disputeReback, score, message, releaseCoinSwitch, tier, blueVip, odTime, orderType, orderTag, convertInfo);
+        return Objects.hash(typeBuy, timest, timestExpire, timestamp, rate, amount, total, txid, status, itsRealname, itsUid, itsNick, sellerRealname, buyerRealname, cancelable, currencyType, wantType, hidePayment, selPaytype, payOthers, cdTime, orderType, orderTag, convertInfo);
     }
 
 
@@ -1591,61 +667,24 @@ public class P2pTransactionListItem {
         sb.append("      typeBuy: ").append(toIndentedString(typeBuy)).append("\n");
         sb.append("      timest: ").append(toIndentedString(timest)).append("\n");
         sb.append("      timestExpire: ").append(toIndentedString(timestExpire)).append("\n");
-        sb.append("      type: ").append(toIndentedString(type)).append("\n");
-        sb.append("      tradeType: ").append(toIndentedString(tradeType)).append("\n");
         sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      total: ").append(toIndentedString(total)).append("\n");
         sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      orderStatus: ").append(toIndentedString(orderStatus)).append("\n");
         sb.append("      itsRealname: ").append(toIndentedString(itsRealname)).append("\n");
         sb.append("      itsUid: ").append(toIndentedString(itsUid)).append("\n");
         sb.append("      itsNick: ").append(toIndentedString(itsNick)).append("\n");
-        sb.append("      userNote: ").append(toIndentedString(userNote)).append("\n");
-        sb.append("      showBank: ").append(toIndentedString(showBank)).append("\n");
-        sb.append("      bankname: ").append(toIndentedString(bankname)).append("\n");
-        sb.append("      bankbranch: ").append(toIndentedString(bankbranch)).append("\n");
         sb.append("      sellerRealname: ").append(toIndentedString(sellerRealname)).append("\n");
         sb.append("      buyerRealname: ").append(toIndentedString(buyerRealname)).append("\n");
-        sb.append("      bankid: ").append(toIndentedString(bankid)).append("\n");
-        sb.append("      bankHolderRealname: ").append(toIndentedString(bankHolderRealname)).append("\n");
-        sb.append("      showAli: ").append(toIndentedString(showAli)).append("\n");
-        sb.append("      aliname: ").append(toIndentedString(aliname)).append("\n");
-        sb.append("      showWechat: ").append(toIndentedString(showWechat)).append("\n");
-        sb.append("      wename: ").append(toIndentedString(wename)).append("\n");
-        sb.append("      isAlicode: ").append(toIndentedString(isAlicode)).append("\n");
-        sb.append("      disputeTime: ").append(toIndentedString(disputeTime)).append("\n");
         sb.append("      cancelable: ").append(toIndentedString(cancelable)).append("\n");
-        sb.append("      blackUid: ").append(toIndentedString(blackUid)).append("\n");
-        sb.append("      blackName: ").append(toIndentedString(blackName)).append("\n");
-        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
-        sb.append("      isFollow: ").append(toIndentedString(isFollow)).append("\n");
-        sb.append("      isBlack: ").append(toIndentedString(isBlack)).append("\n");
         sb.append("      currencyType: ").append(toIndentedString(currencyType)).append("\n");
         sb.append("      wantType: ").append(toIndentedString(wantType)).append("\n");
-        sb.append("      isHedge: ").append(toIndentedString(isHedge)).append("\n");
         sb.append("      hidePayment: ").append(toIndentedString(hidePayment)).append("\n");
         sb.append("      selPaytype: ").append(toIndentedString(selPaytype)).append("\n");
-        sb.append("      showOthers: ").append(toIndentedString(showOthers)).append("\n");
         sb.append("      payOthers: ").append(toIndentedString(payOthers)).append("\n");
-        sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
-        sb.append("      appealUnread: ").append(toIndentedString(appealUnread)).append("\n");
-        sb.append("      imUnread: ").append(toIndentedString(imUnread)).append("\n");
-        sb.append("      inDispute: ").append(toIndentedString(inDispute)).append("\n");
-        sb.append("      reasonId: ").append(toIndentedString(reasonId)).append("\n");
-        sb.append("      reasonMemo: ").append(toIndentedString(reasonMemo)).append("\n");
-        sb.append("      cancelTime: ").append(toIndentedString(cancelTime)).append("\n");
-        sb.append("      sellerConfirm: ").append(toIndentedString(sellerConfirm)).append("\n");
-        sb.append("      toastId: ").append(toIndentedString(toastId)).append("\n");
-        sb.append("      disputeReback: ").append(toIndentedString(disputeReback)).append("\n");
-        sb.append("      score: ").append(toIndentedString(score)).append("\n");
-        sb.append("      message: ").append(toIndentedString(message)).append("\n");
-        sb.append("      releaseCoinSwitch: ").append(toIndentedString(releaseCoinSwitch)).append("\n");
-        sb.append("      tier: ").append(toIndentedString(tier)).append("\n");
-        sb.append("      blueVip: ").append(toIndentedString(blueVip)).append("\n");
-        sb.append("      odTime: ").append(toIndentedString(odTime)).append("\n");
+        sb.append("      cdTime: ").append(toIndentedString(cdTime)).append("\n");
         sb.append("      orderType: ").append(toIndentedString(orderType)).append("\n");
         sb.append("      orderTag: ").append(toIndentedString(orderTag)).append("\n");
         sb.append("      convertInfo: ").append(toIndentedString(convertInfo)).append("\n");

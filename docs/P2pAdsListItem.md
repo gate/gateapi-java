@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **fiatUnit** | **String** | Fiat currency |  [optional]
 **advNo** | **Integer** | Ad ID |  [optional]
 **price** | **String** | Price |  [optional]
-**maxSingleTransAmount** | **String** | Maximum Cryptocurrency Amount |  [optional]
-**minSingleTransAmount** | **String** | Minimum Cryptocurrency Amount |  [optional]
+**maxSingleTransAmount** | **String** | Maximum crypto size per trade. |  [optional]
+**minSingleTransAmount** | **String** | Minimum crypto size per trade. |  [optional]
 **nickName** | **String** | Advertiser Nickname |  [optional]
 

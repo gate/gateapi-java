@@ -207,7 +207,7 @@ public class CrossExApi {
     }
 
     /**
-     * [Public Interface] Query Trading Pair Information
+     * 查询币对信息
      * Query Trading Pair Information
      * @return APIlistCrossexRuleSymbolsRequest
      * @http.response.details
@@ -277,7 +277,7 @@ public class CrossExApi {
     }
 
     /**
-     * [Public Interface] Query Risk Limit Information
+     * 查询风险限额信息
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
      * @return List&lt;CrossexRiskLimit&gt;
@@ -294,7 +294,7 @@ public class CrossExApi {
     }
 
     /**
-     * [Public Interface] Query Risk Limit Information
+     * 查询风险限额信息
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
      * @return ApiResponse&lt;List&lt;CrossexRiskLimit&gt;&gt;
@@ -312,7 +312,7 @@ public class CrossExApi {
     }
 
     /**
-     * [Public Interface] Query Risk Limit Information (asynchronously)
+     * 查询风险限额信息 (asynchronously)
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -461,7 +461,7 @@ public class CrossExApi {
     }
 
     /**
-     * [Public Interface] Query Supported Transfer Currencies
+     * 查询划转币种支持
      * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @return APIlistCrossexTransferCoinsRequest
      * @http.response.details
@@ -4151,7 +4151,7 @@ public class CrossExApi {
         return new APIlistCrossexHistoryTradesRequest();
     }
 
-    private okhttp3.Call listCrossexAccountBookCall(Integer page, Integer limit, String coin, Integer from, Integer to, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCrossexAccountBookCall(Integer page, Integer limit, String coin, String statementType, Integer from, Integer to, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4169,6 +4169,10 @@ public class CrossExApi {
 
         if (coin != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("coin", coin));
+        }
+
+        if (statementType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("statement_type", statementType));
         }
 
         if (from != null) {
@@ -4201,20 +4205,20 @@ public class CrossExApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCrossexAccountBookValidateBeforeCall(Integer page, Integer limit, String coin, Integer from, Integer to, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listCrossexAccountBookCall(page, limit, coin, from, to, _callback);
+    private okhttp3.Call listCrossexAccountBookValidateBeforeCall(Integer page, Integer limit, String coin, String statementType, Integer from, Integer to, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexAccountBookCall(page, limit, coin, statementType, from, to, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<CrossexAccountBookRecord>> listCrossexAccountBookWithHttpInfo(Integer page, Integer limit, String coin, Integer from, Integer to) throws ApiException {
-        okhttp3.Call localVarCall = listCrossexAccountBookValidateBeforeCall(page, limit, coin, from, to, null);
+    private ApiResponse<List<CrossexAccountBookRecord>> listCrossexAccountBookWithHttpInfo(Integer page, Integer limit, String coin, String statementType, Integer from, Integer to) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexAccountBookValidateBeforeCall(page, limit, coin, statementType, from, to, null);
         Type localVarReturnType = new TypeToken<List<CrossexAccountBookRecord>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexAccountBookAsync(Integer page, Integer limit, String coin, Integer from, Integer to, final ApiCallback<List<CrossexAccountBookRecord>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listCrossexAccountBookValidateBeforeCall(page, limit, coin, from, to, _callback);
+    private okhttp3.Call listCrossexAccountBookAsync(Integer page, Integer limit, String coin, String statementType, Integer from, Integer to, final ApiCallback<List<CrossexAccountBookRecord>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexAccountBookValidateBeforeCall(page, limit, coin, statementType, from, to, _callback);
         Type localVarReturnType = new TypeToken<List<CrossexAccountBookRecord>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4224,6 +4228,7 @@ public class CrossExApi {
         private Integer page;
         private Integer limit;
         private String coin;
+        private String statementType;
         private Integer from;
         private Integer to;
 
@@ -4261,6 +4266,16 @@ public class CrossExApi {
         }
 
         /**
+         * Set statementType
+         * @param statementType Bill entry type. (optional)
+         * @return APIlistCrossexAccountBookRequest
+         */
+        public APIlistCrossexAccountBookRequest statementType(String statementType) {
+            this.statementType = statementType;
+            return this;
+        }
+
+        /**
          * Set from
          * @param from Start Millisecond Timestamp (optional)
          * @return APIlistCrossexAccountBookRequest
@@ -4292,7 +4307,7 @@ public class CrossExApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listCrossexAccountBookCall(page, limit, coin, from, to, _callback);
+            return listCrossexAccountBookCall(page, limit, coin, statementType, from, to, _callback);
         }
 
         /**
@@ -4306,7 +4321,7 @@ public class CrossExApi {
          </table>
          */
         public List<CrossexAccountBookRecord> execute() throws ApiException {
-            ApiResponse<List<CrossexAccountBookRecord>> localVarResp = listCrossexAccountBookWithHttpInfo(page, limit, coin, from, to);
+            ApiResponse<List<CrossexAccountBookRecord>> localVarResp = listCrossexAccountBookWithHttpInfo(page, limit, coin, statementType, from, to);
             return localVarResp.getData();
         }
 
@@ -4321,7 +4336,7 @@ public class CrossExApi {
          </table>
          */
         public ApiResponse<List<CrossexAccountBookRecord>> executeWithHttpInfo() throws ApiException {
-            return listCrossexAccountBookWithHttpInfo(page, limit, coin, from, to);
+            return listCrossexAccountBookWithHttpInfo(page, limit, coin, statementType, from, to);
         }
 
         /**
@@ -4336,7 +4351,7 @@ public class CrossExApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<CrossexAccountBookRecord>> _callback) throws ApiException {
-            return listCrossexAccountBookAsync(page, limit, coin, from, to, _callback);
+            return listCrossexAccountBookAsync(page, limit, coin, statementType, from, to, _callback);
         }
     }
 
@@ -4499,7 +4514,7 @@ public class CrossExApi {
     }
 
     /**
-     * Query currency discount rate (discount rate of margin currency in isolated exchange mode)
+     * Query Currency Discount Rate
      * Rate Limit: 200 requests per 10 seconds
      * @return APIlistCrossexCoinDiscountRateRequest
      * @http.response.details

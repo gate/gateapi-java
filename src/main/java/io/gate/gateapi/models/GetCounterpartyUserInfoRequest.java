@@ -35,7 +35,7 @@ public class GetCounterpartyUserInfoRequest {
     }
 
      /**
-     * Counterparty UID (encrypted)
+     * Counterparty crypto UID from order list or detail field &#x60;its_uid&#x60;.
      * @return bizUid
     **/
     public String getBizUid() {

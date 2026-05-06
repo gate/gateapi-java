@@ -87,7 +87,7 @@ public class Symbol {
     }
 
      /**
-     * ExchangeType_BusinessType_Base_Counter
+     * Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.
      * @return symbol
     **/
     public String getSymbol() {
@@ -106,7 +106,7 @@ public class Symbol {
     }
 
      /**
-     * BINANCE,OKX,GATE,BYBIT,CROSSEX
+     * Exchange type (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;CROSSEX&#x60;).
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -125,7 +125,7 @@ public class Symbol {
     }
 
      /**
-     * SPOT, FUTURE, MARGIN
+     * Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin).
      * @return businessType
     **/
     public String getBusinessType() {
@@ -144,7 +144,7 @@ public class Symbol {
     }
 
      /**
-     * live/suspend
+     * Status (&#x60;live&#x60; running / &#x60;suspend&#x60; paused).
      * @return state
     **/
     public String getState() {
@@ -163,7 +163,7 @@ public class Symbol {
     }
 
      /**
-     * Minimum order quantity
+     * Minimum order size allowed by the contract
      * @return minSize
     **/
     public String getMinSize() {
@@ -182,7 +182,7 @@ public class Symbol {
     }
 
      /**
-     * Minimum order value
+     * Minimum Order Value
      * @return minNotional
     **/
     public String getMinNotional() {
@@ -201,7 +201,7 @@ public class Symbol {
     }
 
      /**
-     * Quantity step size
+     * Quantity Step
      * @return lotSize
     **/
     public String getLotSize() {
@@ -220,7 +220,7 @@ public class Symbol {
     }
 
      /**
-     * Price step size
+     * Price Step
      * @return tickSize
     **/
     public String getTickSize() {
@@ -239,7 +239,7 @@ public class Symbol {
     }
 
      /**
-     * Maximum number of pending orders
+     * maximumopen orderamount
      * @return maxNumOrders
     **/
     public String getMaxNumOrders() {
@@ -258,7 +258,7 @@ public class Symbol {
     }
 
      /**
-     * Maximum order quantity at market price
+     * Maximum Market Order Quantity
      * @return maxMarketSize
     **/
     public String getMaxMarketSize() {
@@ -277,7 +277,7 @@ public class Symbol {
     }
 
      /**
-     * Maximum order quantity at limit price
+     * Maximum order quantity for limit orders.
      * @return maxLimitSize
     **/
     public String getMaxLimitSize() {
@@ -296,7 +296,7 @@ public class Symbol {
     }
 
      /**
-     * contract multiplier
+     * Contract Multiplier
      * @return contractSize
     **/
     public String getContractSize() {
@@ -315,7 +315,7 @@ public class Symbol {
     }
 
      /**
-     * Liquidation rate
+     * Liquidation Fee Rate
      * @return liquidationFee
     **/
     public String getLiquidationFee() {
@@ -334,7 +334,7 @@ public class Symbol {
     }
 
      /**
-     * Millisecond timestamp,0 is normal
+     * Millisecond timestamp; &#x60;0&#x60; means not delisted.
      * @return delistTime
     **/
     public String getDelistTime() {

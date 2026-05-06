@@ -43,7 +43,7 @@ public class AdsListRequest {
     }
 
      /**
-     * Cryptocurrency
+     * Cryptocurrency symbol.
      * @return asset
     **/
     public String getAsset() {
@@ -81,7 +81,7 @@ public class AdsListRequest {
     }
 
      /**
-     * Buy/Sell, sell/buy
+     * Ad side: &#x60;buy&#x60; buy-crypto ad; &#x60;sell&#x60; sell-crypto ad.
      * @return tradeType
     **/
     public String getTradeType() {

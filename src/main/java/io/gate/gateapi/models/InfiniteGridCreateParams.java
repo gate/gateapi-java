@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Creation parameters for infinite grid strategies.
+ * 无限网格策略的创建参数。  与 App 口径对齐：**仅** &#x60;money&#x60;、&#x60;price_floor&#x60;、&#x60;profit_per_grid&#x60; 为必填； &#x60;grid_num&#x60;、&#x60;price_type&#x60; 可选（不传时由服务端按默认处理）。
  */
 public class InfiniteGridCreateParams {
     public static final String SERIALIZED_NAME_MONEY = "money";
@@ -40,7 +40,7 @@ public class InfiniteGridCreateParams {
     private Integer gridNum;
 
     /**
-     * Gets or Sets priceType
+     * Optional. &#x60;0&#x60; arithmetic grid; &#x60;1&#x60; geometric; omit for server defaults.
      */
     @JsonAdapter(PriceTypeEnum.Adapter.class)
     public enum PriceTypeEnum {
@@ -175,10 +175,11 @@ public class InfiniteGridCreateParams {
     }
 
      /**
-     * Get gridNum
+     * Optional; may be omitted like in the app.
      * minimum: 1
      * @return gridNum
     **/
+    @javax.annotation.Nullable
     public Integer getGridNum() {
         return gridNum;
     }
@@ -195,9 +196,10 @@ public class InfiniteGridCreateParams {
     }
 
      /**
-     * Get priceType
+     * Optional. &#x60;0&#x60; arithmetic grid; &#x60;1&#x60; geometric; omit for server defaults.
      * @return priceType
     **/
+    @javax.annotation.Nullable
     public PriceTypeEnum getPriceType() {
         return priceType;
     }

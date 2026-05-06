@@ -43,7 +43,7 @@ public class MyAdsListRequest {
     }
 
      /**
-     * Cryptocurrency
+     * Crypto asset; omit to skip asset filter.
      * @return asset
     **/
     @javax.annotation.Nullable
@@ -63,7 +63,7 @@ public class MyAdsListRequest {
     }
 
      /**
-     * Fiat currency
+     * Fiat currency; omit to skip fiat filter.
      * @return fiatUnit
     **/
     @javax.annotation.Nullable
@@ -83,7 +83,7 @@ public class MyAdsListRequest {
     }
 
      /**
-     * Buy/Sell
+     * Ad side: &#x60;buy&#x60; for buy-crypto ads, &#x60;sell&#x60; for sell-crypto ads; omit for all sides.
      * @return tradeType
     **/
     @javax.annotation.Nullable
