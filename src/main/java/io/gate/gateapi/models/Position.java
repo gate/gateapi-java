@@ -36,6 +36,65 @@ public class Position {
     @SerializedName(SERIALIZED_NAME_SIZE)
     private String size;
 
+    /**
+     * The hedging status of the position under the Delta-neutral strategy. Including:  - &#x60;partial_hedged&#x60;: partially hedged - &#x60;full_hedged&#x60;: fully hedged
+     */
+    @JsonAdapter(HedgeStatusEnum.Adapter.class)
+    public enum HedgeStatusEnum {
+        PARTIAL_HEDGED("partial_hedged"),
+        
+        FULL_HEDGED("full_hedged");
+
+        private String value;
+
+        HedgeStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static HedgeStatusEnum fromValue(String value) {
+            for (HedgeStatusEnum b : HedgeStatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<HedgeStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final HedgeStatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public HedgeStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return HedgeStatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_HEDGE_STATUS = "hedge_status";
+    @SerializedName(SERIALIZED_NAME_HEDGE_STATUS)
+    private HedgeStatusEnum hedgeStatus;
+
+    public static final String SERIALIZED_NAME_HEDGED_SIZE = "hedged_size";
+    @SerializedName(SERIALIZED_NAME_HEDGED_SIZE)
+    private String hedgedSize;
+
+    public static final String SERIALIZED_NAME_UNHEDGED_SIZE = "unhedged_size";
+    @SerializedName(SERIALIZED_NAME_UNHEDGED_SIZE)
+    private String unhedgedSize;
+
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
@@ -245,6 +304,36 @@ public class Position {
     @javax.annotation.Nullable
     public String getSize() {
         return size;
+    }
+
+
+     /**
+     * The hedging status of the position under the Delta-neutral strategy. Including:  - &#x60;partial_hedged&#x60;: partially hedged - &#x60;full_hedged&#x60;: fully hedged
+     * @return hedgeStatus
+    **/
+    @javax.annotation.Nullable
+    public HedgeStatusEnum getHedgeStatus() {
+        return hedgeStatus;
+    }
+
+
+     /**
+     * The hedged position size under the Delta-neutral strategy.
+     * @return hedgedSize
+    **/
+    @javax.annotation.Nullable
+    public String getHedgedSize() {
+        return hedgedSize;
+    }
+
+
+     /**
+     * The unhedged position size under the Delta-neutral strategy, calculated as &#x60;max(abs(size) - abs(hedged_size), 0)&#x60;.
+     * @return unhedgedSize
+    **/
+    @javax.annotation.Nullable
+    public String getUnhedgedSize() {
+        return unhedgedSize;
     }
 
 
@@ -679,6 +768,9 @@ public class Position {
         return Objects.equals(this.user, position.user) &&
                 Objects.equals(this.contract, position.contract) &&
                 Objects.equals(this.size, position.size) &&
+                Objects.equals(this.hedgeStatus, position.hedgeStatus) &&
+                Objects.equals(this.hedgedSize, position.hedgedSize) &&
+                Objects.equals(this.unhedgedSize, position.unhedgedSize) &&
                 Objects.equals(this.leverage, position.leverage) &&
                 Objects.equals(this.riskLimit, position.riskLimit) &&
                 Objects.equals(this.leverageMax, position.leverageMax) &&
@@ -716,7 +808,7 @@ public class Position {
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, contract, size, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, updateId, openTime, riskLimitTable, averageMaintenanceRate, pid, posMarginMode, lever);
+        return Objects.hash(user, contract, size, hedgeStatus, hedgedSize, unhedgedSize, leverage, riskLimit, leverageMax, maintenanceRate, value, margin, entryPrice, liqPrice, markPrice, initialMargin, maintenanceMargin, unrealisedPnl, realisedPnl, pnlPnl, pnlFund, pnlFee, historyPnl, lastClosePnl, realisedPoint, historyPoint, adlRanking, pendingOrders, closeOrder, mode, crossLeverageLimit, updateTime, updateId, openTime, riskLimitTable, averageMaintenanceRate, pid, posMarginMode, lever);
     }
 
 
@@ -727,6 +819,9 @@ public class Position {
         sb.append("      user: ").append(toIndentedString(user)).append("\n");
         sb.append("      contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
+        sb.append("      hedgeStatus: ").append(toIndentedString(hedgeStatus)).append("\n");
+        sb.append("      hedgedSize: ").append(toIndentedString(hedgedSize)).append("\n");
+        sb.append("      unhedgedSize: ").append(toIndentedString(unhedgedSize)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("      riskLimit: ").append(toIndentedString(riskLimit)).append("\n");
         sb.append("      leverageMax: ").append(toIndentedString(leverageMax)).append("\n");

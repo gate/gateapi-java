@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rebateAmount** | **String** | 返佣金额，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
-**tradeVolume** | **String** | 交易量，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
-**netFee** | **String** | 净手续费，字符串格式保证精度  最多保留 6 位小数，去除尾零 | 
+**rebateAmount** | **String** | Rebate amount as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
+**tradeVolume** | **String** | Trading volume as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
+**netFee** | **String** | Net fee as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
 **customerCount** | **Integer** | Customer count (invited users) | 
-**tradingUserCount** | **String** | 交易人数，字符串形式（与线上 JSON 序列化一致）  仅在 business_type&#x3D;0（全部）时返回具体数值，其他业务类型返回 null | 
+**tradingUserCount** | **String** | Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type&#x3D;0(all), and returns nullfor other business types. | 
 **timeRangeDesc** | **String** | Time range description | 
 **businessType** | [**BusinessTypeEnum**](#BusinessTypeEnum) | Business Type | 
 **businessTypeDesc** | **String** | Business type description; allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi | 

@@ -85,6 +85,10 @@ public class OtcOrderListItem {
     @SerializedName(SERIALIZED_NAME_TRANSFER_REMARK)
     private String transferRemark;
 
+    public static final String SERIALIZED_NAME_REFERENCE_CODE = "reference_code";
+    @SerializedName(SERIALIZED_NAME_REFERENCE_CODE)
+    private String referenceCode;
+
     public static final String SERIALIZED_NAME_GATE_BANK_ACCOUNT_IBAN = "gate_bank_account_iban";
     @SerializedName(SERIALIZED_NAME_GATE_BANK_ACCOUNT_IBAN)
     private String gateBankAccountIban;
@@ -381,7 +385,7 @@ public class OtcOrderListItem {
     }
 
      /**
-     * Remark
+     * Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)
      * @return transferRemark
     **/
     @javax.annotation.Nullable
@@ -392,6 +396,26 @@ public class OtcOrderListItem {
 
     public void setTransferRemark(String transferRemark) {
         this.transferRemark = transferRemark;
+    }
+
+    public OtcOrderListItem referenceCode(String referenceCode) {
+        
+        this.referenceCode = referenceCode;
+        return this;
+    }
+
+     /**
+     * Unique bank transfer reference code for deposit buy orders (SGB deposit scenario)
+     * @return referenceCode
+    **/
+    @javax.annotation.Nullable
+    public String getReferenceCode() {
+        return referenceCode;
+    }
+
+
+    public void setReferenceCode(String referenceCode) {
+        this.referenceCode = referenceCode;
     }
 
     public OtcOrderListItem gateBankAccountIban(String gateBankAccountIban) {
@@ -457,13 +481,14 @@ public class OtcOrderListItem {
                 Objects.equals(this.cryptoAmount, otcOrderListItem.cryptoAmount) &&
                 Objects.equals(this.rate, otcOrderListItem.rate) &&
                 Objects.equals(this.transferRemark, otcOrderListItem.transferRemark) &&
+                Objects.equals(this.referenceCode, otcOrderListItem.referenceCode) &&
                 Objects.equals(this.gateBankAccountIban, otcOrderListItem.gateBankAccountIban) &&
                 Objects.equals(this.promotionCode, otcOrderListItem.promotionCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, timestamp, orderId, tradeNo, type, status, dbStatus, fiatCurrency, fiatCurrencyInfo, fiatAmount, cryptoCurrency, cryptoCurrencyInfo, cryptoAmount, rate, transferRemark, gateBankAccountIban, promotionCode);
+        return Objects.hash(time, timestamp, orderId, tradeNo, type, status, dbStatus, fiatCurrency, fiatCurrencyInfo, fiatAmount, cryptoCurrency, cryptoCurrencyInfo, cryptoAmount, rate, transferRemark, referenceCode, gateBankAccountIban, promotionCode);
     }
 
 
@@ -486,6 +511,7 @@ public class OtcOrderListItem {
         sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
         sb.append("      transferRemark: ").append(toIndentedString(transferRemark)).append("\n");
+        sb.append("      referenceCode: ").append(toIndentedString(referenceCode)).append("\n");
         sb.append("      gateBankAccountIban: ").append(toIndentedString(gateBankAccountIban)).append("\n");
         sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
         sb.append("}");

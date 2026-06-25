@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 现货马丁策略的创建参数（对应 &#x60;MartingaleBot&#x60; 序列化字段）。  - **止损**：使用 &#x60;stop_loss_per_cycle&#x60;（每轮止损比例），与 App 一致；**不使用** &#x60;stop_loss_price&#x60;。 - 可选 **&#x60;trigger_price&#x60;**：触发价。 - &#x60;stop_loss_per_cycle&#x60; 若传入且大于 0，服务端校验区间约为 &#x60;0.001&#x60;～&#x60;0.9999&#x60;（与 &#x60;check_martingale&#x60; 一致）。
+ * Spot martingale creation parameters (serialized fields aligned with &#x60;MartingaleBot&#x60;). - **Stop-loss**: use &#x60;stop_loss_per_cycle&#x60; (ratio per round), same as the app; **do not** use &#x60;stop_loss_price&#x60;. - Optional **&#x60;trigger_price&#x60;**: trigger price. - If &#x60;stop_loss_per_cycle&#x60; is passed and &gt; 0, the server validates roughly between &#x60;0.001&#x60; and &#x60;0.9999&#x60; (same as &#x60;check_martingale&#x60;).
  */
 public class SpotMartingaleCreateParams {
     public static final String SERIALIZED_NAME_INVEST_AMOUNT = "invest_amount";

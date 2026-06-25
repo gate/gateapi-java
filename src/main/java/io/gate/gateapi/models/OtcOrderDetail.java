@@ -59,6 +59,10 @@ public class OtcOrderDetail {
     @SerializedName(SERIALIZED_NAME_TRANSFER_REMARK)
     private String transferRemark;
 
+    public static final String SERIALIZED_NAME_REFERENCE_CODE = "reference_code";
+    @SerializedName(SERIALIZED_NAME_REFERENCE_CODE)
+    private String referenceCode;
+
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
@@ -247,7 +251,7 @@ public class OtcOrderDetail {
     }
 
      /**
-     * Remark
+     * Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)
      * @return transferRemark
     **/
     public String getTransferRemark() {
@@ -257,6 +261,26 @@ public class OtcOrderDetail {
 
     public void setTransferRemark(String transferRemark) {
         this.transferRemark = transferRemark;
+    }
+
+    public OtcOrderDetail referenceCode(String referenceCode) {
+        
+        this.referenceCode = referenceCode;
+        return this;
+    }
+
+     /**
+     * Unique bank transfer reference code for deposit buy orders (SGB deposit scenario; mutually exclusive with transfer_remark)
+     * @return referenceCode
+    **/
+    @javax.annotation.Nullable
+    public String getReferenceCode() {
+        return referenceCode;
+    }
+
+
+    public void setReferenceCode(String referenceCode) {
+        this.referenceCode = referenceCode;
     }
 
     public OtcOrderDetail status(String status) {
@@ -409,6 +433,7 @@ public class OtcOrderDetail {
                 Objects.equals(this.cryptoAmount, otcOrderDetail.cryptoAmount) &&
                 Objects.equals(this.rate, otcOrderDetail.rate) &&
                 Objects.equals(this.transferRemark, otcOrderDetail.transferRemark) &&
+                Objects.equals(this.referenceCode, otcOrderDetail.referenceCode) &&
                 Objects.equals(this.status, otcOrderDetail.status) &&
                 Objects.equals(this.dbStatus, otcOrderDetail.dbStatus) &&
                 Objects.equals(this.createTime, otcOrderDetail.createTime) &&
@@ -420,7 +445,7 @@ public class OtcOrderDetail {
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, uid, type, fiatCurrency, fiatAmount, cryptoCurrency, cryptoAmount, rate, transferRemark, status, dbStatus, createTime, memo, side, promotionCode, tradeNo);
+        return Objects.hash(orderId, uid, type, fiatCurrency, fiatAmount, cryptoCurrency, cryptoAmount, rate, transferRemark, referenceCode, status, dbStatus, createTime, memo, side, promotionCode, tradeNo);
     }
 
 
@@ -437,6 +462,7 @@ public class OtcOrderDetail {
         sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
         sb.append("      transferRemark: ").append(toIndentedString(transferRemark)).append("\n");
+        sb.append("      referenceCode: ").append(toIndentedString(referenceCode)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");

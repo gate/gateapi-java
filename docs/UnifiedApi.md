@@ -26,6 +26,10 @@ Method | HTTP request | Description
 [**listUnifiedCurrencies**](UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
 [**getHistoryLoanRate**](UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | Get historical lending rates
 [**setUnifiedCollateral**](UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | Set collateral currency
+[**getEstimatedQuickRepayment**](UnifiedApi.md#getEstimatedQuickRepayment) | **GET** /unified/estimated_quick_repayment | Estimated quick repayment details
+[**createQuickRepayment**](UnifiedApi.md#createQuickRepayment) | **POST** /unified/quick_repayment | Quick repayment
+[**getUnifiedDeltaNeutral**](UnifiedApi.md#getUnifiedDeltaNeutral) | **GET** /unified/delta_neutral | Query the account Delta-neutral strategy mode setting
+[**setUnifiedDeltaNeutral**](UnifiedApi.md#setUnifiedDeltaNeutral) | **POST** /unified/delta_neutral | Set the account Delta-neutral strategy mode
 
 
 <a name="listUnifiedAccounts"></a>
@@ -1559,4 +1563,285 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Updated successfully |  -  |
+
+<a name="getEstimatedQuickRepayment"></a>
+# **getEstimatedQuickRepayment**
+> QuickEstimatedRepayment getEstimatedQuickRepayment()
+
+Estimated quick repayment details
+
+Available for unified account cross-currency margin mode and portfolio margin mode
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.UnifiedApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
+        try {
+            QuickEstimatedRepayment result = apiInstance.getEstimatedQuickRepayment();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UnifiedApi#getEstimatedQuickRepayment");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**QuickEstimatedRepayment**](QuickEstimatedRepayment.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. account mode does not support quick repayment) |  -  |
+
+<a name="createQuickRepayment"></a>
+# **createQuickRepayment**
+> QuickRepaymentResponse createQuickRepayment(quickRepaymentRequest)
+
+Quick repayment
+
+Available for unified account cross-currency margin mode and portfolio margin mode. Use &#x60;GET /unified/estimated_quick_repayment&#x60; to query liabilities and pending repayment information.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.UnifiedApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
+        QuickRepaymentRequest quickRepaymentRequest = new QuickRepaymentRequest(); // QuickRepaymentRequest | 
+        try {
+            QuickRepaymentResponse result = apiInstance.createQuickRepayment(quickRepaymentRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UnifiedApi#createQuickRepayment");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quickRepaymentRequest** | [**QuickRepaymentRequest**](QuickRepaymentRequest.md)|  |
+
+### Return type
+
+[**QuickRepaymentResponse**](QuickRepaymentResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Repayment successful |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. account mode does not support quick repayment) |  -  |
+
+<a name="getUnifiedDeltaNeutral"></a>
+# **getUnifiedDeltaNeutral**
+> DeltaNeutralEnabled getUnifiedDeltaNeutral()
+
+Query the account Delta-neutral strategy mode setting
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.UnifiedApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
+        try {
+            DeltaNeutralEnabled result = apiInstance.getUnifiedDeltaNeutral();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UnifiedApi#getUnifiedDeltaNeutral");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeltaNeutralEnabled**](DeltaNeutralEnabled.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) |  -  |
+
+<a name="setUnifiedDeltaNeutral"></a>
+# **setUnifiedDeltaNeutral**
+> DeltaNeutralEnabled setUnifiedDeltaNeutral(deltaNeutralEnabled)
+
+Set the account Delta-neutral strategy mode
+
+Enable or disable the account Delta-neutral strategy mode.  Requirements for enabling: VIP level &gt;&#x3D; 4 and the account is in cross-currency margin mode; otherwise 403 is returned. Returns the enabled status after the setting takes effect.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.UnifiedApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        UnifiedApi apiInstance = new UnifiedApi(defaultClient);
+        DeltaNeutralEnabled deltaNeutralEnabled = new DeltaNeutralEnabled(); // DeltaNeutralEnabled | 
+        try {
+            DeltaNeutralEnabled result = apiInstance.setUnifiedDeltaNeutral(deltaNeutralEnabled);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UnifiedApi#setUnifiedDeltaNeutral");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deltaNeutralEnabled** | [**DeltaNeutralEnabled**](DeltaNeutralEnabled.md)|  |
+
+### Return type
+
+[**DeltaNeutralEnabled**](DeltaNeutralEnabled.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Set successfully |  -  |
+**400** | Invalid request parameters |  -  |
+**401** | Authentication failed |  -  |
+**403** | Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) |  -  |
 

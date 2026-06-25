@@ -62,7 +62,7 @@ public class PlaceDualInvestmentOrderParams {
     }
 
      /**
-     * Subscription amount, mutually exclusive with copies field
+     * Subscription amount
      * @return amount
     **/
     public String getAmount() {

@@ -181,7 +181,7 @@ public class AwardListStructList {
     }
 
      /**
-     * Status
+     * Status. 4 - success
      * @return status
     **/
     public Integer getStatus() {

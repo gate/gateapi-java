@@ -39,6 +39,10 @@ public class FuturesOrderAmendment {
     @SerializedName(SERIALIZED_NAME_TEXT)
     private String text;
 
+    public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
+    @SerializedName(SERIALIZED_NAME_ACTION_MODE)
+    private String actionMode;
+
 
     public FuturesOrderAmendment size(String size) {
         
@@ -119,6 +123,26 @@ public class FuturesOrderAmendment {
     public void setText(String text) {
         this.text = text;
     }
+
+    public FuturesOrderAmendment actionMode(String actionMode) {
+        
+        this.actionMode = actionMode;
+        return this;
+    }
+
+     /**
+     * Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default)
+     * @return actionMode
+    **/
+    @javax.annotation.Nullable
+    public String getActionMode() {
+        return actionMode;
+    }
+
+
+    public void setActionMode(String actionMode) {
+        this.actionMode = actionMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -131,12 +155,13 @@ public class FuturesOrderAmendment {
         return Objects.equals(this.size, futuresOrderAmendment.size) &&
                 Objects.equals(this.price, futuresOrderAmendment.price) &&
                 Objects.equals(this.amendText, futuresOrderAmendment.amendText) &&
-                Objects.equals(this.text, futuresOrderAmendment.text);
+                Objects.equals(this.text, futuresOrderAmendment.text) &&
+                Objects.equals(this.actionMode, futuresOrderAmendment.actionMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, price, amendText, text);
+        return Objects.hash(size, price, amendText, text, actionMode);
     }
 
 
@@ -148,6 +173,7 @@ public class FuturesOrderAmendment {
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
+        sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

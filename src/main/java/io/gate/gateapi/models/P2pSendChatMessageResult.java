@@ -27,6 +27,116 @@ public class P2pSendChatMessageResult {
     @SerializedName(SERIALIZED_NAME_S_R_V_T_M)
     private Integer SRVTM;
 
+    public static final String SERIALIZED_NAME_TXID = "txid";
+    @SerializedName(SERIALIZED_NAME_TXID)
+    private Integer txid;
+
+    public static final String SERIALIZED_NAME_CONVERSATION_ID = "conversation_id";
+    @SerializedName(SERIALIZED_NAME_CONVERSATION_ID)
+    private String conversationId;
+
+    /**
+     * Message content type when risk control is hit. 0: text
+     */
+    @JsonAdapter(MsgTypeEnum.Adapter.class)
+    public enum MsgTypeEnum {
+        NUMBER_0(0);
+
+        private Integer value;
+
+        MsgTypeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static MsgTypeEnum fromValue(Integer value) {
+            for (MsgTypeEnum b : MsgTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<MsgTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final MsgTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public MsgTypeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return MsgTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_MSG_TYPE = "msg_type";
+    @SerializedName(SERIALIZED_NAME_MSG_TYPE)
+    private MsgTypeEnum msgType;
+
+    /**
+     * Risk control display type. 1: off-platform traffic diversion risk; returned only when risk control is hit
+     */
+    @JsonAdapter(RiskTypeEnum.Adapter.class)
+    public enum RiskTypeEnum {
+        NUMBER_1(1);
+
+        private Integer value;
+
+        RiskTypeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static RiskTypeEnum fromValue(Integer value) {
+            for (RiskTypeEnum b : RiskTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<RiskTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RiskTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public RiskTypeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return RiskTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_RISK_TYPE = "risk_type";
+    @SerializedName(SERIALIZED_NAME_RISK_TYPE)
+    private RiskTypeEnum riskType;
+
+    public static final String SERIALIZED_NAME_TOAST_MSG = "toast_msg";
+    @SerializedName(SERIALIZED_NAME_TOAST_MSG)
+    private String toastMsg;
+
 
     public P2pSendChatMessageResult SRVTM(Integer SRVTM) {
         
@@ -47,6 +157,106 @@ public class P2pSendChatMessageResult {
     public void setSRVTM(Integer SRVTM) {
         this.SRVTM = SRVTM;
     }
+
+    public P2pSendChatMessageResult txid(Integer txid) {
+        
+        this.txid = txid;
+        return this;
+    }
+
+     /**
+     * Order ID
+     * @return txid
+    **/
+    @javax.annotation.Nullable
+    public Integer getTxid() {
+        return txid;
+    }
+
+
+    public void setTxid(Integer txid) {
+        this.txid = txid;
+    }
+
+    public P2pSendChatMessageResult conversationId(String conversationId) {
+        
+        this.conversationId = conversationId;
+        return this;
+    }
+
+     /**
+     * Chat ID, formatted as both parties&#39; UIDs concatenated in ascending order
+     * @return conversationId
+    **/
+    @javax.annotation.Nullable
+    public String getConversationId() {
+        return conversationId;
+    }
+
+
+    public void setConversationId(String conversationId) {
+        this.conversationId = conversationId;
+    }
+
+    public P2pSendChatMessageResult msgType(MsgTypeEnum msgType) {
+        
+        this.msgType = msgType;
+        return this;
+    }
+
+     /**
+     * Message content type when risk control is hit. 0: text
+     * @return msgType
+    **/
+    @javax.annotation.Nullable
+    public MsgTypeEnum getMsgType() {
+        return msgType;
+    }
+
+
+    public void setMsgType(MsgTypeEnum msgType) {
+        this.msgType = msgType;
+    }
+
+    public P2pSendChatMessageResult riskType(RiskTypeEnum riskType) {
+        
+        this.riskType = riskType;
+        return this;
+    }
+
+     /**
+     * Risk control display type. 1: off-platform traffic diversion risk; returned only when risk control is hit
+     * @return riskType
+    **/
+    @javax.annotation.Nullable
+    public RiskTypeEnum getRiskType() {
+        return riskType;
+    }
+
+
+    public void setRiskType(RiskTypeEnum riskType) {
+        this.riskType = riskType;
+    }
+
+    public P2pSendChatMessageResult toastMsg(String toastMsg) {
+        
+        this.toastMsg = toastMsg;
+        return this;
+    }
+
+     /**
+     * Risk control prompt message; returned only when risk_type&#x3D;1
+     * @return toastMsg
+    **/
+    @javax.annotation.Nullable
+    public String getToastMsg() {
+        return toastMsg;
+    }
+
+
+    public void setToastMsg(String toastMsg) {
+        this.toastMsg = toastMsg;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -56,12 +266,17 @@ public class P2pSendChatMessageResult {
             return false;
         }
         P2pSendChatMessageResult p2pSendChatMessageResult = (P2pSendChatMessageResult) o;
-        return Objects.equals(this.SRVTM, p2pSendChatMessageResult.SRVTM);
+        return Objects.equals(this.SRVTM, p2pSendChatMessageResult.SRVTM) &&
+                Objects.equals(this.txid, p2pSendChatMessageResult.txid) &&
+                Objects.equals(this.conversationId, p2pSendChatMessageResult.conversationId) &&
+                Objects.equals(this.msgType, p2pSendChatMessageResult.msgType) &&
+                Objects.equals(this.riskType, p2pSendChatMessageResult.riskType) &&
+                Objects.equals(this.toastMsg, p2pSendChatMessageResult.toastMsg);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(SRVTM);
+        return Objects.hash(SRVTM, txid, conversationId, msgType, riskType, toastMsg);
     }
 
 
@@ -70,6 +285,11 @@ public class P2pSendChatMessageResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class P2pSendChatMessageResult {\n");
         sb.append("      SRVTM: ").append(toIndentedString(SRVTM)).append("\n");
+        sb.append("      txid: ").append(toIndentedString(txid)).append("\n");
+        sb.append("      conversationId: ").append(toIndentedString(conversationId)).append("\n");
+        sb.append("      msgType: ").append(toIndentedString(msgType)).append("\n");
+        sb.append("      riskType: ").append(toIndentedString(riskType)).append("\n");
+        sb.append("      toastMsg: ").append(toIndentedString(toastMsg)).append("\n");
         sb.append("}");
         return sb.toString();
     }

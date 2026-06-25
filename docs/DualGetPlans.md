@@ -11,11 +11,9 @@ Name | Type | Description | Notes
 **exerciseCurrency** | **String** | Strike Token |  [optional]
 **exercisePrice** | **Double** | Strike price |  [optional]
 **deliveryTime** | **Integer** | Settlement time |  [optional]
-**minCopies** | **Integer** | Minimum share count |  [optional]
-**maxCopies** | **Integer** | Maximum share count |  [optional]
-**perValue** | **String** | Value Per Unit (deprecated) |  [optional]
 **apyDisplay** | **String** | Annual Yield |  [optional]
+**minAmount** | **String** | Minimum investment amount |  [optional]
 **startTime** | **Integer** | Start Time |  [optional]
 **endTime** | **Integer** | End time |  [optional]
-**status** | **String** | 状态:  &#x60;NOTSTARTED&#x60;-未开始 &#x60;ONGOING&#x60;-进行中 &#x60;ENDED&#x60;-已结束 |  [optional]
+**status** | **String** | Status:  &#x60;NOTSTARTED&#x60; - Not started &#x60;ONGOING&#x60; - In progress &#x60;ENDED&#x60; - Ended |  [optional]
 

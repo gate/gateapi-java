@@ -400,6 +400,26 @@ public class FuturesOrder {
     @SerializedName(SERIALIZED_NAME_POS_MARGIN_MODE)
     private String posMarginMode;
 
+    public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
+    @SerializedName(SERIALIZED_NAME_ACTION_MODE)
+    private String actionMode;
+
+    public static final String SERIALIZED_NAME_TPSL_TP_TRIGGER_PRICE = "tpsl_tp_trigger_price";
+    @SerializedName(SERIALIZED_NAME_TPSL_TP_TRIGGER_PRICE)
+    private String tpslTpTriggerPrice;
+
+    public static final String SERIALIZED_NAME_TPSL_SL_TRIGGER_PRICE = "tpsl_sl_trigger_price";
+    @SerializedName(SERIALIZED_NAME_TPSL_SL_TRIGGER_PRICE)
+    private String tpslSlTriggerPrice;
+
+    public static final String SERIALIZED_NAME_TPSL_TP_BBO_TYPE = "tpsl_tp_bbo_type";
+    @SerializedName(SERIALIZED_NAME_TPSL_TP_BBO_TYPE)
+    private String tpslTpBboType;
+
+    public static final String SERIALIZED_NAME_TPSL_SL_BBO_TYPE = "tpsl_sl_bbo_type";
+    @SerializedName(SERIALIZED_NAME_TPSL_SL_BBO_TYPE)
+    private String tpslSlBboType;
+
 
      /**
      * Futures order ID
@@ -827,6 +847,106 @@ public class FuturesOrder {
     public void setPosMarginMode(String posMarginMode) {
         this.posMarginMode = posMarginMode;
     }
+
+    public FuturesOrder actionMode(String actionMode) {
+        
+        this.actionMode = actionMode;
+        return this;
+    }
+
+     /**
+     * Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default)
+     * @return actionMode
+    **/
+    @javax.annotation.Nullable
+    public String getActionMode() {
+        return actionMode;
+    }
+
+
+    public void setActionMode(String actionMode) {
+        this.actionMode = actionMode;
+    }
+
+    public FuturesOrder tpslTpTriggerPrice(String tpslTpTriggerPrice) {
+        
+        this.tpslTpTriggerPrice = tpslTpTriggerPrice;
+        return this;
+    }
+
+     /**
+     * Take profit price
+     * @return tpslTpTriggerPrice
+    **/
+    @javax.annotation.Nullable
+    public String getTpslTpTriggerPrice() {
+        return tpslTpTriggerPrice;
+    }
+
+
+    public void setTpslTpTriggerPrice(String tpslTpTriggerPrice) {
+        this.tpslTpTriggerPrice = tpslTpTriggerPrice;
+    }
+
+    public FuturesOrder tpslSlTriggerPrice(String tpslSlTriggerPrice) {
+        
+        this.tpslSlTriggerPrice = tpslSlTriggerPrice;
+        return this;
+    }
+
+     /**
+     * Stop loss price
+     * @return tpslSlTriggerPrice
+    **/
+    @javax.annotation.Nullable
+    public String getTpslSlTriggerPrice() {
+        return tpslSlTriggerPrice;
+    }
+
+
+    public void setTpslSlTriggerPrice(String tpslSlTriggerPrice) {
+        this.tpslSlTriggerPrice = tpslSlTriggerPrice;
+    }
+
+    public FuturesOrder tpslTpBboType(String tpslTpBboType) {
+        
+        this.tpslTpBboType = tpslTpBboType;
+        return this;
+    }
+
+     /**
+     * Take profit BBO type
+     * @return tpslTpBboType
+    **/
+    @javax.annotation.Nullable
+    public String getTpslTpBboType() {
+        return tpslTpBboType;
+    }
+
+
+    public void setTpslTpBboType(String tpslTpBboType) {
+        this.tpslTpBboType = tpslTpBboType;
+    }
+
+    public FuturesOrder tpslSlBboType(String tpslSlBboType) {
+        
+        this.tpslSlBboType = tpslSlBboType;
+        return this;
+    }
+
+     /**
+     * Stop loss BBO type
+     * @return tpslSlBboType
+    **/
+    @javax.annotation.Nullable
+    public String getTpslSlBboType() {
+        return tpslSlBboType;
+    }
+
+
+    public void setTpslSlBboType(String tpslSlBboType) {
+        this.tpslSlBboType = tpslSlBboType;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -865,12 +985,17 @@ public class FuturesOrder {
                 Objects.equals(this.amendText, futuresOrder.amendText) &&
                 Objects.equals(this.pid, futuresOrder.pid) &&
                 Objects.equals(this.marketOrderSlipRatio, futuresOrder.marketOrderSlipRatio) &&
-                Objects.equals(this.posMarginMode, futuresOrder.posMarginMode);
+                Objects.equals(this.posMarginMode, futuresOrder.posMarginMode) &&
+                Objects.equals(this.actionMode, futuresOrder.actionMode) &&
+                Objects.equals(this.tpslTpTriggerPrice, futuresOrder.tpslTpTriggerPrice) &&
+                Objects.equals(this.tpslSlTriggerPrice, futuresOrder.tpslSlTriggerPrice) &&
+                Objects.equals(this.tpslTpBboType, futuresOrder.tpslTpBboType) &&
+                Objects.equals(this.tpslSlBboType, futuresOrder.tpslSlBboType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, marketOrderSlipRatio, posMarginMode);
+        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, marketOrderSlipRatio, posMarginMode, actionMode, tpslTpTriggerPrice, tpslSlTriggerPrice, tpslTpBboType, tpslSlBboType);
     }
 
 
@@ -908,6 +1033,11 @@ public class FuturesOrder {
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
         sb.append("      posMarginMode: ").append(toIndentedString(posMarginMode)).append("\n");
+        sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
+        sb.append("      tpslTpTriggerPrice: ").append(toIndentedString(tpslTpTriggerPrice)).append("\n");
+        sb.append("      tpslSlTriggerPrice: ").append(toIndentedString(tpslSlTriggerPrice)).append("\n");
+        sb.append("      tpslTpBboType: ").append(toIndentedString(tpslTpBboType)).append("\n");
+        sb.append("      tpslSlBboType: ").append(toIndentedString(tpslSlBboType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

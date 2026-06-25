@@ -20,8 +20,12 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import java.io.File;
 import io.gate.gateapi.models.OtcActionResponse;
+import io.gate.gateapi.models.OtcBankCreateResponse;
+import io.gate.gateapi.models.OtcBankIdRequest;
 import io.gate.gateapi.models.OtcBankListResponse;
+import io.gate.gateapi.models.OtcBankSupplementChecklistResponse;
 import io.gate.gateapi.models.OtcMarkOrderPaidRequest;
 import io.gate.gateapi.models.OtcOrderDetailResponse;
 import io.gate.gateapi.models.OtcOrderListResponse;
@@ -31,7 +35,6 @@ import io.gate.gateapi.models.OtcQuoteResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderCreateResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderListResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderRequest;
-import io.gate.gateapi.models.OtcUserDefaultBankResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -380,7 +383,7 @@ public class OtcApi {
     }
 
     /**
-     * Build call for getUserDefaultBank
+     * Build call for getBankListInnerPath
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -390,11 +393,11 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserDefaultBankCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBankListInnerPathCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/otc/get_user_def_bank";
+        String localVarPath = "/otc/bank/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -420,112 +423,14 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserDefaultBankValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = getUserDefaultBankCall(_callback);
-        return localVarCall;
-    }
-
-    /**
-     * Get user&#39;s default bank account information
-     * Get user&#39;s default bank account information for order placement
-     * @return OtcUserDefaultBankResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public OtcUserDefaultBankResponse getUserDefaultBank() throws ApiException {
-        ApiResponse<OtcUserDefaultBankResponse> localVarResp = getUserDefaultBankWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get user&#39;s default bank account information
-     * Get user&#39;s default bank account information for order placement
-     * @return ApiResponse&lt;OtcUserDefaultBankResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<OtcUserDefaultBankResponse> getUserDefaultBankWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getUserDefaultBankValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<OtcUserDefaultBankResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get user&#39;s default bank account information (asynchronously)
-     * Get user&#39;s default bank account information for order placement
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUserDefaultBankAsync(final ApiCallback<OtcUserDefaultBankResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getUserDefaultBankValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<OtcUserDefaultBankResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getBankList
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBankListCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/otc/bank_list";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBankListValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = getBankListCall(_callback);
+    private okhttp3.Call getBankListInnerPathValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getBankListInnerPathCall(_callback);
         return localVarCall;
     }
 
     /**
      * Get user bank card list
-     * Get user bank card list for selecting bank card when placing orders
+     * Retrieve the user&#39;s bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field &#x60;is_default&#x60; (1&#x3D;default); there is no need to call the deprecated standalone \&quot;default bank card\&quot; endpoint. Corresponding Inner: &#x60;GET /bank_list&#x60; or &#x60;GET /bank/list&#x60;.
      * @return OtcBankListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -534,14 +439,14 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public OtcBankListResponse getBankList() throws ApiException {
-        ApiResponse<OtcBankListResponse> localVarResp = getBankListWithHttpInfo();
+    public OtcBankListResponse getBankListInnerPath() throws ApiException {
+        ApiResponse<OtcBankListResponse> localVarResp = getBankListInnerPathWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get user bank card list
-     * Get user bank card list for selecting bank card when placing orders
+     * Retrieve the user&#39;s bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field &#x60;is_default&#x60; (1&#x3D;default); there is no need to call the deprecated standalone \&quot;default bank card\&quot; endpoint. Corresponding Inner: &#x60;GET /bank_list&#x60; or &#x60;GET /bank/list&#x60;.
      * @return ApiResponse&lt;OtcBankListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -550,15 +455,15 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OtcBankListResponse> getBankListWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getBankListValidateBeforeCall(null);
+    public ApiResponse<OtcBankListResponse> getBankListInnerPathWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getBankListInnerPathValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<OtcBankListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get user bank card list (asynchronously)
-     * Get user bank card list for selecting bank card when placing orders
+     * Retrieve the user&#39;s bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field &#x60;is_default&#x60; (1&#x3D;default); there is no need to call the deprecated standalone \&quot;default bank card\&quot; endpoint. Corresponding Inner: &#x60;GET /bank_list&#x60; or &#x60;GET /bank/list&#x60;.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -568,9 +473,884 @@ public class OtcApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBankListAsync(final ApiCallback<OtcBankListResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getBankListValidateBeforeCall(_callback);
+    public okhttp3.Call getBankListInnerPathAsync(final ApiCallback<OtcBankListResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getBankListInnerPathValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<OtcBankListResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createOtcBank
+     * @param bankAccountName  (required)
+     * @param bankName  (required)
+     * @param bankCountry  (required)
+     * @param bankAddress  (required)
+     * @param iban  (required)
+     * @param swift  (required)
+     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param remittanceLineNumber  (optional)
+     * @param agentBankName  (optional)
+     * @param agentBankSwift  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOtcBankCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/otc/bank/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (bankAccountName != null) {
+            localVarFormParams.put("bank_account_name", bankAccountName);
+        }
+
+        if (bankName != null) {
+            localVarFormParams.put("bank_name", bankName);
+        }
+
+        if (bankCountry != null) {
+            localVarFormParams.put("bank_country", bankCountry);
+        }
+
+        if (bankAddress != null) {
+            localVarFormParams.put("bank_address", bankAddress);
+        }
+
+        if (iban != null) {
+            localVarFormParams.put("iban", iban);
+        }
+
+        if (swift != null) {
+            localVarFormParams.put("swift", swift);
+        }
+
+        if (remittanceLineNumber != null) {
+            localVarFormParams.put("remittance_line_number", remittanceLineNumber);
+        }
+
+        if (agentBankName != null) {
+            localVarFormParams.put("agent_bank_name", agentBankName);
+        }
+
+        if (agentBankSwift != null) {
+            localVarFormParams.put("agent_bank_swift", agentBankSwift);
+        }
+
+        if (documentationFile != null) {
+            localVarFormParams.put("documentation_file", documentationFile);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createOtcBankValidateBeforeCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankAccountName' is set
+        if (bankAccountName == null) {
+            throw new ApiException("Missing the required parameter 'bankAccountName' when calling createOtcBank(Async)");
+        }
+
+        // verify the required parameter 'bankName' is set
+        if (bankName == null) {
+            throw new ApiException("Missing the required parameter 'bankName' when calling createOtcBank(Async)");
+        }
+
+        // verify the required parameter 'bankCountry' is set
+        if (bankCountry == null) {
+            throw new ApiException("Missing the required parameter 'bankCountry' when calling createOtcBank(Async)");
+        }
+
+        // verify the required parameter 'bankAddress' is set
+        if (bankAddress == null) {
+            throw new ApiException("Missing the required parameter 'bankAddress' when calling createOtcBank(Async)");
+        }
+
+        // verify the required parameter 'iban' is set
+        if (iban == null) {
+            throw new ApiException("Missing the required parameter 'iban' when calling createOtcBank(Async)");
+        }
+
+        // verify the required parameter 'swift' is set
+        if (swift == null) {
+            throw new ApiException("Missing the required parameter 'swift' when calling createOtcBank(Async)");
+        }
+
+        // verify the required parameter 'documentationFile' is set
+        if (documentationFile == null) {
+            throw new ApiException("Missing the required parameter 'documentationFile' when calling createOtcBank(Async)");
+        }
+
+        okhttp3.Call localVarCall = createOtcBankCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create bank card
+     * Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (&#x60;status&#x60; pending) and require subsequent supplementary materials. Corresponding Inner: &#x60;POST /bank/create&#x60;. Fields and protocol are subject to the production form/gateway; in some environments &#x60;bank_account_name&#x60; is passed Base64-encoded, see the integration notes for details.
+     * @param bankAccountName  (required)
+     * @param bankName  (required)
+     * @param bankCountry  (required)
+     * @param bankAddress  (required)
+     * @param iban  (required)
+     * @param swift  (required)
+     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param remittanceLineNumber  (optional)
+     * @param agentBankName  (optional)
+     * @param agentBankSwift  (optional)
+     * @return OtcBankCreateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcBankCreateResponse createOtcBank(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
+        ApiResponse<OtcBankCreateResponse> localVarResp = createOtcBankWithHttpInfo(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create bank card
+     * Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (&#x60;status&#x60; pending) and require subsequent supplementary materials. Corresponding Inner: &#x60;POST /bank/create&#x60;. Fields and protocol are subject to the production form/gateway; in some environments &#x60;bank_account_name&#x60; is passed Base64-encoded, see the integration notes for details.
+     * @param bankAccountName  (required)
+     * @param bankName  (required)
+     * @param bankCountry  (required)
+     * @param bankAddress  (required)
+     * @param iban  (required)
+     * @param swift  (required)
+     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param remittanceLineNumber  (optional)
+     * @param agentBankName  (optional)
+     * @param agentBankSwift  (optional)
+     * @return ApiResponse&lt;OtcBankCreateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcBankCreateResponse> createOtcBankWithHttpInfo(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
+        okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, null);
+        Type localVarReturnType = new TypeToken<OtcBankCreateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create bank card (asynchronously)
+     * Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (&#x60;status&#x60; pending) and require subsequent supplementary materials. Corresponding Inner: &#x60;POST /bank/create&#x60;. Fields and protocol are subject to the production form/gateway; in some environments &#x60;bank_account_name&#x60; is passed Base64-encoded, see the integration notes for details.
+     * @param bankAccountName  (required)
+     * @param bankName  (required)
+     * @param bankCountry  (required)
+     * @param bankAddress  (required)
+     * @param iban  (required)
+     * @param swift  (required)
+     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param remittanceLineNumber  (optional)
+     * @param agentBankName  (optional)
+     * @param agentBankSwift  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOtcBankAsync(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback<OtcBankCreateResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, _callback);
+        Type localVarReturnType = new TypeToken<OtcBankCreateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteOtcBank
+     * @param otcBankIdRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Deleted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteOtcBankCall(OtcBankIdRequest otcBankIdRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = otcBankIdRequest;
+
+        // create path and map variables
+        String localVarPath = "/otc/bank/delete";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteOtcBankValidateBeforeCall(OtcBankIdRequest otcBankIdRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'otcBankIdRequest' is set
+        if (otcBankIdRequest == null) {
+            throw new ApiException("Missing the required parameter 'otcBankIdRequest' when calling deleteOtcBank(Async)");
+        }
+
+        okhttp3.Call localVarCall = deleteOtcBankCall(otcBankIdRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Delete bank card
+     * Delete the specified bank card. Corresponds to Inner: &#x60;POST /bank/delete&#x60;.
+     * @param otcBankIdRequest  (required)
+     * @return OtcActionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Deleted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcActionResponse deleteOtcBank(OtcBankIdRequest otcBankIdRequest) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = deleteOtcBankWithHttpInfo(otcBankIdRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete bank card
+     * Delete the specified bank card. Corresponds to Inner: &#x60;POST /bank/delete&#x60;.
+     * @param otcBankIdRequest  (required)
+     * @return ApiResponse&lt;OtcActionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Deleted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcActionResponse> deleteOtcBankWithHttpInfo(OtcBankIdRequest otcBankIdRequest) throws ApiException {
+        okhttp3.Call localVarCall = deleteOtcBankValidateBeforeCall(otcBankIdRequest, null);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete bank card (asynchronously)
+     * Delete the specified bank card. Corresponds to Inner: &#x60;POST /bank/delete&#x60;.
+     * @param otcBankIdRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Deleted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteOtcBankAsync(OtcBankIdRequest otcBankIdRequest, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = deleteOtcBankValidateBeforeCall(otcBankIdRequest, _callback);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setDefaultOtcBank
+     * @param otcBankIdRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setDefaultOtcBankCall(OtcBankIdRequest otcBankIdRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = otcBankIdRequest;
+
+        // create path and map variables
+        String localVarPath = "/otc/bank/set_default";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setDefaultOtcBankValidateBeforeCall(OtcBankIdRequest otcBankIdRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'otcBankIdRequest' is set
+        if (otcBankIdRequest == null) {
+            throw new ApiException("Missing the required parameter 'otcBankIdRequest' when calling setDefaultOtcBank(Async)");
+        }
+
+        okhttp3.Call localVarCall = setDefaultOtcBankCall(otcBankIdRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set default bank card
+     * Set the specified bank card as default. Corresponds to Inner: &#x60;POST /bank/set_default&#x60;.
+     * @param otcBankIdRequest  (required)
+     * @return OtcActionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcActionResponse setDefaultOtcBank(OtcBankIdRequest otcBankIdRequest) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = setDefaultOtcBankWithHttpInfo(otcBankIdRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set default bank card
+     * Set the specified bank card as default. Corresponds to Inner: &#x60;POST /bank/set_default&#x60;.
+     * @param otcBankIdRequest  (required)
+     * @return ApiResponse&lt;OtcActionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcActionResponse> setDefaultOtcBankWithHttpInfo(OtcBankIdRequest otcBankIdRequest) throws ApiException {
+        okhttp3.Call localVarCall = setDefaultOtcBankValidateBeforeCall(otcBankIdRequest, null);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set default bank card (asynchronously)
+     * Set the specified bank card as default. Corresponds to Inner: &#x60;POST /bank/set_default&#x60;.
+     * @param otcBankIdRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setDefaultOtcBankAsync(OtcBankIdRequest otcBankIdRequest, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setDefaultOtcBankValidateBeforeCall(otcBankIdRequest, _callback);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getOtcBankSupplementChecklist
+     * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getOtcBankSupplementChecklistCall(String bankId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/otc/bank/bank_supplement_checklist";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (bankId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("bank_id", bankId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getOtcBankSupplementChecklistValidateBeforeCall(String bankId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankId' is set
+        if (bankId == null) {
+            throw new ApiException("Missing the required parameter 'bankId' when calling getOtcBankSupplementChecklist(Async)");
+        }
+
+        okhttp3.Call localVarCall = getOtcBankSupplementChecklistCall(bankId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Query the checklist of materials to supplement for a bank card
+     * **①** &#x60;bank_id&#x60; must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user&#39;s **passed professional verification type** (personal/enterprise). Corresponding Inner: &#x60;GET /bank/bank_supplement_checklist&#x60;.
+     * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
+     * @return OtcBankSupplementChecklistResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcBankSupplementChecklistResponse getOtcBankSupplementChecklist(String bankId) throws ApiException {
+        ApiResponse<OtcBankSupplementChecklistResponse> localVarResp = getOtcBankSupplementChecklistWithHttpInfo(bankId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query the checklist of materials to supplement for a bank card
+     * **①** &#x60;bank_id&#x60; must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user&#39;s **passed professional verification type** (personal/enterprise). Corresponding Inner: &#x60;GET /bank/bank_supplement_checklist&#x60;.
+     * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
+     * @return ApiResponse&lt;OtcBankSupplementChecklistResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcBankSupplementChecklistResponse> getOtcBankSupplementChecklistWithHttpInfo(String bankId) throws ApiException {
+        okhttp3.Call localVarCall = getOtcBankSupplementChecklistValidateBeforeCall(bankId, null);
+        Type localVarReturnType = new TypeToken<OtcBankSupplementChecklistResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query the checklist of materials to supplement for a bank card (asynchronously)
+     * **①** &#x60;bank_id&#x60; must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user&#39;s **passed professional verification type** (personal/enterprise). Corresponding Inner: &#x60;GET /bank/bank_supplement_checklist&#x60;.
+     * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getOtcBankSupplementChecklistAsync(String bankId, final ApiCallback<OtcBankSupplementChecklistResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getOtcBankSupplementChecklistValidateBeforeCall(bankId, _callback);
+        Type localVarReturnType = new TypeToken<OtcBankSupplementChecklistResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for submitOtcBankPersonalSupplement
+     * @param bankId  (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call submitOtcBankPersonalSupplementCall(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/otc/bank/personal/bank_supplement";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (bankId != null) {
+            localVarFormParams.put("bank_id", bankId);
+        }
+
+        if (idDocumentFront != null) {
+            localVarFormParams.put("id_document_front", idDocumentFront);
+        }
+
+        if (idDocumentBack != null) {
+            localVarFormParams.put("id_document_back", idDocumentBack);
+        }
+
+        if (addressProof != null) {
+            localVarFormParams.put("address_proof", addressProof);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call submitOtcBankPersonalSupplementValidateBeforeCall(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankId' is set
+        if (bankId == null) {
+            throw new ApiException("Missing the required parameter 'bankId' when calling submitOtcBankPersonalSupplement(Async)");
+        }
+
+        // verify the required parameter 'idDocumentFront' is set
+        if (idDocumentFront == null) {
+            throw new ApiException("Missing the required parameter 'idDocumentFront' when calling submitOtcBankPersonalSupplement(Async)");
+        }
+
+        // verify the required parameter 'idDocumentBack' is set
+        if (idDocumentBack == null) {
+            throw new ApiException("Missing the required parameter 'idDocumentBack' when calling submitOtcBankPersonalSupplement(Async)");
+        }
+
+        // verify the required parameter 'addressProof' is set
+        if (addressProof == null) {
+            throw new ApiException("Missing the required parameter 'addressProof' when calling submitOtcBankPersonalSupplement(Async)");
+        }
+
+        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementCall(bankId, idDocumentFront, idDocumentBack, addressProof, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Submit Bank Card Supplement Materials (Personal)
+     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; returned by &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
+     * @param bankId  (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @return OtcActionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcActionResponse submitOtcBankPersonalSupplement(String bankId, String idDocumentFront, String idDocumentBack, String addressProof) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = submitOtcBankPersonalSupplementWithHttpInfo(bankId, idDocumentFront, idDocumentBack, addressProof);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Submit Bank Card Supplement Materials (Personal)
+     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; returned by &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
+     * @param bankId  (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @return ApiResponse&lt;OtcActionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcActionResponse> submitOtcBankPersonalSupplementWithHttpInfo(String bankId, String idDocumentFront, String idDocumentBack, String addressProof) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementValidateBeforeCall(bankId, idDocumentFront, idDocumentBack, addressProof, null);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Submit Bank Card Supplement Materials (Personal) (asynchronously)
+     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; returned by &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
+     * @param bankId  (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call submitOtcBankPersonalSupplementAsync(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementValidateBeforeCall(bankId, idDocumentFront, idDocumentBack, addressProof, _callback);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for submitOtcBankEnterpriseSupplement
+     * @param bankId  (required)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
+     * @param uid  (optional)
+     * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
+     * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call submitOtcBankEnterpriseSupplementCall(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/otc/bank/enterprise/bank_supplement";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        if (uid != null) {
+            localVarFormParams.put("uid", uid);
+        }
+
+        if (bankId != null) {
+            localVarFormParams.put("bank_id", bankId);
+        }
+
+        if (certificate != null) {
+            localVarFormParams.put("certificate", certificate);
+        }
+
+        if (shareHolders != null) {
+            localVarFormParams.put("share_holders", shareHolders);
+        }
+
+        if (passport != null) {
+            localVarFormParams.put("passport", passport);
+        }
+
+        if (shareHoldingStructure != null) {
+            localVarFormParams.put("share_holding_structure", shareHoldingStructure);
+        }
+
+        if (fundsStatement != null) {
+            localVarFormParams.put("funds_statement", fundsStatement);
+        }
+
+        if (additional != null) {
+            localVarFormParams.put("additional", additional);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call submitOtcBankEnterpriseSupplementValidateBeforeCall(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bankId' is set
+        if (bankId == null) {
+            throw new ApiException("Missing the required parameter 'bankId' when calling submitOtcBankEnterpriseSupplement(Async)");
+        }
+
+        // verify the required parameter 'certificate' is set
+        if (certificate == null) {
+            throw new ApiException("Missing the required parameter 'certificate' when calling submitOtcBankEnterpriseSupplement(Async)");
+        }
+
+        // verify the required parameter 'shareHolders' is set
+        if (shareHolders == null) {
+            throw new ApiException("Missing the required parameter 'shareHolders' when calling submitOtcBankEnterpriseSupplement(Async)");
+        }
+
+        // verify the required parameter 'passport' is set
+        if (passport == null) {
+            throw new ApiException("Missing the required parameter 'passport' when calling submitOtcBankEnterpriseSupplement(Async)");
+        }
+
+        // verify the required parameter 'shareHoldingStructure' is set
+        if (shareHoldingStructure == null) {
+            throw new ApiException("Missing the required parameter 'shareHoldingStructure' when calling submitOtcBankEnterpriseSupplement(Async)");
+        }
+
+        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementCall(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Submit Bank Card Supplement Materials (Enterprise)
+     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; returned by the checklist. **multipart** file field names: &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;.
+     * @param bankId  (required)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
+     * @param uid  (optional)
+     * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
+     * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @return OtcActionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcActionResponse submitOtcBankEnterpriseSupplement(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = submitOtcBankEnterpriseSupplementWithHttpInfo(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Submit Bank Card Supplement Materials (Enterprise)
+     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; returned by the checklist. **multipart** file field names: &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;.
+     * @param bankId  (required)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
+     * @param uid  (optional)
+     * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
+     * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @return ApiResponse&lt;OtcActionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcActionResponse> submitOtcBankEnterpriseSupplementWithHttpInfo(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementValidateBeforeCall(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional, null);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Submit Bank Card Supplement Materials (Enterprise) (asynchronously)
+     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; returned by the checklist. **multipart** file field names: &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;.
+     * @param bankId  (required)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
+     * @param uid  (optional)
+     * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
+     * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call submitOtcBankEnterpriseSupplementAsync(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementValidateBeforeCall(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional, _callback);
+        Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -628,8 +1408,8 @@ public class OtcApi {
     }
 
     /**
-     * Mark fiat order as paid
-     * Mark fiat order as paid
+     * Mark fiat order as paid (deposit confirmation)
+     * Mark a fiat buy order as paid (deposit confirmation). **The user&#39;s payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name &#x60;payment_receipt&#x60; is subject to the gateway/production environment. For the persisted field, see &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (orders are usually associated via &#x60;client_order_id&#x60;); this OpenAPI path maps to Inner &#x60;POST /order/paid&#x60; and still uses &#x60;order_id&#x60; as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.
      * @param otcMarkOrderPaidRequest  (required)
      * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -645,8 +1425,8 @@ public class OtcApi {
     }
 
     /**
-     * Mark fiat order as paid
-     * Mark fiat order as paid
+     * Mark fiat order as paid (deposit confirmation)
+     * Mark a fiat buy order as paid (deposit confirmation). **The user&#39;s payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name &#x60;payment_receipt&#x60; is subject to the gateway/production environment. For the persisted field, see &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (orders are usually associated via &#x60;client_order_id&#x60;); this OpenAPI path maps to Inner &#x60;POST /order/paid&#x60; and still uses &#x60;order_id&#x60; as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.
      * @param otcMarkOrderPaidRequest  (required)
      * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -663,8 +1443,8 @@ public class OtcApi {
     }
 
     /**
-     * Mark fiat order as paid (asynchronously)
-     * Mark fiat order as paid
+     * Mark fiat order as paid (deposit confirmation) (asynchronously)
+     * Mark a fiat buy order as paid (deposit confirmation). **The user&#39;s payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name &#x60;payment_receipt&#x60; is subject to the gateway/production environment. For the persisted field, see &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (orders are usually associated via &#x60;client_order_id&#x60;); this OpenAPI path maps to Inner &#x60;POST /order/paid&#x60; and still uses &#x60;order_id&#x60; as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.
      * @param otcMarkOrderPaidRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

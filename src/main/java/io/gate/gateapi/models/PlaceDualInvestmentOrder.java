@@ -31,10 +31,6 @@ public class PlaceDualInvestmentOrder {
     @SerializedName(SERIALIZED_NAME_PLAN_ID)
     private Integer planId;
 
-    public static final String SERIALIZED_NAME_COPIES = "copies";
-    @SerializedName(SERIALIZED_NAME_COPIES)
-    private String copies;
-
     public static final String SERIALIZED_NAME_INVEST_AMOUNT = "invest_amount";
     @SerializedName(SERIALIZED_NAME_INVEST_AMOUNT)
     private String investAmount;
@@ -130,26 +126,6 @@ public class PlaceDualInvestmentOrder {
 
     public void setPlanId(Integer planId) {
         this.planId = planId;
-    }
-
-    public PlaceDualInvestmentOrder copies(String copies) {
-        
-        this.copies = copies;
-        return this;
-    }
-
-     /**
-     * Units
-     * @return copies
-    **/
-    @javax.annotation.Nullable
-    public String getCopies() {
-        return copies;
-    }
-
-
-    public void setCopies(String copies) {
-        this.copies = copies;
     }
 
     public PlaceDualInvestmentOrder investAmount(String investAmount) {
@@ -442,7 +418,6 @@ public class PlaceDualInvestmentOrder {
         PlaceDualInvestmentOrder placeDualInvestmentOrder = (PlaceDualInvestmentOrder) o;
         return Objects.equals(this.id, placeDualInvestmentOrder.id) &&
                 Objects.equals(this.planId, placeDualInvestmentOrder.planId) &&
-                Objects.equals(this.copies, placeDualInvestmentOrder.copies) &&
                 Objects.equals(this.investAmount, placeDualInvestmentOrder.investAmount) &&
                 Objects.equals(this.settlementAmount, placeDualInvestmentOrder.settlementAmount) &&
                 Objects.equals(this.createTime, placeDualInvestmentOrder.createTime) &&
@@ -461,7 +436,7 @@ public class PlaceDualInvestmentOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, planId, copies, investAmount, settlementAmount, createTime, completeTime, status, investCurrency, exerciseCurrency, exercisePrice, settlementPrice, settlementCurrency, apyDisplay, apySettlement, deliveryTime, text);
+        return Objects.hash(id, planId, investAmount, settlementAmount, createTime, completeTime, status, investCurrency, exerciseCurrency, exercisePrice, settlementPrice, settlementCurrency, apyDisplay, apySettlement, deliveryTime, text);
     }
 
 
@@ -471,7 +446,6 @@ public class PlaceDualInvestmentOrder {
         sb.append("class PlaceDualInvestmentOrder {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      planId: ").append(toIndentedString(planId)).append("\n");
-        sb.append("      copies: ").append(toIndentedString(copies)).append("\n");
         sb.append("      investAmount: ").append(toIndentedString(investAmount)).append("\n");
         sb.append("      settlementAmount: ").append(toIndentedString(settlementAmount)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");

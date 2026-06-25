@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**listFuturesContracts**](FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
+[**listFuturesContractsAll**](FuturesApi.md#listFuturesContractsAll) | **GET** /futures/{settle}/contracts_all | Query all contract information (including delisted)
 [**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 [**listFuturesOrderBook**](FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
 [**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures market transaction records
@@ -62,12 +63,17 @@ Method | HTTP request | Description
 [**getTrailOrderDetail**](FuturesApi.md#getTrailOrderDetail) | **GET** /futures/{settle}/autoorder/v1/trail/detail | Get trail order details
 [**updateTrailOrder**](FuturesApi.md#updateTrailOrder) | **POST** /futures/{settle}/autoorder/v1/trail/update | Update trail order
 [**getTrailOrderChangeLog**](FuturesApi.md#getTrailOrderChangeLog) | **GET** /futures/{settle}/autoorder/v1/trail/change_log | Get trail order user modification records
+[**createChaseOrder**](FuturesApi.md#createChaseOrder) | **POST** /futures/{settle}/autoorder/v1/chase/create | Create a chase order
+[**stopChaseOrder**](FuturesApi.md#stopChaseOrder) | **POST** /futures/{settle}/autoorder/v1/chase/stop | Stop a chase order
+[**stopAllChaseOrders**](FuturesApi.md#stopAllChaseOrders) | **POST** /futures/{settle}/autoorder/v1/chase/stop_all | Stop chase orders in batch
+[**getChaseOrders**](FuturesApi.md#getChaseOrders) | **GET** /futures/{settle}/autoorder/v1/chase/list | List chase orders
+[**getChaseOrderDetail**](FuturesApi.md#getChaseOrderDetail) | **GET** /futures/{settle}/autoorder/v1/chase/detail | Get chase order detail
 [**listPriceTriggeredOrders**](FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | Query auto order list
 [**createPriceTriggeredOrder**](FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 [**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
-[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
+[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend | Modify a Single Auto Order
 
 
 <a name="listFuturesContracts"></a>
@@ -107,6 +113,77 @@ public class Example {
             e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling FuturesApi#listFuturesContracts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;Contract&gt;**](Contract.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
+
+<a name="listFuturesContractsAll"></a>
+# **listFuturesContractsAll**
+> List&lt;Contract&gt; listFuturesContractsAll(settle).limit(limit).offset(offset).execute();
+
+Query all contract information (including delisted)
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer offset = 0; // Integer | List offset, starting from 0
+        try {
+            List<Contract> result = apiInstance.listFuturesContractsAll(settle)
+                        .limit(limit)
+                        .offset(offset)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#listFuturesContractsAll");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
@@ -2618,7 +2695,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelFuturesOrders"></a>
 # **cancelFuturesOrders**
-> List&lt;FuturesOrder&gt; cancelFuturesOrders(settle, xGateExptime, contract, side, excludeReduceOnly, text)
+> List&lt;FuturesOrder&gt; cancelFuturesOrders(settle, xGateExptime, contract, actionMode, side, excludeReduceOnly, text)
 
 Cancel all orders with &#39;open&#39; status
 
@@ -2648,11 +2725,12 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         String contract = "BTC_USDT"; // String | Contract Identifier; if specified, only cancel pending orders related to this contract
+        String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
         String side = "ask"; // String | Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders
         Boolean excludeReduceOnly = false; // Boolean | Whether to exclude reduce-only orders
         String text = "cancel by user"; // String | Remark for order cancellation
         try {
-            List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, xGateExptime, contract, side, excludeReduceOnly, text);
+            List<FuturesOrder> result = apiInstance.cancelFuturesOrders(settle, xGateExptime, contract, actionMode, side, excludeReduceOnly, text);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -2674,6 +2752,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
  **contract** | **String**| Contract Identifier; if specified, only cancel pending orders related to this contract | [optional]
+ **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional]
  **side** | **String**| Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders | [optional]
  **excludeReduceOnly** | **Boolean**| Whether to exclude reduce-only orders | [optional] [default to false]
  **text** | **String**| Remark for order cancellation | [optional]
@@ -3002,7 +3081,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelFuturesOrder"></a>
 # **cancelFuturesOrder**
-> FuturesOrder cancelFuturesOrder(settle, orderId, xGateExptime)
+> FuturesOrder cancelFuturesOrder(settle, orderId, xGateExptime, actionMode)
 
 Cancel single order
 
@@ -3030,8 +3109,9 @@ public class Example {
         String settle = "usdt"; // String | Settle currency
         String orderId = "12345"; // String | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
+        String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
         try {
-            FuturesOrder result = apiInstance.cancelFuturesOrder(settle, orderId, xGateExptime);
+            FuturesOrder result = apiInstance.cancelFuturesOrder(settle, orderId, xGateExptime, actionMode);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -3053,6 +3133,7 @@ Name | Type | Description  | Notes
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **orderId** | **String**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
+ **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional]
 
 ### Return type
 
@@ -4475,6 +4556,384 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Query successful |  -  |
 
+<a name="createChaseOrder"></a>
+# **createChaseOrder**
+> CreateChaseOrderResp createChaseOrder(settle, createChaseOrderReq)
+
+Create a chase order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        CreateChaseOrderReq createChaseOrderReq = new CreateChaseOrderReq(); // CreateChaseOrderReq | 
+        try {
+            CreateChaseOrderResp result = apiInstance.createChaseOrder(settle, createChaseOrderReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#createChaseOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **createChaseOrderReq** | [**CreateChaseOrderReq**](CreateChaseOrderReq.md)|  |
+
+### Return type
+
+[**CreateChaseOrderResp**](CreateChaseOrderResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="stopChaseOrder"></a>
+# **stopChaseOrder**
+> StopChaseOrderResp stopChaseOrder(settle, stopChaseOrderReq)
+
+Stop a chase order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        StopChaseOrderReq stopChaseOrderReq = new StopChaseOrderReq(); // StopChaseOrderReq | 
+        try {
+            StopChaseOrderResp result = apiInstance.stopChaseOrder(settle, stopChaseOrderReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#stopChaseOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **stopChaseOrderReq** | [**StopChaseOrderReq**](StopChaseOrderReq.md)|  |
+
+### Return type
+
+[**StopChaseOrderResp**](StopChaseOrderResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="stopAllChaseOrders"></a>
+# **stopAllChaseOrders**
+> StopAllChaseOrdersResp stopAllChaseOrders(settle, stopAllChaseOrdersReq)
+
+Stop chase orders in batch
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        StopAllChaseOrdersReq stopAllChaseOrdersReq = new StopAllChaseOrdersReq(); // StopAllChaseOrdersReq | 
+        try {
+            StopAllChaseOrdersResp result = apiInstance.stopAllChaseOrders(settle, stopAllChaseOrdersReq);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#stopAllChaseOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **stopAllChaseOrdersReq** | [**StopAllChaseOrdersReq**](StopAllChaseOrdersReq.md)|  |
+
+### Return type
+
+[**StopAllChaseOrdersResp**](StopAllChaseOrdersResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="getChaseOrders"></a>
+# **getChaseOrders**
+> GetChaseOrdersResp getChaseOrders(settle, sortBy).contract(contract).isFinished(isFinished).startAt(startAt).endAt(endAt).pageNum(pageNum).pageSize(pageSize).hideCancel(hideCancel).reduceOnly(reduceOnly).side(side).execute();
+
+List chase orders
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        Integer sortBy = 56; // Integer | Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0
+        String contract = "contract_example"; // String | Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
+        Boolean isFinished = true; // Boolean | true to query finished orders, false to query in-progress orders
+        Long startAt = 56L; // Long | Lower time bound for the history list, paired with end_at. Required when is_finished is true
+        Long endAt = 56L; // Long | Upper time bound for the history list, paired with start_at. Required when is_finished is true
+        Integer pageNum = 56; // Integer | Page number, starting from 1
+        Integer pageSize = 56; // Integer | Page size; must be between 1 and 100
+        Boolean hideCancel = true; // Boolean | When true, cancelled orders are hidden in the list
+        Integer reduceOnly = 56; // Integer | OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag
+        Integer side = 56; // Integer | Filter by long/short side: 1 long, 2 short
+        try {
+            GetChaseOrdersResp result = apiInstance.getChaseOrders(settle, sortBy)
+                        .contract(contract)
+                        .isFinished(isFinished)
+                        .startAt(startAt)
+                        .endAt(endAt)
+                        .pageNum(pageNum)
+                        .pageSize(pageSize)
+                        .hideCancel(hideCancel)
+                        .reduceOnly(reduceOnly)
+                        .side(side)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#getChaseOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **sortBy** | **Integer**| Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 | [enum: 1, 2]
+ **contract** | **String**| Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase | [optional]
+ **isFinished** | **Boolean**| true to query finished orders, false to query in-progress orders | [optional]
+ **startAt** | **Long**| Lower time bound for the history list, paired with end_at. Required when is_finished is true | [optional]
+ **endAt** | **Long**| Upper time bound for the history list, paired with start_at. Required when is_finished is true | [optional]
+ **pageNum** | **Integer**| Page number, starting from 1 | [optional]
+ **pageSize** | **Integer**| Page size; must be between 1 and 100 | [optional]
+ **hideCancel** | **Boolean**| When true, cancelled orders are hidden in the list | [optional]
+ **reduceOnly** | **Integer**| OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag | [optional] [enum: 0, 1, 2]
+ **side** | **Integer**| Filter by long/short side: 1 long, 2 short | [optional] [enum: 0, 1, 2]
+
+### Return type
+
+[**GetChaseOrdersResp**](GetChaseOrdersResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+<a name="getChaseOrderDetail"></a>
+# **getChaseOrderDetail**
+> GetChaseOrderDetailResp getChaseOrderDetail(settle, id)
+
+Get chase order detail
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Settle currency
+        String id = "id_example"; // String | Order ID, must be a non-zero positive integer
+        try {
+            GetChaseOrderDetailResp result = apiInstance.getChaseOrderDetail(settle, id);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#getChaseOrderDetail");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **id** | **String**| Order ID, must be a non-zero positive integer |
+
+### Return type
+
+[**GetChaseOrderDetailResp**](GetChaseOrderDetailResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 <a name="listPriceTriggeredOrders"></a>
 # **listPriceTriggeredOrders**
 > List&lt;FuturesPriceTriggeredOrder&gt; listPriceTriggeredOrders(settle, status).contract(contract).limit(limit).offset(offset).execute();
@@ -4837,7 +5296,7 @@ Name | Type | Description  | Notes
 
 <a name="updatePriceTriggeredOrder"></a>
 # **updatePriceTriggeredOrder**
-> TriggerOrderResponse updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder)
+> TriggerOrderResponse updatePriceTriggeredOrder(settle, futuresUpdatePriceTriggeredOrder)
 
 Modify a Single Auto Order
 
@@ -4863,10 +5322,9 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
-        Long orderId = 56L; // Long | ID returned when order is successfully created
         FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = new FuturesUpdatePriceTriggeredOrder(); // FuturesUpdatePriceTriggeredOrder | 
         try {
-            TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder);
+            TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, futuresUpdatePriceTriggeredOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4886,7 +5344,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
- **orderId** | **Long**| ID returned when order is successfully created |
  **futuresUpdatePriceTriggeredOrder** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  |
 
 ### Return type

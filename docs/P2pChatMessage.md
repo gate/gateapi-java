@@ -16,4 +16,12 @@ Name | Type | Description | Notes
 **pic** | **String** | File link |  [optional]
 **fileKey** | **String** | File key |  [optional]
 **fileType** | **String** | File type: &#x60;image&#x60; for images, &#x60;video&#x60; for videos. |  [optional]
+**riskType** | [**RiskTypeEnum**](#RiskTypeEnum) | Risk control display type. 1: off-platform traffic diversion risk; returned when a text message hits risk control |  [optional]
+**toastMsg** | **String** | Risk control prompt message; returned only when risk_type&#x3D;1 |  [optional]
+
+## Enum: RiskTypeEnum
+
+Name | Value
+---- | -----
+NUMBER_1 | 1
 

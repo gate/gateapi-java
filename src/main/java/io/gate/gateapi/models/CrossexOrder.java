@@ -200,7 +200,7 @@ public class CrossexOrder {
     }
 
      /**
-     * 订单状态：  NEW：订单已通过校验，等待发送到交易所  OPEN：订单已挂在交易所订单簿上  PARTIALLY_FILLED：订单已部分成交  FILLED：订单已完全成交  FAIL：CrossEx 内部校验未通过，请查看 reason 字段了解失败原因  REJECT：订单被交易所拒绝，请查看 reason 字段了解失败原因
+     * Order status:  NEW: Validated and queued to be sent to the exchange.  OPEN: Resting on the exchange order book.  PARTIALLY_FILLED: Partially filled.  FILLED: Fully filled.  FAIL: CrossEx internal validation failed; see the &#x60;reason&#x60; field for details.  REJECT: Rejected by the exchange; see the &#x60;reason&#x60; field for details.
      * @return state
     **/
     public String getState() {
@@ -276,7 +276,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage).
+     * Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage / &#x60;SETTLEMENT&#x60; delisting settlement).
      * @return attribute
     **/
     public String getAttribute() {
@@ -295,7 +295,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Exchange type (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60;).
+     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;).
      * @return exchangeType
     **/
     public String getExchangeType() {

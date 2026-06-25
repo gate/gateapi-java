@@ -17,6 +17,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.SpotOrderStopLoss;
+import io.gate.gateapi.models.SpotOrderStopProfit;
 import java.io.IOException;
 
 /**
@@ -46,6 +48,14 @@ public class OrderPatch {
     public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
     @SerializedName(SERIALIZED_NAME_ACTION_MODE)
     private String actionMode;
+
+    public static final String SERIALIZED_NAME_STOP_PROFIT = "stop_profit";
+    @SerializedName(SERIALIZED_NAME_STOP_PROFIT)
+    private SpotOrderStopProfit stopProfit;
+
+    public static final String SERIALIZED_NAME_STOP_LOSS = "stop_loss";
+    @SerializedName(SERIALIZED_NAME_STOP_LOSS)
+    private SpotOrderStopLoss stopLoss;
 
 
     public OrderPatch currencyPair(String currencyPair) {
@@ -167,6 +177,46 @@ public class OrderPatch {
     public void setActionMode(String actionMode) {
         this.actionMode = actionMode;
     }
+
+    public OrderPatch stopProfit(SpotOrderStopProfit stopProfit) {
+        
+        this.stopProfit = stopProfit;
+        return this;
+    }
+
+     /**
+     * Get stopProfit
+     * @return stopProfit
+    **/
+    @javax.annotation.Nullable
+    public SpotOrderStopProfit getStopProfit() {
+        return stopProfit;
+    }
+
+
+    public void setStopProfit(SpotOrderStopProfit stopProfit) {
+        this.stopProfit = stopProfit;
+    }
+
+    public OrderPatch stopLoss(SpotOrderStopLoss stopLoss) {
+        
+        this.stopLoss = stopLoss;
+        return this;
+    }
+
+     /**
+     * Get stopLoss
+     * @return stopLoss
+    **/
+    @javax.annotation.Nullable
+    public SpotOrderStopLoss getStopLoss() {
+        return stopLoss;
+    }
+
+
+    public void setStopLoss(SpotOrderStopLoss stopLoss) {
+        this.stopLoss = stopLoss;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -181,12 +231,14 @@ public class OrderPatch {
                 Objects.equals(this.amount, orderPatch.amount) &&
                 Objects.equals(this.price, orderPatch.price) &&
                 Objects.equals(this.amendText, orderPatch.amendText) &&
-                Objects.equals(this.actionMode, orderPatch.actionMode);
+                Objects.equals(this.actionMode, orderPatch.actionMode) &&
+                Objects.equals(this.stopProfit, orderPatch.stopProfit) &&
+                Objects.equals(this.stopLoss, orderPatch.stopLoss);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, account, amount, price, amendText, actionMode);
+        return Objects.hash(currencyPair, account, amount, price, amendText, actionMode, stopProfit, stopLoss);
     }
 
 
@@ -200,6 +252,8 @@ public class OrderPatch {
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
         sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
+        sb.append("      stopProfit: ").append(toIndentedString(stopProfit)).append("\n");
+        sb.append("      stopLoss: ").append(toIndentedString(stopLoss)).append("\n");
         sb.append("}");
         return sb.toString();
     }

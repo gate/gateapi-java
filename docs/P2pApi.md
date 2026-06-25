@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**p2pMerchantAccountGetUserInfo**](P2pApi.md#p2pMerchantAccountGetUserInfo) | **POST** /p2p/merchant/account/get_user_info | Get account information
 [**p2pMerchantAccountGetCounterpartyUserInfo**](P2pApi.md#p2pMerchantAccountGetCounterpartyUserInfo) | **POST** /p2p/merchant/account/get_counterparty_user_info | Get counterparty information
 [**p2pMerchantAccountGetMyselfPayment**](P2pApi.md#p2pMerchantAccountGetMyselfPayment) | **POST** /p2p/merchant/account/get_myself_payment | Get payment method list
+[**p2pMerchantAccountSetMerchantWorkHours**](P2pApi.md#p2pMerchantAccountSetMerchantWorkHours) | **POST** /p2p/merchant/account/set_merchant_work_hours | Set merchant working status and custom working hours
 [**p2pMerchantTransactionGetPendingTransactionList**](P2pApi.md#p2pMerchantTransactionGetPendingTransactionList) | **POST** /p2p/merchant/transaction/get_pending_transaction_list | Get pending orders
 [**p2pMerchantTransactionGetCompletedTransactionList**](P2pApi.md#p2pMerchantTransactionGetCompletedTransactionList) | **POST** /p2p/merchant/transaction/get_completed_transaction_list | Get all/historical orders
 [**p2pMerchantTransactionGetTransactionDetails**](P2pApi.md#p2pMerchantTransactionGetTransactionDetails) | **POST** /p2p/merchant/transaction/get_transaction_details | Query order details
@@ -208,6 +209,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**P2pPaymentMethodsResponse**](P2pPaymentMethodsResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="p2pMerchantAccountSetMerchantWorkHours"></a>
+# **p2pMerchantAccountSetMerchantWorkHours**
+> P2pMerchantWorkHoursResponse p2pMerchantAccountSetMerchantWorkHours(setMerchantWorkHoursRequest)
+
+Set merchant working status and custom working hours
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.P2pApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        P2pApi apiInstance = new P2pApi(defaultClient);
+        SetMerchantWorkHoursRequest setMerchantWorkHoursRequest = new SetMerchantWorkHoursRequest(); // SetMerchantWorkHoursRequest | 
+        try {
+            P2pMerchantWorkHoursResponse result = apiInstance.p2pMerchantAccountSetMerchantWorkHours(setMerchantWorkHoursRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling P2pApi#p2pMerchantAccountSetMerchantWorkHours");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **setMerchantWorkHoursRequest** | [**SetMerchantWorkHoursRequest**](SetMerchantWorkHoursRequest.md)|  |
+
+### Return type
+
+[**P2pMerchantWorkHoursResponse**](P2pMerchantWorkHoursResponse.md)
 
 ### Authorization
 
@@ -637,6 +706,8 @@ Name | Type | Description  | Notes
 
 Publish ad order
 
+When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.
+
 ### Example
 
 ```java
@@ -1046,6 +1117,8 @@ Name | Type | Description  | Notes
 > P2pSendChatMessageResponse p2pMerchantChatSendChatMessage(sendChatMessageRequest)
 
 Send text message
+
+Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type&#x3D;1 and toast_msg.
 
 ### Example
 

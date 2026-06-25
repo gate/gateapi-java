@@ -138,7 +138,7 @@ public class CrossExApi {
 
         /**
          * Set symbols
-         * @param symbols 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
+         * @param symbols List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
          * @return APIlistCrossexRuleSymbolsRequest
          */
         public APIlistCrossexRuleSymbolsRequest symbols(String symbols) {
@@ -207,7 +207,7 @@ public class CrossExApi {
     }
 
     /**
-     * 查询币对信息
+     * Query symbol information
      * Query Trading Pair Information
      * @return APIlistCrossexRuleSymbolsRequest
      * @http.response.details
@@ -277,7 +277,7 @@ public class CrossExApi {
     }
 
     /**
-     * 查询风险限额信息
+     * Query risk limit information
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
      * @return List&lt;CrossexRiskLimit&gt;
@@ -294,7 +294,7 @@ public class CrossExApi {
     }
 
     /**
-     * 查询风险限额信息
+     * Query risk limit information
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
      * @return ApiResponse&lt;List&lt;CrossexRiskLimit&gt;&gt;
@@ -312,7 +312,7 @@ public class CrossExApi {
     }
 
     /**
-     * 查询风险限额信息 (asynchronously)
+     * Query risk limit information (asynchronously)
      * Query risk limit information for futures/margin trading pairs
      * @param symbols Trading Pair List, multiple separated by commas Example values: BINANCE_FUTURE_ADA_USDT,GATE_MARGIN_ADA_USDT (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -392,7 +392,7 @@ public class CrossExApi {
 
         /**
          * Set coin
-         * @param coin Currency (optional)
+         * @param coin Query by specified currency name (optional)
          * @return APIlistCrossexTransferCoinsRequest
          */
         public APIlistCrossexTransferCoinsRequest coin(String coin) {
@@ -461,7 +461,7 @@ public class CrossExApi {
     }
 
     /**
-     * 查询划转币种支持
+     * Query supported transfer currencies
      * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
      * @return APIlistCrossexTransferCoinsRequest
      * @http.response.details
@@ -741,7 +741,7 @@ public class CrossExApi {
 
     /**
      * Fund Transfer
-     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60;
+     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
      * @param crossexTransferRequest  (optional)
      * @return CrossexTransferResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -758,7 +758,7 @@ public class CrossExApi {
 
     /**
      * Fund Transfer
-     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60;
+     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
      * @param crossexTransferRequest  (optional)
      * @return ApiResponse&lt;CrossexTransferResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -776,7 +776,7 @@ public class CrossExApi {
 
     /**
      * Fund Transfer (asynchronously)
-     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60;
+     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
      * @param crossexTransferRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1489,7 +1489,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) (optional)
+         * @param exchangeType Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;). (optional)
          * @return APIgetCrossexAccountRequest
          */
         public APIgetCrossexAccountRequest exchangeType(String exchangeType) {
@@ -2331,7 +2331,7 @@ public class CrossExApi {
 
         /**
          * Set coin
-         * @param coin Currency (optional)
+         * @param coin Query by specified currency name (optional)
          * @return APIgetCrossexInterestRateRequest
          */
         public APIgetCrossexInterestRateRequest coin(String coin) {
@@ -3121,7 +3121,7 @@ public class CrossExApi {
         return new APIlistCrossexOpenOrdersRequest();
     }
 
-    private okhttp3.Call listCrossexHistoryOrdersCall(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listCrossexHistoryOrdersCall(Integer page, Integer limit, String symbol, Integer from, Integer to, String attributes, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3149,6 +3149,10 @@ public class CrossExApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
         }
 
+        if (attributes != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("attributes", attributes));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -3171,20 +3175,20 @@ public class CrossExApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCrossexHistoryOrdersValidateBeforeCall(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listCrossexHistoryOrdersCall(page, limit, symbol, from, to, _callback);
+    private okhttp3.Call listCrossexHistoryOrdersValidateBeforeCall(Integer page, Integer limit, String symbol, Integer from, Integer to, String attributes, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexHistoryOrdersCall(page, limit, symbol, from, to, attributes, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<CrossexOrder>> listCrossexHistoryOrdersWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to) throws ApiException {
-        okhttp3.Call localVarCall = listCrossexHistoryOrdersValidateBeforeCall(page, limit, symbol, from, to, null);
+    private ApiResponse<List<CrossexOrder>> listCrossexHistoryOrdersWithHttpInfo(Integer page, Integer limit, String symbol, Integer from, Integer to, String attributes) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexHistoryOrdersValidateBeforeCall(page, limit, symbol, from, to, attributes, null);
         Type localVarReturnType = new TypeToken<List<CrossexOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listCrossexHistoryOrdersAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, final ApiCallback<List<CrossexOrder>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listCrossexHistoryOrdersValidateBeforeCall(page, limit, symbol, from, to, _callback);
+    private okhttp3.Call listCrossexHistoryOrdersAsync(Integer page, Integer limit, String symbol, Integer from, Integer to, String attributes, final ApiCallback<List<CrossexOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexHistoryOrdersValidateBeforeCall(page, limit, symbol, from, to, attributes, _callback);
         Type localVarReturnType = new TypeToken<List<CrossexOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3196,6 +3200,7 @@ public class CrossExApi {
         private String symbol;
         private Integer from;
         private Integer to;
+        private String attributes;
 
         private APIlistCrossexHistoryOrdersRequest() {
         }
@@ -3222,7 +3227,7 @@ public class CrossExApi {
 
         /**
          * Set symbol
-         * @param symbol Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param symbol Currency pair (optional)
          * @return APIlistCrossexHistoryOrdersRequest
          */
         public APIlistCrossexHistoryOrdersRequest symbol(String symbol) {
@@ -3251,6 +3256,16 @@ public class CrossExApi {
         }
 
         /**
+         * Set attributes
+         * @param attributes Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage / &#x60;SETTLEMENT&#x60; delisting settlement). Multiple values, comma-separated. (optional)
+         * @return APIlistCrossexHistoryOrdersRequest
+         */
+        public APIlistCrossexHistoryOrdersRequest attributes(String attributes) {
+            this.attributes = attributes;
+            return this;
+        }
+
+        /**
          * Build call for listCrossexHistoryOrders
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -3262,7 +3277,7 @@ public class CrossExApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listCrossexHistoryOrdersCall(page, limit, symbol, from, to, _callback);
+            return listCrossexHistoryOrdersCall(page, limit, symbol, from, to, attributes, _callback);
         }
 
         /**
@@ -3276,7 +3291,7 @@ public class CrossExApi {
          </table>
          */
         public List<CrossexOrder> execute() throws ApiException {
-            ApiResponse<List<CrossexOrder>> localVarResp = listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to);
+            ApiResponse<List<CrossexOrder>> localVarResp = listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to, attributes);
             return localVarResp.getData();
         }
 
@@ -3291,7 +3306,7 @@ public class CrossExApi {
          </table>
          */
         public ApiResponse<List<CrossexOrder>> executeWithHttpInfo() throws ApiException {
-            return listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to);
+            return listCrossexHistoryOrdersWithHttpInfo(page, limit, symbol, from, to, attributes);
         }
 
         /**
@@ -3306,7 +3321,7 @@ public class CrossExApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<CrossexOrder>> _callback) throws ApiException {
-            return listCrossexHistoryOrdersAsync(page, limit, symbol, from, to, _callback);
+            return listCrossexHistoryOrdersAsync(page, limit, symbol, from, to, attributes, _callback);
         }
     }
 
@@ -3425,7 +3440,7 @@ public class CrossExApi {
 
         /**
          * Set symbol
-         * @param symbol Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param symbol Currency pair (optional)
          * @return APIlistCrossexHistoryPositionsRequest
          */
         public APIlistCrossexHistoryPositionsRequest symbol(String symbol) {
@@ -3628,7 +3643,7 @@ public class CrossExApi {
 
         /**
          * Set symbol
-         * @param symbol Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param symbol Currency pair (optional)
          * @return APIlistCrossexHistoryMarginPositionsRequest
          */
         public APIlistCrossexHistoryMarginPositionsRequest symbol(String symbol) {
@@ -3816,7 +3831,7 @@ public class CrossExApi {
 
         /**
          * Set symbol
-         * @param symbol Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param symbol Currency pair (optional)
          * @return APIlistCrossexHistoryMarginInterestsRequest
          */
         public APIlistCrossexHistoryMarginInterestsRequest symbol(String symbol) {
@@ -4049,7 +4064,7 @@ public class CrossExApi {
 
         /**
          * Set symbol
-         * @param symbol Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param symbol Currency pair (optional)
          * @return APIlistCrossexHistoryTradesRequest
          */
         public APIlistCrossexHistoryTradesRequest symbol(String symbol) {
@@ -4257,7 +4272,7 @@ public class CrossExApi {
 
         /**
          * Set coin
-         * @param coin Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param coin Query by specified currency name (optional)
          * @return APIlistCrossexAccountBookRequest
          */
         public APIlistCrossexAccountBookRequest coin(String coin) {
@@ -4267,7 +4282,7 @@ public class CrossExApi {
 
         /**
          * Set statementType
-         * @param statementType Bill entry type. (optional)
+         * @param statementType Bill entry type. The filter accepts the same values returned in the response. (optional)
          * @return APIlistCrossexAccountBookRequest
          */
         public APIlistCrossexAccountBookRequest statementType(String statementType) {
@@ -4435,7 +4450,7 @@ public class CrossExApi {
 
         /**
          * Set coin
-         * @param coin Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  (optional)
+         * @param coin Query by specified currency name (optional)
          * @return APIlistCrossexCoinDiscountRateRequest
          */
         public APIlistCrossexCoinDiscountRateRequest coin(String coin) {
@@ -4445,7 +4460,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType OKX/GATE/BINANCE/BYBIT (optional)
+         * @param exchangeType OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID (optional)
          * @return APIlistCrossexCoinDiscountRateRequest
          */
         public APIlistCrossexCoinDiscountRateRequest exchangeType(String exchangeType) {

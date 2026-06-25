@@ -129,7 +129,7 @@ public class SendChatMessageRequest {
     }
 
      /**
-     * Message body. For &#x60;type&#x3D;0&#x60;, plain text up to 500 characters; for &#x60;type&#x3D;1&#x60;, pass the &#x60;file_key&#x60; returned by &#x60;upload_chat_file&#x60;.
+     * Message content. When type&#x3D;0, pass text up to 500 characters, which goes through off-platform traffic diversion risk control; when hit, the response contains risk_type&#x3D;1 and toast_msg. When type&#x3D;1, pass the file_key returned by upload_chat_file
      * @return message
     **/
     public String getMessage() {

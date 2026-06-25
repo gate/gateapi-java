@@ -47,21 +47,13 @@ public class DualGetPlans {
     @SerializedName(SERIALIZED_NAME_DELIVERY_TIME)
     private Integer deliveryTime;
 
-    public static final String SERIALIZED_NAME_MIN_COPIES = "min_copies";
-    @SerializedName(SERIALIZED_NAME_MIN_COPIES)
-    private Integer minCopies;
-
-    public static final String SERIALIZED_NAME_MAX_COPIES = "max_copies";
-    @SerializedName(SERIALIZED_NAME_MAX_COPIES)
-    private Integer maxCopies;
-
-    public static final String SERIALIZED_NAME_PER_VALUE = "per_value";
-    @SerializedName(SERIALIZED_NAME_PER_VALUE)
-    private String perValue;
-
     public static final String SERIALIZED_NAME_APY_DISPLAY = "apy_display";
     @SerializedName(SERIALIZED_NAME_APY_DISPLAY)
     private String apyDisplay;
+
+    public static final String SERIALIZED_NAME_MIN_AMOUNT = "min_amount";
+    @SerializedName(SERIALIZED_NAME_MIN_AMOUNT)
+    private String minAmount;
 
     public static final String SERIALIZED_NAME_START_TIME = "start_time";
     @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -196,66 +188,6 @@ public class DualGetPlans {
         this.deliveryTime = deliveryTime;
     }
 
-    public DualGetPlans minCopies(Integer minCopies) {
-        
-        this.minCopies = minCopies;
-        return this;
-    }
-
-     /**
-     * Minimum share count
-     * @return minCopies
-    **/
-    @javax.annotation.Nullable
-    public Integer getMinCopies() {
-        return minCopies;
-    }
-
-
-    public void setMinCopies(Integer minCopies) {
-        this.minCopies = minCopies;
-    }
-
-    public DualGetPlans maxCopies(Integer maxCopies) {
-        
-        this.maxCopies = maxCopies;
-        return this;
-    }
-
-     /**
-     * Maximum share count
-     * @return maxCopies
-    **/
-    @javax.annotation.Nullable
-    public Integer getMaxCopies() {
-        return maxCopies;
-    }
-
-
-    public void setMaxCopies(Integer maxCopies) {
-        this.maxCopies = maxCopies;
-    }
-
-    public DualGetPlans perValue(String perValue) {
-        
-        this.perValue = perValue;
-        return this;
-    }
-
-     /**
-     * Value Per Unit (deprecated)
-     * @return perValue
-    **/
-    @javax.annotation.Nullable
-    public String getPerValue() {
-        return perValue;
-    }
-
-
-    public void setPerValue(String perValue) {
-        this.perValue = perValue;
-    }
-
     public DualGetPlans apyDisplay(String apyDisplay) {
         
         this.apyDisplay = apyDisplay;
@@ -274,6 +206,26 @@ public class DualGetPlans {
 
     public void setApyDisplay(String apyDisplay) {
         this.apyDisplay = apyDisplay;
+    }
+
+    public DualGetPlans minAmount(String minAmount) {
+        
+        this.minAmount = minAmount;
+        return this;
+    }
+
+     /**
+     * Minimum investment amount
+     * @return minAmount
+    **/
+    @javax.annotation.Nullable
+    public String getMinAmount() {
+        return minAmount;
+    }
+
+
+    public void setMinAmount(String minAmount) {
+        this.minAmount = minAmount;
     }
 
     public DualGetPlans startTime(Integer startTime) {
@@ -323,7 +275,7 @@ public class DualGetPlans {
     }
 
      /**
-     * 状态:  &#x60;NOTSTARTED&#x60;-未开始 &#x60;ONGOING&#x60;-进行中 &#x60;ENDED&#x60;-已结束
+     * Status:  &#x60;NOTSTARTED&#x60; - Not started &#x60;ONGOING&#x60; - In progress &#x60;ENDED&#x60; - Ended
      * @return status
     **/
     @javax.annotation.Nullable
@@ -350,10 +302,8 @@ public class DualGetPlans {
                 Objects.equals(this.exerciseCurrency, dualGetPlans.exerciseCurrency) &&
                 Objects.equals(this.exercisePrice, dualGetPlans.exercisePrice) &&
                 Objects.equals(this.deliveryTime, dualGetPlans.deliveryTime) &&
-                Objects.equals(this.minCopies, dualGetPlans.minCopies) &&
-                Objects.equals(this.maxCopies, dualGetPlans.maxCopies) &&
-                Objects.equals(this.perValue, dualGetPlans.perValue) &&
                 Objects.equals(this.apyDisplay, dualGetPlans.apyDisplay) &&
+                Objects.equals(this.minAmount, dualGetPlans.minAmount) &&
                 Objects.equals(this.startTime, dualGetPlans.startTime) &&
                 Objects.equals(this.endTime, dualGetPlans.endTime) &&
                 Objects.equals(this.status, dualGetPlans.status);
@@ -361,7 +311,7 @@ public class DualGetPlans {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, instrumentName, investCurrency, exerciseCurrency, exercisePrice, deliveryTime, minCopies, maxCopies, perValue, apyDisplay, startTime, endTime, status);
+        return Objects.hash(id, instrumentName, investCurrency, exerciseCurrency, exercisePrice, deliveryTime, apyDisplay, minAmount, startTime, endTime, status);
     }
 
 
@@ -375,10 +325,8 @@ public class DualGetPlans {
         sb.append("      exerciseCurrency: ").append(toIndentedString(exerciseCurrency)).append("\n");
         sb.append("      exercisePrice: ").append(toIndentedString(exercisePrice)).append("\n");
         sb.append("      deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
-        sb.append("      minCopies: ").append(toIndentedString(minCopies)).append("\n");
-        sb.append("      maxCopies: ").append(toIndentedString(maxCopies)).append("\n");
-        sb.append("      perValue: ").append(toIndentedString(perValue)).append("\n");
         sb.append("      apyDisplay: ").append(toIndentedString(apyDisplay)).append("\n");
+        sb.append("      minAmount: ").append(toIndentedString(minAmount)).append("\n");
         sb.append("      startTime: ").append(toIndentedString(startTime)).append("\n");
         sb.append("      endTime: ").append(toIndentedString(endTime)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");

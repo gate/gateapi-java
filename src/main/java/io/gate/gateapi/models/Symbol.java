@@ -106,7 +106,7 @@ public class Symbol {
     }
 
      /**
-     * Exchange type (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;CROSSEX&#x60;).
+     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;).
      * @return exchangeType
     **/
     public String getExchangeType() {

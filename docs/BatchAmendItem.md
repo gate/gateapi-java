@@ -14,4 +14,6 @@ Name | Type | Description | Notes
 **price** | **String** | Trading Price. Only one of &#x60;amount&#x60; or &#x60;price&#x60; can be specified |  [optional]
 **amendText** | **String** | Custom info during order amendment |  [optional]
 **actionMode** | **String** | Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default) |  [optional]
+**stopProfit** | [**SpotOrderStopProfit**](SpotOrderStopProfit.md) |  |  [optional]
+**stopLoss** | [**SpotOrderStopLoss**](SpotOrderStopLoss.md) |  |  [optional]
 

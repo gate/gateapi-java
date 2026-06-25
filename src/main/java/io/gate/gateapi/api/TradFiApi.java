@@ -30,6 +30,7 @@ import io.gate.gateapi.models.Klines;
 import io.gate.gateapi.models.Mt5Account;
 import io.gate.gateapi.models.OrderHistoryList;
 import io.gate.gateapi.models.OrderList;
+import io.gate.gateapi.models.OrderLog;
 import io.gate.gateapi.models.PositionHistoryList;
 import io.gate.gateapi.models.PositionList;
 import io.gate.gateapi.models.Symbols;
@@ -1965,6 +1966,118 @@ public class TradFiApi {
     }
 
     /**
+     * Build call for queryOrderLog
+     * @param logId log_id returned from the order placement API (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Request success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call queryOrderLogCall(Integer logId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tradfi/orders/log/{log_id}"
+            .replaceAll("\\{" + "log_id" + "\\}", localVarApiClient.escapeString(logId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call queryOrderLogValidateBeforeCall(Integer logId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'logId' is set
+        if (logId == null) {
+            throw new ApiException("Missing the required parameter 'logId' when calling queryOrderLog(Async)");
+        }
+
+        okhttp3.Call localVarCall = queryOrderLogCall(logId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get order details by log ID
+     * 
+     * @param logId log_id returned from the order placement API (required)
+     * @return OrderLog
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Request success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public OrderLog queryOrderLog(Integer logId) throws ApiException {
+        ApiResponse<OrderLog> localVarResp = queryOrderLogWithHttpInfo(logId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get order details by log ID
+     * 
+     * @param logId log_id returned from the order placement API (required)
+     * @return ApiResponse&lt;OrderLog&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Request success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OrderLog> queryOrderLogWithHttpInfo(Integer logId) throws ApiException {
+        okhttp3.Call localVarCall = queryOrderLogValidateBeforeCall(logId, null);
+        Type localVarReturnType = new TypeToken<OrderLog>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get order details by log ID (asynchronously)
+     * 
+     * @param logId log_id returned from the order placement API (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Request success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call queryOrderLogAsync(Integer logId, final ApiCallback<OrderLog> _callback) throws ApiException {
+        okhttp3.Call localVarCall = queryOrderLogValidateBeforeCall(logId, _callback);
+        Type localVarReturnType = new TypeToken<OrderLog>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for queryPositionList
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2308,7 +2421,7 @@ public class TradFiApi {
         return localVarCall;
     }
 
-    private okhttp3.Call queryPositionHistoryListCall(Long beginTime, Long endTime, String symbol, String positionDir, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call queryPositionHistoryListCall(Long page, Long pageSize, Long beginTime, Long endTime, String symbol, String positionDir, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2316,6 +2429,14 @@ public class TradFiApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
         if (beginTime != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("begin_time", beginTime));
         }
@@ -2354,32 +2475,54 @@ public class TradFiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queryPositionHistoryListValidateBeforeCall(Long beginTime, Long endTime, String symbol, String positionDir, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = queryPositionHistoryListCall(beginTime, endTime, symbol, positionDir, _callback);
+    private okhttp3.Call queryPositionHistoryListValidateBeforeCall(Long page, Long pageSize, Long beginTime, Long endTime, String symbol, String positionDir, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = queryPositionHistoryListCall(page, pageSize, beginTime, endTime, symbol, positionDir, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<PositionHistoryList> queryPositionHistoryListWithHttpInfo(Long beginTime, Long endTime, String symbol, String positionDir) throws ApiException {
-        okhttp3.Call localVarCall = queryPositionHistoryListValidateBeforeCall(beginTime, endTime, symbol, positionDir, null);
+    private ApiResponse<PositionHistoryList> queryPositionHistoryListWithHttpInfo(Long page, Long pageSize, Long beginTime, Long endTime, String symbol, String positionDir) throws ApiException {
+        okhttp3.Call localVarCall = queryPositionHistoryListValidateBeforeCall(page, pageSize, beginTime, endTime, symbol, positionDir, null);
         Type localVarReturnType = new TypeToken<PositionHistoryList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call queryPositionHistoryListAsync(Long beginTime, Long endTime, String symbol, String positionDir, final ApiCallback<PositionHistoryList> _callback) throws ApiException {
-        okhttp3.Call localVarCall = queryPositionHistoryListValidateBeforeCall(beginTime, endTime, symbol, positionDir, _callback);
+    private okhttp3.Call queryPositionHistoryListAsync(Long page, Long pageSize, Long beginTime, Long endTime, String symbol, String positionDir, final ApiCallback<PositionHistoryList> _callback) throws ApiException {
+        okhttp3.Call localVarCall = queryPositionHistoryListValidateBeforeCall(page, pageSize, beginTime, endTime, symbol, positionDir, _callback);
         Type localVarReturnType = new TypeToken<PositionHistoryList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIqueryPositionHistoryListRequest {
+        private Long page;
+        private Long pageSize;
         private Long beginTime;
         private Long endTime;
         private String symbol;
         private String positionDir;
 
         private APIqueryPositionHistoryListRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page Page number; defaults to 1 if omitted. (optional)
+         * @return APIqueryPositionHistoryListRequest
+         */
+        public APIqueryPositionHistoryListRequest page(Long page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Page size; defaults to 10 if omitted. Maximum 100. (optional)
+         * @return APIqueryPositionHistoryListRequest
+         */
+        public APIqueryPositionHistoryListRequest pageSize(Long pageSize) {
+            this.pageSize = pageSize;
+            return this;
         }
 
         /**
@@ -2435,7 +2578,7 @@ public class TradFiApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return queryPositionHistoryListCall(beginTime, endTime, symbol, positionDir, _callback);
+            return queryPositionHistoryListCall(page, pageSize, beginTime, endTime, symbol, positionDir, _callback);
         }
 
         /**
@@ -2450,7 +2593,7 @@ public class TradFiApi {
          </table>
          */
         public PositionHistoryList execute() throws ApiException {
-            ApiResponse<PositionHistoryList> localVarResp = queryPositionHistoryListWithHttpInfo(beginTime, endTime, symbol, positionDir);
+            ApiResponse<PositionHistoryList> localVarResp = queryPositionHistoryListWithHttpInfo(page, pageSize, beginTime, endTime, symbol, positionDir);
             return localVarResp.getData();
         }
 
@@ -2466,7 +2609,7 @@ public class TradFiApi {
          </table>
          */
         public ApiResponse<PositionHistoryList> executeWithHttpInfo() throws ApiException {
-            return queryPositionHistoryListWithHttpInfo(beginTime, endTime, symbol, positionDir);
+            return queryPositionHistoryListWithHttpInfo(page, pageSize, beginTime, endTime, symbol, positionDir);
         }
 
         /**
@@ -2482,7 +2625,7 @@ public class TradFiApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PositionHistoryList> _callback) throws ApiException {
-            return queryPositionHistoryListAsync(beginTime, endTime, symbol, positionDir, _callback);
+            return queryPositionHistoryListAsync(page, pageSize, beginTime, endTime, symbol, positionDir, _callback);
         }
     }
 

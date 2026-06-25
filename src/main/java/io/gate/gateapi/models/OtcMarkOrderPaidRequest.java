@@ -20,12 +20,24 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Fiat Order Set Paid Request Body
+ * Request body for marking a fiat order as paid (deposit confirmation). Must include the user&#39;s payment receipt (consistent with §3.2).  **&#x60;payment_receipt_file_key&#x60; is required**; the order primary key for this path is &#x60;order_id&#x60;. When accessed via the Pay gateway using &#x60;client_order_id&#x60;, the gateway&#39;s rewritten field prevails.
  */
 public class OtcMarkOrderPaidRequest {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
     private String orderId;
+
+    public static final String SERIALIZED_NAME_CLIENT_ORDER_ID = "client_order_id";
+    @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID)
+    private String clientOrderId;
+
+    public static final String SERIALIZED_NAME_PAYMENT_RECEIPT_FILE_KEY = "payment_receipt_file_key";
+    @SerializedName(SERIALIZED_NAME_PAYMENT_RECEIPT_FILE_KEY)
+    private String paymentReceiptFileKey;
+
+    public static final String SERIALIZED_NAME_PAYMENT_RECEIPT = "payment_receipt";
+    @SerializedName(SERIALIZED_NAME_PAYMENT_RECEIPT)
+    private String paymentReceipt;
 
 
     public OtcMarkOrderPaidRequest orderId(String orderId) {
@@ -46,6 +58,65 @@ public class OtcMarkOrderPaidRequest {
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
+
+    public OtcMarkOrderPaidRequest clientOrderId(String clientOrderId) {
+        
+        this.clientOrderId = clientOrderId;
+        return this;
+    }
+
+     /**
+     * Client order ID (used by some gateway/Inner Pay paths, optional)
+     * @return clientOrderId
+    **/
+    @javax.annotation.Nullable
+    public String getClientOrderId() {
+        return clientOrderId;
+    }
+
+
+    public void setClientOrderId(String clientOrderId) {
+        this.clientOrderId = clientOrderId;
+    }
+
+    public OtcMarkOrderPaidRequest paymentReceiptFileKey(String paymentReceiptFileKey) {
+        
+        this.paymentReceiptFileKey = paymentReceiptFileKey;
+        return this;
+    }
+
+     /**
+     * User payment receipt: **required**. Stored as a file_key. Single file; jpg/jpeg/png/pdf; ≤4MB.
+     * @return paymentReceiptFileKey
+    **/
+    public String getPaymentReceiptFileKey() {
+        return paymentReceiptFileKey;
+    }
+
+
+    public void setPaymentReceiptFileKey(String paymentReceiptFileKey) {
+        this.paymentReceiptFileKey = paymentReceiptFileKey;
+    }
+
+    public OtcMarkOrderPaidRequest paymentReceipt(String paymentReceipt) {
+        
+        this.paymentReceipt = paymentReceipt;
+        return this;
+    }
+
+     /**
+     * Alias compatible with &#x60;payment_receipt_file_key&#x60; (depends on the gateway&#39;s external field name)
+     * @return paymentReceipt
+    **/
+    @javax.annotation.Nullable
+    public String getPaymentReceipt() {
+        return paymentReceipt;
+    }
+
+
+    public void setPaymentReceipt(String paymentReceipt) {
+        this.paymentReceipt = paymentReceipt;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -55,12 +126,15 @@ public class OtcMarkOrderPaidRequest {
             return false;
         }
         OtcMarkOrderPaidRequest otcMarkOrderPaidRequest = (OtcMarkOrderPaidRequest) o;
-        return Objects.equals(this.orderId, otcMarkOrderPaidRequest.orderId);
+        return Objects.equals(this.orderId, otcMarkOrderPaidRequest.orderId) &&
+                Objects.equals(this.clientOrderId, otcMarkOrderPaidRequest.clientOrderId) &&
+                Objects.equals(this.paymentReceiptFileKey, otcMarkOrderPaidRequest.paymentReceiptFileKey) &&
+                Objects.equals(this.paymentReceipt, otcMarkOrderPaidRequest.paymentReceipt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId);
+        return Objects.hash(orderId, clientOrderId, paymentReceiptFileKey, paymentReceipt);
     }
 
 
@@ -69,6 +143,9 @@ public class OtcMarkOrderPaidRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class OtcMarkOrderPaidRequest {\n");
         sb.append("      orderId: ").append(toIndentedString(orderId)).append("\n");
+        sb.append("      clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
+        sb.append("      paymentReceiptFileKey: ").append(toIndentedString(paymentReceiptFileKey)).append("\n");
+        sb.append("      paymentReceipt: ").append(toIndentedString(paymentReceipt)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -68,6 +68,59 @@ public class P2pChatMessage {
     @SerializedName(SERIALIZED_NAME_FILE_TYPE)
     private String fileType;
 
+    /**
+     * Risk control display type. 1: off-platform traffic diversion risk; returned when a text message hits risk control
+     */
+    @JsonAdapter(RiskTypeEnum.Adapter.class)
+    public enum RiskTypeEnum {
+        NUMBER_1(1);
+
+        private Integer value;
+
+        RiskTypeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static RiskTypeEnum fromValue(Integer value) {
+            for (RiskTypeEnum b : RiskTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<RiskTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RiskTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public RiskTypeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return RiskTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_RISK_TYPE = "risk_type";
+    @SerializedName(SERIALIZED_NAME_RISK_TYPE)
+    private RiskTypeEnum riskType;
+
+    public static final String SERIALIZED_NAME_TOAST_MSG = "toast_msg";
+    @SerializedName(SERIALIZED_NAME_TOAST_MSG)
+    private String toastMsg;
+
 
     public P2pChatMessage isSell(Integer isSell) {
         
@@ -288,6 +341,46 @@ public class P2pChatMessage {
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
+
+    public P2pChatMessage riskType(RiskTypeEnum riskType) {
+        
+        this.riskType = riskType;
+        return this;
+    }
+
+     /**
+     * Risk control display type. 1: off-platform traffic diversion risk; returned when a text message hits risk control
+     * @return riskType
+    **/
+    @javax.annotation.Nullable
+    public RiskTypeEnum getRiskType() {
+        return riskType;
+    }
+
+
+    public void setRiskType(RiskTypeEnum riskType) {
+        this.riskType = riskType;
+    }
+
+    public P2pChatMessage toastMsg(String toastMsg) {
+        
+        this.toastMsg = toastMsg;
+        return this;
+    }
+
+     /**
+     * Risk control prompt message; returned only when risk_type&#x3D;1
+     * @return toastMsg
+    **/
+    @javax.annotation.Nullable
+    public String getToastMsg() {
+        return toastMsg;
+    }
+
+
+    public void setToastMsg(String toastMsg) {
+        this.toastMsg = toastMsg;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -307,12 +400,14 @@ public class P2pChatMessage {
                 Objects.equals(this.type, p2pChatMessage.type) &&
                 Objects.equals(this.pic, p2pChatMessage.pic) &&
                 Objects.equals(this.fileKey, p2pChatMessage.fileKey) &&
-                Objects.equals(this.fileType, p2pChatMessage.fileType);
+                Objects.equals(this.fileType, p2pChatMessage.fileType) &&
+                Objects.equals(this.riskType, p2pChatMessage.riskType) &&
+                Objects.equals(this.toastMsg, p2pChatMessage.toastMsg);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isSell, msgType, msg, username, timest, msgObj, uid, type, pic, fileKey, fileType);
+        return Objects.hash(isSell, msgType, msg, username, timest, msgObj, uid, type, pic, fileKey, fileType, riskType, toastMsg);
     }
 
 
@@ -331,6 +426,8 @@ public class P2pChatMessage {
         sb.append("      pic: ").append(toIndentedString(pic)).append("\n");
         sb.append("      fileKey: ").append(toIndentedString(fileKey)).append("\n");
         sb.append("      fileType: ").append(toIndentedString(fileType)).append("\n");
+        sb.append("      riskType: ").append(toIndentedString(riskType)).append("\n");
+        sb.append("      toastMsg: ").append(toIndentedString(toastMsg)).append("\n");
         sb.append("}");
         return sb.toString();
     }

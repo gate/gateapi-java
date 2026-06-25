@@ -17,13 +17,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.OtcUserDefaultBank;
+import io.gate.gateapi.models.OtcBankSupplementChecklistResponseData;
 import java.io.IOException;
 
 /**
- * OtcUserDefaultBankResponse
+ * OtcBankSupplementChecklistResponse
  */
-public class OtcUserDefaultBankResponse {
+public class OtcBankSupplementChecklistResponse {
     public static final String SERIALIZED_NAME_CODE = "code";
     @SerializedName(SERIALIZED_NAME_CODE)
     private Integer code;
@@ -34,14 +34,14 @@ public class OtcUserDefaultBankResponse {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private OtcUserDefaultBank data;
+    private OtcBankSupplementChecklistResponseData data;
 
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
     private Integer timestamp;
 
 
-    public OtcUserDefaultBankResponse code(Integer code) {
+    public OtcBankSupplementChecklistResponse code(Integer code) {
         
         this.code = code;
         return this;
@@ -60,7 +60,7 @@ public class OtcUserDefaultBankResponse {
         this.code = code;
     }
 
-    public OtcUserDefaultBankResponse message(String message) {
+    public OtcBankSupplementChecklistResponse message(String message) {
         
         this.message = message;
         return this;
@@ -79,7 +79,7 @@ public class OtcUserDefaultBankResponse {
         this.message = message;
     }
 
-    public OtcUserDefaultBankResponse data(OtcUserDefaultBank data) {
+    public OtcBankSupplementChecklistResponse data(OtcBankSupplementChecklistResponseData data) {
         
         this.data = data;
         return this;
@@ -89,16 +89,16 @@ public class OtcUserDefaultBankResponse {
      * Get data
      * @return data
     **/
-    public OtcUserDefaultBank getData() {
+    public OtcBankSupplementChecklistResponseData getData() {
         return data;
     }
 
 
-    public void setData(OtcUserDefaultBank data) {
+    public void setData(OtcBankSupplementChecklistResponseData data) {
         this.data = data;
     }
 
-    public OtcUserDefaultBankResponse timestamp(Integer timestamp) {
+    public OtcBankSupplementChecklistResponse timestamp(Integer timestamp) {
         
         this.timestamp = timestamp;
         return this;
@@ -108,6 +108,7 @@ public class OtcUserDefaultBankResponse {
      * Get timestamp
      * @return timestamp
     **/
+    @javax.annotation.Nullable
     public Integer getTimestamp() {
         return timestamp;
     }
@@ -124,11 +125,11 @@ public class OtcUserDefaultBankResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OtcUserDefaultBankResponse otcUserDefaultBankResponse = (OtcUserDefaultBankResponse) o;
-        return Objects.equals(this.code, otcUserDefaultBankResponse.code) &&
-                Objects.equals(this.message, otcUserDefaultBankResponse.message) &&
-                Objects.equals(this.data, otcUserDefaultBankResponse.data) &&
-                Objects.equals(this.timestamp, otcUserDefaultBankResponse.timestamp);
+        OtcBankSupplementChecklistResponse otcBankSupplementChecklistResponse = (OtcBankSupplementChecklistResponse) o;
+        return Objects.equals(this.code, otcBankSupplementChecklistResponse.code) &&
+                Objects.equals(this.message, otcBankSupplementChecklistResponse.message) &&
+                Objects.equals(this.data, otcBankSupplementChecklistResponse.data) &&
+                Objects.equals(this.timestamp, otcBankSupplementChecklistResponse.timestamp);
     }
 
     @Override
@@ -140,7 +141,7 @@ public class OtcUserDefaultBankResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OtcUserDefaultBankResponse {\n");
+        sb.append("class OtcBankSupplementChecklistResponse {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");

@@ -47,6 +47,10 @@ public class ContractStat {
     @SerializedName(SERIALIZED_NAME_LONG_LIQ_USD)
     private Double longLiqUsd;
 
+    public static final String SERIALIZED_NAME_LONG_LIQ_USD_NEW = "long_liq_usd_new";
+    @SerializedName(SERIALIZED_NAME_LONG_LIQ_USD_NEW)
+    private Double longLiqUsdNew;
+
     public static final String SERIALIZED_NAME_SHORT_LIQ_SIZE = "short_liq_size";
     @SerializedName(SERIALIZED_NAME_SHORT_LIQ_SIZE)
     private String shortLiqSize;
@@ -58,6 +62,10 @@ public class ContractStat {
     public static final String SERIALIZED_NAME_SHORT_LIQ_USD = "short_liq_usd";
     @SerializedName(SERIALIZED_NAME_SHORT_LIQ_USD)
     private Double shortLiqUsd;
+
+    public static final String SERIALIZED_NAME_SHORT_LIQ_USD_NEW = "short_liq_usd_new";
+    @SerializedName(SERIALIZED_NAME_SHORT_LIQ_USD_NEW)
+    private Double shortLiqUsdNew;
 
     public static final String SERIALIZED_NAME_OPEN_INTEREST = "open_interest";
     @SerializedName(SERIALIZED_NAME_OPEN_INTEREST)
@@ -78,6 +86,38 @@ public class ContractStat {
     public static final String SERIALIZED_NAME_MARK_PRICE = "mark_price";
     @SerializedName(SERIALIZED_NAME_MARK_PRICE)
     private Double markPrice;
+
+    public static final String SERIALIZED_NAME_TOP_LONG_SIZE = "top_long_size";
+    @SerializedName(SERIALIZED_NAME_TOP_LONG_SIZE)
+    private String topLongSize;
+
+    public static final String SERIALIZED_NAME_TOP_SHORT_SIZE = "top_short_size";
+    @SerializedName(SERIALIZED_NAME_TOP_SHORT_SIZE)
+    private String topShortSize;
+
+    public static final String SERIALIZED_NAME_LONG_TAKER_SIZE = "long_taker_size";
+    @SerializedName(SERIALIZED_NAME_LONG_TAKER_SIZE)
+    private String longTakerSize;
+
+    public static final String SERIALIZED_NAME_SHORT_TAKER_SIZE = "short_taker_size";
+    @SerializedName(SERIALIZED_NAME_SHORT_TAKER_SIZE)
+    private String shortTakerSize;
+
+    public static final String SERIALIZED_NAME_TOP_LONG_ACCOUNT = "top_long_account";
+    @SerializedName(SERIALIZED_NAME_TOP_LONG_ACCOUNT)
+    private Long topLongAccount;
+
+    public static final String SERIALIZED_NAME_TOP_SHORT_ACCOUNT = "top_short_account";
+    @SerializedName(SERIALIZED_NAME_TOP_SHORT_ACCOUNT)
+    private Long topShortAccount;
+
+    public static final String SERIALIZED_NAME_LONG_USERS = "long_users";
+    @SerializedName(SERIALIZED_NAME_LONG_USERS)
+    private String longUsers;
+
+    public static final String SERIALIZED_NAME_SHORT_USERS = "short_users";
+    @SerializedName(SERIALIZED_NAME_SHORT_USERS)
+    private String shortUsers;
 
 
     public ContractStat time(Long time) {
@@ -200,6 +240,26 @@ public class ContractStat {
         this.longLiqUsd = longLiqUsd;
     }
 
+    public ContractStat longLiqUsdNew(Double longLiqUsdNew) {
+        
+        this.longLiqUsdNew = longLiqUsdNew;
+        return this;
+    }
+
+     /**
+     * Long liquidations in quote currency; USDT settlement: long_liq_size × multiplier × mark price
+     * @return longLiqUsdNew
+    **/
+    @javax.annotation.Nullable
+    public Double getLongLiqUsdNew() {
+        return longLiqUsdNew;
+    }
+
+
+    public void setLongLiqUsdNew(Double longLiqUsdNew) {
+        this.longLiqUsdNew = longLiqUsdNew;
+    }
+
     public ContractStat shortLiqSize(String shortLiqSize) {
         
         this.shortLiqSize = shortLiqSize;
@@ -258,6 +318,26 @@ public class ContractStat {
 
     public void setShortLiqUsd(Double shortLiqUsd) {
         this.shortLiqUsd = shortLiqUsd;
+    }
+
+    public ContractStat shortLiqUsdNew(Double shortLiqUsdNew) {
+        
+        this.shortLiqUsdNew = shortLiqUsdNew;
+        return this;
+    }
+
+     /**
+     * Short liquidations in quote currency; USDT settlement: short_liq_size × multiplier × mark price
+     * @return shortLiqUsdNew
+    **/
+    @javax.annotation.Nullable
+    public Double getShortLiqUsdNew() {
+        return shortLiqUsdNew;
+    }
+
+
+    public void setShortLiqUsdNew(Double shortLiqUsdNew) {
+        this.shortLiqUsdNew = shortLiqUsdNew;
     }
 
     public ContractStat openInterest(String openInterest) {
@@ -359,6 +439,166 @@ public class ContractStat {
     public void setMarkPrice(Double markPrice) {
         this.markPrice = markPrice;
     }
+
+    public ContractStat topLongSize(String topLongSize) {
+        
+        this.topLongSize = topLongSize;
+        return this;
+    }
+
+     /**
+     * Top long open interest (contracts)
+     * @return topLongSize
+    **/
+    @javax.annotation.Nullable
+    public String getTopLongSize() {
+        return topLongSize;
+    }
+
+
+    public void setTopLongSize(String topLongSize) {
+        this.topLongSize = topLongSize;
+    }
+
+    public ContractStat topShortSize(String topShortSize) {
+        
+        this.topShortSize = topShortSize;
+        return this;
+    }
+
+     /**
+     * Top short open interest (contracts)
+     * @return topShortSize
+    **/
+    @javax.annotation.Nullable
+    public String getTopShortSize() {
+        return topShortSize;
+    }
+
+
+    public void setTopShortSize(String topShortSize) {
+        this.topShortSize = topShortSize;
+    }
+
+    public ContractStat longTakerSize(String longTakerSize) {
+        
+        this.longTakerSize = longTakerSize;
+        return this;
+    }
+
+     /**
+     * Long taker trade volume (contracts)
+     * @return longTakerSize
+    **/
+    @javax.annotation.Nullable
+    public String getLongTakerSize() {
+        return longTakerSize;
+    }
+
+
+    public void setLongTakerSize(String longTakerSize) {
+        this.longTakerSize = longTakerSize;
+    }
+
+    public ContractStat shortTakerSize(String shortTakerSize) {
+        
+        this.shortTakerSize = shortTakerSize;
+        return this;
+    }
+
+     /**
+     * Short taker trade volume (contracts)
+     * @return shortTakerSize
+    **/
+    @javax.annotation.Nullable
+    public String getShortTakerSize() {
+        return shortTakerSize;
+    }
+
+
+    public void setShortTakerSize(String shortTakerSize) {
+        this.shortTakerSize = shortTakerSize;
+    }
+
+    public ContractStat topLongAccount(Long topLongAccount) {
+        
+        this.topLongAccount = topLongAccount;
+        return this;
+    }
+
+     /**
+     * Number of top long accounts (large holders)
+     * @return topLongAccount
+    **/
+    @javax.annotation.Nullable
+    public Long getTopLongAccount() {
+        return topLongAccount;
+    }
+
+
+    public void setTopLongAccount(Long topLongAccount) {
+        this.topLongAccount = topLongAccount;
+    }
+
+    public ContractStat topShortAccount(Long topShortAccount) {
+        
+        this.topShortAccount = topShortAccount;
+        return this;
+    }
+
+     /**
+     * Number of top short accounts (large holders)
+     * @return topShortAccount
+    **/
+    @javax.annotation.Nullable
+    public Long getTopShortAccount() {
+        return topShortAccount;
+    }
+
+
+    public void setTopShortAccount(Long topShortAccount) {
+        this.topShortAccount = topShortAccount;
+    }
+
+    public ContractStat longUsers(String longUsers) {
+        
+        this.longUsers = longUsers;
+        return this;
+    }
+
+     /**
+     * Number of users holding long positions
+     * @return longUsers
+    **/
+    @javax.annotation.Nullable
+    public String getLongUsers() {
+        return longUsers;
+    }
+
+
+    public void setLongUsers(String longUsers) {
+        this.longUsers = longUsers;
+    }
+
+    public ContractStat shortUsers(String shortUsers) {
+        
+        this.shortUsers = shortUsers;
+        return this;
+    }
+
+     /**
+     * Number of users holding short positions
+     * @return shortUsers
+    **/
+    @javax.annotation.Nullable
+    public String getShortUsers() {
+        return shortUsers;
+    }
+
+
+    public void setShortUsers(String shortUsers) {
+        this.shortUsers = shortUsers;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -374,19 +614,29 @@ public class ContractStat {
                 Objects.equals(this.longLiqSize, contractStat.longLiqSize) &&
                 Objects.equals(this.longLiqAmount, contractStat.longLiqAmount) &&
                 Objects.equals(this.longLiqUsd, contractStat.longLiqUsd) &&
+                Objects.equals(this.longLiqUsdNew, contractStat.longLiqUsdNew) &&
                 Objects.equals(this.shortLiqSize, contractStat.shortLiqSize) &&
                 Objects.equals(this.shortLiqAmount, contractStat.shortLiqAmount) &&
                 Objects.equals(this.shortLiqUsd, contractStat.shortLiqUsd) &&
+                Objects.equals(this.shortLiqUsdNew, contractStat.shortLiqUsdNew) &&
                 Objects.equals(this.openInterest, contractStat.openInterest) &&
                 Objects.equals(this.openInterestUsd, contractStat.openInterestUsd) &&
                 Objects.equals(this.topLsrAccount, contractStat.topLsrAccount) &&
                 Objects.equals(this.topLsrSize, contractStat.topLsrSize) &&
-                Objects.equals(this.markPrice, contractStat.markPrice);
+                Objects.equals(this.markPrice, contractStat.markPrice) &&
+                Objects.equals(this.topLongSize, contractStat.topLongSize) &&
+                Objects.equals(this.topShortSize, contractStat.topShortSize) &&
+                Objects.equals(this.longTakerSize, contractStat.longTakerSize) &&
+                Objects.equals(this.shortTakerSize, contractStat.shortTakerSize) &&
+                Objects.equals(this.topLongAccount, contractStat.topLongAccount) &&
+                Objects.equals(this.topShortAccount, contractStat.topShortAccount) &&
+                Objects.equals(this.longUsers, contractStat.longUsers) &&
+                Objects.equals(this.shortUsers, contractStat.shortUsers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, lsrTaker, lsrAccount, longLiqSize, longLiqAmount, longLiqUsd, shortLiqSize, shortLiqAmount, shortLiqUsd, openInterest, openInterestUsd, topLsrAccount, topLsrSize, markPrice);
+        return Objects.hash(time, lsrTaker, lsrAccount, longLiqSize, longLiqAmount, longLiqUsd, longLiqUsdNew, shortLiqSize, shortLiqAmount, shortLiqUsd, shortLiqUsdNew, openInterest, openInterestUsd, topLsrAccount, topLsrSize, markPrice, topLongSize, topShortSize, longTakerSize, shortTakerSize, topLongAccount, topShortAccount, longUsers, shortUsers);
     }
 
 
@@ -400,14 +650,24 @@ public class ContractStat {
         sb.append("      longLiqSize: ").append(toIndentedString(longLiqSize)).append("\n");
         sb.append("      longLiqAmount: ").append(toIndentedString(longLiqAmount)).append("\n");
         sb.append("      longLiqUsd: ").append(toIndentedString(longLiqUsd)).append("\n");
+        sb.append("      longLiqUsdNew: ").append(toIndentedString(longLiqUsdNew)).append("\n");
         sb.append("      shortLiqSize: ").append(toIndentedString(shortLiqSize)).append("\n");
         sb.append("      shortLiqAmount: ").append(toIndentedString(shortLiqAmount)).append("\n");
         sb.append("      shortLiqUsd: ").append(toIndentedString(shortLiqUsd)).append("\n");
+        sb.append("      shortLiqUsdNew: ").append(toIndentedString(shortLiqUsdNew)).append("\n");
         sb.append("      openInterest: ").append(toIndentedString(openInterest)).append("\n");
         sb.append("      openInterestUsd: ").append(toIndentedString(openInterestUsd)).append("\n");
         sb.append("      topLsrAccount: ").append(toIndentedString(topLsrAccount)).append("\n");
         sb.append("      topLsrSize: ").append(toIndentedString(topLsrSize)).append("\n");
         sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
+        sb.append("      topLongSize: ").append(toIndentedString(topLongSize)).append("\n");
+        sb.append("      topShortSize: ").append(toIndentedString(topShortSize)).append("\n");
+        sb.append("      longTakerSize: ").append(toIndentedString(longTakerSize)).append("\n");
+        sb.append("      shortTakerSize: ").append(toIndentedString(shortTakerSize)).append("\n");
+        sb.append("      topLongAccount: ").append(toIndentedString(topLongAccount)).append("\n");
+        sb.append("      topShortAccount: ").append(toIndentedString(topShortAccount)).append("\n");
+        sb.append("      longUsers: ").append(toIndentedString(longUsers)).append("\n");
+        sb.append("      shortUsers: ").append(toIndentedString(shortUsers)).append("\n");
         sb.append("}");
         return sb.toString();
     }

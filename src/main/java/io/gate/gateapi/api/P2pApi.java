@@ -40,6 +40,7 @@ import io.gate.gateapi.models.P2pChatListResponse;
 import io.gate.gateapi.models.P2pCounterpartyUserInfoResponse;
 import io.gate.gateapi.models.P2pMerchantBooksPlaceBizPushOrderResponse;
 import io.gate.gateapi.models.P2pMerchantUserInfoResponse;
+import io.gate.gateapi.models.P2pMerchantWorkHoursResponse;
 import io.gate.gateapi.models.P2pMyAdsListResponse;
 import io.gate.gateapi.models.P2pPaymentMethodsResponse;
 import io.gate.gateapi.models.P2pSendChatMessageResponse;
@@ -49,6 +50,7 @@ import io.gate.gateapi.models.P2pTransactionListResponse;
 import io.gate.gateapi.models.P2pUploadChatFileResponse;
 import io.gate.gateapi.models.PlaceBizPushOrder;
 import io.gate.gateapi.models.SendChatMessageRequest;
+import io.gate.gateapi.models.SetMerchantWorkHoursRequest;
 import io.gate.gateapi.models.UploadChatFile;
 
 import java.lang.reflect.Type;
@@ -379,6 +381,113 @@ public class P2pApi {
     public okhttp3.Call p2pMerchantAccountGetMyselfPaymentAsync(GetMyselfPaymentRequest getMyselfPaymentRequest, final ApiCallback<P2pPaymentMethodsResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = p2pMerchantAccountGetMyselfPaymentValidateBeforeCall(getMyselfPaymentRequest, _callback);
         Type localVarReturnType = new TypeToken<P2pPaymentMethodsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for p2pMerchantAccountSetMerchantWorkHours
+     * @param setMerchantWorkHoursRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call p2pMerchantAccountSetMerchantWorkHoursCall(SetMerchantWorkHoursRequest setMerchantWorkHoursRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = setMerchantWorkHoursRequest;
+
+        // create path and map variables
+        String localVarPath = "/p2p/merchant/account/set_merchant_work_hours";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call p2pMerchantAccountSetMerchantWorkHoursValidateBeforeCall(SetMerchantWorkHoursRequest setMerchantWorkHoursRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'setMerchantWorkHoursRequest' is set
+        if (setMerchantWorkHoursRequest == null) {
+            throw new ApiException("Missing the required parameter 'setMerchantWorkHoursRequest' when calling p2pMerchantAccountSetMerchantWorkHours(Async)");
+        }
+
+        okhttp3.Call localVarCall = p2pMerchantAccountSetMerchantWorkHoursCall(setMerchantWorkHoursRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set merchant working status and custom working hours
+     * 
+     * @param setMerchantWorkHoursRequest  (required)
+     * @return P2pMerchantWorkHoursResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public P2pMerchantWorkHoursResponse p2pMerchantAccountSetMerchantWorkHours(SetMerchantWorkHoursRequest setMerchantWorkHoursRequest) throws ApiException {
+        ApiResponse<P2pMerchantWorkHoursResponse> localVarResp = p2pMerchantAccountSetMerchantWorkHoursWithHttpInfo(setMerchantWorkHoursRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set merchant working status and custom working hours
+     * 
+     * @param setMerchantWorkHoursRequest  (required)
+     * @return ApiResponse&lt;P2pMerchantWorkHoursResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<P2pMerchantWorkHoursResponse> p2pMerchantAccountSetMerchantWorkHoursWithHttpInfo(SetMerchantWorkHoursRequest setMerchantWorkHoursRequest) throws ApiException {
+        okhttp3.Call localVarCall = p2pMerchantAccountSetMerchantWorkHoursValidateBeforeCall(setMerchantWorkHoursRequest, null);
+        Type localVarReturnType = new TypeToken<P2pMerchantWorkHoursResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set merchant working status and custom working hours (asynchronously)
+     * 
+     * @param setMerchantWorkHoursRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call p2pMerchantAccountSetMerchantWorkHoursAsync(SetMerchantWorkHoursRequest setMerchantWorkHoursRequest, final ApiCallback<P2pMerchantWorkHoursResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = p2pMerchantAccountSetMerchantWorkHoursValidateBeforeCall(setMerchantWorkHoursRequest, _callback);
+        Type localVarReturnType = new TypeToken<P2pMerchantWorkHoursResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1079,7 +1188,7 @@ public class P2pApi {
 
     /**
      * Publish ad order
-     * 
+     * When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.
      * @param placeBizPushOrder  (required)
      * @return P2pMerchantBooksPlaceBizPushOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1096,7 +1205,7 @@ public class P2pApi {
 
     /**
      * Publish ad order
-     * 
+     * When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.
      * @param placeBizPushOrder  (required)
      * @return ApiResponse&lt;P2pMerchantBooksPlaceBizPushOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1114,7 +1223,7 @@ public class P2pApi {
 
     /**
      * Publish ad order (asynchronously)
-     * 
+     * When publishing or editing an advertisement, trade_tips and auto_reply go through off-platform traffic diversion risk control; when hit, the advertisement is not saved, and code 70305102 with data.risk_event is returned.
      * @param placeBizPushOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1716,7 +1825,7 @@ public class P2pApi {
 
     /**
      * Send text message
-     * 
+     * Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type&#x3D;1 and toast_msg.
      * @param sendChatMessageRequest  (required)
      * @return P2pSendChatMessageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1733,7 +1842,7 @@ public class P2pApi {
 
     /**
      * Send text message
-     * 
+     * Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type&#x3D;1 and toast_msg.
      * @param sendChatMessageRequest  (required)
      * @return ApiResponse&lt;P2pSendChatMessageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1751,7 +1860,7 @@ public class P2pApi {
 
     /**
      * Send text message (asynchronously)
-     * 
+     * Text messages go through off-platform traffic diversion risk control. When hit, the API still returns code 0, and data contains risk_type&#x3D;1 and toast_msg.
      * @param sendChatMessageRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

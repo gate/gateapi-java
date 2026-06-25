@@ -26,10 +26,58 @@ import java.util.List;
  * Response data
  */
 public class PositionHistoryListData {
+    public static final String SERIALIZED_NAME_TOTAL = "total";
+    @SerializedName(SERIALIZED_NAME_TOTAL)
+    private Integer total;
+
+    public static final String SERIALIZED_NAME_TOTAL_PAGE = "total_page";
+    @SerializedName(SERIALIZED_NAME_TOTAL_PAGE)
+    private Integer totalPage;
+
     public static final String SERIALIZED_NAME_LIST = "list";
     @SerializedName(SERIALIZED_NAME_LIST)
     private List<PositionHistoryListDataList> list = null;
 
+
+    public PositionHistoryListData total(Integer total) {
+        
+        this.total = total;
+        return this;
+    }
+
+     /**
+     * Total amount
+     * @return total
+    **/
+    @javax.annotation.Nullable
+    public Integer getTotal() {
+        return total;
+    }
+
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public PositionHistoryListData totalPage(Integer totalPage) {
+        
+        this.totalPage = totalPage;
+        return this;
+    }
+
+     /**
+     * Total pages
+     * @return totalPage
+    **/
+    @javax.annotation.Nullable
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
+    }
 
     public PositionHistoryListData list(List<PositionHistoryListDataList> list) {
         
@@ -67,12 +115,14 @@ public class PositionHistoryListData {
             return false;
         }
         PositionHistoryListData positionHistoryListData = (PositionHistoryListData) o;
-        return Objects.equals(this.list, positionHistoryListData.list);
+        return Objects.equals(this.total, positionHistoryListData.total) &&
+                Objects.equals(this.totalPage, positionHistoryListData.totalPage) &&
+                Objects.equals(this.list, positionHistoryListData.list);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(list);
+        return Objects.hash(total, totalPage, list);
     }
 
 
@@ -80,6 +130,8 @@ public class PositionHistoryListData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PositionHistoryListData {\n");
+        sb.append("      total: ").append(toIndentedString(total)).append("\n");
+        sb.append("      totalPage: ").append(toIndentedString(totalPage)).append("\n");
         sb.append("      list: ").append(toIndentedString(list)).append("\n");
         sb.append("}");
         return sb.toString();

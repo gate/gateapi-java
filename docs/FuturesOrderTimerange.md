@@ -37,6 +37,8 @@ Name | Type | Description | Notes
 **pid** | **Long** | Position ID |  [optional]
 **marketOrderSlipRatio** | **String** | Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used |  [optional]
 **posMarginMode** | **String** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin, only passed in simple split position mode |  [optional]
+**tpslTpTriggerPrice** | **String** | Take profit price |  [optional]
+**tpslSlTriggerPrice** | **String** | Stop loss price |  [optional]
 
 ## Enum: FinishAsEnum
 

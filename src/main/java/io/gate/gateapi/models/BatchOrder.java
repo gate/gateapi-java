@@ -17,6 +17,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.SpotOrderStopLoss;
+import io.gate.gateapi.models.SpotOrderStopProfit;
 import java.io.IOException;
 
 /**
@@ -464,7 +466,7 @@ public class BatchOrder {
     private StpActEnum stpAct;
 
     /**
-     * 订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 ioc - poc: 未满足挂单策略，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知
+     * How the order finished:  - open: Pending processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled by liquidation - small: Order size too small - depth_not_enough: Cancelled due to insufficient order book depth - trader_not_enough: Cancelled due to insufficient counterparty liquidity - ioc: Not filled immediately because time-in-force is IOC - poc: Post-only requirement not met because time-in-force is set to poc (maker-only); rejected after being detected as taker - fok: Not fully filled immediately because time-in-force is FOK - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Cancelled due to price protection - unknown: Unknown
      */
     @JsonAdapter(FinishAsEnum.Adapter.class)
     public enum FinishAsEnum {
@@ -539,6 +541,14 @@ public class BatchOrder {
     public static final String SERIALIZED_NAME_SLIPPAGE = "slippage";
     @SerializedName(SERIALIZED_NAME_SLIPPAGE)
     private String slippage;
+
+    public static final String SERIALIZED_NAME_STOP_PROFIT = "stop_profit";
+    @SerializedName(SERIALIZED_NAME_STOP_PROFIT)
+    private SpotOrderStopProfit stopProfit;
+
+    public static final String SERIALIZED_NAME_STOP_LOSS = "stop_loss";
+    @SerializedName(SERIALIZED_NAME_STOP_LOSS)
+    private SpotOrderStopLoss stopLoss;
 
 
     public BatchOrder orderId(String orderId) {
@@ -1072,7 +1082,7 @@ public class BatchOrder {
     }
 
      /**
-     * 订单结束方式，包括：  - open: 等待处理 - filled: 完全成交 - cancelled: 用户撤销 - liquidate_cancelled: 爆仓撤销 - small: 订单数量太小 - depth_not_enough: 深度不足导致撤单 - trader_not_enough: 对手方不足导致撤单 - ioc: 未立即成交，因为 tif 设置为 ioc - poc: 未满足挂单策略，因为 tif 设置为 poc/rvt/rat/rpi表示只想成为maker, 经检查会成为taker被拒绝 - fok: 未立即完全成交，因为 tif 设置为 fok - stp: 订单发生自成交限制而被撤销 - price_protect_cancelled: 价格保护导致撤单 - unknown: 未知
+     * How the order finished:  - open: Pending processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled by liquidation - small: Order size too small - depth_not_enough: Cancelled due to insufficient order book depth - trader_not_enough: Cancelled due to insufficient counterparty liquidity - ioc: Not filled immediately because time-in-force is IOC - poc: Post-only requirement not met because time-in-force is set to poc (maker-only); rejected after being detected as taker - fok: Not fully filled immediately because time-in-force is FOK - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Cancelled due to price protection - unknown: Unknown
      * @return finishAs
     **/
     @javax.annotation.Nullable
@@ -1099,6 +1109,46 @@ public class BatchOrder {
 
     public void setSlippage(String slippage) {
         this.slippage = slippage;
+    }
+
+    public BatchOrder stopProfit(SpotOrderStopProfit stopProfit) {
+        
+        this.stopProfit = stopProfit;
+        return this;
+    }
+
+     /**
+     * Get stopProfit
+     * @return stopProfit
+    **/
+    @javax.annotation.Nullable
+    public SpotOrderStopProfit getStopProfit() {
+        return stopProfit;
+    }
+
+
+    public void setStopProfit(SpotOrderStopProfit stopProfit) {
+        this.stopProfit = stopProfit;
+    }
+
+    public BatchOrder stopLoss(SpotOrderStopLoss stopLoss) {
+        
+        this.stopLoss = stopLoss;
+        return this;
+    }
+
+     /**
+     * Get stopLoss
+     * @return stopLoss
+    **/
+    @javax.annotation.Nullable
+    public SpotOrderStopLoss getStopLoss() {
+        return stopLoss;
+    }
+
+
+    public void setStopLoss(SpotOrderStopLoss stopLoss) {
+        this.stopLoss = stopLoss;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1146,12 +1196,14 @@ public class BatchOrder {
                 Objects.equals(this.stpId, batchOrder.stpId) &&
                 Objects.equals(this.stpAct, batchOrder.stpAct) &&
                 Objects.equals(this.finishAs, batchOrder.finishAs) &&
-                Objects.equals(this.slippage, batchOrder.slippage);
+                Objects.equals(this.slippage, batchOrder.slippage) &&
+                Objects.equals(this.stopProfit, batchOrder.stopProfit) &&
+                Objects.equals(this.stopLoss, batchOrder.stopLoss);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, amendText, text, succeeded, label, message, id, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, slippage);
+        return Objects.hash(orderId, amendText, text, succeeded, label, message, id, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, slippage, stopProfit, stopLoss);
     }
 
 
@@ -1197,6 +1249,8 @@ public class BatchOrder {
         sb.append("      stpAct: ").append(toIndentedString(stpAct)).append("\n");
         sb.append("      finishAs: ").append(toIndentedString(finishAs)).append("\n");
         sb.append("      slippage: ").append(toIndentedString(slippage)).append("\n");
+        sb.append("      stopProfit: ").append(toIndentedString(stopProfit)).append("\n");
+        sb.append("      stopLoss: ").append(toIndentedString(stopLoss)).append("\n");
         sb.append("}");
         return sb.toString();
     }

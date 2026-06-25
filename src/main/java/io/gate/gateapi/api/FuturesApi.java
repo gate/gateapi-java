@@ -27,6 +27,8 @@ import io.gate.gateapi.models.BatchFuturesOrder;
 import io.gate.gateapi.models.Contract;
 import io.gate.gateapi.models.ContractStat;
 import io.gate.gateapi.models.CountdownCancelAllFuturesTask;
+import io.gate.gateapi.models.CreateChaseOrderReq;
+import io.gate.gateapi.models.CreateChaseOrderResp;
 import io.gate.gateapi.models.CreateTrailOrder;
 import io.gate.gateapi.models.CreateTrailOrderResponse;
 import io.gate.gateapi.models.FundingRateRecord;
@@ -53,13 +55,19 @@ import io.gate.gateapi.models.FuturesRiskLimitTier;
 import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
 import io.gate.gateapi.models.FuturesUpdatePriceTriggeredOrder;
+import io.gate.gateapi.models.GetChaseOrderDetailResp;
+import io.gate.gateapi.models.GetChaseOrdersResp;
 import io.gate.gateapi.models.InsuranceRecord;
 import io.gate.gateapi.models.MyFuturesTrade;
 import io.gate.gateapi.models.MyFuturesTradeTimeRange;
 import io.gate.gateapi.models.Position;
 import io.gate.gateapi.models.PositionClose;
 import io.gate.gateapi.models.PositionTimerange;
+import io.gate.gateapi.models.StopAllChaseOrdersReq;
+import io.gate.gateapi.models.StopAllChaseOrdersResp;
 import io.gate.gateapi.models.StopAllTrailOrders;
+import io.gate.gateapi.models.StopChaseOrderReq;
+import io.gate.gateapi.models.StopChaseOrderResp;
 import io.gate.gateapi.models.StopTrailOrder;
 import io.gate.gateapi.models.TrailOrderChangeLogResponse;
 import io.gate.gateapi.models.TrailOrderDetailResponse;
@@ -260,6 +268,173 @@ public class FuturesApi {
      */
     public APIlistFuturesContractsRequest listFuturesContracts(String settle) {
         return new APIlistFuturesContractsRequest(settle);
+    }
+
+    private okhttp3.Call listFuturesContractsAllCall(String settle, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/contracts_all"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listFuturesContractsAllValidateBeforeCall(String settle, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listFuturesContractsAll(Async)");
+        }
+
+        okhttp3.Call localVarCall = listFuturesContractsAllCall(settle, limit, offset, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<Contract>> listFuturesContractsAllWithHttpInfo(String settle, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesContractsAllValidateBeforeCall(settle, limit, offset, null);
+        Type localVarReturnType = new TypeToken<List<Contract>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listFuturesContractsAllAsync(String settle, Integer limit, Integer offset, final ApiCallback<List<Contract>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesContractsAllValidateBeforeCall(settle, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<List<Contract>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistFuturesContractsAllRequest {
+        private final String settle;
+        private Integer limit;
+        private Integer offset;
+
+        private APIlistFuturesContractsAllRequest(String settle) {
+            this.settle = settle;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in a single list (optional, default to 100)
+         * @return APIlistFuturesContractsAllRequest
+         */
+        public APIlistFuturesContractsAllRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset List offset, starting from 0 (optional, default to 0)
+         * @return APIlistFuturesContractsAllRequest
+         */
+        public APIlistFuturesContractsAllRequest offset(Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listFuturesContractsAll
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listFuturesContractsAllCall(settle, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listFuturesContractsAll request
+         * @return List&lt;Contract&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<Contract> execute() throws ApiException {
+            ApiResponse<List<Contract>> localVarResp = listFuturesContractsAllWithHttpInfo(settle, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listFuturesContractsAll request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Contract&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<Contract>> executeWithHttpInfo() throws ApiException {
+            return listFuturesContractsAllWithHttpInfo(settle, limit, offset);
+        }
+
+        /**
+         * Execute listFuturesContractsAll request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Contract>> _callback) throws ApiException {
+            return listFuturesContractsAllAsync(settle, limit, offset, _callback);
+        }
+    }
+
+    /**
+     * Query all contract information (including delisted)
+     * 
+     * @param settle Settle currency (required)
+     * @return APIlistFuturesContractsAllRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistFuturesContractsAllRequest listFuturesContractsAll(String settle) {
+        return new APIlistFuturesContractsAllRequest(settle);
     }
 
     /**
@@ -5489,6 +5664,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -5501,7 +5677,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrdersCall(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrdersCall(String settle, String xGateExptime, String contract, String actionMode, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5512,6 +5688,10 @@ public class FuturesApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (contract != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (actionMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action_mode", actionMode));
         }
 
         if (side != null) {
@@ -5552,13 +5732,13 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelFuturesOrdersValidateBeforeCall(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelFuturesOrdersValidateBeforeCall(String settle, String xGateExptime, String contract, String actionMode, String side, Boolean excludeReduceOnly, String text, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelFuturesOrders(Async)");
         }
 
-        okhttp3.Call localVarCall = cancelFuturesOrdersCall(settle, xGateExptime, contract, side, excludeReduceOnly, text, _callback);
+        okhttp3.Call localVarCall = cancelFuturesOrdersCall(settle, xGateExptime, contract, actionMode, side, excludeReduceOnly, text, _callback);
         return localVarCall;
     }
 
@@ -5568,6 +5748,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -5579,8 +5760,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public List<FuturesOrder> cancelFuturesOrders(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text) throws ApiException {
-        ApiResponse<List<FuturesOrder>> localVarResp = cancelFuturesOrdersWithHttpInfo(settle, xGateExptime, contract, side, excludeReduceOnly, text);
+    public List<FuturesOrder> cancelFuturesOrders(String settle, String xGateExptime, String contract, String actionMode, String side, Boolean excludeReduceOnly, String text) throws ApiException {
+        ApiResponse<List<FuturesOrder>> localVarResp = cancelFuturesOrdersWithHttpInfo(settle, xGateExptime, contract, actionMode, side, excludeReduceOnly, text);
         return localVarResp.getData();
     }
 
@@ -5590,6 +5771,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -5601,8 +5783,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text) throws ApiException {
-        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, xGateExptime, contract, side, excludeReduceOnly, text, null);
+    public ApiResponse<List<FuturesOrder>> cancelFuturesOrdersWithHttpInfo(String settle, String xGateExptime, String contract, String actionMode, String side, Boolean excludeReduceOnly, String text) throws ApiException {
+        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, xGateExptime, contract, actionMode, side, excludeReduceOnly, text, null);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5613,6 +5795,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @param side Specify all buy orders or all sell orders, both are included if not specified. Set to bid to cancel all buy orders, set to ask to cancel all sell orders (optional)
      * @param excludeReduceOnly Whether to exclude reduce-only orders (optional, default to false)
      * @param text Remark for order cancellation (optional)
@@ -5625,8 +5808,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Batch cancellation successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrdersAsync(String settle, String xGateExptime, String contract, String side, Boolean excludeReduceOnly, String text, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, xGateExptime, contract, side, excludeReduceOnly, text, _callback);
+    public okhttp3.Call cancelFuturesOrdersAsync(String settle, String xGateExptime, String contract, String actionMode, String side, Boolean excludeReduceOnly, String text, final ApiCallback<List<FuturesOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelFuturesOrdersValidateBeforeCall(settle, xGateExptime, contract, actionMode, side, excludeReduceOnly, text, _callback);
         Type localVarReturnType = new TypeToken<List<FuturesOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6227,6 +6410,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6236,7 +6420,7 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrderCall(String settle, String orderId, String xGateExptime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelFuturesOrderCall(String settle, String orderId, String xGateExptime, String actionMode, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6246,6 +6430,10 @@ public class FuturesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (actionMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action_mode", actionMode));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (xGateExptime != null) {
             localVarHeaderParams.put("x-gate-exptime", localVarApiClient.parameterToString(xGateExptime));
@@ -6272,7 +6460,7 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelFuturesOrderValidateBeforeCall(String settle, String orderId, String xGateExptime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelFuturesOrderValidateBeforeCall(String settle, String orderId, String xGateExptime, String actionMode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling cancelFuturesOrder(Async)");
@@ -6283,7 +6471,7 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'orderId' when calling cancelFuturesOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = cancelFuturesOrderCall(settle, orderId, xGateExptime, _callback);
+        okhttp3.Call localVarCall = cancelFuturesOrderCall(settle, orderId, xGateExptime, actionMode, _callback);
         return localVarCall;
     }
 
@@ -6293,6 +6481,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6301,8 +6490,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public FuturesOrder cancelFuturesOrder(String settle, String orderId, String xGateExptime) throws ApiException {
-        ApiResponse<FuturesOrder> localVarResp = cancelFuturesOrderWithHttpInfo(settle, orderId, xGateExptime);
+    public FuturesOrder cancelFuturesOrder(String settle, String orderId, String xGateExptime, String actionMode) throws ApiException {
+        ApiResponse<FuturesOrder> localVarResp = cancelFuturesOrderWithHttpInfo(settle, orderId, xGateExptime, actionMode);
         return localVarResp.getData();
     }
 
@@ -6312,6 +6501,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6320,8 +6510,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FuturesOrder> cancelFuturesOrderWithHttpInfo(String settle, String orderId, String xGateExptime) throws ApiException {
-        okhttp3.Call localVarCall = cancelFuturesOrderValidateBeforeCall(settle, orderId, xGateExptime, null);
+    public ApiResponse<FuturesOrder> cancelFuturesOrderWithHttpInfo(String settle, String orderId, String xGateExptime, String actionMode) throws ApiException {
+        okhttp3.Call localVarCall = cancelFuturesOrderValidateBeforeCall(settle, orderId, xGateExptime, actionMode, null);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6332,6 +6522,7 @@ public class FuturesApi {
      * @param settle Settle currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+     * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6341,8 +6532,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelFuturesOrderAsync(String settle, String orderId, String xGateExptime, final ApiCallback<FuturesOrder> _callback) throws ApiException {
-        okhttp3.Call localVarCall = cancelFuturesOrderValidateBeforeCall(settle, orderId, xGateExptime, _callback);
+    public okhttp3.Call cancelFuturesOrderAsync(String settle, String orderId, String xGateExptime, String actionMode, final ApiCallback<FuturesOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelFuturesOrderValidateBeforeCall(settle, orderId, xGateExptime, actionMode, _callback);
         Type localVarReturnType = new TypeToken<FuturesOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -9333,6 +9524,762 @@ public class FuturesApi {
         return new APIgetTrailOrderChangeLogRequest(settle, id);
     }
 
+    /**
+     * Build call for createChaseOrder
+     * @param settle Settle currency (required)
+     * @param createChaseOrderReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createChaseOrderCall(String settle, CreateChaseOrderReq createChaseOrderReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createChaseOrderReq;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/chase/create"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createChaseOrderValidateBeforeCall(String settle, CreateChaseOrderReq createChaseOrderReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling createChaseOrder(Async)");
+        }
+
+        // verify the required parameter 'createChaseOrderReq' is set
+        if (createChaseOrderReq == null) {
+            throw new ApiException("Missing the required parameter 'createChaseOrderReq' when calling createChaseOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createChaseOrderCall(settle, createChaseOrderReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create a chase order
+     * 
+     * @param settle Settle currency (required)
+     * @param createChaseOrderReq  (required)
+     * @return CreateChaseOrderResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateChaseOrderResp createChaseOrder(String settle, CreateChaseOrderReq createChaseOrderReq) throws ApiException {
+        ApiResponse<CreateChaseOrderResp> localVarResp = createChaseOrderWithHttpInfo(settle, createChaseOrderReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a chase order
+     * 
+     * @param settle Settle currency (required)
+     * @param createChaseOrderReq  (required)
+     * @return ApiResponse&lt;CreateChaseOrderResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateChaseOrderResp> createChaseOrderWithHttpInfo(String settle, CreateChaseOrderReq createChaseOrderReq) throws ApiException {
+        okhttp3.Call localVarCall = createChaseOrderValidateBeforeCall(settle, createChaseOrderReq, null);
+        Type localVarReturnType = new TypeToken<CreateChaseOrderResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a chase order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param createChaseOrderReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createChaseOrderAsync(String settle, CreateChaseOrderReq createChaseOrderReq, final ApiCallback<CreateChaseOrderResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createChaseOrderValidateBeforeCall(settle, createChaseOrderReq, _callback);
+        Type localVarReturnType = new TypeToken<CreateChaseOrderResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for stopChaseOrder
+     * @param settle Settle currency (required)
+     * @param stopChaseOrderReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopChaseOrderCall(String settle, StopChaseOrderReq stopChaseOrderReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = stopChaseOrderReq;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/chase/stop"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopChaseOrderValidateBeforeCall(String settle, StopChaseOrderReq stopChaseOrderReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling stopChaseOrder(Async)");
+        }
+
+        // verify the required parameter 'stopChaseOrderReq' is set
+        if (stopChaseOrderReq == null) {
+            throw new ApiException("Missing the required parameter 'stopChaseOrderReq' when calling stopChaseOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = stopChaseOrderCall(settle, stopChaseOrderReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Stop a chase order
+     * 
+     * @param settle Settle currency (required)
+     * @param stopChaseOrderReq  (required)
+     * @return StopChaseOrderResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public StopChaseOrderResp stopChaseOrder(String settle, StopChaseOrderReq stopChaseOrderReq) throws ApiException {
+        ApiResponse<StopChaseOrderResp> localVarResp = stopChaseOrderWithHttpInfo(settle, stopChaseOrderReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stop a chase order
+     * 
+     * @param settle Settle currency (required)
+     * @param stopChaseOrderReq  (required)
+     * @return ApiResponse&lt;StopChaseOrderResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StopChaseOrderResp> stopChaseOrderWithHttpInfo(String settle, StopChaseOrderReq stopChaseOrderReq) throws ApiException {
+        okhttp3.Call localVarCall = stopChaseOrderValidateBeforeCall(settle, stopChaseOrderReq, null);
+        Type localVarReturnType = new TypeToken<StopChaseOrderResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stop a chase order (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param stopChaseOrderReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopChaseOrderAsync(String settle, StopChaseOrderReq stopChaseOrderReq, final ApiCallback<StopChaseOrderResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = stopChaseOrderValidateBeforeCall(settle, stopChaseOrderReq, _callback);
+        Type localVarReturnType = new TypeToken<StopChaseOrderResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for stopAllChaseOrders
+     * @param settle Settle currency (required)
+     * @param stopAllChaseOrdersReq  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopAllChaseOrdersCall(String settle, StopAllChaseOrdersReq stopAllChaseOrdersReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = stopAllChaseOrdersReq;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/chase/stop_all"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call stopAllChaseOrdersValidateBeforeCall(String settle, StopAllChaseOrdersReq stopAllChaseOrdersReq, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling stopAllChaseOrders(Async)");
+        }
+
+        // verify the required parameter 'stopAllChaseOrdersReq' is set
+        if (stopAllChaseOrdersReq == null) {
+            throw new ApiException("Missing the required parameter 'stopAllChaseOrdersReq' when calling stopAllChaseOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = stopAllChaseOrdersCall(settle, stopAllChaseOrdersReq, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Stop chase orders in batch
+     * 
+     * @param settle Settle currency (required)
+     * @param stopAllChaseOrdersReq  (required)
+     * @return StopAllChaseOrdersResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public StopAllChaseOrdersResp stopAllChaseOrders(String settle, StopAllChaseOrdersReq stopAllChaseOrdersReq) throws ApiException {
+        ApiResponse<StopAllChaseOrdersResp> localVarResp = stopAllChaseOrdersWithHttpInfo(settle, stopAllChaseOrdersReq);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stop chase orders in batch
+     * 
+     * @param settle Settle currency (required)
+     * @param stopAllChaseOrdersReq  (required)
+     * @return ApiResponse&lt;StopAllChaseOrdersResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StopAllChaseOrdersResp> stopAllChaseOrdersWithHttpInfo(String settle, StopAllChaseOrdersReq stopAllChaseOrdersReq) throws ApiException {
+        okhttp3.Call localVarCall = stopAllChaseOrdersValidateBeforeCall(settle, stopAllChaseOrdersReq, null);
+        Type localVarReturnType = new TypeToken<StopAllChaseOrdersResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stop chase orders in batch (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param stopAllChaseOrdersReq  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call stopAllChaseOrdersAsync(String settle, StopAllChaseOrdersReq stopAllChaseOrdersReq, final ApiCallback<StopAllChaseOrdersResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = stopAllChaseOrdersValidateBeforeCall(settle, stopAllChaseOrdersReq, _callback);
+        Type localVarReturnType = new TypeToken<StopAllChaseOrdersResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call getChaseOrdersCall(String settle, Integer sortBy, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Boolean hideCancel, Integer reduceOnly, Integer side, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/chase/list"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (contract != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("contract", contract));
+        }
+
+        if (isFinished != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_finished", isFinished));
+        }
+
+        if (startAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_at", startAt));
+        }
+
+        if (endAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_at", endAt));
+        }
+
+        if (pageNum != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_num", pageNum));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (sortBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_by", sortBy));
+        }
+
+        if (hideCancel != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("hide_cancel", hideCancel));
+        }
+
+        if (reduceOnly != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reduce_only", reduceOnly));
+        }
+
+        if (side != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("side", side));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChaseOrdersValidateBeforeCall(String settle, Integer sortBy, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Boolean hideCancel, Integer reduceOnly, Integer side, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getChaseOrders(Async)");
+        }
+
+        // verify the required parameter 'sortBy' is set
+        if (sortBy == null) {
+            throw new ApiException("Missing the required parameter 'sortBy' when calling getChaseOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = getChaseOrdersCall(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<GetChaseOrdersResp> getChaseOrdersWithHttpInfo(String settle, Integer sortBy, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Boolean hideCancel, Integer reduceOnly, Integer side) throws ApiException {
+        okhttp3.Call localVarCall = getChaseOrdersValidateBeforeCall(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side, null);
+        Type localVarReturnType = new TypeToken<GetChaseOrdersResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getChaseOrdersAsync(String settle, Integer sortBy, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Boolean hideCancel, Integer reduceOnly, Integer side, final ApiCallback<GetChaseOrdersResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getChaseOrdersValidateBeforeCall(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side, _callback);
+        Type localVarReturnType = new TypeToken<GetChaseOrdersResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetChaseOrdersRequest {
+        private final String settle;
+        private final Integer sortBy;
+        private String contract;
+        private Boolean isFinished;
+        private Long startAt;
+        private Long endAt;
+        private Integer pageNum;
+        private Integer pageSize;
+        private Boolean hideCancel;
+        private Integer reduceOnly;
+        private Integer side;
+
+        private APIgetChaseOrdersRequest(String settle, Integer sortBy) {
+            this.settle = settle;
+            this.sortBy = sortBy;
+        }
+
+        /**
+         * Set contract
+         * @param contract Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest contract(String contract) {
+            this.contract = contract;
+            return this;
+        }
+
+        /**
+         * Set isFinished
+         * @param isFinished true to query finished orders, false to query in-progress orders (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest isFinished(Boolean isFinished) {
+            this.isFinished = isFinished;
+            return this;
+        }
+
+        /**
+         * Set startAt
+         * @param startAt Lower time bound for the history list, paired with end_at. Required when is_finished is true (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest startAt(Long startAt) {
+            this.startAt = startAt;
+            return this;
+        }
+
+        /**
+         * Set endAt
+         * @param endAt Upper time bound for the history list, paired with start_at. Required when is_finished is true (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest endAt(Long endAt) {
+            this.endAt = endAt;
+            return this;
+        }
+
+        /**
+         * Set pageNum
+         * @param pageNum Page number, starting from 1 (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest pageNum(Integer pageNum) {
+            this.pageNum = pageNum;
+            return this;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Page size; must be between 1 and 100 (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest pageSize(Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * Set hideCancel
+         * @param hideCancel When true, cancelled orders are hidden in the list (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest hideCancel(Boolean hideCancel) {
+            this.hideCancel = hideCancel;
+            return this;
+        }
+
+        /**
+         * Set reduceOnly
+         * @param reduceOnly OptionalBool: 0 unknown, 1 true, 2 false; used to filter by reduce-only flag (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest reduceOnly(Integer reduceOnly) {
+            this.reduceOnly = reduceOnly;
+            return this;
+        }
+
+        /**
+         * Set side
+         * @param side Filter by long/short side: 1 long, 2 short (optional)
+         * @return APIgetChaseOrdersRequest
+         */
+        public APIgetChaseOrdersRequest side(Integer side) {
+            this.side = side;
+            return this;
+        }
+
+        /**
+         * Build call for getChaseOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getChaseOrdersCall(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side, _callback);
+        }
+
+        /**
+         * Execute getChaseOrders request
+         * @return GetChaseOrdersResp
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetChaseOrdersResp execute() throws ApiException {
+            ApiResponse<GetChaseOrdersResp> localVarResp = getChaseOrdersWithHttpInfo(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getChaseOrders request with HTTP info returned
+         * @return ApiResponse&lt;GetChaseOrdersResp&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetChaseOrdersResp> executeWithHttpInfo() throws ApiException {
+            return getChaseOrdersWithHttpInfo(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side);
+        }
+
+        /**
+         * Execute getChaseOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetChaseOrdersResp> _callback) throws ApiException {
+            return getChaseOrdersAsync(settle, sortBy, contract, isFinished, startAt, endAt, pageNum, pageSize, hideCancel, reduceOnly, side, _callback);
+        }
+    }
+
+    /**
+     * List chase orders
+     * 
+     * @param settle Settle currency (required)
+     * @param sortBy Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
+     * @return APIgetChaseOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetChaseOrdersRequest getChaseOrders(String settle, Integer sortBy) {
+        return new APIgetChaseOrdersRequest(settle, sortBy);
+    }
+
+    /**
+     * Build call for getChaseOrderDetail
+     * @param settle Settle currency (required)
+     * @param id Order ID, must be a non-zero positive integer (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChaseOrderDetailCall(String settle, String id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/autoorder/v1/chase/detail"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getChaseOrderDetailValidateBeforeCall(String settle, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling getChaseOrderDetail(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getChaseOrderDetail(Async)");
+        }
+
+        okhttp3.Call localVarCall = getChaseOrderDetailCall(settle, id, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get chase order detail
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID, must be a non-zero positive integer (required)
+     * @return GetChaseOrderDetailResp
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetChaseOrderDetailResp getChaseOrderDetail(String settle, String id) throws ApiException {
+        ApiResponse<GetChaseOrderDetailResp> localVarResp = getChaseOrderDetailWithHttpInfo(settle, id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get chase order detail
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID, must be a non-zero positive integer (required)
+     * @return ApiResponse&lt;GetChaseOrderDetailResp&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetChaseOrderDetailResp> getChaseOrderDetailWithHttpInfo(String settle, String id) throws ApiException {
+        okhttp3.Call localVarCall = getChaseOrderDetailValidateBeforeCall(settle, id, null);
+        Type localVarReturnType = new TypeToken<GetChaseOrderDetailResp>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get chase order detail (asynchronously)
+     * 
+     * @param settle Settle currency (required)
+     * @param id Order ID, must be a non-zero positive integer (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getChaseOrderDetailAsync(String settle, String id, final ApiCallback<GetChaseOrderDetailResp> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getChaseOrderDetailValidateBeforeCall(settle, id, _callback);
+        Type localVarReturnType = new TypeToken<GetChaseOrderDetailResp>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
     private okhttp3.Call listPriceTriggeredOrdersCall(String settle, String status, String contract, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -9999,7 +10946,6 @@ public class FuturesApi {
     /**
      * Build call for updatePriceTriggeredOrder
      * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10010,13 +10956,12 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePriceTriggeredOrderCall(String settle, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = futuresUpdatePriceTriggeredOrder;
 
         // create path and map variables
-        String localVarPath = "/futures/{settle}/price_orders/amend/{order_id}"
-            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle))
-            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+        String localVarPath = "/futures/{settle}/price_orders/amend"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10042,15 +10987,10 @@ public class FuturesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePriceTriggeredOrderValidateBeforeCall(String settle, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'settle' is set
         if (settle == null) {
             throw new ApiException("Missing the required parameter 'settle' when calling updatePriceTriggeredOrder(Async)");
-        }
-
-        // verify the required parameter 'orderId' is set
-        if (orderId == null) {
-            throw new ApiException("Missing the required parameter 'orderId' when calling updatePriceTriggeredOrder(Async)");
         }
 
         // verify the required parameter 'futuresUpdatePriceTriggeredOrder' is set
@@ -10058,7 +10998,7 @@ public class FuturesApi {
             throw new ApiException("Missing the required parameter 'futuresUpdatePriceTriggeredOrder' when calling updatePriceTriggeredOrder(Async)");
         }
 
-        okhttp3.Call localVarCall = updatePriceTriggeredOrderCall(settle, orderId, futuresUpdatePriceTriggeredOrder, _callback);
+        okhttp3.Call localVarCall = updatePriceTriggeredOrderCall(settle, futuresUpdatePriceTriggeredOrder, _callback);
         return localVarCall;
     }
 
@@ -10066,7 +11006,6 @@ public class FuturesApi {
      * Modify a Single Auto Order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @return TriggerOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10076,8 +11015,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
-        ApiResponse<TriggerOrderResponse> localVarResp = updatePriceTriggeredOrderWithHttpInfo(settle, orderId, futuresUpdatePriceTriggeredOrder);
+    public TriggerOrderResponse updatePriceTriggeredOrder(String settle, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+        ApiResponse<TriggerOrderResponse> localVarResp = updatePriceTriggeredOrderWithHttpInfo(settle, futuresUpdatePriceTriggeredOrder);
         return localVarResp.getData();
     }
 
@@ -10085,7 +11024,6 @@ public class FuturesApi {
      * Modify a Single Auto Order
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @return ApiResponse&lt;TriggerOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10095,8 +11033,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
-        okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, null);
+    public ApiResponse<TriggerOrderResponse> updatePriceTriggeredOrderWithHttpInfo(String settle, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder) throws ApiException {
+        okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, futuresUpdatePriceTriggeredOrder, null);
         Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -10105,7 +11043,6 @@ public class FuturesApi {
      * Modify a Single Auto Order (asynchronously)
      * 
      * @param settle Settle currency (required)
-     * @param orderId ID returned when order is successfully created (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10116,8 +11053,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Order created successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, Long orderId, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, orderId, futuresUpdatePriceTriggeredOrder, _callback);
+    public okhttp3.Call updatePriceTriggeredOrderAsync(String settle, FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder, final ApiCallback<TriggerOrderResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updatePriceTriggeredOrderValidateBeforeCall(settle, futuresUpdatePriceTriggeredOrder, _callback);
         Type localVarReturnType = new TypeToken<TriggerOrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

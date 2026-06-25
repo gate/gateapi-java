@@ -4,9 +4,9 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listCrossexRuleSymbols**](CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | 查询币对信息
-[**listCrossexRuleRiskLimits**](CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | 查询风险限额信息
-[**listCrossexTransferCoins**](CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | 查询划转币种支持
+[**listCrossexRuleSymbols**](CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | Query symbol information
+[**listCrossexRuleRiskLimits**](CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | Query risk limit information
+[**listCrossexTransferCoins**](CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | Query supported transfer currencies
 [**listCrossexTransfers**](CrossExApi.md#listCrossexTransfers) | **GET** /crossex/transfers | Query Fund Transfer History
 [**createCrossexTransfer**](CrossExApi.md#createCrossexTransfer) | **POST** /crossex/transfers | Fund Transfer
 [**createCrossexOrder**](CrossExApi.md#createCrossexOrder) | **POST** /crossex/orders | Create an order
@@ -41,7 +41,7 @@ Method | HTTP request | Description
 # **listCrossexRuleSymbols**
 > List&lt;Symbol&gt; listCrossexRuleSymbols().symbols(symbols).execute();
 
-查询币对信息
+Query symbol information
 
 Query Trading Pair Information
 
@@ -62,7 +62,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String symbols = "symbols_example"; // String | 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        String symbols = "symbols_example"; // String | List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
         try {
             List<Symbol> result = apiInstance.listCrossexRuleSymbols()
                         .symbols(symbols)
@@ -85,7 +85,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **String**| 币对列表，多个以逗号分隔 示例值: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional]
+ **symbols** | **String**| List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional]
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 # **listCrossexRuleRiskLimits**
 > List&lt;CrossexRiskLimit&gt; listCrossexRuleRiskLimits(symbols)
 
-查询风险限额信息
+Query risk limit information
 
 Query risk limit information for futures/margin trading pairs
 
@@ -175,7 +175,7 @@ No authorization required
 # **listCrossexTransferCoins**
 > List&lt;CrossexTransferCoin&gt; listCrossexTransferCoins().coin(coin).execute();
 
-查询划转币种支持
+Query supported transfer currencies
 
 Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
 
@@ -196,7 +196,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String coin = "BTC"; // String | Currency
+        String coin = "BTC"; // String | Query by specified currency name
         try {
             List<CrossexTransferCoin> result = apiInstance.listCrossexTransferCoins()
                         .coin(coin)
@@ -219,7 +219,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coin** | **String**| Currency | [optional]
+ **coin** | **String**| Query by specified currency name | [optional]
 
 ### Return type
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 Fund Transfer
 
-Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60;
+Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
 
 ### Example
 
@@ -847,7 +847,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT)
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID"; // String | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).
         try {
             CrossexAccount result = apiInstance.getCrossexAccount()
                         .exchangeType(exchangeType)
@@ -870,7 +870,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeType** | **String**| Exchange. Not required in cross-exchange mode; required in single-exchange mode (BINANCE/OKX/GATE/BYBIT) | [optional]
+ **exchangeType** | **String**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;). | [optional]
 
 ### Return type
 
@@ -1343,8 +1343,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String coin = "SOL"; // String | Currency
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange
+        String coin = "SOL"; // String | Query by specified currency name
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID"; // String | Exchange
         try {
             List<CrossexInterestRate> result = apiInstance.getCrossexInterestRate()
                         .coin(coin)
@@ -1368,7 +1368,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coin** | **String**| Currency | [optional]
+ **coin** | **String**| Query by specified currency name | [optional]
  **exchangeType** | **String**| Exchange | [optional]
 
 ### Return type
@@ -1485,7 +1485,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID"; // String | Exchange
         try {
             List<CrossexPosition> result = apiInstance.listCrossexPositions()
                         .symbol(symbol)
@@ -1755,7 +1755,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexHistoryOrders"></a>
 # **listCrossexHistoryOrders**
-> List&lt;CrossexOrder&gt; listCrossexHistoryOrders().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
+> List&lt;CrossexOrder&gt; listCrossexHistoryOrders().page(page).limit(limit).symbol(symbol).from(from).to(to).attributes(attributes).execute();
 
 queryorderhistory
 
@@ -1784,9 +1784,10 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         Integer page = 56; // Integer | Page number
         Integer limit = 56; // Integer | Maximum number of records returned in a single list
-        String symbol = "symbol_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        String symbol = "symbol_example"; // String | Currency pair
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
+        String attributes = "attributes_example"; // String | Order attributes (`COMMON` normal / `LIQ` liquidation takeover / `REDUCE` liquidation reduction / `ADL` auto-deleverage / `SETTLEMENT` delisting settlement). Multiple values, comma-separated.
         try {
             List<CrossexOrder> result = apiInstance.listCrossexHistoryOrders()
                         .page(page)
@@ -1794,6 +1795,7 @@ public class Example {
                         .symbol(symbol)
                         .from(from)
                         .to(to)
+                        .attributes(attributes)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -1815,9 +1817,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional]
- **symbol** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
+ **symbol** | **String**| Currency pair | [optional]
  **from** | **Integer**| Start Millisecond Timestamp | [optional]
  **to** | **Integer**| End Millisecond Timestamp | [optional]
+ **attributes** | **String**| Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage / &#x60;SETTLEMENT&#x60; delisting settlement). Multiple values, comma-separated. | [optional]
 
 ### Return type
 
@@ -1868,7 +1871,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         Integer page = 56; // Integer | Page number
         Integer limit = 56; // Integer | Maximum number returned by list, max 1000
-        String symbol = "symbol_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        String symbol = "symbol_example"; // String | Currency pair
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
@@ -1899,7 +1902,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional]
  **limit** | **Integer**| Maximum number returned by list, max 1000 | [optional]
- **symbol** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
+ **symbol** | **String**| Currency pair | [optional]
  **from** | **Integer**| Start Millisecond Timestamp | [optional]
  **to** | **Integer**| End Millisecond Timestamp | [optional]
 
@@ -1952,7 +1955,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         Integer page = 56; // Integer | Page number
         Integer limit = 56; // Integer | Maximum number returned by list, max 1000
-        String symbol = "symbol_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        String symbol = "symbol_example"; // String | Currency pair
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
@@ -1983,7 +1986,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional]
  **limit** | **Integer**| Maximum number returned by list, max 1000 | [optional]
- **symbol** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
+ **symbol** | **String**| Currency pair | [optional]
  **from** | **Integer**| Start Millisecond Timestamp | [optional]
  **to** | **Integer**| End Millisecond Timestamp | [optional]
 
@@ -2034,7 +2037,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String symbol = "symbol_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        String symbol = "symbol_example"; // String | Currency pair
         Integer from = 56; // Integer | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         Integer to = 56; // Integer | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         Integer page = 56; // Integer | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
@@ -2067,7 +2070,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbol** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
+ **symbol** | **String**| Currency pair | [optional]
  **from** | **Integer**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
  **to** | **Integer**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
  **page** | **Integer**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
@@ -2123,7 +2126,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         Integer page = 56; // Integer | Page number
         Integer limit = 56; // Integer | Maximum number returned by list, max 1000
-        String symbol = "symbol_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        String symbol = "symbol_example"; // String | Currency pair
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
@@ -2154,7 +2157,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional]
  **limit** | **Integer**| Maximum number returned by list, max 1000 | [optional]
- **symbol** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
+ **symbol** | **String**| Currency pair | [optional]
  **from** | **Integer**| Start Millisecond Timestamp | [optional]
  **to** | **Integer**| End Millisecond Timestamp | [optional]
 
@@ -2207,8 +2210,8 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         Integer page = 56; // Integer | Page number
         Integer limit = 56; // Integer | Maximum number returned by list, max 1000
-        String coin = "coin_example"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        String statementType = "statementType_example"; // String | Bill entry type.
+        String coin = "coin_example"; // String | Query by specified currency name
+        String statementType = "statementType_example"; // String | Bill entry type. The filter accepts the same values returned in the response.
         Integer from = 56; // Integer | Start Millisecond Timestamp
         Integer to = 56; // Integer | End Millisecond Timestamp
         try {
@@ -2240,8 +2243,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Page number | [optional]
  **limit** | **Integer**| Maximum number returned by list, max 1000 | [optional]
- **coin** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
- **statementType** | **String**| Bill entry type. | [optional]
+ **coin** | **String**| Query by specified currency name | [optional]
+ **statementType** | **String**| Bill entry type. The filter accepts the same values returned in the response. | [optional]
  **from** | **Integer**| Start Millisecond Timestamp | [optional]
  **to** | **Integer**| End Millisecond Timestamp | [optional]
 
@@ -2292,8 +2295,8 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String coin = "SOL"; // String | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME <EMAIL@ADDRESS> Language: en Language-Team: en <L@li.org> Plural-Forms: nplurals=2; plural=(n !=1) MIME-Version: 1.0 Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
-        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT
+        String coin = "SOL"; // String | Query by specified currency name
+        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID
         try {
             List<CrossexCoinDiscountRate> result = apiInstance.listCrossexCoinDiscountRate()
                         .coin(coin)
@@ -2317,8 +2320,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coin** | **String**| Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  | [optional]
- **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT | [optional]
+ **coin** | **String**| Query by specified currency name | [optional]
+ **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID | [optional]
 
 ### Return type
 

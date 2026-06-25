@@ -20,6 +20,11 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
+import io.gate.gateapi.models.DeltaNeutralEnabled;
+import io.gate.gateapi.models.GateErrorResponse;
+import io.gate.gateapi.models.QuickEstimatedRepayment;
+import io.gate.gateapi.models.QuickRepaymentRequest;
+import io.gate.gateapi.models.QuickRepaymentResponse;
 import io.gate.gateapi.models.TransferablesResult;
 import io.gate.gateapi.models.UniLoan;
 import io.gate.gateapi.models.UniLoanInterestRecord;
@@ -2871,6 +2876,460 @@ public class UnifiedApi {
     public okhttp3.Call setUnifiedCollateralAsync(UnifiedCollateralReq unifiedCollateralReq, final ApiCallback<UnifiedCollateralRes> _callback) throws ApiException {
         okhttp3.Call localVarCall = setUnifiedCollateralValidateBeforeCall(unifiedCollateralReq, _callback);
         Type localVarReturnType = new TypeToken<UnifiedCollateralRes>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getEstimatedQuickRepayment
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEstimatedQuickRepaymentCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/estimated_quick_repayment";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEstimatedQuickRepaymentValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getEstimatedQuickRepaymentCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Estimated quick repayment details
+     * Available for unified account cross-currency margin mode and portfolio margin mode
+     * @return QuickEstimatedRepayment
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public QuickEstimatedRepayment getEstimatedQuickRepayment() throws ApiException {
+        ApiResponse<QuickEstimatedRepayment> localVarResp = getEstimatedQuickRepaymentWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Estimated quick repayment details
+     * Available for unified account cross-currency margin mode and portfolio margin mode
+     * @return ApiResponse&lt;QuickEstimatedRepayment&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<QuickEstimatedRepayment> getEstimatedQuickRepaymentWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getEstimatedQuickRepaymentValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<QuickEstimatedRepayment>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Estimated quick repayment details (asynchronously)
+     * Available for unified account cross-currency margin mode and portfolio margin mode
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEstimatedQuickRepaymentAsync(final ApiCallback<QuickEstimatedRepayment> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getEstimatedQuickRepaymentValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<QuickEstimatedRepayment>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createQuickRepayment
+     * @param quickRepaymentRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Repayment successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createQuickRepaymentCall(QuickRepaymentRequest quickRepaymentRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = quickRepaymentRequest;
+
+        // create path and map variables
+        String localVarPath = "/unified/quick_repayment";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createQuickRepaymentValidateBeforeCall(QuickRepaymentRequest quickRepaymentRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'quickRepaymentRequest' is set
+        if (quickRepaymentRequest == null) {
+            throw new ApiException("Missing the required parameter 'quickRepaymentRequest' when calling createQuickRepayment(Async)");
+        }
+
+        okhttp3.Call localVarCall = createQuickRepaymentCall(quickRepaymentRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Quick repayment
+     * Available for unified account cross-currency margin mode and portfolio margin mode. Use &#x60;GET /unified/estimated_quick_repayment&#x60; to query liabilities and pending repayment information.
+     * @param quickRepaymentRequest  (required)
+     * @return QuickRepaymentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Repayment successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public QuickRepaymentResponse createQuickRepayment(QuickRepaymentRequest quickRepaymentRequest) throws ApiException {
+        ApiResponse<QuickRepaymentResponse> localVarResp = createQuickRepaymentWithHttpInfo(quickRepaymentRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Quick repayment
+     * Available for unified account cross-currency margin mode and portfolio margin mode. Use &#x60;GET /unified/estimated_quick_repayment&#x60; to query liabilities and pending repayment information.
+     * @param quickRepaymentRequest  (required)
+     * @return ApiResponse&lt;QuickRepaymentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Repayment successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<QuickRepaymentResponse> createQuickRepaymentWithHttpInfo(QuickRepaymentRequest quickRepaymentRequest) throws ApiException {
+        okhttp3.Call localVarCall = createQuickRepaymentValidateBeforeCall(quickRepaymentRequest, null);
+        Type localVarReturnType = new TypeToken<QuickRepaymentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Quick repayment (asynchronously)
+     * Available for unified account cross-currency margin mode and portfolio margin mode. Use &#x60;GET /unified/estimated_quick_repayment&#x60; to query liabilities and pending repayment information.
+     * @param quickRepaymentRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Repayment successful </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. account mode does not support quick repayment) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createQuickRepaymentAsync(QuickRepaymentRequest quickRepaymentRequest, final ApiCallback<QuickRepaymentResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createQuickRepaymentValidateBeforeCall(quickRepaymentRequest, _callback);
+        Type localVarReturnType = new TypeToken<QuickRepaymentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getUnifiedDeltaNeutral
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedDeltaNeutralCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/unified/delta_neutral";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUnifiedDeltaNeutralValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedDeltaNeutralCall(_callback);
+        return localVarCall;
+    }
+
+    /**
+     * Query the account Delta-neutral strategy mode setting
+     * 
+     * @return DeltaNeutralEnabled
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public DeltaNeutralEnabled getUnifiedDeltaNeutral() throws ApiException {
+        ApiResponse<DeltaNeutralEnabled> localVarResp = getUnifiedDeltaNeutralWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query the account Delta-neutral strategy mode setting
+     * 
+     * @return ApiResponse&lt;DeltaNeutralEnabled&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DeltaNeutralEnabled> getUnifiedDeltaNeutralWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedDeltaNeutralValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<DeltaNeutralEnabled>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query the account Delta-neutral strategy mode setting (asynchronously)
+     * 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getUnifiedDeltaNeutralAsync(final ApiCallback<DeltaNeutralEnabled> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getUnifiedDeltaNeutralValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<DeltaNeutralEnabled>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setUnifiedDeltaNeutral
+     * @param deltaNeutralEnabled  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUnifiedDeltaNeutralCall(DeltaNeutralEnabled deltaNeutralEnabled, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = deltaNeutralEnabled;
+
+        // create path and map variables
+        String localVarPath = "/unified/delta_neutral";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setUnifiedDeltaNeutralValidateBeforeCall(DeltaNeutralEnabled deltaNeutralEnabled, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'deltaNeutralEnabled' is set
+        if (deltaNeutralEnabled == null) {
+            throw new ApiException("Missing the required parameter 'deltaNeutralEnabled' when calling setUnifiedDeltaNeutral(Async)");
+        }
+
+        okhttp3.Call localVarCall = setUnifiedDeltaNeutralCall(deltaNeutralEnabled, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set the account Delta-neutral strategy mode
+     * Enable or disable the account Delta-neutral strategy mode.  Requirements for enabling: VIP level &gt;&#x3D; 4 and the account is in cross-currency margin mode; otherwise 403 is returned. Returns the enabled status after the setting takes effect.
+     * @param deltaNeutralEnabled  (required)
+     * @return DeltaNeutralEnabled
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public DeltaNeutralEnabled setUnifiedDeltaNeutral(DeltaNeutralEnabled deltaNeutralEnabled) throws ApiException {
+        ApiResponse<DeltaNeutralEnabled> localVarResp = setUnifiedDeltaNeutralWithHttpInfo(deltaNeutralEnabled);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set the account Delta-neutral strategy mode
+     * Enable or disable the account Delta-neutral strategy mode.  Requirements for enabling: VIP level &gt;&#x3D; 4 and the account is in cross-currency margin mode; otherwise 403 is returned. Returns the enabled status after the setting takes effect.
+     * @param deltaNeutralEnabled  (required)
+     * @return ApiResponse&lt;DeltaNeutralEnabled&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DeltaNeutralEnabled> setUnifiedDeltaNeutralWithHttpInfo(DeltaNeutralEnabled deltaNeutralEnabled) throws ApiException {
+        okhttp3.Call localVarCall = setUnifiedDeltaNeutralValidateBeforeCall(deltaNeutralEnabled, null);
+        Type localVarReturnType = new TypeToken<DeltaNeutralEnabled>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set the account Delta-neutral strategy mode (asynchronously)
+     * Enable or disable the account Delta-neutral strategy mode.  Requirements for enabling: VIP level &gt;&#x3D; 4 and the account is in cross-currency margin mode; otherwise 403 is returned. Returns the enabled status after the setting takes effect.
+     * @param deltaNeutralEnabled  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication failed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Access denied (e.g. insufficient VIP level or the account is not in cross-currency margin mode) </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUnifiedDeltaNeutralAsync(DeltaNeutralEnabled deltaNeutralEnabled, final ApiCallback<DeltaNeutralEnabled> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setUnifiedDeltaNeutralValidateBeforeCall(deltaNeutralEnabled, _callback);
+        Type localVarReturnType = new TypeToken<DeltaNeutralEnabled>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * 无限网格策略的创建参数。  与 App 口径对齐：**仅** &#x60;money&#x60;、&#x60;price_floor&#x60;、&#x60;profit_per_grid&#x60; 为必填； &#x60;grid_num&#x60;、&#x60;price_type&#x60; 可选（不传时由服务端按默认处理）。
+ * Infinite grid creation parameters. Aligned with the app: **&#x60;money&#x60;**, **&#x60;price_floor&#x60;**, and **&#x60;profit_per_grid&#x60;** are required; &#x60;grid_num&#x60; and &#x60;price_type&#x60; are optional (defaults applied server-side when omitted).
  */
 public class InfiniteGridCreateParams {
     public static final String SERIALIZED_NAME_MONEY = "money";

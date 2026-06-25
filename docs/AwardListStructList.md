@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **rewardCoin** | **String** | Reward currency | 
 **interest** | **String** | Interest amount | 
 **fee** | **String** | fee | 
-**status** | **Integer** | Status | 
+**status** | **Integer** | Status. 4 - success | 
 **bonusDate** | **String** | Date | 
 **shouldBonusStamp** | **Integer** | Scheduled distribution timestamp | 
 

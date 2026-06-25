@@ -55,6 +55,10 @@ public class DepositRecord {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
+    public static final String SERIALIZED_NAME_REFUND_STATUS = "refund_status";
+    @SerializedName(SERIALIZED_NAME_REFUND_STATUS)
+    private String refundStatus;
+
     public static final String SERIALIZED_NAME_CHAIN = "chain";
     @SerializedName(SERIALIZED_NAME_CHAIN)
     private String chain;
@@ -178,6 +182,16 @@ public class DepositRecord {
     }
 
 
+     /**
+     * Blocked deposit refund status. This field is returned only when the deposit record has a blocked deposit refund record with a non-empty refund status. Not returned when there is no refund record or the refund status is empty - REFUNDING: Refund in progress - REFUNDED: Refund completed - REFUND_FAILED: Refund failed - REJECTED: Refund rejected
+     * @return refundStatus
+    **/
+    @javax.annotation.Nullable
+    public String getRefundStatus() {
+        return refundStatus;
+    }
+
+
     public DepositRecord chain(String chain) {
         
         this.chain = chain;
@@ -213,12 +227,13 @@ public class DepositRecord {
                 Objects.equals(this.address, depositRecord.address) &&
                 Objects.equals(this.memo, depositRecord.memo) &&
                 Objects.equals(this.status, depositRecord.status) &&
+                Objects.equals(this.refundStatus, depositRecord.refundStatus) &&
                 Objects.equals(this.chain, depositRecord.chain);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status, chain);
+        return Objects.hash(id, txid, timestamp, amount, currency, address, memo, status, refundStatus, chain);
     }
 
 
@@ -234,6 +249,7 @@ public class DepositRecord {
         sb.append("      address: ").append(toIndentedString(address)).append("\n");
         sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      refundStatus: ").append(toIndentedString(refundStatus)).append("\n");
         sb.append("      chain: ").append(toIndentedString(chain)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -305,6 +305,10 @@ public class Contract {
     @SerializedName(SERIALIZED_NAME_FUNDING_IMPACT_VALUE)
     private String fundingImpactValue;
 
+    public static final String SERIALIZED_NAME_ENABLE_CIRCUIT_BREAKER = "enable_circuit_breaker";
+    @SerializedName(SERIALIZED_NAME_ENABLE_CIRCUIT_BREAKER)
+    private Boolean enableCircuitBreaker;
+
 
     public Contract name(String name) {
         
@@ -1245,6 +1249,26 @@ public class Contract {
     public void setFundingImpactValue(String fundingImpactValue) {
         this.fundingImpactValue = fundingImpactValue;
     }
+
+    public Contract enableCircuitBreaker(Boolean enableCircuitBreaker) {
+        
+        this.enableCircuitBreaker = enableCircuitBreaker;
+        return this;
+    }
+
+     /**
+     * Whether the newly launched contract activates mark price circuit breaker (If the platform intends to activate this mechanism for a newly launched contract market to prevent significant price fluctuations and excessive liquidations after launch, an advance announcement will be made).
+     * @return enableCircuitBreaker
+    **/
+    @javax.annotation.Nullable
+    public Boolean getEnableCircuitBreaker() {
+        return enableCircuitBreaker;
+    }
+
+
+    public void setEnableCircuitBreaker(Boolean enableCircuitBreaker) {
+        this.enableCircuitBreaker = enableCircuitBreaker;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1300,12 +1324,13 @@ public class Contract {
                 Objects.equals(this.marketOrderSizeMax, contract.marketOrderSizeMax) &&
                 Objects.equals(this.fundingRateLimit, contract.fundingRateLimit) &&
                 Objects.equals(this.contractType, contract.contractType) &&
-                Objects.equals(this.fundingImpactValue, contract.fundingImpactValue);
+                Objects.equals(this.fundingImpactValue, contract.fundingImpactValue) &&
+                Objects.equals(this.enableCircuitBreaker, contract.enableCircuitBreaker);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, interestRate, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit, contractType, fundingImpactValue);
+        return Objects.hash(name, type, quantoMultiplier, leverageMin, leverageMax, maintenanceRate, markType, markPrice, indexPrice, lastPrice, makerFeeRate, takerFeeRate, orderPriceRound, markPriceRound, fundingRate, fundingInterval, fundingNextApply, riskLimitBase, interestRate, riskLimitStep, riskLimitMax, orderSizeMin, enableDecimal, orderSizeMax, orderPriceDeviate, refDiscountRate, refRebateRate, orderbookId, tradeId, tradeSize, positionSize, configChangeTime, inDelisting, ordersLimit, enableBonus, enableCredit, createTime, fundingCapRatio, status, launchTime, delistingTime, delistedTime, marketOrderSlipRatio, marketOrderSizeMax, fundingRateLimit, contractType, fundingImpactValue, enableCircuitBreaker);
     }
 
 
@@ -1360,6 +1385,7 @@ public class Contract {
         sb.append("      fundingRateLimit: ").append(toIndentedString(fundingRateLimit)).append("\n");
         sb.append("      contractType: ").append(toIndentedString(contractType)).append("\n");
         sb.append("      fundingImpactValue: ").append(toIndentedString(fundingImpactValue)).append("\n");
+        sb.append("      enableCircuitBreaker: ").append(toIndentedString(enableCircuitBreaker)).append("\n");
         sb.append("}");
         return sb.toString();
     }

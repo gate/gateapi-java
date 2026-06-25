@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.P2pMerchantBooksPlaceBizPushOrderResponseData;
 import java.io.IOException;
 import java.math.BigDecimal;
 
@@ -42,7 +43,7 @@ public class P2pMerchantBooksPlaceBizPushOrderResponse {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private Object data;
+    private P2pMerchantBooksPlaceBizPushOrderResponseData data;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
     @SerializedName(SERIALIZED_NAME_VERSION)
@@ -96,7 +97,7 @@ public class P2pMerchantBooksPlaceBizPushOrderResponse {
     }
 
      /**
-     * Response code, 0 means success
+     * Response code. 0 means success; 70305102 means the advertisement trade terms or auto reply hit off-platform traffic diversion risk control
      * @return code
     **/
     @javax.annotation.Nullable
@@ -129,23 +130,23 @@ public class P2pMerchantBooksPlaceBizPushOrderResponse {
         this.message = message;
     }
 
-    public P2pMerchantBooksPlaceBizPushOrderResponse data(Object data) {
+    public P2pMerchantBooksPlaceBizPushOrderResponse data(P2pMerchantBooksPlaceBizPushOrderResponseData data) {
         
         this.data = data;
         return this;
     }
 
      /**
-     * Empty object on successful publish or edit.
+     * Get data
      * @return data
     **/
     @javax.annotation.Nullable
-    public Object getData() {
+    public P2pMerchantBooksPlaceBizPushOrderResponseData getData() {
         return data;
     }
 
 
-    public void setData(Object data) {
+    public void setData(P2pMerchantBooksPlaceBizPushOrderResponseData data) {
         this.data = data;
     }
 

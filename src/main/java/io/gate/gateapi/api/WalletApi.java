@@ -2183,7 +2183,7 @@ public class WalletApi {
         return new APIlistSubAccountCrossMarginBalancesRequest();
     }
 
-    private okhttp3.Call listSavedAddressCall(String currency, String chain, String limit, Integer page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSavedAddressCall(String currency, String chain, String verified, String limit, Integer page, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2197,6 +2197,10 @@ public class WalletApi {
 
         if (chain != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("chain", chain));
+        }
+
+        if (verified != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("verified", verified));
         }
 
         if (limit != null) {
@@ -2229,38 +2233,43 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSavedAddressValidateBeforeCall(String currency, String chain, String limit, Integer page, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'currency' is set
-        if (currency == null) {
-            throw new ApiException("Missing the required parameter 'currency' when calling listSavedAddress(Async)");
-        }
-
-        okhttp3.Call localVarCall = listSavedAddressCall(currency, chain, limit, page, _callback);
+    private okhttp3.Call listSavedAddressValidateBeforeCall(String currency, String chain, String verified, String limit, Integer page, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSavedAddressCall(currency, chain, verified, limit, page, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<List<SavedAddress>> listSavedAddressWithHttpInfo(String currency, String chain, String limit, Integer page) throws ApiException {
-        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, limit, page, null);
+    private ApiResponse<List<SavedAddress>> listSavedAddressWithHttpInfo(String currency, String chain, String verified, String limit, Integer page) throws ApiException {
+        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, verified, limit, page, null);
         Type localVarReturnType = new TypeToken<List<SavedAddress>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listSavedAddressAsync(String currency, String chain, String limit, Integer page, final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, limit, page, _callback);
+    private okhttp3.Call listSavedAddressAsync(String currency, String chain, String verified, String limit, Integer page, final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSavedAddressValidateBeforeCall(currency, chain, verified, limit, page, _callback);
         Type localVarReturnType = new TypeToken<List<SavedAddress>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIlistSavedAddressRequest {
-        private final String currency;
+        private String currency;
         private String chain;
+        private String verified;
         private String limit;
         private Integer page;
 
-        private APIlistSavedAddressRequest(String currency) {
+        private APIlistSavedAddressRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Currency (optional)
+         * @return APIlistSavedAddressRequest
+         */
+        public APIlistSavedAddressRequest currency(String currency) {
             this.currency = currency;
+            return this;
         }
 
         /**
@@ -2270,6 +2279,16 @@ public class WalletApi {
          */
         public APIlistSavedAddressRequest chain(String chain) {
             this.chain = chain;
+            return this;
+        }
+
+        /**
+         * Set verified
+         * @param verified 1 means verified address, 0 means normal address, empty string means no limit (optional, default to &quot;&quot;)
+         * @return APIlistSavedAddressRequest
+         */
+        public APIlistSavedAddressRequest verified(String verified) {
+            this.verified = verified;
             return this;
         }
 
@@ -2305,7 +2324,7 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listSavedAddressCall(currency, chain, limit, page, _callback);
+            return listSavedAddressCall(currency, chain, verified, limit, page, _callback);
         }
 
         /**
@@ -2319,7 +2338,7 @@ public class WalletApi {
          </table>
          */
         public List<SavedAddress> execute() throws ApiException {
-            ApiResponse<List<SavedAddress>> localVarResp = listSavedAddressWithHttpInfo(currency, chain, limit, page);
+            ApiResponse<List<SavedAddress>> localVarResp = listSavedAddressWithHttpInfo(currency, chain, verified, limit, page);
             return localVarResp.getData();
         }
 
@@ -2334,7 +2353,7 @@ public class WalletApi {
          </table>
          */
         public ApiResponse<List<SavedAddress>> executeWithHttpInfo() throws ApiException {
-            return listSavedAddressWithHttpInfo(currency, chain, limit, page);
+            return listSavedAddressWithHttpInfo(currency, chain, verified, limit, page);
         }
 
         /**
@@ -2349,14 +2368,13 @@ public class WalletApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<List<SavedAddress>> _callback) throws ApiException {
-            return listSavedAddressAsync(currency, chain, limit, page, _callback);
+            return listSavedAddressAsync(currency, chain, verified, limit, page, _callback);
         }
     }
 
     /**
-     * Query withdrawal address whitelist
+     * Query saved address
      * 
-     * @param currency Currency (required)
      * @return APIlistSavedAddressRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2364,8 +2382,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
      </table>
      */
-    public APIlistSavedAddressRequest listSavedAddress(String currency) {
-        return new APIlistSavedAddressRequest(currency);
+    public APIlistSavedAddressRequest listSavedAddress() {
+        return new APIlistSavedAddressRequest();
     }
 
     private okhttp3.Call getTradeFeeCall(String currencyPair, String settle, final ApiCallback _callback) throws ApiException {

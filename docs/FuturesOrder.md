@@ -37,6 +37,11 @@ Name | Type | Description | Notes
 **pid** | **Long** | Position ID |  [optional]
 **marketOrderSlipRatio** | **String** | Custom maximum slippage rate for market orders. If not provided, the default contract settings will be used |  [optional]
 **posMarginMode** | **String** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin, only passed in simple split position mode |  [optional]
+**actionMode** | **String** | Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) |  [optional]
+**tpslTpTriggerPrice** | **String** | Take profit price |  [optional]
+**tpslSlTriggerPrice** | **String** | Stop loss price |  [optional]
+**tpslTpBboType** | **String** | Take profit BBO type |  [optional]
+**tpslSlBboType** | **String** | Stop loss BBO type |  [optional]
 
 ## Enum: FinishAsEnum
 

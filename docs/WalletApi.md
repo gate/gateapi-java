@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**listSubAccountMarginBalances**](WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub-account isolated margin account balance information
 [**listSubAccountFuturesBalances**](WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub-account perpetual futures account balance information
 [**listSubAccountCrossMarginBalances**](WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query sub-account cross margin account balance information
-[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query withdrawal address whitelist
+[**listSavedAddress**](WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 [**getTradeFee**](WalletApi.md#getTradeFee) | **GET** /wallet/fee | Query personal trading fees
 [**getTotalBalance**](WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Query personal account totals
 [**listSmallBalance**](WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | Get list of convertible small balance currencies
@@ -1071,9 +1071,9 @@ Name | Type | Description  | Notes
 
 <a name="listSavedAddress"></a>
 # **listSavedAddress**
-> List&lt;SavedAddress&gt; listSavedAddress(currency).chain(chain).limit(limit).page(page).execute();
+> List&lt;SavedAddress&gt; listSavedAddress().currency(currency).chain(chain).verified(verified).limit(limit).page(page).execute();
 
-Query withdrawal address whitelist
+Query saved address
 
 ### Example
 
@@ -1098,11 +1098,14 @@ public class Example {
         WalletApi apiInstance = new WalletApi(defaultClient);
         String currency = "USDT"; // String | Currency
         String chain = "\"\""; // String | Chain name
+        String verified = "\"\""; // String | 1 means verified address, 0 means normal address, empty string means no limit
         String limit = "\"50\""; // String | Maximum number returned, up to 100
         Integer page = 1; // Integer | page number
         try {
-            List<SavedAddress> result = apiInstance.listSavedAddress(currency)
+            List<SavedAddress> result = apiInstance.listSavedAddress()
+                        .currency(currency)
                         .chain(chain)
+                        .verified(verified)
                         .limit(limit)
                         .page(page)
                         .execute();
@@ -1124,8 +1127,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Currency |
+ **currency** | **String**| Currency | [optional]
  **chain** | **String**| Chain name | [optional] [default to &quot;&quot;]
+ **verified** | **String**| 1 means verified address, 0 means normal address, empty string means no limit | [optional] [default to &quot;&quot;]
  **limit** | **String**| Maximum number returned, up to 100 | [optional] [default to &quot;50&quot;]
  **page** | **Integer**| page number | [optional] [default to 1]
 

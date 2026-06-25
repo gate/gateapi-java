@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class TradFiClosePositionRequest {
     /**
-     * 平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）
+     * Close Type Description: - 1: Partial Close (close_volume is required) - 2: Full Close (close_volume is not required)
      */
     @JsonAdapter(CloseTypeEnum.Adapter.class)
     public enum CloseTypeEnum {
@@ -86,7 +86,7 @@ public class TradFiClosePositionRequest {
     }
 
      /**
-     * 平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume）
+     * Close Type Description: - 1: Partial Close (close_volume is required) - 2: Full Close (close_volume is not required)
      * @return closeType
     **/
     public CloseTypeEnum getCloseType() {
@@ -105,7 +105,7 @@ public class TradFiClosePositionRequest {
     }
 
      /**
-     * 平仓数量  说明： - 当 close_type &#x3D; 1 时必传 - 当 close_type &#x3D; 2 时忽略该字段
+     * Close Volume Description: - Required when close_type &#x3D; 1 - Ignored when close_type &#x3D; 2
      * @return closeVolume
     **/
     @javax.annotation.Nullable

@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.78
-- SDK version: 7.2.78
+- API version: v4.106.99
+- SDK version: 7.2.99
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.78</version>
+    <version>7.2.99</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.78"
+compile "io.gate:gate-api:7.2.99"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.78.jar`
+* `target/gate-api-7.2.99.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -181,9 +181,9 @@ Class | Method | HTTP request | Description
 *BotApi* | [**postAIHubPortfolioStop**](docs/BotApi.md#postAIHubPortfolioStop) | **POST** /bot/portfolio/stop | Terminate a single running policy
 *CouponApi* | [**listUserCoupons**](docs/CouponApi.md#listUserCoupons) | **GET** /coupon/user-coupon-list | Coupon Center list
 *CouponApi* | [**getUserCouponDetail**](docs/CouponApi.md#getUserCouponDetail) | **GET** /coupon/user-coupon-detail | Coupon Center details
-*CrossExApi* | [**listCrossexRuleSymbols**](docs/CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | 查询币对信息
-*CrossExApi* | [**listCrossexRuleRiskLimits**](docs/CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | 查询风险限额信息
-*CrossExApi* | [**listCrossexTransferCoins**](docs/CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | 查询划转币种支持
+*CrossExApi* | [**listCrossexRuleSymbols**](docs/CrossExApi.md#listCrossexRuleSymbols) | **GET** /crossex/rule/symbols | Query symbol information
+*CrossExApi* | [**listCrossexRuleRiskLimits**](docs/CrossExApi.md#listCrossexRuleRiskLimits) | **GET** /crossex/rule/risk_limits | Query risk limit information
+*CrossExApi* | [**listCrossexTransferCoins**](docs/CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | Query supported transfer currencies
 *CrossExApi* | [**listCrossexTransfers**](docs/CrossExApi.md#listCrossexTransfers) | **GET** /crossex/transfers | Query Fund Transfer History
 *CrossExApi* | [**createCrossexTransfer**](docs/CrossExApi.md#createCrossexTransfer) | **POST** /crossex/transfers | Fund Transfer
 *CrossExApi* | [**createCrossexOrder**](docs/CrossExApi.md#createCrossexOrder) | **POST** /crossex/orders | Create an order
@@ -294,6 +294,7 @@ Class | Method | HTTP request | Description
 *FlashSwapApi* | [**previewFlashSwapMultiCurrencyOneToManyOrder**](docs/FlashSwapApi.md#previewFlashSwapMultiCurrencyOneToManyOrder) | **POST** /flash_swap/multi-currency/one-to-many/order/preview | Flash Swap - Multi-currency exchange - Preview (one-to-many)
 *FlashSwapApi* | [**previewFlashSwapOrderV1**](docs/FlashSwapApi.md#previewFlashSwapOrderV1) | **GET** /flash_swap/order/preview | Flash Swap - Preview (one-to-one)
 *FuturesApi* | [**listFuturesContracts**](docs/FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
+*FuturesApi* | [**listFuturesContractsAll**](docs/FuturesApi.md#listFuturesContractsAll) | **GET** /futures/{settle}/contracts_all | Query all contract information (including delisted)
 *FuturesApi* | [**getFuturesContract**](docs/FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 *FuturesApi* | [**listFuturesOrderBook**](docs/FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
 *FuturesApi* | [**listFuturesTrades**](docs/FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures market transaction records
@@ -351,12 +352,17 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**getTrailOrderDetail**](docs/FuturesApi.md#getTrailOrderDetail) | **GET** /futures/{settle}/autoorder/v1/trail/detail | Get trail order details
 *FuturesApi* | [**updateTrailOrder**](docs/FuturesApi.md#updateTrailOrder) | **POST** /futures/{settle}/autoorder/v1/trail/update | Update trail order
 *FuturesApi* | [**getTrailOrderChangeLog**](docs/FuturesApi.md#getTrailOrderChangeLog) | **GET** /futures/{settle}/autoorder/v1/trail/change_log | Get trail order user modification records
+*FuturesApi* | [**createChaseOrder**](docs/FuturesApi.md#createChaseOrder) | **POST** /futures/{settle}/autoorder/v1/chase/create | Create a chase order
+*FuturesApi* | [**stopChaseOrder**](docs/FuturesApi.md#stopChaseOrder) | **POST** /futures/{settle}/autoorder/v1/chase/stop | Stop a chase order
+*FuturesApi* | [**stopAllChaseOrders**](docs/FuturesApi.md#stopAllChaseOrders) | **POST** /futures/{settle}/autoorder/v1/chase/stop_all | Stop chase orders in batch
+*FuturesApi* | [**getChaseOrders**](docs/FuturesApi.md#getChaseOrders) | **GET** /futures/{settle}/autoorder/v1/chase/list | List chase orders
+*FuturesApi* | [**getChaseOrderDetail**](docs/FuturesApi.md#getChaseOrderDetail) | **GET** /futures/{settle}/autoorder/v1/chase/detail | Get chase order detail
 *FuturesApi* | [**listPriceTriggeredOrders**](docs/FuturesApi.md#listPriceTriggeredOrders) | **GET** /futures/{settle}/price_orders | Query auto order list
 *FuturesApi* | [**createPriceTriggeredOrder**](docs/FuturesApi.md#createPriceTriggeredOrder) | **POST** /futures/{settle}/price_orders | Create price-triggered order
 *FuturesApi* | [**cancelPriceTriggeredOrderList**](docs/FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 *FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 *FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
-*FuturesApi* | [**updatePriceTriggeredOrder**](docs/FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
+*FuturesApi* | [**updatePriceTriggeredOrder**](docs/FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend | Modify a Single Auto Order
 *LaunchApi* | [**listLaunchPoolProjects**](docs/LaunchApi.md#listLaunchPoolProjects) | **GET** /launch/project-list | Query LaunchPool project list
 *LaunchApi* | [**createLaunchPoolOrder**](docs/LaunchApi.md#createLaunchPoolOrder) | **POST** /launch/create-order | Create LaunchPool staking order
 *LaunchApi* | [**redeemLaunchPool**](docs/LaunchApi.md#redeemLaunchPool) | **POST** /launch/redeem | Redeem LaunchPool staked assets
@@ -436,9 +442,14 @@ Class | Method | HTTP request | Description
 *OtcApi* | [**createOtcQuote**](docs/OtcApi.md#createOtcQuote) | **POST** /otc/quote | Fiat and stablecoin quote
 *OtcApi* | [**createOtcOrder**](docs/OtcApi.md#createOtcOrder) | **POST** /otc/order/create | Create fiat order
 *OtcApi* | [**createStableCoinOrder**](docs/OtcApi.md#createStableCoinOrder) | **POST** /otc/stable_coin/order/create | Create stablecoin order
-*OtcApi* | [**getUserDefaultBank**](docs/OtcApi.md#getUserDefaultBank) | **GET** /otc/get_user_def_bank | Get user&#39;s default bank account information
-*OtcApi* | [**getBankList**](docs/OtcApi.md#getBankList) | **GET** /otc/bank_list | Get user bank card list
-*OtcApi* | [**markOtcOrderPaid**](docs/OtcApi.md#markOtcOrderPaid) | **POST** /otc/order/paid | Mark fiat order as paid
+*OtcApi* | [**getBankListInnerPath**](docs/OtcApi.md#getBankListInnerPath) | **GET** /otc/bank/list | Get user bank card list
+*OtcApi* | [**createOtcBank**](docs/OtcApi.md#createOtcBank) | **POST** /otc/bank/create | Create bank card
+*OtcApi* | [**deleteOtcBank**](docs/OtcApi.md#deleteOtcBank) | **POST** /otc/bank/delete | Delete bank card
+*OtcApi* | [**setDefaultOtcBank**](docs/OtcApi.md#setDefaultOtcBank) | **POST** /otc/bank/set_default | Set default bank card
+*OtcApi* | [**getOtcBankSupplementChecklist**](docs/OtcApi.md#getOtcBankSupplementChecklist) | **GET** /otc/bank/bank_supplement_checklist | Query the checklist of materials to supplement for a bank card
+*OtcApi* | [**submitOtcBankPersonalSupplement**](docs/OtcApi.md#submitOtcBankPersonalSupplement) | **POST** /otc/bank/personal/bank_supplement | Submit Bank Card Supplement Materials (Personal)
+*OtcApi* | [**submitOtcBankEnterpriseSupplement**](docs/OtcApi.md#submitOtcBankEnterpriseSupplement) | **POST** /otc/bank/enterprise/bank_supplement | Submit Bank Card Supplement Materials (Enterprise)
+*OtcApi* | [**markOtcOrderPaid**](docs/OtcApi.md#markOtcOrderPaid) | **POST** /otc/order/paid | Mark fiat order as paid (deposit confirmation)
 *OtcApi* | [**cancelOtcOrder**](docs/OtcApi.md#cancelOtcOrder) | **POST** /otc/order/cancel | Fiat order cancellation
 *OtcApi* | [**listOtcOrders**](docs/OtcApi.md#listOtcOrders) | **GET** /otc/order/list | Fiat order list
 *OtcApi* | [**listStableCoinOrders**](docs/OtcApi.md#listStableCoinOrders) | **GET** /otc/stable_coin/order/list | Stablecoin order list
@@ -446,6 +457,7 @@ Class | Method | HTTP request | Description
 *P2pApi* | [**p2pMerchantAccountGetUserInfo**](docs/P2pApi.md#p2pMerchantAccountGetUserInfo) | **POST** /p2p/merchant/account/get_user_info | Get account information
 *P2pApi* | [**p2pMerchantAccountGetCounterpartyUserInfo**](docs/P2pApi.md#p2pMerchantAccountGetCounterpartyUserInfo) | **POST** /p2p/merchant/account/get_counterparty_user_info | Get counterparty information
 *P2pApi* | [**p2pMerchantAccountGetMyselfPayment**](docs/P2pApi.md#p2pMerchantAccountGetMyselfPayment) | **POST** /p2p/merchant/account/get_myself_payment | Get payment method list
+*P2pApi* | [**p2pMerchantAccountSetMerchantWorkHours**](docs/P2pApi.md#p2pMerchantAccountSetMerchantWorkHours) | **POST** /p2p/merchant/account/set_merchant_work_hours | Set merchant working status and custom working hours
 *P2pApi* | [**p2pMerchantTransactionGetPendingTransactionList**](docs/P2pApi.md#p2pMerchantTransactionGetPendingTransactionList) | **POST** /p2p/merchant/transaction/get_pending_transaction_list | Get pending orders
 *P2pApi* | [**p2pMerchantTransactionGetCompletedTransactionList**](docs/P2pApi.md#p2pMerchantTransactionGetCompletedTransactionList) | **POST** /p2p/merchant/transaction/get_completed_transaction_list | Get all/historical orders
 *P2pApi* | [**p2pMerchantTransactionGetTransactionDetails**](docs/P2pApi.md#p2pMerchantTransactionGetTransactionDetails) | **POST** /p2p/merchant/transaction/get_transaction_details | Query order details
@@ -532,6 +544,7 @@ Class | Method | HTTP request | Description
 *TradFiApi* | [**updateOrder**](docs/TradFiApi.md#updateOrder) | **PUT** /tradfi/orders/{order_id} | Modify order
 *TradFiApi* | [**deleteOrder**](docs/TradFiApi.md#deleteOrder) | **DELETE** /tradfi/orders/{order_id} | Cancel order
 *TradFiApi* | [**queryOrderHistoryList**](docs/TradFiApi.md#queryOrderHistoryList) | **GET** /tradfi/orders/history | Query historical order list
+*TradFiApi* | [**queryOrderLog**](docs/TradFiApi.md#queryOrderLog) | **GET** /tradfi/orders/log/{log_id} | Get order details by log ID
 *TradFiApi* | [**queryPositionList**](docs/TradFiApi.md#queryPositionList) | **GET** /tradfi/positions | Query active position list
 *TradFiApi* | [**updatePosition**](docs/TradFiApi.md#updatePosition) | **PUT** /tradfi/positions/{position_id} | Modify position
 *TradFiApi* | [**closePosition**](docs/TradFiApi.md#closePosition) | **POST** /tradfi/positions/{position_id}/close | Close position
@@ -558,6 +571,10 @@ Class | Method | HTTP request | Description
 *UnifiedApi* | [**listUnifiedCurrencies**](docs/UnifiedApi.md#listUnifiedCurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
 *UnifiedApi* | [**getHistoryLoanRate**](docs/UnifiedApi.md#getHistoryLoanRate) | **GET** /unified/history_loan_rate | Get historical lending rates
 *UnifiedApi* | [**setUnifiedCollateral**](docs/UnifiedApi.md#setUnifiedCollateral) | **POST** /unified/collateral_currencies | Set collateral currency
+*UnifiedApi* | [**getEstimatedQuickRepayment**](docs/UnifiedApi.md#getEstimatedQuickRepayment) | **GET** /unified/estimated_quick_repayment | Estimated quick repayment details
+*UnifiedApi* | [**createQuickRepayment**](docs/UnifiedApi.md#createQuickRepayment) | **POST** /unified/quick_repayment | Quick repayment
+*UnifiedApi* | [**getUnifiedDeltaNeutral**](docs/UnifiedApi.md#getUnifiedDeltaNeutral) | **GET** /unified/delta_neutral | Query the account Delta-neutral strategy mode setting
+*UnifiedApi* | [**setUnifiedDeltaNeutral**](docs/UnifiedApi.md#setUnifiedDeltaNeutral) | **POST** /unified/delta_neutral | Set the account Delta-neutral strategy mode
 *WalletApi* | [**listCurrencyChains**](docs/WalletApi.md#listCurrencyChains) | **GET** /wallet/currency_chains | Query chains supported for specified currency
 *WalletApi* | [**getDepositAddress**](docs/WalletApi.md#getDepositAddress) | **GET** /wallet/deposit_address | Generate currency deposit address
 *WalletApi* | [**listWithdrawals**](docs/WalletApi.md#listWithdrawals) | **GET** /wallet/withdrawals | Get withdrawal records
@@ -572,7 +589,7 @@ Class | Method | HTTP request | Description
 *WalletApi* | [**listSubAccountMarginBalances**](docs/WalletApi.md#listSubAccountMarginBalances) | **GET** /wallet/sub_account_margin_balances | Query sub-account isolated margin account balance information
 *WalletApi* | [**listSubAccountFuturesBalances**](docs/WalletApi.md#listSubAccountFuturesBalances) | **GET** /wallet/sub_account_futures_balances | Query sub-account perpetual futures account balance information
 *WalletApi* | [**listSubAccountCrossMarginBalances**](docs/WalletApi.md#listSubAccountCrossMarginBalances) | **GET** /wallet/sub_account_cross_margin_balances | Query sub-account cross margin account balance information
-*WalletApi* | [**listSavedAddress**](docs/WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query withdrawal address whitelist
+*WalletApi* | [**listSavedAddress**](docs/WalletApi.md#listSavedAddress) | **GET** /wallet/saved_address | Query saved address
 *WalletApi* | [**getTradeFee**](docs/WalletApi.md#getTradeFee) | **GET** /wallet/fee | Query personal trading fees
 *WalletApi* | [**getTotalBalance**](docs/WalletApi.md#getTotalBalance) | **GET** /wallet/total_balance | Query personal account totals
 *WalletApi* | [**listSmallBalance**](docs/WalletApi.md#listSmallBalance) | **GET** /wallet/small_balance | Get list of convertible small balance currencies
@@ -691,6 +708,7 @@ Class | Method | HTTP request | Description
  - [Categories](docs/Categories.md)
  - [CategoriesData](docs/CategoriesData.md)
  - [CategoriesDataList](docs/CategoriesDataList.md)
+ - [ChaseOrder](docs/ChaseOrder.md)
  - [ClaimRewardError](docs/ClaimRewardError.md)
  - [ClaimTaskError](docs/ClaimTaskError.md)
  - [CollateralAdjust](docs/CollateralAdjust.md)
@@ -716,6 +734,8 @@ Class | Method | HTTP request | Description
  - [CountdownCancelAllFuturesTask](docs/CountdownCancelAllFuturesTask.md)
  - [CountdownCancelAllOptionsTask](docs/CountdownCancelAllOptionsTask.md)
  - [CountdownCancelAllSpotTask](docs/CountdownCancelAllSpotTask.md)
+ - [CreateChaseOrderReq](docs/CreateChaseOrderReq.md)
+ - [CreateChaseOrderResp](docs/CreateChaseOrderResp.md)
  - [CreateEarnFixedTermLendResponse](docs/CreateEarnFixedTermLendResponse.md)
  - [CreateEarnFixedTermLendResponseData](docs/CreateEarnFixedTermLendResponseData.md)
  - [CreateEarnFixedTermPreRedeemResponse](docs/CreateEarnFixedTermPreRedeemResponse.md)
@@ -791,6 +811,7 @@ Class | Method | HTTP request | Description
  - [DeliverySettlement](docs/DeliverySettlement.md)
  - [DeliveryTicker](docs/DeliveryTicker.md)
  - [DeliveryTrade](docs/DeliveryTrade.md)
+ - [DeltaNeutralEnabled](docs/DeltaNeutralEnabled.md)
  - [DepositAddress](docs/DepositAddress.md)
  - [DepositRecord](docs/DepositRecord.md)
  - [DiscoverScene](docs/DiscoverScene.md)
@@ -879,7 +900,10 @@ Class | Method | HTTP request | Description
  - [FuturesTicker](docs/FuturesTicker.md)
  - [FuturesTrade](docs/FuturesTrade.md)
  - [FuturesUpdatePriceTriggeredOrder](docs/FuturesUpdatePriceTriggeredOrder.md)
+ - [GateErrorResponse](docs/GateErrorResponse.md)
  - [GetBeginnerTaskListError](docs/GetBeginnerTaskListError.md)
+ - [GetChaseOrderDetailResp](docs/GetChaseOrderDetailResp.md)
+ - [GetChaseOrdersResp](docs/GetChaseOrdersResp.md)
  - [GetChatsListRequest](docs/GetChatsListRequest.md)
  - [GetCompletedTransactionListRequest](docs/GetCompletedTransactionListRequest.md)
  - [GetCounterpartyUserInfoRequest](docs/GetCounterpartyUserInfoRequest.md)
@@ -1011,15 +1035,26 @@ Class | Method | HTTP request | Description
  - [OrderListStruct](docs/OrderListStruct.md)
  - [OrderListStructList](docs/OrderListStructList.md)
  - [OrderListV1Resp](docs/OrderListV1Resp.md)
+ - [OrderLog](docs/OrderLog.md)
+ - [OrderLogData](docs/OrderLogData.md)
  - [OrderPatch](docs/OrderPatch.md)
  - [OrderPreviewV1Req](docs/OrderPreviewV1Req.md)
  - [OrderPreviewV1Resp](docs/OrderPreviewV1Resp.md)
  - [OrderResp](docs/OrderResp.md)
  - [OrderResponse](docs/OrderResponse.md)
  - [OtcActionResponse](docs/OtcActionResponse.md)
+ - [OtcBankCreateMultipartRequest](docs/OtcBankCreateMultipartRequest.md)
+ - [OtcBankCreateResponse](docs/OtcBankCreateResponse.md)
+ - [OtcBankCreateResponseData](docs/OtcBankCreateResponseData.md)
+ - [OtcBankEnterpriseSupplementMultipartRequest](docs/OtcBankEnterpriseSupplementMultipartRequest.md)
+ - [OtcBankIdRequest](docs/OtcBankIdRequest.md)
  - [OtcBankListItem](docs/OtcBankListItem.md)
  - [OtcBankListResponse](docs/OtcBankListResponse.md)
  - [OtcBankListResult](docs/OtcBankListResult.md)
+ - [OtcBankPersonalSupplementMultipartRequest](docs/OtcBankPersonalSupplementMultipartRequest.md)
+ - [OtcBankSupplementChecklistItem](docs/OtcBankSupplementChecklistItem.md)
+ - [OtcBankSupplementChecklistResponse](docs/OtcBankSupplementChecklistResponse.md)
+ - [OtcBankSupplementChecklistResponseData](docs/OtcBankSupplementChecklistResponseData.md)
  - [OtcMarkOrderPaidRequest](docs/OtcMarkOrderPaidRequest.md)
  - [OtcOrderDetail](docs/OtcOrderDetail.md)
  - [OtcOrderDetailResponse](docs/OtcOrderDetailResponse.md)
@@ -1037,8 +1072,6 @@ Class | Method | HTTP request | Description
  - [OtcStableCoinOrderListResponse](docs/OtcStableCoinOrderListResponse.md)
  - [OtcStableCoinOrderListResult](docs/OtcStableCoinOrderListResult.md)
  - [OtcStableCoinOrderRequest](docs/OtcStableCoinOrderRequest.md)
- - [OtcUserDefaultBank](docs/OtcUserDefaultBank.md)
- - [OtcUserDefaultBankResponse](docs/OtcUserDefaultBankResponse.md)
  - [OtherContact](docs/OtherContact.md)
  - [P2pAdDetail](docs/P2pAdDetail.md)
  - [P2pAdDetailResponse](docs/P2pAdDetailResponse.md)
@@ -1053,9 +1086,14 @@ Class | Method | HTTP request | Description
  - [P2pCounterpartyUserInfo](docs/P2pCounterpartyUserInfo.md)
  - [P2pCounterpartyUserInfoResponse](docs/P2pCounterpartyUserInfoResponse.md)
  - [P2pMerchantBooksPlaceBizPushOrderResponse](docs/P2pMerchantBooksPlaceBizPushOrderResponse.md)
+ - [P2pMerchantBooksPlaceBizPushOrderResponseData](docs/P2pMerchantBooksPlaceBizPushOrderResponseData.md)
+ - [P2pMerchantBooksPlaceBizPushOrderResponseDataRiskEvent](docs/P2pMerchantBooksPlaceBizPushOrderResponseDataRiskEvent.md)
+ - [P2pMerchantBooksPlaceBizPushOrderResponseDataRiskEventAction](docs/P2pMerchantBooksPlaceBizPushOrderResponseDataRiskEventAction.md)
  - [P2pMerchantMarketInfo](docs/P2pMerchantMarketInfo.md)
  - [P2pMerchantUserInfo](docs/P2pMerchantUserInfo.md)
  - [P2pMerchantUserInfoResponse](docs/P2pMerchantUserInfoResponse.md)
+ - [P2pMerchantWorkHours](docs/P2pMerchantWorkHours.md)
+ - [P2pMerchantWorkHoursResponse](docs/P2pMerchantWorkHoursResponse.md)
  - [P2pMyAd](docs/P2pMyAd.md)
  - [P2pMyAdsListResponse](docs/P2pMyAdsListResponse.md)
  - [P2pMyAdsListResult](docs/P2pMyAdsListResult.md)
@@ -1109,6 +1147,9 @@ Class | Method | HTTP request | Description
  - [PreviewOrderDetail](docs/PreviewOrderDetail.md)
  - [PreviewToParam](docs/PreviewToParam.md)
  - [ProfitLossRange](docs/ProfitLossRange.md)
+ - [QuickEstimatedRepayment](docs/QuickEstimatedRepayment.md)
+ - [QuickRepaymentRequest](docs/QuickRepaymentRequest.md)
+ - [QuickRepaymentResponse](docs/QuickRepaymentResponse.md)
  - [QuoteRequest](docs/QuoteRequest.md)
  - [QuoteResponse](docs/QuoteResponse.md)
  - [RebateUserInfo](docs/RebateUserInfo.md)
@@ -1126,6 +1167,7 @@ Class | Method | HTTP request | Description
  - [RiskUnits](docs/RiskUnits.md)
  - [SavedAddress](docs/SavedAddress.md)
  - [SendChatMessageRequest](docs/SendChatMessageRequest.md)
+ - [SetMerchantWorkHoursRequest](docs/SetMerchantWorkHoursRequest.md)
  - [SmallBalance](docs/SmallBalance.md)
  - [SmallBalanceHistory](docs/SmallBalanceHistory.md)
  - [SpotAccount](docs/SpotAccount.md)
@@ -1137,10 +1179,16 @@ Class | Method | HTTP request | Description
  - [SpotInsuranceHistory](docs/SpotInsuranceHistory.md)
  - [SpotMartingaleCreateParams](docs/SpotMartingaleCreateParams.md)
  - [SpotMartingaleCreateRequest](docs/SpotMartingaleCreateRequest.md)
+ - [SpotOrderStopLoss](docs/SpotOrderStopLoss.md)
+ - [SpotOrderStopProfit](docs/SpotOrderStopProfit.md)
  - [SpotPricePutOrder](docs/SpotPricePutOrder.md)
  - [SpotPriceTrigger](docs/SpotPriceTrigger.md)
  - [SpotPriceTriggeredOrder](docs/SpotPriceTriggeredOrder.md)
+ - [StopAllChaseOrdersReq](docs/StopAllChaseOrdersReq.md)
+ - [StopAllChaseOrdersResp](docs/StopAllChaseOrdersResp.md)
  - [StopAllTrailOrders](docs/StopAllTrailOrders.md)
+ - [StopChaseOrderReq](docs/StopChaseOrderReq.md)
+ - [StopChaseOrderResp](docs/StopChaseOrderResp.md)
  - [StopTrailOrder](docs/StopTrailOrder.md)
  - [StpGroup](docs/StpGroup.md)
  - [StpGroupUser](docs/StpGroupUser.md)
@@ -1227,6 +1275,10 @@ Class | Method | HTTP request | Description
  - [UnifiedModeSet](docs/UnifiedModeSet.md)
  - [UnifiedPortfolioInput](docs/UnifiedPortfolioInput.md)
  - [UnifiedPortfolioOutput](docs/UnifiedPortfolioOutput.md)
+ - [UnifiedQuickRepayAvailableItem](docs/UnifiedQuickRepayAvailableItem.md)
+ - [UnifiedQuickRepayDebtItem](docs/UnifiedQuickRepayDebtItem.md)
+ - [UnifiedQuickRepayRepaidInfo](docs/UnifiedQuickRepayRepaidInfo.md)
+ - [UnifiedQuickRepayUsedInfo](docs/UnifiedQuickRepayUsedInfo.md)
  - [UnifiedRiskUnits](docs/UnifiedRiskUnits.md)
  - [UnifiedSettings](docs/UnifiedSettings.md)
  - [UnifiedTransferable](docs/UnifiedTransferable.md)

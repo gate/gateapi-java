@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **user** | **Long** | User ID |  [optional] [readonly]
 **contract** | **String** | Futures contract |  [optional] [readonly]
 **size** | **String** | Position size |  [optional] [readonly]
+**hedgeStatus** | [**HedgeStatusEnum**](#HedgeStatusEnum) | The hedging status of the position under the Delta-neutral strategy. Including:  - &#x60;partial_hedged&#x60;: partially hedged - &#x60;full_hedged&#x60;: fully hedged |  [optional] [readonly]
+**hedgedSize** | **String** | The hedged position size under the Delta-neutral strategy. |  [optional] [readonly]
+**unhedgedSize** | **String** | The unhedged position size under the Delta-neutral strategy, calculated as &#x60;max(abs(size) - abs(hedged_size), 0)&#x60;. |  [optional] [readonly]
 **leverage** | **String** |  leverage for isolated margin. 0 means cross margin. For leverage of cross margin, please refer to &#x60;cross_leverage_limit&#x60;. |  [optional]
 **riskLimit** | **String** | Position risk limit |  [optional]
 **leverageMax** | **String** | the maximum permissible leverage given to the current positon value: the higher positon value, the lower maximum permissible leverage |  [optional] [readonly]
@@ -43,6 +46,13 @@ Name | Type | Description | Notes
 **pid** | **Long** | Sub-account position ID |  [optional] [readonly]
 **posMarginMode** | **String** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin |  [optional]
 **lever** | **String** | Indicates the current leverage of the position, applicable to both isolated and cross margin, gradually replacing the current leverage and cross_leverage_limit |  [optional]
+
+## Enum: HedgeStatusEnum
+
+Name | Value
+---- | -----
+PARTIAL_HEDGED | &quot;partial_hedged&quot;
+FULL_HEDGED | &quot;full_hedged&quot;
 
 ## Enum: ModeEnum
 

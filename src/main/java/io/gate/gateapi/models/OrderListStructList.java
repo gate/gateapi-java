@@ -143,7 +143,7 @@ public class OrderListStructList {
     }
 
      /**
-     * Status
+     * Status. 1 - success, 3 - delayed redemption in progress, 6 - redemption cancellation order
      * @return status
     **/
     public Integer getStatus() {

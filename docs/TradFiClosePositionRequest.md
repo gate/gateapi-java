@@ -7,8 +7,8 @@ Close position request parameters
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**closeType** | [**CloseTypeEnum**](#CloseTypeEnum) | 平仓类型  说明： - 1：部分平仓（必须传 close_volume） - 2：全平（无需传 close_volume） | 
-**closeVolume** | **String** | 平仓数量  说明： - 当 close_type &#x3D; 1 时必传 - 当 close_type &#x3D; 2 时忽略该字段 |  [optional]
+**closeType** | [**CloseTypeEnum**](#CloseTypeEnum) | Close Type Description: - 1: Partial Close (close_volume is required) - 2: Full Close (close_volume is not required) | 
+**closeVolume** | **String** | Close Volume Description: - Required when close_type &#x3D; 1 - Ignored when close_type &#x3D; 2 |  [optional]
 
 ## Enum: CloseTypeEnum
 

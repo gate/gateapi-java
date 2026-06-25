@@ -43,6 +43,10 @@ public class FuturesBatchAmendOrderRequest {
     @SerializedName(SERIALIZED_NAME_AMEND_TEXT)
     private String amendText;
 
+    public static final String SERIALIZED_NAME_ACTION_MODE = "action_mode";
+    @SerializedName(SERIALIZED_NAME_ACTION_MODE)
+    private String actionMode;
+
 
     public FuturesBatchAmendOrderRequest orderId(Long orderId) {
         
@@ -143,6 +147,26 @@ public class FuturesBatchAmendOrderRequest {
     public void setAmendText(String amendText) {
         this.amendText = amendText;
     }
+
+    public FuturesBatchAmendOrderRequest actionMode(String actionMode) {
+        
+        this.actionMode = actionMode;
+        return this;
+    }
+
+     /**
+     * Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default)
+     * @return actionMode
+    **/
+    @javax.annotation.Nullable
+    public String getActionMode() {
+        return actionMode;
+    }
+
+
+    public void setActionMode(String actionMode) {
+        this.actionMode = actionMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -156,12 +180,13 @@ public class FuturesBatchAmendOrderRequest {
                 Objects.equals(this.text, futuresBatchAmendOrderRequest.text) &&
                 Objects.equals(this.size, futuresBatchAmendOrderRequest.size) &&
                 Objects.equals(this.price, futuresBatchAmendOrderRequest.price) &&
-                Objects.equals(this.amendText, futuresBatchAmendOrderRequest.amendText);
+                Objects.equals(this.amendText, futuresBatchAmendOrderRequest.amendText) &&
+                Objects.equals(this.actionMode, futuresBatchAmendOrderRequest.actionMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, text, size, price, amendText);
+        return Objects.hash(orderId, text, size, price, amendText, actionMode);
     }
 
 
@@ -174,6 +199,7 @@ public class FuturesBatchAmendOrderRequest {
         sb.append("      size: ").append(toIndentedString(size)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
         sb.append("      amendText: ").append(toIndentedString(amendText)).append("\n");
+        sb.append("      actionMode: ").append(toIndentedString(actionMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

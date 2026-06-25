@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**updateOrder**](TradFiApi.md#updateOrder) | **PUT** /tradfi/orders/{order_id} | Modify order
 [**deleteOrder**](TradFiApi.md#deleteOrder) | **DELETE** /tradfi/orders/{order_id} | Cancel order
 [**queryOrderHistoryList**](TradFiApi.md#queryOrderHistoryList) | **GET** /tradfi/orders/history | Query historical order list
+[**queryOrderLog**](TradFiApi.md#queryOrderLog) | **GET** /tradfi/orders/log/{log_id} | Get order details by log ID
 [**queryPositionList**](TradFiApi.md#queryPositionList) | **GET** /tradfi/positions | Query active position list
 [**updatePosition**](TradFiApi.md#updatePosition) | **PUT** /tradfi/positions/{position_id} | Modify position
 [**closePosition**](TradFiApi.md#closePosition) | **POST** /tradfi/positions/{position_id}/close | Close position
@@ -1061,6 +1062,75 @@ Name | Type | Description  | Notes
 **200** | Request success |  -  |
 **400** | Request failed |  -  |
 
+<a name="queryOrderLog"></a>
+# **queryOrderLog**
+> OrderLog queryOrderLog(logId)
+
+Get order details by log ID
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.TradFiApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        TradFiApi apiInstance = new TradFiApi(defaultClient);
+        Integer logId = 1223; // Integer | log_id returned from the order placement API
+        try {
+            OrderLog result = apiInstance.queryOrderLog(logId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TradFiApi#queryOrderLog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logId** | **Integer**| log_id returned from the order placement API |
+
+### Return type
+
+[**OrderLog**](OrderLog.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Request success |  -  |
+**400** | Request failed |  -  |
+
 <a name="queryPositionList"></a>
 # **queryPositionList**
 > PositionList queryPositionList()
@@ -1270,7 +1340,7 @@ Name | Type | Description  | Notes
 
 <a name="queryPositionHistoryList"></a>
 # **queryPositionHistoryList**
-> PositionHistoryList queryPositionHistoryList().beginTime(beginTime).endTime(endTime).symbol(symbol).positionDir(positionDir).execute();
+> PositionHistoryList queryPositionHistoryList().page(page).pageSize(pageSize).beginTime(beginTime).endTime(endTime).symbol(symbol).positionDir(positionDir).execute();
 
 Query historical position list
 
@@ -1295,12 +1365,16 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         TradFiApi apiInstance = new TradFiApi(defaultClient);
+        Long page = 1L; // Long | Page number; defaults to 1 if omitted.
+        Long pageSize = 10L; // Long | Page size; defaults to 10 if omitted. Maximum 100.
         Long beginTime = 56L; // Long | Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago
         Long endTime = 56L; // Long | End time (timestamp in seconds)
         String symbol = "symbol_example"; // String | Trading symbol (e.g., EURUSD)
         String positionDir = "positionDir_example"; // String | Position direction (Long=long position, Short=short position)
         try {
             PositionHistoryList result = apiInstance.queryPositionHistoryList()
+                        .page(page)
+                        .pageSize(pageSize)
                         .beginTime(beginTime)
                         .endTime(endTime)
                         .symbol(symbol)
@@ -1324,6 +1398,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **Long**| Page number; defaults to 1 if omitted. | [optional]
+ **pageSize** | **Long**| Page size; defaults to 10 if omitted. Maximum 100. | [optional]
  **beginTime** | **Long**| Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago | [optional]
  **endTime** | **Long**| End time (timestamp in seconds) | [optional]
  **symbol** | **String**| Trading symbol (e.g., EURUSD) | [optional]

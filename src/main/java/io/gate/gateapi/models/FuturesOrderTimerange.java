@@ -400,6 +400,14 @@ public class FuturesOrderTimerange {
     @SerializedName(SERIALIZED_NAME_POS_MARGIN_MODE)
     private String posMarginMode;
 
+    public static final String SERIALIZED_NAME_TPSL_TP_TRIGGER_PRICE = "tpsl_tp_trigger_price";
+    @SerializedName(SERIALIZED_NAME_TPSL_TP_TRIGGER_PRICE)
+    private String tpslTpTriggerPrice;
+
+    public static final String SERIALIZED_NAME_TPSL_SL_TRIGGER_PRICE = "tpsl_sl_trigger_price";
+    @SerializedName(SERIALIZED_NAME_TPSL_SL_TRIGGER_PRICE)
+    private String tpslSlTriggerPrice;
+
 
      /**
      * Futures order ID
@@ -827,6 +835,46 @@ public class FuturesOrderTimerange {
     public void setPosMarginMode(String posMarginMode) {
         this.posMarginMode = posMarginMode;
     }
+
+    public FuturesOrderTimerange tpslTpTriggerPrice(String tpslTpTriggerPrice) {
+        
+        this.tpslTpTriggerPrice = tpslTpTriggerPrice;
+        return this;
+    }
+
+     /**
+     * Take profit price
+     * @return tpslTpTriggerPrice
+    **/
+    @javax.annotation.Nullable
+    public String getTpslTpTriggerPrice() {
+        return tpslTpTriggerPrice;
+    }
+
+
+    public void setTpslTpTriggerPrice(String tpslTpTriggerPrice) {
+        this.tpslTpTriggerPrice = tpslTpTriggerPrice;
+    }
+
+    public FuturesOrderTimerange tpslSlTriggerPrice(String tpslSlTriggerPrice) {
+        
+        this.tpslSlTriggerPrice = tpslSlTriggerPrice;
+        return this;
+    }
+
+     /**
+     * Stop loss price
+     * @return tpslSlTriggerPrice
+    **/
+    @javax.annotation.Nullable
+    public String getTpslSlTriggerPrice() {
+        return tpslSlTriggerPrice;
+    }
+
+
+    public void setTpslSlTriggerPrice(String tpslSlTriggerPrice) {
+        this.tpslSlTriggerPrice = tpslSlTriggerPrice;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -865,12 +913,14 @@ public class FuturesOrderTimerange {
                 Objects.equals(this.amendText, futuresOrderTimerange.amendText) &&
                 Objects.equals(this.pid, futuresOrderTimerange.pid) &&
                 Objects.equals(this.marketOrderSlipRatio, futuresOrderTimerange.marketOrderSlipRatio) &&
-                Objects.equals(this.posMarginMode, futuresOrderTimerange.posMarginMode);
+                Objects.equals(this.posMarginMode, futuresOrderTimerange.posMarginMode) &&
+                Objects.equals(this.tpslTpTriggerPrice, futuresOrderTimerange.tpslTpTriggerPrice) &&
+                Objects.equals(this.tpslSlTriggerPrice, futuresOrderTimerange.tpslSlTriggerPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, marketOrderSlipRatio, posMarginMode);
+        return Objects.hash(id, user, createTime, updateTime, finishTime, finishAs, status, contract, size, iceberg, price, close, isClose, reduceOnly, isReduceOnly, isLiq, tif, left, fillPrice, text, tkfr, mkfr, refu, autoSize, stpId, stpAct, amendText, pid, marketOrderSlipRatio, posMarginMode, tpslTpTriggerPrice, tpslSlTriggerPrice);
     }
 
 
@@ -908,6 +958,8 @@ public class FuturesOrderTimerange {
         sb.append("      pid: ").append(toIndentedString(pid)).append("\n");
         sb.append("      marketOrderSlipRatio: ").append(toIndentedString(marketOrderSlipRatio)).append("\n");
         sb.append("      posMarginMode: ").append(toIndentedString(posMarginMode)).append("\n");
+        sb.append("      tpslTpTriggerPrice: ").append(toIndentedString(tpslTpTriggerPrice)).append("\n");
+        sb.append("      tpslSlTriggerPrice: ").append(toIndentedString(tpslSlTriggerPrice)).append("\n");
         sb.append("}");
         return sb.toString();
     }

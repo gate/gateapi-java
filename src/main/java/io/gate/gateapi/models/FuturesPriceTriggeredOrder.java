@@ -179,6 +179,57 @@ public class FuturesPriceTriggeredOrder {
     @SerializedName(SERIALIZED_NAME_ME_ORDER_ID)
     private Long meOrderId;
 
+    /**
+     * Position margin mode: &#x60;isolated&#x60; (isolated margin) or &#x60;cross&#x60; (cross margin). Returned by the server in simple split-position mode; when writing, use only the values below.
+     */
+    @JsonAdapter(PosMarginModeEnum.Adapter.class)
+    public enum PosMarginModeEnum {
+        ISOLATED("isolated"),
+        
+        CROSS("cross");
+
+        private String value;
+
+        PosMarginModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PosMarginModeEnum fromValue(String value) {
+            for (PosMarginModeEnum b : PosMarginModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<PosMarginModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PosMarginModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PosMarginModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return PosMarginModeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_POS_MARGIN_MODE = "pos_margin_mode";
+    @SerializedName(SERIALIZED_NAME_POS_MARGIN_MODE)
+    private PosMarginModeEnum posMarginMode;
+
 
     public FuturesPriceTriggeredOrder initial(FuturesInitialOrder initial) {
         
@@ -337,6 +388,26 @@ public class FuturesPriceTriggeredOrder {
         return meOrderId;
     }
 
+
+    public FuturesPriceTriggeredOrder posMarginMode(PosMarginModeEnum posMarginMode) {
+        
+        this.posMarginMode = posMarginMode;
+        return this;
+    }
+
+     /**
+     * Position margin mode: &#x60;isolated&#x60; (isolated margin) or &#x60;cross&#x60; (cross margin). Returned by the server in simple split-position mode; when writing, use only the values below.
+     * @return posMarginMode
+    **/
+    @javax.annotation.Nullable
+    public PosMarginModeEnum getPosMarginMode() {
+        return posMarginMode;
+    }
+
+
+    public void setPosMarginMode(PosMarginModeEnum posMarginMode) {
+        this.posMarginMode = posMarginMode;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -358,12 +429,13 @@ public class FuturesPriceTriggeredOrder {
                 Objects.equals(this.finishAs, futuresPriceTriggeredOrder.finishAs) &&
                 Objects.equals(this.reason, futuresPriceTriggeredOrder.reason) &&
                 Objects.equals(this.orderType, futuresPriceTriggeredOrder.orderType) &&
-                Objects.equals(this.meOrderId, futuresPriceTriggeredOrder.meOrderId);
+                Objects.equals(this.meOrderId, futuresPriceTriggeredOrder.meOrderId) &&
+                Objects.equals(this.posMarginMode, futuresPriceTriggeredOrder.posMarginMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(initial, trigger, id, idString, user, createTime, finishTime, tradeId, status, finishAs, reason, orderType, meOrderId);
+        return Objects.hash(initial, trigger, id, idString, user, createTime, finishTime, tradeId, status, finishAs, reason, orderType, meOrderId, posMarginMode);
     }
 
 
@@ -384,6 +456,7 @@ public class FuturesPriceTriggeredOrder {
         sb.append("      reason: ").append(toIndentedString(reason)).append("\n");
         sb.append("      orderType: ").append(toIndentedString(orderType)).append("\n");
         sb.append("      meOrderId: ").append(toIndentedString(meOrderId)).append("\n");
+        sb.append("      posMarginMode: ").append(toIndentedString(posMarginMode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
