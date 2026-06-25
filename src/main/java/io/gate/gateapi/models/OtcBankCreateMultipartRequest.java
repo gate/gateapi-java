@@ -17,7 +17,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -62,7 +61,7 @@ public class OtcBankCreateMultipartRequest {
 
     public static final String SERIALIZED_NAME_DOCUMENTATION_FILE = "documentation_file";
     @SerializedName(SERIALIZED_NAME_DOCUMENTATION_FILE)
-    private File documentationFile;
+    private String documentationFile;
 
 
     public OtcBankCreateMultipartRequest bankAccountName(String bankAccountName) {
@@ -239,22 +238,22 @@ public class OtcBankCreateMultipartRequest {
         this.agentBankSwift = agentBankSwift;
     }
 
-    public OtcBankCreateMultipartRequest documentationFile(File documentationFile) {
+    public OtcBankCreateMultipartRequest documentationFile(String documentationFile) {
         
         this.documentationFile = documentationFile;
         return this;
     }
 
      /**
-     * Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment).
+     * 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准）
      * @return documentationFile
     **/
-    public File getDocumentationFile() {
+    public String getDocumentationFile() {
         return documentationFile;
     }
 
 
-    public void setDocumentationFile(File documentationFile) {
+    public void setDocumentationFile(String documentationFile) {
         this.documentationFile = documentationFile;
     }
     @Override

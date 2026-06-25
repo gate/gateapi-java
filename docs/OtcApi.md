@@ -332,7 +332,7 @@ public class Example {
         String bankAddress = "bankAddress_example"; // String | 
         String iban = "iban_example"; // String | 
         String swift = "swift_example"; // String | 
-        File documentationFile = new File("/path/to/file"); // File | Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment).
+        String documentationFile = "documentationFile_example"; // String | 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准）
         String remittanceLineNumber = "remittanceLineNumber_example"; // String | 
         String agentBankName = "agentBankName_example"; // String | 
         String agentBankSwift = "agentBankSwift_example"; // String | 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
  **bankAddress** | **String**|  |
  **iban** | **String**|  |
  **swift** | **String**|  |
- **documentationFile** | **File**| Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). |
+ **documentationFile** | **String**| 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） |
  **remittanceLineNumber** | **String**|  | [optional]
  **agentBankName** | **String**|  | [optional]
  **agentBankSwift** | **String**|  | [optional]

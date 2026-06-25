@@ -20,7 +20,6 @@ import io.gate.gateapi.Pair;
 import com.google.gson.reflect.TypeToken;
 
 
-import java.io.File;
 import io.gate.gateapi.models.OtcActionResponse;
 import io.gate.gateapi.models.OtcBankCreateResponse;
 import io.gate.gateapi.models.OtcBankIdRequest;
@@ -488,7 +487,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -501,7 +500,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcBankCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOtcBankCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -571,7 +570,7 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOtcBankValidateBeforeCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createOtcBankValidateBeforeCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bankAccountName' is set
         if (bankAccountName == null) {
             throw new ApiException("Missing the required parameter 'bankAccountName' when calling createOtcBank(Async)");
@@ -620,7 +619,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -632,7 +631,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public OtcBankCreateResponse createOtcBank(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
+    public OtcBankCreateResponse createOtcBank(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
         ApiResponse<OtcBankCreateResponse> localVarResp = createOtcBankWithHttpInfo(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift);
         return localVarResp.getData();
     }
@@ -646,7 +645,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -658,7 +657,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OtcBankCreateResponse> createOtcBankWithHttpInfo(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
+    public ApiResponse<OtcBankCreateResponse> createOtcBankWithHttpInfo(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
         okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, null);
         Type localVarReturnType = new TypeToken<OtcBankCreateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -673,7 +672,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account-opening proof file (jpg/jpeg/png/pdf, etc.; single file ≤4MB — subject to production environment). (required)
+     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -686,7 +685,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcBankAsync(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, File documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback<OtcBankCreateResponse> _callback) throws ApiException {
+    public okhttp3.Call createOtcBankAsync(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback<OtcBankCreateResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, _callback);
         Type localVarReturnType = new TypeToken<OtcBankCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
