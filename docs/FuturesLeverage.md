@@ -7,5 +7,5 @@ Return result includes Lever field
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lever** | **String** | leverage |  [optional]
+**lever** | **String** | Leverage |  [optional]
 

@@ -59,7 +59,7 @@ public class MarginMarketLeverage {
     }
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     public String getLeverage() {

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **leverageMax** | **String** | the maximum permissible leverage given to the current positon value: the higher positon value, the lower maximum permissible leverage |  [optional] [readonly]
 **maintenanceRate** | **String** | The maintenance margin requirement for the risk limit at which the current position size is located.Since the maintenance margin for the position has been calculated using a tiered system, the actual maintenance margin rate required for this position is based on &#x60;average_maintenance_rate&#x60;. |  [optional] [readonly]
 **value** | **String** | Position value calculated in settlement currency |  [optional] [readonly]
-**margin** | **String** | Position margin |  [optional]
+**margin** | **String** | Margin |  [optional]
 **entryPrice** | **String** | Entry price |  [optional] [readonly]
 **liqPrice** | **String** | Estimated liquidation price, for reference only. The actual liquidation trigger is based on the position mmr or the account maintenance margin level. |  [optional] [readonly]
 **markPrice** | **String** | Current mark price |  [optional] [readonly]

@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **minQuoteAmount** | **String** | Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit |  [optional]
 **maxBaseAmount** | **String** | Maximum amount of base currency to trade, &#x60;null&#x60; means no limit |  [optional]
 **maxQuoteAmount** | **String** | Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit |  [optional]
-**amountPrecision** | **Integer** | Amount scale |  [optional]
-**precision** | **Integer** | Price scale |  [optional]
+**amountPrecision** | **Integer** | Quantity precision |  [optional]
+**precision** | **Integer** | Price precision |  [optional]
 **tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status  - untradable: cannot be traded - buyable: can be bought - sellable: can be sold - tradable: can be bought and sold |  [optional]
 **sellStart** | **Long** | Sell start unix timestamp in seconds |  [optional]
 **buyStart** | **Long** | Buy start unix timestamp in seconds |  [optional]
@@ -29,8 +29,8 @@ Name | Type | Description | Notes
 **upRate** | **String** | Maximum Quote Rise Percentage |  [optional]
 **downRate** | **String** | Maximum Quote Decline Percentage |  [optional]
 **slippage** | **String** | Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%) |  [optional]
-**marketOrderMaxStock** | **String** | Maximum Market Order Quantity |  [optional]
-**marketOrderMaxMoney** | **String** | Maximum Market Order Amount |  [optional]
+**marketOrderMaxStock** | **String** | Maximum market order quantity. &#x60;null&#x60; or &#x60;0&#x60; means no limit |  [optional]
+**marketOrderMaxMoney** | **String** | Maximum market order amount. &#x60;null&#x60; or &#x60;0&#x60; means no limit |  [optional]
 
 ## Enum: TradeStatusEnum
 

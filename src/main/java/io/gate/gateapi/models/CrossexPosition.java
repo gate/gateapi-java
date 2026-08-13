@@ -43,6 +43,14 @@ public class CrossexPosition {
     @SerializedName(SERIALIZED_NAME_INITIAL_MARGIN)
     private String initialMargin;
 
+    public static final String SERIALIZED_NAME_ISOLATED_MARGIN = "isolated_margin";
+    @SerializedName(SERIALIZED_NAME_ISOLATED_MARGIN)
+    private String isolatedMargin;
+
+    public static final String SERIALIZED_NAME_MARGIN_MODE = "margin_mode";
+    @SerializedName(SERIALIZED_NAME_MARGIN_MODE)
+    private String marginMode;
+
     public static final String SERIALIZED_NAME_MAINTENANCE_MARGIN = "maintenance_margin";
     @SerializedName(SERIALIZED_NAME_MAINTENANCE_MARGIN)
     private String maintenanceMargin;
@@ -66,6 +74,10 @@ public class CrossexPosition {
     public static final String SERIALIZED_NAME_ENTRY_PRICE = "entry_price";
     @SerializedName(SERIALIZED_NAME_ENTRY_PRICE)
     private String entryPrice;
+
+    public static final String SERIALIZED_NAME_LIQ_PRICE = "liq_price";
+    @SerializedName(SERIALIZED_NAME_LIQ_PRICE)
+    private String liqPrice;
 
     public static final String SERIALIZED_NAME_MARK_PRICE = "mark_price";
     @SerializedName(SERIALIZED_NAME_MARK_PRICE)
@@ -208,6 +220,46 @@ public class CrossexPosition {
         this.initialMargin = initialMargin;
     }
 
+    public CrossexPosition isolatedMargin(String isolatedMargin) {
+        
+        this.isolatedMargin = isolatedMargin;
+        return this;
+    }
+
+     /**
+     * Isolated margin. It is 0 in cross margin mode and applies only to isolated margin positions
+     * @return isolatedMargin
+    **/
+    @javax.annotation.Nullable
+    public String getIsolatedMargin() {
+        return isolatedMargin;
+    }
+
+
+    public void setIsolatedMargin(String isolatedMargin) {
+        this.isolatedMargin = isolatedMargin;
+    }
+
+    public CrossexPosition marginMode(String marginMode) {
+        
+        this.marginMode = marginMode;
+        return this;
+    }
+
+     /**
+     * Margin mode (CROSS/ISOLATED)
+     * @return marginMode
+    **/
+    @javax.annotation.Nullable
+    public String getMarginMode() {
+        return marginMode;
+    }
+
+
+    public void setMarginMode(String marginMode) {
+        this.marginMode = marginMode;
+    }
+
     public CrossexPosition maintenanceMargin(String maintenanceMargin) {
         
         this.maintenanceMargin = maintenanceMargin;
@@ -328,6 +380,26 @@ public class CrossexPosition {
         this.entryPrice = entryPrice;
     }
 
+    public CrossexPosition liqPrice(String liqPrice) {
+        
+        this.liqPrice = liqPrice;
+        return this;
+    }
+
+     /**
+     * Liquidation price. It is 0 in cross margin mode and applies only to isolated margin positions; 0 in isolated margin mode means the position will not be liquidated
+     * @return liqPrice
+    **/
+    @javax.annotation.Nullable
+    public String getLiqPrice() {
+        return liqPrice;
+    }
+
+
+    public void setLiqPrice(String liqPrice) {
+        this.liqPrice = liqPrice;
+    }
+
     public CrossexPosition markPrice(String markPrice) {
         
         this.markPrice = markPrice;
@@ -435,7 +507,7 @@ public class CrossexPosition {
     }
 
      /**
-     * Position Funding Fee
+     * Accumulated position funding fee. A positive value indicates a gain, while a negative value indicates a loss.
      * @return fundingFee
     **/
     @javax.annotation.Nullable
@@ -541,12 +613,15 @@ public class CrossexPosition {
                 Objects.equals(this.symbol, crossexPosition.symbol) &&
                 Objects.equals(this.positionSide, crossexPosition.positionSide) &&
                 Objects.equals(this.initialMargin, crossexPosition.initialMargin) &&
+                Objects.equals(this.isolatedMargin, crossexPosition.isolatedMargin) &&
+                Objects.equals(this.marginMode, crossexPosition.marginMode) &&
                 Objects.equals(this.maintenanceMargin, crossexPosition.maintenanceMargin) &&
                 Objects.equals(this.positionQty, crossexPosition.positionQty) &&
                 Objects.equals(this.positionValue, crossexPosition.positionValue) &&
                 Objects.equals(this.upnl, crossexPosition.upnl) &&
                 Objects.equals(this.upnlRate, crossexPosition.upnlRate) &&
                 Objects.equals(this.entryPrice, crossexPosition.entryPrice) &&
+                Objects.equals(this.liqPrice, crossexPosition.liqPrice) &&
                 Objects.equals(this.markPrice, crossexPosition.markPrice) &&
                 Objects.equals(this.leverage, crossexPosition.leverage) &&
                 Objects.equals(this.maxLeverage, crossexPosition.maxLeverage) &&
@@ -561,7 +636,7 @@ public class CrossexPosition {
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, positionId, symbol, positionSide, initialMargin, maintenanceMargin, positionQty, positionValue, upnl, upnlRate, entryPrice, markPrice, leverage, maxLeverage, riskLimit, fee, fundingFee, fundingTime, createTime, updateTime, closedPnl);
+        return Objects.hash(userId, positionId, symbol, positionSide, initialMargin, isolatedMargin, marginMode, maintenanceMargin, positionQty, positionValue, upnl, upnlRate, entryPrice, liqPrice, markPrice, leverage, maxLeverage, riskLimit, fee, fundingFee, fundingTime, createTime, updateTime, closedPnl);
     }
 
 
@@ -574,12 +649,15 @@ public class CrossexPosition {
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("      initialMargin: ").append(toIndentedString(initialMargin)).append("\n");
+        sb.append("      isolatedMargin: ").append(toIndentedString(isolatedMargin)).append("\n");
+        sb.append("      marginMode: ").append(toIndentedString(marginMode)).append("\n");
         sb.append("      maintenanceMargin: ").append(toIndentedString(maintenanceMargin)).append("\n");
         sb.append("      positionQty: ").append(toIndentedString(positionQty)).append("\n");
         sb.append("      positionValue: ").append(toIndentedString(positionValue)).append("\n");
         sb.append("      upnl: ").append(toIndentedString(upnl)).append("\n");
         sb.append("      upnlRate: ").append(toIndentedString(upnlRate)).append("\n");
         sb.append("      entryPrice: ").append(toIndentedString(entryPrice)).append("\n");
+        sb.append("      liqPrice: ").append(toIndentedString(liqPrice)).append("\n");
         sb.append("      markPrice: ").append(toIndentedString(markPrice)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("      maxLeverage: ").append(toIndentedString(maxLeverage)).append("\n");

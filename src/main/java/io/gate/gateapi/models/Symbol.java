@@ -79,6 +79,10 @@ public class Symbol {
     @SerializedName(SERIALIZED_NAME_DELIST_TIME)
     private String delistTime;
 
+    public static final String SERIALIZED_NAME_SUPPORT_RPI = "support_rpi";
+    @SerializedName(SERIALIZED_NAME_SUPPORT_RPI)
+    private String supportRpi;
+
 
     public Symbol symbol(String symbol) {
         
@@ -106,7 +110,7 @@ public class Symbol {
     }
 
      /**
-     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;).
+     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;).
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -163,7 +167,7 @@ public class Symbol {
     }
 
      /**
-     * Minimum order size allowed by the contract
+     * Minimum order quantity
      * @return minSize
     **/
     public String getMinSize() {
@@ -296,7 +300,7 @@ public class Symbol {
     }
 
      /**
-     * Contract Multiplier
+     * Contract multiplier (deprecated; quantity is used uniformly)
      * @return contractSize
     **/
     public String getContractSize() {
@@ -345,6 +349,26 @@ public class Symbol {
     public void setDelistTime(String delistTime) {
         this.delistTime = delistTime;
     }
+
+    public Symbol supportRpi(String supportRpi) {
+        
+        this.supportRpi = supportRpi;
+        return this;
+    }
+
+     /**
+     * Whether RPI order placement is supported (true if supported; false otherwise)
+     * @return supportRpi
+    **/
+    @javax.annotation.Nullable
+    public String getSupportRpi() {
+        return supportRpi;
+    }
+
+
+    public void setSupportRpi(String supportRpi) {
+        this.supportRpi = supportRpi;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -367,12 +391,13 @@ public class Symbol {
                 Objects.equals(this.maxLimitSize, symbol.maxLimitSize) &&
                 Objects.equals(this.contractSize, symbol.contractSize) &&
                 Objects.equals(this.liquidationFee, symbol.liquidationFee) &&
-                Objects.equals(this.delistTime, symbol.delistTime);
+                Objects.equals(this.delistTime, symbol.delistTime) &&
+                Objects.equals(this.supportRpi, symbol.supportRpi);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchangeType, businessType, state, minSize, minNotional, lotSize, tickSize, maxNumOrders, maxMarketSize, maxLimitSize, contractSize, liquidationFee, delistTime);
+        return Objects.hash(symbol, exchangeType, businessType, state, minSize, minNotional, lotSize, tickSize, maxNumOrders, maxMarketSize, maxLimitSize, contractSize, liquidationFee, delistTime, supportRpi);
     }
 
 
@@ -394,6 +419,7 @@ public class Symbol {
         sb.append("      contractSize: ").append(toIndentedString(contractSize)).append("\n");
         sb.append("      liquidationFee: ").append(toIndentedString(liquidationFee)).append("\n");
         sb.append("      delistTime: ").append(toIndentedString(delistTime)).append("\n");
+        sb.append("      supportRpi: ").append(toIndentedString(supportRpi)).append("\n");
         sb.append("}");
         return sb.toString();
     }

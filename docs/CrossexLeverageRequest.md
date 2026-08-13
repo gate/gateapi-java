@@ -8,5 +8,5 @@ Change Leverage Request Body (for futures/margin)
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** | Currency pair | 
-**leverage** | **String** | leverage | 
+**leverage** | **String** | Leverage | 
 

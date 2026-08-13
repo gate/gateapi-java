@@ -35,7 +35,7 @@ public class FuturesLeverage {
     }
 
      /**
-     * leverage
+     * Leverage
      * @return lever
     **/
     @javax.annotation.Nullable

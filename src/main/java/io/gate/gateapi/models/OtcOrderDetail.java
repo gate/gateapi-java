@@ -55,41 +55,85 @@ public class OtcOrderDetail {
     @SerializedName(SERIALIZED_NAME_RATE)
     private String rate;
 
-    public static final String SERIALIZED_NAME_TRANSFER_REMARK = "transfer_remark";
-    @SerializedName(SERIALIZED_NAME_TRANSFER_REMARK)
-    private String transferRemark;
+    public static final String SERIALIZED_NAME_BANK_ACCOUNT_NAME = "bank_account_name";
+    @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_NAME)
+    private String bankAccountName;
 
-    public static final String SERIALIZED_NAME_REFERENCE_CODE = "reference_code";
-    @SerializedName(SERIALIZED_NAME_REFERENCE_CODE)
-    private String referenceCode;
+    public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
+    @SerializedName(SERIALIZED_NAME_BANK_NAME)
+    private String bankName;
+
+    public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
+    @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
+    private String bankCountry;
+
+    public static final String SERIALIZED_NAME_BANK_ADDRESS = "bank_address";
+    @SerializedName(SERIALIZED_NAME_BANK_ADDRESS)
+    private String bankAddress;
+
+    public static final String SERIALIZED_NAME_BANK_ACCOUNT_NUMBER_IBAN = "bank_account_number_iban";
+    @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_NUMBER_IBAN)
+    private String bankAccountNumberIban;
+
+    public static final String SERIALIZED_NAME_SWIFT_CODE = "swift_code";
+    @SerializedName(SERIALIZED_NAME_SWIFT_CODE)
+    private String swiftCode;
+
+    public static final String SERIALIZED_NAME_INTERMEDIATE_BANK_NAME = "intermediate_bank_name";
+    @SerializedName(SERIALIZED_NAME_INTERMEDIATE_BANK_NAME)
+    private String intermediateBankName;
+
+    public static final String SERIALIZED_NAME_INTERMEDIARY_BANK_SWIFT_CODE = "intermediary_bank_swift_code";
+    @SerializedName(SERIALIZED_NAME_INTERMEDIARY_BANK_SWIFT_CODE)
+    private String intermediaryBankSwiftCode;
+
+    public static final String SERIALIZED_NAME_GATE_BANK_ACCOUNT_NAME = "gate_bank_account_name";
+    @SerializedName(SERIALIZED_NAME_GATE_BANK_ACCOUNT_NAME)
+    private String gateBankAccountName;
+
+    public static final String SERIALIZED_NAME_GATE_BANK_NAME = "gate_bank_name";
+    @SerializedName(SERIALIZED_NAME_GATE_BANK_NAME)
+    private String gateBankName;
+
+    public static final String SERIALIZED_NAME_GATE_BANK_COUNTRY = "gate_bank_country";
+    @SerializedName(SERIALIZED_NAME_GATE_BANK_COUNTRY)
+    private String gateBankCountry;
+
+    public static final String SERIALIZED_NAME_GATE_BANK_ADDRESS = "gate_bank_address";
+    @SerializedName(SERIALIZED_NAME_GATE_BANK_ADDRESS)
+    private String gateBankAddress;
+
+    public static final String SERIALIZED_NAME_GATE_BANK_ACCOUNT_NUMBER_IBAN = "gate_bank_account_number_iban";
+    @SerializedName(SERIALIZED_NAME_GATE_BANK_ACCOUNT_NUMBER_IBAN)
+    private String gateBankAccountNumberIban;
+
+    public static final String SERIALIZED_NAME_GATE_SWIFT_CODE = "gate_swift_code";
+    @SerializedName(SERIALIZED_NAME_GATE_SWIFT_CODE)
+    private String gateSwiftCode;
+
+    public static final String SERIALIZED_NAME_GATE_INTERMEDIARY_BANK_NAME = "gate_intermediary_bank_name";
+    @SerializedName(SERIALIZED_NAME_GATE_INTERMEDIARY_BANK_NAME)
+    private String gateIntermediaryBankName;
+
+    public static final String SERIALIZED_NAME_GATE_INTERMEDIARY_BANK_SWIFT_CODE = "gate_intermediary_bank_swift_code";
+    @SerializedName(SERIALIZED_NAME_GATE_INTERMEDIARY_BANK_SWIFT_CODE)
+    private String gateIntermediaryBankSwiftCode;
+
+    public static final String SERIALIZED_NAME_GATE_TRANSFER_REMARK = "gate_transfer_remark";
+    @SerializedName(SERIALIZED_NAME_GATE_TRANSFER_REMARK)
+    private String gateTransferRemark;
+
+    public static final String SERIALIZED_NAME_GATE_REFERENCE_CODE = "gate_reference_code";
+    @SerializedName(SERIALIZED_NAME_GATE_REFERENCE_CODE)
+    private String gateReferenceCode;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
-    public static final String SERIALIZED_NAME_DB_STATUS = "db_status";
-    @SerializedName(SERIALIZED_NAME_DB_STATUS)
-    private String dbStatus;
-
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
     private String createTime;
-
-    public static final String SERIALIZED_NAME_MEMO = "memo";
-    @SerializedName(SERIALIZED_NAME_MEMO)
-    private String memo;
-
-    public static final String SERIALIZED_NAME_SIDE = "side";
-    @SerializedName(SERIALIZED_NAME_SIDE)
-    private String side;
-
-    public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
-    @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
-    private String promotionCode;
-
-    public static final String SERIALIZED_NAME_TRADE_NO = "trade_no";
-    @SerializedName(SERIALIZED_NAME_TRADE_NO)
-    private String tradeNo;
 
 
     public OtcOrderDetail orderId(String orderId) {
@@ -156,7 +200,7 @@ public class OtcOrderDetail {
     }
 
      /**
-     * Fiat type
+     * Fiat currency
      * @return fiatCurrency
     **/
     public String getFiatCurrency() {
@@ -194,7 +238,7 @@ public class OtcOrderDetail {
     }
 
      /**
-     * Stablecoin
+     * Digital currency
      * @return cryptoCurrency
     **/
     public String getCryptoCurrency() {
@@ -213,7 +257,7 @@ public class OtcOrderDetail {
     }
 
      /**
-     * Stablecoin amount
+     * Cryptocurrency amount
      * @return cryptoAmount
     **/
     public String getCryptoAmount() {
@@ -244,43 +288,364 @@ public class OtcOrderDetail {
         this.rate = rate;
     }
 
-    public OtcOrderDetail transferRemark(String transferRemark) {
+    public OtcOrderDetail bankAccountName(String bankAccountName) {
         
-        this.transferRemark = transferRemark;
+        this.bankAccountName = bankAccountName;
         return this;
     }
 
      /**
-     * Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)
-     * @return transferRemark
-    **/
-    public String getTransferRemark() {
-        return transferRemark;
-    }
-
-
-    public void setTransferRemark(String transferRemark) {
-        this.transferRemark = transferRemark;
-    }
-
-    public OtcOrderDetail referenceCode(String referenceCode) {
-        
-        this.referenceCode = referenceCode;
-        return this;
-    }
-
-     /**
-     * Unique bank transfer reference code for deposit buy orders (SGB deposit scenario; mutually exclusive with transfer_remark)
-     * @return referenceCode
+     * User payment/receiving name
+     * @return bankAccountName
     **/
     @javax.annotation.Nullable
-    public String getReferenceCode() {
-        return referenceCode;
+    public String getBankAccountName() {
+        return bankAccountName;
     }
 
 
-    public void setReferenceCode(String referenceCode) {
-        this.referenceCode = referenceCode;
+    public void setBankAccountName(String bankAccountName) {
+        this.bankAccountName = bankAccountName;
+    }
+
+    public OtcOrderDetail bankName(String bankName) {
+        
+        this.bankName = bankName;
+        return this;
+    }
+
+     /**
+     * User payment/receiving bank name
+     * @return bankName
+    **/
+    @javax.annotation.Nullable
+    public String getBankName() {
+        return bankName;
+    }
+
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public OtcOrderDetail bankCountry(String bankCountry) {
+        
+        this.bankCountry = bankCountry;
+        return this;
+    }
+
+     /**
+     * User payment/receiving bank country
+     * @return bankCountry
+    **/
+    @javax.annotation.Nullable
+    public String getBankCountry() {
+        return bankCountry;
+    }
+
+
+    public void setBankCountry(String bankCountry) {
+        this.bankCountry = bankCountry;
+    }
+
+    public OtcOrderDetail bankAddress(String bankAddress) {
+        
+        this.bankAddress = bankAddress;
+        return this;
+    }
+
+     /**
+     * User payment/receiving bank address
+     * @return bankAddress
+    **/
+    @javax.annotation.Nullable
+    public String getBankAddress() {
+        return bankAddress;
+    }
+
+
+    public void setBankAddress(String bankAddress) {
+        this.bankAddress = bankAddress;
+    }
+
+    public OtcOrderDetail bankAccountNumberIban(String bankAccountNumberIban) {
+        
+        this.bankAccountNumberIban = bankAccountNumberIban;
+        return this;
+    }
+
+     /**
+     * User payment/receiving bank account number/IBAN
+     * @return bankAccountNumberIban
+    **/
+    @javax.annotation.Nullable
+    public String getBankAccountNumberIban() {
+        return bankAccountNumberIban;
+    }
+
+
+    public void setBankAccountNumberIban(String bankAccountNumberIban) {
+        this.bankAccountNumberIban = bankAccountNumberIban;
+    }
+
+    public OtcOrderDetail swiftCode(String swiftCode) {
+        
+        this.swiftCode = swiftCode;
+        return this;
+    }
+
+     /**
+     * User payment/receiving bank SWIFT code
+     * @return swiftCode
+    **/
+    @javax.annotation.Nullable
+    public String getSwiftCode() {
+        return swiftCode;
+    }
+
+
+    public void setSwiftCode(String swiftCode) {
+        this.swiftCode = swiftCode;
+    }
+
+    public OtcOrderDetail intermediateBankName(String intermediateBankName) {
+        
+        this.intermediateBankName = intermediateBankName;
+        return this;
+    }
+
+     /**
+     * User payment/receiving intermediary bank name
+     * @return intermediateBankName
+    **/
+    @javax.annotation.Nullable
+    public String getIntermediateBankName() {
+        return intermediateBankName;
+    }
+
+
+    public void setIntermediateBankName(String intermediateBankName) {
+        this.intermediateBankName = intermediateBankName;
+    }
+
+    public OtcOrderDetail intermediaryBankSwiftCode(String intermediaryBankSwiftCode) {
+        
+        this.intermediaryBankSwiftCode = intermediaryBankSwiftCode;
+        return this;
+    }
+
+     /**
+     * User payment/receiving intermediary bank SWIFT code
+     * @return intermediaryBankSwiftCode
+    **/
+    @javax.annotation.Nullable
+    public String getIntermediaryBankSwiftCode() {
+        return intermediaryBankSwiftCode;
+    }
+
+
+    public void setIntermediaryBankSwiftCode(String intermediaryBankSwiftCode) {
+        this.intermediaryBankSwiftCode = intermediaryBankSwiftCode;
+    }
+
+    public OtcOrderDetail gateBankAccountName(String gateBankAccountName) {
+        
+        this.gateBankAccountName = gateBankAccountName;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary name, shown for BUY only
+     * @return gateBankAccountName
+    **/
+    @javax.annotation.Nullable
+    public String getGateBankAccountName() {
+        return gateBankAccountName;
+    }
+
+
+    public void setGateBankAccountName(String gateBankAccountName) {
+        this.gateBankAccountName = gateBankAccountName;
+    }
+
+    public OtcOrderDetail gateBankName(String gateBankName) {
+        
+        this.gateBankName = gateBankName;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary bank name, shown for BUY only
+     * @return gateBankName
+    **/
+    @javax.annotation.Nullable
+    public String getGateBankName() {
+        return gateBankName;
+    }
+
+
+    public void setGateBankName(String gateBankName) {
+        this.gateBankName = gateBankName;
+    }
+
+    public OtcOrderDetail gateBankCountry(String gateBankCountry) {
+        
+        this.gateBankCountry = gateBankCountry;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary bank country, shown for BUY only
+     * @return gateBankCountry
+    **/
+    @javax.annotation.Nullable
+    public String getGateBankCountry() {
+        return gateBankCountry;
+    }
+
+
+    public void setGateBankCountry(String gateBankCountry) {
+        this.gateBankCountry = gateBankCountry;
+    }
+
+    public OtcOrderDetail gateBankAddress(String gateBankAddress) {
+        
+        this.gateBankAddress = gateBankAddress;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary bank address, shown for BUY only
+     * @return gateBankAddress
+    **/
+    @javax.annotation.Nullable
+    public String getGateBankAddress() {
+        return gateBankAddress;
+    }
+
+
+    public void setGateBankAddress(String gateBankAddress) {
+        this.gateBankAddress = gateBankAddress;
+    }
+
+    public OtcOrderDetail gateBankAccountNumberIban(String gateBankAccountNumberIban) {
+        
+        this.gateBankAccountNumberIban = gateBankAccountNumberIban;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary bank account number/IBAN, shown for BUY only
+     * @return gateBankAccountNumberIban
+    **/
+    @javax.annotation.Nullable
+    public String getGateBankAccountNumberIban() {
+        return gateBankAccountNumberIban;
+    }
+
+
+    public void setGateBankAccountNumberIban(String gateBankAccountNumberIban) {
+        this.gateBankAccountNumberIban = gateBankAccountNumberIban;
+    }
+
+    public OtcOrderDetail gateSwiftCode(String gateSwiftCode) {
+        
+        this.gateSwiftCode = gateSwiftCode;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary bank SWIFT code, shown for BUY only
+     * @return gateSwiftCode
+    **/
+    @javax.annotation.Nullable
+    public String getGateSwiftCode() {
+        return gateSwiftCode;
+    }
+
+
+    public void setGateSwiftCode(String gateSwiftCode) {
+        this.gateSwiftCode = gateSwiftCode;
+    }
+
+    public OtcOrderDetail gateIntermediaryBankName(String gateIntermediaryBankName) {
+        
+        this.gateIntermediaryBankName = gateIntermediaryBankName;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary intermediary bank name, shown for BUY only
+     * @return gateIntermediaryBankName
+    **/
+    @javax.annotation.Nullable
+    public String getGateIntermediaryBankName() {
+        return gateIntermediaryBankName;
+    }
+
+
+    public void setGateIntermediaryBankName(String gateIntermediaryBankName) {
+        this.gateIntermediaryBankName = gateIntermediaryBankName;
+    }
+
+    public OtcOrderDetail gateIntermediaryBankSwiftCode(String gateIntermediaryBankSwiftCode) {
+        
+        this.gateIntermediaryBankSwiftCode = gateIntermediaryBankSwiftCode;
+        return this;
+    }
+
+     /**
+     * Gate beneficiary intermediary bank SWIFT code, shown for BUY only
+     * @return gateIntermediaryBankSwiftCode
+    **/
+    @javax.annotation.Nullable
+    public String getGateIntermediaryBankSwiftCode() {
+        return gateIntermediaryBankSwiftCode;
+    }
+
+
+    public void setGateIntermediaryBankSwiftCode(String gateIntermediaryBankSwiftCode) {
+        this.gateIntermediaryBankSwiftCode = gateIntermediaryBankSwiftCode;
+    }
+
+    public OtcOrderDetail gateTransferRemark(String gateTransferRemark) {
+        
+        this.gateTransferRemark = gateTransferRemark;
+        return this;
+    }
+
+     /**
+     * Transfer remark (mutually exclusive with &#x60;gate_reference_code&#x60;; empty when a BUY deposit order has a reference code), shown for BUY only
+     * @return gateTransferRemark
+    **/
+    @javax.annotation.Nullable
+    public String getGateTransferRemark() {
+        return gateTransferRemark;
+    }
+
+
+    public void setGateTransferRemark(String gateTransferRemark) {
+        this.gateTransferRemark = gateTransferRemark;
+    }
+
+    public OtcOrderDetail gateReferenceCode(String gateReferenceCode) {
+        
+        this.gateReferenceCode = gateReferenceCode;
+        return this;
+    }
+
+     /**
+     * Be sure to include the reference code when making the transfer so that your order can be processed promptly. (Mutually exclusive with &#x60;gate_transfer_remark&#x60;.)
+     * @return gateReferenceCode
+    **/
+    @javax.annotation.Nullable
+    public String getGateReferenceCode() {
+        return gateReferenceCode;
+    }
+
+
+    public void setGateReferenceCode(String gateReferenceCode) {
+        this.gateReferenceCode = gateReferenceCode;
     }
 
     public OtcOrderDetail status(String status) {
@@ -302,25 +667,6 @@ public class OtcOrderDetail {
         this.status = status;
     }
 
-    public OtcOrderDetail dbStatus(String dbStatus) {
-        
-        this.dbStatus = dbStatus;
-        return this;
-    }
-
-     /**
-     * Get dbStatus
-     * @return dbStatus
-    **/
-    public String getDbStatus() {
-        return dbStatus;
-    }
-
-
-    public void setDbStatus(String dbStatus) {
-        this.dbStatus = dbStatus;
-    }
-
     public OtcOrderDetail createTime(String createTime) {
         
         this.createTime = createTime;
@@ -339,82 +685,6 @@ public class OtcOrderDetail {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
-
-    public OtcOrderDetail memo(String memo) {
-        
-        this.memo = memo;
-        return this;
-    }
-
-     /**
-     * Cancellation or rejection reason
-     * @return memo
-    **/
-    public String getMemo() {
-        return memo;
-    }
-
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
-    public OtcOrderDetail side(String side) {
-        
-        this.side = side;
-        return this;
-    }
-
-     /**
-     * Quote direction
-     * @return side
-    **/
-    public String getSide() {
-        return side;
-    }
-
-
-    public void setSide(String side) {
-        this.side = side;
-    }
-
-    public OtcOrderDetail promotionCode(String promotionCode) {
-        
-        this.promotionCode = promotionCode;
-        return this;
-    }
-
-     /**
-     * Promotion code
-     * @return promotionCode
-    **/
-    public String getPromotionCode() {
-        return promotionCode;
-    }
-
-
-    public void setPromotionCode(String promotionCode) {
-        this.promotionCode = promotionCode;
-    }
-
-    public OtcOrderDetail tradeNo(String tradeNo) {
-        
-        this.tradeNo = tradeNo;
-        return this;
-    }
-
-     /**
-     * Trade number
-     * @return tradeNo
-    **/
-    public String getTradeNo() {
-        return tradeNo;
-    }
-
-
-    public void setTradeNo(String tradeNo) {
-        this.tradeNo = tradeNo;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -432,20 +702,31 @@ public class OtcOrderDetail {
                 Objects.equals(this.cryptoCurrency, otcOrderDetail.cryptoCurrency) &&
                 Objects.equals(this.cryptoAmount, otcOrderDetail.cryptoAmount) &&
                 Objects.equals(this.rate, otcOrderDetail.rate) &&
-                Objects.equals(this.transferRemark, otcOrderDetail.transferRemark) &&
-                Objects.equals(this.referenceCode, otcOrderDetail.referenceCode) &&
+                Objects.equals(this.bankAccountName, otcOrderDetail.bankAccountName) &&
+                Objects.equals(this.bankName, otcOrderDetail.bankName) &&
+                Objects.equals(this.bankCountry, otcOrderDetail.bankCountry) &&
+                Objects.equals(this.bankAddress, otcOrderDetail.bankAddress) &&
+                Objects.equals(this.bankAccountNumberIban, otcOrderDetail.bankAccountNumberIban) &&
+                Objects.equals(this.swiftCode, otcOrderDetail.swiftCode) &&
+                Objects.equals(this.intermediateBankName, otcOrderDetail.intermediateBankName) &&
+                Objects.equals(this.intermediaryBankSwiftCode, otcOrderDetail.intermediaryBankSwiftCode) &&
+                Objects.equals(this.gateBankAccountName, otcOrderDetail.gateBankAccountName) &&
+                Objects.equals(this.gateBankName, otcOrderDetail.gateBankName) &&
+                Objects.equals(this.gateBankCountry, otcOrderDetail.gateBankCountry) &&
+                Objects.equals(this.gateBankAddress, otcOrderDetail.gateBankAddress) &&
+                Objects.equals(this.gateBankAccountNumberIban, otcOrderDetail.gateBankAccountNumberIban) &&
+                Objects.equals(this.gateSwiftCode, otcOrderDetail.gateSwiftCode) &&
+                Objects.equals(this.gateIntermediaryBankName, otcOrderDetail.gateIntermediaryBankName) &&
+                Objects.equals(this.gateIntermediaryBankSwiftCode, otcOrderDetail.gateIntermediaryBankSwiftCode) &&
+                Objects.equals(this.gateTransferRemark, otcOrderDetail.gateTransferRemark) &&
+                Objects.equals(this.gateReferenceCode, otcOrderDetail.gateReferenceCode) &&
                 Objects.equals(this.status, otcOrderDetail.status) &&
-                Objects.equals(this.dbStatus, otcOrderDetail.dbStatus) &&
-                Objects.equals(this.createTime, otcOrderDetail.createTime) &&
-                Objects.equals(this.memo, otcOrderDetail.memo) &&
-                Objects.equals(this.side, otcOrderDetail.side) &&
-                Objects.equals(this.promotionCode, otcOrderDetail.promotionCode) &&
-                Objects.equals(this.tradeNo, otcOrderDetail.tradeNo);
+                Objects.equals(this.createTime, otcOrderDetail.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, uid, type, fiatCurrency, fiatAmount, cryptoCurrency, cryptoAmount, rate, transferRemark, referenceCode, status, dbStatus, createTime, memo, side, promotionCode, tradeNo);
+        return Objects.hash(orderId, uid, type, fiatCurrency, fiatAmount, cryptoCurrency, cryptoAmount, rate, bankAccountName, bankName, bankCountry, bankAddress, bankAccountNumberIban, swiftCode, intermediateBankName, intermediaryBankSwiftCode, gateBankAccountName, gateBankName, gateBankCountry, gateBankAddress, gateBankAccountNumberIban, gateSwiftCode, gateIntermediaryBankName, gateIntermediaryBankSwiftCode, gateTransferRemark, gateReferenceCode, status, createTime);
     }
 
 
@@ -461,15 +742,26 @@ public class OtcOrderDetail {
         sb.append("      cryptoCurrency: ").append(toIndentedString(cryptoCurrency)).append("\n");
         sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("      transferRemark: ").append(toIndentedString(transferRemark)).append("\n");
-        sb.append("      referenceCode: ").append(toIndentedString(referenceCode)).append("\n");
+        sb.append("      bankAccountName: ").append(toIndentedString(bankAccountName)).append("\n");
+        sb.append("      bankName: ").append(toIndentedString(bankName)).append("\n");
+        sb.append("      bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
+        sb.append("      bankAddress: ").append(toIndentedString(bankAddress)).append("\n");
+        sb.append("      bankAccountNumberIban: ").append(toIndentedString(bankAccountNumberIban)).append("\n");
+        sb.append("      swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
+        sb.append("      intermediateBankName: ").append(toIndentedString(intermediateBankName)).append("\n");
+        sb.append("      intermediaryBankSwiftCode: ").append(toIndentedString(intermediaryBankSwiftCode)).append("\n");
+        sb.append("      gateBankAccountName: ").append(toIndentedString(gateBankAccountName)).append("\n");
+        sb.append("      gateBankName: ").append(toIndentedString(gateBankName)).append("\n");
+        sb.append("      gateBankCountry: ").append(toIndentedString(gateBankCountry)).append("\n");
+        sb.append("      gateBankAddress: ").append(toIndentedString(gateBankAddress)).append("\n");
+        sb.append("      gateBankAccountNumberIban: ").append(toIndentedString(gateBankAccountNumberIban)).append("\n");
+        sb.append("      gateSwiftCode: ").append(toIndentedString(gateSwiftCode)).append("\n");
+        sb.append("      gateIntermediaryBankName: ").append(toIndentedString(gateIntermediaryBankName)).append("\n");
+        sb.append("      gateIntermediaryBankSwiftCode: ").append(toIndentedString(gateIntermediaryBankSwiftCode)).append("\n");
+        sb.append("      gateTransferRemark: ").append(toIndentedString(gateTransferRemark)).append("\n");
+        sb.append("      gateReferenceCode: ").append(toIndentedString(gateReferenceCode)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
-        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
-        sb.append("      side: ").append(toIndentedString(side)).append("\n");
-        sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
-        sb.append("      tradeNo: ").append(toIndentedString(tradeNo)).append("\n");
         sb.append("}");
         return sb.toString();
     }

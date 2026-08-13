@@ -91,7 +91,7 @@ public class OrderLogData {
     private Integer state;
 
     /**
-     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     * Side (1&#x3D;sell, 2&#x3D;buy)
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -257,7 +257,7 @@ public class OrderLogData {
     }
 
      /**
-     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     * Side (1&#x3D;sell, 2&#x3D;buy)
      * @return side
     **/
     @javax.annotation.Nullable
@@ -277,7 +277,7 @@ public class OrderLogData {
     }
 
      /**
-     * Order volume
+     * Order quantity
      * @return volume
     **/
     @javax.annotation.Nullable

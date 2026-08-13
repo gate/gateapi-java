@@ -114,7 +114,7 @@ public class AutoInvestOrderItem {
     }
 
      /**
-     * type
+     * Type
      * @return type
     **/
     public String getType() {

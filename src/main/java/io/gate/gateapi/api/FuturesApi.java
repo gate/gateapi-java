@@ -3136,7 +3136,7 @@ public class FuturesApi {
 
         /**
          * Set limit
-         * @param limit Maximum number of records returned in a single list (optional, default to 100)
+         * @param limit Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. (optional)
          * @return APIlistPositionsRequest
          */
         public APIlistPositionsRequest limit(Integer limit) {

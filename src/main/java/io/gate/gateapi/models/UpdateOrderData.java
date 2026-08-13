@@ -119,7 +119,7 @@ public class UpdateOrderData {
     }
 
      /**
-     * Order volume
+     * Order quantity
      * @return volume
     **/
     @javax.annotation.Nullable

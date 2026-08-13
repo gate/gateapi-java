@@ -71,7 +71,7 @@ public class UniCurrencyPair {
 
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     @javax.annotation.Nullable

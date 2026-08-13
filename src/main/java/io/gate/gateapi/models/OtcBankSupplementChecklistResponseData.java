@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class OtcBankSupplementChecklistResponseData {
     /**
-     * personal or enterprise
+     * &#x60;personal&#x60; or &#x60;enterprise&#x60;, matching the supplementary document submission type; &#x60;items[].description&#x60; describes the submission requirements for each item
      */
     @JsonAdapter(UserTypeEnum.Adapter.class)
     public enum UserTypeEnum {
@@ -89,7 +89,7 @@ public class OtcBankSupplementChecklistResponseData {
     }
 
      /**
-     * personal or enterprise
+     * &#x60;personal&#x60; or &#x60;enterprise&#x60;, matching the supplementary document submission type; &#x60;items[].description&#x60; describes the submission requirements for each item
      * @return userType
     **/
     public UserTypeEnum getUserType() {

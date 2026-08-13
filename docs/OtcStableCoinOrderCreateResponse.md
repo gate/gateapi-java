@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | 
-**message** | **String** |  | 
+**code** | **Integer** | Business code; 0 indicates success | 
+**message** | **String** | Message | 
+**timestamp** | **Integer** | Server Unix timestamp in seconds | 
 

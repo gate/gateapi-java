@@ -91,7 +91,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Highest price
+     * High price
      * @return h
     **/
     @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class FuturesPremiumIndex {
     }
 
      /**
-     * Lowest price
+     * Low price
      * @return l
     **/
     @javax.annotation.Nullable

@@ -166,7 +166,7 @@ public class TransactionListDataList {
     }
 
      /**
-     * Change Quantity
+     * Change amount
      * @return change
     **/
     @javax.annotation.Nullable

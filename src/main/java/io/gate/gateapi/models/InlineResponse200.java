@@ -38,6 +38,10 @@ public class InlineResponse200 {
     @SerializedName(SERIALIZED_NAME_SPOT_TAKER_FEE)
     private String spotTakerFee;
 
+    public static final String SERIALIZED_NAME_SPOT_RPI_MAKER_FEE = "spot_rpi_maker_fee";
+    @SerializedName(SERIALIZED_NAME_SPOT_RPI_MAKER_FEE)
+    private String spotRpiMakerFee;
+
     public static final String SERIALIZED_NAME_FUTURE_MAKER_FEE = "future_maker_fee";
     @SerializedName(SERIALIZED_NAME_FUTURE_MAKER_FEE)
     private String futureMakerFee;
@@ -45,6 +49,10 @@ public class InlineResponse200 {
     public static final String SERIALIZED_NAME_FUTURE_TAKER_FEE = "future_taker_fee";
     @SerializedName(SERIALIZED_NAME_FUTURE_TAKER_FEE)
     private String futureTakerFee;
+
+    public static final String SERIALIZED_NAME_FUTURE_RPI_MAKER_FEE = "future_rpi_maker_fee";
+    @SerializedName(SERIALIZED_NAME_FUTURE_RPI_MAKER_FEE)
+    private String futureRpiMakerFee;
 
     public static final String SERIALIZED_NAME_SPECIAL_FEE_LIST = "special_fee_list";
     @SerializedName(SERIALIZED_NAME_SPECIAL_FEE_LIST)
@@ -109,6 +117,26 @@ public class InlineResponse200 {
         this.spotTakerFee = spotTakerFee;
     }
 
+    public InlineResponse200 spotRpiMakerFee(String spotRpiMakerFee) {
+        
+        this.spotRpiMakerFee = spotRpiMakerFee;
+        return this;
+    }
+
+     /**
+     * Spot RPI order maker fee rate
+     * @return spotRpiMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getSpotRpiMakerFee() {
+        return spotRpiMakerFee;
+    }
+
+
+    public void setSpotRpiMakerFee(String spotRpiMakerFee) {
+        this.spotRpiMakerFee = spotRpiMakerFee;
+    }
+
     public InlineResponse200 futureMakerFee(String futureMakerFee) {
         
         this.futureMakerFee = futureMakerFee;
@@ -147,6 +175,26 @@ public class InlineResponse200 {
         this.futureTakerFee = futureTakerFee;
     }
 
+    public InlineResponse200 futureRpiMakerFee(String futureRpiMakerFee) {
+        
+        this.futureRpiMakerFee = futureRpiMakerFee;
+        return this;
+    }
+
+     /**
+     * Futures RPI order maker fee rate
+     * @return futureRpiMakerFee
+    **/
+    @javax.annotation.Nullable
+    public String getFutureRpiMakerFee() {
+        return futureRpiMakerFee;
+    }
+
+
+    public void setFutureRpiMakerFee(String futureRpiMakerFee) {
+        this.futureRpiMakerFee = futureRpiMakerFee;
+    }
+
     public InlineResponse200 specialFeeList(List<CrossexSpecialFee> specialFeeList) {
         
         this.specialFeeList = specialFeeList;
@@ -182,14 +230,16 @@ public class InlineResponse200 {
         return Objects.equals(this.exchangeType, inlineResponse200.exchangeType) &&
                 Objects.equals(this.spotMakerFee, inlineResponse200.spotMakerFee) &&
                 Objects.equals(this.spotTakerFee, inlineResponse200.spotTakerFee) &&
+                Objects.equals(this.spotRpiMakerFee, inlineResponse200.spotRpiMakerFee) &&
                 Objects.equals(this.futureMakerFee, inlineResponse200.futureMakerFee) &&
                 Objects.equals(this.futureTakerFee, inlineResponse200.futureTakerFee) &&
+                Objects.equals(this.futureRpiMakerFee, inlineResponse200.futureRpiMakerFee) &&
                 Objects.equals(this.specialFeeList, inlineResponse200.specialFeeList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(exchangeType, spotMakerFee, spotTakerFee, futureMakerFee, futureTakerFee, specialFeeList);
+        return Objects.hash(exchangeType, spotMakerFee, spotTakerFee, spotRpiMakerFee, futureMakerFee, futureTakerFee, futureRpiMakerFee, specialFeeList);
     }
 
 
@@ -200,8 +250,10 @@ public class InlineResponse200 {
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
         sb.append("      spotMakerFee: ").append(toIndentedString(spotMakerFee)).append("\n");
         sb.append("      spotTakerFee: ").append(toIndentedString(spotTakerFee)).append("\n");
+        sb.append("      spotRpiMakerFee: ").append(toIndentedString(spotRpiMakerFee)).append("\n");
         sb.append("      futureMakerFee: ").append(toIndentedString(futureMakerFee)).append("\n");
         sb.append("      futureTakerFee: ").append(toIndentedString(futureTakerFee)).append("\n");
+        sb.append("      futureRpiMakerFee: ").append(toIndentedString(futureRpiMakerFee)).append("\n");
         sb.append("      specialFeeList: ").append(toIndentedString(specialFeeList)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -328,7 +328,7 @@ public class OtcApi {
 
     /**
      * Create stablecoin order
-     * Create stablecoin order
+     * Create a stablecoin order. All request body fields except &#x60;promotion_code&#x60; are required.
      * @param otcStableCoinOrderRequest  (required)
      * @return OtcStableCoinOrderCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -345,7 +345,7 @@ public class OtcApi {
 
     /**
      * Create stablecoin order
-     * Create stablecoin order
+     * Create a stablecoin order. All request body fields except &#x60;promotion_code&#x60; are required.
      * @param otcStableCoinOrderRequest  (required)
      * @return ApiResponse&lt;OtcStableCoinOrderCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -363,7 +363,7 @@ public class OtcApi {
 
     /**
      * Create stablecoin order (asynchronously)
-     * Create stablecoin order
+     * Create a stablecoin order. All request body fields except &#x60;promotion_code&#x60; are required.
      * @param otcStableCoinOrderRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -429,7 +429,7 @@ public class OtcApi {
 
     /**
      * Get user bank card list
-     * Retrieve the user&#39;s bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field &#x60;is_default&#x60; (1&#x3D;default); there is no need to call the deprecated standalone \&quot;default bank card\&quot; endpoint. Corresponding Inner: &#x60;GET /bank_list&#x60; or &#x60;GET /bank/list&#x60;.
+     * List the user&#39;s bank cards for selecting a card when placing an order. **Default card**: use the &#x60;is_default&#x60; field in each list item (&#x60;1&#x60; indicates the default). The deprecated standalone default-bank-card endpoint is no longer required.
      * @return OtcBankListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -445,7 +445,7 @@ public class OtcApi {
 
     /**
      * Get user bank card list
-     * Retrieve the user&#39;s bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field &#x60;is_default&#x60; (1&#x3D;default); there is no need to call the deprecated standalone \&quot;default bank card\&quot; endpoint. Corresponding Inner: &#x60;GET /bank_list&#x60; or &#x60;GET /bank/list&#x60;.
+     * List the user&#39;s bank cards for selecting a card when placing an order. **Default card**: use the &#x60;is_default&#x60; field in each list item (&#x60;1&#x60; indicates the default). The deprecated standalone default-bank-card endpoint is no longer required.
      * @return ApiResponse&lt;OtcBankListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,7 +462,7 @@ public class OtcApi {
 
     /**
      * Get user bank card list (asynchronously)
-     * Retrieve the user&#39;s bank card list, used to select a bank card when placing an order. **Default card**: refer to the list item field &#x60;is_default&#x60; (1&#x3D;default); there is no need to call the deprecated standalone \&quot;default bank card\&quot; endpoint. Corresponding Inner: &#x60;GET /bank_list&#x60; or &#x60;GET /bank/list&#x60;.
+     * List the user&#39;s bank cards for selecting a card when placing an order. **Default card**: use the &#x60;is_default&#x60; field in each list item (&#x60;1&#x60; indicates the default). The deprecated standalone default-bank-card endpoint is no longer required.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -487,7 +487,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
+     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -619,7 +619,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
+     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -645,7 +645,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
+     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -672,7 +672,7 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） (required)
+     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
@@ -964,7 +964,7 @@ public class OtcApi {
 
     /**
      * Query the checklist of materials to supplement for a bank card
-     * **①** &#x60;bank_id&#x60; must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user&#39;s **passed professional verification type** (personal/enterprise). Corresponding Inner: &#x60;GET /bank/bank_supplement_checklist&#x60;.
+     * **①** &#x60;bank_id&#x60; must be specified. After verifying that the card belongs to the current user and its status allows supplementary documents, the endpoint returns the required items based on the user&#39;s **approved advanced verification type** (personal/enterprise); each item&#39;s &#x60;description&#x60; states the submission requirements. Corresponding Inner endpoint: &#x60;GET /bank/bank_supplement_checklist&#x60;.
      * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
      * @return OtcBankSupplementChecklistResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -981,7 +981,7 @@ public class OtcApi {
 
     /**
      * Query the checklist of materials to supplement for a bank card
-     * **①** &#x60;bank_id&#x60; must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user&#39;s **passed professional verification type** (personal/enterprise). Corresponding Inner: &#x60;GET /bank/bank_supplement_checklist&#x60;.
+     * **①** &#x60;bank_id&#x60; must be specified. After verifying that the card belongs to the current user and its status allows supplementary documents, the endpoint returns the required items based on the user&#39;s **approved advanced verification type** (personal/enterprise); each item&#39;s &#x60;description&#x60; states the submission requirements. Corresponding Inner endpoint: &#x60;GET /bank/bank_supplement_checklist&#x60;.
      * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
      * @return ApiResponse&lt;OtcBankSupplementChecklistResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -999,7 +999,7 @@ public class OtcApi {
 
     /**
      * Query the checklist of materials to supplement for a bank card (asynchronously)
-     * **①** &#x60;bank_id&#x60; must be specified: after verifying that the card belongs to the current user and its status allows supplementation, returns the items to be supplemented and whether each sub-item is required, based on the user&#39;s **passed professional verification type** (personal/enterprise). Corresponding Inner: &#x60;GET /bank/bank_supplement_checklist&#x60;.
+     * **①** &#x60;bank_id&#x60; must be specified. After verifying that the card belongs to the current user and its status allows supplementary documents, the endpoint returns the required items based on the user&#39;s **approved advanced verification type** (personal/enterprise); each item&#39;s &#x60;description&#x60; states the submission requirements. Corresponding Inner endpoint: &#x60;GET /bank/bank_supplement_checklist&#x60;.
      * @param bankId Bank card ID (otc_rds / the id returned by the list endpoint). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1408,7 +1408,7 @@ public class OtcApi {
 
     /**
      * Mark fiat order as paid (deposit confirmation)
-     * Mark a fiat buy order as paid (deposit confirmation). **The user&#39;s payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name &#x60;payment_receipt&#x60; is subject to the gateway/production environment. For the persisted field, see &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (orders are usually associated via &#x60;client_order_id&#x60;); this OpenAPI path maps to Inner &#x60;POST /order/paid&#x60; and still uses &#x60;order_id&#x60; as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.
+     * Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name &#x60;payment_receipt&#x60; is subject to the gateway/live environment. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (commonly associated by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI endpoint, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.
      * @param otcMarkOrderPaidRequest  (required)
      * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1425,7 +1425,7 @@ public class OtcApi {
 
     /**
      * Mark fiat order as paid (deposit confirmation)
-     * Mark a fiat buy order as paid (deposit confirmation). **The user&#39;s payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name &#x60;payment_receipt&#x60; is subject to the gateway/production environment. For the persisted field, see &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (orders are usually associated via &#x60;client_order_id&#x60;); this OpenAPI path maps to Inner &#x60;POST /order/paid&#x60; and still uses &#x60;order_id&#x60; as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.
+     * Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name &#x60;payment_receipt&#x60; is subject to the gateway/live environment. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (commonly associated by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI endpoint, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.
      * @param otcMarkOrderPaidRequest  (required)
      * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1443,7 +1443,7 @@ public class OtcApi {
 
     /**
      * Mark fiat order as paid (deposit confirmation) (asynchronously)
-     * Mark a fiat buy order as paid (deposit confirmation). **The user&#39;s payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; file format jpg / jpeg / png / pdf, single file no larger than 4MB (jointly validated by the server and gateway). The compatible field name &#x60;payment_receipt&#x60; is subject to the gateway/production environment. For the persisted field, see &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (orders are usually associated via &#x60;client_order_id&#x60;); this OpenAPI path maps to Inner &#x60;POST /order/paid&#x60; and still uses &#x60;order_id&#x60; as the primary key—if the gateway unifies it to the merchant order number, the gateway documentation prevails.
+     * Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name &#x60;payment_receipt&#x60; is subject to the gateway/live environment. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (commonly associated by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI endpoint, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.
      * @param otcMarkOrderPaidRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1718,7 +1718,7 @@ public class OtcApi {
 
         /**
          * Set status
-         * @param status DONE: Completed CANCEL: Canceled PROCESSING: In Progress (optional)
+         * @param status DONE: completed CANCEL: canceled PROCESSING: in progress DISBURSED: disbursed (optional)
          * @return APIlistOtcOrdersRequest
          */
         public APIlistOtcOrdersRequest status(String status) {

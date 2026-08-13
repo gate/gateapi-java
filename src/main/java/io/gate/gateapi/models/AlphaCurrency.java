@@ -139,7 +139,7 @@ public class AlphaCurrency {
     }
 
      /**
-     * Amount scale
+     * Quantity precision
      * @return amountPrecision
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class AlphaCurrency {
     }
 
      /**
-     * Price scale
+     * Price precision
      * @return precision
     **/
     @javax.annotation.Nullable

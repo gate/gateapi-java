@@ -62,7 +62,6 @@ public class OtcStableCoinOrderRequest {
      * Currency paid by the user. Supported currencies can be queried from the OTC web stablecoin quote page.
      * @return payCoin
     **/
-    @javax.annotation.Nullable
     public String getPayCoin() {
         return payCoin;
     }
@@ -82,7 +81,6 @@ public class OtcStableCoinOrderRequest {
      * Currency to be received by the user. Supported currencies can be queried from the OTC web stablecoin quote page.
      * @return getCoin
     **/
-    @javax.annotation.Nullable
     public String getGetCoin() {
         return getCoin;
     }
@@ -102,7 +100,6 @@ public class OtcStableCoinOrderRequest {
      * User payment currency amount
      * @return payAmount
     **/
-    @javax.annotation.Nullable
     public String getPayAmount() {
         return payAmount;
     }
@@ -122,7 +119,6 @@ public class OtcStableCoinOrderRequest {
      * Amount of currency received by the user
      * @return getAmount
     **/
-    @javax.annotation.Nullable
     public String getGetAmount() {
         return getAmount;
     }
@@ -139,10 +135,9 @@ public class OtcStableCoinOrderRequest {
     }
 
      /**
-     * Quote direction returned by the quote API (used for order validation)
+     * The side returned by the quote endpoint (used for order validation). For backward compatibility, &#x60;PAY&#x60;/&#x60;GET&#x60; are accepted; new integrations should use the value returned by the quote response.
      * @return side
     **/
-    @javax.annotation.Nullable
     public String getSide() {
         return side;
     }
@@ -159,7 +154,7 @@ public class OtcStableCoinOrderRequest {
     }
 
      /**
-     * promotion code 
+     * Promotion code (optional)
      * @return promotionCode
     **/
     @javax.annotation.Nullable
@@ -182,7 +177,6 @@ public class OtcStableCoinOrderRequest {
      * Parameter returned by the quote API
      * @return quoteToken
     **/
-    @javax.annotation.Nullable
     public String getQuoteToken() {
         return quoteToken;
     }

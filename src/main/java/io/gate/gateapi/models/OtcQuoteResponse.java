@@ -36,6 +36,10 @@ public class OtcQuoteResponse {
     @SerializedName(SERIALIZED_NAME_DATA)
     private OtcQuoteResult data;
 
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
+
 
     public OtcQuoteResponse code(Integer code) {
         
@@ -93,6 +97,25 @@ public class OtcQuoteResponse {
     public void setData(OtcQuoteResult data) {
         this.data = data;
     }
+
+    public OtcQuoteResponse timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Server Unix timestamp in seconds
+     * @return timestamp
+    **/
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -104,12 +127,13 @@ public class OtcQuoteResponse {
         OtcQuoteResponse otcQuoteResponse = (OtcQuoteResponse) o;
         return Objects.equals(this.code, otcQuoteResponse.code) &&
                 Objects.equals(this.message, otcQuoteResponse.message) &&
-                Objects.equals(this.data, otcQuoteResponse.data);
+                Objects.equals(this.data, otcQuoteResponse.data) &&
+                Objects.equals(this.timestamp, otcQuoteResponse.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -120,6 +144,7 @@ public class OtcQuoteResponse {
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

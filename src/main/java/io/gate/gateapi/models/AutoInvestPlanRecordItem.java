@@ -110,7 +110,7 @@ public class AutoInvestPlanRecordItem {
     }
 
      /**
-     * type
+     * Type
      * @return type
     **/
     public String getType() {

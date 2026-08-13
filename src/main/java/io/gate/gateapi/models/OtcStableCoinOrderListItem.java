@@ -35,6 +35,10 @@ public class OtcStableCoinOrderListItem {
     @SerializedName(SERIALIZED_NAME_PAY_COIN)
     private String payCoin;
 
+    public static final String SERIALIZED_NAME_PAY_ICON = "pay_icon";
+    @SerializedName(SERIALIZED_NAME_PAY_ICON)
+    private String payIcon;
+
     public static final String SERIALIZED_NAME_PAY_AMOUNT = "pay_amount";
     @SerializedName(SERIALIZED_NAME_PAY_AMOUNT)
     private String payAmount;
@@ -42,6 +46,10 @@ public class OtcStableCoinOrderListItem {
     public static final String SERIALIZED_NAME_GET_COIN = "get_coin";
     @SerializedName(SERIALIZED_NAME_GET_COIN)
     private String getCoin;
+
+    public static final String SERIALIZED_NAME_GET_ICON = "get_icon";
+    @SerializedName(SERIALIZED_NAME_GET_ICON)
+    private String getIcon;
 
     public static final String SERIALIZED_NAME_GET_AMOUNT = "get_amount";
     @SerializedName(SERIALIZED_NAME_GET_AMOUNT)
@@ -128,6 +136,26 @@ public class OtcStableCoinOrderListItem {
         this.payCoin = payCoin;
     }
 
+    public OtcStableCoinOrderListItem payIcon(String payIcon) {
+        
+        this.payIcon = payIcon;
+        return this;
+    }
+
+     /**
+     * Payment currency icon
+     * @return payIcon
+    **/
+    @javax.annotation.Nullable
+    public String getPayIcon() {
+        return payIcon;
+    }
+
+
+    public void setPayIcon(String payIcon) {
+        this.payIcon = payIcon;
+    }
+
     public OtcStableCoinOrderListItem payAmount(String payAmount) {
         
         this.payAmount = payAmount;
@@ -166,6 +194,26 @@ public class OtcStableCoinOrderListItem {
 
     public void setGetCoin(String getCoin) {
         this.getCoin = getCoin;
+    }
+
+    public OtcStableCoinOrderListItem getIcon(String getIcon) {
+        
+        this.getIcon = getIcon;
+        return this;
+    }
+
+     /**
+     * Received currency icon
+     * @return getIcon
+    **/
+    @javax.annotation.Nullable
+    public String getGetIcon() {
+        return getIcon;
+    }
+
+
+    public void setGetIcon(String getIcon) {
+        this.getIcon = getIcon;
     }
 
     public OtcStableCoinOrderListItem getAmount(String getAmount) {
@@ -255,7 +303,7 @@ public class OtcStableCoinOrderListItem {
     }
 
      /**
-     * timetimestamp
+     * Created time
      * @return createTimest
     **/
     @javax.annotation.Nullable
@@ -299,8 +347,10 @@ public class OtcStableCoinOrderListItem {
         return Objects.equals(this.id, otcStableCoinOrderListItem.id) &&
                 Objects.equals(this.tradeNo, otcStableCoinOrderListItem.tradeNo) &&
                 Objects.equals(this.payCoin, otcStableCoinOrderListItem.payCoin) &&
+                Objects.equals(this.payIcon, otcStableCoinOrderListItem.payIcon) &&
                 Objects.equals(this.payAmount, otcStableCoinOrderListItem.payAmount) &&
                 Objects.equals(this.getCoin, otcStableCoinOrderListItem.getCoin) &&
+                Objects.equals(this.getIcon, otcStableCoinOrderListItem.getIcon) &&
                 Objects.equals(this.getAmount, otcStableCoinOrderListItem.getAmount) &&
                 Objects.equals(this.rate, otcStableCoinOrderListItem.rate) &&
                 Objects.equals(this.rateReci, otcStableCoinOrderListItem.rateReci) &&
@@ -311,7 +361,7 @@ public class OtcStableCoinOrderListItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tradeNo, payCoin, payAmount, getCoin, getAmount, rate, rateReci, status, createTimest, createTime);
+        return Objects.hash(id, tradeNo, payCoin, payIcon, payAmount, getCoin, getIcon, getAmount, rate, rateReci, status, createTimest, createTime);
     }
 
 
@@ -322,8 +372,10 @@ public class OtcStableCoinOrderListItem {
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      tradeNo: ").append(toIndentedString(tradeNo)).append("\n");
         sb.append("      payCoin: ").append(toIndentedString(payCoin)).append("\n");
+        sb.append("      payIcon: ").append(toIndentedString(payIcon)).append("\n");
         sb.append("      payAmount: ").append(toIndentedString(payAmount)).append("\n");
         sb.append("      getCoin: ").append(toIndentedString(getCoin)).append("\n");
+        sb.append("      getIcon: ").append(toIndentedString(getIcon)).append("\n");
         sb.append("      getAmount: ").append(toIndentedString(getAmount)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
         sb.append("      rateReci: ").append(toIndentedString(rateReci)).append("\n");

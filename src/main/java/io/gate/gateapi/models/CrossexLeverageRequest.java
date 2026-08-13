@@ -58,7 +58,7 @@ public class CrossexLeverageRequest {
     }
 
      /**
-     * leverage
+     * Leverage
      * @return leverage
     **/
     public String getLeverage() {

@@ -8,5 +8,5 @@ Market leverage settings
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currencyPair** | **String** | Market |  [optional]
-**leverage** | **String** | Position leverage | 
+**leverage** | **String** | Leverage multiplier | 
 

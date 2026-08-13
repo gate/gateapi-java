@@ -239,7 +239,7 @@ public class ContractDetailDataList {
     }
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     @javax.annotation.Nullable

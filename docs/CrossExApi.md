@@ -9,7 +9,8 @@ Method | HTTP request | Description
 [**listCrossexTransferCoins**](CrossExApi.md#listCrossexTransferCoins) | **GET** /crossex/transfers/coin | Query supported transfer currencies
 [**listCrossexTransfers**](CrossExApi.md#listCrossexTransfers) | **GET** /crossex/transfers | Query Fund Transfer History
 [**createCrossexTransfer**](CrossExApi.md#createCrossexTransfer) | **POST** /crossex/transfers | Fund Transfer
-[**createCrossexOrder**](CrossExApi.md#createCrossexOrder) | **POST** /crossex/orders | Create an order
+[**createCrossexOrder**](CrossExApi.md#createCrossexOrder) | **POST** /crossex/orders | Create order
+[**cancelBatchCrossexOrders**](CrossExApi.md#cancelBatchCrossexOrders) | **POST** /crossex/batch_cancel_orders | Batch cancel orders
 [**getCrossexOrder**](CrossExApi.md#getCrossexOrder) | **GET** /crossex/orders/{order_id} | Query order details
 [**updateCrossexOrder**](CrossExApi.md#updateCrossexOrder) | **PUT** /crossex/orders/{order_id} | Modify Order
 [**cancelCrossexOrder**](CrossExApi.md#cancelCrossexOrder) | **DELETE** /crossex/orders/{order_id} | Cancel Order
@@ -22,19 +23,24 @@ Method | HTTP request | Description
 [**getCrossexMarginPositionsLeverage**](CrossExApi.md#getCrossexMarginPositionsLeverage) | **GET** /crossex/margin_positions/leverage | Query Leveraged Trading Pair Leverage Multiplier
 [**updateCrossexMarginPositionsLeverage**](CrossExApi.md#updateCrossexMarginPositionsLeverage) | **POST** /crossex/margin_positions/leverage | Modify Leveraged Trading Pair Leverage Multiplier
 [**closeCrossexPosition**](CrossExApi.md#closeCrossexPosition) | **POST** /crossex/position | Full Close Position
+[**getCrossexPositionsMarginMode**](CrossExApi.md#getCrossexPositionsMarginMode) | **GET** /crossex/positions/margin_mode | Get futures position margin mode
+[**updateCrossexPositionsMarginMode**](CrossExApi.md#updateCrossexPositionsMarginMode) | **POST** /crossex/positions/margin_mode | Update futures position margin mode
+[**updateCrossexPositionsMargin**](CrossExApi.md#updateCrossexPositionsMargin) | **POST** /crossex/positions/margin | Increase or decrease isolated margin
 [**getCrossexInterestRate**](CrossExApi.md#getCrossexInterestRate) | **GET** /crossex/interest_rate | Query margin asset interest rates
 [**getCrossexFee**](CrossExApi.md#getCrossexFee) | **GET** /crossex/fee | Query User Fee Rates
 [**listCrossexPositions**](CrossExApi.md#listCrossexPositions) | **GET** /crossex/positions | Query Contract Positions
 [**listCrossexMarginPositions**](CrossExApi.md#listCrossexMarginPositions) | **GET** /crossex/margin_positions | Query Leveraged Positions
 [**listCrossexAdlRank**](CrossExApi.md#listCrossexAdlRank) | **GET** /crossex/adl_rank | Query ADL Position Reduction Ranking
 [**listCrossexOpenOrders**](CrossExApi.md#listCrossexOpenOrders) | **GET** /crossex/open_orders | Query All Current Open Orders
-[**listCrossexHistoryOrders**](CrossExApi.md#listCrossexHistoryOrders) | **GET** /crossex/history_orders | queryorderhistory
+[**listCrossexHistoryOrders**](CrossExApi.md#listCrossexHistoryOrders) | **GET** /crossex/history_orders | Query order history
 [**listCrossexHistoryPositions**](CrossExApi.md#listCrossexHistoryPositions) | **GET** /crossex/history_positions | Query Contract Position History
 [**listCrossexHistoryMarginPositions**](CrossExApi.md#listCrossexHistoryMarginPositions) | **GET** /crossex/history_margin_positions | Query Leveraged Position History
 [**listCrossexHistoryMarginInterests**](CrossExApi.md#listCrossexHistoryMarginInterests) | **GET** /crossex/history_margin_interests | Query Leveraged Interest Deduction History
-[**listCrossexHistoryTrades**](CrossExApi.md#listCrossexHistoryTrades) | **GET** /crossex/history_trades | queryfilledhistory
+[**listCrossexHistoryTrades**](CrossExApi.md#listCrossexHistoryTrades) | **GET** /crossex/history_trades | Query filled history
 [**listCrossexAccountBook**](CrossExApi.md#listCrossexAccountBook) | **GET** /crossex/account_book | Query Account Asset Change History
 [**listCrossexCoinDiscountRate**](CrossExApi.md#listCrossexCoinDiscountRate) | **GET** /crossex/coin_discount_rate | Query Currency Discount Rate
+[**listCrossexMarketTickers**](CrossExApi.md#listCrossexMarketTickers) | **GET** /crossex/market/tickers | Get exchange tickers
+[**listCrossexMarketFundingInfo**](CrossExApi.md#listCrossexMarketFundingInfo) | **GET** /crossex/market/funding_info | Get exchange futures funding rate information
 
 
 <a name="listCrossexRuleSymbols"></a>
@@ -177,7 +183,7 @@ No authorization required
 
 Query supported transfer currencies
 
-Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+&#x60;est_fee&#x60;: On-chain withdrawal fee. When a fund transfer involves an on-chain withdrawal, the exchange charges this fee. This value is for reference only; the actual fee charged by the exchange applies
 
 ### Example
 
@@ -400,7 +406,7 @@ Name | Type | Description  | Notes
 # **createCrossexOrder**
 > CrossexOrderActionResponse createCrossexOrder(crossexOrderRequest)
 
-Create an order
+Create order
 
 Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
 
@@ -465,6 +471,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="cancelBatchCrossexOrders"></a>
+# **cancelBatchCrossexOrders**
+> List&lt;CrossexBatchCancelOrderResponse&gt; cancelBatchCrossexOrders(crossexBatchCancelOrderRequest)
+
+Batch cancel orders
+
+Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        List<CrossexBatchCancelOrderRequest> crossexBatchCancelOrderRequest = Arrays.asList(); // List<CrossexBatchCancelOrderRequest> | 
+        try {
+            List<CrossexBatchCancelOrderResponse> result = apiInstance.cancelBatchCrossexOrders(crossexBatchCancelOrderRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#cancelBatchCrossexOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossexBatchCancelOrderRequest** | [**List&lt;CrossexBatchCancelOrderRequest&gt;**](CrossexBatchCancelOrderRequest.md)|  |
+
+### Return type
+
+[**List&lt;CrossexBatchCancelOrderResponse&gt;**](CrossexBatchCancelOrderResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Batch order cancellation request results |  -  |
 
 <a name="getCrossexOrder"></a>
 # **getCrossexOrder**
@@ -684,7 +760,7 @@ Name | Type | Description  | Notes
 
 Flash Swap Inquiry
 
-Rate Limit: 100 requests per day
+Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID
 
 ### Example
 
@@ -847,7 +923,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID"; // String | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID`).
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT"; // String | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).
         try {
             CrossexAccount result = apiInstance.getCrossexAccount()
                         .exchangeType(exchangeType)
@@ -870,7 +946,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeType** | **String**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;). | [optional]
+ **exchangeType** | **String**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;). | [optional]
 
 ### Return type
 
@@ -1250,7 +1326,7 @@ Name | Type | Description  | Notes
 
 Full Close Position
 
-Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
+Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.
 
 ### Example
 
@@ -1314,6 +1390,216 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **202** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
 
+<a name="getCrossexPositionsMarginMode"></a>
+# **getCrossexPositionsMarginMode**
+> CrossexMarginModeResponse getCrossexPositionsMarginMode(symbol)
+
+Get futures position margin mode
+
+Rate Limit: 200 requests per 10 seconds
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        String symbol = "HYPERLIQUID_FUTURE_CXMT_USDC"; // String | Futures trading pair
+        try {
+            CrossexMarginModeResponse result = apiInstance.getCrossexPositionsMarginMode(symbol);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#getCrossexPositionsMarginMode");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **String**| Futures trading pair |
+
+### Return type
+
+[**CrossexMarginModeResponse**](CrossexMarginModeResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="updateCrossexPositionsMarginMode"></a>
+# **updateCrossexPositionsMarginMode**
+> CrossexMarginModeResponse updateCrossexPositionsMarginMode(crossexMarginModeRequest)
+
+Update futures position margin mode
+
+Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        CrossexMarginModeRequest crossexMarginModeRequest = new CrossexMarginModeRequest(); // CrossexMarginModeRequest | 
+        try {
+            CrossexMarginModeResponse result = apiInstance.updateCrossexPositionsMarginMode(crossexMarginModeRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#updateCrossexPositionsMarginMode");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossexMarginModeRequest** | [**CrossexMarginModeRequest**](CrossexMarginModeRequest.md)|  | [optional]
+
+### Return type
+
+[**CrossexMarginModeResponse**](CrossexMarginModeResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="updateCrossexPositionsMargin"></a>
+# **updateCrossexPositionsMargin**
+> CrossexIsolatedMarginResponse updateCrossexPositionsMargin(crossexIsolatedMarginRequest)
+
+Increase or decrease isolated margin
+
+Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        CrossexIsolatedMarginRequest crossexIsolatedMarginRequest = new CrossexIsolatedMarginRequest(); // CrossexIsolatedMarginRequest | 
+        try {
+            CrossexIsolatedMarginResponse result = apiInstance.updateCrossexPositionsMargin(crossexIsolatedMarginRequest);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#updateCrossexPositionsMargin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **crossexIsolatedMarginRequest** | [**CrossexIsolatedMarginRequest**](CrossexIsolatedMarginRequest.md)|  | [optional]
+
+### Return type
+
+[**CrossexIsolatedMarginResponse**](CrossexIsolatedMarginResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
 <a name="getCrossexInterestRate"></a>
 # **getCrossexInterestRate**
 > List&lt;CrossexInterestRate&gt; getCrossexInterestRate().coin(coin).exchangeType(exchangeType).execute();
@@ -1344,7 +1630,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "SOL"; // String | Query by specified currency name
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT"; // String | Exchange
         try {
             List<CrossexInterestRate> result = apiInstance.getCrossexInterestRate()
                         .coin(coin)
@@ -1485,7 +1771,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT"; // String | Exchange
         try {
             List<CrossexPosition> result = apiInstance.listCrossexPositions()
                         .symbol(symbol)
@@ -1607,7 +1893,7 @@ Name | Type | Description  | Notes
 
 <a name="listCrossexAdlRank"></a>
 # **listCrossexAdlRank**
-> List&lt;CrossexAdlRank&gt; listCrossexAdlRank(symbol)
+> CrossexAdlRank listCrossexAdlRank(symbol)
 
 Query ADL Position Reduction Ranking
 
@@ -1636,7 +1922,7 @@ public class Example {
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
         try {
-            List<CrossexAdlRank> result = apiInstance.listCrossexAdlRank(symbol);
+            CrossexAdlRank result = apiInstance.listCrossexAdlRank(symbol);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -1659,7 +1945,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;CrossexAdlRank&gt;**](CrossexAdlRank.md)
+[**CrossexAdlRank**](CrossexAdlRank.md)
 
 ### Authorization
 
@@ -1757,7 +2043,7 @@ Name | Type | Description  | Notes
 # **listCrossexHistoryOrders**
 > List&lt;CrossexOrder&gt; listCrossexHistoryOrders().page(page).limit(limit).symbol(symbol).from(from).to(to).attributes(attributes).execute();
 
-queryorderhistory
+Query order history
 
 Rate Limit: 200 requests per 10 seconds
 
@@ -2099,7 +2385,7 @@ Name | Type | Description  | Notes
 # **listCrossexHistoryTrades**
 > List&lt;CrossexTrade&gt; listCrossexHistoryTrades().page(page).limit(limit).symbol(symbol).from(from).to(to).execute();
 
-queryfilledhistory
+Query filled history
 
 Rate Limit: 200 requests per 10 seconds
 
@@ -2296,7 +2582,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "SOL"; // String | Query by specified currency name
-        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID
+        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT
         try {
             List<CrossexCoinDiscountRate> result = apiInstance.listCrossexCoinDiscountRate()
                         .coin(coin)
@@ -2321,11 +2607,155 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| Query by specified currency name | [optional]
- **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID | [optional]
+ **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT | [optional]
 
 ### Return type
 
 [**List&lt;CrossexCoinDiscountRate&gt;**](CrossexCoinDiscountRate.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="listCrossexMarketTickers"></a>
+# **listCrossexMarketTickers**
+> List&lt;InlineResponse2001&gt; listCrossexMarketTickers().symbols(symbols).execute();
+
+Get exchange tickers
+
+Rate limit: 1 request per second - Margin trading pairs cannot be passed directly as parameters. For example, &#x60;GATE_MARGIN_BTC_USDT&#x60; is invalid.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        String symbols = "GATE_SPOT_BTC_USDT,GATE_FUTURE_BTC_USDT"; // String | Trading Pair List, multiple separated by commas
+        try {
+            List<InlineResponse2001> result = apiInstance.listCrossexMarketTickers()
+                        .symbols(symbols)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#listCrossexMarketTickers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbols** | **String**| Trading Pair List, multiple separated by commas | [optional]
+
+### Return type
+
+[**List&lt;InlineResponse2001&gt;**](InlineResponse2001.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="listCrossexMarketFundingInfo"></a>
+# **listCrossexMarketFundingInfo**
+> List&lt;InlineResponse2002&gt; listCrossexMarketFundingInfo().symbols(symbols).execute();
+
+Get exchange futures funding rate information
+
+Rate limit: 1 request per second - For &#x60;Deribit&#x60;, &#x60;funding_rate&#x60; is the current real-time rate calculated over an 8-hour period.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        String symbols = "BINANCE_MARGIN_BTC_USDT,OKX_MARGIN_BTC_USDT,GATE_MARGIN_BTC_USDT"; // String | Trading Pair List, multiple separated by commas
+        try {
+            List<InlineResponse2002> result = apiInstance.listCrossexMarketFundingInfo()
+                        .symbols(symbols)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#listCrossexMarketFundingInfo");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbols** | **String**| Trading Pair List, multiple separated by commas | [optional]
+
+### Return type
+
+[**List&lt;InlineResponse2002&gt;**](InlineResponse2002.md)
 
 ### Authorization
 

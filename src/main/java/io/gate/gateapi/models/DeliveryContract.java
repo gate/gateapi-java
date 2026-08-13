@@ -848,7 +848,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Minimum order size allowed by the contract
+     * Minimum order quantity
      * @return orderSizeMin
     **/
     @javax.annotation.Nullable
@@ -868,7 +868,7 @@ public class DeliveryContract {
     }
 
      /**
-     * Maximum order size allowed by the contract
+     * Maximum order quantity
      * @return orderSizeMax
     **/
     @javax.annotation.Nullable

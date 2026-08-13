@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **asset** | **String** | Asset Type |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Trading Type |  [optional]
 **typeDesc** | **String** | Transaction Type Description |  [optional]
-**change** | **String** | Change Quantity |  [optional]
+**change** | **String** | Change amount |  [optional]
 **balance** | **String** | Current Balance |  [optional]
 **time** | **Long** | Occurrence Time (Second-level Timestamp) |  [optional]
 

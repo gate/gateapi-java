@@ -49,10 +49,6 @@ public class OtcOrderListItem {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
-    public static final String SERIALIZED_NAME_DB_STATUS = "db_status";
-    @SerializedName(SERIALIZED_NAME_DB_STATUS)
-    private String dbStatus;
-
     public static final String SERIALIZED_NAME_FIAT_CURRENCY = "fiat_currency";
     @SerializedName(SERIALIZED_NAME_FIAT_CURRENCY)
     private String fiatCurrency;
@@ -80,18 +76,6 @@ public class OtcOrderListItem {
     public static final String SERIALIZED_NAME_RATE = "rate";
     @SerializedName(SERIALIZED_NAME_RATE)
     private String rate;
-
-    public static final String SERIALIZED_NAME_TRANSFER_REMARK = "transfer_remark";
-    @SerializedName(SERIALIZED_NAME_TRANSFER_REMARK)
-    private String transferRemark;
-
-    public static final String SERIALIZED_NAME_REFERENCE_CODE = "reference_code";
-    @SerializedName(SERIALIZED_NAME_REFERENCE_CODE)
-    private String referenceCode;
-
-    public static final String SERIALIZED_NAME_GATE_BANK_ACCOUNT_IBAN = "gate_bank_account_iban";
-    @SerializedName(SERIALIZED_NAME_GATE_BANK_ACCOUNT_IBAN)
-    private String gateBankAccountIban;
 
     public static final String SERIALIZED_NAME_PROMOTION_CODE = "promotion_code";
     @SerializedName(SERIALIZED_NAME_PROMOTION_CODE)
@@ -185,7 +169,7 @@ public class OtcOrderListItem {
     }
 
      /**
-     * Quote direction buy/sell/all
+     * BUY deposit / SELL withdrawal
      * @return type
     **/
     @javax.annotation.Nullable
@@ -205,7 +189,7 @@ public class OtcOrderListItem {
     }
 
      /**
-     * Order Status
+     * Order status
      * @return status
     **/
     @javax.annotation.Nullable
@@ -218,26 +202,6 @@ public class OtcOrderListItem {
         this.status = status;
     }
 
-    public OtcOrderListItem dbStatus(String dbStatus) {
-        
-        this.dbStatus = dbStatus;
-        return this;
-    }
-
-     /**
-     * Get dbStatus
-     * @return dbStatus
-    **/
-    @javax.annotation.Nullable
-    public String getDbStatus() {
-        return dbStatus;
-    }
-
-
-    public void setDbStatus(String dbStatus) {
-        this.dbStatus = dbStatus;
-    }
-
     public OtcOrderListItem fiatCurrency(String fiatCurrency) {
         
         this.fiatCurrency = fiatCurrency;
@@ -245,7 +209,7 @@ public class OtcOrderListItem {
     }
 
      /**
-     * Fiat type
+     * Fiat currency
      * @return fiatCurrency
     **/
     @javax.annotation.Nullable
@@ -305,7 +269,7 @@ public class OtcOrderListItem {
     }
 
      /**
-     * Stablecoin
+     * Digital currency
      * @return cryptoCurrency
     **/
     @javax.annotation.Nullable
@@ -345,7 +309,7 @@ public class OtcOrderListItem {
     }
 
      /**
-     * Stablecoin amount
+     * Cryptocurrency amount
      * @return cryptoAmount
     **/
     @javax.annotation.Nullable
@@ -376,66 +340,6 @@ public class OtcOrderListItem {
 
     public void setRate(String rate) {
         this.rate = rate;
-    }
-
-    public OtcOrderListItem transferRemark(String transferRemark) {
-        
-        this.transferRemark = transferRemark;
-        return this;
-    }
-
-     /**
-     * Transfer remark (mutually exclusive with reference_code; empty string when the deposit buy order has a reference code)
-     * @return transferRemark
-    **/
-    @javax.annotation.Nullable
-    public String getTransferRemark() {
-        return transferRemark;
-    }
-
-
-    public void setTransferRemark(String transferRemark) {
-        this.transferRemark = transferRemark;
-    }
-
-    public OtcOrderListItem referenceCode(String referenceCode) {
-        
-        this.referenceCode = referenceCode;
-        return this;
-    }
-
-     /**
-     * Unique bank transfer reference code for deposit buy orders (SGB deposit scenario)
-     * @return referenceCode
-    **/
-    @javax.annotation.Nullable
-    public String getReferenceCode() {
-        return referenceCode;
-    }
-
-
-    public void setReferenceCode(String referenceCode) {
-        this.referenceCode = referenceCode;
-    }
-
-    public OtcOrderListItem gateBankAccountIban(String gateBankAccountIban) {
-        
-        this.gateBankAccountIban = gateBankAccountIban;
-        return this;
-    }
-
-     /**
-     * Bank account
-     * @return gateBankAccountIban
-    **/
-    @javax.annotation.Nullable
-    public String getGateBankAccountIban() {
-        return gateBankAccountIban;
-    }
-
-
-    public void setGateBankAccountIban(String gateBankAccountIban) {
-        this.gateBankAccountIban = gateBankAccountIban;
     }
 
     public OtcOrderListItem promotionCode(String promotionCode) {
@@ -472,7 +376,6 @@ public class OtcOrderListItem {
                 Objects.equals(this.tradeNo, otcOrderListItem.tradeNo) &&
                 Objects.equals(this.type, otcOrderListItem.type) &&
                 Objects.equals(this.status, otcOrderListItem.status) &&
-                Objects.equals(this.dbStatus, otcOrderListItem.dbStatus) &&
                 Objects.equals(this.fiatCurrency, otcOrderListItem.fiatCurrency) &&
                 Objects.equals(this.fiatCurrencyInfo, otcOrderListItem.fiatCurrencyInfo) &&
                 Objects.equals(this.fiatAmount, otcOrderListItem.fiatAmount) &&
@@ -480,15 +383,12 @@ public class OtcOrderListItem {
                 Objects.equals(this.cryptoCurrencyInfo, otcOrderListItem.cryptoCurrencyInfo) &&
                 Objects.equals(this.cryptoAmount, otcOrderListItem.cryptoAmount) &&
                 Objects.equals(this.rate, otcOrderListItem.rate) &&
-                Objects.equals(this.transferRemark, otcOrderListItem.transferRemark) &&
-                Objects.equals(this.referenceCode, otcOrderListItem.referenceCode) &&
-                Objects.equals(this.gateBankAccountIban, otcOrderListItem.gateBankAccountIban) &&
                 Objects.equals(this.promotionCode, otcOrderListItem.promotionCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(time, timestamp, orderId, tradeNo, type, status, dbStatus, fiatCurrency, fiatCurrencyInfo, fiatAmount, cryptoCurrency, cryptoCurrencyInfo, cryptoAmount, rate, transferRemark, referenceCode, gateBankAccountIban, promotionCode);
+        return Objects.hash(time, timestamp, orderId, tradeNo, type, status, fiatCurrency, fiatCurrencyInfo, fiatAmount, cryptoCurrency, cryptoCurrencyInfo, cryptoAmount, rate, promotionCode);
     }
 
 
@@ -502,7 +402,6 @@ public class OtcOrderListItem {
         sb.append("      tradeNo: ").append(toIndentedString(tradeNo)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
         sb.append("      fiatCurrency: ").append(toIndentedString(fiatCurrency)).append("\n");
         sb.append("      fiatCurrencyInfo: ").append(toIndentedString(fiatCurrencyInfo)).append("\n");
         sb.append("      fiatAmount: ").append(toIndentedString(fiatAmount)).append("\n");
@@ -510,9 +409,6 @@ public class OtcOrderListItem {
         sb.append("      cryptoCurrencyInfo: ").append(toIndentedString(cryptoCurrencyInfo)).append("\n");
         sb.append("      cryptoAmount: ").append(toIndentedString(cryptoAmount)).append("\n");
         sb.append("      rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("      transferRemark: ").append(toIndentedString(transferRemark)).append("\n");
-        sb.append("      referenceCode: ").append(toIndentedString(referenceCode)).append("\n");
-        sb.append("      gateBankAccountIban: ").append(toIndentedString(gateBankAccountIban)).append("\n");
         sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
         sb.append("}");
         return sb.toString();

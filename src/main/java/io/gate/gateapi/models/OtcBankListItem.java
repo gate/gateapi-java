@@ -43,14 +43,6 @@ public class OtcBankListItem {
     @SerializedName(SERIALIZED_NAME_BANK_ADDRESS)
     private String bankAddress;
 
-    public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
-    @SerializedName(SERIALIZED_NAME_BANK_CODE)
-    private String bankCode;
-
-    public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
-    @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
-    private String branchCode;
-
     public static final String SERIALIZED_NAME_IBAN = "iban";
     @SerializedName(SERIALIZED_NAME_IBAN)
     private String iban;
@@ -83,25 +75,9 @@ public class OtcBankListItem {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private String status;
 
-    public static final String SERIALIZED_NAME_DOCUMENTATION_FILE_TYPE = "documentation_file_type";
-    @SerializedName(SERIALIZED_NAME_DOCUMENTATION_FILE_TYPE)
-    private String documentationFileType;
-
-    public static final String SERIALIZED_NAME_MEMO = "memo";
-    @SerializedName(SERIALIZED_NAME_MEMO)
-    private String memo;
-
     public static final String SERIALIZED_NAME_IS_DEFAULT = "is_default";
     @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
     private Integer isDefault;
-
-    public static final String SERIALIZED_NAME_BANK_ID = "bank_id";
-    @SerializedName(SERIALIZED_NAME_BANK_ID)
-    private String bankId;
-
-    public static final String SERIALIZED_NAME_DOCUMENTATION_FILE_KEY_URL = "documentation_file_key_url";
-    @SerializedName(SERIALIZED_NAME_DOCUMENTATION_FILE_KEY_URL)
-    private String documentationFileKeyUrl;
 
 
     public OtcBankListItem id(String id) {
@@ -111,7 +87,7 @@ public class OtcBankListItem {
     }
 
      /**
-     * Bank ID (required for order placement)
+     * Bank card ID (used when placing an order; the synonymous &#x60;bank_id&#x60; field has been consolidated into &#x60;id&#x60;)
      * @return id
     **/
     public String getId() {
@@ -199,46 +175,6 @@ public class OtcBankListItem {
 
     public void setBankAddress(String bankAddress) {
         this.bankAddress = bankAddress;
-    }
-
-    public OtcBankListItem bankCode(String bankCode) {
-        
-        this.bankCode = bankCode;
-        return this;
-    }
-
-     /**
-     * Bank code
-     * @return bankCode
-    **/
-    @javax.annotation.Nullable
-    public String getBankCode() {
-        return bankCode;
-    }
-
-
-    public void setBankCode(String bankCode) {
-        this.bankCode = bankCode;
-    }
-
-    public OtcBankListItem branchCode(String branchCode) {
-        
-        this.branchCode = branchCode;
-        return this;
-    }
-
-     /**
-     * Branch code
-     * @return branchCode
-    **/
-    @javax.annotation.Nullable
-    public String getBranchCode() {
-        return branchCode;
-    }
-
-
-    public void setBranchCode(String branchCode) {
-        this.branchCode = branchCode;
     }
 
     public OtcBankListItem iban(String iban) {
@@ -401,46 +337,6 @@ public class OtcBankListItem {
         this.status = status;
     }
 
-    public OtcBankListItem documentationFileType(String documentationFileType) {
-        
-        this.documentationFileType = documentationFileType;
-        return this;
-    }
-
-     /**
-     * Document file type
-     * @return documentationFileType
-    **/
-    @javax.annotation.Nullable
-    public String getDocumentationFileType() {
-        return documentationFileType;
-    }
-
-
-    public void setDocumentationFileType(String documentationFileType) {
-        this.documentationFileType = documentationFileType;
-    }
-
-    public OtcBankListItem memo(String memo) {
-        
-        this.memo = memo;
-        return this;
-    }
-
-     /**
-     * Remark
-     * @return memo
-    **/
-    @javax.annotation.Nullable
-    public String getMemo() {
-        return memo;
-    }
-
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
-
     public OtcBankListItem isDefault(Integer isDefault) {
         
         this.isDefault = isDefault;
@@ -460,46 +356,6 @@ public class OtcBankListItem {
     public void setIsDefault(Integer isDefault) {
         this.isDefault = isDefault;
     }
-
-    public OtcBankListItem bankId(String bankId) {
-        
-        this.bankId = bankId;
-        return this;
-    }
-
-     /**
-     * Bank ID
-     * @return bankId
-    **/
-    @javax.annotation.Nullable
-    public String getBankId() {
-        return bankId;
-    }
-
-
-    public void setBankId(String bankId) {
-        this.bankId = bankId;
-    }
-
-    public OtcBankListItem documentationFileKeyUrl(String documentationFileKeyUrl) {
-        
-        this.documentationFileKeyUrl = documentationFileKeyUrl;
-        return this;
-    }
-
-     /**
-     * Document file URL
-     * @return documentationFileKeyUrl
-    **/
-    @javax.annotation.Nullable
-    public String getDocumentationFileKeyUrl() {
-        return documentationFileKeyUrl;
-    }
-
-
-    public void setDocumentationFileKeyUrl(String documentationFileKeyUrl) {
-        this.documentationFileKeyUrl = documentationFileKeyUrl;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -514,8 +370,6 @@ public class OtcBankListItem {
                 Objects.equals(this.bankName, otcBankListItem.bankName) &&
                 Objects.equals(this.bankCountry, otcBankListItem.bankCountry) &&
                 Objects.equals(this.bankAddress, otcBankListItem.bankAddress) &&
-                Objects.equals(this.bankCode, otcBankListItem.bankCode) &&
-                Objects.equals(this.branchCode, otcBankListItem.branchCode) &&
                 Objects.equals(this.iban, otcBankListItem.iban) &&
                 Objects.equals(this.swift, otcBankListItem.swift) &&
                 Objects.equals(this.remittanceLineNumber, otcBankListItem.remittanceLineNumber) &&
@@ -524,16 +378,12 @@ public class OtcBankListItem {
                 Objects.equals(this.submitTime, otcBankListItem.submitTime) &&
                 Objects.equals(this.updateTime, otcBankListItem.updateTime) &&
                 Objects.equals(this.status, otcBankListItem.status) &&
-                Objects.equals(this.documentationFileType, otcBankListItem.documentationFileType) &&
-                Objects.equals(this.memo, otcBankListItem.memo) &&
-                Objects.equals(this.isDefault, otcBankListItem.isDefault) &&
-                Objects.equals(this.bankId, otcBankListItem.bankId) &&
-                Objects.equals(this.documentationFileKeyUrl, otcBankListItem.documentationFileKeyUrl);
+                Objects.equals(this.isDefault, otcBankListItem.isDefault);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, bankAccountName, bankName, bankCountry, bankAddress, bankCode, branchCode, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, submitTime, updateTime, status, documentationFileType, memo, isDefault, bankId, documentationFileKeyUrl);
+        return Objects.hash(id, bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, submitTime, updateTime, status, isDefault);
     }
 
 
@@ -546,8 +396,6 @@ public class OtcBankListItem {
         sb.append("      bankName: ").append(toIndentedString(bankName)).append("\n");
         sb.append("      bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
         sb.append("      bankAddress: ").append(toIndentedString(bankAddress)).append("\n");
-        sb.append("      bankCode: ").append(toIndentedString(bankCode)).append("\n");
-        sb.append("      branchCode: ").append(toIndentedString(branchCode)).append("\n");
         sb.append("      iban: ").append(toIndentedString(iban)).append("\n");
         sb.append("      swift: ").append(toIndentedString(swift)).append("\n");
         sb.append("      remittanceLineNumber: ").append(toIndentedString(remittanceLineNumber)).append("\n");
@@ -556,11 +404,7 @@ public class OtcBankListItem {
         sb.append("      submitTime: ").append(toIndentedString(submitTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
-        sb.append("      documentationFileType: ").append(toIndentedString(documentationFileType)).append("\n");
-        sb.append("      memo: ").append(toIndentedString(memo)).append("\n");
         sb.append("      isDefault: ").append(toIndentedString(isDefault)).append("\n");
-        sb.append("      bankId: ").append(toIndentedString(bankId)).append("\n");
-        sb.append("      documentationFileKeyUrl: ").append(toIndentedString(documentationFileKeyUrl)).append("\n");
         sb.append("}");
         return sb.toString();
     }

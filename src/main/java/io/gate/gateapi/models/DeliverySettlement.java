@@ -81,7 +81,7 @@ public class DeliverySettlement {
 
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     @javax.annotation.Nullable
@@ -101,7 +101,7 @@ public class DeliverySettlement {
 
 
      /**
-     * Position margin
+     * Margin
      * @return margin
     **/
     @javax.annotation.Nullable

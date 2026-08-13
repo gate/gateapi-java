@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **orderSize** | **String** | Number of forced liquidation orders |  [optional] [readonly]
 **orderPrice** | **String** | Liquidation order price |  [optional] [readonly]
 **fillPrice** | **String** | Liquidation order average taker price |  [optional] [readonly]
-**left** | **String** | System liquidation order maker size |  [optional] [readonly]
+**left** | **String** | Reserved field with no current business significance. |  [optional] [readonly]
 

@@ -139,7 +139,7 @@ public class Tokens {
     }
 
      /**
-     * Amount scale
+     * Quantity precision
      * @return amountPrecision
     **/
     @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class Tokens {
     }
 
      /**
-     * Price scale
+     * Price precision
      * @return precision
     **/
     @javax.annotation.Nullable

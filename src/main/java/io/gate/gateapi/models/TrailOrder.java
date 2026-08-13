@@ -759,7 +759,7 @@ public class TrailOrder {
 
 
      /**
-     * leverage
+     * Leverage
      * @return leverage
     **/
     @javax.annotation.Nullable

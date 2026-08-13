@@ -113,7 +113,7 @@ public class FuturesLiqOrder {
 
 
      /**
-     * System liquidation order maker size
+     * Reserved field with no current business significance.
      * @return left
     **/
     @javax.annotation.Nullable

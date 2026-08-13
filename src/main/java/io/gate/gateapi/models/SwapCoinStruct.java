@@ -271,7 +271,7 @@ public class SwapCoinStruct {
     }
 
      /**
-     * UpdateTimestamp
+     * Update timestamp
      * @return updateStamp
     **/
     @javax.annotation.Nullable

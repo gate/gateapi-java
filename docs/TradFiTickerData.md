@@ -7,8 +7,8 @@ Response data
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**highestPrice** | **String** | Highest price |  [optional]
-**lowestPrice** | **String** | Lowest price |  [optional]
+**highestPrice** | **String** | High price |  [optional]
+**lowestPrice** | **String** | Low price |  [optional]
 **priceChange** | **String** | Price change percentage (multiplied by 100) |  [optional]
 **priceChangeAmount** | **String** | Price change amount |  [optional]
 **todayOpenPrice** | **String** | Today&#39;s open price |  [optional]

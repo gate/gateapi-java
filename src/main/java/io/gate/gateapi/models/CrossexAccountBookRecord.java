@@ -47,6 +47,10 @@ public class CrossexAccountBookRecord {
     @SerializedName(SERIALIZED_NAME_COIN)
     private String coin;
 
+    public static final String SERIALIZED_NAME_SYMBOL = "symbol";
+    @SerializedName(SERIALIZED_NAME_SYMBOL)
+    private String symbol;
+
     public static final String SERIALIZED_NAME_CHANGE = "change";
     @SerializedName(SERIALIZED_NAME_CHANGE)
     private String change;
@@ -105,7 +109,7 @@ public class CrossexAccountBookRecord {
     }
 
      /**
-     * Business ID
+     * Business ID. Its meaning varies by &#x60;statement_type&#x60;. &#x60;TRANSACTION&#x60;: order ID. &#x60;TRADING_FEE&#x60;: order ID. &#x60;LIQUIDATION_FEE&#x60;: liquidation order ID. &#x60;FUNDING_FEE&#x60;: position ID and funding fee settlement time. For other types, it is a system-generated processing ID with no business meaning.
      * @return businessId
     **/
     public String getBusinessId() {
@@ -172,6 +176,26 @@ public class CrossexAccountBookRecord {
 
     public void setCoin(String coin) {
         this.coin = coin;
+    }
+
+    public CrossexAccountBookRecord symbol(String symbol) {
+        
+        this.symbol = symbol;
+        return this;
+    }
+
+     /**
+     * Trading Pair
+     * @return symbol
+    **/
+    @javax.annotation.Nullable
+    public String getSymbol() {
+        return symbol;
+    }
+
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public CrossexAccountBookRecord change(String change) {
@@ -245,6 +269,7 @@ public class CrossexAccountBookRecord {
                 Objects.equals(this.statementType, crossexAccountBookRecord.statementType) &&
                 Objects.equals(this.exchangeType, crossexAccountBookRecord.exchangeType) &&
                 Objects.equals(this.coin, crossexAccountBookRecord.coin) &&
+                Objects.equals(this.symbol, crossexAccountBookRecord.symbol) &&
                 Objects.equals(this.change, crossexAccountBookRecord.change) &&
                 Objects.equals(this.balance, crossexAccountBookRecord.balance) &&
                 Objects.equals(this.createTime, crossexAccountBookRecord.createTime);
@@ -252,7 +277,7 @@ public class CrossexAccountBookRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, businessId, statementType, exchangeType, coin, change, balance, createTime);
+        return Objects.hash(id, userId, businessId, statementType, exchangeType, coin, symbol, change, balance, createTime);
     }
 
 
@@ -266,6 +291,7 @@ public class CrossexAccountBookRecord {
         sb.append("      statementType: ").append(toIndentedString(statementType)).append("\n");
         sb.append("      exchangeType: ").append(toIndentedString(exchangeType)).append("\n");
         sb.append("      coin: ").append(toIndentedString(coin)).append("\n");
+        sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      change: ").append(toIndentedString(change)).append("\n");
         sb.append("      balance: ").append(toIndentedString(balance)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");

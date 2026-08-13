@@ -27,6 +27,6 @@ Name | Type | Description | Notes
 **shortTakerSize** | **String** | Short taker trade volume (contracts) |  [optional]
 **topLongAccount** | **Long** | Number of top long accounts (large holders) |  [optional]
 **topShortAccount** | **Long** | Number of top short accounts (large holders) |  [optional]
-**longUsers** | **String** | Number of users holding long positions |  [optional]
-**shortUsers** | **String** | Number of users holding short positions |  [optional]
+**longUsers** | **Long** | Number of users holding long positions |  [optional]
+**shortUsers** | **Long** | Number of users holding short positions |  [optional]
 

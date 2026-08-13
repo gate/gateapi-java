@@ -347,7 +347,7 @@ public class FlashSwapOrderCreateRespData {
     }
 
      /**
-     * Order Status
+     * Order status
      * @return status
     **/
     @javax.annotation.Nullable

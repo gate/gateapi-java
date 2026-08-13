@@ -131,7 +131,7 @@ public class MarginTiers {
     }
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     @javax.annotation.Nullable

@@ -295,7 +295,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;).
+     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;).
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -390,7 +390,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Time in force (default &#x60;GTC&#x60;; enum: &#x60;GTC&#x60; / &#x60;IOC&#x60; / &#x60;FOK&#x60; / &#x60;POC&#x60;).
+     * Time-in-force policy (default: GTC; allowed values: GTC, IOC, FOK, POC, and RPI)
      * @return timeInForce
     **/
     public String getTimeInForce() {

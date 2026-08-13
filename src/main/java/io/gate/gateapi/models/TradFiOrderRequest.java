@@ -79,7 +79,7 @@ public class TradFiOrderRequest {
     private PriceTypeEnum priceType;
 
     /**
-     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     * Side (1&#x3D;sell, 2&#x3D;buy)
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -191,7 +191,7 @@ public class TradFiOrderRequest {
     }
 
      /**
-     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     * Side (1&#x3D;sell, 2&#x3D;buy)
      * @return side
     **/
     public SideEnum getSide() {
@@ -229,7 +229,7 @@ public class TradFiOrderRequest {
     }
 
      /**
-     * Order volume
+     * Order quantity
      * @return volume
     **/
     public String getVolume() {

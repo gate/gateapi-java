@@ -179,7 +179,7 @@ public class PositionTimerange {
     }
 
      /**
-     * Position margin
+     * Margin
      * @return margin
     **/
     @javax.annotation.Nullable

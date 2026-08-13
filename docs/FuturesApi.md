@@ -1372,7 +1372,7 @@ public class Example {
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Settle currency
         Boolean holding = true; // Boolean | Return only real positions - true, return all - false
-        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        Integer limit = 100; // Integer | Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100].
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
             List<Position> result = apiInstance.listPositions(settle)
@@ -1400,7 +1400,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Settle currency | [enum: btc, usdt]
  **holding** | **Boolean**| Return only real positions - true, return all - false | [optional]
- **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+ **limit** | **Integer**| Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. | [optional]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type

@@ -67,7 +67,7 @@ public class Mt5AccountData {
     }
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     @javax.annotation.Nullable

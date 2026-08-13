@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.DeltaNeutralEnabled;
 import io.gate.gateapi.models.GateErrorResponse;
+import io.gate.gateapi.models.LeverageFailedCurrencies;
 import io.gate.gateapi.models.QuickEstimatedRepayment;
 import io.gate.gateapi.models.QuickRepaymentRequest;
 import io.gate.gateapi.models.QuickRepaymentResponse;
@@ -46,6 +47,7 @@ import io.gate.gateapi.models.UnifiedPortfolioInput;
 import io.gate.gateapi.models.UnifiedPortfolioOutput;
 import io.gate.gateapi.models.UnifiedRiskUnits;
 import io.gate.gateapi.models.UnifiedTransferable;
+import io.gate.gateapi.models.UserLeverageSetting;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -2084,6 +2086,113 @@ public class UnifiedApi {
     public okhttp3.Call calculatePortfolioMarginAsync(UnifiedPortfolioInput unifiedPortfolioInput, final ApiCallback<UnifiedPortfolioOutput> _callback) throws ApiException {
         okhttp3.Call localVarCall = calculatePortfolioMarginValidateBeforeCall(unifiedPortfolioInput, _callback);
         Type localVarReturnType = new TypeToken<UnifiedPortfolioOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setUserLeverage
+     * @param userLeverageSetting  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUserLeverageCall(UserLeverageSetting userLeverageSetting, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = userLeverageSetting;
+
+        // create path and map variables
+        String localVarPath = "/unified/leverage/user_setting";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setUserLeverageValidateBeforeCall(UserLeverageSetting userLeverageSetting, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userLeverageSetting' is set
+        if (userLeverageSetting == null) {
+            throw new ApiException("Missing the required parameter 'userLeverageSetting' when calling setUserLeverage(Async)");
+        }
+
+        okhttp3.Call localVarCall = setUserLeverageCall(userLeverageSetting, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Set leverage for all of the user&#39;s borrowed currencies
+     * Note the following: - Leverage cannot be changed for currencies with outstanding loans. - A leverage value above a currency&#39;s limit is capped at that limit. - Failures are not rolled back and affect only the currencies that failed. For example, if USDT has an outstanding loan, only the USDT leverage remains unchanged.
+     * @param userLeverageSetting  (required)
+     * @return List&lt;LeverageFailedCurrencies&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<LeverageFailedCurrencies> setUserLeverage(UserLeverageSetting userLeverageSetting) throws ApiException {
+        ApiResponse<List<LeverageFailedCurrencies>> localVarResp = setUserLeverageWithHttpInfo(userLeverageSetting);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set leverage for all of the user&#39;s borrowed currencies
+     * Note the following: - Leverage cannot be changed for currencies with outstanding loans. - A leverage value above a currency&#39;s limit is capped at that limit. - Failures are not rolled back and affect only the currencies that failed. For example, if USDT has an outstanding loan, only the USDT leverage remains unchanged.
+     * @param userLeverageSetting  (required)
+     * @return ApiResponse&lt;List&lt;LeverageFailedCurrencies&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<LeverageFailedCurrencies>> setUserLeverageWithHttpInfo(UserLeverageSetting userLeverageSetting) throws ApiException {
+        okhttp3.Call localVarCall = setUserLeverageValidateBeforeCall(userLeverageSetting, null);
+        Type localVarReturnType = new TypeToken<List<LeverageFailedCurrencies>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set leverage for all of the user&#39;s borrowed currencies (asynchronously)
+     * Note the following: - Leverage cannot be changed for currencies with outstanding loans. - A leverage value above a currency&#39;s limit is capped at that limit. - Failures are not rolled back and affect only the currencies that failed. For example, if USDT has an outstanding loan, only the USDT leverage remains unchanged.
+     * @param userLeverageSetting  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Set successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setUserLeverageAsync(UserLeverageSetting userLeverageSetting, final ApiCallback<List<LeverageFailedCurrencies>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = setUserLeverageValidateBeforeCall(userLeverageSetting, _callback);
+        Type localVarReturnType = new TypeToken<List<LeverageFailedCurrencies>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

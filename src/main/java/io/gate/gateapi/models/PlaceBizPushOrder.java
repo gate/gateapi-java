@@ -118,6 +118,65 @@ public class PlaceBizPushOrder {
     @SerializedName(SERIALIZED_NAME_MAX_AMOUNT)
     private String maxAmount;
 
+    /**
+     * Trading limit unit. 0: by crypto quantity, 1: by fiat amount; defaults to 0 when not passed for a new ad. The limit unit of an existing ad cannot be changed when editing; a fiat-limit ad must keep passing 1 when edited
+     */
+    @JsonAdapter(LimitBasisEnum.Adapter.class)
+    public enum LimitBasisEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1);
+
+        private Integer value;
+
+        LimitBasisEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LimitBasisEnum fromValue(Integer value) {
+            for (LimitBasisEnum b : LimitBasisEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<LimitBasisEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LimitBasisEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LimitBasisEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return LimitBasisEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_LIMIT_BASIS = "limitBasis";
+    @SerializedName(SERIALIZED_NAME_LIMIT_BASIS)
+    private LimitBasisEnum limitBasis;
+
+    public static final String SERIALIZED_NAME_FIAT_MIN_AMOUNT = "fiatMinAmount";
+    @SerializedName(SERIALIZED_NAME_FIAT_MIN_AMOUNT)
+    private String fiatMinAmount;
+
+    public static final String SERIALIZED_NAME_FIAT_MAX_AMOUNT = "fiatMaxAmount";
+    @SerializedName(SERIALIZED_NAME_FIAT_MAX_AMOUNT)
+    private String fiatMaxAmount;
+
     public static final String SERIALIZED_NAME_TIER_LIMIT = "tierLimit";
     @SerializedName(SERIALIZED_NAME_TIER_LIMIT)
     private String tierLimit;
@@ -133,6 +192,57 @@ public class PlaceBizPushOrder {
     public static final String SERIALIZED_NAME_ADVERTISERS_LIMIT = "advertisersLimit";
     @SerializedName(SERIALIZED_NAME_ADVERTISERS_LIMIT)
     private String advertisersLimit;
+
+    /**
+     * Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted
+     */
+    @JsonAdapter(PolymarketLimitEnum.Adapter.class)
+    public enum PolymarketLimitEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1);
+
+        private Integer value;
+
+        PolymarketLimitEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PolymarketLimitEnum fromValue(Integer value) {
+            for (PolymarketLimitEnum b : PolymarketLimitEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<PolymarketLimitEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PolymarketLimitEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PolymarketLimitEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return PolymarketLimitEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_POLYMARKET_LIMIT = "polymarket_limit";
+    @SerializedName(SERIALIZED_NAME_POLYMARKET_LIMIT)
+    private PolymarketLimitEnum polymarketLimit;
 
     public static final String SERIALIZED_NAME_EXPIRE_MIN = "expire_min";
     @SerializedName(SERIALIZED_NAME_EXPIRE_MIN)
@@ -285,7 +395,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Payment types, comma-separated; from pay type list &#x60;pay_type&#x60;, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;.
+     * Payment types enabled for the ad, comma-separated; values can be obtained from &#x60;pay_type&#x60; in the payment method list, e.g. &#x60;bank&#x60;, &#x60;alipay&#x60;, &#x60;wechat&#x60;, &#x60;paypal&#x60;, &#x60;swift&#x60;, &#x60;wu&#x60;. &#x60;pay_type_json&#x60; uses the types in this field as keys to specify the corresponding payment accounts.
      * @return payType
     **/
     public String getPayType() {
@@ -304,7 +414,7 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * JSON map of payment type -&gt; user&#39;s payment method ID.
+     * JSON string of specific payment accounts corresponding to &#x60;payType&#x60;. Each key is a payment type listed in &#x60;payType&#x60;, and each value is the current user&#39;s payment method ID for that type. For example, when &#x60;payType&#x60; is &#x60;bank,swift&#x60;, this field can be {\&quot;bank\&quot;:\&quot;10001\&quot;,\&quot;swift\&quot;:\&quot;10002\&quot;}.
      * @return payTypeJson
     **/
     @javax.annotation.Nullable
@@ -364,9 +474,10 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Minimum trade amount in &#x60;exchangeType&#x60;.
+     * Minimum quantity per order, denominated by currencyType; required when limitBasis is not passed or is 0
      * @return minAmount
     **/
+    @javax.annotation.Nullable
     public String getMinAmount() {
         return minAmount;
     }
@@ -383,9 +494,10 @@ public class PlaceBizPushOrder {
     }
 
      /**
-     * Maximum amount per trade in &#x60;exchangeType&#x60; fiat units.
+     * Maximum quantity per order, denominated by currencyType; required when limitBasis is not passed or is 0
      * @return maxAmount
     **/
+    @javax.annotation.Nullable
     public String getMaxAmount() {
         return maxAmount;
     }
@@ -393,6 +505,66 @@ public class PlaceBizPushOrder {
 
     public void setMaxAmount(String maxAmount) {
         this.maxAmount = maxAmount;
+    }
+
+    public PlaceBizPushOrder limitBasis(LimitBasisEnum limitBasis) {
+        
+        this.limitBasis = limitBasis;
+        return this;
+    }
+
+     /**
+     * Trading limit unit. 0: by crypto quantity, 1: by fiat amount; defaults to 0 when not passed for a new ad. The limit unit of an existing ad cannot be changed when editing; a fiat-limit ad must keep passing 1 when edited
+     * @return limitBasis
+    **/
+    @javax.annotation.Nullable
+    public LimitBasisEnum getLimitBasis() {
+        return limitBasis;
+    }
+
+
+    public void setLimitBasis(LimitBasisEnum limitBasis) {
+        this.limitBasis = limitBasis;
+    }
+
+    public PlaceBizPushOrder fiatMinAmount(String fiatMinAmount) {
+        
+        this.fiatMinAmount = fiatMinAmount;
+        return this;
+    }
+
+     /**
+     * Minimum amount per order, denominated by exchangeType; required when limitBasis is 1
+     * @return fiatMinAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatMinAmount() {
+        return fiatMinAmount;
+    }
+
+
+    public void setFiatMinAmount(String fiatMinAmount) {
+        this.fiatMinAmount = fiatMinAmount;
+    }
+
+    public PlaceBizPushOrder fiatMaxAmount(String fiatMaxAmount) {
+        
+        this.fiatMaxAmount = fiatMaxAmount;
+        return this;
+    }
+
+     /**
+     * Maximum amount per order, denominated by exchangeType; required when limitBasis is 1, and must not exceed the total fiat value of the ad quantity converted at the price
+     * @return fiatMaxAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatMaxAmount() {
+        return fiatMaxAmount;
+    }
+
+
+    public void setFiatMaxAmount(String fiatMaxAmount) {
+        this.fiatMaxAmount = fiatMaxAmount;
     }
 
     public PlaceBizPushOrder tierLimit(String tierLimit) {
@@ -473,6 +645,26 @@ public class PlaceBizPushOrder {
 
     public void setAdvertisersLimit(String advertisersLimit) {
         this.advertisersLimit = advertisersLimit;
+    }
+
+    public PlaceBizPushOrder polymarketLimit(PolymarketLimitEnum polymarketLimit) {
+        
+        this.polymarketLimit = polymarketLimit;
+        return this;
+    }
+
+     /**
+     * Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted
+     * @return polymarketLimit
+    **/
+    @javax.annotation.Nullable
+    public PolymarketLimitEnum getPolymarketLimit() {
+        return polymarketLimit;
+    }
+
+
+    public void setPolymarketLimit(PolymarketLimitEnum polymarketLimit) {
+        this.polymarketLimit = polymarketLimit;
     }
 
     public PlaceBizPushOrder expireMin(String expireMin) {
@@ -734,10 +926,14 @@ public class PlaceBizPushOrder {
                 Objects.equals(this.oid, placeBizPushOrder.oid) &&
                 Objects.equals(this.minAmount, placeBizPushOrder.minAmount) &&
                 Objects.equals(this.maxAmount, placeBizPushOrder.maxAmount) &&
+                Objects.equals(this.limitBasis, placeBizPushOrder.limitBasis) &&
+                Objects.equals(this.fiatMinAmount, placeBizPushOrder.fiatMinAmount) &&
+                Objects.equals(this.fiatMaxAmount, placeBizPushOrder.fiatMaxAmount) &&
                 Objects.equals(this.tierLimit, placeBizPushOrder.tierLimit) &&
                 Objects.equals(this.verifiedLimit, placeBizPushOrder.verifiedLimit) &&
                 Objects.equals(this.regTimeLimit, placeBizPushOrder.regTimeLimit) &&
                 Objects.equals(this.advertisersLimit, placeBizPushOrder.advertisersLimit) &&
+                Objects.equals(this.polymarketLimit, placeBizPushOrder.polymarketLimit) &&
                 Objects.equals(this.expireMin, placeBizPushOrder.expireMin) &&
                 Objects.equals(this.tradeTips, placeBizPushOrder.tradeTips) &&
                 Objects.equals(this.autoReply, placeBizPushOrder.autoReply) &&
@@ -754,7 +950,7 @@ public class PlaceBizPushOrder {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyType, exchangeType, type, unitPrice, number, payType, payTypeJson, rateFixed, oid, minAmount, maxAmount, tierLimit, verifiedLimit, regTimeLimit, advertisersLimit, expireMin, tradeTips, autoReply, minCompletedLimit, maxCompletedLimit, completedRateLimit, userCountryLimit, userOrderLimit, rateReferenceId, rateOffset, floatTrend, teamPaymentUid);
+        return Objects.hash(currencyType, exchangeType, type, unitPrice, number, payType, payTypeJson, rateFixed, oid, minAmount, maxAmount, limitBasis, fiatMinAmount, fiatMaxAmount, tierLimit, verifiedLimit, regTimeLimit, advertisersLimit, polymarketLimit, expireMin, tradeTips, autoReply, minCompletedLimit, maxCompletedLimit, completedRateLimit, userCountryLimit, userOrderLimit, rateReferenceId, rateOffset, floatTrend, teamPaymentUid);
     }
 
 
@@ -773,10 +969,14 @@ public class PlaceBizPushOrder {
         sb.append("      oid: ").append(toIndentedString(oid)).append("\n");
         sb.append("      minAmount: ").append(toIndentedString(minAmount)).append("\n");
         sb.append("      maxAmount: ").append(toIndentedString(maxAmount)).append("\n");
+        sb.append("      limitBasis: ").append(toIndentedString(limitBasis)).append("\n");
+        sb.append("      fiatMinAmount: ").append(toIndentedString(fiatMinAmount)).append("\n");
+        sb.append("      fiatMaxAmount: ").append(toIndentedString(fiatMaxAmount)).append("\n");
         sb.append("      tierLimit: ").append(toIndentedString(tierLimit)).append("\n");
         sb.append("      verifiedLimit: ").append(toIndentedString(verifiedLimit)).append("\n");
         sb.append("      regTimeLimit: ").append(toIndentedString(regTimeLimit)).append("\n");
         sb.append("      advertisersLimit: ").append(toIndentedString(advertisersLimit)).append("\n");
+        sb.append("      polymarketLimit: ").append(toIndentedString(polymarketLimit)).append("\n");
         sb.append("      expireMin: ").append(toIndentedString(expireMin)).append("\n");
         sb.append("      tradeTips: ").append(toIndentedString(tradeTips)).append("\n");
         sb.append("      autoReply: ").append(toIndentedString(autoReply)).append("\n");

@@ -25,6 +25,8 @@ import io.gate.gateapi.models.CrossexAccountBookRecord;
 import io.gate.gateapi.models.CrossexAccountUpdateRequest;
 import io.gate.gateapi.models.CrossexAccountUpdateResponse;
 import io.gate.gateapi.models.CrossexAdlRank;
+import io.gate.gateapi.models.CrossexBatchCancelOrderRequest;
+import io.gate.gateapi.models.CrossexBatchCancelOrderResponse;
 import io.gate.gateapi.models.CrossexClosePositionRequest;
 import io.gate.gateapi.models.CrossexCoinDiscountRate;
 import io.gate.gateapi.models.CrossexConvertOrderRequest;
@@ -34,9 +36,13 @@ import io.gate.gateapi.models.CrossexConvertQuoteResponse;
 import io.gate.gateapi.models.CrossexHistoricalMarginPosition;
 import io.gate.gateapi.models.CrossexHistoricalPosition;
 import io.gate.gateapi.models.CrossexInterestRate;
+import io.gate.gateapi.models.CrossexIsolatedMarginRequest;
+import io.gate.gateapi.models.CrossexIsolatedMarginResponse;
 import io.gate.gateapi.models.CrossexLeverageRequest;
 import io.gate.gateapi.models.CrossexLeverageResponse;
 import io.gate.gateapi.models.CrossexMarginInterestRecord;
+import io.gate.gateapi.models.CrossexMarginModeRequest;
+import io.gate.gateapi.models.CrossexMarginModeResponse;
 import io.gate.gateapi.models.CrossexMarginPosition;
 import io.gate.gateapi.models.CrossexOrder;
 import io.gate.gateapi.models.CrossexOrderActionResponse;
@@ -50,6 +56,8 @@ import io.gate.gateapi.models.CrossexTransferRecord;
 import io.gate.gateapi.models.CrossexTransferRequest;
 import io.gate.gateapi.models.CrossexTransferResponse;
 import io.gate.gateapi.models.InlineResponse200;
+import io.gate.gateapi.models.InlineResponse2001;
+import io.gate.gateapi.models.InlineResponse2002;
 import io.gate.gateapi.models.Symbol;
 
 import java.lang.reflect.Type;
@@ -462,7 +470,7 @@ public class CrossExApi {
 
     /**
      * Query supported transfer currencies
-     * Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+     * &#x60;est_fee&#x60;: On-chain withdrawal fee. When a fund transfer involves an on-chain withdrawal, the exchange charges this fee. This value is for reference only; the actual fee charged by the exchange applies
      * @return APIlistCrossexTransferCoinsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -842,7 +850,7 @@ public class CrossExApi {
     }
 
     /**
-     * Create an order
+     * Create order
      * Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
      * @param crossexOrderRequest  (optional)
      * @return CrossexOrderActionResponse
@@ -859,7 +867,7 @@ public class CrossExApi {
     }
 
     /**
-     * Create an order
+     * Create order
      * Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
      * @param crossexOrderRequest  (optional)
      * @return ApiResponse&lt;CrossexOrderActionResponse&gt;
@@ -877,7 +885,7 @@ public class CrossExApi {
     }
 
     /**
-     * Create an order (asynchronously)
+     * Create order (asynchronously)
      * Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
      * @param crossexOrderRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -892,6 +900,113 @@ public class CrossExApi {
     public okhttp3.Call createCrossexOrderAsync(CrossexOrderRequest crossexOrderRequest, final ApiCallback<CrossexOrderActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = createCrossexOrderValidateBeforeCall(crossexOrderRequest, _callback);
         Type localVarReturnType = new TypeToken<CrossexOrderActionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelBatchCrossexOrders
+     * @param crossexBatchCancelOrderRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch order cancellation request results </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelBatchCrossexOrdersCall(List<CrossexBatchCancelOrderRequest> crossexBatchCancelOrderRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = crossexBatchCancelOrderRequest;
+
+        // create path and map variables
+        String localVarPath = "/crossex/batch_cancel_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelBatchCrossexOrdersValidateBeforeCall(List<CrossexBatchCancelOrderRequest> crossexBatchCancelOrderRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'crossexBatchCancelOrderRequest' is set
+        if (crossexBatchCancelOrderRequest == null) {
+            throw new ApiException("Missing the required parameter 'crossexBatchCancelOrderRequest' when calling cancelBatchCrossexOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = cancelBatchCrossexOrdersCall(crossexBatchCancelOrderRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Batch cancel orders
+     * Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds
+     * @param crossexBatchCancelOrderRequest  (required)
+     * @return List&lt;CrossexBatchCancelOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch order cancellation request results </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<CrossexBatchCancelOrderResponse> cancelBatchCrossexOrders(List<CrossexBatchCancelOrderRequest> crossexBatchCancelOrderRequest) throws ApiException {
+        ApiResponse<List<CrossexBatchCancelOrderResponse>> localVarResp = cancelBatchCrossexOrdersWithHttpInfo(crossexBatchCancelOrderRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch cancel orders
+     * Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds
+     * @param crossexBatchCancelOrderRequest  (required)
+     * @return ApiResponse&lt;List&lt;CrossexBatchCancelOrderResponse&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch order cancellation request results </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<CrossexBatchCancelOrderResponse>> cancelBatchCrossexOrdersWithHttpInfo(List<CrossexBatchCancelOrderRequest> crossexBatchCancelOrderRequest) throws ApiException {
+        okhttp3.Call localVarCall = cancelBatchCrossexOrdersValidateBeforeCall(crossexBatchCancelOrderRequest, null);
+        Type localVarReturnType = new TypeToken<List<CrossexBatchCancelOrderResponse>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch cancel orders (asynchronously)
+     * Cancel multiple specified orders. Either order_id or text is required; if both are provided, order_id takes precedence. Rate limit: 100 requests per 10 seconds
+     * @param crossexBatchCancelOrderRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch order cancellation request results </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelBatchCrossexOrdersAsync(List<CrossexBatchCancelOrderRequest> crossexBatchCancelOrderRequest, final ApiCallback<List<CrossexBatchCancelOrderResponse>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelBatchCrossexOrdersValidateBeforeCall(crossexBatchCancelOrderRequest, _callback);
+        Type localVarReturnType = new TypeToken<List<CrossexBatchCancelOrderResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1273,7 +1388,7 @@ public class CrossExApi {
 
     /**
      * Flash Swap Inquiry
-     * Rate Limit: 100 requests per day
+     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID
      * @param crossexConvertQuoteRequest  (optional)
      * @return CrossexConvertQuoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1290,7 +1405,7 @@ public class CrossExApi {
 
     /**
      * Flash Swap Inquiry
-     * Rate Limit: 100 requests per day
+     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID
      * @param crossexConvertQuoteRequest  (optional)
      * @return ApiResponse&lt;CrossexConvertQuoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1308,7 +1423,7 @@ public class CrossExApi {
 
     /**
      * Flash Swap Inquiry (asynchronously)
-     * Rate Limit: 100 requests per day
+     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID
      * @param crossexConvertQuoteRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1489,7 +1604,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60;). (optional)
+         * @param exchangeType Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;). (optional)
          * @return APIgetCrossexAccountRequest
          */
         public APIgetCrossexAccountRequest exchangeType(String exchangeType) {
@@ -2212,7 +2327,7 @@ public class CrossExApi {
 
     /**
      * Full Close Position
-     * Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
+     * Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.
      * @param crossexClosePositionRequest  (optional)
      * @return CrossexOrderActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2229,7 +2344,7 @@ public class CrossExApi {
 
     /**
      * Full Close Position
-     * Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
+     * Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.
      * @param crossexClosePositionRequest  (optional)
      * @return ApiResponse&lt;CrossexOrderActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2247,7 +2362,7 @@ public class CrossExApi {
 
     /**
      * Full Close Position (asynchronously)
-     * Rate Limit: 100 requests per day. Automatic close-out rules. Supports closing FUTURE or MARGIN positions.  Prerequisites before using this interface: - No pending orders for the symbol exist in the current account. - When the system detects the position meets any of the following limits while prerequisites are met: - Less than or equal to the minimum notional amount (minNotional) - Less than or equal to the minimum order quantity (minSize)  After meeting the conditions, the system will automatically generate a close-out order and immediately fully close the position. This interface is used to avoid issues where orders are too small to be placed on the exchange, ensuring small positions can be closed smoothly when reaching the threshold.
+     * Rate limit: 100 requests per day. Automatic position-closing rules. FUTURE and MARGIN positions are supported.  Before using this endpoint, ensure that the following prerequisite is met: - There are no open orders for the symbol in the current account. - Once the prerequisite is met, the system checks whether the position meets either of the following conditions: - Less than the minimum notional amount (minNotional) - Less than the minimum order size (minSize)  When either condition is met, the system automatically creates a closing order and immediately closes the entire position. This endpoint prevents positions that are too small to be submitted to an exchange from becoming stranded and ensures that small positions can be closed when they fall below the threshold.
      * @param crossexClosePositionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2261,6 +2376,321 @@ public class CrossExApi {
     public okhttp3.Call closeCrossexPositionAsync(CrossexClosePositionRequest crossexClosePositionRequest, final ApiCallback<CrossexOrderActionResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = closeCrossexPositionValidateBeforeCall(crossexClosePositionRequest, _callback);
         Type localVarReturnType = new TypeToken<CrossexOrderActionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCrossexPositionsMarginMode
+     * @param symbol Futures trading pair (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossexPositionsMarginModeCall(String symbol, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/crossex/positions/margin_mode";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (symbol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("symbol", symbol));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCrossexPositionsMarginModeValidateBeforeCall(String symbol, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'symbol' is set
+        if (symbol == null) {
+            throw new ApiException("Missing the required parameter 'symbol' when calling getCrossexPositionsMarginMode(Async)");
+        }
+
+        okhttp3.Call localVarCall = getCrossexPositionsMarginModeCall(symbol, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get futures position margin mode
+     * Rate Limit: 200 requests per 10 seconds
+     * @param symbol Futures trading pair (required)
+     * @return CrossexMarginModeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossexMarginModeResponse getCrossexPositionsMarginMode(String symbol) throws ApiException {
+        ApiResponse<CrossexMarginModeResponse> localVarResp = getCrossexPositionsMarginModeWithHttpInfo(symbol);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get futures position margin mode
+     * Rate Limit: 200 requests per 10 seconds
+     * @param symbol Futures trading pair (required)
+     * @return ApiResponse&lt;CrossexMarginModeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossexMarginModeResponse> getCrossexPositionsMarginModeWithHttpInfo(String symbol) throws ApiException {
+        okhttp3.Call localVarCall = getCrossexPositionsMarginModeValidateBeforeCall(symbol, null);
+        Type localVarReturnType = new TypeToken<CrossexMarginModeResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get futures position margin mode (asynchronously)
+     * Rate Limit: 200 requests per 10 seconds
+     * @param symbol Futures trading pair (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCrossexPositionsMarginModeAsync(String symbol, final ApiCallback<CrossexMarginModeResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getCrossexPositionsMarginModeValidateBeforeCall(symbol, _callback);
+        Type localVarReturnType = new TypeToken<CrossexMarginModeResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateCrossexPositionsMarginMode
+     * @param crossexMarginModeRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCrossexPositionsMarginModeCall(CrossexMarginModeRequest crossexMarginModeRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = crossexMarginModeRequest;
+
+        // create path and map variables
+        String localVarPath = "/crossex/positions/margin_mode";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateCrossexPositionsMarginModeValidateBeforeCall(CrossexMarginModeRequest crossexMarginModeRequest, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateCrossexPositionsMarginModeCall(crossexMarginModeRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update futures position margin mode
+     * Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist
+     * @param crossexMarginModeRequest  (optional)
+     * @return CrossexMarginModeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossexMarginModeResponse updateCrossexPositionsMarginMode(CrossexMarginModeRequest crossexMarginModeRequest) throws ApiException {
+        ApiResponse<CrossexMarginModeResponse> localVarResp = updateCrossexPositionsMarginModeWithHttpInfo(crossexMarginModeRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update futures position margin mode
+     * Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist
+     * @param crossexMarginModeRequest  (optional)
+     * @return ApiResponse&lt;CrossexMarginModeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossexMarginModeResponse> updateCrossexPositionsMarginModeWithHttpInfo(CrossexMarginModeRequest crossexMarginModeRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCrossexPositionsMarginModeValidateBeforeCall(crossexMarginModeRequest, null);
+        Type localVarReturnType = new TypeToken<CrossexMarginModeResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update futures position margin mode (asynchronously)
+     * Rate limit: 100 requests per 10 seconds. Only Hyperliquid futures trading pairs are supported. The margin mode cannot be changed while open orders or positions exist
+     * @param crossexMarginModeRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCrossexPositionsMarginModeAsync(CrossexMarginModeRequest crossexMarginModeRequest, final ApiCallback<CrossexMarginModeResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateCrossexPositionsMarginModeValidateBeforeCall(crossexMarginModeRequest, _callback);
+        Type localVarReturnType = new TypeToken<CrossexMarginModeResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateCrossexPositionsMargin
+     * @param crossexIsolatedMarginRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCrossexPositionsMarginCall(CrossexIsolatedMarginRequest crossexIsolatedMarginRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = crossexIsolatedMarginRequest;
+
+        // create path and map variables
+        String localVarPath = "/crossex/positions/margin";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateCrossexPositionsMarginValidateBeforeCall(CrossexIsolatedMarginRequest crossexIsolatedMarginRequest, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateCrossexPositionsMarginCall(crossexIsolatedMarginRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Increase or decrease isolated margin
+     * Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin
+     * @param crossexIsolatedMarginRequest  (optional)
+     * @return CrossexIsolatedMarginResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public CrossexIsolatedMarginResponse updateCrossexPositionsMargin(CrossexIsolatedMarginRequest crossexIsolatedMarginRequest) throws ApiException {
+        ApiResponse<CrossexIsolatedMarginResponse> localVarResp = updateCrossexPositionsMarginWithHttpInfo(crossexIsolatedMarginRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Increase or decrease isolated margin
+     * Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin
+     * @param crossexIsolatedMarginRequest  (optional)
+     * @return ApiResponse&lt;CrossexIsolatedMarginResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CrossexIsolatedMarginResponse> updateCrossexPositionsMarginWithHttpInfo(CrossexIsolatedMarginRequest crossexIsolatedMarginRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCrossexPositionsMarginValidateBeforeCall(crossexIsolatedMarginRequest, null);
+        Type localVarReturnType = new TypeToken<CrossexIsolatedMarginResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Increase or decrease isolated margin (asynchronously)
+     * Rate limit: 100 requests per 10 seconds. Only Hyperliquid isolated futures positions are supported. Positive values increase margin, while negative values decrease margin
+     * @param crossexIsolatedMarginRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateCrossexPositionsMarginAsync(CrossexIsolatedMarginRequest crossexIsolatedMarginRequest, final ApiCallback<CrossexIsolatedMarginResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = updateCrossexPositionsMarginValidateBeforeCall(crossexIsolatedMarginRequest, _callback);
+        Type localVarReturnType = new TypeToken<CrossexIsolatedMarginResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2897,7 +3327,7 @@ public class CrossExApi {
      * Query ADL Position Reduction Ranking
      * Rate Limit: 200 requests per 10 seconds
      * @param symbol Trading Pair (required)
-     * @return List&lt;CrossexAdlRank&gt;
+     * @return CrossexAdlRank
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2905,8 +3335,8 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public List<CrossexAdlRank> listCrossexAdlRank(String symbol) throws ApiException {
-        ApiResponse<List<CrossexAdlRank>> localVarResp = listCrossexAdlRankWithHttpInfo(symbol);
+    public CrossexAdlRank listCrossexAdlRank(String symbol) throws ApiException {
+        ApiResponse<CrossexAdlRank> localVarResp = listCrossexAdlRankWithHttpInfo(symbol);
         return localVarResp.getData();
     }
 
@@ -2914,7 +3344,7 @@ public class CrossExApi {
      * Query ADL Position Reduction Ranking
      * Rate Limit: 200 requests per 10 seconds
      * @param symbol Trading Pair (required)
-     * @return ApiResponse&lt;List&lt;CrossexAdlRank&gt;&gt;
+     * @return ApiResponse&lt;CrossexAdlRank&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2922,9 +3352,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CrossexAdlRank>> listCrossexAdlRankWithHttpInfo(String symbol) throws ApiException {
+    public ApiResponse<CrossexAdlRank> listCrossexAdlRankWithHttpInfo(String symbol) throws ApiException {
         okhttp3.Call localVarCall = listCrossexAdlRankValidateBeforeCall(symbol, null);
-        Type localVarReturnType = new TypeToken<List<CrossexAdlRank>>(){}.getType();
+        Type localVarReturnType = new TypeToken<CrossexAdlRank>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2941,9 +3371,9 @@ public class CrossExApi {
         <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCrossexAdlRankAsync(String symbol, final ApiCallback<List<CrossexAdlRank>> _callback) throws ApiException {
+    public okhttp3.Call listCrossexAdlRankAsync(String symbol, final ApiCallback<CrossexAdlRank> _callback) throws ApiException {
         okhttp3.Call localVarCall = listCrossexAdlRankValidateBeforeCall(symbol, _callback);
-        Type localVarReturnType = new TypeToken<List<CrossexAdlRank>>(){}.getType();
+        Type localVarReturnType = new TypeToken<CrossexAdlRank>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3326,7 +3756,7 @@ public class CrossExApi {
     }
 
     /**
-     * queryorderhistory
+     * Query order history
      * Rate Limit: 200 requests per 10 seconds
      * @return APIlistCrossexHistoryOrdersRequest
      * @http.response.details
@@ -4153,7 +4583,7 @@ public class CrossExApi {
     }
 
     /**
-     * queryfilledhistory
+     * Query filled history
      * Rate Limit: 200 requests per 10 seconds
      * @return APIlistCrossexHistoryTradesRequest
      * @http.response.details
@@ -4460,7 +4890,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID (optional)
+         * @param exchangeType OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT (optional)
          * @return APIlistCrossexCoinDiscountRateRequest
          */
         public APIlistCrossexCoinDiscountRateRequest exchangeType(String exchangeType) {
@@ -4540,6 +4970,292 @@ public class CrossExApi {
      */
     public APIlistCrossexCoinDiscountRateRequest listCrossexCoinDiscountRate() {
         return new APIlistCrossexCoinDiscountRateRequest();
+    }
+
+    private okhttp3.Call listCrossexMarketTickersCall(String symbols, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/crossex/market/tickers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (symbols != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("symbols", symbols));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossexMarketTickersValidateBeforeCall(String symbols, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexMarketTickersCall(symbols, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<InlineResponse2001>> listCrossexMarketTickersWithHttpInfo(String symbols) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexMarketTickersValidateBeforeCall(symbols, null);
+        Type localVarReturnType = new TypeToken<List<InlineResponse2001>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCrossexMarketTickersAsync(String symbols, final ApiCallback<List<InlineResponse2001>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexMarketTickersValidateBeforeCall(symbols, _callback);
+        Type localVarReturnType = new TypeToken<List<InlineResponse2001>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCrossexMarketTickersRequest {
+        private String symbols;
+
+        private APIlistCrossexMarketTickersRequest() {
+        }
+
+        /**
+         * Set symbols
+         * @param symbols Trading Pair List, multiple separated by commas (optional)
+         * @return APIlistCrossexMarketTickersRequest
+         */
+        public APIlistCrossexMarketTickersRequest symbols(String symbols) {
+            this.symbols = symbols;
+            return this;
+        }
+
+        /**
+         * Build call for listCrossexMarketTickers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCrossexMarketTickersCall(symbols, _callback);
+        }
+
+        /**
+         * Execute listCrossexMarketTickers request
+         * @return List&lt;InlineResponse2001&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<InlineResponse2001> execute() throws ApiException {
+            ApiResponse<List<InlineResponse2001>> localVarResp = listCrossexMarketTickersWithHttpInfo(symbols);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCrossexMarketTickers request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InlineResponse2001&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<InlineResponse2001>> executeWithHttpInfo() throws ApiException {
+            return listCrossexMarketTickersWithHttpInfo(symbols);
+        }
+
+        /**
+         * Execute listCrossexMarketTickers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse2001>> _callback) throws ApiException {
+            return listCrossexMarketTickersAsync(symbols, _callback);
+        }
+    }
+
+    /**
+     * Get exchange tickers
+     * Rate limit: 1 request per second - Margin trading pairs cannot be passed directly as parameters. For example, &#x60;GATE_MARGIN_BTC_USDT&#x60; is invalid.
+     * @return APIlistCrossexMarketTickersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistCrossexMarketTickersRequest listCrossexMarketTickers() {
+        return new APIlistCrossexMarketTickersRequest();
+    }
+
+    private okhttp3.Call listCrossexMarketFundingInfoCall(String symbols, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/crossex/market/funding_info";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (symbols != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("symbols", symbols));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossexMarketFundingInfoValidateBeforeCall(String symbols, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexMarketFundingInfoCall(symbols, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<InlineResponse2002>> listCrossexMarketFundingInfoWithHttpInfo(String symbols) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexMarketFundingInfoValidateBeforeCall(symbols, null);
+        Type localVarReturnType = new TypeToken<List<InlineResponse2002>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCrossexMarketFundingInfoAsync(String symbols, final ApiCallback<List<InlineResponse2002>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexMarketFundingInfoValidateBeforeCall(symbols, _callback);
+        Type localVarReturnType = new TypeToken<List<InlineResponse2002>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCrossexMarketFundingInfoRequest {
+        private String symbols;
+
+        private APIlistCrossexMarketFundingInfoRequest() {
+        }
+
+        /**
+         * Set symbols
+         * @param symbols Trading Pair List, multiple separated by commas (optional)
+         * @return APIlistCrossexMarketFundingInfoRequest
+         */
+        public APIlistCrossexMarketFundingInfoRequest symbols(String symbols) {
+            this.symbols = symbols;
+            return this;
+        }
+
+        /**
+         * Build call for listCrossexMarketFundingInfo
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCrossexMarketFundingInfoCall(symbols, _callback);
+        }
+
+        /**
+         * Execute listCrossexMarketFundingInfo request
+         * @return List&lt;InlineResponse2002&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<InlineResponse2002> execute() throws ApiException {
+            ApiResponse<List<InlineResponse2002>> localVarResp = listCrossexMarketFundingInfoWithHttpInfo(symbols);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCrossexMarketFundingInfo request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InlineResponse2002&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<InlineResponse2002>> executeWithHttpInfo() throws ApiException {
+            return listCrossexMarketFundingInfoWithHttpInfo(symbols);
+        }
+
+        /**
+         * Execute listCrossexMarketFundingInfo request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InlineResponse2002>> _callback) throws ApiException {
+            return listCrossexMarketFundingInfoAsync(symbols, _callback);
+        }
+    }
+
+    /**
+     * Get exchange futures funding rate information
+     * Rate limit: 1 request per second - For &#x60;Deribit&#x60;, &#x60;funding_rate&#x60; is the current real-time rate calculated over an 8-hour period.
+     * @return APIlistCrossexMarketFundingInfoRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistCrossexMarketFundingInfoRequest listCrossexMarketFundingInfo() {
+        return new APIlistCrossexMarketFundingInfoRequest();
     }
 
 }

@@ -86,7 +86,7 @@ public class OtcOrderRequest {
     }
 
      /**
-     * Quote direction returned by the quote API (used for order validation)
+     * The side returned by the quote endpoint (used for order validation). For backward compatibility, &#x60;FIAT&#x60;/&#x60;CRYPTO&#x60; or &#x60;PAY&#x60;/&#x60;GET&#x60; are accepted; new integrations should use the value returned by the quote response.
      * @return side
     **/
     public String getSide() {
@@ -220,7 +220,7 @@ public class OtcOrderRequest {
     }
 
      /**
-     * The bank card ID used for placing the order; select it from the list returned by &#x60;GET /otc/bank_list&#x60; (or &#x60;GET /otc/bank/list&#x60;); the default card has &#x60;is_default&#x3D;1&#x60;
+     * Bank card ID used to place the order. Select one from the list returned by &#x60;GET /otc/bank/list&#x60;; the default card has &#x60;is_default&#x3D;1&#x60;.
      * @return bankId
     **/
     public String getBankId() {

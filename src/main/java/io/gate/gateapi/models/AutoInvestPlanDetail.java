@@ -313,7 +313,7 @@ public class AutoInvestPlanDetail {
     }
 
      /**
-     * InvestmentPortfolio
+     * Portfolio
      * @return portfolio
     **/
     public List<AutoInvestPortfolioItem> getPortfolio() {

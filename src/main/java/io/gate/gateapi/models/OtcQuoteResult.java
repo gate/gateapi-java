@@ -67,6 +67,18 @@ public class OtcQuoteResult {
     @SerializedName(SERIALIZED_NAME_QUOTE_TOKEN)
     private String quoteToken;
 
+    public static final String SERIALIZED_NAME_VALIDITY_PERIOD = "validity_period";
+    @SerializedName(SERIALIZED_NAME_VALIDITY_PERIOD)
+    private String validityPeriod;
+
+    public static final String SERIALIZED_NAME_REFRESH_LIMIT = "refresh_limit";
+    @SerializedName(SERIALIZED_NAME_REFRESH_LIMIT)
+    private Integer refreshLimit;
+
+    public static final String SERIALIZED_NAME_REFRESH_LIMIT_MSG = "refresh_limit_msg";
+    @SerializedName(SERIALIZED_NAME_REFRESH_LIMIT_MSG)
+    private String refreshLimitMsg;
+
 
     public OtcQuoteResult type(String type) {
         
@@ -276,6 +288,66 @@ public class OtcQuoteResult {
     public void setQuoteToken(String quoteToken) {
         this.quoteToken = quoteToken;
     }
+
+    public OtcQuoteResult validityPeriod(String validityPeriod) {
+        
+        this.validityPeriod = validityPeriod;
+        return this;
+    }
+
+     /**
+     * Quote validity period (seconds)
+     * @return validityPeriod
+    **/
+    @javax.annotation.Nullable
+    public String getValidityPeriod() {
+        return validityPeriod;
+    }
+
+
+    public void setValidityPeriod(String validityPeriod) {
+        this.validityPeriod = validityPeriod;
+    }
+
+    public OtcQuoteResult refreshLimit(Integer refreshLimit) {
+        
+        this.refreshLimit = refreshLimit;
+        return this;
+    }
+
+     /**
+     * Quote refresh limit
+     * @return refreshLimit
+    **/
+    @javax.annotation.Nullable
+    public Integer getRefreshLimit() {
+        return refreshLimit;
+    }
+
+
+    public void setRefreshLimit(Integer refreshLimit) {
+        this.refreshLimit = refreshLimit;
+    }
+
+    public OtcQuoteResult refreshLimitMsg(String refreshLimitMsg) {
+        
+        this.refreshLimitMsg = refreshLimitMsg;
+        return this;
+    }
+
+     /**
+     * Quote refresh limit message
+     * @return refreshLimitMsg
+    **/
+    @javax.annotation.Nullable
+    public String getRefreshLimitMsg() {
+        return refreshLimitMsg;
+    }
+
+
+    public void setRefreshLimitMsg(String refreshLimitMsg) {
+        this.refreshLimitMsg = refreshLimitMsg;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -295,12 +367,15 @@ public class OtcQuoteResult {
                 Objects.equals(this.promotionCode, otcQuoteResult.promotionCode) &&
                 Objects.equals(this.side, otcQuoteResult.side) &&
                 Objects.equals(this.orderType, otcQuoteResult.orderType) &&
-                Objects.equals(this.quoteToken, otcQuoteResult.quoteToken);
+                Objects.equals(this.quoteToken, otcQuoteResult.quoteToken) &&
+                Objects.equals(this.validityPeriod, otcQuoteResult.validityPeriod) &&
+                Objects.equals(this.refreshLimit, otcQuoteResult.refreshLimit) &&
+                Objects.equals(this.refreshLimitMsg, otcQuoteResult.refreshLimitMsg);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, payCoin, getCoin, payAmount, getAmount, rate, rateReci, promotionCode, side, orderType, quoteToken);
+        return Objects.hash(type, payCoin, getCoin, payAmount, getAmount, rate, rateReci, promotionCode, side, orderType, quoteToken, validityPeriod, refreshLimit, refreshLimitMsg);
     }
 
 
@@ -319,6 +394,9 @@ public class OtcQuoteResult {
         sb.append("      side: ").append(toIndentedString(side)).append("\n");
         sb.append("      orderType: ").append(toIndentedString(orderType)).append("\n");
         sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
+        sb.append("      validityPeriod: ").append(toIndentedString(validityPeriod)).append("\n");
+        sb.append("      refreshLimit: ").append(toIndentedString(refreshLimit)).append("\n");
+        sb.append("      refreshLimitMsg: ").append(toIndentedString(refreshLimitMsg)).append("\n");
         sb.append("}");
         return sb.toString();
     }

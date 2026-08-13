@@ -8,4 +8,5 @@ Name | Type | Description | Notes
 **symbol** | **String** | Currency pair | 
 **takerFeeRate** | **String** | Taker fee rate | 
 **makerFeeRate** | **String** | Maker fee rate | 
+**rpiFeeRate** | **String** | RPI order maker fee rate |  [optional]
 

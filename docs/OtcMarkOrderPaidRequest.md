@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **orderId** | **String** | Order ID | 
 **clientOrderId** | **String** | Client order ID (used by some gateway/Inner Pay paths, optional) |  [optional]
-**paymentReceiptFileKey** | **String** | User payment receipt: **required**. Stored as a file_key. Single file; jpg/jpeg/png/pdf; ≤4MB. | 
+**paymentReceiptFileKey** | **String** | User payment receipt: **required**. Stored as a file_key. One file; jpg/jpeg/png/pdf; maximum 10 MB. | 
 **paymentReceipt** | **String** | Alias compatible with &#x60;payment_receipt_file_key&#x60; (depends on the gateway&#39;s external field name) |  [optional]
 

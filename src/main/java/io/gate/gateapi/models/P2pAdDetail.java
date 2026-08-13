@@ -44,6 +44,116 @@ public class P2pAdDetail {
     @SerializedName(SERIALIZED_NAME_MAX_AMOUNT)
     private String maxAmount;
 
+    public static final String SERIALIZED_NAME_FIAT_MIN_AMOUNT = "fiat_min_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_MIN_AMOUNT)
+    private String fiatMinAmount;
+
+    public static final String SERIALIZED_NAME_FIAT_MAX_AMOUNT = "fiat_max_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_MAX_AMOUNT)
+    private String fiatMaxAmount;
+
+    /**
+     * Trading limit unit. 0: crypto quantity, 1: fiat amount
+     */
+    @JsonAdapter(LimitBasisEnum.Adapter.class)
+    public enum LimitBasisEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1);
+
+        private Integer value;
+
+        LimitBasisEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LimitBasisEnum fromValue(Integer value) {
+            for (LimitBasisEnum b : LimitBasisEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<LimitBasisEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LimitBasisEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LimitBasisEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return LimitBasisEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_LIMIT_BASIS = "limit_basis";
+    @SerializedName(SERIALIZED_NAME_LIMIT_BASIS)
+    private LimitBasisEnum limitBasis;
+
+    /**
+     * Trading limit unit label. crypto: crypto quantity, fiat: fiat amount
+     */
+    @JsonAdapter(LimitBasisTextEnum.Adapter.class)
+    public enum LimitBasisTextEnum {
+        CRYPTO("crypto"),
+        
+        FIAT("fiat");
+
+        private String value;
+
+        LimitBasisTextEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LimitBasisTextEnum fromValue(String value) {
+            for (LimitBasisTextEnum b : LimitBasisTextEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<LimitBasisTextEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LimitBasisTextEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LimitBasisTextEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return LimitBasisTextEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_LIMIT_BASIS_TEXT = "limit_basis_text";
+    @SerializedName(SERIALIZED_NAME_LIMIT_BASIS_TEXT)
+    private LimitBasisTextEnum limitBasisText;
+
     public static final String SERIALIZED_NAME_TOTAL = "total";
     @SerializedName(SERIALIZED_NAME_TOTAL)
     private String total;
@@ -139,6 +249,10 @@ public class P2pAdDetail {
     public static final String SERIALIZED_NAME_ADVERTISERS_LIMIT = "advertisers_limit";
     @SerializedName(SERIALIZED_NAME_ADVERTISERS_LIMIT)
     private Integer advertisersLimit;
+
+    public static final String SERIALIZED_NAME_POLYMARKET_LIMIT = "polymarket_limit";
+    @SerializedName(SERIALIZED_NAME_POLYMARKET_LIMIT)
+    private Integer polymarketLimit;
 
     public static final String SERIALIZED_NAME_MIN_COMPLETED_LIMIT = "min_completed_limit";
     @SerializedName(SERIALIZED_NAME_MIN_COMPLETED_LIMIT)
@@ -240,7 +354,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Minimum trade amount in &#x60;want_type&#x60;.
+     * Minimum quantity per order, denominated by currency_type
      * @return minAmount
     **/
     @javax.annotation.Nullable
@@ -260,7 +374,7 @@ public class P2pAdDetail {
     }
 
      /**
-     * Maximum trade amount priced in &#x60;want_type&#x60;.
+     * Maximum quantity per order, denominated by currency_type
      * @return maxAmount
     **/
     @javax.annotation.Nullable
@@ -271,6 +385,86 @@ public class P2pAdDetail {
 
     public void setMaxAmount(String maxAmount) {
         this.maxAmount = maxAmount;
+    }
+
+    public P2pAdDetail fiatMinAmount(String fiatMinAmount) {
+        
+        this.fiatMinAmount = fiatMinAmount;
+        return this;
+    }
+
+     /**
+     * Minimum trade amount in &#x60;want_type&#x60;.
+     * @return fiatMinAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatMinAmount() {
+        return fiatMinAmount;
+    }
+
+
+    public void setFiatMinAmount(String fiatMinAmount) {
+        this.fiatMinAmount = fiatMinAmount;
+    }
+
+    public P2pAdDetail fiatMaxAmount(String fiatMaxAmount) {
+        
+        this.fiatMaxAmount = fiatMaxAmount;
+        return this;
+    }
+
+     /**
+     * Maximum trade amount priced in &#x60;want_type&#x60;.
+     * @return fiatMaxAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatMaxAmount() {
+        return fiatMaxAmount;
+    }
+
+
+    public void setFiatMaxAmount(String fiatMaxAmount) {
+        this.fiatMaxAmount = fiatMaxAmount;
+    }
+
+    public P2pAdDetail limitBasis(LimitBasisEnum limitBasis) {
+        
+        this.limitBasis = limitBasis;
+        return this;
+    }
+
+     /**
+     * Trading limit unit. 0: crypto quantity, 1: fiat amount
+     * @return limitBasis
+    **/
+    @javax.annotation.Nullable
+    public LimitBasisEnum getLimitBasis() {
+        return limitBasis;
+    }
+
+
+    public void setLimitBasis(LimitBasisEnum limitBasis) {
+        this.limitBasis = limitBasis;
+    }
+
+    public P2pAdDetail limitBasisText(LimitBasisTextEnum limitBasisText) {
+        
+        this.limitBasisText = limitBasisText;
+        return this;
+    }
+
+     /**
+     * Trading limit unit label. crypto: crypto quantity, fiat: fiat amount
+     * @return limitBasisText
+    **/
+    @javax.annotation.Nullable
+    public LimitBasisTextEnum getLimitBasisText() {
+        return limitBasisText;
+    }
+
+
+    public void setLimitBasisText(LimitBasisTextEnum limitBasisText) {
+        this.limitBasisText = limitBasisText;
     }
 
     public P2pAdDetail total(String total) {
@@ -753,6 +947,26 @@ public class P2pAdDetail {
         this.advertisersLimit = advertisersLimit;
     }
 
+    public P2pAdDetail polymarketLimit(Integer polymarketLimit) {
+        
+        this.polymarketLimit = polymarketLimit;
+        return this;
+    }
+
+     /**
+     * Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted
+     * @return polymarketLimit
+    **/
+    @javax.annotation.Nullable
+    public Integer getPolymarketLimit() {
+        return polymarketLimit;
+    }
+
+
+    public void setPolymarketLimit(Integer polymarketLimit) {
+        this.polymarketLimit = polymarketLimit;
+    }
+
     public P2pAdDetail minCompletedLimit(Integer minCompletedLimit) {
         
         this.minCompletedLimit = minCompletedLimit;
@@ -926,6 +1140,10 @@ public class P2pAdDetail {
                 Objects.equals(this.amount, p2pAdDetail.amount) &&
                 Objects.equals(this.minAmount, p2pAdDetail.minAmount) &&
                 Objects.equals(this.maxAmount, p2pAdDetail.maxAmount) &&
+                Objects.equals(this.fiatMinAmount, p2pAdDetail.fiatMinAmount) &&
+                Objects.equals(this.fiatMaxAmount, p2pAdDetail.fiatMaxAmount) &&
+                Objects.equals(this.limitBasis, p2pAdDetail.limitBasis) &&
+                Objects.equals(this.limitBasisText, p2pAdDetail.limitBasisText) &&
                 Objects.equals(this.total, p2pAdDetail.total) &&
                 Objects.equals(this.payAli, p2pAdDetail.payAli) &&
                 Objects.equals(this.payBank, p2pAdDetail.payBank) &&
@@ -950,6 +1168,7 @@ public class P2pAdDetail {
                 Objects.equals(this.tierLimit, p2pAdDetail.tierLimit) &&
                 Objects.equals(this.regTimeLimit, p2pAdDetail.regTimeLimit) &&
                 Objects.equals(this.advertisersLimit, p2pAdDetail.advertisersLimit) &&
+                Objects.equals(this.polymarketLimit, p2pAdDetail.polymarketLimit) &&
                 Objects.equals(this.minCompletedLimit, p2pAdDetail.minCompletedLimit) &&
                 Objects.equals(this.maxCompletedLimit, p2pAdDetail.maxCompletedLimit) &&
                 Objects.equals(this.userOrdersLimit, p2pAdDetail.userOrdersLimit) &&
@@ -962,7 +1181,7 @@ public class P2pAdDetail {
 
     @Override
     public int hashCode() {
-        return Objects.hash(rate, type, amount, minAmount, maxAmount, total, payAli, payBank, payPaypal, payWechat, payTypeNum, payTypeJson, lockedAmount, orderid, timestamp, currencyType, wantType, hideRate, tradeTips, autoReply, rateRefId, rateOffset, status, rateFixed, floatTrend, expireMin, tierLimit, regTimeLimit, advertisersLimit, minCompletedLimit, maxCompletedLimit, userOrdersLimit, completedRateLimit, limitCountryCn, limitCountryEn, isHedge, hidePayment);
+        return Objects.hash(rate, type, amount, minAmount, maxAmount, fiatMinAmount, fiatMaxAmount, limitBasis, limitBasisText, total, payAli, payBank, payPaypal, payWechat, payTypeNum, payTypeJson, lockedAmount, orderid, timestamp, currencyType, wantType, hideRate, tradeTips, autoReply, rateRefId, rateOffset, status, rateFixed, floatTrend, expireMin, tierLimit, regTimeLimit, advertisersLimit, polymarketLimit, minCompletedLimit, maxCompletedLimit, userOrdersLimit, completedRateLimit, limitCountryCn, limitCountryEn, isHedge, hidePayment);
     }
 
 
@@ -975,6 +1194,10 @@ public class P2pAdDetail {
         sb.append("      amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("      minAmount: ").append(toIndentedString(minAmount)).append("\n");
         sb.append("      maxAmount: ").append(toIndentedString(maxAmount)).append("\n");
+        sb.append("      fiatMinAmount: ").append(toIndentedString(fiatMinAmount)).append("\n");
+        sb.append("      fiatMaxAmount: ").append(toIndentedString(fiatMaxAmount)).append("\n");
+        sb.append("      limitBasis: ").append(toIndentedString(limitBasis)).append("\n");
+        sb.append("      limitBasisText: ").append(toIndentedString(limitBasisText)).append("\n");
         sb.append("      total: ").append(toIndentedString(total)).append("\n");
         sb.append("      payAli: ").append(toIndentedString(payAli)).append("\n");
         sb.append("      payBank: ").append(toIndentedString(payBank)).append("\n");
@@ -999,6 +1222,7 @@ public class P2pAdDetail {
         sb.append("      tierLimit: ").append(toIndentedString(tierLimit)).append("\n");
         sb.append("      regTimeLimit: ").append(toIndentedString(regTimeLimit)).append("\n");
         sb.append("      advertisersLimit: ").append(toIndentedString(advertisersLimit)).append("\n");
+        sb.append("      polymarketLimit: ").append(toIndentedString(polymarketLimit)).append("\n");
         sb.append("      minCompletedLimit: ").append(toIndentedString(minCompletedLimit)).append("\n");
         sb.append("      maxCompletedLimit: ").append(toIndentedString(maxCompletedLimit)).append("\n");
         sb.append("      userOrdersLimit: ").append(toIndentedString(userOrdersLimit)).append("\n");

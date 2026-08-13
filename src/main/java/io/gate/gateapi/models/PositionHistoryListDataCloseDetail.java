@@ -67,7 +67,7 @@ public class PositionHistoryListDataCloseDetail {
     }
 
      /**
-     * Position margin
+     * Margin
      * @return margin
     **/
     @javax.annotation.Nullable

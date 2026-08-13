@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 **posMarginMode** | **String** | Position margin mode: isolated/cross |  [optional] [readonly]
 **positionMode** | **String** | Position mode: single, dual, and dual_plus |  [optional] [readonly]
 **errorLabel** | **String** | Error label |  [optional] [readonly]
-**leverage** | **String** | leverage |  [optional] [readonly]
+**leverage** | **String** | Leverage |  [optional] [readonly]
 
 ## Enum: PriceTypeEnum
 

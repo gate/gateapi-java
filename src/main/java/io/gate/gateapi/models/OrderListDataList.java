@@ -146,7 +146,7 @@ public class OrderListDataList {
     private FinishedEnum finished;
 
     /**
-     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     * Side (1&#x3D;sell, 2&#x3D;buy)
      */
     @JsonAdapter(SideEnum.Adapter.class)
     public enum SideEnum {
@@ -264,7 +264,7 @@ public class OrderListDataList {
     }
 
      /**
-     * Trading symbol description
+     * Symbol description
      * @return symbolDesc
     **/
     @javax.annotation.Nullable
@@ -364,7 +364,7 @@ public class OrderListDataList {
     }
 
      /**
-     * Order side (1&#x3D;sell, 2&#x3D;buy)
+     * Side (1&#x3D;sell, 2&#x3D;buy)
      * @return side
     **/
     @javax.annotation.Nullable
@@ -384,7 +384,7 @@ public class OrderListDataList {
     }
 
      /**
-     * Order volume
+     * Order quantity
      * @return volume
     **/
     @javax.annotation.Nullable

@@ -113,11 +113,11 @@ public class ContractStat {
 
     public static final String SERIALIZED_NAME_LONG_USERS = "long_users";
     @SerializedName(SERIALIZED_NAME_LONG_USERS)
-    private String longUsers;
+    private Long longUsers;
 
     public static final String SERIALIZED_NAME_SHORT_USERS = "short_users";
     @SerializedName(SERIALIZED_NAME_SHORT_USERS)
-    private String shortUsers;
+    private Long shortUsers;
 
 
     public ContractStat time(Long time) {
@@ -560,7 +560,7 @@ public class ContractStat {
         this.topShortAccount = topShortAccount;
     }
 
-    public ContractStat longUsers(String longUsers) {
+    public ContractStat longUsers(Long longUsers) {
         
         this.longUsers = longUsers;
         return this;
@@ -571,16 +571,16 @@ public class ContractStat {
      * @return longUsers
     **/
     @javax.annotation.Nullable
-    public String getLongUsers() {
+    public Long getLongUsers() {
         return longUsers;
     }
 
 
-    public void setLongUsers(String longUsers) {
+    public void setLongUsers(Long longUsers) {
         this.longUsers = longUsers;
     }
 
-    public ContractStat shortUsers(String shortUsers) {
+    public ContractStat shortUsers(Long shortUsers) {
         
         this.shortUsers = shortUsers;
         return this;
@@ -591,12 +591,12 @@ public class ContractStat {
      * @return shortUsers
     **/
     @javax.annotation.Nullable
-    public String getShortUsers() {
+    public Long getShortUsers() {
         return shortUsers;
     }
 
 
-    public void setShortUsers(String shortUsers) {
+    public void setShortUsers(Long shortUsers) {
         this.shortUsers = shortUsers;
     }
     @Override

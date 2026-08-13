@@ -16,5 +16,5 @@ Name | Type | Description | Notes
 **remittanceLineNumber** | **String** |  |  [optional]
 **agentBankName** | **String** |  |  [optional]
 **agentBankSwift** | **String** |  |  [optional]
-**documentationFile** | **String** | 开户证明文件内容（multipart 文件字段，二进制/Base64；jpg/jpeg/png/pdf 等，单文件≤4MB 以现网为准） | 
+**documentationFile** | **String** | Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) | 
 

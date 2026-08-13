@@ -8,7 +8,7 @@ Auto invest order item
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Long** | Order ID | 
-**type** | **String** | type | 
+**type** | **String** | Type | 
 **amount** | **String** | Size | 
 **planId** | **Long** | Plan ID | 
 **side** | **Long** | direction | 

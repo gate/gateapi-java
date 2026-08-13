@@ -8,8 +8,12 @@ Name | Type | Description | Notes
 **rate** | **String** | Advertisement price. |  [optional]
 **type** | **String** | Ad side: &#x60;buy&#x60; buy-crypto ad; &#x60;sell&#x60; sell-crypto ad. |  [optional]
 **amount** | **String** | Remaining crypto amount on the ad. |  [optional]
-**minAmount** | **String** | Minimum trade amount in &#x60;want_type&#x60;. |  [optional]
-**maxAmount** | **String** | Maximum trade amount priced in &#x60;want_type&#x60;. |  [optional]
+**minAmount** | **String** | Minimum quantity per order, denominated by currency_type |  [optional]
+**maxAmount** | **String** | Maximum quantity per order, denominated by currency_type |  [optional]
+**fiatMinAmount** | **String** | Minimum trade amount in &#x60;want_type&#x60;. |  [optional]
+**fiatMaxAmount** | **String** | Maximum trade amount priced in &#x60;want_type&#x60;. |  [optional]
+**limitBasis** | [**LimitBasisEnum**](#LimitBasisEnum) | Trading limit unit. 0: crypto quantity, 1: fiat amount |  [optional]
+**limitBasisText** | [**LimitBasisTextEnum**](#LimitBasisTextEnum) | Trading limit unit label. crypto: crypto quantity, fiat: fiat amount |  [optional]
 **total** | **String** | Fiat amount |  [optional]
 **payAli** | **Integer** | Whether Alipay is supported. &#x60;1&#x60;: yes; &#x60;0&#x60;: no. |  [optional]
 **payBank** | **Integer** | Whether bank transfer is supported. &#x60;1&#x60;: yes; &#x60;0&#x60;: no. |  [optional]
@@ -34,6 +38,7 @@ Name | Type | Description | Notes
 **tierLimit** | **Integer** | Tier limit |  [optional]
 **regTimeLimit** | **Integer** | Registration time limit |  [optional]
 **advertisersLimit** | **Integer** | Whether trading with the advertiser is restricted. &#x60;0&#x60;: no; &#x60;1&#x60;: yes. |  [optional]
+**polymarketLimit** | **Integer** | Whether to restrict trading with Polymarket users. 0: no restriction, 1: restricted |  [optional]
 **minCompletedLimit** | **Integer** | Minimum limit of completed orders |  [optional]
 **maxCompletedLimit** | **Integer** | Maximum limit of completed orders |  [optional]
 **userOrdersLimit** | **Integer** | Order count limit |  [optional]
@@ -42,4 +47,18 @@ Name | Type | Description | Notes
 **limitCountryEn** | **String** | Restricted nationality (English) |  [optional]
 **isHedge** | **Integer** | Whether auto-delegation is enabled. &#x60;1&#x60;: yes; &#x60;0&#x60;: no. |  [optional]
 **hidePayment** | **Integer** | Whether payment methods are hidden. &#x60;1&#x60;: hidden; &#x60;0&#x60;: visible. |  [optional]
+
+## Enum: LimitBasisEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+
+## Enum: LimitBasisTextEnum
+
+Name | Value
+---- | -----
+CRYPTO | &quot;crypto&quot;
+FIAT | &quot;fiat&quot;
 

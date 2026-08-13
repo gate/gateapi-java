@@ -16,4 +16,7 @@ Name | Type | Description | Notes
 **side** | **String** | Quote method | 
 **orderType** | **String** | Order type: FIAT (fiat) / STABLE (stablecoin) | 
 **quoteToken** | **String** | Quote token required when placing an order | 
+**validityPeriod** | **String** | Quote validity period (seconds) |  [optional]
+**refreshLimit** | **Integer** | Quote refresh limit |  [optional]
+**refreshLimitMsg** | **String** | Quote refresh limit message |  [optional]
 

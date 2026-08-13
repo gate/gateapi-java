@@ -59,7 +59,7 @@ public class OtcQuoteRequest {
     }
 
      /**
-     * PAY/GET quote direction. PAY means user inputs pay amount, GET means user inputs get amount. If PAY, pay_amount is required. If GET, get_amount is required
+     * PAY: specify the payment amount (&#x60;pay_amount&#x60; is required); GET: specify the receive amount (&#x60;get_amount&#x60; is required).
      * @return side
     **/
     public String getSide() {
@@ -78,7 +78,7 @@ public class OtcQuoteRequest {
     }
 
      /**
-     * Currency the user pays. Supported currencies can be found on the OTC web quote page.
+     * Payment currency. Supported currencies are available on the OTC web quote page.
      * @return payCoin
     **/
     public String getPayCoin() {
@@ -97,7 +97,7 @@ public class OtcQuoteRequest {
     }
 
      /**
-     * Currency the user receives. Supported currencies can be found on the OTC web quote page.
+     * Receive currency. Supported currencies are available on the OTC web quote page.
      * @return getCoin
     **/
     public String getGetCoin() {
@@ -176,7 +176,7 @@ public class OtcQuoteRequest {
     }
 
      /**
-     * Promotion code (optional)
+     * Promotion code
      * @return promotionCode
     **/
     @javax.annotation.Nullable

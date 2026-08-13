@@ -247,7 +247,7 @@ public class SubCrossMarginAccount {
     }
 
      /**
-     * Position leverage
+     * Leverage multiplier
      * @return leverage
     **/
     @javax.annotation.Nullable

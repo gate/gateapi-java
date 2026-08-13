@@ -95,7 +95,7 @@ public class TradFiTickerData {
     }
 
      /**
-     * Highest price
+     * High price
      * @return highestPrice
     **/
     @javax.annotation.Nullable
@@ -115,7 +115,7 @@ public class TradFiTickerData {
     }
 
      /**
-     * Lowest price
+     * Low price
      * @return lowestPrice
     **/
     @javax.annotation.Nullable

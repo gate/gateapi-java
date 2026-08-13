@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **leverageMax** | **String** | Maximum leverage under current risk limit |  [optional] [readonly]
 **maintenanceRate** | **String** | The maintenance margin rate of the first tier of risk limit sheet |  [optional] [readonly]
 **value** | **String** | Position value calculated in settlement currency |  [optional] [readonly]
-**margin** | **String** | Position margin |  [optional]
+**margin** | **String** | Margin |  [optional]
 **entryPrice** | **String** | Entry price |  [optional] [readonly]
 **liqPrice** | **String** | Liquidation price |  [optional] [readonly]
 **markPrice** | **String** | Current mark price |  [optional] [readonly]

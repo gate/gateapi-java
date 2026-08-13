@@ -20,102 +20,31 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * OtcBankSupplementChecklistItem
+ * Supplementary document item
  */
 public class OtcBankSupplementChecklistItem {
-    public static final String SERIALIZED_NAME_CODE = "code";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private String code;
-
-    public static final String SERIALIZED_NAME_ZH = "zh";
-    @SerializedName(SERIALIZED_NAME_ZH)
-    private String zh;
-
-    public static final String SERIALIZED_NAME_EN = "en";
-    @SerializedName(SERIALIZED_NAME_EN)
-    private String en;
-
-    public static final String SERIALIZED_NAME_REQUIRED = "required";
-    @SerializedName(SERIALIZED_NAME_REQUIRED)
-    private Boolean required;
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
 
 
-    public OtcBankSupplementChecklistItem code(String code) {
+    public OtcBankSupplementChecklistItem description(String description) {
         
-        this.code = code;
+        this.description = description;
         return this;
     }
 
      /**
-     * Material item code, corresponding to the top-level key of &#x60;relationship_proof&#x60;
-     * @return code
+     * Supplementary document submission description
+     * @return description
     **/
-    public String getCode() {
-        return code;
+    public String getDescription() {
+        return description;
     }
 
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public OtcBankSupplementChecklistItem zh(String zh) {
-        
-        this.zh = zh;
-        return this;
-    }
-
-     /**
-     * Get zh
-     * @return zh
-    **/
-    @javax.annotation.Nullable
-    public String getZh() {
-        return zh;
-    }
-
-
-    public void setZh(String zh) {
-        this.zh = zh;
-    }
-
-    public OtcBankSupplementChecklistItem en(String en) {
-        
-        this.en = en;
-        return this;
-    }
-
-     /**
-     * Get en
-     * @return en
-    **/
-    @javax.annotation.Nullable
-    public String getEn() {
-        return en;
-    }
-
-
-    public void setEn(String en) {
-        this.en = en;
-    }
-
-    public OtcBankSupplementChecklistItem required(Boolean required) {
-        
-        this.required = required;
-        return this;
-    }
-
-     /**
-     * Whether required
-     * @return required
-    **/
-    public Boolean getRequired() {
-        return required;
-    }
-
-
-    public void setRequired(Boolean required) {
-        this.required = required;
+    public void setDescription(String description) {
+        this.description = description;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -126,15 +55,12 @@ public class OtcBankSupplementChecklistItem {
             return false;
         }
         OtcBankSupplementChecklistItem otcBankSupplementChecklistItem = (OtcBankSupplementChecklistItem) o;
-        return Objects.equals(this.code, otcBankSupplementChecklistItem.code) &&
-                Objects.equals(this.zh, otcBankSupplementChecklistItem.zh) &&
-                Objects.equals(this.en, otcBankSupplementChecklistItem.en) &&
-                Objects.equals(this.required, otcBankSupplementChecklistItem.required);
+        return Objects.equals(this.description, otcBankSupplementChecklistItem.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, zh, en, required);
+        return Objects.hash(description);
     }
 
 
@@ -142,10 +68,7 @@ public class OtcBankSupplementChecklistItem {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OtcBankSupplementChecklistItem {\n");
-        sb.append("      code: ").append(toIndentedString(code)).append("\n");
-        sb.append("      zh: ").append(toIndentedString(zh)).append("\n");
-        sb.append("      en: ").append(toIndentedString(en)).append("\n");
-        sb.append("      required: ").append(toIndentedString(required)).append("\n");
+        sb.append("      description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
         return sb.toString();
     }

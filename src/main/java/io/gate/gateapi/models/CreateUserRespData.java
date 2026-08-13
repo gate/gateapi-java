@@ -63,7 +63,7 @@ public class CreateUserRespData {
     }
 
      /**
-     * leverage
+     * Leverage
      * @return leverage
     **/
     @javax.annotation.Nullable

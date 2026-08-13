@@ -31,6 +31,10 @@ public class OtcStableCoinOrderCreateResponse {
     @SerializedName(SERIALIZED_NAME_MESSAGE)
     private String message;
 
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Integer timestamp;
+
 
     public OtcStableCoinOrderCreateResponse code(Integer code) {
         
@@ -39,7 +43,7 @@ public class OtcStableCoinOrderCreateResponse {
     }
 
      /**
-     * Get code
+     * Business code; 0 indicates success
      * @return code
     **/
     public Integer getCode() {
@@ -58,7 +62,7 @@ public class OtcStableCoinOrderCreateResponse {
     }
 
      /**
-     * Get message
+     * Message
      * @return message
     **/
     public String getMessage() {
@@ -68,6 +72,25 @@ public class OtcStableCoinOrderCreateResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public OtcStableCoinOrderCreateResponse timestamp(Integer timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Server Unix timestamp in seconds
+     * @return timestamp
+    **/
+    public Integer getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,12 +102,13 @@ public class OtcStableCoinOrderCreateResponse {
         }
         OtcStableCoinOrderCreateResponse otcStableCoinOrderCreateResponse = (OtcStableCoinOrderCreateResponse) o;
         return Objects.equals(this.code, otcStableCoinOrderCreateResponse.code) &&
-                Objects.equals(this.message, otcStableCoinOrderCreateResponse.message);
+                Objects.equals(this.message, otcStableCoinOrderCreateResponse.message) &&
+                Objects.equals(this.timestamp, otcStableCoinOrderCreateResponse.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message);
+        return Objects.hash(code, message, timestamp);
     }
 
 
@@ -94,6 +118,7 @@ public class OtcStableCoinOrderCreateResponse {
         sb.append("class OtcStableCoinOrderCreateResponse {\n");
         sb.append("      code: ").append(toIndentedString(code)).append("\n");
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }

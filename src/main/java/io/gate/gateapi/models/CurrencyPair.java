@@ -378,7 +378,7 @@ public class CurrencyPair {
     }
 
      /**
-     * Amount scale
+     * Quantity precision
      * @return amountPrecision
     **/
     @javax.annotation.Nullable
@@ -398,7 +398,7 @@ public class CurrencyPair {
     }
 
      /**
-     * Price scale
+     * Price precision
      * @return precision
     **/
     @javax.annotation.Nullable
@@ -618,7 +618,7 @@ public class CurrencyPair {
     }
 
      /**
-     * Maximum Market Order Quantity
+     * Maximum market order quantity. &#x60;null&#x60; or &#x60;0&#x60; means no limit
      * @return marketOrderMaxStock
     **/
     @javax.annotation.Nullable
@@ -638,7 +638,7 @@ public class CurrencyPair {
     }
 
      /**
-     * Maximum Market Order Amount
+     * Maximum market order amount. &#x60;null&#x60; or &#x60;0&#x60; means no limit
      * @return marketOrderMaxMoney
     **/
     @javax.annotation.Nullable

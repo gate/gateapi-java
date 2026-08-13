@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **price** | **String** | Order price | 
 **priceType** | [**PriceTypeEnum**](#PriceTypeEnum) | Price type (trigger&#x3D;trigger price, market&#x3D;market price) | 
-**side** | [**SideEnum**](#SideEnum) | Order side (1&#x3D;sell, 2&#x3D;buy) | 
+**side** | [**SideEnum**](#SideEnum) | Side (1&#x3D;sell, 2&#x3D;buy) | 
 **symbol** | **String** | Trading symbol code | 
-**volume** | **String** | Order volume | 
+**volume** | **String** | Order quantity | 
 **priceTp** | **String** | Take profit price (optional) |  [optional]
 **priceSl** | **String** | Stop loss price (optional) |  [optional]
 

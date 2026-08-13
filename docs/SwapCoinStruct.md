@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **amount** | **String** | Amount |  [optional]
 **exchangeRate** | **String** | Exchange ratio |  [optional]
 **exchangeAmount** | **String** | Redemption Amount |  [optional]
-**updateStamp** | **Integer** | UpdateTimestamp |  [optional]
+**updateStamp** | **Integer** | Update timestamp |  [optional]
 **createStamp** | **Integer** | Transaction timestamp |  [optional]
 **status** | **Integer** | status 1-success |  [optional]
 **protocolType** | **Integer** | DEFI Protocol Type |  [optional]

@@ -33,10 +33,11 @@ import io.gate.gateapi.models.Order;
 import io.gate.gateapi.models.OrderBook;
 import io.gate.gateapi.models.OrderCancel;
 import io.gate.gateapi.models.OrderPatch;
-import io.gate.gateapi.models.SpotAccount;
 import io.gate.gateapi.models.SpotAccountBook;
 import io.gate.gateapi.models.SpotFee;
 import io.gate.gateapi.models.SpotInsuranceHistory;
+import io.gate.gateapi.models.SpotPovOrder;
+import io.gate.gateapi.models.SpotPovOrderCreator;
 import io.gate.gateapi.models.SpotPriceTriggeredOrder;
 import io.gate.gateapi.models.SystemTime;
 import io.gate.gateapi.models.Ticker;
@@ -1519,149 +1520,6 @@ public class SpotApi {
         return localVarCall;
     }
 
-    private okhttp3.Call listSpotAccountsCall(String currency, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/spot/accounts";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (currency != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
-        }
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSpotAccountsValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSpotAccountsCall(currency, _callback);
-        return localVarCall;
-    }
-
-
-    private ApiResponse<List<SpotAccount>> listSpotAccountsWithHttpInfo(String currency) throws ApiException {
-        okhttp3.Call localVarCall = listSpotAccountsValidateBeforeCall(currency, null);
-        Type localVarReturnType = new TypeToken<List<SpotAccount>>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    private okhttp3.Call listSpotAccountsAsync(String currency, final ApiCallback<List<SpotAccount>> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listSpotAccountsValidateBeforeCall(currency, _callback);
-        Type localVarReturnType = new TypeToken<List<SpotAccount>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    public class APIlistSpotAccountsRequest {
-        private String currency;
-
-        private APIlistSpotAccountsRequest() {
-        }
-
-        /**
-         * Set currency
-         * @param currency Query by specified currency name (optional)
-         * @return APIlistSpotAccountsRequest
-         */
-        public APIlistSpotAccountsRequest currency(String currency) {
-            this.currency = currency;
-            return this;
-        }
-
-        /**
-         * Build call for listSpotAccounts
-         * @param _callback ApiCallback API callback
-         * @return Call to execute
-         * @throws ApiException If fail to serialize the request body object
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
-         </table>
-         */
-        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listSpotAccountsCall(currency, _callback);
-        }
-
-        /**
-         * Execute listSpotAccounts request
-         * @return List&lt;SpotAccount&gt;
-         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
-         </table>
-         */
-        public List<SpotAccount> execute() throws ApiException {
-            ApiResponse<List<SpotAccount>> localVarResp = listSpotAccountsWithHttpInfo(currency);
-            return localVarResp.getData();
-        }
-
-        /**
-         * Execute listSpotAccounts request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;SpotAccount&gt;&gt;
-         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
-         </table>
-         */
-        public ApiResponse<List<SpotAccount>> executeWithHttpInfo() throws ApiException {
-            return listSpotAccountsWithHttpInfo(currency);
-        }
-
-        /**
-         * Execute listSpotAccounts request (asynchronously)
-         * @param _callback The callback to be executed when the API call finishes
-         * @return The request call
-         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-         * @http.response.details
-         <table summary="Response Details" border="1">
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
-         </table>
-         */
-        public okhttp3.Call executeAsync(final ApiCallback<List<SpotAccount>> _callback) throws ApiException {
-            return listSpotAccountsAsync(currency, _callback);
-        }
-    }
-
-    /**
-     * List spot trading accounts
-     * 
-     * @return APIlistSpotAccountsRequest
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
-     </table>
-     */
-    public APIlistSpotAccountsRequest listSpotAccounts() {
-        return new APIlistSpotAccountsRequest();
-    }
-
     private okhttp3.Call listSpotAccountBookCall(String currency, Long from, Long to, Integer page, Integer limit, String type, String code, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
@@ -2590,7 +2448,7 @@ public class SpotApi {
     }
 
     /**
-     * Create an order
+     * Create order
      * Supports spot, margin, leverage, and cross-margin leverage orders. Use different accounts through the &#x60;account&#x60; field. Default is &#x60;spot&#x60;, which means using the spot account to place orders. If the user has a &#x60;unified&#x60; account, the default is to place orders with the unified account.  When using leveraged account trading (i.e., when &#x60;account&#x60; is set to &#x60;margin&#x60;), you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;. In case of insufficient account balance, the system will automatically execute &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient amount. Whether assets obtained after leveraged order execution are automatically used to repay borrowing orders of the isolated margin account depends on the automatic repayment settings of the user&#39;s isolated margin account. Account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  When using unified account trading (i.e., when &#x60;account&#x60; is set to &#x60;unified&#x60;), &#x60;auto_borrow&#x60; can also be enabled to realize automatic borrowing of insufficient amounts. However, unlike the isolated margin account, whether unified account orders are automatically repaid depends on the &#x60;auto_repay&#x60; setting when placing the order. This setting only applies to the current order, meaning only assets obtained after order execution will be used to repay borrowing orders of the cross-margin account. Unified account ordering currently supports enabling both &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; simultaneously.  Auto repayment will be triggered when the order ends, i.e., when &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order Status**  The order status in pending orders is &#x60;open&#x60;, which remains &#x60;open&#x60; until all quantity is filled. If fully filled, the order ends and status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of partial fills, the status will become &#x60;cancelled&#x60;.  **Iceberg Orders**  &#x60;iceberg&#x60; is used to set the displayed quantity of iceberg orders and does not support complete hiding. Note that hidden portions are charged according to the taker&#39;s fee rate.  **Self-Trade Prevention**  Set &#x60;stp_act&#x60; to determine the self-trade prevention strategy to use
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2608,7 +2466,7 @@ public class SpotApi {
     }
 
     /**
-     * Create an order
+     * Create order
      * Supports spot, margin, leverage, and cross-margin leverage orders. Use different accounts through the &#x60;account&#x60; field. Default is &#x60;spot&#x60;, which means using the spot account to place orders. If the user has a &#x60;unified&#x60; account, the default is to place orders with the unified account.  When using leveraged account trading (i.e., when &#x60;account&#x60; is set to &#x60;margin&#x60;), you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;. In case of insufficient account balance, the system will automatically execute &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient amount. Whether assets obtained after leveraged order execution are automatically used to repay borrowing orders of the isolated margin account depends on the automatic repayment settings of the user&#39;s isolated margin account. Account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  When using unified account trading (i.e., when &#x60;account&#x60; is set to &#x60;unified&#x60;), &#x60;auto_borrow&#x60; can also be enabled to realize automatic borrowing of insufficient amounts. However, unlike the isolated margin account, whether unified account orders are automatically repaid depends on the &#x60;auto_repay&#x60; setting when placing the order. This setting only applies to the current order, meaning only assets obtained after order execution will be used to repay borrowing orders of the cross-margin account. Unified account ordering currently supports enabling both &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; simultaneously.  Auto repayment will be triggered when the order ends, i.e., when &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order Status**  The order status in pending orders is &#x60;open&#x60;, which remains &#x60;open&#x60; until all quantity is filled. If fully filled, the order ends and status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of partial fills, the status will become &#x60;cancelled&#x60;.  **Iceberg Orders**  &#x60;iceberg&#x60; is used to set the displayed quantity of iceberg orders and does not support complete hiding. Note that hidden portions are charged according to the taker&#39;s fee rate.  **Self-Trade Prevention**  Set &#x60;stp_act&#x60; to determine the self-trade prevention strategy to use
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -2627,7 +2485,7 @@ public class SpotApi {
     }
 
     /**
-     * Create an order (asynchronously)
+     * Create order (asynchronously)
      * Supports spot, margin, leverage, and cross-margin leverage orders. Use different accounts through the &#x60;account&#x60; field. Default is &#x60;spot&#x60;, which means using the spot account to place orders. If the user has a &#x60;unified&#x60; account, the default is to place orders with the unified account.  When using leveraged account trading (i.e., when &#x60;account&#x60; is set to &#x60;margin&#x60;), you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;. In case of insufficient account balance, the system will automatically execute &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient amount. Whether assets obtained after leveraged order execution are automatically used to repay borrowing orders of the isolated margin account depends on the automatic repayment settings of the user&#39;s isolated margin account. Account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  When using unified account trading (i.e., when &#x60;account&#x60; is set to &#x60;unified&#x60;), &#x60;auto_borrow&#x60; can also be enabled to realize automatic borrowing of insufficient amounts. However, unlike the isolated margin account, whether unified account orders are automatically repaid depends on the &#x60;auto_repay&#x60; setting when placing the order. This setting only applies to the current order, meaning only assets obtained after order execution will be used to repay borrowing orders of the cross-margin account. Unified account ordering currently supports enabling both &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; simultaneously.  Auto repayment will be triggered when the order ends, i.e., when &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order Status**  The order status in pending orders is &#x60;open&#x60;, which remains &#x60;open&#x60; until all quantity is filled. If fully filled, the order ends and status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of partial fills, the status will become &#x60;cancelled&#x60;.  **Iceberg Orders**  &#x60;iceberg&#x60; is used to set the displayed quantity of iceberg orders and does not support complete hiding. Note that hidden portions are charged according to the taker&#39;s fee rate.  **Self-Trade Prevention**  Set &#x60;stp_act&#x60; to determine the self-trade prevention strategy to use
      * @param order  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -4707,6 +4565,635 @@ public class SpotApi {
     public okhttp3.Call cancelSpotPriceTriggeredOrderAsync(String orderId, final ApiCallback<SpotPriceTriggeredOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = cancelSpotPriceTriggeredOrderValidateBeforeCall(orderId, _callback);
         Type localVarReturnType = new TypeToken<SpotPriceTriggeredOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    private okhttp3.Call listSpotPovOrdersCall(String status, String currencyPair, String side, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/pov_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (side != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("side", side));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpotPovOrdersValidateBeforeCall(String status, String currencyPair, String side, Integer page, Integer limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'status' is set
+        if (status == null) {
+            throw new ApiException("Missing the required parameter 'status' when calling listSpotPovOrders(Async)");
+        }
+
+        okhttp3.Call localVarCall = listSpotPovOrdersCall(status, currencyPair, side, page, limit, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<SpotPovOrder>> listSpotPovOrdersWithHttpInfo(String status, String currencyPair, String side, Integer page, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listSpotPovOrdersValidateBeforeCall(status, currencyPair, side, page, limit, null);
+        Type localVarReturnType = new TypeToken<List<SpotPovOrder>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSpotPovOrdersAsync(String status, String currencyPair, String side, Integer page, Integer limit, final ApiCallback<List<SpotPovOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotPovOrdersValidateBeforeCall(status, currencyPair, side, page, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<SpotPovOrder>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSpotPovOrdersRequest {
+        private final String status;
+        private String currencyPair;
+        private String side;
+        private Integer page;
+        private Integer limit;
+
+        private APIlistSpotPovOrdersRequest(String status) {
+            this.status = status;
+        }
+
+        /**
+         * Set currencyPair
+         * @param currencyPair Currency pair (optional)
+         * @return APIlistSpotPovOrdersRequest
+         */
+        public APIlistSpotPovOrdersRequest currencyPair(String currencyPair) {
+            this.currencyPair = currencyPair;
+            return this;
+        }
+
+        /**
+         * Set side
+         * @param side Specify all bids or all asks, both included if not specified (optional)
+         * @return APIlistSpotPovOrdersRequest
+         */
+        public APIlistSpotPovOrdersRequest side(String side) {
+            this.side = side;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page Page number, up to 100 (optional, default to 1)
+         * @return APIlistSpotPovOrdersRequest
+         */
+        public APIlistSpotPovOrdersRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of records returned in a single list (optional, default to 100)
+         * @return APIlistSpotPovOrdersRequest
+         */
+        public APIlistSpotPovOrdersRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listSpotPovOrders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSpotPovOrdersCall(status, currencyPair, side, page, limit, _callback);
+        }
+
+        /**
+         * Execute listSpotPovOrders request
+         * @return List&lt;SpotPovOrder&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SpotPovOrder> execute() throws ApiException {
+            ApiResponse<List<SpotPovOrder>> localVarResp = listSpotPovOrdersWithHttpInfo(status, currencyPair, side, page, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSpotPovOrders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SpotPovOrder&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SpotPovOrder>> executeWithHttpInfo() throws ApiException {
+            return listSpotPovOrdersWithHttpInfo(status, currencyPair, side, page, limit);
+        }
+
+        /**
+         * Execute listSpotPovOrders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SpotPovOrder>> _callback) throws ApiException {
+            return listSpotPovOrdersAsync(status, currencyPair, side, page, limit, _callback);
+        }
+    }
+
+    /**
+     * List Spot POV orders
+     * 
+     * @param status Order status. Defaults to open  - open: Active orders - finished: Finished orders (required)
+     * @return APIlistSpotPovOrdersRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSpotPovOrdersRequest listSpotPovOrders(String status) {
+        return new APIlistSpotPovOrdersRequest(status);
+    }
+
+    /**
+     * Build call for createSpotPovOrder
+     * @param spotPovOrderCreator  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpotPovOrderCall(SpotPovOrderCreator spotPovOrderCreator, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = spotPovOrderCreator;
+
+        // create path and map variables
+        String localVarPath = "/spot/pov_orders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSpotPovOrderValidateBeforeCall(SpotPovOrderCreator spotPovOrderCreator, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'spotPovOrderCreator' is set
+        if (spotPovOrderCreator == null) {
+            throw new ApiException("Missing the required parameter 'spotPovOrderCreator' when calling createSpotPovOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = createSpotPovOrderCall(spotPovOrderCreator, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create a Spot POV order
+     * 
+     * @param spotPovOrderCreator  (required)
+     * @return SpotPovOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpotPovOrder createSpotPovOrder(SpotPovOrderCreator spotPovOrderCreator) throws ApiException {
+        ApiResponse<SpotPovOrder> localVarResp = createSpotPovOrderWithHttpInfo(spotPovOrderCreator);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a Spot POV order
+     * 
+     * @param spotPovOrderCreator  (required)
+     * @return ApiResponse&lt;SpotPovOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpotPovOrder> createSpotPovOrderWithHttpInfo(SpotPovOrderCreator spotPovOrderCreator) throws ApiException {
+        okhttp3.Call localVarCall = createSpotPovOrderValidateBeforeCall(spotPovOrderCreator, null);
+        Type localVarReturnType = new TypeToken<SpotPovOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a Spot POV order (asynchronously)
+     * 
+     * @param spotPovOrderCreator  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Order created successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpotPovOrderAsync(SpotPovOrderCreator spotPovOrderCreator, final ApiCallback<SpotPovOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createSpotPovOrderValidateBeforeCall(spotPovOrderCreator, _callback);
+        Type localVarReturnType = new TypeToken<SpotPovOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelSpotPovOrders
+     * @param currencyPair Currency pair (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPovOrdersCall(String currencyPair, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/pov_orders/cancel";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelSpotPovOrdersValidateBeforeCall(String currencyPair, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPovOrdersCall(currencyPair, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Cancel Spot POV orders
+     * 
+     * @param currencyPair Currency pair (optional)
+     * @return List&lt;SpotPovOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<SpotPovOrder> cancelSpotPovOrders(String currencyPair) throws ApiException {
+        ApiResponse<List<SpotPovOrder>> localVarResp = cancelSpotPovOrdersWithHttpInfo(currencyPair);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel Spot POV orders
+     * 
+     * @param currencyPair Currency pair (optional)
+     * @return ApiResponse&lt;List&lt;SpotPovOrder&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<SpotPovOrder>> cancelSpotPovOrdersWithHttpInfo(String currencyPair) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPovOrdersValidateBeforeCall(currencyPair, null);
+        Type localVarReturnType = new TypeToken<List<SpotPovOrder>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel Spot POV orders (asynchronously)
+     * 
+     * @param currencyPair Currency pair (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Batch cancel request is received and processed. Success is determined based on the order list </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPovOrdersAsync(String currencyPair, final ApiCallback<List<SpotPovOrder>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPovOrdersValidateBeforeCall(currencyPair, _callback);
+        Type localVarReturnType = new TypeToken<List<SpotPovOrder>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getSpotPovOrder
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSpotPovOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/pov_orders/{order_id}"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSpotPovOrderValidateBeforeCall(String orderId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getSpotPovOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = getSpotPovOrderCall(orderId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Query Spot POV order details
+     * 
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @return SpotPovOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpotPovOrder getSpotPovOrder(String orderId) throws ApiException {
+        ApiResponse<SpotPovOrder> localVarResp = getSpotPovOrderWithHttpInfo(orderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query Spot POV order details
+     * 
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @return ApiResponse&lt;SpotPovOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpotPovOrder> getSpotPovOrderWithHttpInfo(String orderId) throws ApiException {
+        okhttp3.Call localVarCall = getSpotPovOrderValidateBeforeCall(orderId, null);
+        Type localVarReturnType = new TypeToken<SpotPovOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query Spot POV order details (asynchronously)
+     * 
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Detail retrieved </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSpotPovOrderAsync(String orderId, final ApiCallback<SpotPovOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getSpotPovOrderValidateBeforeCall(orderId, _callback);
+        Type localVarReturnType = new TypeToken<SpotPovOrder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelSpotPovOrder
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPovOrderCall(String orderId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/pov_orders/{order_id}/cancel"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelSpotPovOrderValidateBeforeCall(String orderId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling cancelSpotPovOrder(Async)");
+        }
+
+        okhttp3.Call localVarCall = cancelSpotPovOrderCall(orderId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Cancel a Spot POV order
+     * 
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @return SpotPovOrder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpotPovOrder cancelSpotPovOrder(String orderId) throws ApiException {
+        ApiResponse<SpotPovOrder> localVarResp = cancelSpotPovOrderWithHttpInfo(orderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel a Spot POV order
+     * 
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @return ApiResponse&lt;SpotPovOrder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpotPovOrder> cancelSpotPovOrderWithHttpInfo(String orderId) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPovOrderValidateBeforeCall(orderId, null);
+        Type localVarReturnType = new TypeToken<SpotPovOrder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel a Spot POV order (asynchronously)
+     * 
+     * @param orderId The order ID returned after successful creation, or the custom ID specified by the user in the &#x60;text&#x60; field. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Order cancelled </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelSpotPovOrderAsync(String orderId, final ApiCallback<SpotPovOrder> _callback) throws ApiException {
+        okhttp3.Call localVarCall = cancelSpotPovOrderValidateBeforeCall(orderId, _callback);
+        Type localVarReturnType = new TypeToken<SpotPovOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

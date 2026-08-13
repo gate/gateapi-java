@@ -17,7 +17,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.P2pAdsListTradeMethod;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * P2pAdsListItem
@@ -43,6 +46,10 @@ public class P2pAdsListItem {
     @SerializedName(SERIALIZED_NAME_PRICE)
     private String price;
 
+    public static final String SERIALIZED_NAME_SURPLUS_AMOUNT = "surplus_amount";
+    @SerializedName(SERIALIZED_NAME_SURPLUS_AMOUNT)
+    private String surplusAmount;
+
     public static final String SERIALIZED_NAME_MAX_SINGLE_TRANS_AMOUNT = "max_single_trans_amount";
     @SerializedName(SERIALIZED_NAME_MAX_SINGLE_TRANS_AMOUNT)
     private String maxSingleTransAmount;
@@ -50,6 +57,120 @@ public class P2pAdsListItem {
     public static final String SERIALIZED_NAME_MIN_SINGLE_TRANS_AMOUNT = "min_single_trans_amount";
     @SerializedName(SERIALIZED_NAME_MIN_SINGLE_TRANS_AMOUNT)
     private String minSingleTransAmount;
+
+    public static final String SERIALIZED_NAME_FIAT_MIN_AMOUNT = "fiat_min_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_MIN_AMOUNT)
+    private String fiatMinAmount;
+
+    public static final String SERIALIZED_NAME_FIAT_MAX_AMOUNT = "fiat_max_amount";
+    @SerializedName(SERIALIZED_NAME_FIAT_MAX_AMOUNT)
+    private String fiatMaxAmount;
+
+    /**
+     * Trading limit unit. 0: crypto quantity, 1: fiat amount
+     */
+    @JsonAdapter(LimitBasisEnum.Adapter.class)
+    public enum LimitBasisEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1);
+
+        private Integer value;
+
+        LimitBasisEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LimitBasisEnum fromValue(Integer value) {
+            for (LimitBasisEnum b : LimitBasisEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<LimitBasisEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LimitBasisEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LimitBasisEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return LimitBasisEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_LIMIT_BASIS = "limit_basis";
+    @SerializedName(SERIALIZED_NAME_LIMIT_BASIS)
+    private LimitBasisEnum limitBasis;
+
+    /**
+     * Trading limit unit label. crypto: crypto quantity, fiat: fiat amount
+     */
+    @JsonAdapter(LimitBasisTextEnum.Adapter.class)
+    public enum LimitBasisTextEnum {
+        CRYPTO("crypto"),
+        
+        FIAT("fiat");
+
+        private String value;
+
+        LimitBasisTextEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LimitBasisTextEnum fromValue(String value) {
+            for (LimitBasisTextEnum b : LimitBasisTextEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<LimitBasisTextEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LimitBasisTextEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LimitBasisTextEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return LimitBasisTextEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_LIMIT_BASIS_TEXT = "limit_basis_text";
+    @SerializedName(SERIALIZED_NAME_LIMIT_BASIS_TEXT)
+    private LimitBasisTextEnum limitBasisText;
+
+    public static final String SERIALIZED_NAME_TRADE_METHODS = "trade_methods";
+    @SerializedName(SERIALIZED_NAME_TRADE_METHODS)
+    private List<P2pAdsListTradeMethod> tradeMethods = null;
 
     public static final String SERIALIZED_NAME_NICK_NAME = "nick_name";
     @SerializedName(SERIALIZED_NAME_NICK_NAME)
@@ -156,6 +277,26 @@ public class P2pAdsListItem {
         this.price = price;
     }
 
+    public P2pAdsListItem surplusAmount(String surplusAmount) {
+        
+        this.surplusAmount = surplusAmount;
+        return this;
+    }
+
+     /**
+     * Remaining tradable crypto quantity
+     * @return surplusAmount
+    **/
+    @javax.annotation.Nullable
+    public String getSurplusAmount() {
+        return surplusAmount;
+    }
+
+
+    public void setSurplusAmount(String surplusAmount) {
+        this.surplusAmount = surplusAmount;
+    }
+
     public P2pAdsListItem maxSingleTransAmount(String maxSingleTransAmount) {
         
         this.maxSingleTransAmount = maxSingleTransAmount;
@@ -196,6 +337,114 @@ public class P2pAdsListItem {
         this.minSingleTransAmount = minSingleTransAmount;
     }
 
+    public P2pAdsListItem fiatMinAmount(String fiatMinAmount) {
+        
+        this.fiatMinAmount = fiatMinAmount;
+        return this;
+    }
+
+     /**
+     * Minimum fiat amount per order
+     * @return fiatMinAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatMinAmount() {
+        return fiatMinAmount;
+    }
+
+
+    public void setFiatMinAmount(String fiatMinAmount) {
+        this.fiatMinAmount = fiatMinAmount;
+    }
+
+    public P2pAdsListItem fiatMaxAmount(String fiatMaxAmount) {
+        
+        this.fiatMaxAmount = fiatMaxAmount;
+        return this;
+    }
+
+     /**
+     * Maximum fiat amount per order
+     * @return fiatMaxAmount
+    **/
+    @javax.annotation.Nullable
+    public String getFiatMaxAmount() {
+        return fiatMaxAmount;
+    }
+
+
+    public void setFiatMaxAmount(String fiatMaxAmount) {
+        this.fiatMaxAmount = fiatMaxAmount;
+    }
+
+    public P2pAdsListItem limitBasis(LimitBasisEnum limitBasis) {
+        
+        this.limitBasis = limitBasis;
+        return this;
+    }
+
+     /**
+     * Trading limit unit. 0: crypto quantity, 1: fiat amount
+     * @return limitBasis
+    **/
+    @javax.annotation.Nullable
+    public LimitBasisEnum getLimitBasis() {
+        return limitBasis;
+    }
+
+
+    public void setLimitBasis(LimitBasisEnum limitBasis) {
+        this.limitBasis = limitBasis;
+    }
+
+    public P2pAdsListItem limitBasisText(LimitBasisTextEnum limitBasisText) {
+        
+        this.limitBasisText = limitBasisText;
+        return this;
+    }
+
+     /**
+     * Trading limit unit label. crypto: crypto quantity, fiat: fiat amount
+     * @return limitBasisText
+    **/
+    @javax.annotation.Nullable
+    public LimitBasisTextEnum getLimitBasisText() {
+        return limitBasisText;
+    }
+
+
+    public void setLimitBasisText(LimitBasisTextEnum limitBasisText) {
+        this.limitBasisText = limitBasisText;
+    }
+
+    public P2pAdsListItem tradeMethods(List<P2pAdsListTradeMethod> tradeMethods) {
+        
+        this.tradeMethods = tradeMethods;
+        return this;
+    }
+
+    public P2pAdsListItem addTradeMethodsItem(P2pAdsListTradeMethod tradeMethodsItem) {
+        if (this.tradeMethods == null) {
+            this.tradeMethods = new ArrayList<>();
+        }
+        this.tradeMethods.add(tradeMethodsItem);
+        return this;
+    }
+
+     /**
+     * Supported payment methods list
+     * @return tradeMethods
+    **/
+    @javax.annotation.Nullable
+    public List<P2pAdsListTradeMethod> getTradeMethods() {
+        return tradeMethods;
+    }
+
+
+    public void setTradeMethods(List<P2pAdsListTradeMethod> tradeMethods) {
+        this.tradeMethods = tradeMethods;
+    }
+
     public P2pAdsListItem nickName(String nickName) {
         
         this.nickName = nickName;
@@ -229,14 +478,20 @@ public class P2pAdsListItem {
                 Objects.equals(this.fiatUnit, p2pAdsListItem.fiatUnit) &&
                 Objects.equals(this.advNo, p2pAdsListItem.advNo) &&
                 Objects.equals(this.price, p2pAdsListItem.price) &&
+                Objects.equals(this.surplusAmount, p2pAdsListItem.surplusAmount) &&
                 Objects.equals(this.maxSingleTransAmount, p2pAdsListItem.maxSingleTransAmount) &&
                 Objects.equals(this.minSingleTransAmount, p2pAdsListItem.minSingleTransAmount) &&
+                Objects.equals(this.fiatMinAmount, p2pAdsListItem.fiatMinAmount) &&
+                Objects.equals(this.fiatMaxAmount, p2pAdsListItem.fiatMaxAmount) &&
+                Objects.equals(this.limitBasis, p2pAdsListItem.limitBasis) &&
+                Objects.equals(this.limitBasisText, p2pAdsListItem.limitBasisText) &&
+                Objects.equals(this.tradeMethods, p2pAdsListItem.tradeMethods) &&
                 Objects.equals(this.nickName, p2pAdsListItem.nickName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(index, asset, fiatUnit, advNo, price, maxSingleTransAmount, minSingleTransAmount, nickName);
+        return Objects.hash(index, asset, fiatUnit, advNo, price, surplusAmount, maxSingleTransAmount, minSingleTransAmount, fiatMinAmount, fiatMaxAmount, limitBasis, limitBasisText, tradeMethods, nickName);
     }
 
 
@@ -249,8 +504,14 @@ public class P2pAdsListItem {
         sb.append("      fiatUnit: ").append(toIndentedString(fiatUnit)).append("\n");
         sb.append("      advNo: ").append(toIndentedString(advNo)).append("\n");
         sb.append("      price: ").append(toIndentedString(price)).append("\n");
+        sb.append("      surplusAmount: ").append(toIndentedString(surplusAmount)).append("\n");
         sb.append("      maxSingleTransAmount: ").append(toIndentedString(maxSingleTransAmount)).append("\n");
         sb.append("      minSingleTransAmount: ").append(toIndentedString(minSingleTransAmount)).append("\n");
+        sb.append("      fiatMinAmount: ").append(toIndentedString(fiatMinAmount)).append("\n");
+        sb.append("      fiatMaxAmount: ").append(toIndentedString(fiatMaxAmount)).append("\n");
+        sb.append("      limitBasis: ").append(toIndentedString(limitBasis)).append("\n");
+        sb.append("      limitBasisText: ").append(toIndentedString(limitBasisText)).append("\n");
+        sb.append("      tradeMethods: ").append(toIndentedString(tradeMethods)).append("\n");
         sb.append("      nickName: ").append(toIndentedString(nickName)).append("\n");
         sb.append("}");
         return sb.toString();

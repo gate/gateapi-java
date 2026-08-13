@@ -35,6 +35,10 @@ public class CrossexSpecialFee {
     @SerializedName(SERIALIZED_NAME_MAKER_FEE_RATE)
     private String makerFeeRate;
 
+    public static final String SERIALIZED_NAME_RPI_FEE_RATE = "rpi_fee_rate";
+    @SerializedName(SERIALIZED_NAME_RPI_FEE_RATE)
+    private String rpiFeeRate;
+
 
     public CrossexSpecialFee symbol(String symbol) {
         
@@ -92,6 +96,26 @@ public class CrossexSpecialFee {
     public void setMakerFeeRate(String makerFeeRate) {
         this.makerFeeRate = makerFeeRate;
     }
+
+    public CrossexSpecialFee rpiFeeRate(String rpiFeeRate) {
+        
+        this.rpiFeeRate = rpiFeeRate;
+        return this;
+    }
+
+     /**
+     * RPI order maker fee rate
+     * @return rpiFeeRate
+    **/
+    @javax.annotation.Nullable
+    public String getRpiFeeRate() {
+        return rpiFeeRate;
+    }
+
+
+    public void setRpiFeeRate(String rpiFeeRate) {
+        this.rpiFeeRate = rpiFeeRate;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -103,12 +127,13 @@ public class CrossexSpecialFee {
         CrossexSpecialFee crossexSpecialFee = (CrossexSpecialFee) o;
         return Objects.equals(this.symbol, crossexSpecialFee.symbol) &&
                 Objects.equals(this.takerFeeRate, crossexSpecialFee.takerFeeRate) &&
-                Objects.equals(this.makerFeeRate, crossexSpecialFee.makerFeeRate);
+                Objects.equals(this.makerFeeRate, crossexSpecialFee.makerFeeRate) &&
+                Objects.equals(this.rpiFeeRate, crossexSpecialFee.rpiFeeRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, takerFeeRate, makerFeeRate);
+        return Objects.hash(symbol, takerFeeRate, makerFeeRate, rpiFeeRate);
     }
 
 
@@ -119,6 +144,7 @@ public class CrossexSpecialFee {
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      takerFeeRate: ").append(toIndentedString(takerFeeRate)).append("\n");
         sb.append("      makerFeeRate: ").append(toIndentedString(makerFeeRate)).append("\n");
+        sb.append("      rpiFeeRate: ").append(toIndentedString(rpiFeeRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

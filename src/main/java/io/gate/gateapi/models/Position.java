@@ -414,7 +414,7 @@ public class Position {
     }
 
      /**
-     * Position margin
+     * Margin
      * @return margin
     **/
     @javax.annotation.Nullable
