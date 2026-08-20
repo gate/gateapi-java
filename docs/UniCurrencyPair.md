@@ -11,4 +11,6 @@ Name | Type | Description | Notes
 **baseMinBorrowAmount** | **String** | Minimum borrow amount of base currency |  [optional] [readonly]
 **quoteMinBorrowAmount** | **String** | Minimum borrow amount of quote currency |  [optional] [readonly]
 **leverage** | **String** | Leverage multiplier |  [optional] [readonly]
+**status** | **String** | Status  - enabled: Enabled - disabled: Disabled |  [optional]
+**delistedTime** | [**BigDecimal**](BigDecimal.md) | Delisting Time |  [optional]
 

@@ -201,7 +201,7 @@ public class PartnerDataAggregated {
     }
 
      /**
-     * Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type&#x3D;0(all), and returns nullfor other business types.
+     * Transaction participant count (string format, consistent with online JSON serialization) only returns a specific value when business_type&#x3D;0(all), and returns nullfor other business types.
      * @return tradingUserCount
     **/
     @javax.annotation.Nullable

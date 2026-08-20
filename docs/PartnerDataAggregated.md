@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **tradeVolume** | **String** | Trading volume as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
 **netFee** | **String** | Net fee as a string for precision. Up to 6 decimal places; trailing zeros removed. | 
 **customerCount** | **Integer** | Customer count (invited users) | 
-**tradingUserCount** | **String** | Transaction participant count​ (string format, consistent with online JSON serialization) only returns a specific value when business_type&#x3D;0(all), and returns nullfor other business types. | 
+**tradingUserCount** | **String** | Transaction participant count (string format, consistent with online JSON serialization) only returns a specific value when business_type&#x3D;0(all), and returns nullfor other business types. | 
 **timeRangeDesc** | **String** | Time range description | 
 **businessType** | [**BusinessTypeEnum**](#BusinessTypeEnum) | Business Type | 
 **businessTypeDesc** | **String** | Business type description; allowed values: All, Spot, Futures, Alpha, Web3, Perps (DEX), Exchange All, Web3 All, TradFi | 

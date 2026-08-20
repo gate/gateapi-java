@@ -18,6 +18,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * Currency pair of the loan
@@ -38,6 +39,14 @@ public class UniCurrencyPair {
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private String status;
+
+    public static final String SERIALIZED_NAME_DELISTED_TIME = "delisted_time";
+    @SerializedName(SERIALIZED_NAME_DELISTED_TIME)
+    private BigDecimal delistedTime;
 
 
      /**
@@ -79,6 +88,46 @@ public class UniCurrencyPair {
         return leverage;
     }
 
+
+    public UniCurrencyPair status(String status) {
+        
+        this.status = status;
+        return this;
+    }
+
+     /**
+     * Status  - enabled: Enabled - disabled: Disabled
+     * @return status
+    **/
+    @javax.annotation.Nullable
+    public String getStatus() {
+        return status;
+    }
+
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public UniCurrencyPair delistedTime(BigDecimal delistedTime) {
+        
+        this.delistedTime = delistedTime;
+        return this;
+    }
+
+     /**
+     * Delisting Time
+     * @return delistedTime
+    **/
+    @javax.annotation.Nullable
+    public BigDecimal getDelistedTime() {
+        return delistedTime;
+    }
+
+
+    public void setDelistedTime(BigDecimal delistedTime) {
+        this.delistedTime = delistedTime;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -91,12 +140,14 @@ public class UniCurrencyPair {
         return Objects.equals(this.currencyPair, uniCurrencyPair.currencyPair) &&
                 Objects.equals(this.baseMinBorrowAmount, uniCurrencyPair.baseMinBorrowAmount) &&
                 Objects.equals(this.quoteMinBorrowAmount, uniCurrencyPair.quoteMinBorrowAmount) &&
-                Objects.equals(this.leverage, uniCurrencyPair.leverage);
+                Objects.equals(this.leverage, uniCurrencyPair.leverage) &&
+                Objects.equals(this.status, uniCurrencyPair.status) &&
+                Objects.equals(this.delistedTime, uniCurrencyPair.delistedTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyPair, baseMinBorrowAmount, quoteMinBorrowAmount, leverage);
+        return Objects.hash(currencyPair, baseMinBorrowAmount, quoteMinBorrowAmount, leverage, status, delistedTime);
     }
 
 
@@ -108,6 +159,8 @@ public class UniCurrencyPair {
         sb.append("      baseMinBorrowAmount: ").append(toIndentedString(baseMinBorrowAmount)).append("\n");
         sb.append("      quoteMinBorrowAmount: ").append(toIndentedString(quoteMinBorrowAmount)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      status: ").append(toIndentedString(status)).append("\n");
+        sb.append("      delistedTime: ").append(toIndentedString(delistedTime)).append("\n");
         sb.append("}");
         return sb.toString();
     }

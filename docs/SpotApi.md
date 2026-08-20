@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**listCandlesticks**](SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market K-line chart
 [**getFee**](SpotApi.md#getFee) | **GET** /spot/fee | Query account fee rates
 [**getBatchSpotFee**](SpotApi.md#getBatchSpotFee) | **GET** /spot/batch_fee | Batch query account fee rates
+[**listSpotAccounts**](SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot trading accounts
 [**listSpotAccountBook**](SpotApi.md#listSpotAccountBook) | **GET** /spot/account_book | Query spot account transaction history
 [**createBatchOrders**](SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Batch place orders
 [**listAllOpenOrders**](SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
@@ -37,9 +38,9 @@ Method | HTTP request | Description
 [**cancelSpotPriceTriggeredOrder**](SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel single auto order
 [**listSpotPovOrders**](SpotApi.md#listSpotPovOrders) | **GET** /spot/pov_orders | List Spot POV orders
 [**createSpotPovOrder**](SpotApi.md#createSpotPovOrder) | **POST** /spot/pov_orders | Create a Spot POV order
-[**cancelSpotPovOrders**](SpotApi.md#cancelSpotPovOrders) | **POST** /spot/pov_orders/cancel | Cancel Spot POV orders
+[**cancelSpotPovOrders**](SpotApi.md#cancelSpotPovOrders) | **DELETE** /spot/pov_orders | Cancel Spot POV orders
 [**getSpotPovOrder**](SpotApi.md#getSpotPovOrder) | **GET** /spot/pov_orders/{order_id} | Query Spot POV order details
-[**cancelSpotPovOrder**](SpotApi.md#cancelSpotPovOrder) | **POST** /spot/pov_orders/{order_id}/cancel | Cancel a Spot POV order
+[**cancelSpotPovOrder**](SpotApi.md#cancelSpotPovOrder) | **DELETE** /spot/pov_orders/{order_id} | Cancel a Spot POV order
 
 
 <a name="listCurrencies"></a>
@@ -742,6 +743,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Query successful |  -  |
+
+<a name="listSpotAccounts"></a>
+# **listSpotAccounts**
+> List&lt;SpotAccount&gt; listSpotAccounts().currency(currency).execute();
+
+List spot trading accounts
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        String currency = "BTC"; // String | Query by specified currency name
+        try {
+            List<SpotAccount> result = apiInstance.listSpotAccounts()
+                        .currency(currency)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#listSpotAccounts");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **String**| Query by specified currency name | [optional]
+
+### Return type
+
+[**List&lt;SpotAccount&gt;**](SpotAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List retrieved successfully |  -  |
 
 <a name="listSpotAccountBook"></a>
 # **listSpotAccountBook**

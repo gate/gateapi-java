@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.123
-- SDK version: 7.2.123
+- API version: v4.106.128
+- SDK version: 7.2.128
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.123</version>
+    <version>7.2.128</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.123"
+compile "io.gate:gate-api:7.2.128"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.123.jar`
+* `target/gate-api-7.2.128.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -323,6 +323,7 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**listFuturesContracts**](docs/FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
 *FuturesApi* | [**listFuturesContractsAll**](docs/FuturesApi.md#listFuturesContractsAll) | **GET** /futures/{settle}/contracts_all | Query all contract information (including delisted)
 *FuturesApi* | [**getFuturesContract**](docs/FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
+*FuturesApi* | [**listFuturesADLRiskStates**](docs/FuturesApi.md#listFuturesADLRiskStates) | **GET** /futures/{settle}/adl_risk_states | List market-level ADL risk states
 *FuturesApi* | [**listFuturesOrderBook**](docs/FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
 *FuturesApi* | [**listFuturesTrades**](docs/FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures market transaction records
 *FuturesApi* | [**listFuturesCandlesticks**](docs/FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/{settle}/candlesticks | Futures market K-line chart
@@ -466,7 +467,6 @@ Class | Method | HTTP request | Description
 *OtcApi* | [**listOtcOrders**](docs/OtcApi.md#listOtcOrders) | **GET** /otc/order/list | Fiat order list
 *OtcApi* | [**listStableCoinOrders**](docs/OtcApi.md#listStableCoinOrders) | **GET** /otc/stable_coin/order/list | Stablecoin order list
 *OtcApi* | [**getOtcOrderDetail**](docs/OtcApi.md#getOtcOrderDetail) | **GET** /otc/order/detail | Fiat order details
-*P2pApi* | [**p2pMerchantQuerySpotBalance**](docs/P2pApi.md#p2pMerchantQuerySpotBalance) | **GET** /spot/accounts | Query spot balance
 *P2pApi* | [**p2pMerchantAccountGetUserInfo**](docs/P2pApi.md#p2pMerchantAccountGetUserInfo) | **POST** /p2p/merchant/account/get_user_info | Get account information
 *P2pApi* | [**p2pMerchantAccountGetCounterpartyUserInfo**](docs/P2pApi.md#p2pMerchantAccountGetCounterpartyUserInfo) | **POST** /p2p/merchant/account/get_counterparty_user_info | Get counterparty information
 *P2pApi* | [**p2pMerchantAccountGetMyselfPayment**](docs/P2pApi.md#p2pMerchantAccountGetMyselfPayment) | **POST** /p2p/merchant/account/get_myself_payment | Get payment method list
@@ -507,6 +507,7 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**listCandlesticks**](docs/SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market K-line chart
 *SpotApi* | [**getFee**](docs/SpotApi.md#getFee) | **GET** /spot/fee | Query account fee rates
 *SpotApi* | [**getBatchSpotFee**](docs/SpotApi.md#getBatchSpotFee) | **GET** /spot/batch_fee | Batch query account fee rates
+*SpotApi* | [**listSpotAccounts**](docs/SpotApi.md#listSpotAccounts) | **GET** /spot/accounts | List spot trading accounts
 *SpotApi* | [**listSpotAccountBook**](docs/SpotApi.md#listSpotAccountBook) | **GET** /spot/account_book | Query spot account transaction history
 *SpotApi* | [**createBatchOrders**](docs/SpotApi.md#createBatchOrders) | **POST** /spot/batch_orders | Batch place orders
 *SpotApi* | [**listAllOpenOrders**](docs/SpotApi.md#listAllOpenOrders) | **GET** /spot/open_orders | List all open orders
@@ -530,9 +531,9 @@ Class | Method | HTTP request | Description
 *SpotApi* | [**cancelSpotPriceTriggeredOrder**](docs/SpotApi.md#cancelSpotPriceTriggeredOrder) | **DELETE** /spot/price_orders/{order_id} | Cancel single auto order
 *SpotApi* | [**listSpotPovOrders**](docs/SpotApi.md#listSpotPovOrders) | **GET** /spot/pov_orders | List Spot POV orders
 *SpotApi* | [**createSpotPovOrder**](docs/SpotApi.md#createSpotPovOrder) | **POST** /spot/pov_orders | Create a Spot POV order
-*SpotApi* | [**cancelSpotPovOrders**](docs/SpotApi.md#cancelSpotPovOrders) | **POST** /spot/pov_orders/cancel | Cancel Spot POV orders
+*SpotApi* | [**cancelSpotPovOrders**](docs/SpotApi.md#cancelSpotPovOrders) | **DELETE** /spot/pov_orders | Cancel Spot POV orders
 *SpotApi* | [**getSpotPovOrder**](docs/SpotApi.md#getSpotPovOrder) | **GET** /spot/pov_orders/{order_id} | Query Spot POV order details
-*SpotApi* | [**cancelSpotPovOrder**](docs/SpotApi.md#cancelSpotPovOrder) | **POST** /spot/pov_orders/{order_id}/cancel | Cancel a Spot POV order
+*SpotApi* | [**cancelSpotPovOrder**](docs/SpotApi.md#cancelSpotPovOrder) | **DELETE** /spot/pov_orders/{order_id} | Cancel a Spot POV order
 *SquareApi* | [**listSquareAiSearch**](docs/SquareApi.md#listSquareAiSearch) | **GET** /social/message/search | AI MCP Dynamic Search
 *SquareApi* | [**listLiveReplay**](docs/SquareApi.md#listLiveReplay) | **GET** /social/live/tag_coin_live_replay | Gate AI Assistant live stream data retrieval
 *StockApi* | [**queryStockUserAssets**](docs/StockApi.md#queryStockUserAssets) | **GET** /stock/users/assets | Query user assets
@@ -890,6 +891,8 @@ Class | Method | HTTP request | Description
  - [FundingAccount](docs/FundingAccount.md)
  - [FundingRateRecord](docs/FundingRateRecord.md)
  - [FutureCancelOrderResult](docs/FutureCancelOrderResult.md)
+ - [FuturesADLRiskState](docs/FuturesADLRiskState.md)
+ - [FuturesADLRiskStates](docs/FuturesADLRiskStates.md)
  - [FuturesAccount](docs/FuturesAccount.md)
  - [FuturesAccountBook](docs/FuturesAccountBook.md)
  - [FuturesAccountHistory](docs/FuturesAccountHistory.md)
@@ -1194,6 +1197,7 @@ Class | Method | HTTP request | Description
  - [SetMerchantWorkHoursRequest](docs/SetMerchantWorkHoursRequest.md)
  - [SmallBalance](docs/SmallBalance.md)
  - [SmallBalanceHistory](docs/SmallBalanceHistory.md)
+ - [SpotAccount](docs/SpotAccount.md)
  - [SpotAccountBook](docs/SpotAccountBook.md)
  - [SpotCurrencyChain](docs/SpotCurrencyChain.md)
  - [SpotFee](docs/SpotFee.md)

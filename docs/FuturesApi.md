@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**listFuturesContracts**](FuturesApi.md#listFuturesContracts) | **GET** /futures/{settle}/contracts | Query all futures contracts
 [**listFuturesContractsAll**](FuturesApi.md#listFuturesContractsAll) | **GET** /futures/{settle}/contracts_all | Query all contract information (including delisted)
 [**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
+[**listFuturesADLRiskStates**](FuturesApi.md#listFuturesADLRiskStates) | **GET** /futures/{settle}/adl_risk_states | List market-level ADL risk states
 [**listFuturesOrderBook**](FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
 [**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures market transaction records
 [**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/{settle}/candlesticks | Futures market K-line chart
@@ -99,7 +100,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -125,7 +126,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -170,7 +171,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
@@ -196,7 +197,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
 
@@ -241,7 +242,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         try {
             Contract result = apiInstance.getFuturesContract(settle, contract);
@@ -263,7 +264,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -283,6 +284,72 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Contract information |  -  |
+
+<a name="listFuturesADLRiskStates"></a>
+# **listFuturesADLRiskStates**
+> FuturesADLRiskStates listFuturesADLRiskStates(settle)
+
+List market-level ADL risk states
+
+List the current ADL risk states of all futures markets for the specified settlement currency
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Perpetual futures settlement currency
+        try {
+            FuturesADLRiskStates result = apiInstance.listFuturesADLRiskStates(settle);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#listFuturesADLRiskStates");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
+
+### Return type
+
+[**FuturesADLRiskStates**](FuturesADLRiskStates.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
 
 <a name="listFuturesOrderBook"></a>
 # **listFuturesOrderBook**
@@ -309,7 +376,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String interval = "\"0\""; // String | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
         Integer limit = 10; // Integer | Number of depth levels
@@ -338,7 +405,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **interval** | **String**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
@@ -385,7 +452,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -418,7 +485,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -469,7 +536,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
@@ -502,7 +569,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional]
@@ -553,7 +620,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1546905600L; // Long | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified
         Long to = 1546935600L; // Long | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision
@@ -584,7 +651,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional]
  **to** | **Long**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision | [optional]
@@ -632,7 +699,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         try {
             List<FuturesTicker> result = apiInstance.listFuturesTickers(settle)
@@ -656,7 +723,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
 
 ### Return type
@@ -700,7 +767,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
@@ -729,7 +796,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
@@ -776,7 +843,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         BatchFundingRatesRequest batchFundingRatesRequest = new BatchFundingRatesRequest(); // BatchFundingRatesRequest | 
         try {
             List<BatchFundingRatesResponse> result = apiInstance.listBatchFuturesFundingRates(settle, batchFundingRatesRequest);
@@ -798,7 +865,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **batchFundingRatesRequest** | [**BatchFundingRatesRequest**](BatchFundingRatesRequest.md)|  |
 
 ### Return type
@@ -842,7 +909,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         try {
             List<InsuranceRecord> result = apiInstance.listFuturesInsuranceLedger(settle)
@@ -866,7 +933,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
 
 ### Return type
@@ -910,7 +977,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1604561000L; // Long | Start timestamp
         String interval = "\"5m\""; // String | 
@@ -939,7 +1006,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start timestamp | [optional]
  **interval** | **String**|  | [optional] [default to &quot;5m&quot;]
@@ -986,7 +1053,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String index = "BTC_USDT"; // String | Index name
         try {
             FuturesIndexConstituents result = apiInstance.getIndexConstituents(settle, index);
@@ -1008,7 +1075,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **index** | **String**| Index name |
 
 ### Return type
@@ -1054,7 +1121,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -1084,7 +1151,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
@@ -1133,7 +1200,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -1161,7 +1228,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -1213,7 +1280,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         try {
             FuturesAccount result = apiInstance.listFuturesAccounts(settle);
             System.out.println(result);
@@ -1234,7 +1301,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
 
 ### Return type
 
@@ -1283,7 +1350,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -1317,7 +1384,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -1370,7 +1437,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Boolean holding = true; // Boolean | Return only real positions - true, return all - false
         Integer limit = 100; // Integer | Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100].
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -1398,7 +1465,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **holding** | **Boolean**| Return only real positions - true, return all - false | [optional]
  **limit** | **Integer**| Maximum number of positions returned. If omitted, all current positions are returned by default; if provided, the value must be within [1,100]. | [optional]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -1448,7 +1515,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -1479,7 +1546,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
@@ -1533,7 +1600,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         try {
             Position result = apiInstance.getPosition(settle, contract)
@@ -1556,7 +1623,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -1606,7 +1673,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String posMarginMode = "isolated"; // String | Position Margin Mode, required for split position mode, values: isolated/cross.
         String dualSide = "dual_long"; // String | dual_long - Long, dual_short - Short
@@ -1630,7 +1697,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **posMarginMode** | **String**| Position Margin Mode, required for split position mode, values: isolated/cross. |
  **dualSide** | **String**| dual_long - Long, dual_short - Short |
@@ -1682,7 +1749,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String change = "0.01"; // String | Margin change amount, positive number increases, negative number decreases
         try {
@@ -1705,7 +1772,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change amount, positive number increases, negative number decreases |
 
@@ -1756,7 +1823,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String leverage = "10"; // String | Set the leverage for isolated margin. When setting isolated margin leverage, the `cross_leverage_limit`  must be empty.
         String crossLeverageLimit = "10"; // String | Set the leverage for cross margin. When setting cross margin leverage, the `leverage` must be set to 0.
@@ -1781,7 +1848,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. |
  **crossLeverageLimit** | **String**| Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. | [optional]
@@ -1834,7 +1901,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String leverage = "10"; // String | Position Leverage Multiple
         String marginMode = "cross"; // String | Margin Mode isolated/cross
@@ -1859,7 +1926,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| Position Leverage Multiple |
  **marginMode** | **String**| Margin Mode isolated/cross |
@@ -1910,7 +1977,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         FuturesPositionCrossMode futuresPositionCrossMode = new FuturesPositionCrossMode(); // FuturesPositionCrossMode | 
         try {
             Position result = apiInstance.updatePositionCrossMode(settle, futuresPositionCrossMode);
@@ -1932,7 +1999,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **futuresPositionCrossMode** | [**FuturesPositionCrossMode**](FuturesPositionCrossMode.md)|  |
 
 ### Return type
@@ -1980,7 +2047,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         UpdateDualCompPositionCrossModeRequest updateDualCompPositionCrossModeRequest = new UpdateDualCompPositionCrossModeRequest(); // UpdateDualCompPositionCrossModeRequest | 
         try {
             List<Position> result = apiInstance.updateDualCompPositionCrossMode(settle, updateDualCompPositionCrossModeRequest);
@@ -2002,7 +2069,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **updateDualCompPositionCrossModeRequest** | [**UpdateDualCompPositionCrossModeRequest**](UpdateDualCompPositionCrossModeRequest.md)|  |
 
 ### Return type
@@ -2052,7 +2119,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String riskLimit = "1000000"; // String | New risk limit value
         try {
@@ -2075,7 +2142,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **riskLimit** | **String**| New risk limit value |
 
@@ -2126,7 +2193,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Boolean dualMode = true; // Boolean | Whether to enable Hedge Mode
         try {
             FuturesAccount result = apiInstance.setDualMode(settle, dualMode);
@@ -2148,7 +2215,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **dualMode** | **Boolean**| Whether to enable Hedge Mode |
 
 ### Return type
@@ -2198,7 +2265,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String positionMode = "dual_plus"; // String | Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively
         try {
             FuturesAccount result = apiInstance.setPositionMode(settle, positionMode);
@@ -2220,7 +2287,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **positionMode** | **String**| Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively |
 
 ### Return type
@@ -2268,7 +2335,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         try {
             List<Position> result = apiInstance.getDualModePosition(settle, contract)
@@ -2291,7 +2358,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
 
 ### Return type
@@ -2339,7 +2406,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String change = "0.01"; // String | Margin change amount, positive number increases, negative number decreases
         String dualSide = "dual_long"; // String | Long or short position
@@ -2363,7 +2430,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **change** | **String**| Margin change amount, positive number increases, negative number decreases |
  **dualSide** | **String**| Long or short position |
@@ -2413,7 +2480,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String leverage = "10"; // String | New position leverage
         String crossLeverageLimit = "10"; // String | Cross margin leverage (valid only when `leverage` is 0)
@@ -2437,7 +2504,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **leverage** | **String**| New position leverage |
  **crossLeverageLimit** | **String**| Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) | [optional]
@@ -2489,7 +2556,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract
         String riskLimit = "1000000"; // String | New risk limit value
         try {
@@ -2512,7 +2579,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract |
  **riskLimit** | **String**| New risk limit value |
 
@@ -2563,7 +2630,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String status = "open"; // String | Query order list based on status
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
@@ -2594,7 +2661,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **status** | **String**| Query order list based on status |
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
@@ -2648,7 +2715,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         FuturesOrder futuresOrder = new FuturesOrder(); // FuturesOrder | 
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
@@ -2671,7 +2738,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
@@ -2722,7 +2789,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         String contract = "BTC_USDT"; // String | Contract Identifier; if specified, only cancel pending orders related to this contract
         String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
@@ -2749,7 +2816,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
  **contract** | **String**| Contract Identifier; if specified, only cancel pending orders related to this contract | [optional]
  **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional]
@@ -2802,7 +2869,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -2834,7 +2901,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
@@ -2888,7 +2955,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         List<FuturesOrder> futuresOrder = Arrays.asList(); // List<FuturesOrder> | 
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
@@ -2911,7 +2978,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **futuresOrder** | [**List&lt;FuturesOrder&gt;**](FuturesOrder.md)|  |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
@@ -2962,7 +3029,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String orderId = "12345"; // String | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
         try {
             FuturesOrder result = apiInstance.getFuturesOrder(settle, orderId);
@@ -2984,7 +3051,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **orderId** | **String**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. |
 
 ### Return type
@@ -3032,7 +3099,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String orderId = "12345"; // String | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
         FuturesOrderAmendment futuresOrderAmendment = new FuturesOrderAmendment(); // FuturesOrderAmendment | 
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
@@ -3056,7 +3123,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **orderId** | **String**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. |
  **futuresOrderAmendment** | [**FuturesOrderAmendment**](FuturesOrderAmendment.md)|  |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
@@ -3106,7 +3173,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String orderId = "12345"; // String | The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the `text` field). When using the custom `text` field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by `text`; continuing to use `text` returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by `text` indefinitely.
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         String actionMode = "ACK"; // String | Processing Mode  When placing an order, different fields are returned based on the action_mode  - `ACK`: Asynchronous mode, returns only key order fields - `RESULT`: No clearing information - `FULL`: Full mode (default)
@@ -3130,7 +3197,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **orderId** | **String**| The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
  **actionMode** | **String**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) | [optional]
@@ -3182,7 +3249,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Long order = 12345L; // Long | Futures order ID, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
@@ -3214,7 +3281,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **order** | **Long**| Futures order ID, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
@@ -3266,7 +3333,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
@@ -3300,7 +3367,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
@@ -3353,7 +3420,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -3389,7 +3456,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -3443,7 +3510,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -3477,7 +3544,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -3530,7 +3597,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
@@ -3564,7 +3631,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
@@ -3619,7 +3686,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         CountdownCancelAllFuturesTask countdownCancelAllFuturesTask = new CountdownCancelAllFuturesTask(); // CountdownCancelAllFuturesTask | 
         try {
             TriggerTime result = apiInstance.countdownCancelAllFutures(settle, countdownCancelAllFuturesTask);
@@ -3641,7 +3708,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **countdownCancelAllFuturesTask** | [**CountdownCancelAllFuturesTask**](CountdownCancelAllFuturesTask.md)|  |
 
 ### Return type
@@ -3689,7 +3756,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         try {
             Map<String, FuturesFee> result = apiInstance.getFuturesFee(settle)
@@ -3713,7 +3780,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
 
 ### Return type
@@ -3763,7 +3830,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         List<String> requestBody = Arrays.asList(); // List<String> | 
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
@@ -3786,7 +3853,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **requestBody** | [**List&lt;String&gt;**](String.md)|  |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
@@ -3837,7 +3904,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         List<BatchAmendOrderReq> batchAmendOrderReq = Arrays.asList(); // List<BatchAmendOrderReq> | 
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
@@ -3860,7 +3927,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **batchAmendOrderReq** | [**List&lt;BatchAmendOrderReq&gt;**](BatchAmendOrderReq.md)|  |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
@@ -3907,7 +3974,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String tableId = "CYBER_USDT_20241122"; // String | Risk limit table ID
         try {
             List<FuturesRiskLimitTier> result = apiInstance.getFuturesRiskLimitTable(settle, tableId);
@@ -3929,7 +3996,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **tableId** | **String**| Risk limit table ID |
 
 ### Return type
@@ -3979,7 +4046,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         FuturesBBOOrder futuresBBOOrder = new FuturesBBOOrder(); // FuturesBBOOrder | 
         String xGateExptime = "1689560679123"; // String | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected
         try {
@@ -4002,7 +4069,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **futuresBBOOrder** | [**FuturesBBOOrder**](FuturesBBOOrder.md)|  |
  **xGateExptime** | **String**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional]
 
@@ -4051,7 +4118,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         CreateTrailOrder createTrailOrder = new CreateTrailOrder(); // CreateTrailOrder | 
         try {
             CreateTrailOrderResponse result = apiInstance.createTrailOrder(settle, createTrailOrder);
@@ -4073,7 +4140,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **createTrailOrder** | [**CreateTrailOrder**](CreateTrailOrder.md)|  |
 
 ### Return type
@@ -4121,7 +4188,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         StopTrailOrder stopTrailOrder = new StopTrailOrder(); // StopTrailOrder | 
         try {
             TrailOrderResponse result = apiInstance.stopTrailOrder(settle, stopTrailOrder);
@@ -4143,7 +4210,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **stopTrailOrder** | [**StopTrailOrder**](StopTrailOrder.md)|  |
 
 ### Return type
@@ -4191,7 +4258,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         StopAllTrailOrders stopAllTrailOrders = new StopAllTrailOrders(); // StopAllTrailOrders | 
         try {
             TrailOrderListResponse result = apiInstance.stopAllTrailOrders(settle, stopAllTrailOrders);
@@ -4213,7 +4280,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **stopAllTrailOrders** | [**StopAllTrailOrders**](StopAllTrailOrders.md)|  |
 
 ### Return type
@@ -4261,7 +4328,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "contract_example"; // String | Contract name
         Boolean isFinished = true; // Boolean | Whether historical order
         Long startAt = 56L; // Long | Start time of time range
@@ -4307,7 +4374,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Contract name | [optional]
  **isFinished** | **Boolean**| Whether historical order | [optional]
  **startAt** | **Long**| Start time of time range | [optional]
@@ -4366,7 +4433,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Long id = 56L; // Long | Order ID
         try {
             TrailOrderDetailResponse result = apiInstance.getTrailOrderDetail(settle, id);
@@ -4388,7 +4455,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **id** | **Long**| Order ID |
 
 ### Return type
@@ -4436,7 +4503,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         UpdateTrailOrder updateTrailOrder = new UpdateTrailOrder(); // UpdateTrailOrder | 
         try {
             TrailOrderResponse result = apiInstance.updateTrailOrder(settle, updateTrailOrder);
@@ -4458,7 +4525,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **updateTrailOrder** | [**UpdateTrailOrder**](UpdateTrailOrder.md)|  |
 
 ### Return type
@@ -4506,7 +4573,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Long id = 56L; // Long | Order ID
         Integer pageNum = 1; // Integer | Page number, starting from 1
         Integer pageSize = 20; // Integer | Number of items per page
@@ -4533,7 +4600,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **id** | **Long**| Order ID |
  **pageNum** | **Integer**| Page number, starting from 1 | [optional] [default to 1]
  **pageSize** | **Integer**| Number of items per page | [optional] [default to 20]
@@ -4583,7 +4650,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         CreateChaseOrderReq createChaseOrderReq = new CreateChaseOrderReq(); // CreateChaseOrderReq | 
         try {
             CreateChaseOrderResp result = apiInstance.createChaseOrder(settle, createChaseOrderReq);
@@ -4605,7 +4672,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **createChaseOrderReq** | [**CreateChaseOrderReq**](CreateChaseOrderReq.md)|  |
 
 ### Return type
@@ -4653,7 +4720,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         StopChaseOrderReq stopChaseOrderReq = new StopChaseOrderReq(); // StopChaseOrderReq | 
         try {
             StopChaseOrderResp result = apiInstance.stopChaseOrder(settle, stopChaseOrderReq);
@@ -4675,7 +4742,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **stopChaseOrderReq** | [**StopChaseOrderReq**](StopChaseOrderReq.md)|  |
 
 ### Return type
@@ -4723,7 +4790,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         StopAllChaseOrdersReq stopAllChaseOrdersReq = new StopAllChaseOrdersReq(); // StopAllChaseOrdersReq | 
         try {
             StopAllChaseOrdersResp result = apiInstance.stopAllChaseOrders(settle, stopAllChaseOrdersReq);
@@ -4745,7 +4812,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **stopAllChaseOrdersReq** | [**StopAllChaseOrdersReq**](StopAllChaseOrdersReq.md)|  |
 
 ### Return type
@@ -4793,7 +4860,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Integer sortBy = 56; // Integer | Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0
         String contract = "contract_example"; // String | Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
         Boolean isFinished = true; // Boolean | true to query finished orders, false to query in-progress orders
@@ -4834,7 +4901,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **sortBy** | **Integer**| Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 | [enum: 1, 2]
  **contract** | **String**| Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase | [optional]
  **isFinished** | **Boolean**| true to query finished orders, false to query in-progress orders | [optional]
@@ -4891,7 +4958,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String id = "id_example"; // String | Order ID, must be a non-zero positive integer
         try {
             GetChaseOrderDetailResp result = apiInstance.getChaseOrderDetail(settle, id);
@@ -4913,7 +4980,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **id** | **String**| Order ID, must be a non-zero positive integer |
 
 ### Return type
@@ -4961,7 +5028,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String status = "status_example"; // String | Query order list based on status
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
@@ -4990,7 +5057,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **status** | **String**| Query order list based on status | [enum: open, finished]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
@@ -5041,7 +5108,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         FuturesPriceTriggeredOrder futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
         try {
             TriggerOrderResponse result = apiInstance.createPriceTriggeredOrder(settle, futuresPriceTriggeredOrder);
@@ -5063,7 +5130,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **futuresPriceTriggeredOrder** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  |
 
 ### Return type
@@ -5111,7 +5178,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         String contract = "BTC_USDT"; // String | Futures contract, return related data only if specified
         try {
             List<FuturesPriceTriggeredOrder> result = apiInstance.cancelPriceTriggeredOrderList(settle, contract);
@@ -5133,7 +5200,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **contract** | **String**| Futures contract, return related data only if specified | [optional]
 
 ### Return type
@@ -5181,7 +5248,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Long orderId = 56L; // Long | ID returned when order is successfully created
         try {
             FuturesPriceTriggeredOrder result = apiInstance.getPriceTriggeredOrder(settle, orderId);
@@ -5203,7 +5270,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **orderId** | **Long**| ID returned when order is successfully created |
 
 ### Return type
@@ -5251,7 +5318,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         Long orderId = 56L; // Long | ID returned when order is successfully created
         try {
             FuturesPriceTriggeredOrder result = apiInstance.cancelPriceTriggeredOrder(settle, orderId);
@@ -5273,7 +5340,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **orderId** | **Long**| ID returned when order is successfully created |
 
 ### Return type
@@ -5321,7 +5388,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
-        String settle = "usdt"; // String | Settle currency
+        String settle = "usdt"; // String | Perpetual futures settlement currency
         FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = new FuturesUpdatePriceTriggeredOrder(); // FuturesUpdatePriceTriggeredOrder | 
         try {
             TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, futuresUpdatePriceTriggeredOrder);
@@ -5343,7 +5410,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **String**| Settle currency | [enum: btc, usdt]
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
  **futuresUpdatePriceTriggeredOrder** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  |
 
 ### Return type

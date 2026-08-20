@@ -116,7 +116,7 @@ public class FuturesUpdatePriceTriggeredOrder {
     }
 
      /**
-     * Settlement Currency (e.g., USDT, BTC)
+     * Perpetual futures settlement currency, e.g. usdt, btc, usd1
      * @return settle
     **/
     @javax.annotation.Nullable

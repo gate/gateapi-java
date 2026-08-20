@@ -33,6 +33,7 @@ import io.gate.gateapi.models.CreateTrailOrder;
 import io.gate.gateapi.models.CreateTrailOrderResponse;
 import io.gate.gateapi.models.FundingRateRecord;
 import io.gate.gateapi.models.FutureCancelOrderResult;
+import io.gate.gateapi.models.FuturesADLRiskStates;
 import io.gate.gateapi.models.FuturesAccount;
 import io.gate.gateapi.models.FuturesAccountBook;
 import io.gate.gateapi.models.FuturesAutoDeleverage;
@@ -258,7 +259,7 @@ public class FuturesApi {
     /**
      * Query all futures contracts
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistFuturesContractsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -425,7 +426,7 @@ public class FuturesApi {
     /**
      * Query all contract information (including delisted)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistFuturesContractsAllRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -439,7 +440,7 @@ public class FuturesApi {
 
     /**
      * Build call for getFuturesContract
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -500,7 +501,7 @@ public class FuturesApi {
     /**
      * Query single contract information
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return Contract
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -518,7 +519,7 @@ public class FuturesApi {
     /**
      * Query single contract information
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return ApiResponse&lt;Contract&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -537,7 +538,7 @@ public class FuturesApi {
     /**
      * Query single contract information (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -551,6 +552,114 @@ public class FuturesApi {
     public okhttp3.Call getFuturesContractAsync(String settle, String contract, final ApiCallback<Contract> _callback) throws ApiException {
         okhttp3.Call localVarCall = getFuturesContractValidateBeforeCall(settle, contract, _callback);
         Type localVarReturnType = new TypeToken<Contract>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listFuturesADLRiskStates
+     * @param settle Perpetual futures settlement currency (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listFuturesADLRiskStatesCall(String settle, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/futures/{settle}/adl_risk_states"
+            .replaceAll("\\{" + "settle" + "\\}", localVarApiClient.escapeString(settle));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listFuturesADLRiskStatesValidateBeforeCall(String settle, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'settle' is set
+        if (settle == null) {
+            throw new ApiException("Missing the required parameter 'settle' when calling listFuturesADLRiskStates(Async)");
+        }
+
+        okhttp3.Call localVarCall = listFuturesADLRiskStatesCall(settle, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * List market-level ADL risk states
+     * List the current ADL risk states of all futures markets for the specified settlement currency
+     * @param settle Perpetual futures settlement currency (required)
+     * @return FuturesADLRiskStates
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public FuturesADLRiskStates listFuturesADLRiskStates(String settle) throws ApiException {
+        ApiResponse<FuturesADLRiskStates> localVarResp = listFuturesADLRiskStatesWithHttpInfo(settle);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List market-level ADL risk states
+     * List the current ADL risk states of all futures markets for the specified settlement currency
+     * @param settle Perpetual futures settlement currency (required)
+     * @return ApiResponse&lt;FuturesADLRiskStates&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FuturesADLRiskStates> listFuturesADLRiskStatesWithHttpInfo(String settle) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesADLRiskStatesValidateBeforeCall(settle, null);
+        Type localVarReturnType = new TypeToken<FuturesADLRiskStates>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List market-level ADL risk states (asynchronously)
+     * List the current ADL risk states of all futures markets for the specified settlement currency
+     * @param settle Perpetual futures settlement currency (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listFuturesADLRiskStatesAsync(String settle, final ApiCallback<FuturesADLRiskStates> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listFuturesADLRiskStatesValidateBeforeCall(settle, _callback);
+        Type localVarReturnType = new TypeToken<FuturesADLRiskStates>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -736,7 +845,7 @@ public class FuturesApi {
     /**
      * Query futures market depth information
      * Bids will be sorted by price from high to low, while asks sorted reversely
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistFuturesOrderBookRequest
      * @http.response.details
@@ -960,7 +1069,7 @@ public class FuturesApi {
     /**
      * Futures market transaction records
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistFuturesTradesRequest
      * @http.response.details
@@ -1184,7 +1293,7 @@ public class FuturesApi {
     /**
      * Futures market K-line chart
      * Return specified contract candlesticks. If prefix &#x60;contract&#x60; with &#x60;mark_&#x60;, the contract&#39;s mark price candlesticks are returned; if prefix with &#x60;index_&#x60;, index price candlesticks will be returned.  Maximum of 2000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistFuturesCandlesticksRequest
      * @http.response.details
@@ -1393,7 +1502,7 @@ public class FuturesApi {
     /**
      * Premium Index K-line chart
      * K-line chart data returns a maximum of 1000 points per request. When specifying from, to, and interval, ensure the number of points is not excessive
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistFuturesPremiumIndexRequest
      * @http.response.details
@@ -1546,7 +1655,7 @@ public class FuturesApi {
     /**
      * Get all futures trading statistics
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistFuturesTickersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1739,7 +1848,7 @@ public class FuturesApi {
     /**
      * Futures market historical funding rate
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistFuturesFundingRateHistoryRequest
      * @http.response.details
@@ -1754,7 +1863,7 @@ public class FuturesApi {
 
     /**
      * Build call for listBatchFuturesFundingRates
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchFundingRatesRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1814,7 +1923,7 @@ public class FuturesApi {
     /**
      * Batch Query Historical Funding Rate Data for Perpetual Contracts
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchFundingRatesRequest  (required)
      * @return List&lt;BatchFundingRatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1832,7 +1941,7 @@ public class FuturesApi {
     /**
      * Batch Query Historical Funding Rate Data for Perpetual Contracts
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchFundingRatesRequest  (required)
      * @return ApiResponse&lt;List&lt;BatchFundingRatesResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1851,7 +1960,7 @@ public class FuturesApi {
     /**
      * Batch Query Historical Funding Rate Data for Perpetual Contracts (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchFundingRatesRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2009,7 +2118,7 @@ public class FuturesApi {
     /**
      * Futures market insurance fund history
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistFuturesInsuranceLedgerRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2202,7 +2311,7 @@ public class FuturesApi {
     /**
      * Futures statistics
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistContractStatsRequest
      * @http.response.details
@@ -2217,7 +2326,7 @@ public class FuturesApi {
 
     /**
      * Build call for getIndexConstituents
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param index Index name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2278,7 +2387,7 @@ public class FuturesApi {
     /**
      * Query index constituents
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param index Index name (required)
      * @return FuturesIndexConstituents
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2296,7 +2405,7 @@ public class FuturesApi {
     /**
      * Query index constituents
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param index Index name (required)
      * @return ApiResponse&lt;FuturesIndexConstituents&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2315,7 +2424,7 @@ public class FuturesApi {
     /**
      * Query index constituents (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param index Index name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2518,7 +2627,7 @@ public class FuturesApi {
     /**
      * Query liquidation order history
      * The time interval between from and to is maximum 3600. Some private fields are not returned by public interfaces, refer to field descriptions for details
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistLiquidatedOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2700,7 +2809,7 @@ public class FuturesApi {
     /**
      * Query risk limit tiers
      * When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets. &#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the contract parameter is empty.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistFuturesRiskLimitTiersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2714,7 +2823,7 @@ public class FuturesApi {
 
     /**
      * Build call for listFuturesAccounts
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2768,7 +2877,7 @@ public class FuturesApi {
     /**
      * Get futures account
      * Query account information for classic future account and unified account
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2785,7 +2894,7 @@ public class FuturesApi {
     /**
      * Get futures account
      * Query account information for classic future account and unified account
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2803,7 +2912,7 @@ public class FuturesApi {
     /**
      * Get futures account (asynchronously)
      * Query account information for classic future account and unified account
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3035,7 +3144,7 @@ public class FuturesApi {
     /**
      * Query futures account change history
      * If the contract field is passed, only records containing this field after 2023-10-30 can be filtered。
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistFuturesAccountBookRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3217,7 +3326,7 @@ public class FuturesApi {
     /**
      * Get user position list
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistPositionsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3425,7 +3534,7 @@ public class FuturesApi {
     /**
      * Get user&#39;s historical position information list by time
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIlistPositionsTimerangeRequest
      * @http.response.details
@@ -3571,7 +3680,7 @@ public class FuturesApi {
     /**
      * Get single position information
      * Get single position information from a contract. If you hold two postions in one contract market, please use this API: /futures/{settle}/dual_comp/positions/{contract}
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIgetPositionRequest
      * @http.response.details
@@ -3586,7 +3695,7 @@ public class FuturesApi {
 
     /**
      * Build call for getLeverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
      * @param dualSide dual_long - Long, dual_short - Short (required)
@@ -3667,7 +3776,7 @@ public class FuturesApi {
     /**
      * Get Leverage Information for Specified Mode
      * Get Leverage Information for Specified Mode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
      * @param dualSide dual_long - Long, dual_short - Short (required)
@@ -3687,7 +3796,7 @@ public class FuturesApi {
     /**
      * Get Leverage Information for Specified Mode
      * Get Leverage Information for Specified Mode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
      * @param dualSide dual_long - Long, dual_short - Short (required)
@@ -3708,7 +3817,7 @@ public class FuturesApi {
     /**
      * Get Leverage Information for Specified Mode (asynchronously)
      * Get Leverage Information for Specified Mode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param posMarginMode Position Margin Mode, required for split position mode, values: isolated/cross. (required)
      * @param dualSide dual_long - Long, dual_short - Short (required)
@@ -3730,7 +3839,7 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionMargin
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @param _callback Callback for upload/download progress
@@ -3801,7 +3910,7 @@ public class FuturesApi {
     /**
      * Update position margin
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @return Position
@@ -3820,7 +3929,7 @@ public class FuturesApi {
     /**
      * Update position margin
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @return ApiResponse&lt;Position&gt;
@@ -3840,7 +3949,7 @@ public class FuturesApi {
     /**
      * Update position margin (asynchronously)
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3861,7 +3970,7 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionLeverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
      * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
@@ -3942,7 +4051,7 @@ public class FuturesApi {
     /**
      * Update position leverage
      * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
      * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
@@ -3963,7 +4072,7 @@ public class FuturesApi {
     /**
      * Update position leverage
      * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
      * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
@@ -3985,7 +4094,7 @@ public class FuturesApi {
     /**
      * Update position leverage (asynchronously)
      * ⚠️ Position Mode Switching Rules:  - leverage ≠ 0: Isolated Margin Mode (Regardless of whether cross_leverage_limit is filled, this parameter will be ignored) - leverage &#x3D; 0: Cross Margin Mode (Use cross_leverage_limit to set the leverage multiple)  Examples: - Set isolated margin with 10x leverage: leverage&#x3D;10 - Set cross margin with 10x leverage: leverage&#x3D;0&amp;cross_leverage_limit&#x3D;10 - leverage&#x3D;5&amp;cross_leverage_limit&#x3D;10 → Result: Isolated margin with 5x leverage (cross_leverage_limit is ignored)  ⚠️ Warning: Incorrect settings may cause unexpected position mode switching, affecting risk management.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Set the leverage for isolated margin. When setting isolated margin leverage, the &#x60;cross_leverage_limit&#x60;  must be empty. (required)
      * @param crossLeverageLimit Set the leverage for cross margin. When setting cross margin leverage, the &#x60;leverage&#x60; must be set to 0. (optional)
@@ -4008,7 +4117,7 @@ public class FuturesApi {
 
     /**
      * Build call for updateContractPositionLeverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Position Leverage Multiple (required)
      * @param marginMode Margin Mode isolated/cross (required)
@@ -4094,7 +4203,7 @@ public class FuturesApi {
     /**
      * Update Leverage for Specified Mode
      * To simplify the complex logic of the leverage interface, added a new interface for modifying leverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Position Leverage Multiple (required)
      * @param marginMode Margin Mode isolated/cross (required)
@@ -4115,7 +4224,7 @@ public class FuturesApi {
     /**
      * Update Leverage for Specified Mode
      * To simplify the complex logic of the leverage interface, added a new interface for modifying leverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Position Leverage Multiple (required)
      * @param marginMode Margin Mode isolated/cross (required)
@@ -4137,7 +4246,7 @@ public class FuturesApi {
     /**
      * Update Leverage for Specified Mode (asynchronously)
      * To simplify the complex logic of the leverage interface, added a new interface for modifying leverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage Position Leverage Multiple (required)
      * @param marginMode Margin Mode isolated/cross (required)
@@ -4160,7 +4269,7 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionCrossMode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPositionCrossMode  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4220,7 +4329,7 @@ public class FuturesApi {
     /**
      * Switch Position Margin Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPositionCrossMode  (required)
      * @return Position
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4238,7 +4347,7 @@ public class FuturesApi {
     /**
      * Switch Position Margin Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPositionCrossMode  (required)
      * @return ApiResponse&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4257,7 +4366,7 @@ public class FuturesApi {
     /**
      * Switch Position Margin Mode (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPositionCrossMode  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4277,7 +4386,7 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualCompPositionCrossMode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateDualCompPositionCrossModeRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4337,7 +4446,7 @@ public class FuturesApi {
     /**
      * Switch Between Cross and Isolated Margin Modes Under Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateDualCompPositionCrossModeRequest  (required)
      * @return List&lt;Position&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4355,7 +4464,7 @@ public class FuturesApi {
     /**
      * Switch Between Cross and Isolated Margin Modes Under Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateDualCompPositionCrossModeRequest  (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4374,7 +4483,7 @@ public class FuturesApi {
     /**
      * Switch Between Cross and Isolated Margin Modes Under Hedge Mode (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateDualCompPositionCrossModeRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4394,7 +4503,7 @@ public class FuturesApi {
 
     /**
      * Build call for updatePositionRiskLimit
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @param _callback Callback for upload/download progress
@@ -4465,7 +4574,7 @@ public class FuturesApi {
     /**
      * Update position risk limit
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @return Position
@@ -4484,7 +4593,7 @@ public class FuturesApi {
     /**
      * Update position risk limit
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @return ApiResponse&lt;Position&gt;
@@ -4504,7 +4613,7 @@ public class FuturesApi {
     /**
      * Update position risk limit (asynchronously)
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -4525,7 +4634,7 @@ public class FuturesApi {
 
     /**
      * Build call for setDualMode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4589,7 +4698,7 @@ public class FuturesApi {
     /**
      * Set position mode
      * The prerequisite for changing mode is that all positions have no holdings and no pending orders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4607,7 +4716,7 @@ public class FuturesApi {
     /**
      * Set position mode
      * The prerequisite for changing mode is that all positions have no holdings and no pending orders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4626,7 +4735,7 @@ public class FuturesApi {
     /**
      * Set position mode (asynchronously)
      * The prerequisite for changing mode is that all positions have no holdings and no pending orders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param dualMode Whether to enable Hedge Mode (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4646,7 +4755,7 @@ public class FuturesApi {
 
     /**
      * Build call for setPositionMode
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param positionMode Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4710,7 +4819,7 @@ public class FuturesApi {
     /**
      * Set Position Holding Mode, replacing the dual_mode interface
      * The prerequisite for changing mode is that all positions have no holdings and no pending orders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param positionMode Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
      * @return FuturesAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4728,7 +4837,7 @@ public class FuturesApi {
     /**
      * Set Position Holding Mode, replacing the dual_mode interface
      * The prerequisite for changing mode is that all positions have no holdings and no pending orders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param positionMode Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
      * @return ApiResponse&lt;FuturesAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4747,7 +4856,7 @@ public class FuturesApi {
     /**
      * Set Position Holding Mode, replacing the dual_mode interface (asynchronously)
      * The prerequisite for changing mode is that all positions have no holdings and no pending orders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param positionMode Optional Values: single, dual, dual_plus, representing Single Direction, Dual Direction, Split Position respectively (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4898,7 +5007,7 @@ public class FuturesApi {
     /**
      * Get position information in Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @return APIgetDualModePositionRequest
      * @http.response.details
@@ -4913,7 +5022,7 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualModePositionMargin
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @param dualSide Long or short position (required)
@@ -4994,7 +5103,7 @@ public class FuturesApi {
     /**
      * Update position margin in Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @param dualSide Long or short position (required)
@@ -5014,7 +5123,7 @@ public class FuturesApi {
     /**
      * Update position margin in Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @param dualSide Long or short position (required)
@@ -5035,7 +5144,7 @@ public class FuturesApi {
     /**
      * Update position margin in Hedge Mode (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param change Margin change amount, positive number increases, negative number decreases (required)
      * @param dualSide Long or short position (required)
@@ -5057,7 +5166,7 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualModePositionLeverage
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
      * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
@@ -5133,7 +5242,7 @@ public class FuturesApi {
     /**
      * Update position leverage in Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
      * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
@@ -5153,7 +5262,7 @@ public class FuturesApi {
     /**
      * Update position leverage in Hedge Mode
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
      * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
@@ -5174,7 +5283,7 @@ public class FuturesApi {
     /**
      * Update position leverage in Hedge Mode (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param leverage New position leverage (required)
      * @param crossLeverageLimit Cross margin leverage (valid only when &#x60;leverage&#x60; is 0) (optional)
@@ -5196,7 +5305,7 @@ public class FuturesApi {
 
     /**
      * Build call for updateDualModePositionRiskLimit
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @param _callback Callback for upload/download progress
@@ -5267,7 +5376,7 @@ public class FuturesApi {
     /**
      * Update position risk limit in Hedge Mode
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @return List&lt;Position&gt;
@@ -5286,7 +5395,7 @@ public class FuturesApi {
     /**
      * Update position risk limit in Hedge Mode
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @return ApiResponse&lt;List&lt;Position&gt;&gt;
@@ -5306,7 +5415,7 @@ public class FuturesApi {
     /**
      * Update position risk limit in Hedge Mode (asynchronously)
      * Under the new risk limit rules(https://www.gate.com/en/help/futures/futures-logic/22162), the position limit is related to the leverage you set; a lower leverage will result in a higher position limit. Please use the leverage adjustment api to adjust the position limit.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract (required)
      * @param riskLimit New risk limit value (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5521,7 +5630,7 @@ public class FuturesApi {
     /**
      * Query futures order list
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param status Query order list based on status (required)
      * @return APIlistFuturesOrdersRequest
      * @http.response.details
@@ -5536,7 +5645,7 @@ public class FuturesApi {
 
     /**
      * Build call for createFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -5601,7 +5710,7 @@ public class FuturesApi {
     /**
      * Place futures order
      * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
@@ -5620,7 +5729,7 @@ public class FuturesApi {
     /**
      * Place futures order
      * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -5640,7 +5749,7 @@ public class FuturesApi {
     /**
      * Place futures order (asynchronously)
      * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5661,7 +5770,7 @@ public class FuturesApi {
 
     /**
      * Build call for cancelFuturesOrders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -5745,7 +5854,7 @@ public class FuturesApi {
     /**
      * Cancel all orders with &#39;open&#39; status
      * Zero-fill orders cannot be retrieved 10 minutes after order cancellation
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -5768,7 +5877,7 @@ public class FuturesApi {
     /**
      * Cancel all orders with &#39;open&#39; status
      * Zero-fill orders cannot be retrieved 10 minutes after order cancellation
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -5792,7 +5901,7 @@ public class FuturesApi {
     /**
      * Cancel all orders with &#39;open&#39; status (asynchronously)
      * Zero-fill orders cannot be retrieved 10 minutes after order cancellation
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param contract Contract Identifier; if specified, only cancel pending orders related to this contract (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -6015,7 +6124,7 @@ public class FuturesApi {
     /**
      * Query futures order list by time range
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIgetOrdersWithTimeRangeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6029,7 +6138,7 @@ public class FuturesApi {
 
     /**
      * Build call for createBatchFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -6094,7 +6203,7 @@ public class FuturesApi {
     /**
      * Place batch futures orders
      * - Up to 10 orders per request - If any of the order&#39;s parameters are missing or in the wrong format, all of them will not be executed, and a http status 400 error will be returned directly - If the parameters are checked and passed, all are executed. Even if there is a business logic error in the middle (such as insufficient funds), it will not affect other execution orders - The returned result is in array format, and the order corresponds to the orders in the request body - In the returned result, the &#x60;succeeded&#x60; field of type bool indicates whether the execution was successful or not - If the execution is successful, the normal order content is included; if the execution fails, the &#x60;label&#x60; field is included to indicate the cause of the error - In the rate limiting, each order is counted individually
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;BatchFuturesOrder&gt;
@@ -6113,7 +6222,7 @@ public class FuturesApi {
     /**
      * Place batch futures orders
      * - Up to 10 orders per request - If any of the order&#39;s parameters are missing or in the wrong format, all of them will not be executed, and a http status 400 error will be returned directly - If the parameters are checked and passed, all are executed. Even if there is a business logic error in the middle (such as insufficient funds), it will not affect other execution orders - The returned result is in array format, and the order corresponds to the orders in the request body - In the returned result, the &#x60;succeeded&#x60; field of type bool indicates whether the execution was successful or not - If the execution is successful, the normal order content is included; if the execution fails, the &#x60;label&#x60; field is included to indicate the cause of the error - In the rate limiting, each order is counted individually
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;BatchFuturesOrder&gt;&gt;
@@ -6133,7 +6242,7 @@ public class FuturesApi {
     /**
      * Place batch futures orders (asynchronously)
      * - Up to 10 orders per request - If any of the order&#39;s parameters are missing or in the wrong format, all of them will not be executed, and a http status 400 error will be returned directly - If the parameters are checked and passed, all are executed. Even if there is a business logic error in the middle (such as insufficient funds), it will not affect other execution orders - The returned result is in array format, and the order corresponds to the orders in the request body - In the returned result, the &#x60;succeeded&#x60; field of type bool indicates whether the execution was successful or not - If the execution is successful, the normal order content is included; if the execution fails, the &#x60;label&#x60; field is included to indicate the cause of the error - In the rate limiting, each order is counted individually
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -6154,7 +6263,7 @@ public class FuturesApi {
 
     /**
      * Build call for getFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6215,7 +6324,7 @@ public class FuturesApi {
     /**
      * Query single order details
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @return FuturesOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6233,7 +6342,7 @@ public class FuturesApi {
     /**
      * Query single order details
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6252,7 +6361,7 @@ public class FuturesApi {
     /**
      * Query single order details (asynchronously)
      * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6272,7 +6381,7 @@ public class FuturesApi {
 
     /**
      * Build call for amendFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -6344,7 +6453,7 @@ public class FuturesApi {
     /**
      * Amend single order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -6364,7 +6473,7 @@ public class FuturesApi {
     /**
      * Amend single order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -6385,7 +6494,7 @@ public class FuturesApi {
     /**
      * Amend single order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param futuresOrderAmendment  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -6407,7 +6516,7 @@ public class FuturesApi {
 
     /**
      * Build call for cancelFuturesOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -6478,7 +6587,7 @@ public class FuturesApi {
     /**
      * Cancel single order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -6498,7 +6607,7 @@ public class FuturesApi {
     /**
      * Cancel single order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -6519,7 +6628,7 @@ public class FuturesApi {
     /**
      * Cancel single order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param actionMode Processing Mode  When placing an order, different fields are returned based on the action_mode  - &#x60;ACK&#x60;: Asynchronous mode, returns only key order fields - &#x60;RESULT&#x60;: No clearing information - &#x60;FULL&#x60;: Full mode (default) (optional)
@@ -6739,7 +6848,7 @@ public class FuturesApi {
     /**
      * Query personal trading records
      * By default, only supports querying data within 6 months. For older data, use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIgetMyTradesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6966,7 +7075,7 @@ public class FuturesApi {
     /**
      * Query personal trading records by time range
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIgetMyTradesWithTimeRangeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7208,7 +7317,7 @@ public class FuturesApi {
     /**
      * Query position close history
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistPositionCloseRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7435,7 +7544,7 @@ public class FuturesApi {
     /**
      * Query liquidation history
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistLiquidatesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7662,7 +7771,7 @@ public class FuturesApi {
     /**
      * Query ADL auto-deleveraging order information
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIlistAutoDeleveragesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7676,7 +7785,7 @@ public class FuturesApi {
 
     /**
      * Build call for countdownCancelAllFutures
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7736,7 +7845,7 @@ public class FuturesApi {
     /**
      * Countdown cancel orders
      * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @return TriggerTime
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7754,7 +7863,7 @@ public class FuturesApi {
     /**
      * Countdown cancel orders
      * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @return ApiResponse&lt;TriggerTime&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7773,7 +7882,7 @@ public class FuturesApi {
     /**
      * Countdown cancel orders (asynchronously)
      * Heartbeat detection for contract orders: When the user-set &#x60;timeout&#x60; time is reached, if neither the existing countdown is canceled nor a new countdown is set, the relevant contract orders will be automatically canceled. This API can be called repeatedly to or cancel the countdown. Usage example: Repeatedly call this API at 30-second intervals, setting the &#x60;timeout&#x60; to 30 (seconds) each time. If this API is not called again within 30 seconds, all open orders on your specified &#x60;market&#x60; will be automatically canceled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will terminate, and the automatic order cancellation function will be disabled.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param countdownCancelAllFuturesTask  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7931,7 +8040,7 @@ public class FuturesApi {
     /**
      * Query futures market trading fee rates
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIgetFuturesFeeRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -7945,7 +8054,7 @@ public class FuturesApi {
 
     /**
      * Build call for cancelBatchFutureOrders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -8010,7 +8119,7 @@ public class FuturesApi {
     /**
      * Cancel batch orders by specified ID list
      * Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;FutureCancelOrderResult&gt;
@@ -8029,7 +8138,7 @@ public class FuturesApi {
     /**
      * Cancel batch orders by specified ID list
      * Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;FutureCancelOrderResult&gt;&gt;
@@ -8049,7 +8158,7 @@ public class FuturesApi {
     /**
      * Cancel batch orders by specified ID list (asynchronously)
      * Multiple different order IDs can be specified. A maximum of 20 records can be cancelled in one request
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param requestBody  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -8070,7 +8179,7 @@ public class FuturesApi {
 
     /**
      * Build call for amendBatchFutureOrders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -8135,7 +8244,7 @@ public class FuturesApi {
     /**
      * Batch modify orders by specified IDs
      * Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return List&lt;BatchFuturesOrder&gt;
@@ -8154,7 +8263,7 @@ public class FuturesApi {
     /**
      * Batch modify orders by specified IDs
      * Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;List&lt;BatchFuturesOrder&gt;&gt;
@@ -8174,7 +8283,7 @@ public class FuturesApi {
     /**
      * Batch modify orders by specified IDs (asynchronously)
      * Multiple different order IDs can be specified. A maximum of 10 orders can be modified in one request
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param batchAmendOrderReq  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -8195,7 +8304,7 @@ public class FuturesApi {
 
     /**
      * Build call for getFuturesRiskLimitTable
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param tableId Risk limit table ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8259,7 +8368,7 @@ public class FuturesApi {
     /**
      * Query risk limit table by table_id
      * Just pass table_id
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param tableId Risk limit table ID (required)
      * @return List&lt;FuturesRiskLimitTier&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8277,7 +8386,7 @@ public class FuturesApi {
     /**
      * Query risk limit table by table_id
      * Just pass table_id
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param tableId Risk limit table ID (required)
      * @return ApiResponse&lt;List&lt;FuturesRiskLimitTier&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8296,7 +8405,7 @@ public class FuturesApi {
     /**
      * Query risk limit table by table_id (asynchronously)
      * Just pass table_id
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param tableId Risk limit table ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8316,7 +8425,7 @@ public class FuturesApi {
 
     /**
      * Build call for createFuturesBBOOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresBBOOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback Callback for upload/download progress
@@ -8381,7 +8490,7 @@ public class FuturesApi {
     /**
      * Level-based BBO Contract Order Placement
      * Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresBBOOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return FuturesOrder
@@ -8400,7 +8509,7 @@ public class FuturesApi {
     /**
      * Level-based BBO Contract Order Placement
      * Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresBBOOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -8420,7 +8529,7 @@ public class FuturesApi {
     /**
      * Level-based BBO Contract Order Placement (asynchronously)
      * Compared to the futures trading order placement interface (futures/{settle}/orders), it adds the &#x60;level&#x60; and &#x60;direction&#x60; parameters.
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresBBOOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -8441,7 +8550,7 @@ public class FuturesApi {
 
     /**
      * Build call for createTrailOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createTrailOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8501,7 +8610,7 @@ public class FuturesApi {
     /**
      * Create trail order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createTrailOrder  (required)
      * @return CreateTrailOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8519,7 +8628,7 @@ public class FuturesApi {
     /**
      * Create trail order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createTrailOrder  (required)
      * @return ApiResponse&lt;CreateTrailOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8538,7 +8647,7 @@ public class FuturesApi {
     /**
      * Create trail order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createTrailOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8558,7 +8667,7 @@ public class FuturesApi {
 
     /**
      * Build call for stopTrailOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopTrailOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8618,7 +8727,7 @@ public class FuturesApi {
     /**
      * Terminate trail order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopTrailOrder  (required)
      * @return TrailOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8636,7 +8745,7 @@ public class FuturesApi {
     /**
      * Terminate trail order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopTrailOrder  (required)
      * @return ApiResponse&lt;TrailOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8655,7 +8764,7 @@ public class FuturesApi {
     /**
      * Terminate trail order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopTrailOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8675,7 +8784,7 @@ public class FuturesApi {
 
     /**
      * Build call for stopAllTrailOrders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllTrailOrders  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8735,7 +8844,7 @@ public class FuturesApi {
     /**
      * Batch terminate trail orders
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllTrailOrders  (required)
      * @return TrailOrderListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8753,7 +8862,7 @@ public class FuturesApi {
     /**
      * Batch terminate trail orders
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllTrailOrders  (required)
      * @return ApiResponse&lt;TrailOrderListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8772,7 +8881,7 @@ public class FuturesApi {
     /**
      * Batch terminate trail orders (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllTrailOrders  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9095,7 +9204,7 @@ public class FuturesApi {
     /**
      * Get trail order list
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @return APIgetTrailOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9109,7 +9218,7 @@ public class FuturesApi {
 
     /**
      * Build call for getTrailOrderDetail
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9173,7 +9282,7 @@ public class FuturesApi {
     /**
      * Get trail order details
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID (required)
      * @return TrailOrderDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9191,7 +9300,7 @@ public class FuturesApi {
     /**
      * Get trail order details
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID (required)
      * @return ApiResponse&lt;TrailOrderDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9210,7 +9319,7 @@ public class FuturesApi {
     /**
      * Get trail order details (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9230,7 +9339,7 @@ public class FuturesApi {
 
     /**
      * Build call for updateTrailOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateTrailOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9290,7 +9399,7 @@ public class FuturesApi {
     /**
      * Update trail order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateTrailOrder  (required)
      * @return TrailOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9308,7 +9417,7 @@ public class FuturesApi {
     /**
      * Update trail order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateTrailOrder  (required)
      * @return ApiResponse&lt;TrailOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9327,7 +9436,7 @@ public class FuturesApi {
     /**
      * Update trail order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param updateTrailOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9511,7 +9620,7 @@ public class FuturesApi {
     /**
      * Get trail order user modification records
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID (required)
      * @return APIgetTrailOrderChangeLogRequest
      * @http.response.details
@@ -9526,7 +9635,7 @@ public class FuturesApi {
 
     /**
      * Build call for createChaseOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createChaseOrderReq  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9586,7 +9695,7 @@ public class FuturesApi {
     /**
      * Create a chase order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createChaseOrderReq  (required)
      * @return CreateChaseOrderResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9604,7 +9713,7 @@ public class FuturesApi {
     /**
      * Create a chase order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createChaseOrderReq  (required)
      * @return ApiResponse&lt;CreateChaseOrderResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9623,7 +9732,7 @@ public class FuturesApi {
     /**
      * Create a chase order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param createChaseOrderReq  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9643,7 +9752,7 @@ public class FuturesApi {
 
     /**
      * Build call for stopChaseOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopChaseOrderReq  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9703,7 +9812,7 @@ public class FuturesApi {
     /**
      * Stop a chase order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopChaseOrderReq  (required)
      * @return StopChaseOrderResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9721,7 +9830,7 @@ public class FuturesApi {
     /**
      * Stop a chase order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopChaseOrderReq  (required)
      * @return ApiResponse&lt;StopChaseOrderResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9740,7 +9849,7 @@ public class FuturesApi {
     /**
      * Stop a chase order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopChaseOrderReq  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9760,7 +9869,7 @@ public class FuturesApi {
 
     /**
      * Build call for stopAllChaseOrders
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllChaseOrdersReq  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9820,7 +9929,7 @@ public class FuturesApi {
     /**
      * Stop chase orders in batch
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllChaseOrdersReq  (required)
      * @return StopAllChaseOrdersResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9838,7 +9947,7 @@ public class FuturesApi {
     /**
      * Stop chase orders in batch
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllChaseOrdersReq  (required)
      * @return ApiResponse&lt;StopAllChaseOrdersResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9857,7 +9966,7 @@ public class FuturesApi {
     /**
      * Stop chase orders in batch (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param stopAllChaseOrdersReq  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10146,7 +10255,7 @@ public class FuturesApi {
     /**
      * List chase orders
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param sortBy Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
      * @return APIgetChaseOrdersRequest
      * @http.response.details
@@ -10161,7 +10270,7 @@ public class FuturesApi {
 
     /**
      * Build call for getChaseOrderDetail
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID, must be a non-zero positive integer (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10225,7 +10334,7 @@ public class FuturesApi {
     /**
      * Get chase order detail
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID, must be a non-zero positive integer (required)
      * @return GetChaseOrderDetailResp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10243,7 +10352,7 @@ public class FuturesApi {
     /**
      * Get chase order detail
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID, must be a non-zero positive integer (required)
      * @return ApiResponse&lt;GetChaseOrderDetailResp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10262,7 +10371,7 @@ public class FuturesApi {
     /**
      * Get chase order detail (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param id Order ID, must be a non-zero positive integer (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10461,7 +10570,7 @@ public class FuturesApi {
     /**
      * Query auto order list
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param status Query order list based on status (required)
      * @return APIlistPriceTriggeredOrdersRequest
      * @http.response.details
@@ -10476,7 +10585,7 @@ public class FuturesApi {
 
     /**
      * Build call for createPriceTriggeredOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10536,7 +10645,7 @@ public class FuturesApi {
     /**
      * Create price-triggered order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @return TriggerOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10554,7 +10663,7 @@ public class FuturesApi {
     /**
      * Create price-triggered order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @return ApiResponse&lt;TriggerOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10573,7 +10682,7 @@ public class FuturesApi {
     /**
      * Create price-triggered order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresPriceTriggeredOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10593,7 +10702,7 @@ public class FuturesApi {
 
     /**
      * Build call for cancelPriceTriggeredOrderList
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract, return related data only if specified (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10652,7 +10761,7 @@ public class FuturesApi {
     /**
      * Cancel all auto orders
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract, return related data only if specified (optional)
      * @return List&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10670,7 +10779,7 @@ public class FuturesApi {
     /**
      * Cancel all auto orders
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract, return related data only if specified (optional)
      * @return ApiResponse&lt;List&lt;FuturesPriceTriggeredOrder&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10689,7 +10798,7 @@ public class FuturesApi {
     /**
      * Cancel all auto orders (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param contract Futures contract, return related data only if specified (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10709,7 +10818,7 @@ public class FuturesApi {
 
     /**
      * Build call for getPriceTriggeredOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10770,7 +10879,7 @@ public class FuturesApi {
     /**
      * Query single auto order details
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @return FuturesPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10788,7 +10897,7 @@ public class FuturesApi {
     /**
      * Query single auto order details
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10807,7 +10916,7 @@ public class FuturesApi {
     /**
      * Query single auto order details (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10827,7 +10936,7 @@ public class FuturesApi {
 
     /**
      * Build call for cancelPriceTriggeredOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -10888,7 +10997,7 @@ public class FuturesApi {
     /**
      * Cancel single auto order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @return FuturesPriceTriggeredOrder
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10906,7 +11015,7 @@ public class FuturesApi {
     /**
      * Cancel single auto order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @return ApiResponse&lt;FuturesPriceTriggeredOrder&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10925,7 +11034,7 @@ public class FuturesApi {
     /**
      * Cancel single auto order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param orderId ID returned when order is successfully created (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10945,7 +11054,7 @@ public class FuturesApi {
 
     /**
      * Build call for updatePriceTriggeredOrder
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -11005,7 +11114,7 @@ public class FuturesApi {
     /**
      * Modify a Single Auto Order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @return TriggerOrderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11023,7 +11132,7 @@ public class FuturesApi {
     /**
      * Modify a Single Auto Order
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @return ApiResponse&lt;TriggerOrderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11042,7 +11151,7 @@ public class FuturesApi {
     /**
      * Modify a Single Auto Order (asynchronously)
      * 
-     * @param settle Settle currency (required)
+     * @param settle Perpetual futures settlement currency (required)
      * @param futuresUpdatePriceTriggeredOrder  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

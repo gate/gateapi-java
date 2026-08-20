@@ -33,6 +33,7 @@ import io.gate.gateapi.models.Order;
 import io.gate.gateapi.models.OrderBook;
 import io.gate.gateapi.models.OrderCancel;
 import io.gate.gateapi.models.OrderPatch;
+import io.gate.gateapi.models.SpotAccount;
 import io.gate.gateapi.models.SpotAccountBook;
 import io.gate.gateapi.models.SpotFee;
 import io.gate.gateapi.models.SpotInsuranceHistory;
@@ -1518,6 +1519,149 @@ public class SpotApi {
         Type localVarReturnType = new TypeToken<Map<String, SpotFee>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    private okhttp3.Call listSpotAccountsCall(String currency, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/accounts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currency != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency", currency));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpotAccountsValidateBeforeCall(String currency, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotAccountsCall(currency, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<SpotAccount>> listSpotAccountsWithHttpInfo(String currency) throws ApiException {
+        okhttp3.Call localVarCall = listSpotAccountsValidateBeforeCall(currency, null);
+        Type localVarReturnType = new TypeToken<List<SpotAccount>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSpotAccountsAsync(String currency, final ApiCallback<List<SpotAccount>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotAccountsValidateBeforeCall(currency, _callback);
+        Type localVarReturnType = new TypeToken<List<SpotAccount>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSpotAccountsRequest {
+        private String currency;
+
+        private APIlistSpotAccountsRequest() {
+        }
+
+        /**
+         * Set currency
+         * @param currency Query by specified currency name (optional)
+         * @return APIlistSpotAccountsRequest
+         */
+        public APIlistSpotAccountsRequest currency(String currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for listSpotAccounts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSpotAccountsCall(currency, _callback);
+        }
+
+        /**
+         * Execute listSpotAccounts request
+         * @return List&lt;SpotAccount&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SpotAccount> execute() throws ApiException {
+            ApiResponse<List<SpotAccount>> localVarResp = listSpotAccountsWithHttpInfo(currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSpotAccounts request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SpotAccount&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SpotAccount>> executeWithHttpInfo() throws ApiException {
+            return listSpotAccountsWithHttpInfo(currency);
+        }
+
+        /**
+         * Execute listSpotAccounts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SpotAccount>> _callback) throws ApiException {
+            return listSpotAccountsAsync(currency, _callback);
+        }
+    }
+
+    /**
+     * List spot trading accounts
+     * 
+     * @return APIlistSpotAccountsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSpotAccountsRequest listSpotAccounts() {
+        return new APIlistSpotAccountsRequest();
     }
 
     private okhttp3.Call listSpotAccountBookCall(String currency, Long from, Long to, Integer page, Integer limit, String type, String code, final ApiCallback _callback) throws ApiException {
@@ -4892,7 +5036,7 @@ public class SpotApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/spot/pov_orders/cancel";
+        String localVarPath = "/spot/pov_orders";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4918,7 +5062,7 @@ public class SpotApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5106,7 +5250,7 @@ public class SpotApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/spot/pov_orders/{order_id}/cancel"
+        String localVarPath = "/spot/pov_orders/{order_id}"
             .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5129,7 +5273,7 @@ public class SpotApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "apiv4" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")

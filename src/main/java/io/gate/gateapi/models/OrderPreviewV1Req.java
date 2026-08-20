@@ -48,7 +48,7 @@ public class OrderPreviewV1Req {
     }
 
      /**
-     * Sell ​​side; each item is the currency + the swap amount &#x60;amount&#x60; (string decimal).
+     * Sell side; each item is the currency + the swap amount &#x60;amount&#x60; (string decimal).
      * @return from
     **/
     public List<PreviewFromParam> getFrom() {

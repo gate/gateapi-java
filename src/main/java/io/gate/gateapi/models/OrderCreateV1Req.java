@@ -47,7 +47,7 @@ public class OrderCreateV1Req {
     }
 
      /**
-     * Sell ​​side list, at least one item; each item is the currency and amount &#x60;amount&#x60; to be swapped out.
+     * Sell side list, at least one item; each item is the currency and amount &#x60;amount&#x60; to be swapped out.
      * @return from
     **/
     public List<CreateParam> getFrom() {
