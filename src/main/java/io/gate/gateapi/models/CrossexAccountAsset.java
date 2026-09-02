@@ -179,7 +179,7 @@ public class CrossexAccountAsset {
     }
 
      /**
-     * Equity (only USDT has a value; other assets are 0)
+     * Net margin equity for the currency
      * @return equity
     **/
     @javax.annotation.Nullable
@@ -199,7 +199,7 @@ public class CrossexAccountAsset {
     }
 
      /**
-     * Futures initial margin (only USDT has a value; other assets are 0)
+     * Currency-specific futures initial margin. This value is populated for futures settlement currencies (USDT/USDC/USD)
      * @return futuresInitialMargin
     **/
     @javax.annotation.Nullable
@@ -219,7 +219,7 @@ public class CrossexAccountAsset {
     }
 
      /**
-     * Futures maintenance margin (only USDT has a value; other assets are 0)
+     * Currency-specific futures maintenance margin. This value is populated for futures settlement currencies (USDT/USDC/USD)
      * @return futuresMaintenanceMargin
     **/
     @javax.annotation.Nullable
@@ -239,7 +239,7 @@ public class CrossexAccountAsset {
     }
 
      /**
-     * Margin trading initial margin (only USDT has a value; other assets are 0)
+     * Currency-specific margin trading initial margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD)
      * @return borrowingInitialMargin
     **/
     public String getBorrowingInitialMargin() {
@@ -258,7 +258,7 @@ public class CrossexAccountAsset {
     }
 
      /**
-     * Margin trading maintenance margin (only USDT has a value; other assets are 0)
+     * Currency-specific margin trading maintenance margin. This value is populated for margin or futures settlement currencies (USDT/USDC/USD)
      * @return borrowingMaintenanceMargin
     **/
     public String getBorrowingMaintenanceMargin() {
@@ -297,7 +297,7 @@ public class CrossexAccountAsset {
     }
 
      /**
-     * Liabilities (only meaningful in isolated exchange mode; always 0 in cross-exchange mode)
+     * Liability for the currency. This value is populated only for USDT, USDC, or USD
      * @return liability
     **/
     @javax.annotation.Nullable

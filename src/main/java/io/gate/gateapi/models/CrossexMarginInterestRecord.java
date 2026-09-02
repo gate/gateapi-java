@@ -23,7 +23,7 @@ import java.io.IOException;
  * CrossexMarginInterestRecord
  */
 public class CrossexMarginInterestRecord {
-    public static final String SERIALIZED_NAME_USER_ID = "userId";
+    public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
     private String userId;
 
@@ -227,7 +227,7 @@ public class CrossexMarginInterestRecord {
     }
 
      /**
-     * Interest deduction type (&#x60;PERIODIC_POSITION&#x60; hourly interest on position, &#x60;PERIODIC_OPEN_ORDER&#x60; hourly interest on open orders, &#x60;IMMEDIATE_OPEN_ORDER&#x60; interest charged on order placement, &#x60;PERIODIC_ISOLATED&#x60; hourly interest on debt)
+     * Interest deduction type &#x60;PERIODIC_POSITION&#x60;: hourly interest charged on positions &#x60;PERIODIC_OPEN_ORDER&#x60;: hourly interest charged on open orders &#x60;IMMEDIATE_OPEN_ORDER&#x60;: interest charged when an order is placed &#x60;PERIODIC_ISOLATED&#x60;: hourly interest charged on liabilities
      * @return interestType
     **/
     public String getInterestType() {

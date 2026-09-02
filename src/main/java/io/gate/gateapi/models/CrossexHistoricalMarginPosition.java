@@ -383,7 +383,7 @@ public class CrossexHistoricalMarginPosition {
     }
 
      /**
-     * Total Deducted Interest
+     * Accumulated position interest
      * @return interest
     **/
     public String getInterest() {

@@ -71,7 +71,7 @@ public class CrossexTransferCoin {
     }
 
      /**
-     * Minimum Transfer Quantity (including estimated fees)
+     * Minimum transfer amount (estimated fee included)
      * @return minTransAmount
     **/
     public BigDecimal getMinTransAmount() {

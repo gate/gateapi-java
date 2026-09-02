@@ -185,6 +185,10 @@ public class Trade {
     @SerializedName(SERIALIZED_NAME_DEAL)
     private String deal;
 
+    public static final String SERIALIZED_NAME_TRADE_QUOTE = "trade_quote";
+    @SerializedName(SERIALIZED_NAME_TRADE_QUOTE)
+    private String tradeQuote;
+
 
     public Trade id(String id) {
         
@@ -525,6 +529,26 @@ public class Trade {
     public void setDeal(String deal) {
         this.deal = deal;
     }
+
+    public Trade tradeQuote(String tradeQuote) {
+        
+        this.tradeQuote = tradeQuote;
+        return this;
+    }
+
+     /**
+     * Actual quote currency used for the trade
+     * @return tradeQuote
+    **/
+    @javax.annotation.Nullable
+    public String getTradeQuote() {
+        return tradeQuote;
+    }
+
+
+    public void setTradeQuote(String tradeQuote) {
+        this.tradeQuote = tradeQuote;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -550,12 +574,13 @@ public class Trade {
                 Objects.equals(this.amendText, trade.amendText) &&
                 Objects.equals(this.sequenceId, trade.sequenceId) &&
                 Objects.equals(this.text, trade.text) &&
-                Objects.equals(this.deal, trade.deal);
+                Objects.equals(this.deal, trade.deal) &&
+                Objects.equals(this.tradeQuote, trade.tradeQuote);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, createTime, createTimeMs, currencyPair, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee, amendText, sequenceId, text, deal);
+        return Objects.hash(id, createTime, createTimeMs, currencyPair, side, role, amount, price, orderId, fee, feeCurrency, pointFee, gtFee, amendText, sequenceId, text, deal, tradeQuote);
     }
 
 
@@ -580,6 +605,7 @@ public class Trade {
         sb.append("      sequenceId: ").append(toIndentedString(sequenceId)).append("\n");
         sb.append("      text: ").append(toIndentedString(text)).append("\n");
         sb.append("      deal: ").append(toIndentedString(deal)).append("\n");
+        sb.append("      tradeQuote: ").append(toIndentedString(tradeQuote)).append("\n");
         sb.append("}");
         return sb.toString();
     }

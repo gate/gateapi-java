@@ -20,4 +20,5 @@ Name | Type | Description | Notes
 **liquidationFee** | **String** | Liquidation Fee Rate | 
 **delistTime** | **String** | Millisecond timestamp; &#x60;0&#x60; means not delisted. | 
 **supportRpi** | **String** | Whether RPI order placement is supported (true if supported; false otherwise) |  [optional]
+**supportCross** | **String** | Whether cross-margin order placement is supported (true if supported; false otherwise) |  [optional]
 

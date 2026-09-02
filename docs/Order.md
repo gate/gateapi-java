@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **updateTimeMs** | **Long** | Last modification time of order (in milliseconds) |  [optional] [readonly]
 **status** | [**StatusEnum**](#StatusEnum) | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled |  [optional] [readonly]
 **currencyPair** | **String** | Currency pair | 
+**tradeQuote** | **String** | Actual quote currency used for the trade; can be specified only in a unified market |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Order Type   - limit : Limit Order - market : Market Order |  [optional]
 **account** | **String** | Account type, spot - spot account, margin - leveraged account, unified - unified account |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Buy or sell order | 

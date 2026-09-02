@@ -412,7 +412,7 @@ public class CrossexOrderRequest {
     }
 
      /**
-     * Order quantity (required unless spot market buy)
+     * Order quantity (required unless spot or margin market buy)
      * @return qty
     **/
     @javax.annotation.Nullable

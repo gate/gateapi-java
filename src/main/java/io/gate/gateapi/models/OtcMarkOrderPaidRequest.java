@@ -86,7 +86,7 @@ public class OtcMarkOrderPaidRequest {
     }
 
      /**
-     * User payment receipt: **required**. Stored as a file_key. One file; jpg/jpeg/png/pdf; maximum 10 MB.
+     * User payment receipt: **required**. Recommended: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;general&#x60;) to upload to the temporary bucket, then pass the returned **base64 file_key unchanged** (do not decode); the server moves to the production bucket and persists. Still compatible with legacy production-bucket base64 keys. Single file; jpg/jpeg/png/pdf; ≤10MB.
      * @return paymentReceiptFileKey
     **/
     public String getPaymentReceiptFileKey() {

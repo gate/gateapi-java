@@ -83,6 +83,10 @@ public class Symbol {
     @SerializedName(SERIALIZED_NAME_SUPPORT_RPI)
     private String supportRpi;
 
+    public static final String SERIALIZED_NAME_SUPPORT_CROSS = "support_cross";
+    @SerializedName(SERIALIZED_NAME_SUPPORT_CROSS)
+    private String supportCross;
+
 
     public Symbol symbol(String symbol) {
         
@@ -369,6 +373,26 @@ public class Symbol {
     public void setSupportRpi(String supportRpi) {
         this.supportRpi = supportRpi;
     }
+
+    public Symbol supportCross(String supportCross) {
+        
+        this.supportCross = supportCross;
+        return this;
+    }
+
+     /**
+     * Whether cross-margin order placement is supported (true if supported; false otherwise)
+     * @return supportCross
+    **/
+    @javax.annotation.Nullable
+    public String getSupportCross() {
+        return supportCross;
+    }
+
+
+    public void setSupportCross(String supportCross) {
+        this.supportCross = supportCross;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -392,12 +416,13 @@ public class Symbol {
                 Objects.equals(this.contractSize, symbol.contractSize) &&
                 Objects.equals(this.liquidationFee, symbol.liquidationFee) &&
                 Objects.equals(this.delistTime, symbol.delistTime) &&
-                Objects.equals(this.supportRpi, symbol.supportRpi);
+                Objects.equals(this.supportRpi, symbol.supportRpi) &&
+                Objects.equals(this.supportCross, symbol.supportCross);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchangeType, businessType, state, minSize, minNotional, lotSize, tickSize, maxNumOrders, maxMarketSize, maxLimitSize, contractSize, liquidationFee, delistTime, supportRpi);
+        return Objects.hash(symbol, exchangeType, businessType, state, minSize, minNotional, lotSize, tickSize, maxNumOrders, maxMarketSize, maxLimitSize, contractSize, liquidationFee, delistTime, supportRpi, supportCross);
     }
 
 
@@ -420,6 +445,7 @@ public class Symbol {
         sb.append("      liquidationFee: ").append(toIndentedString(liquidationFee)).append("\n");
         sb.append("      delistTime: ").append(toIndentedString(delistTime)).append("\n");
         sb.append("      supportRpi: ").append(toIndentedString(supportRpi)).append("\n");
+        sb.append("      supportCross: ").append(toIndentedString(supportCross)).append("\n");
         sb.append("}");
         return sb.toString();
     }

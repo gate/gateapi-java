@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **baseName** | **String** | Base currency name |  [optional]
 **quote** | **String** | Quote currency |  [optional]
 **quoteName** | **String** | Quote currency name |  [optional]
+**tradeQuotes** | **List&lt;String&gt;** | Quote currencies supported by the unified market; null means that the market does not support unified quote currencies |  [optional]
 **fee** | **String** | Trading fee rate(deprecated) |  [optional]
 **minBaseAmount** | **String** | Minimum amount of base currency to trade, &#x60;null&#x60; means no limit |  [optional]
 **minQuoteAmount** | **String** | Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit |  [optional]

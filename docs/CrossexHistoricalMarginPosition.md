@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **liqFee** | **String** | Liquidation Fee |  [optional]
 **positionSide** | **String** | Position Direction Before Close |  [optional]
 **leverage** | **String** | Leverage at Close |  [optional]
-**interest** | **String** | Total Deducted Interest | 
+**interest** | **String** | Accumulated position interest | 
 **businessType** | **String** | Position Business Type | 
 **createTime** | **String** | Created time |  [optional]
 **updateTime** | **String** | Update time |  [optional]

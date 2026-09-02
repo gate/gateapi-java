@@ -85,7 +85,7 @@ public class InlineResponse2002 {
     }
 
      /**
-     * Tier
+     * Funding interval (in seconds)
      * @return fundingInterval
     **/
     public String getFundingInterval() {
@@ -104,7 +104,7 @@ public class InlineResponse2002 {
     }
 
      /**
-     * Next funding time
+     * Next funding time (Unix timestamp in milliseconds)
      * @return fundingTime
     **/
     public String getFundingTime() {

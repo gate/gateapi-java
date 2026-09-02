@@ -39,6 +39,10 @@ public class OtcBankPersonalSupplementMultipartRequest {
     @SerializedName(SERIALIZED_NAME_ADDRESS_PROOF)
     private String addressProof;
 
+    public static final String SERIALIZED_NAME_RELATIONSHIP_PROOF = "relationship_proof";
+    @SerializedName(SERIALIZED_NAME_RELATIONSHIP_PROOF)
+    private String relationshipProof;
+
 
     public OtcBankPersonalSupplementMultipartRequest bankId(String bankId) {
         
@@ -69,6 +73,7 @@ public class OtcBankPersonalSupplementMultipartRequest {
      * ID document front-side file content (multipart file field, binary/Base64)
      * @return idDocumentFront
     **/
+    @javax.annotation.Nullable
     public String getIdDocumentFront() {
         return idDocumentFront;
     }
@@ -88,6 +93,7 @@ public class OtcBankPersonalSupplementMultipartRequest {
      * ID document back-side file content (multipart file field, binary/Base64)
      * @return idDocumentBack
     **/
+    @javax.annotation.Nullable
     public String getIdDocumentBack() {
         return idDocumentBack;
     }
@@ -107,6 +113,7 @@ public class OtcBankPersonalSupplementMultipartRequest {
      * Proof-of-address file content (multipart file field, binary/Base64)
      * @return addressProof
     **/
+    @javax.annotation.Nullable
     public String getAddressProof() {
         return addressProof;
     }
@@ -114,6 +121,26 @@ public class OtcBankPersonalSupplementMultipartRequest {
 
     public void setAddressProof(String addressProof) {
         this.addressProof = addressProof;
+    }
+
+    public OtcBankPersonalSupplementMultipartRequest relationshipProof(String relationshipProof) {
+        
+        this.relationshipProof = relationshipProof;
+        return this;
+    }
+
+     /**
+     * Optional. JSON string of relationship_proof.
+     * @return relationshipProof
+    **/
+    @javax.annotation.Nullable
+    public String getRelationshipProof() {
+        return relationshipProof;
+    }
+
+
+    public void setRelationshipProof(String relationshipProof) {
+        this.relationshipProof = relationshipProof;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -127,12 +154,13 @@ public class OtcBankPersonalSupplementMultipartRequest {
         return Objects.equals(this.bankId, otcBankPersonalSupplementMultipartRequest.bankId) &&
                 Objects.equals(this.idDocumentFront, otcBankPersonalSupplementMultipartRequest.idDocumentFront) &&
                 Objects.equals(this.idDocumentBack, otcBankPersonalSupplementMultipartRequest.idDocumentBack) &&
-                Objects.equals(this.addressProof, otcBankPersonalSupplementMultipartRequest.addressProof);
+                Objects.equals(this.addressProof, otcBankPersonalSupplementMultipartRequest.addressProof) &&
+                Objects.equals(this.relationshipProof, otcBankPersonalSupplementMultipartRequest.relationshipProof);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankId, idDocumentFront, idDocumentBack, addressProof);
+        return Objects.hash(bankId, idDocumentFront, idDocumentBack, addressProof, relationshipProof);
     }
 
 
@@ -144,6 +172,7 @@ public class OtcBankPersonalSupplementMultipartRequest {
         sb.append("      idDocumentFront: ").append(toIndentedString(idDocumentFront)).append("\n");
         sb.append("      idDocumentBack: ").append(toIndentedString(idDocumentBack)).append("\n");
         sb.append("      addressProof: ").append(toIndentedString(addressProof)).append("\n");
+        sb.append("      relationshipProof: ").append(toIndentedString(relationshipProof)).append("\n");
         sb.append("}");
         return sb.toString();
     }

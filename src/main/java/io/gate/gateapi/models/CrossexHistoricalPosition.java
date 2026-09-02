@@ -91,6 +91,10 @@ public class CrossexHistoricalPosition {
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private String leverage;
 
+    public static final String SERIALIZED_NAME_MARGIN_MODE = "margin_mode";
+    @SerializedName(SERIALIZED_NAME_MARGIN_MODE)
+    private String marginMode;
+
     public static final String SERIALIZED_NAME_BUSINESS_TYPE = "business_type";
     @SerializedName(SERIALIZED_NAME_BUSINESS_TYPE)
     private String businessType;
@@ -444,6 +448,26 @@ public class CrossexHistoricalPosition {
         this.leverage = leverage;
     }
 
+    public CrossexHistoricalPosition marginMode(String marginMode) {
+        
+        this.marginMode = marginMode;
+        return this;
+    }
+
+     /**
+     * Margin mode (CROSS/ISOLATED)
+     * @return marginMode
+    **/
+    @javax.annotation.Nullable
+    public String getMarginMode() {
+        return marginMode;
+    }
+
+
+    public void setMarginMode(String marginMode) {
+        this.marginMode = marginMode;
+    }
+
     public CrossexHistoricalPosition businessType(String businessType) {
         
         this.businessType = businessType;
@@ -528,6 +552,7 @@ public class CrossexHistoricalPosition {
                 Objects.equals(this.positionSide, crossexHistoricalPosition.positionSide) &&
                 Objects.equals(this.positionMode, crossexHistoricalPosition.positionMode) &&
                 Objects.equals(this.leverage, crossexHistoricalPosition.leverage) &&
+                Objects.equals(this.marginMode, crossexHistoricalPosition.marginMode) &&
                 Objects.equals(this.businessType, crossexHistoricalPosition.businessType) &&
                 Objects.equals(this.createTime, crossexHistoricalPosition.createTime) &&
                 Objects.equals(this.updateTime, crossexHistoricalPosition.updateTime);
@@ -535,7 +560,7 @@ public class CrossexHistoricalPosition {
 
     @Override
     public int hashCode() {
-        return Objects.hash(positionId, userId, symbol, closedType, closedPnl, closedPnlRate, openAvgPrice, closedAvgPrice, maxPositionQty, closedQty, closedValue, fee, liqFee, fundingFee, positionSide, positionMode, leverage, businessType, createTime, updateTime);
+        return Objects.hash(positionId, userId, symbol, closedType, closedPnl, closedPnlRate, openAvgPrice, closedAvgPrice, maxPositionQty, closedQty, closedValue, fee, liqFee, fundingFee, positionSide, positionMode, leverage, marginMode, businessType, createTime, updateTime);
     }
 
 
@@ -560,6 +585,7 @@ public class CrossexHistoricalPosition {
         sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("      positionMode: ").append(toIndentedString(positionMode)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
+        sb.append("      marginMode: ").append(toIndentedString(marginMode)).append("\n");
         sb.append("      businessType: ").append(toIndentedString(businessType)).append("\n");
         sb.append("      createTime: ").append(toIndentedString(createTime)).append("\n");
         sb.append("      updateTime: ").append(toIndentedString(updateTime)).append("\n");

@@ -56,12 +56,6 @@ public class StpGroupUser {
         this.userId = userId;
     }
 
-    public StpGroupUser stpId(Long stpId) {
-        
-        this.stpId = stpId;
-        return this;
-    }
-
      /**
      * STP Group ID
      * @return stpId
@@ -72,16 +66,6 @@ public class StpGroupUser {
     }
 
 
-    public void setStpId(Long stpId) {
-        this.stpId = stpId;
-    }
-
-    public StpGroupUser createTime(Long createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
      /**
      * Created time
      * @return createTime
@@ -91,10 +75,6 @@ public class StpGroupUser {
         return createTime;
     }
 
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

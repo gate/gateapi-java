@@ -126,7 +126,7 @@ public class P2pApi {
 
     /**
      * Get account information
-     * 
+     * To query the spot account balance, use the Spot API &#x60;GET /spot/accounts&#x60;.
      * @return P2pMerchantUserInfoResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -142,7 +142,7 @@ public class P2pApi {
 
     /**
      * Get account information
-     * 
+     * To query the spot account balance, use the Spot API &#x60;GET /spot/accounts&#x60;.
      * @return ApiResponse&lt;P2pMerchantUserInfoResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -159,7 +159,7 @@ public class P2pApi {
 
     /**
      * Get account information (asynchronously)
-     * 
+     * To query the spot account balance, use the Spot API &#x60;GET /spot/accounts&#x60;.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

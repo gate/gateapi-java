@@ -9,10 +9,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uid** | **String** |  |  [optional]
 **bankId** | **String** |  | 
-**certificate** | **String** | Business license / registration certificate file content (multipart file field, binary/Base64) | 
-**shareHolders** | **String** | Register of shareholders file content (multipart file field, binary/Base64) | 
-**passport** | **String** | Legal representative / shareholder passport file content (multipart file field, binary/Base64) | 
-**shareHoldingStructure** | **String** | Ownership structure chart file content (multipart file field, binary/Base64) | 
+**certificate** | **String** | Business license / registration certificate file content (multipart file field, binary/Base64) |  [optional]
+**shareHolders** | **String** | Register of shareholders file content (multipart file field, binary/Base64) |  [optional]
+**passport** | **String** | Legal representative / shareholder passport file content (multipart file field, binary/Base64) |  [optional]
+**shareHoldingStructure** | **String** | Ownership structure chart file content (multipart file field, binary/Base64) |  [optional]
 **fundsStatement** | **String** | Proof-of-funds file content (multipart file field, binary/Base64, optional) |  [optional]
 **additional** | **String** | Other supplementary material file content (multipart file field, binary/Base64, optional) |  [optional]
+**relationshipProof** | **String** | Optional. JSON string of relationship_proof. |  [optional]
 

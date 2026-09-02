@@ -40,12 +40,6 @@ public class AccountRateLimit {
     private String updatedAt;
 
 
-    public AccountRateLimit tier(String tier) {
-        
-        this.tier = tier;
-        return this;
-    }
-
      /**
      * Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio))
      * @return tier
@@ -55,10 +49,6 @@ public class AccountRateLimit {
         return tier;
     }
 
-
-    public void setTier(String tier) {
-        this.tier = tier;
-    }
 
     public AccountRateLimit ratio(String ratio) {
         
@@ -80,12 +70,6 @@ public class AccountRateLimit {
         this.ratio = ratio;
     }
 
-    public AccountRateLimit mainRatio(String mainRatio) {
-        
-        this.mainRatio = mainRatio;
-        return this;
-    }
-
      /**
      * Total fill ratio of main account
      * @return mainRatio
@@ -96,16 +80,6 @@ public class AccountRateLimit {
     }
 
 
-    public void setMainRatio(String mainRatio) {
-        this.mainRatio = mainRatio;
-    }
-
-    public AccountRateLimit updatedAt(String updatedAt) {
-        
-        this.updatedAt = updatedAt;
-        return this;
-    }
-
      /**
      * Update time
      * @return updatedAt
@@ -115,10 +89,6 @@ public class AccountRateLimit {
         return updatedAt;
     }
 
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

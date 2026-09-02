@@ -18,6 +18,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Spot currency pair
@@ -42,6 +44,10 @@ public class CurrencyPair {
     public static final String SERIALIZED_NAME_QUOTE_NAME = "quote_name";
     @SerializedName(SERIALIZED_NAME_QUOTE_NAME)
     private String quoteName;
+
+    public static final String SERIALIZED_NAME_TRADE_QUOTES = "trade_quotes";
+    @SerializedName(SERIALIZED_NAME_TRADE_QUOTES)
+    private List<String> tradeQuotes = null;
 
     public static final String SERIALIZED_NAME_FEE = "fee";
     @SerializedName(SERIALIZED_NAME_FEE)
@@ -269,6 +275,34 @@ public class CurrencyPair {
 
     public void setQuoteName(String quoteName) {
         this.quoteName = quoteName;
+    }
+
+    public CurrencyPair tradeQuotes(List<String> tradeQuotes) {
+        
+        this.tradeQuotes = tradeQuotes;
+        return this;
+    }
+
+    public CurrencyPair addTradeQuotesItem(String tradeQuotesItem) {
+        if (this.tradeQuotes == null) {
+            this.tradeQuotes = new ArrayList<>();
+        }
+        this.tradeQuotes.add(tradeQuotesItem);
+        return this;
+    }
+
+     /**
+     * Quote currencies supported by the unified market; null means that the market does not support unified quote currencies
+     * @return tradeQuotes
+    **/
+    @javax.annotation.Nullable
+    public List<String> getTradeQuotes() {
+        return tradeQuotes;
+    }
+
+
+    public void setTradeQuotes(List<String> tradeQuotes) {
+        this.tradeQuotes = tradeQuotes;
     }
 
     public CurrencyPair fee(String fee) {
@@ -664,6 +698,7 @@ public class CurrencyPair {
                 Objects.equals(this.baseName, currencyPair.baseName) &&
                 Objects.equals(this.quote, currencyPair.quote) &&
                 Objects.equals(this.quoteName, currencyPair.quoteName) &&
+                Objects.equals(this.tradeQuotes, currencyPair.tradeQuotes) &&
                 Objects.equals(this.fee, currencyPair.fee) &&
                 Objects.equals(this.minBaseAmount, currencyPair.minBaseAmount) &&
                 Objects.equals(this.minQuoteAmount, currencyPair.minQuoteAmount) &&
@@ -687,7 +722,7 @@ public class CurrencyPair {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, base, baseName, quote, quoteName, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl, stTag, upRate, downRate, slippage, marketOrderMaxStock, marketOrderMaxMoney);
+        return Objects.hash(id, base, baseName, quote, quoteName, tradeQuotes, fee, minBaseAmount, minQuoteAmount, maxBaseAmount, maxQuoteAmount, amountPrecision, precision, tradeStatus, sellStart, buyStart, delistingTime, type, tradeUrl, stTag, upRate, downRate, slippage, marketOrderMaxStock, marketOrderMaxMoney);
     }
 
 
@@ -700,6 +735,7 @@ public class CurrencyPair {
         sb.append("      baseName: ").append(toIndentedString(baseName)).append("\n");
         sb.append("      quote: ").append(toIndentedString(quote)).append("\n");
         sb.append("      quoteName: ").append(toIndentedString(quoteName)).append("\n");
+        sb.append("      tradeQuotes: ").append(toIndentedString(tradeQuotes)).append("\n");
         sb.append("      fee: ").append(toIndentedString(fee)).append("\n");
         sb.append("      minBaseAmount: ").append(toIndentedString(minBaseAmount)).append("\n");
         sb.append("      minQuoteAmount: ").append(toIndentedString(minQuoteAmount)).append("\n");

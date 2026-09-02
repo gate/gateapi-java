@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** | Currency | 
 **fundingRate** | **String** | Funding rate | 
-**fundingInterval** | **String** | Tier | 
-**fundingTime** | **String** | Next funding time | 
+**fundingInterval** | **String** | Funding interval (in seconds) | 
+**fundingTime** | **String** | Next funding time (Unix timestamp in milliseconds) | 
 

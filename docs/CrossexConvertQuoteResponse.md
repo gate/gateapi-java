@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **toCoin** | **String** | Asset Bought | 
 **fromAmount** | **String** | Amount to sell | 
 **toAmount** | **String** | Amount to buy | 
-**price** | **String** | Price | 
+**price** | **String** | Quoted price | 
 

@@ -40,12 +40,6 @@ public class StpGroup {
     private Long createTime;
 
 
-    public StpGroup id(Long id) {
-        
-        this.id = id;
-        return this;
-    }
-
      /**
      * STP Group ID
      * @return id
@@ -55,10 +49,6 @@ public class StpGroup {
         return id;
     }
 
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public StpGroup name(String name) {
         
@@ -79,12 +69,6 @@ public class StpGroup {
         this.name = name;
     }
 
-    public StpGroup creatorId(Long creatorId) {
-        
-        this.creatorId = creatorId;
-        return this;
-    }
-
      /**
      * Creator ID
      * @return creatorId
@@ -95,16 +79,6 @@ public class StpGroup {
     }
 
 
-    public void setCreatorId(Long creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public StpGroup createTime(Long createTime) {
-        
-        this.createTime = createTime;
-        return this;
-    }
-
      /**
      * Created time
      * @return createTime
@@ -114,10 +88,6 @@ public class StpGroup {
         return createTime;
     }
 
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {

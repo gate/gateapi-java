@@ -34,6 +34,8 @@ import io.gate.gateapi.models.OtcQuoteResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderCreateResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderListResponse;
 import io.gate.gateapi.models.OtcStableCoinOrderRequest;
+import io.gate.gateapi.models.OtcUploadPreUploadRequest;
+import io.gate.gateapi.models.OtcUploadPreUploadResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -487,10 +489,12 @@ public class OtcApi {
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
+     * @param documentationFile Multipart direct upload; mutually exclusive with documentation_file_key (optional)
+     * @param documentationFileKey Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted) (optional)
+     * @param fileType Required when using documentation_file_key; plaintext MIME or its base64 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -500,7 +504,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcBankCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOtcBankCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String remittanceLineNumber, String agentBankName, String agentBankSwift, String documentationFile, String documentationFileKey, String fileType, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -551,6 +555,14 @@ public class OtcApi {
             localVarFormParams.put("documentation_file", documentationFile);
         }
 
+        if (documentationFileKey != null) {
+            localVarFormParams.put("documentation_file_key", documentationFileKey);
+        }
+
+        if (fileType != null) {
+            localVarFormParams.put("file_type", fileType);
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -570,7 +582,7 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOtcBankValidateBeforeCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createOtcBankValidateBeforeCall(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String remittanceLineNumber, String agentBankName, String agentBankSwift, String documentationFile, String documentationFileKey, String fileType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bankAccountName' is set
         if (bankAccountName == null) {
             throw new ApiException("Missing the required parameter 'bankAccountName' when calling createOtcBank(Async)");
@@ -601,28 +613,25 @@ public class OtcApi {
             throw new ApiException("Missing the required parameter 'swift' when calling createOtcBank(Async)");
         }
 
-        // verify the required parameter 'documentationFile' is set
-        if (documentationFile == null) {
-            throw new ApiException("Missing the required parameter 'documentationFile' when calling createOtcBank(Async)");
-        }
-
-        okhttp3.Call localVarCall = createOtcBankCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, _callback);
+        okhttp3.Call localVarCall = createOtcBankCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, documentationFile, documentationFileKey, fileType, _callback);
         return localVarCall;
     }
 
     /**
      * Create bank card
-     * Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (&#x60;status&#x60; pending) and require subsequent supplementary materials. Corresponding Inner: &#x60;POST /bank/create&#x60;. Fields and protocol are subject to the production form/gateway; in some environments &#x60;bank_account_name&#x60; is passed Base64-encoded, see the integration notes for details.
+     * Bind a bank card. Under the Global entity, non-same-name accounts may enter manual review (&#x60;status&#x60; pending) and require supplementary materials later. Corresponds to Inner: &#x60;POST /bank/create&#x60;. Fields and protocol follow the live form/gateway; &#x60;bank_account_name&#x60; may be Base64-encoded in some environments—see integration notes.  Account-opening proof supports two methods (choose one):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;) to obtain a temporary-bucket Policy and upload directly to S3, then pass &#x60;documentation_file_key&#x60; + &#x60;file_type&#x60; in this endpoint; 2. **Multipart direct upload**: pass the &#x60;documentation_file&#x60; file field; the server writes directly to the production bucket.  When using pre-upload, the server validates object existence and that the uid in the &#x60;file_key&#x60; path matches the caller; after validation, the object is moved to the production bucket and persisted. Cross-user references return &#x60;Invalid parameters file_key&#x60;; incomplete direct upload returns &#x60;Invalid parameters file not uploaded&#x60;.
      * @param bankAccountName  (required)
      * @param bankName  (required)
      * @param bankCountry  (required)
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
+     * @param documentationFile Multipart direct upload; mutually exclusive with documentation_file_key (optional)
+     * @param documentationFileKey Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted) (optional)
+     * @param fileType Required when using documentation_file_key; plaintext MIME or its base64 (optional)
      * @return OtcBankCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -631,24 +640,26 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public OtcBankCreateResponse createOtcBank(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
-        ApiResponse<OtcBankCreateResponse> localVarResp = createOtcBankWithHttpInfo(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift);
+    public OtcBankCreateResponse createOtcBank(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String remittanceLineNumber, String agentBankName, String agentBankSwift, String documentationFile, String documentationFileKey, String fileType) throws ApiException {
+        ApiResponse<OtcBankCreateResponse> localVarResp = createOtcBankWithHttpInfo(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, documentationFile, documentationFileKey, fileType);
         return localVarResp.getData();
     }
 
     /**
      * Create bank card
-     * Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (&#x60;status&#x60; pending) and require subsequent supplementary materials. Corresponding Inner: &#x60;POST /bank/create&#x60;. Fields and protocol are subject to the production form/gateway; in some environments &#x60;bank_account_name&#x60; is passed Base64-encoded, see the integration notes for details.
+     * Bind a bank card. Under the Global entity, non-same-name accounts may enter manual review (&#x60;status&#x60; pending) and require supplementary materials later. Corresponds to Inner: &#x60;POST /bank/create&#x60;. Fields and protocol follow the live form/gateway; &#x60;bank_account_name&#x60; may be Base64-encoded in some environments—see integration notes.  Account-opening proof supports two methods (choose one):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;) to obtain a temporary-bucket Policy and upload directly to S3, then pass &#x60;documentation_file_key&#x60; + &#x60;file_type&#x60; in this endpoint; 2. **Multipart direct upload**: pass the &#x60;documentation_file&#x60; file field; the server writes directly to the production bucket.  When using pre-upload, the server validates object existence and that the uid in the &#x60;file_key&#x60; path matches the caller; after validation, the object is moved to the production bucket and persisted. Cross-user references return &#x60;Invalid parameters file_key&#x60;; incomplete direct upload returns &#x60;Invalid parameters file not uploaded&#x60;.
      * @param bankAccountName  (required)
      * @param bankName  (required)
      * @param bankCountry  (required)
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
+     * @param documentationFile Multipart direct upload; mutually exclusive with documentation_file_key (optional)
+     * @param documentationFileKey Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted) (optional)
+     * @param fileType Required when using documentation_file_key; plaintext MIME or its base64 (optional)
      * @return ApiResponse&lt;OtcBankCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -657,25 +668,27 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OtcBankCreateResponse> createOtcBankWithHttpInfo(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift) throws ApiException {
-        okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, null);
+    public ApiResponse<OtcBankCreateResponse> createOtcBankWithHttpInfo(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String remittanceLineNumber, String agentBankName, String agentBankSwift, String documentationFile, String documentationFileKey, String fileType) throws ApiException {
+        okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, documentationFile, documentationFileKey, fileType, null);
         Type localVarReturnType = new TypeToken<OtcBankCreateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create bank card (asynchronously)
-     * Bind a bank card. Under the Global entity, an account with a non-matching name may enter manual review (&#x60;status&#x60; pending) and require subsequent supplementary materials. Corresponding Inner: &#x60;POST /bank/create&#x60;. Fields and protocol are subject to the production form/gateway; in some environments &#x60;bank_account_name&#x60; is passed Base64-encoded, see the integration notes for details.
+     * Bind a bank card. Under the Global entity, non-same-name accounts may enter manual review (&#x60;status&#x60; pending) and require supplementary materials later. Corresponds to Inner: &#x60;POST /bank/create&#x60;. Fields and protocol follow the live form/gateway; &#x60;bank_account_name&#x60; may be Base64-encoded in some environments—see integration notes.  Account-opening proof supports two methods (choose one):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;) to obtain a temporary-bucket Policy and upload directly to S3, then pass &#x60;documentation_file_key&#x60; + &#x60;file_type&#x60; in this endpoint; 2. **Multipart direct upload**: pass the &#x60;documentation_file&#x60; file field; the server writes directly to the production bucket.  When using pre-upload, the server validates object existence and that the uid in the &#x60;file_key&#x60; path matches the caller; after validation, the object is moved to the production bucket and persisted. Cross-user references return &#x60;Invalid parameters file_key&#x60;; incomplete direct upload returns &#x60;Invalid parameters file not uploaded&#x60;.
      * @param bankAccountName  (required)
      * @param bankName  (required)
      * @param bankCountry  (required)
      * @param bankAddress  (required)
      * @param iban  (required)
      * @param swift  (required)
-     * @param documentationFile Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment) (required)
      * @param remittanceLineNumber  (optional)
      * @param agentBankName  (optional)
      * @param agentBankSwift  (optional)
+     * @param documentationFile Multipart direct upload; mutually exclusive with documentation_file_key (optional)
+     * @param documentationFileKey Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted) (optional)
+     * @param fileType Required when using documentation_file_key; plaintext MIME or its base64 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -685,8 +698,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOtcBankAsync(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String documentationFile, String remittanceLineNumber, String agentBankName, String agentBankSwift, final ApiCallback<OtcBankCreateResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, documentationFile, remittanceLineNumber, agentBankName, agentBankSwift, _callback);
+    public okhttp3.Call createOtcBankAsync(String bankAccountName, String bankName, String bankCountry, String bankAddress, String iban, String swift, String remittanceLineNumber, String agentBankName, String agentBankSwift, String documentationFile, String documentationFileKey, String fileType, final ApiCallback<OtcBankCreateResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createOtcBankValidateBeforeCall(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, documentationFile, documentationFileKey, fileType, _callback);
         Type localVarReturnType = new TypeToken<OtcBankCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1020,9 +1033,10 @@ public class OtcApi {
     /**
      * Build call for submitOtcBankPersonalSupplement
      * @param bankId  (required)
-     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
-     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
-     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (optional)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (optional)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1032,7 +1046,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitOtcBankPersonalSupplementCall(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call submitOtcBankPersonalSupplementCall(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, String relationshipProof, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1059,6 +1073,10 @@ public class OtcApi {
             localVarFormParams.put("address_proof", addressProof);
         }
 
+        if (relationshipProof != null) {
+            localVarFormParams.put("relationship_proof", relationshipProof);
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1078,38 +1096,24 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call submitOtcBankPersonalSupplementValidateBeforeCall(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call submitOtcBankPersonalSupplementValidateBeforeCall(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, String relationshipProof, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bankId' is set
         if (bankId == null) {
             throw new ApiException("Missing the required parameter 'bankId' when calling submitOtcBankPersonalSupplement(Async)");
         }
 
-        // verify the required parameter 'idDocumentFront' is set
-        if (idDocumentFront == null) {
-            throw new ApiException("Missing the required parameter 'idDocumentFront' when calling submitOtcBankPersonalSupplement(Async)");
-        }
-
-        // verify the required parameter 'idDocumentBack' is set
-        if (idDocumentBack == null) {
-            throw new ApiException("Missing the required parameter 'idDocumentBack' when calling submitOtcBankPersonalSupplement(Async)");
-        }
-
-        // verify the required parameter 'addressProof' is set
-        if (addressProof == null) {
-            throw new ApiException("Missing the required parameter 'addressProof' when calling submitOtcBankPersonalSupplement(Async)");
-        }
-
-        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementCall(bankId, idDocumentFront, idDocumentBack, addressProof, _callback);
+        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementCall(bankId, idDocumentFront, idDocumentBack, addressProof, relationshipProof, _callback);
         return localVarCall;
     }
 
     /**
      * Submit Bank Card Supplement Materials (Personal)
-     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; returned by &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
+     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; from &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;; otherwise rejected.  Two submission methods (can be mixed):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;) to upload to the temporary bucket, then fill file items by category in the &#x60;relationship_proof&#x60; JSON; pass **&#x60;key&#x60; as plaintext** object path (&#x60;base64_decode(pre_upload.file_key)&#x60;, e.g. &#x60;otc_temp/{uid}/bank/xxx.png&#x60;), and &#x60;file_type&#x60; as plaintext MIME; the server base64-encodes before persistence—do not pass base64 &#x60;file_key&#x60; directly; 2. **Multipart direct upload**: one file field per material item; field names match checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
      * @param bankId  (required)
-     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
-     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
-     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (optional)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (optional)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1118,18 +1122,19 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public OtcActionResponse submitOtcBankPersonalSupplement(String bankId, String idDocumentFront, String idDocumentBack, String addressProof) throws ApiException {
-        ApiResponse<OtcActionResponse> localVarResp = submitOtcBankPersonalSupplementWithHttpInfo(bankId, idDocumentFront, idDocumentBack, addressProof);
+    public OtcActionResponse submitOtcBankPersonalSupplement(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, String relationshipProof) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = submitOtcBankPersonalSupplementWithHttpInfo(bankId, idDocumentFront, idDocumentBack, addressProof, relationshipProof);
         return localVarResp.getData();
     }
 
     /**
      * Submit Bank Card Supplement Materials (Personal)
-     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; returned by &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
+     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; from &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;; otherwise rejected.  Two submission methods (can be mixed):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;) to upload to the temporary bucket, then fill file items by category in the &#x60;relationship_proof&#x60; JSON; pass **&#x60;key&#x60; as plaintext** object path (&#x60;base64_decode(pre_upload.file_key)&#x60;, e.g. &#x60;otc_temp/{uid}/bank/xxx.png&#x60;), and &#x60;file_type&#x60; as plaintext MIME; the server base64-encodes before persistence—do not pass base64 &#x60;file_key&#x60; directly; 2. **Multipart direct upload**: one file field per material item; field names match checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
      * @param bankId  (required)
-     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
-     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
-     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (optional)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (optional)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1138,19 +1143,20 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OtcActionResponse> submitOtcBankPersonalSupplementWithHttpInfo(String bankId, String idDocumentFront, String idDocumentBack, String addressProof) throws ApiException {
-        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementValidateBeforeCall(bankId, idDocumentFront, idDocumentBack, addressProof, null);
+    public ApiResponse<OtcActionResponse> submitOtcBankPersonalSupplementWithHttpInfo(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, String relationshipProof) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementValidateBeforeCall(bankId, idDocumentFront, idDocumentBack, addressProof, relationshipProof, null);
         Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Submit Bank Card Supplement Materials (Personal) (asynchronously)
-     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; returned by &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;, otherwise the request is rejected. **multipart/form-data** is recommended: each material item is a separate file field, with field names matching the checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
+     * **Personal professional verification (type&#x3D;1)** users submit non-same-person/supplementary materials. Must match &#x60;user_type&#x3D;personal&#x60; from &#x60;GET /otc/bank/bank_supplement_checklist?bank_id&#x3D;&#x60;; otherwise rejected.  Two submission methods (can be mixed):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;) to upload to the temporary bucket, then fill file items by category in the &#x60;relationship_proof&#x60; JSON; pass **&#x60;key&#x60; as plaintext** object path (&#x60;base64_decode(pre_upload.file_key)&#x60;, e.g. &#x60;otc_temp/{uid}/bank/xxx.png&#x60;), and &#x60;file_type&#x60; as plaintext MIME; the server base64-encodes before persistence—do not pass base64 &#x60;file_key&#x60; directly; 2. **Multipart direct upload**: one file field per material item; field names match checklist &#x60;code&#x60; (&#x60;id_document_front&#x60;, &#x60;id_document_back&#x60;, &#x60;address_proof&#x60;).
      * @param bankId  (required)
-     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (required)
-     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (required)
-     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (required)
+     * @param idDocumentFront ID document front-side file content (multipart file field, binary/Base64) (optional)
+     * @param idDocumentBack ID document back-side file content (multipart file field, binary/Base64) (optional)
+     * @param addressProof Proof-of-address file content (multipart file field, binary/Base64) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1160,8 +1166,8 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitOtcBankPersonalSupplementAsync(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementValidateBeforeCall(bankId, idDocumentFront, idDocumentBack, addressProof, _callback);
+    public okhttp3.Call submitOtcBankPersonalSupplementAsync(String bankId, String idDocumentFront, String idDocumentBack, String addressProof, String relationshipProof, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankPersonalSupplementValidateBeforeCall(bankId, idDocumentFront, idDocumentBack, addressProof, relationshipProof, _callback);
         Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1170,13 +1176,14 @@ public class OtcApi {
     /**
      * Build call for submitOtcBankEnterpriseSupplement
      * @param bankId  (required)
-     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
-     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
-     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
-     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
      * @param uid  (optional)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (optional)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (optional)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (optional)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (optional)
      * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
      * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1186,7 +1193,7 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitOtcBankEnterpriseSupplementCall(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call submitOtcBankEnterpriseSupplementCall(String bankId, String uid, String certificate, String shareHolders, String passport, String shareHoldingStructure, String fundsStatement, String additional, String relationshipProof, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1229,6 +1236,10 @@ public class OtcApi {
             localVarFormParams.put("additional", additional);
         }
 
+        if (relationshipProof != null) {
+            localVarFormParams.put("relationship_proof", relationshipProof);
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1248,47 +1259,28 @@ public class OtcApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call submitOtcBankEnterpriseSupplementValidateBeforeCall(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call submitOtcBankEnterpriseSupplementValidateBeforeCall(String bankId, String uid, String certificate, String shareHolders, String passport, String shareHoldingStructure, String fundsStatement, String additional, String relationshipProof, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bankId' is set
         if (bankId == null) {
             throw new ApiException("Missing the required parameter 'bankId' when calling submitOtcBankEnterpriseSupplement(Async)");
         }
 
-        // verify the required parameter 'certificate' is set
-        if (certificate == null) {
-            throw new ApiException("Missing the required parameter 'certificate' when calling submitOtcBankEnterpriseSupplement(Async)");
-        }
-
-        // verify the required parameter 'shareHolders' is set
-        if (shareHolders == null) {
-            throw new ApiException("Missing the required parameter 'shareHolders' when calling submitOtcBankEnterpriseSupplement(Async)");
-        }
-
-        // verify the required parameter 'passport' is set
-        if (passport == null) {
-            throw new ApiException("Missing the required parameter 'passport' when calling submitOtcBankEnterpriseSupplement(Async)");
-        }
-
-        // verify the required parameter 'shareHoldingStructure' is set
-        if (shareHoldingStructure == null) {
-            throw new ApiException("Missing the required parameter 'shareHoldingStructure' when calling submitOtcBankEnterpriseSupplement(Async)");
-        }
-
-        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementCall(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional, _callback);
+        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementCall(bankId, uid, certificate, shareHolders, passport, shareHoldingStructure, fundsStatement, additional, relationshipProof, _callback);
         return localVarCall;
     }
 
     /**
      * Submit Bank Card Supplement Materials (Enterprise)
-     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; returned by the checklist. **multipart** file field names: &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;.
+     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; from the checklist.  Two submission methods (can be mixed):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;), fill file items by category in &#x60;relationship_proof&#x60;; pass **&#x60;key&#x60; as plaintext** object path (&#x60;base64_decode(pre_upload.file_key)&#x60;), and &#x60;file_type&#x60; as plaintext MIME; 2. **Multipart direct upload**: file field names &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;; optional &#x60;funds_statement&#x60;, &#x60;additional&#x60;.
      * @param bankId  (required)
-     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
-     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
-     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
-     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
      * @param uid  (optional)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (optional)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (optional)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (optional)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (optional)
      * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
      * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1297,22 +1289,23 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public OtcActionResponse submitOtcBankEnterpriseSupplement(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional) throws ApiException {
-        ApiResponse<OtcActionResponse> localVarResp = submitOtcBankEnterpriseSupplementWithHttpInfo(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional);
+    public OtcActionResponse submitOtcBankEnterpriseSupplement(String bankId, String uid, String certificate, String shareHolders, String passport, String shareHoldingStructure, String fundsStatement, String additional, String relationshipProof) throws ApiException {
+        ApiResponse<OtcActionResponse> localVarResp = submitOtcBankEnterpriseSupplementWithHttpInfo(bankId, uid, certificate, shareHolders, passport, shareHoldingStructure, fundsStatement, additional, relationshipProof);
         return localVarResp.getData();
     }
 
     /**
      * Submit Bank Card Supplement Materials (Enterprise)
-     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; returned by the checklist. **multipart** file field names: &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;.
+     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; from the checklist.  Two submission methods (can be mixed):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;), fill file items by category in &#x60;relationship_proof&#x60;; pass **&#x60;key&#x60; as plaintext** object path (&#x60;base64_decode(pre_upload.file_key)&#x60;), and &#x60;file_type&#x60; as plaintext MIME; 2. **Multipart direct upload**: file field names &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;; optional &#x60;funds_statement&#x60;, &#x60;additional&#x60;.
      * @param bankId  (required)
-     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
-     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
-     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
-     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
      * @param uid  (optional)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (optional)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (optional)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (optional)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (optional)
      * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
      * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1321,23 +1314,24 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OtcActionResponse> submitOtcBankEnterpriseSupplementWithHttpInfo(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional) throws ApiException {
-        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementValidateBeforeCall(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional, null);
+    public ApiResponse<OtcActionResponse> submitOtcBankEnterpriseSupplementWithHttpInfo(String bankId, String uid, String certificate, String shareHolders, String passport, String shareHoldingStructure, String fundsStatement, String additional, String relationshipProof) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementValidateBeforeCall(bankId, uid, certificate, shareHolders, passport, shareHoldingStructure, fundsStatement, additional, relationshipProof, null);
         Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Submit Bank Card Supplement Materials (Enterprise) (asynchronously)
-     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; returned by the checklist. **multipart** file field names: &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;.
+     * **Enterprise professional verification (type&#x3D;2)** users submit supplementary materials. Must match &#x60;user_type&#x3D;enterprise&#x60; from the checklist.  Two submission methods (can be mixed):  1. **Pre-upload (recommended)**: call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;bank&#x60;), fill file items by category in &#x60;relationship_proof&#x60;; pass **&#x60;key&#x60; as plaintext** object path (&#x60;base64_decode(pre_upload.file_key)&#x60;), and &#x60;file_type&#x60; as plaintext MIME; 2. **Multipart direct upload**: file field names &#x60;certificate&#x60;, &#x60;share_holders&#x60;, &#x60;passport&#x60;, &#x60;share_holding_structure&#x60;; optional &#x60;funds_statement&#x60;, &#x60;additional&#x60;.
      * @param bankId  (required)
-     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (required)
-     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (required)
-     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (required)
-     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (required)
      * @param uid  (optional)
+     * @param certificate Business license / registration certificate file content (multipart file field, binary/Base64) (optional)
+     * @param shareHolders Register of shareholders file content (multipart file field, binary/Base64) (optional)
+     * @param passport Legal representative / shareholder passport file content (multipart file field, binary/Base64) (optional)
+     * @param shareHoldingStructure Ownership structure chart file content (multipart file field, binary/Base64) (optional)
      * @param fundsStatement Proof-of-funds file content (multipart file field, binary/Base64, optional) (optional)
      * @param additional Other supplementary material file content (multipart file field, binary/Base64, optional) (optional)
+     * @param relationshipProof Optional. JSON string of relationship_proof. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1347,9 +1341,116 @@ public class OtcApi {
         <tr><td> 200 </td><td> Accepted successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitOtcBankEnterpriseSupplementAsync(String bankId, String certificate, String shareHolders, String passport, String shareHoldingStructure, String uid, String fundsStatement, String additional, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementValidateBeforeCall(bankId, certificate, shareHolders, passport, shareHoldingStructure, uid, fundsStatement, additional, _callback);
+    public okhttp3.Call submitOtcBankEnterpriseSupplementAsync(String bankId, String uid, String certificate, String shareHolders, String passport, String shareHoldingStructure, String fundsStatement, String additional, String relationshipProof, final ApiCallback<OtcActionResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = submitOtcBankEnterpriseSupplementValidateBeforeCall(bankId, uid, certificate, shareHolders, passport, shareHoldingStructure, fundsStatement, additional, relationshipProof, _callback);
         Type localVarReturnType = new TypeToken<OtcActionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createOtcUploadPreUpload
+     * @param otcUploadPreUploadRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Pre-upload credentials issued successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOtcUploadPreUploadCall(OtcUploadPreUploadRequest otcUploadPreUploadRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = otcUploadPreUploadRequest;
+
+        // create path and map variables
+        String localVarPath = "/otc/upload/pre_upload";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createOtcUploadPreUploadValidateBeforeCall(OtcUploadPreUploadRequest otcUploadPreUploadRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'otcUploadPreUploadRequest' is set
+        if (otcUploadPreUploadRequest == null) {
+            throw new ApiException("Missing the required parameter 'otcUploadPreUploadRequest' when calling createOtcUploadPreUpload(Async)");
+        }
+
+        okhttp3.Call localVarCall = createOtcUploadPreUploadCall(otcUploadPreUploadRequest, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Pre-upload file (temporary bucket)
+     * After selecting a file, the client calls this endpoint first to obtain a temporary-bucket POST Policy and &#x60;file_key&#x60;; then upload directly to S3 using the returned &#x60;url&#x60; and &#x60;fields&#x60; (success HTTP 204); finally, in business submit endpoints (e.g. &#x60;POST /otc/order/paid&#x60;, &#x60;POST /otc/bank/create&#x60;), pass the **same base64 &#x60;file_key&#x60; unchanged** (do not decode). The server validates ownership and object existence, then moves to the production bucket and persists. Unsubmitted files remain in the temporary bucket and are reclaimed by lifecycle rules.  Corresponds to Inner: &#x60;POST /upload/pre_upload&#x60;.  **&#x60;content_type&#x60; must be sent as base64** (plaintext containing &#x60;/&#x60; may be blocked by the gateway). Only the following MIME types are supported:  | MIME | base64 | Extension | | --- | --- | --- | | image/png | aW1hZ2UvcG5n | .png | | image/jpeg | aW1hZ2UvanBlZw&#x3D;&#x3D; | .jpeg | | image/jpg | aW1hZ2UvanBn | .jpg | | application/pdf | YXBwbGljYXRpb24vcGRm | .pdf |  **&#x60;scene&#x60; mapping to downstream endpoints**:  | scene | Typical use | | --- | --- | | general | Fiat buy payment receipt (&#x60;payment_receipt_file_key&#x60; in &#x60;POST /otc/order/paid&#x60;) | | bank | Add card, bank card supplementary materials | | assessment | Professional verification materials | | credit | Credit limit increase materials |  **Credential validity**: response &#x60;expires_in&#x60; is **5400 seconds (90 minutes)**; &#x60;fields.Policy&#x60; &#x60;expiration&#x60; matches it. Complete the S3 direct upload within this window; after expiry, call this endpoint again for a new credential.  **File size**: the S3 POST Policy enforces &#x60;content-length-range&#x60; **1 byte ~ 10MB** (10485760 bytes). Uploads exceeding the limit are rejected by S3; all &#x60;scene&#x60; values share this limit.  **Direct S3 upload**: &#x60;url&#x60; is the upload address; send each key-value pair in &#x60;fields&#x60; unchanged as form-data; the &#x60;file&#x60; field must be last. Object path is generated as &#x60;otc_temp/{uid}/{scene}/{unique filename}&#x60;; uid is taken from the login session.  This endpoint returns &#x60;content type is required.&#x60; when &#x60;content_type&#x60; is missing. Ownership and object-existence checks for &#x60;file_key&#x60; are performed by the subsequent business submission endpoint.
+     * @param otcUploadPreUploadRequest  (required)
+     * @return OtcUploadPreUploadResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Pre-upload credentials issued successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public OtcUploadPreUploadResponse createOtcUploadPreUpload(OtcUploadPreUploadRequest otcUploadPreUploadRequest) throws ApiException {
+        ApiResponse<OtcUploadPreUploadResponse> localVarResp = createOtcUploadPreUploadWithHttpInfo(otcUploadPreUploadRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Pre-upload file (temporary bucket)
+     * After selecting a file, the client calls this endpoint first to obtain a temporary-bucket POST Policy and &#x60;file_key&#x60;; then upload directly to S3 using the returned &#x60;url&#x60; and &#x60;fields&#x60; (success HTTP 204); finally, in business submit endpoints (e.g. &#x60;POST /otc/order/paid&#x60;, &#x60;POST /otc/bank/create&#x60;), pass the **same base64 &#x60;file_key&#x60; unchanged** (do not decode). The server validates ownership and object existence, then moves to the production bucket and persists. Unsubmitted files remain in the temporary bucket and are reclaimed by lifecycle rules.  Corresponds to Inner: &#x60;POST /upload/pre_upload&#x60;.  **&#x60;content_type&#x60; must be sent as base64** (plaintext containing &#x60;/&#x60; may be blocked by the gateway). Only the following MIME types are supported:  | MIME | base64 | Extension | | --- | --- | --- | | image/png | aW1hZ2UvcG5n | .png | | image/jpeg | aW1hZ2UvanBlZw&#x3D;&#x3D; | .jpeg | | image/jpg | aW1hZ2UvanBn | .jpg | | application/pdf | YXBwbGljYXRpb24vcGRm | .pdf |  **&#x60;scene&#x60; mapping to downstream endpoints**:  | scene | Typical use | | --- | --- | | general | Fiat buy payment receipt (&#x60;payment_receipt_file_key&#x60; in &#x60;POST /otc/order/paid&#x60;) | | bank | Add card, bank card supplementary materials | | assessment | Professional verification materials | | credit | Credit limit increase materials |  **Credential validity**: response &#x60;expires_in&#x60; is **5400 seconds (90 minutes)**; &#x60;fields.Policy&#x60; &#x60;expiration&#x60; matches it. Complete the S3 direct upload within this window; after expiry, call this endpoint again for a new credential.  **File size**: the S3 POST Policy enforces &#x60;content-length-range&#x60; **1 byte ~ 10MB** (10485760 bytes). Uploads exceeding the limit are rejected by S3; all &#x60;scene&#x60; values share this limit.  **Direct S3 upload**: &#x60;url&#x60; is the upload address; send each key-value pair in &#x60;fields&#x60; unchanged as form-data; the &#x60;file&#x60; field must be last. Object path is generated as &#x60;otc_temp/{uid}/{scene}/{unique filename}&#x60;; uid is taken from the login session.  This endpoint returns &#x60;content type is required.&#x60; when &#x60;content_type&#x60; is missing. Ownership and object-existence checks for &#x60;file_key&#x60; are performed by the subsequent business submission endpoint.
+     * @param otcUploadPreUploadRequest  (required)
+     * @return ApiResponse&lt;OtcUploadPreUploadResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Pre-upload credentials issued successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OtcUploadPreUploadResponse> createOtcUploadPreUploadWithHttpInfo(OtcUploadPreUploadRequest otcUploadPreUploadRequest) throws ApiException {
+        okhttp3.Call localVarCall = createOtcUploadPreUploadValidateBeforeCall(otcUploadPreUploadRequest, null);
+        Type localVarReturnType = new TypeToken<OtcUploadPreUploadResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Pre-upload file (temporary bucket) (asynchronously)
+     * After selecting a file, the client calls this endpoint first to obtain a temporary-bucket POST Policy and &#x60;file_key&#x60;; then upload directly to S3 using the returned &#x60;url&#x60; and &#x60;fields&#x60; (success HTTP 204); finally, in business submit endpoints (e.g. &#x60;POST /otc/order/paid&#x60;, &#x60;POST /otc/bank/create&#x60;), pass the **same base64 &#x60;file_key&#x60; unchanged** (do not decode). The server validates ownership and object existence, then moves to the production bucket and persists. Unsubmitted files remain in the temporary bucket and are reclaimed by lifecycle rules.  Corresponds to Inner: &#x60;POST /upload/pre_upload&#x60;.  **&#x60;content_type&#x60; must be sent as base64** (plaintext containing &#x60;/&#x60; may be blocked by the gateway). Only the following MIME types are supported:  | MIME | base64 | Extension | | --- | --- | --- | | image/png | aW1hZ2UvcG5n | .png | | image/jpeg | aW1hZ2UvanBlZw&#x3D;&#x3D; | .jpeg | | image/jpg | aW1hZ2UvanBn | .jpg | | application/pdf | YXBwbGljYXRpb24vcGRm | .pdf |  **&#x60;scene&#x60; mapping to downstream endpoints**:  | scene | Typical use | | --- | --- | | general | Fiat buy payment receipt (&#x60;payment_receipt_file_key&#x60; in &#x60;POST /otc/order/paid&#x60;) | | bank | Add card, bank card supplementary materials | | assessment | Professional verification materials | | credit | Credit limit increase materials |  **Credential validity**: response &#x60;expires_in&#x60; is **5400 seconds (90 minutes)**; &#x60;fields.Policy&#x60; &#x60;expiration&#x60; matches it. Complete the S3 direct upload within this window; after expiry, call this endpoint again for a new credential.  **File size**: the S3 POST Policy enforces &#x60;content-length-range&#x60; **1 byte ~ 10MB** (10485760 bytes). Uploads exceeding the limit are rejected by S3; all &#x60;scene&#x60; values share this limit.  **Direct S3 upload**: &#x60;url&#x60; is the upload address; send each key-value pair in &#x60;fields&#x60; unchanged as form-data; the &#x60;file&#x60; field must be last. Object path is generated as &#x60;otc_temp/{uid}/{scene}/{unique filename}&#x60;; uid is taken from the login session.  This endpoint returns &#x60;content type is required.&#x60; when &#x60;content_type&#x60; is missing. Ownership and object-existence checks for &#x60;file_key&#x60; are performed by the subsequent business submission endpoint.
+     * @param otcUploadPreUploadRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Pre-upload credentials issued successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createOtcUploadPreUploadAsync(OtcUploadPreUploadRequest otcUploadPreUploadRequest, final ApiCallback<OtcUploadPreUploadResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = createOtcUploadPreUploadValidateBeforeCall(otcUploadPreUploadRequest, _callback);
+        Type localVarReturnType = new TypeToken<OtcUploadPreUploadResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1408,7 +1509,7 @@ public class OtcApi {
 
     /**
      * Mark fiat order as paid (deposit confirmation)
-     * Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name &#x60;payment_receipt&#x60; is subject to the gateway/live environment. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (commonly associated by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI endpoint, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.
+     * Mark a fiat buy order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg / jpeg / png / pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatible field name &#x60;payment_receipt&#x60; depends on the gateway and production contract. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (which commonly identifies orders by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI operation, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.  **Recommended pre-upload flow**: first call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;general&#x60;) and upload directly to the temporary bucket, then pass the returned **base64 &#x60;file_key&#x60; unchanged** (do not decode) to this endpoint. The service validates the uid and object existence before moving the object to the production bucket. A cross-user key returns &#x60;Invalid parameters file_key&#x60;; an object that has not been uploaded returns &#x60;Invalid parameters file not uploaded&#x60;. The legacy flow using a base64 key for an object uploaded directly to the production bucket remains supported.
      * @param otcMarkOrderPaidRequest  (required)
      * @return OtcActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1425,7 +1526,7 @@ public class OtcApi {
 
     /**
      * Mark fiat order as paid (deposit confirmation)
-     * Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name &#x60;payment_receipt&#x60; is subject to the gateway/live environment. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (commonly associated by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI endpoint, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.
+     * Mark a fiat buy order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg / jpeg / png / pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatible field name &#x60;payment_receipt&#x60; depends on the gateway and production contract. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (which commonly identifies orders by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI operation, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.  **Recommended pre-upload flow**: first call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;general&#x60;) and upload directly to the temporary bucket, then pass the returned **base64 &#x60;file_key&#x60; unchanged** (do not decode) to this endpoint. The service validates the uid and object existence before moving the object to the production bucket. A cross-user key returns &#x60;Invalid parameters file_key&#x60;; an object that has not been uploaded returns &#x60;Invalid parameters file not uploaded&#x60;. The legacy flow using a base64 key for an object uploaded directly to the production bucket remains supported.
      * @param otcMarkOrderPaidRequest  (required)
      * @return ApiResponse&lt;OtcActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1443,7 +1544,7 @@ public class OtcApi {
 
     /**
      * Mark fiat order as paid (deposit confirmation) (asynchronously)
-     * Mark a fiat BUY order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg/jpeg/png/pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatibility field name &#x60;payment_receipt&#x60; is subject to the gateway/live environment. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (commonly associated by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI endpoint, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.
+     * Mark a fiat buy order as paid (deposit confirmation). **A user payment receipt must be uploaded**: &#x60;payment_receipt_file_key&#x60; is required; supported formats are jpg / jpeg / png / pdf, with a maximum size of 10 MB per file (validated jointly by the service and gateway). The compatible field name &#x60;payment_receipt&#x60; depends on the gateway and production contract. The persisted field is &#x60;otc_trade_record.payment_receipt_file_key&#x60;. The Pay Inner path is &#x60;POST .../pay/order_set_paid&#x60; (which commonly identifies orders by &#x60;client_order_id&#x60;); the Inner path corresponding to this OpenAPI operation, &#x60;POST /order/paid&#x60;, still primarily uses &#x60;order_id&#x60;. If the gateway standardizes on the merchant order ID, follow the gateway documentation.  **Recommended pre-upload flow**: first call &#x60;POST /otc/upload/pre_upload&#x60; (&#x60;scene&#x3D;general&#x60;) and upload directly to the temporary bucket, then pass the returned **base64 &#x60;file_key&#x60; unchanged** (do not decode) to this endpoint. The service validates the uid and object existence before moving the object to the production bucket. A cross-user key returns &#x60;Invalid parameters file_key&#x60;; an object that has not been uploaded returns &#x60;Invalid parameters file not uploaded&#x60;. The legacy flow using a base64 key for an object uploaded directly to the production bucket remains supported.
      * @param otcMarkOrderPaidRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

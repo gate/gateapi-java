@@ -55,6 +55,10 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
     @SerializedName(SERIALIZED_NAME_ADDITIONAL)
     private String additional;
 
+    public static final String SERIALIZED_NAME_RELATIONSHIP_PROOF = "relationship_proof";
+    @SerializedName(SERIALIZED_NAME_RELATIONSHIP_PROOF)
+    private String relationshipProof;
+
 
     public OtcBankEnterpriseSupplementMultipartRequest uid(String uid) {
         
@@ -105,6 +109,7 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
      * Business license / registration certificate file content (multipart file field, binary/Base64)
      * @return certificate
     **/
+    @javax.annotation.Nullable
     public String getCertificate() {
         return certificate;
     }
@@ -124,6 +129,7 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
      * Register of shareholders file content (multipart file field, binary/Base64)
      * @return shareHolders
     **/
+    @javax.annotation.Nullable
     public String getShareHolders() {
         return shareHolders;
     }
@@ -143,6 +149,7 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
      * Legal representative / shareholder passport file content (multipart file field, binary/Base64)
      * @return passport
     **/
+    @javax.annotation.Nullable
     public String getPassport() {
         return passport;
     }
@@ -162,6 +169,7 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
      * Ownership structure chart file content (multipart file field, binary/Base64)
      * @return shareHoldingStructure
     **/
+    @javax.annotation.Nullable
     public String getShareHoldingStructure() {
         return shareHoldingStructure;
     }
@@ -210,6 +218,26 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
     public void setAdditional(String additional) {
         this.additional = additional;
     }
+
+    public OtcBankEnterpriseSupplementMultipartRequest relationshipProof(String relationshipProof) {
+        
+        this.relationshipProof = relationshipProof;
+        return this;
+    }
+
+     /**
+     * Optional. JSON string of relationship_proof.
+     * @return relationshipProof
+    **/
+    @javax.annotation.Nullable
+    public String getRelationshipProof() {
+        return relationshipProof;
+    }
+
+
+    public void setRelationshipProof(String relationshipProof) {
+        this.relationshipProof = relationshipProof;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -226,12 +254,13 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
                 Objects.equals(this.passport, otcBankEnterpriseSupplementMultipartRequest.passport) &&
                 Objects.equals(this.shareHoldingStructure, otcBankEnterpriseSupplementMultipartRequest.shareHoldingStructure) &&
                 Objects.equals(this.fundsStatement, otcBankEnterpriseSupplementMultipartRequest.fundsStatement) &&
-                Objects.equals(this.additional, otcBankEnterpriseSupplementMultipartRequest.additional);
+                Objects.equals(this.additional, otcBankEnterpriseSupplementMultipartRequest.additional) &&
+                Objects.equals(this.relationshipProof, otcBankEnterpriseSupplementMultipartRequest.relationshipProof);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(uid, bankId, certificate, shareHolders, passport, shareHoldingStructure, fundsStatement, additional);
+        return Objects.hash(uid, bankId, certificate, shareHolders, passport, shareHoldingStructure, fundsStatement, additional, relationshipProof);
     }
 
 
@@ -247,6 +276,7 @@ public class OtcBankEnterpriseSupplementMultipartRequest {
         sb.append("      shareHoldingStructure: ").append(toIndentedString(shareHoldingStructure)).append("\n");
         sb.append("      fundsStatement: ").append(toIndentedString(fundsStatement)).append("\n");
         sb.append("      additional: ").append(toIndentedString(additional)).append("\n");
+        sb.append("      relationshipProof: ").append(toIndentedString(relationshipProof)).append("\n");
         sb.append("}");
         return sb.toString();
     }

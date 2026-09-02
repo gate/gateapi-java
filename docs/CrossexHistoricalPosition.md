@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **positionSide** | **String** | Position Direction Before Close |  [optional]
 **positionMode** | **String** | Position Mode at Close |  [optional]
 **leverage** | **String** | Leverage at Close |  [optional]
+**marginMode** | **String** | Margin mode (CROSS/ISOLATED) |  [optional]
 **businessType** | **String** | Business Type | 
 **createTime** | **String** | Created time |  [optional]
 **updateTime** | **String** | Update time |  [optional]

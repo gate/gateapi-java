@@ -110,6 +110,10 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_CURRENCY_PAIR)
     private String currencyPair;
 
+    public static final String SERIALIZED_NAME_TRADE_QUOTE = "trade_quote";
+    @SerializedName(SERIALIZED_NAME_TRADE_QUOTE)
+    private String tradeQuote;
+
     /**
      * Order Type   - limit : Limit Order - market : Market Order
      */
@@ -605,6 +609,26 @@ public class Order {
         this.currencyPair = currencyPair;
     }
 
+    public Order tradeQuote(String tradeQuote) {
+        
+        this.tradeQuote = tradeQuote;
+        return this;
+    }
+
+     /**
+     * Actual quote currency used for the trade; can be specified only in a unified market
+     * @return tradeQuote
+    **/
+    @javax.annotation.Nullable
+    public String getTradeQuote() {
+        return tradeQuote;
+    }
+
+
+    public void setTradeQuote(String tradeQuote) {
+        this.tradeQuote = tradeQuote;
+    }
+
     public Order type(TypeEnum type) {
         
         this.type = type;
@@ -1060,6 +1084,7 @@ public class Order {
                 Objects.equals(this.updateTimeMs, order.updateTimeMs) &&
                 Objects.equals(this.status, order.status) &&
                 Objects.equals(this.currencyPair, order.currencyPair) &&
+                Objects.equals(this.tradeQuote, order.tradeQuote) &&
                 Objects.equals(this.type, order.type) &&
                 Objects.equals(this.account, order.account) &&
                 Objects.equals(this.side, order.side) &&
@@ -1094,7 +1119,7 @@ public class Order {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, actionMode, slippage, stopProfit, stopLoss);
+        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, tradeQuote, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, actionMode, slippage, stopProfit, stopLoss);
     }
 
 
@@ -1111,6 +1136,7 @@ public class Order {
         sb.append("      updateTimeMs: ").append(toIndentedString(updateTimeMs)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      currencyPair: ").append(toIndentedString(currencyPair)).append("\n");
+        sb.append("      tradeQuote: ").append(toIndentedString(tradeQuote)).append("\n");
         sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      account: ").append(toIndentedString(account)).append("\n");
         sb.append("      side: ").append(toIndentedString(side)).append("\n");

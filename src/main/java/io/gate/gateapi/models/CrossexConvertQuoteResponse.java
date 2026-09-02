@@ -173,7 +173,7 @@ public class CrossexConvertQuoteResponse {
     }
 
      /**
-     * Price
+     * Quoted price
      * @return price
     **/
     public String getPrice() {

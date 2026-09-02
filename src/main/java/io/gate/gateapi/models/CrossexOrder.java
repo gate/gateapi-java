@@ -200,7 +200,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order status:  NEW: Validated and queued to be sent to the exchange.  OPEN: Resting on the exchange order book.  PARTIALLY_FILLED: Partially filled.  FILLED: Fully filled.  FAIL: CrossEx internal validation failed; see the &#x60;reason&#x60; field for details.  REJECT: Rejected by the exchange; see the &#x60;reason&#x60; field for details.
+     * Order status: &#x60;NEW&#x60;: validated locally, pending submission to the exchange &#x60;OPEN&#x60;: resting on the exchange order book &#x60;PARTIALLY_FILLED&#x60;: partially filled &#x60;FILLED&#x60;: fully filled &#x60;FAIL&#x60;: CrossEx validation failed; see &#x60;reason&#x60; &#x60;REJECT&#x60;: rejected by the exchange; see &#x60;reason&#x60; &#x60;CANCELLED&#x60;: cancelled
      * @return state
     **/
     public String getState() {
@@ -314,7 +314,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin).
+     * Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin / &#x60;CONVERT&#x60; Flash Swap).
      * @return businessType
     **/
     public String getBusinessType() {
@@ -618,7 +618,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Position side (&#x60;NONE&#x60; flat / &#x60;LONG&#x60; long / &#x60;SHORT&#x60; short).
+     * Position side (&#x60;NONE&#x60; one-way position / &#x60;LONG&#x60; long / &#x60;SHORT&#x60; short)
      * @return positionSide
     **/
     public String getPositionSide() {

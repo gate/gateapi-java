@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Inner create-bank-card &#x60;multipart/form-data&#x60;. Use the form field &#x60;documentation_file&#x60; to upload the account-opening proof.
+ * Inner create-bank-card &#x60;multipart/form-data&#x60;. Account-opening proof file (choose one):  - **Pre-upload**: &#x60;documentation_file_key&#x60; + &#x60;file_type&#x60; (call &#x60;POST /otc/upload/pre_upload&#x60; first, &#x60;scene&#x3D;bank&#x60;); - **Multipart direct upload**: &#x60;documentation_file&#x60; file field.
  */
 public class OtcBankCreateMultipartRequest {
     public static final String SERIALIZED_NAME_BANK_ACCOUNT_NAME = "bank_account_name";
@@ -62,6 +62,14 @@ public class OtcBankCreateMultipartRequest {
     public static final String SERIALIZED_NAME_DOCUMENTATION_FILE = "documentation_file";
     @SerializedName(SERIALIZED_NAME_DOCUMENTATION_FILE)
     private String documentationFile;
+
+    public static final String SERIALIZED_NAME_DOCUMENTATION_FILE_KEY = "documentation_file_key";
+    @SerializedName(SERIALIZED_NAME_DOCUMENTATION_FILE_KEY)
+    private String documentationFileKey;
+
+    public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
+    @SerializedName(SERIALIZED_NAME_FILE_TYPE)
+    private String fileType;
 
 
     public OtcBankCreateMultipartRequest bankAccountName(String bankAccountName) {
@@ -245,9 +253,10 @@ public class OtcBankCreateMultipartRequest {
     }
 
      /**
-     * Account opening proof file content (multipart file field, binary/Base64; jpg/jpeg/png/pdf, etc.; maximum 10 MB per file, subject to the live environment)
+     * Multipart direct upload; mutually exclusive with documentation_file_key
      * @return documentationFile
     **/
+    @javax.annotation.Nullable
     public String getDocumentationFile() {
         return documentationFile;
     }
@@ -255,6 +264,46 @@ public class OtcBankCreateMultipartRequest {
 
     public void setDocumentationFile(String documentationFile) {
         this.documentationFile = documentationFile;
+    }
+
+    public OtcBankCreateMultipartRequest documentationFileKey(String documentationFileKey) {
+        
+        this.documentationFileKey = documentationFileKey;
+        return this;
+    }
+
+     /**
+     * Pre-upload mode; file_key returned by pre_upload (plaintext or base64 accepted)
+     * @return documentationFileKey
+    **/
+    @javax.annotation.Nullable
+    public String getDocumentationFileKey() {
+        return documentationFileKey;
+    }
+
+
+    public void setDocumentationFileKey(String documentationFileKey) {
+        this.documentationFileKey = documentationFileKey;
+    }
+
+    public OtcBankCreateMultipartRequest fileType(String fileType) {
+        
+        this.fileType = fileType;
+        return this;
+    }
+
+     /**
+     * Required when using documentation_file_key; plaintext MIME or its base64
+     * @return fileType
+    **/
+    @javax.annotation.Nullable
+    public String getFileType() {
+        return fileType;
+    }
+
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -274,12 +323,14 @@ public class OtcBankCreateMultipartRequest {
                 Objects.equals(this.remittanceLineNumber, otcBankCreateMultipartRequest.remittanceLineNumber) &&
                 Objects.equals(this.agentBankName, otcBankCreateMultipartRequest.agentBankName) &&
                 Objects.equals(this.agentBankSwift, otcBankCreateMultipartRequest.agentBankSwift) &&
-                Objects.equals(this.documentationFile, otcBankCreateMultipartRequest.documentationFile);
+                Objects.equals(this.documentationFile, otcBankCreateMultipartRequest.documentationFile) &&
+                Objects.equals(this.documentationFileKey, otcBankCreateMultipartRequest.documentationFileKey) &&
+                Objects.equals(this.fileType, otcBankCreateMultipartRequest.fileType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, documentationFile);
+        return Objects.hash(bankAccountName, bankName, bankCountry, bankAddress, iban, swift, remittanceLineNumber, agentBankName, agentBankSwift, documentationFile, documentationFileKey, fileType);
     }
 
 
@@ -297,6 +348,8 @@ public class OtcBankCreateMultipartRequest {
         sb.append("      agentBankName: ").append(toIndentedString(agentBankName)).append("\n");
         sb.append("      agentBankSwift: ").append(toIndentedString(agentBankSwift)).append("\n");
         sb.append("      documentationFile: ").append(toIndentedString(documentationFile)).append("\n");
+        sb.append("      documentationFileKey: ").append(toIndentedString(documentationFileKey)).append("\n");
+        sb.append("      fileType: ").append(toIndentedString(fileType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -31,6 +31,10 @@ public class CrossexIsolatedMarginResponse {
     @SerializedName(SERIALIZED_NAME_MARGIN)
     private String margin;
 
+    public static final String SERIALIZED_NAME_POSITION_SIDE = "position_side";
+    @SerializedName(SERIALIZED_NAME_POSITION_SIDE)
+    private String positionSide;
+
 
     public CrossexIsolatedMarginResponse symbol(String symbol) {
         
@@ -69,6 +73,26 @@ public class CrossexIsolatedMarginResponse {
     public void setMargin(String margin) {
         this.margin = margin;
     }
+
+    public CrossexIsolatedMarginResponse positionSide(String positionSide) {
+        
+        this.positionSide = positionSide;
+        return this;
+    }
+
+     /**
+     * Position side (NONE/LONG/SHORT). Defaults to NONE for one-way positions if omitted
+     * @return positionSide
+    **/
+    @javax.annotation.Nullable
+    public String getPositionSide() {
+        return positionSide;
+    }
+
+
+    public void setPositionSide(String positionSide) {
+        this.positionSide = positionSide;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -79,12 +103,13 @@ public class CrossexIsolatedMarginResponse {
         }
         CrossexIsolatedMarginResponse crossexIsolatedMarginResponse = (CrossexIsolatedMarginResponse) o;
         return Objects.equals(this.symbol, crossexIsolatedMarginResponse.symbol) &&
-                Objects.equals(this.margin, crossexIsolatedMarginResponse.margin);
+                Objects.equals(this.margin, crossexIsolatedMarginResponse.margin) &&
+                Objects.equals(this.positionSide, crossexIsolatedMarginResponse.positionSide);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, margin);
+        return Objects.hash(symbol, margin, positionSide);
     }
 
 
@@ -94,6 +119,7 @@ public class CrossexIsolatedMarginResponse {
         sb.append("class CrossexIsolatedMarginResponse {\n");
         sb.append("      symbol: ").append(toIndentedString(symbol)).append("\n");
         sb.append("      margin: ").append(toIndentedString(margin)).append("\n");
+        sb.append("      positionSide: ").append(toIndentedString(positionSide)).append("\n");
         sb.append("}");
         return sb.toString();
     }

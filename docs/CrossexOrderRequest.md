@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **side** | [**SideEnum**](#SideEnum) | BUY, SELL | 
 **type** | [**TypeEnum**](#TypeEnum) | Order type (default: &#x60;LIMIT&#x60;; supported types: &#x60;LIMIT&#x60;, &#x60;MARKET&#x60;) |  [optional]
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Defaults to GTC. Supported values: &#x60;GTC&#x60;, &#x60;IOC&#x60;, &#x60;FOK&#x60;, &#x60;POC&#x60;, and &#x60;RPI&#x60; &#x60;GTC&#x60;: GoodTillCancelled &#x60;IOC&#x60;: ImmediateOrCancelled &#x60;FOK&#x60;: FillOrKill &#x60;POC&#x60;: PendingOrCancelled or PostOnly &#x60;RPI&#x60;: Retail Price Improvement |  [optional]
-**qty** | **String** | Order quantity (required unless spot market buy) |  [optional]
+**qty** | **String** | Order quantity (required unless spot or margin market buy) |  [optional]
 **price** | **String** | Limit Order Price (Required for Limit Orders) |  [optional]
 **quoteQty** | **String** | Order quote quantity; required for spot and margin market buy orders |  [optional]
 **reduceOnly** | [**ReduceOnlyEnum**](#ReduceOnlyEnum) | Reduce-only: &#x60;true&#x60; or &#x60;false&#x60; |  [optional]

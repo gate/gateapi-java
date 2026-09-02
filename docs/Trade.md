@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **sequenceId** | **String** | Consecutive trade ID within a single market. Used to track and identify trades in the specific market |  [optional]
 **text** | **String** | Order&#39;s Custom Information. This field is not returned by public interfaces. The scenarios pm_liquidate, comb_margin_liquidate, and scm_liquidate represent full-account forced liquidation orders. liquidate represents isolated-account forced liquidation orders. |  [optional]
 **deal** | **String** | Total Executed Value |  [optional]
+**tradeQuote** | **String** | Actual quote currency used for the trade |  [optional]
 
 ## Enum: SideEnum
 

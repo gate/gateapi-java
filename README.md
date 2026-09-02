@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.129
-- SDK version: 7.2.129
+- API version: v4.106.132
+- SDK version: 7.2.132
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.129</version>
+    <version>7.2.132</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.129"
+compile "io.gate:gate-api:7.2.132"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.129.jar`
+* `target/gate-api-7.2.132.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -462,6 +462,7 @@ Class | Method | HTTP request | Description
 *OtcApi* | [**getOtcBankSupplementChecklist**](docs/OtcApi.md#getOtcBankSupplementChecklist) | **GET** /otc/bank/bank_supplement_checklist | Query the checklist of materials to supplement for a bank card
 *OtcApi* | [**submitOtcBankPersonalSupplement**](docs/OtcApi.md#submitOtcBankPersonalSupplement) | **POST** /otc/bank/personal/bank_supplement | Submit Bank Card Supplement Materials (Personal)
 *OtcApi* | [**submitOtcBankEnterpriseSupplement**](docs/OtcApi.md#submitOtcBankEnterpriseSupplement) | **POST** /otc/bank/enterprise/bank_supplement | Submit Bank Card Supplement Materials (Enterprise)
+*OtcApi* | [**createOtcUploadPreUpload**](docs/OtcApi.md#createOtcUploadPreUpload) | **POST** /otc/upload/pre_upload | Pre-upload file (temporary bucket)
 *OtcApi* | [**markOtcOrderPaid**](docs/OtcApi.md#markOtcOrderPaid) | **POST** /otc/order/paid | Mark fiat order as paid (deposit confirmation)
 *OtcApi* | [**cancelOtcOrder**](docs/OtcApi.md#cancelOtcOrder) | **POST** /otc/order/cancel | Fiat order cancellation
 *OtcApi* | [**listOtcOrders**](docs/OtcApi.md#listOtcOrders) | **GET** /otc/order/list | Fiat order list
@@ -1097,6 +1098,10 @@ Class | Method | HTTP request | Description
  - [OtcStableCoinOrderListResponse](docs/OtcStableCoinOrderListResponse.md)
  - [OtcStableCoinOrderListResult](docs/OtcStableCoinOrderListResult.md)
  - [OtcStableCoinOrderRequest](docs/OtcStableCoinOrderRequest.md)
+ - [OtcUploadPreUploadData](docs/OtcUploadPreUploadData.md)
+ - [OtcUploadPreUploadPolicyFields](docs/OtcUploadPreUploadPolicyFields.md)
+ - [OtcUploadPreUploadRequest](docs/OtcUploadPreUploadRequest.md)
+ - [OtcUploadPreUploadResponse](docs/OtcUploadPreUploadResponse.md)
  - [OtherContact](docs/OtherContact.md)
  - [P2pAdDetail](docs/P2pAdDetail.md)
  - [P2pAdDetailResponse](docs/P2pAdDetailResponse.md)
