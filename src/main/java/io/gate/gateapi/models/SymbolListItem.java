@@ -31,7 +31,7 @@ public class SymbolListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -39,7 +39,9 @@ public class SymbolListItem {
         
         HK("hk"),
         
-        KR("kr");
+        KR("kr"),
+        
+        JP("jp");
 
         private String value;
 
@@ -103,9 +105,121 @@ public class SymbolListItem {
     @SerializedName(SERIALIZED_NAME_SYMBOL_DESC)
     private String symbolDesc;
 
+    /**
+     * Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.
+     */
+    @JsonAdapter(CategoryEnum.Adapter.class)
+    public enum CategoryEnum {
+        CS("CS"),
+        
+        ETF("ETF"),
+        
+        ADRC("ADRC"),
+        
+        ADR("ADR"),
+        
+        ETV("ETV"),
+        
+        PFD("PFD"),
+        
+        ETS("ETS"),
+        
+        ETN("ETN"),
+        
+        FUND("FUND");
+
+        private String value;
+
+        CategoryEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CategoryEnum fromValue(String value) {
+            for (CategoryEnum b : CategoryEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<CategoryEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CategoryEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CategoryEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return CategoryEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_CATEGORY = "category";
     @SerializedName(SERIALIZED_NAME_CATEGORY)
-    private String category;
+    private CategoryEnum category;
+
+    /**
+     * Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.
+     */
+    @JsonAdapter(AssetTypeEnum.Adapter.class)
+    public enum AssetTypeEnum {
+        STOCK("STOCK"),
+        
+        ETF("ETF");
+
+        private String value;
+
+        AssetTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AssetTypeEnum fromValue(String value) {
+            for (AssetTypeEnum b : AssetTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AssetTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return AssetTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_ASSET_TYPE = "asset_type";
+    @SerializedName(SERIALIZED_NAME_ASSET_TYPE)
+    private AssetTypeEnum assetType;
 
     /**
      * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.
@@ -336,7 +450,7 @@ public class SymbolListItem {
     }
 
      /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -449,24 +563,44 @@ public class SymbolListItem {
         this.symbolDesc = symbolDesc;
     }
 
-    public SymbolListItem category(String category) {
+    public SymbolListItem category(CategoryEnum category) {
         
         this.category = category;
         return this;
     }
 
      /**
-     * Category
+     * Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.
      * @return category
     **/
     @javax.annotation.Nullable
-    public String getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
+    }
+
+    public SymbolListItem assetType(AssetTypeEnum assetType) {
+        
+        this.assetType = assetType;
+        return this;
+    }
+
+     /**
+     * Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.
+     * @return assetType
+    **/
+    @javax.annotation.Nullable
+    public AssetTypeEnum getAssetType() {
+        return assetType;
+    }
+
+
+    public void setAssetType(AssetTypeEnum assetType) {
+        this.assetType = assetType;
     }
 
     public SymbolListItem tradeStatus(TradeStatusEnum tradeStatus) {
@@ -733,6 +867,7 @@ public class SymbolListItem {
                 Objects.equals(this.fxRate, symbolListItem.fxRate) &&
                 Objects.equals(this.symbolDesc, symbolListItem.symbolDesc) &&
                 Objects.equals(this.category, symbolListItem.category) &&
+                Objects.equals(this.assetType, symbolListItem.assetType) &&
                 Objects.equals(this.tradeStatus, symbolListItem.tradeStatus) &&
                 Objects.equals(this.tradeMode, symbolListItem.tradeMode) &&
                 Objects.equals(this.orderFillTiming, symbolListItem.orderFillTiming) &&
@@ -749,7 +884,7 @@ public class SymbolListItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchange, exchangeDesc, quoteCurrency, quoteCurrencyPrecision, fxRate, symbolDesc, category, tradeStatus, tradeMode, orderFillTiming, iconLink, quoteCurrencySymbol, pricePrecision, volumePrecision, isIpo, ipoPrice, sellPriceProtection, buyPriceProtection, symbolDescs);
+        return Objects.hash(symbol, exchange, exchangeDesc, quoteCurrency, quoteCurrencyPrecision, fxRate, symbolDesc, category, assetType, tradeStatus, tradeMode, orderFillTiming, iconLink, quoteCurrencySymbol, pricePrecision, volumePrecision, isIpo, ipoPrice, sellPriceProtection, buyPriceProtection, symbolDescs);
     }
 
 
@@ -765,6 +900,7 @@ public class SymbolListItem {
         sb.append("      fxRate: ").append(toIndentedString(fxRate)).append("\n");
         sb.append("      symbolDesc: ").append(toIndentedString(symbolDesc)).append("\n");
         sb.append("      category: ").append(toIndentedString(category)).append("\n");
+        sb.append("      assetType: ").append(toIndentedString(assetType)).append("\n");
         sb.append("      tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
         sb.append("      tradeMode: ").append(toIndentedString(tradeMode)).append("\n");
         sb.append("      orderFillTiming: ").append(toIndentedString(orderFillTiming)).append("\n");

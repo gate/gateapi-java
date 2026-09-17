@@ -33,7 +33,7 @@ public class OrderHistoryListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -41,7 +41,9 @@ public class OrderHistoryListItem {
         
         HK("hk"),
         
-        KR("kr");
+        KR("kr"),
+        
+        JP("jp");
 
         private String value;
 
@@ -300,7 +302,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get orderId
+     * Order ID
      * @return orderId
     **/
     @javax.annotation.Nullable
@@ -320,7 +322,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get symbol
+     * Symbol
      * @return symbol
     **/
     @javax.annotation.Nullable
@@ -340,7 +342,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -360,7 +362,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get quoteCurrency
+     * Quote currency
      * @return quoteCurrency
     **/
     @javax.annotation.Nullable
@@ -400,7 +402,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get symbolDesc
+     * Symbol description
      * @return symbolDesc
     **/
     @javax.annotation.Nullable
@@ -560,7 +562,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get volume
+     * Order quantity
      * @return volume
     **/
     @javax.annotation.Nullable
@@ -580,7 +582,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get fillVolume
+     * Trading size
      * @return fillVolume
     **/
     @javax.annotation.Nullable
@@ -600,7 +602,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get price
+     * Order price
      * @return price
     **/
     @javax.annotation.Nullable
@@ -620,7 +622,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get avgFillPrice
+     * Average fill price
      * @return avgFillPrice
     **/
     @javax.annotation.Nullable
@@ -660,7 +662,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get timeSetup
+     * Order creation time (Unix timestamp, seconds)
      * @return timeSetup
     **/
     @javax.annotation.Nullable
@@ -680,7 +682,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Get timeDone
+     * Order completion time (Unix timestamp in seconds)
      * @return timeDone
     **/
     @javax.annotation.Nullable

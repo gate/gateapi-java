@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 Fund Transfer
 
-Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
+Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported. - When either side of the transfer is &#x60;CROSSEX_LIGHTER&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
 
 ### Example
 
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 
 Flash Swap Inquiry
 
-Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
+Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For LIGHTER, swaps between &#x60;LIGHTER_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for LIGHTER. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
 
 ### Example
 
@@ -923,7 +923,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT"; // String | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT`).
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT,LIGHTER"; // String | Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (`BINANCE` / `OKX` / `GATE` / `BYBIT` / `KRAKEN` / `HYPERLIQUID` / `DERIBIT` / `LIGHTER`).
         try {
             CrossexAccount result = apiInstance.getCrossexAccount()
                         .exchangeType(exchangeType)
@@ -946,7 +946,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeType** | **String**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;). | [optional]
+ **exchangeType** | **String**| Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60; / &#x60;LIGHTER&#x60;). | [optional]
 
 ### Return type
 
@@ -1630,7 +1630,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "SOL"; // String | Query by specified currency name
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT,LIGHTER"; // String | Exchange
         try {
             List<CrossexInterestRate> result = apiInstance.getCrossexInterestRate()
                         .coin(coin)
@@ -1771,7 +1771,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String symbol = "BINANCE_FUTURE_ADA_USDT"; // String | Trading Pair
-        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT"; // String | Exchange
+        String exchangeType = "BINANCE,OKX,GATE,BYBIT,KRAKEN,HYPERLIQUID,DERIBIT,LIGHTER"; // String | Exchange
         try {
             List<CrossexPosition> result = apiInstance.listCrossexPositions()
                         .symbol(symbol)
@@ -2582,7 +2582,7 @@ public class Example {
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
         String coin = "SOL"; // String | Query by specified currency name
-        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT
+        String exchangeType = "OKX"; // String | OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT/LIGHTER
         try {
             List<CrossexCoinDiscountRate> result = apiInstance.listCrossexCoinDiscountRate()
                         .coin(coin)
@@ -2607,7 +2607,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coin** | **String**| Query by specified currency name | [optional]
- **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT | [optional]
+ **exchangeType** | **String**| OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT/LIGHTER | [optional]
 
 ### Return type
 

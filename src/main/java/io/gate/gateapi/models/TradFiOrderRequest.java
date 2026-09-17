@@ -145,6 +145,10 @@ public class TradFiOrderRequest {
     @SerializedName(SERIALIZED_NAME_PRICE_SL)
     private String priceSl;
 
+    public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
+    @SerializedName(SERIALIZED_NAME_LEVERAGE)
+    private Integer leverage;
+
 
     public TradFiOrderRequest price(String price) {
         
@@ -210,7 +214,7 @@ public class TradFiOrderRequest {
     }
 
      /**
-     * Trading symbol code
+     * Base trading symbol code
      * @return symbol
     **/
     public String getSymbol() {
@@ -280,6 +284,26 @@ public class TradFiOrderRequest {
     public void setPriceSl(String priceSl) {
         this.priceSl = priceSl;
     }
+
+    public TradFiOrderRequest leverage(Integer leverage) {
+        
+        this.leverage = leverage;
+        return this;
+    }
+
+     /**
+     * Leverage multiplier (must be one of the leverage multipliers allowed for the symbol in the trading symbol details response)
+     * @return leverage
+    **/
+    @javax.annotation.Nullable
+    public Integer getLeverage() {
+        return leverage;
+    }
+
+
+    public void setLeverage(Integer leverage) {
+        this.leverage = leverage;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -295,12 +319,13 @@ public class TradFiOrderRequest {
                 Objects.equals(this.symbol, tradFiOrderRequest.symbol) &&
                 Objects.equals(this.volume, tradFiOrderRequest.volume) &&
                 Objects.equals(this.priceTp, tradFiOrderRequest.priceTp) &&
-                Objects.equals(this.priceSl, tradFiOrderRequest.priceSl);
+                Objects.equals(this.priceSl, tradFiOrderRequest.priceSl) &&
+                Objects.equals(this.leverage, tradFiOrderRequest.leverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, priceType, side, symbol, volume, priceTp, priceSl);
+        return Objects.hash(price, priceType, side, symbol, volume, priceTp, priceSl, leverage);
     }
 
 
@@ -315,6 +340,7 @@ public class TradFiOrderRequest {
         sb.append("      volume: ").append(toIndentedString(volume)).append("\n");
         sb.append("      priceTp: ").append(toIndentedString(priceTp)).append("\n");
         sb.append("      priceSl: ").append(toIndentedString(priceSl)).append("\n");
+        sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

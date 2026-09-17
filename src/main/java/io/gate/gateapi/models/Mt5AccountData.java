@@ -23,10 +23,6 @@ import java.io.IOException;
  * Response data
  */
 public class Mt5AccountData {
-    public static final String SERIALIZED_NAME_MT5_UID = "mt5_uid";
-    @SerializedName(SERIALIZED_NAME_MT5_UID)
-    private Integer mt5Uid;
-
     public static final String SERIALIZED_NAME_LEVERAGE = "leverage";
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private Integer leverage;
@@ -39,26 +35,6 @@ public class Mt5AccountData {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private Integer status;
 
-
-    public Mt5AccountData mt5Uid(Integer mt5Uid) {
-        
-        this.mt5Uid = mt5Uid;
-        return this;
-    }
-
-     /**
-     * MT5 userID
-     * @return mt5Uid
-    **/
-    @javax.annotation.Nullable
-    public Integer getMt5Uid() {
-        return mt5Uid;
-    }
-
-
-    public void setMt5Uid(Integer mt5Uid) {
-        this.mt5Uid = mt5Uid;
-    }
 
     public Mt5AccountData leverage(Integer leverage) {
         
@@ -128,15 +104,14 @@ public class Mt5AccountData {
             return false;
         }
         Mt5AccountData mt5AccountData = (Mt5AccountData) o;
-        return Objects.equals(this.mt5Uid, mt5AccountData.mt5Uid) &&
-                Objects.equals(this.leverage, mt5AccountData.leverage) &&
+        return Objects.equals(this.leverage, mt5AccountData.leverage) &&
                 Objects.equals(this.stopOutLevel, mt5AccountData.stopOutLevel) &&
                 Objects.equals(this.status, mt5AccountData.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mt5Uid, leverage, stopOutLevel, status);
+        return Objects.hash(leverage, stopOutLevel, status);
     }
 
 
@@ -144,7 +119,6 @@ public class Mt5AccountData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Mt5AccountData {\n");
-        sb.append("      mt5Uid: ").append(toIndentedString(mt5Uid)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("      stopOutLevel: ").append(toIndentedString(stopOutLevel)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");

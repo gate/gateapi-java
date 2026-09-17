@@ -320,7 +320,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange, supports us, hk, and kr (optional)
+         * @param exchange Exchange, supports us, hk, kr, and jp (optional)
          * @return APIqueryStockSymbolsRequest
          */
         public APIqueryStockSymbolsRequest exchange(String exchange) {
@@ -523,7 +523,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange, supports us, hk, and kr (optional)
+         * @param exchange Exchange, supports us, hk, kr, and jp (optional)
          * @return APIqueryStockSymbolDetailRequest
          */
         public APIqueryStockSymbolDetailRequest exchange(String exchange) {
@@ -1680,7 +1680,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange, supports us, hk, and kr (optional)
+         * @param exchange Exchange, supports us, hk, kr, and jp (optional)
          * @return APIqueryStockPositionsRequest
          */
         public APIqueryStockPositionsRequest exchange(String exchange) {

@@ -124,7 +124,7 @@ public class Example {
 
         StockApi apiInstance = new StockApi(defaultClient);
         String symbols = "AAPL,TSLA"; // String | Symbol list, multiple separated by commas
-        String exchange = "us"; // String | Exchange, supports us, hk, and kr
+        String exchange = "us"; // String | Exchange, supports us, hk, kr, and jp
         Boolean withDescI18n = true; // Boolean | Whether to return multilingual symbol description
         Integer page = 1; // Integer | Page number, defaults to 1
         Integer pageSize = 100; // Integer | Page size, defaults to 10, max 500; server caps at 500
@@ -155,7 +155,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **String**| Symbol list, multiple separated by commas | [optional]
- **exchange** | **String**| Exchange, supports us, hk, and kr | [optional] [enum: us, hk, kr]
+ **exchange** | **String**| Exchange, supports us, hk, kr, and jp | [optional] [enum: us, hk, kr, jp]
  **withDescI18n** | **Boolean**| Whether to return multilingual symbol description | [optional]
  **page** | **Integer**| Page number, defaults to 1 | [optional]
  **pageSize** | **Integer**| Page size, defaults to 10, max 500; server caps at 500 | [optional]
@@ -205,7 +205,7 @@ public class Example {
 
         StockApi apiInstance = new StockApi(defaultClient);
         String symbols = "AAPL,TSLA"; // String | Symbol list, multiple separated by commas
-        String exchange = "us"; // String | Exchange, supports us, hk, and kr
+        String exchange = "us"; // String | Exchange, supports us, hk, kr, and jp
         Integer page = 1; // Integer | Page number, defaults to 1
         Integer pageSize = 100; // Integer | Page size, defaults to 10, max 500; server caps at 500
         try {
@@ -234,7 +234,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **String**| Symbol list, multiple separated by commas | [optional]
- **exchange** | **String**| Exchange, supports us, hk, and kr | [optional] [enum: us, hk, kr]
+ **exchange** | **String**| Exchange, supports us, hk, kr, and jp | [optional] [enum: us, hk, kr, jp]
  **page** | **Integer**| Page number, defaults to 1 | [optional]
  **pageSize** | **Integer**| Page size, defaults to 10, max 500; server caps at 500 | [optional]
 
@@ -802,7 +802,7 @@ public class Example {
         Integer pnlCalcType = 1; // Integer | PnL calculation cost type. Defaults to average cost price when omitted (1 = average cost price, 2 = diluted cost price)
         Integer pnlCalcPrice = 1; // Integer | PnL calculation price type. Defaults to intraday price when omitted (1 = intraday price, 2 = latest extended-hours price)
         String symbol = "AAPL"; // String | Symbol
-        String exchange = "us"; // String | Exchange, supports us, hk, and kr
+        String exchange = "us"; // String | Exchange, supports us, hk, kr, and jp
         try {
             PositionList2 result = apiInstance.queryStockPositions()
                         .pnlCalcType(pnlCalcType)
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
  **pnlCalcType** | **Integer**| PnL calculation cost type. Defaults to average cost price when omitted (1 &#x3D; average cost price, 2 &#x3D; diluted cost price) | [optional] [enum: 1, 2]
  **pnlCalcPrice** | **Integer**| PnL calculation price type. Defaults to intraday price when omitted (1 &#x3D; intraday price, 2 &#x3D; latest extended-hours price) | [optional] [enum: 1, 2]
  **symbol** | **String**| Symbol | [optional]
- **exchange** | **String**| Exchange, supports us, hk, and kr | [optional] [enum: us, hk, kr]
+ **exchange** | **String**| Exchange, supports us, hk, kr, and jp | [optional] [enum: us, hk, kr, jp]
 
 ### Return type
 

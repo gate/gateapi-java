@@ -47,7 +47,7 @@ public class CrossexConvertQuoteRequest {
     }
 
      /**
-     * Exchange type Currently supports only BINANCE, OKX, GATE, BYBIT, HYPERLIQUID, and KRAKEN
+     * Exchange type Currently supports only BINANCE, OKX, GATE, BYBIT, HYPERLIQUID, KRAKEN, and LIGHTER
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -85,7 +85,7 @@ public class CrossexConvertQuoteRequest {
     }
 
      /**
-     * Asset to receive OKX and GATE only support conversion to BTC, ETH, or USDT BYBIT and BINANCE only support conversion to USDT HYPERLIQUID only supports conversion to USDT or USDC KRAKEN only supports conversion to USDT
+     * Asset to receive OKX and GATE only support conversion to BTC, ETH, or USDT BYBIT and BINANCE only support conversion to USDT HYPERLIQUID only supports conversion to USDT or USDC KRAKEN only supports conversion to USDT LIGHTER only supports swaps between USDT and USDC
      * @return toCoin
     **/
     public String getToCoin() {

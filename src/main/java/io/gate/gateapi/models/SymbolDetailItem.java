@@ -31,7 +31,7 @@ public class SymbolDetailItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -39,7 +39,9 @@ public class SymbolDetailItem {
         
         HK("hk"),
         
-        KR("kr");
+        KR("kr"),
+        
+        JP("jp");
 
         private String value;
 
@@ -103,9 +105,121 @@ public class SymbolDetailItem {
     @SerializedName(SERIALIZED_NAME_SYMBOL_DESC)
     private String symbolDesc;
 
+    /**
+     * Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.
+     */
+    @JsonAdapter(CategoryEnum.Adapter.class)
+    public enum CategoryEnum {
+        CS("CS"),
+        
+        ETF("ETF"),
+        
+        ADRC("ADRC"),
+        
+        ADR("ADR"),
+        
+        ETV("ETV"),
+        
+        PFD("PFD"),
+        
+        ETS("ETS"),
+        
+        ETN("ETN"),
+        
+        FUND("FUND");
+
+        private String value;
+
+        CategoryEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CategoryEnum fromValue(String value) {
+            for (CategoryEnum b : CategoryEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<CategoryEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CategoryEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CategoryEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return CategoryEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_CATEGORY = "category";
     @SerializedName(SERIALIZED_NAME_CATEGORY)
-    private String category;
+    private CategoryEnum category;
+
+    /**
+     * Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.
+     */
+    @JsonAdapter(AssetTypeEnum.Adapter.class)
+    public enum AssetTypeEnum {
+        STOCK("STOCK"),
+        
+        ETF("ETF");
+
+        private String value;
+
+        AssetTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AssetTypeEnum fromValue(String value) {
+            for (AssetTypeEnum b : AssetTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AssetTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return AssetTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_ASSET_TYPE = "asset_type";
+    @SerializedName(SERIALIZED_NAME_ASSET_TYPE)
+    private AssetTypeEnum assetType;
 
     public static final String SERIALIZED_NAME_SETTLEMENT_CURRENCY = "settlement_currency";
     @SerializedName(SERIALIZED_NAME_SETTLEMENT_CURRENCY)
@@ -340,7 +454,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get symbol
+     * Symbol
      * @return symbol
     **/
     @javax.annotation.Nullable
@@ -360,7 +474,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -380,7 +494,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get exchangeDesc
+     * Exchange description
      * @return exchangeDesc
     **/
     @javax.annotation.Nullable
@@ -400,7 +514,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get quoteCurrency
+     * Quote currency
      * @return quoteCurrency
     **/
     @javax.annotation.Nullable
@@ -420,7 +534,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get quoteCurrencyPrecision
+     * Quote currency precision
      * @return quoteCurrencyPrecision
     **/
     @javax.annotation.Nullable
@@ -460,7 +574,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get symbolDesc
+     * Symbol description
      * @return symbolDesc
     **/
     @javax.annotation.Nullable
@@ -473,24 +587,44 @@ public class SymbolDetailItem {
         this.symbolDesc = symbolDesc;
     }
 
-    public SymbolDetailItem category(String category) {
+    public SymbolDetailItem category(CategoryEnum category) {
         
         this.category = category;
         return this;
     }
 
      /**
-     * Get category
+     * Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds.
      * @return category
     **/
     @javax.annotation.Nullable
-    public String getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
+    }
+
+    public SymbolDetailItem assetType(AssetTypeEnum assetType) {
+        
+        this.assetType = assetType;
+        return this;
+    }
+
+     /**
+     * Asset type. - STOCK: Stock. - ETF: Exchange-traded fund.
+     * @return assetType
+    **/
+    @javax.annotation.Nullable
+    public AssetTypeEnum getAssetType() {
+        return assetType;
+    }
+
+
+    public void setAssetType(AssetTypeEnum assetType) {
+        this.assetType = assetType;
     }
 
     public SymbolDetailItem settlementCurrency(String settlementCurrency) {
@@ -500,7 +634,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get settlementCurrency
+     * Settlement currency
      * @return settlementCurrency
     **/
     @javax.annotation.Nullable
@@ -520,7 +654,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get maxOrderVolume
+     * Maximum order quantity
      * @return maxOrderVolume
     **/
     @javax.annotation.Nullable
@@ -540,7 +674,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get stepOrderVolume
+     * Order step size
      * @return stepOrderVolume
     **/
     @javax.annotation.Nullable
@@ -560,7 +694,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get minOrderVolume
+     * Minimum order quantity
      * @return minOrderVolume
     **/
     @javax.annotation.Nullable
@@ -600,7 +734,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get volumePrecision
+     * Quantity precision
      * @return volumePrecision
     **/
     @javax.annotation.Nullable
@@ -620,7 +754,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get isIpo
+     * Whether it is an IPO symbol
      * @return isIpo
     **/
     @javax.annotation.Nullable
@@ -640,7 +774,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get ipoPrice
+     * IPO price
      * @return ipoPrice
     **/
     @javax.annotation.Nullable
@@ -660,7 +794,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get priceProtection
+     * Price protection range
      * @return priceProtection
     **/
     @javax.annotation.Nullable
@@ -680,7 +814,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get sellPriceProtection
+     * Sell price protection rate
      * @return sellPriceProtection
     **/
     @javax.annotation.Nullable
@@ -700,7 +834,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get buyPriceProtection
+     * Buy price protection rate
      * @return buyPriceProtection
     **/
     @javax.annotation.Nullable
@@ -720,7 +854,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get slippageRate
+     * Slippage
      * @return slippageRate
     **/
     @javax.annotation.Nullable
@@ -828,7 +962,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get symbolDescs
+     * Multilingual symbol description
      * @return symbolDescs
     **/
     @javax.annotation.Nullable
@@ -848,7 +982,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Get iconLink
+     * Icon URL
      * @return iconLink
     **/
     @javax.annotation.Nullable
@@ -877,6 +1011,7 @@ public class SymbolDetailItem {
                 Objects.equals(this.fxRate, symbolDetailItem.fxRate) &&
                 Objects.equals(this.symbolDesc, symbolDetailItem.symbolDesc) &&
                 Objects.equals(this.category, symbolDetailItem.category) &&
+                Objects.equals(this.assetType, symbolDetailItem.assetType) &&
                 Objects.equals(this.settlementCurrency, symbolDetailItem.settlementCurrency) &&
                 Objects.equals(this.maxOrderVolume, symbolDetailItem.maxOrderVolume) &&
                 Objects.equals(this.stepOrderVolume, symbolDetailItem.stepOrderVolume) &&
@@ -899,7 +1034,7 @@ public class SymbolDetailItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchange, exchangeDesc, quoteCurrency, quoteCurrencyPrecision, fxRate, symbolDesc, category, settlementCurrency, maxOrderVolume, stepOrderVolume, minOrderVolume, pricePrecision, volumePrecision, isIpo, ipoPrice, priceProtection, sellPriceProtection, buyPriceProtection, slippageRate, commissionRate, tradeStatus, tradeMode, orderFillTiming, symbolDescs, iconLink);
+        return Objects.hash(symbol, exchange, exchangeDesc, quoteCurrency, quoteCurrencyPrecision, fxRate, symbolDesc, category, assetType, settlementCurrency, maxOrderVolume, stepOrderVolume, minOrderVolume, pricePrecision, volumePrecision, isIpo, ipoPrice, priceProtection, sellPriceProtection, buyPriceProtection, slippageRate, commissionRate, tradeStatus, tradeMode, orderFillTiming, symbolDescs, iconLink);
     }
 
 
@@ -915,6 +1050,7 @@ public class SymbolDetailItem {
         sb.append("      fxRate: ").append(toIndentedString(fxRate)).append("\n");
         sb.append("      symbolDesc: ").append(toIndentedString(symbolDesc)).append("\n");
         sb.append("      category: ").append(toIndentedString(category)).append("\n");
+        sb.append("      assetType: ").append(toIndentedString(assetType)).append("\n");
         sb.append("      settlementCurrency: ").append(toIndentedString(settlementCurrency)).append("\n");
         sb.append("      maxOrderVolume: ").append(toIndentedString(maxOrderVolume)).append("\n");
         sb.append("      stepOrderVolume: ").append(toIndentedString(stepOrderVolume)).append("\n");

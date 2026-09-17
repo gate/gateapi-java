@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **symbol** | **String** | Symbol | 
 **side** | [**SideEnum**](#SideEnum) | Side (1&#x3D;sell, 2&#x3D;buy) | 
 **priceType** | [**PriceTypeEnum**](#PriceTypeEnum) | Price type (market &#x3D; market order, limit &#x3D; limit order) | 
-**tradingSession** | [**TradingSessionEnum**](#TradingSessionEnum) | Trading session. Limit orders support only All, while market orders support only Regular. | 
+**tradingSession** | [**TradingSessionEnum**](#TradingSessionEnum) | Trading session. Limit orders support only all, while market orders support only regular. | 
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force. - day: Day order. | 
 **price** | **String** | Order price, used for limit orders |  [optional]
 **clientOrderId** | **String** | Client-defined order ID |  [optional]

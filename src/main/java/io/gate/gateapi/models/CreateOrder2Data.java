@@ -35,7 +35,7 @@ public class CreateOrder2Data {
     }
 
      /**
-     * Queue Task ID (not task ID)
+     * Queue Task ID (not order ID)
      * @return id
     **/
     @javax.annotation.Nullable

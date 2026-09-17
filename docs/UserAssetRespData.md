@@ -13,5 +13,4 @@ Name | Type | Description | Notes
 **margin** | **String** | Used margin |  [optional]
 **marginFree** | **String** | Available Margin |  [optional]
 **unrealizedPnl** | **String** | Unrealized PNL |  [optional]
-**mt5Uid** | **String** | MT5 userID |  [optional]
 

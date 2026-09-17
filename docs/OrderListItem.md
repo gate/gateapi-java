@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **orderId** | **String** | Order ID |  [optional]
 **symbol** | **String** | Symbol |  [optional]
-**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange, supports us, hk, and kr |  [optional]
+**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange, supports us, hk, kr, and jp |  [optional]
 **quoteCurrency** | **String** | Quote currency |  [optional]
 **fxRate** | **String** | Quote currency to USD exchange rate |  [optional]
 **symbolDesc** | **String** | Symbol description |  [optional]
@@ -38,6 +38,7 @@ Name | Value
 US | &quot;us&quot;
 HK | &quot;hk&quot;
 KR | &quot;kr&quot;
+JP | &quot;jp&quot;
 
 ## Enum: TradeStatusEnum
 

@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.132
-- SDK version: 7.2.132
+- API version: v4.106.144
+- SDK version: 7.2.144
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.132</version>
+    <version>7.2.144</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.132"
+compile "io.gate:gate-api:7.2.144"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.132.jar`
+* `target/gate-api-7.2.144.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *AlphaApi* | [**listAlphaCurrencies**](docs/AlphaApi.md#listAlphaCurrencies) | **GET** /alpha/currencies | Query currency information
 *AlphaApi* | [**listAlphaTickers**](docs/AlphaApi.md#listAlphaTickers) | **GET** /alpha/tickers | Query currency ticker
 *AlphaApi* | [**listAlphaTokens**](docs/AlphaApi.md#listAlphaTokens) | **GET** /alpha/tokens | Query Token Information
+*AnnouncementApi* | [**listAnnouncementArticles**](docs/AnnouncementApi.md#listAnnouncementArticles) | **POST** /ann/list_article | List announcement articles
 *AssetswapApi* | [**listAssetSwapAssets**](docs/AssetswapApi.md#listAssetSwapAssets) | **GET** /asset-swap/asset/list | Portfolio optimization — currency list
 *AssetswapApi* | [**getAssetSwapConfig**](docs/AssetswapApi.md#getAssetSwapConfig) | **GET** /asset-swap/config | Portfolio optimization — configuration
 *AssetswapApi* | [**evaluateAssetSwap**](docs/AssetswapApi.md#evaluateAssetSwap) | **GET** /asset-swap/evaluate | Portfolio optimization — valuation
@@ -660,6 +661,11 @@ Class | Method | HTTP request | Description
  - [AlphaCurrency](docs/AlphaCurrency.md)
  - [AlphaTicker](docs/AlphaTicker.md)
  - [AmendOptionsOrderRequest](docs/AmendOptionsOrderRequest.md)
+ - [AnnouncementArticle](docs/AnnouncementArticle.md)
+ - [AnnouncementArticleLanguage](docs/AnnouncementArticleLanguage.md)
+ - [AnnouncementArticleListData](docs/AnnouncementArticleListData.md)
+ - [AnnouncementArticleListRequest](docs/AnnouncementArticleListRequest.md)
+ - [AnnouncementArticleListResponse](docs/AnnouncementArticleListResponse.md)
  - [ApiResponseAssetSwapConfig](docs/ApiResponseAssetSwapConfig.md)
  - [ApiResponseAssetSwapEvaluate](docs/ApiResponseAssetSwapEvaluate.md)
  - [ApiResponseAssetSwapListAssets](docs/ApiResponseAssetSwapListAssets.md)

@@ -39,7 +39,7 @@ public class I18nTxt {
     }
 
      /**
-     * Get lang
+     * Language
      * @return lang
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class I18nTxt {
     }
 
      /**
-     * Get value
+     * Localized description
      * @return value
     **/
     @javax.annotation.Nullable

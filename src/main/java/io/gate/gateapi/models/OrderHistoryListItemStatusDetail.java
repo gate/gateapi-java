@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * OrderHistoryListItemStatusDetail
+ * Order status details
  */
 public class OrderHistoryListItemStatusDetail {
     public static final String SERIALIZED_NAME_TITLE = "title";
@@ -39,7 +39,7 @@ public class OrderHistoryListItemStatusDetail {
     }
 
      /**
-     * Get title
+     * Status title
      * @return title
     **/
     @javax.annotation.Nullable
@@ -59,7 +59,7 @@ public class OrderHistoryListItemStatusDetail {
     }
 
      /**
-     * Get message
+     * Status message
      * @return message
     **/
     @javax.annotation.Nullable

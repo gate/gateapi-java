@@ -20,56 +20,54 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * SymbolDetailItemSymbolDescs
+ * Announcement article language
  */
-public class SymbolDetailItemSymbolDescs {
-    public static final String SERIALIZED_NAME_LANG = "lang";
-    @SerializedName(SERIALIZED_NAME_LANG)
-    private String lang;
+public class AnnouncementArticleLanguage {
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private String code;
 
-    public static final String SERIALIZED_NAME_VALUE = "value";
-    @SerializedName(SERIALIZED_NAME_VALUE)
-    private String value;
+    public static final String SERIALIZED_NAME_NAME = "name";
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
 
-    public SymbolDetailItemSymbolDescs lang(String lang) {
+    public AnnouncementArticleLanguage code(String code) {
         
-        this.lang = lang;
+        this.code = code;
         return this;
     }
 
      /**
-     * Language
-     * @return lang
+     * Language code, for example \&quot;cn\&quot;.
+     * @return code
     **/
-    @javax.annotation.Nullable
-    public String getLang() {
-        return lang;
+    public String getCode() {
+        return code;
     }
 
 
-    public void setLang(String lang) {
-        this.lang = lang;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public SymbolDetailItemSymbolDescs value(String value) {
+    public AnnouncementArticleLanguage name(String name) {
         
-        this.value = value;
+        this.name = name;
         return this;
     }
 
      /**
-     * Localized description
-     * @return value
+     * Language name
+     * @return name
     **/
-    @javax.annotation.Nullable
-    public String getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setName(String name) {
+        this.name = name;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,23 +77,23 @@ public class SymbolDetailItemSymbolDescs {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        SymbolDetailItemSymbolDescs symbolDetailItemSymbolDescs = (SymbolDetailItemSymbolDescs) o;
-        return Objects.equals(this.lang, symbolDetailItemSymbolDescs.lang) &&
-                Objects.equals(this.value, symbolDetailItemSymbolDescs.value);
+        AnnouncementArticleLanguage announcementArticleLanguage = (AnnouncementArticleLanguage) o;
+        return Objects.equals(this.code, announcementArticleLanguage.code) &&
+                Objects.equals(this.name, announcementArticleLanguage.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lang, value);
+        return Objects.hash(code, name);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SymbolDetailItemSymbolDescs {\n");
-        sb.append("      lang: ").append(toIndentedString(lang)).append("\n");
-        sb.append("      value: ").append(toIndentedString(value)).append("\n");
+        sb.append("class AnnouncementArticleLanguage {\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
         return sb.toString();
     }

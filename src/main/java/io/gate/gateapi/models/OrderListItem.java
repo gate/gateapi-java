@@ -32,7 +32,7 @@ public class OrderListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -40,7 +40,9 @@ public class OrderListItem {
         
         HK("hk"),
         
-        KR("kr");
+        KR("kr"),
+        
+        JP("jp");
 
         private String value;
 
@@ -418,7 +420,7 @@ public class OrderListItem {
     }
 
      /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      * @return exchange
     **/
     @javax.annotation.Nullable

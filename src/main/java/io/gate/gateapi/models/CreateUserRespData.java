@@ -31,10 +31,6 @@ public class CreateUserRespData {
     @SerializedName(SERIALIZED_NAME_LEVERAGE)
     private Integer leverage;
 
-    public static final String SERIALIZED_NAME_MT5_UID = "mt5_uid";
-    @SerializedName(SERIALIZED_NAME_MT5_UID)
-    private String mt5Uid;
-
 
     public CreateUserRespData status(Integer status) {
         
@@ -75,26 +71,6 @@ public class CreateUserRespData {
     public void setLeverage(Integer leverage) {
         this.leverage = leverage;
     }
-
-    public CreateUserRespData mt5Uid(String mt5Uid) {
-        
-        this.mt5Uid = mt5Uid;
-        return this;
-    }
-
-     /**
-     * mt5uid
-     * @return mt5Uid
-    **/
-    @javax.annotation.Nullable
-    public String getMt5Uid() {
-        return mt5Uid;
-    }
-
-
-    public void setMt5Uid(String mt5Uid) {
-        this.mt5Uid = mt5Uid;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -105,13 +81,12 @@ public class CreateUserRespData {
         }
         CreateUserRespData createUserRespData = (CreateUserRespData) o;
         return Objects.equals(this.status, createUserRespData.status) &&
-                Objects.equals(this.leverage, createUserRespData.leverage) &&
-                Objects.equals(this.mt5Uid, createUserRespData.mt5Uid);
+                Objects.equals(this.leverage, createUserRespData.leverage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(status, leverage, mt5Uid);
+        return Objects.hash(status, leverage);
     }
 
 
@@ -121,7 +96,6 @@ public class CreateUserRespData {
         sb.append("class CreateUserRespData {\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
-        sb.append("      mt5Uid: ").append(toIndentedString(mt5Uid)).append("\n");
         sb.append("}");
         return sb.toString();
     }

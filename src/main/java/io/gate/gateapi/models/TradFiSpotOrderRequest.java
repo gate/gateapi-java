@@ -134,7 +134,7 @@ public class TradFiSpotOrderRequest {
     private PriceTypeEnum priceType;
 
     /**
-     * Trading session. Limit orders support only All, while market orders support only Regular.
+     * Trading session. Limit orders support only all, while market orders support only regular.
      */
     @JsonAdapter(TradingSessionEnum.Adapter.class)
     public enum TradingSessionEnum {
@@ -325,7 +325,7 @@ public class TradFiSpotOrderRequest {
     }
 
      /**
-     * Trading session. Limit orders support only All, while market orders support only Regular.
+     * Trading session. Limit orders support only all, while market orders support only regular.
      * @return tradingSession
     **/
     public TradingSessionEnum getTradingSession() {

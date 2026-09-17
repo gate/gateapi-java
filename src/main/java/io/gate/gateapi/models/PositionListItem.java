@@ -28,7 +28,7 @@ public class PositionListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -36,7 +36,9 @@ public class PositionListItem {
         
         HK("hk"),
         
-        KR("kr");
+        KR("kr"),
+        
+        JP("jp");
 
         private String value;
 
@@ -277,7 +279,7 @@ public class PositionListItem {
     }
 
      /**
-     * Exchange, supports us, hk, and kr
+     * Exchange, supports us, hk, kr, and jp
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -377,7 +379,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get symbolDesc
+     * Symbol description
      * @return symbolDesc
     **/
     @javax.annotation.Nullable
@@ -697,7 +699,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get maxOrderVolume
+     * Maximum order quantity
      * @return maxOrderVolume
     **/
     @javax.annotation.Nullable
@@ -717,7 +719,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get stepOrderVolume
+     * Order step size
      * @return stepOrderVolume
     **/
     @javax.annotation.Nullable
@@ -737,7 +739,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get minOrderVolume
+     * Minimum order quantity
      * @return minOrderVolume
     **/
     @javax.annotation.Nullable
@@ -757,7 +759,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get pricePrecision
+     * Price precision
      * @return pricePrecision
     **/
     @javax.annotation.Nullable
@@ -777,7 +779,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get priceProtection
+     * Price protection range
      * @return priceProtection
     **/
     @javax.annotation.Nullable
@@ -797,7 +799,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get sellPriceProtection
+     * Sell price protection rate
      * @return sellPriceProtection
     **/
     @javax.annotation.Nullable
@@ -817,7 +819,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get buyPriceProtection
+     * Buy price protection rate
      * @return buyPriceProtection
     **/
     @javax.annotation.Nullable
@@ -857,7 +859,7 @@ public class PositionListItem {
     }
 
      /**
-     * Get slippageRate
+     * Slippage
      * @return slippageRate
     **/
     @javax.annotation.Nullable

@@ -11,5 +11,8 @@ Name | Type | Description | Notes
 **positionMarketValue** | **String** | Position market value |  [optional]
 **positionPnl** | **String** | Position P&amp;L |  [optional]
 **todayPnl** | **String** | Today&#39;s P&amp;L |  [optional]
+**optionPositionMarketValue** | **String** | Option position market value |  [optional]
+**optionPositionPnl** | **String** | Option position PnL |  [optional]
+**optionTodayPnl** | **String** | Option today&#39;s PnL |  [optional]
 **userExists** | **Boolean** | Whether the user has activated the service |  [optional]
 

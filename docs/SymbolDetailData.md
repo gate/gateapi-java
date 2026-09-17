@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Long** |  |  [optional]
-**totalPage** | **Integer** |  |  [optional]
+**total** | **Long** | Total quantity |  [optional]
+**totalPage** | **Integer** | Total pages |  [optional]
 **list** | [**List&lt;SymbolDetailItem&gt;**](SymbolDetailItem.md) |  |  [optional]
 

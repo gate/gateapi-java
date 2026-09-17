@@ -59,6 +59,61 @@ public class OtcOrderRequest {
     @SerializedName(SERIALIZED_NAME_BANK_ID)
     private String bankId;
 
+    /**
+     * Name used for the remittance. Allowed values depend on the user type: Corporate users: YOU (remit in your company&#39;s name), GATE (remit in Gate&#39;s name), RECIPIENT (remit in the recipient&#39;s name); Individual users: GATE (remit in Gate&#39;s name), PERSON (remit in the user&#39;s own name).
+     */
+    @JsonAdapter(ReceiveTypeEnum.Adapter.class)
+    public enum ReceiveTypeEnum {
+        YOU("YOU"),
+        
+        GATE("GATE"),
+        
+        RECIPIENT("RECIPIENT"),
+        
+        PERSON("PERSON");
+
+        private String value;
+
+        ReceiveTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ReceiveTypeEnum fromValue(String value) {
+            for (ReceiveTypeEnum b : ReceiveTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<ReceiveTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ReceiveTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ReceiveTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return ReceiveTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_RECEIVE_TYPE = "receive_type";
+    @SerializedName(SERIALIZED_NAME_RECEIVE_TYPE)
+    private ReceiveTypeEnum receiveType;
+
 
     public OtcOrderRequest type(String type) {
         
@@ -231,6 +286,26 @@ public class OtcOrderRequest {
     public void setBankId(String bankId) {
         this.bankId = bankId;
     }
+
+    public OtcOrderRequest receiveType(ReceiveTypeEnum receiveType) {
+        
+        this.receiveType = receiveType;
+        return this;
+    }
+
+     /**
+     * Name used for the remittance. Allowed values depend on the user type: Corporate users: YOU (remit in your company&#39;s name), GATE (remit in Gate&#39;s name), RECIPIENT (remit in the recipient&#39;s name); Individual users: GATE (remit in Gate&#39;s name), PERSON (remit in the user&#39;s own name).
+     * @return receiveType
+    **/
+    @javax.annotation.Nullable
+    public ReceiveTypeEnum getReceiveType() {
+        return receiveType;
+    }
+
+
+    public void setReceiveType(ReceiveTypeEnum receiveType) {
+        this.receiveType = receiveType;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -248,12 +323,13 @@ public class OtcOrderRequest {
                 Objects.equals(this.fiatAmount, otcOrderRequest.fiatAmount) &&
                 Objects.equals(this.promotionCode, otcOrderRequest.promotionCode) &&
                 Objects.equals(this.quoteToken, otcOrderRequest.quoteToken) &&
-                Objects.equals(this.bankId, otcOrderRequest.bankId);
+                Objects.equals(this.bankId, otcOrderRequest.bankId) &&
+                Objects.equals(this.receiveType, otcOrderRequest.receiveType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, side, cryptoCurrency, fiatCurrency, cryptoAmount, fiatAmount, promotionCode, quoteToken, bankId);
+        return Objects.hash(type, side, cryptoCurrency, fiatCurrency, cryptoAmount, fiatAmount, promotionCode, quoteToken, bankId, receiveType);
     }
 
 
@@ -270,6 +346,7 @@ public class OtcOrderRequest {
         sb.append("      promotionCode: ").append(toIndentedString(promotionCode)).append("\n");
         sb.append("      quoteToken: ").append(toIndentedString(quoteToken)).append("\n");
         sb.append("      bankId: ").append(toIndentedString(bankId)).append("\n");
+        sb.append("      receiveType: ").append(toIndentedString(receiveType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

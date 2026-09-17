@@ -7,5 +7,5 @@ Order result
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Queue Task ID (not task ID) |  [optional]
+**id** | **String** | Queue Task ID (not order ID) |  [optional]
 

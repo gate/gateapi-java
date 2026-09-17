@@ -749,7 +749,7 @@ public class CrossExApi {
 
     /**
      * Fund Transfer
-     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
+     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported. - When either side of the transfer is &#x60;CROSSEX_LIGHTER&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
      * @param crossexTransferRequest  (optional)
      * @return CrossexTransferResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -766,7 +766,7 @@ public class CrossExApi {
 
     /**
      * Fund Transfer
-     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
+     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported. - When either side of the transfer is &#x60;CROSSEX_LIGHTER&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
      * @param crossexTransferRequest  (optional)
      * @return ApiResponse&lt;CrossexTransferResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -784,7 +784,7 @@ public class CrossExApi {
 
     /**
      * Fund Transfer (asynchronously)
-     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
+     * Rate limit: 10 requests per 10 seconds - In cross-exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;SPOT&#x60;, and the other side must be &#x60;CROSSEX&#x60;.   If &#x60;CROSSEX_${exchange_type}&#x60; (e.g. &#x60;CROSSEX_GATE&#x60;) is provided, it will be automatically treated as &#x60;CROSSEX&#x60;. - In isolated exchange mode, when transferring USDT, either &#x60;from&#x60; or &#x60;to&#x60; must be &#x60;CROSSEX_${exchange_type}&#x60;, and the other side must be &#x60;SPOT&#x60; or &#x60;CROSSEX_${exchange_type}&#x60;.   If &#x60;CROSSEX&#x60; is provided, it will be automatically treated as &#x60;CROSSEX_GATE&#x60;. - When transferring non-USDT assets to or from CrossEx, neither &#x60;from&#x60; nor &#x60;to&#x60; can be &#x60;CROSSEX&#x60;; &#x60;CROSSEX_${exchange_type}&#x60; must be explicitly specified. - When transferring non-USDT assets, transfers between &#x60;CROSSEX_{exchange_type}&#x60; accounts are supported, for example: from &#x3D; &#x60;CROSSEX_BINANCE&#x60;, to &#x3D; &#x60;CROSSEX_GATE&#x60; - When either side of the transfer is &#x60;CROSSEX_KRAKEN&#x60;, only USDT is supported for now. - When either side of the transfer is &#x60;CROSSEX_HYPERLIQUID&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported. - When either side of the transfer is &#x60;CROSSEX_LIGHTER&#x60;, the other side must be &#x60;SPOT&#x60;, and only USDC is supported.
      * @param crossexTransferRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1388,7 +1388,7 @@ public class CrossExApi {
 
     /**
      * Flash Swap Inquiry
-     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
+     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For LIGHTER, swaps between &#x60;LIGHTER_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for LIGHTER. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
      * @param crossexConvertQuoteRequest  (optional)
      * @return CrossexConvertQuoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1405,7 +1405,7 @@ public class CrossExApi {
 
     /**
      * Flash Swap Inquiry
-     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
+     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For LIGHTER, swaps between &#x60;LIGHTER_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for LIGHTER. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
      * @param crossexConvertQuoteRequest  (optional)
      * @return ApiResponse&lt;CrossexConvertQuoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1423,7 +1423,7 @@ public class CrossExApi {
 
     /**
      * Flash Swap Inquiry (asynchronously)
-     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
+     * Rate limit: 100 requests per day For HYPERLIQUID, swaps between &#x60;HYPERLIQUID_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for HYPERLIQUID. For LIGHTER, swaps between &#x60;LIGHTER_USDC&#x60; and &#x60;CROSSEX_USDT&#x60; are supported. Flash Swap in isolated exchange mode is not currently supported for LIGHTER. For KRAKEN, only conversion from &#x60;KRAKEN_USD&#x60; to &#x60;CROSSEX_USDT&#x60; is supported. Flash Swap in isolated exchange mode is not currently supported for KRAKEN.
      * @param crossexConvertQuoteRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1604,7 +1604,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60;). (optional)
+         * @param exchangeType Trading venue identifier. Omit in cross-exchange mode; required in isolated-per-venue mode (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60; / &#x60;LIGHTER&#x60;). (optional)
          * @return APIgetCrossexAccountRequest
          */
         public APIgetCrossexAccountRequest exchangeType(String exchangeType) {
@@ -4890,7 +4890,7 @@ public class CrossExApi {
 
         /**
          * Set exchangeType
-         * @param exchangeType OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT (optional)
+         * @param exchangeType OKX/GATE/BINANCE/BYBIT/KRAKEN/HYPERLIQUID/DERIBIT/LIGHTER (optional)
          * @return APIlistCrossexCoinDiscountRateRequest
          */
         public APIlistCrossexCoinDiscountRateRequest exchangeType(String exchangeType) {

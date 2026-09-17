@@ -47,10 +47,6 @@ public class UserAssetRespData {
     @SerializedName(SERIALIZED_NAME_UNREALIZED_PNL)
     private String unrealizedPnl;
 
-    public static final String SERIALIZED_NAME_MT5_UID = "mt5_uid";
-    @SerializedName(SERIALIZED_NAME_MT5_UID)
-    private String mt5Uid;
-
 
     public UserAssetRespData equity(String equity) {
         
@@ -171,26 +167,6 @@ public class UserAssetRespData {
     public void setUnrealizedPnl(String unrealizedPnl) {
         this.unrealizedPnl = unrealizedPnl;
     }
-
-    public UserAssetRespData mt5Uid(String mt5Uid) {
-        
-        this.mt5Uid = mt5Uid;
-        return this;
-    }
-
-     /**
-     * MT5 userID
-     * @return mt5Uid
-    **/
-    @javax.annotation.Nullable
-    public String getMt5Uid() {
-        return mt5Uid;
-    }
-
-
-    public void setMt5Uid(String mt5Uid) {
-        this.mt5Uid = mt5Uid;
-    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -205,13 +181,12 @@ public class UserAssetRespData {
                 Objects.equals(this.balance, userAssetRespData.balance) &&
                 Objects.equals(this.margin, userAssetRespData.margin) &&
                 Objects.equals(this.marginFree, userAssetRespData.marginFree) &&
-                Objects.equals(this.unrealizedPnl, userAssetRespData.unrealizedPnl) &&
-                Objects.equals(this.mt5Uid, userAssetRespData.mt5Uid);
+                Objects.equals(this.unrealizedPnl, userAssetRespData.unrealizedPnl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(equity, marginLevel, balance, margin, marginFree, unrealizedPnl, mt5Uid);
+        return Objects.hash(equity, marginLevel, balance, margin, marginFree, unrealizedPnl);
     }
 
 
@@ -225,7 +200,6 @@ public class UserAssetRespData {
         sb.append("      margin: ").append(toIndentedString(margin)).append("\n");
         sb.append("      marginFree: ").append(toIndentedString(marginFree)).append("\n");
         sb.append("      unrealizedPnl: ").append(toIndentedString(unrealizedPnl)).append("\n");
-        sb.append("      mt5Uid: ").append(toIndentedString(mt5Uid)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -5,32 +5,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol** | **String** |  |  [optional]
-**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange, supports us, hk, and kr |  [optional]
-**exchangeDesc** | **String** |  |  [optional]
-**quoteCurrency** | **String** |  |  [optional]
-**quoteCurrencyPrecision** | **Integer** |  |  [optional]
+**symbol** | **String** | Symbol |  [optional]
+**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange, supports us, hk, kr, and jp |  [optional]
+**exchangeDesc** | **String** | Exchange description |  [optional]
+**quoteCurrency** | **String** | Quote currency |  [optional]
+**quoteCurrencyPrecision** | **Integer** | Quote currency precision |  [optional]
 **fxRate** | **String** | Quote currency to USD exchange rate |  [optional]
-**symbolDesc** | **String** |  |  [optional]
-**category** | **String** |  |  [optional]
-**settlementCurrency** | **String** |  |  [optional]
-**maxOrderVolume** | **String** |  |  [optional]
-**stepOrderVolume** | **String** |  |  [optional]
-**minOrderVolume** | **String** |  |  [optional]
+**symbolDesc** | **String** | Symbol description |  [optional]
+**category** | [**CategoryEnum**](#CategoryEnum) | Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds. |  [optional]
+**assetType** | [**AssetTypeEnum**](#AssetTypeEnum) | Asset type. - STOCK: Stock. - ETF: Exchange-traded fund. |  [optional]
+**settlementCurrency** | **String** | Settlement currency |  [optional]
+**maxOrderVolume** | **String** | Maximum order quantity |  [optional]
+**stepOrderVolume** | **String** | Order step size |  [optional]
+**minOrderVolume** | **String** | Minimum order quantity |  [optional]
 **pricePrecision** | **Integer** | Price precision |  [optional]
-**volumePrecision** | **Integer** |  |  [optional]
-**isIpo** | **Boolean** |  |  [optional]
-**ipoPrice** | **String** |  |  [optional]
-**priceProtection** | **String** |  |  [optional]
-**sellPriceProtection** | **String** |  |  [optional]
-**buyPriceProtection** | **String** |  |  [optional]
-**slippageRate** | **String** |  |  [optional]
+**volumePrecision** | **Integer** | Quantity precision |  [optional]
+**isIpo** | **Boolean** | Whether it is an IPO symbol |  [optional]
+**ipoPrice** | **String** | IPO price |  [optional]
+**priceProtection** | **String** | Price protection range |  [optional]
+**sellPriceProtection** | **String** | Sell price protection rate |  [optional]
+**buyPriceProtection** | **String** | Buy price protection rate |  [optional]
+**slippageRate** | **String** | Slippage |  [optional]
 **commissionRate** | **String** | Fee Rate |  [optional]
 **tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. |  [optional]
 **tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. |  [optional]
 **orderFillTiming** | [**OrderFillTimingEnum**](#OrderFillTimingEnum) | Order fill timing (1&#x3D;immediate, 2&#x3D;after pre-market opens, 3&#x3D;after regular session opens) |  [optional]
-**symbolDescs** | [**List&lt;SymbolDetailItemSymbolDescs&gt;**](SymbolDetailItemSymbolDescs.md) |  |  [optional]
-**iconLink** | **String** |  |  [optional]
+**symbolDescs** | [**List&lt;SymbolDetailItemSymbolDescs&gt;**](SymbolDetailItemSymbolDescs.md) | Multilingual symbol description |  [optional]
+**iconLink** | **String** | Icon URL |  [optional]
 
 ## Enum: ExchangeEnum
 
@@ -39,6 +40,28 @@ Name | Value
 US | &quot;us&quot;
 HK | &quot;hk&quot;
 KR | &quot;kr&quot;
+JP | &quot;jp&quot;
+
+## Enum: CategoryEnum
+
+Name | Value
+---- | -----
+CS | &quot;CS&quot;
+ETF | &quot;ETF&quot;
+ADRC | &quot;ADRC&quot;
+ADR | &quot;ADR&quot;
+ETV | &quot;ETV&quot;
+PFD | &quot;PFD&quot;
+ETS | &quot;ETS&quot;
+ETN | &quot;ETN&quot;
+FUND | &quot;FUND&quot;
+
+## Enum: AssetTypeEnum
+
+Name | Value
+---- | -----
+STOCK | &quot;STOCK&quot;
+ETF | &quot;ETF&quot;
 
 ## Enum: TradeStatusEnum
 

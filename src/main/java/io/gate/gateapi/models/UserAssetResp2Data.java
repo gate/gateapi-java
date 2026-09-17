@@ -47,6 +47,18 @@ public class UserAssetResp2Data {
     @SerializedName(SERIALIZED_NAME_TODAY_PNL)
     private String todayPnl;
 
+    public static final String SERIALIZED_NAME_OPTION_POSITION_MARKET_VALUE = "option_position_market_value";
+    @SerializedName(SERIALIZED_NAME_OPTION_POSITION_MARKET_VALUE)
+    private String optionPositionMarketValue;
+
+    public static final String SERIALIZED_NAME_OPTION_POSITION_PNL = "option_position_pnl";
+    @SerializedName(SERIALIZED_NAME_OPTION_POSITION_PNL)
+    private String optionPositionPnl;
+
+    public static final String SERIALIZED_NAME_OPTION_TODAY_PNL = "option_today_pnl";
+    @SerializedName(SERIALIZED_NAME_OPTION_TODAY_PNL)
+    private String optionTodayPnl;
+
     public static final String SERIALIZED_NAME_USER_EXISTS = "user_exists";
     @SerializedName(SERIALIZED_NAME_USER_EXISTS)
     private Boolean userExists;
@@ -172,6 +184,66 @@ public class UserAssetResp2Data {
         this.todayPnl = todayPnl;
     }
 
+    public UserAssetResp2Data optionPositionMarketValue(String optionPositionMarketValue) {
+        
+        this.optionPositionMarketValue = optionPositionMarketValue;
+        return this;
+    }
+
+     /**
+     * Option position market value
+     * @return optionPositionMarketValue
+    **/
+    @javax.annotation.Nullable
+    public String getOptionPositionMarketValue() {
+        return optionPositionMarketValue;
+    }
+
+
+    public void setOptionPositionMarketValue(String optionPositionMarketValue) {
+        this.optionPositionMarketValue = optionPositionMarketValue;
+    }
+
+    public UserAssetResp2Data optionPositionPnl(String optionPositionPnl) {
+        
+        this.optionPositionPnl = optionPositionPnl;
+        return this;
+    }
+
+     /**
+     * Option position PnL
+     * @return optionPositionPnl
+    **/
+    @javax.annotation.Nullable
+    public String getOptionPositionPnl() {
+        return optionPositionPnl;
+    }
+
+
+    public void setOptionPositionPnl(String optionPositionPnl) {
+        this.optionPositionPnl = optionPositionPnl;
+    }
+
+    public UserAssetResp2Data optionTodayPnl(String optionTodayPnl) {
+        
+        this.optionTodayPnl = optionTodayPnl;
+        return this;
+    }
+
+     /**
+     * Option today&#39;s PnL
+     * @return optionTodayPnl
+    **/
+    @javax.annotation.Nullable
+    public String getOptionTodayPnl() {
+        return optionTodayPnl;
+    }
+
+
+    public void setOptionTodayPnl(String optionTodayPnl) {
+        this.optionTodayPnl = optionTodayPnl;
+    }
+
     public UserAssetResp2Data userExists(Boolean userExists) {
         
         this.userExists = userExists;
@@ -206,12 +278,15 @@ public class UserAssetResp2Data {
                 Objects.equals(this.positionMarketValue, userAssetResp2Data.positionMarketValue) &&
                 Objects.equals(this.positionPnl, userAssetResp2Data.positionPnl) &&
                 Objects.equals(this.todayPnl, userAssetResp2Data.todayPnl) &&
+                Objects.equals(this.optionPositionMarketValue, userAssetResp2Data.optionPositionMarketValue) &&
+                Objects.equals(this.optionPositionPnl, userAssetResp2Data.optionPositionPnl) &&
+                Objects.equals(this.optionTodayPnl, userAssetResp2Data.optionTodayPnl) &&
                 Objects.equals(this.userExists, userAssetResp2Data.userExists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(equity, balance, available, positionMarketValue, positionPnl, todayPnl, userExists);
+        return Objects.hash(equity, balance, available, positionMarketValue, positionPnl, todayPnl, optionPositionMarketValue, optionPositionPnl, optionTodayPnl, userExists);
     }
 
 
@@ -225,6 +300,9 @@ public class UserAssetResp2Data {
         sb.append("      positionMarketValue: ").append(toIndentedString(positionMarketValue)).append("\n");
         sb.append("      positionPnl: ").append(toIndentedString(positionPnl)).append("\n");
         sb.append("      todayPnl: ").append(toIndentedString(todayPnl)).append("\n");
+        sb.append("      optionPositionMarketValue: ").append(toIndentedString(optionPositionMarketValue)).append("\n");
+        sb.append("      optionPositionPnl: ").append(toIndentedString(optionPositionPnl)).append("\n");
+        sb.append("      optionTodayPnl: ").append(toIndentedString(optionTodayPnl)).append("\n");
         sb.append("      userExists: ").append(toIndentedString(userExists)).append("\n");
         sb.append("}");
         return sb.toString();

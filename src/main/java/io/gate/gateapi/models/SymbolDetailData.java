@@ -46,7 +46,7 @@ public class SymbolDetailData {
     }
 
      /**
-     * Get total
+     * Total quantity
      * @return total
     **/
     @javax.annotation.Nullable
@@ -66,7 +66,7 @@ public class SymbolDetailData {
     }
 
      /**
-     * Get totalPage
+     * Total pages
      * @return totalPage
     **/
     @javax.annotation.Nullable

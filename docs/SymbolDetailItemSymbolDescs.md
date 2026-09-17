@@ -5,6 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lang** | **String** |  |  [optional]
-**value** | **String** |  |  [optional]
+**lang** | **String** | Language |  [optional]
+**value** | **String** | Localized description |  [optional]
 
