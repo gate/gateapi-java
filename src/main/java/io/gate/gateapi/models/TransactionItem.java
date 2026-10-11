@@ -239,7 +239,7 @@ public class TransactionItem {
     }
 
      /**
-     * Change amount
+     * Change amount. A positive value means a credit, and a negative value means a debit.
      * @return change
     **/
     @javax.annotation.Nullable

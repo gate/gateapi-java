@@ -331,7 +331,7 @@ public class SymbolDetailItem {
     private TradeStatusEnum tradeStatus;
 
     /**
-     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported.
+     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).
      */
     @JsonAdapter(TradeModeEnum.Adapter.class)
     public enum TradeModeEnum {
@@ -341,7 +341,15 @@ public class SymbolDetailItem {
         
         NUMBER_2(2),
         
-        NUMBER_4(4);
+        NUMBER_4(4),
+        
+        NUMBER_5(5),
+        
+        NUMBER_6(6),
+        
+        NUMBER_7(7),
+        
+        NUMBER_8(8);
 
         private Integer value;
 
@@ -914,7 +922,7 @@ public class SymbolDetailItem {
     }
 
      /**
-     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported.
+     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).
      * @return tradeMode
     **/
     @javax.annotation.Nullable

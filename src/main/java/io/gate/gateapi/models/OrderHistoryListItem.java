@@ -150,9 +150,70 @@ public class OrderHistoryListItem {
     @SerializedName(SERIALIZED_NAME_PRICE_TYPE)
     private PriceTypeEnum priceType;
 
+    /**
+     * Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.
+     */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1),
+        
+        NUMBER_2(2),
+        
+        NUMBER_3(3),
+        
+        NUMBER_4(4),
+        
+        NUMBER_5(5),
+        
+        NUMBER_6(6),
+        
+        NUMBER_7(7),
+        
+        NUMBER_8(8);
+
+        private Integer value;
+
+        StatusEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(Integer value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
-    private Integer status;
+    private StatusEnum status;
 
     public static final String SERIALIZED_NAME_STATUS_DESC = "status_desc";
     @SerializedName(SERIALIZED_NAME_STATUS_DESC)
@@ -162,9 +223,74 @@ public class OrderHistoryListItem {
     @SerializedName(SERIALIZED_NAME_STATUS_DETAIL)
     private OrderHistoryListItemStatusDetail statusDetail;
 
+    /**
+     * Order completion reason. - 0: Unknown. - 1: No quote found. - 2: No match found. - 3: Trigger price exceeded. - 4: Order value exceeds the limit. - 5: Unknown rejection. - 6: Unknown cancellation. - 7: Canceled by user. - 8: Canceled after the order time in force expired. - 9: Trading is not supported in the current session. - 13: Canceled due to corporate action.
+     */
+    @JsonAdapter(FinishAsEnum.Adapter.class)
+    public enum FinishAsEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1),
+        
+        NUMBER_2(2),
+        
+        NUMBER_3(3),
+        
+        NUMBER_4(4),
+        
+        NUMBER_5(5),
+        
+        NUMBER_6(6),
+        
+        NUMBER_7(7),
+        
+        NUMBER_8(8),
+        
+        NUMBER_9(9),
+        
+        NUMBER_13(13);
+
+        private Integer value;
+
+        FinishAsEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static FinishAsEnum fromValue(Integer value) {
+            for (FinishAsEnum b : FinishAsEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<FinishAsEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final FinishAsEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public FinishAsEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return FinishAsEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_FINISH_AS = "finish_as";
     @SerializedName(SERIALIZED_NAME_FINISH_AS)
-    private Integer finishAs;
+    private FinishAsEnum finishAs;
 
     /**
      * Side (1&#x3D;sell, 2&#x3D;buy)
@@ -435,23 +561,23 @@ public class OrderHistoryListItem {
         this.priceType = priceType;
     }
 
-    public OrderHistoryListItem status(Integer status) {
+    public OrderHistoryListItem status(StatusEnum status) {
         
         this.status = status;
         return this;
     }
 
      /**
-     * Order status
+     * Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.
      * @return status
     **/
     @javax.annotation.Nullable
-    public Integer getStatus() {
+    public StatusEnum getStatus() {
         return status;
     }
 
 
-    public void setStatus(Integer status) {
+    public void setStatus(StatusEnum status) {
         this.status = status;
     }
 
@@ -495,23 +621,23 @@ public class OrderHistoryListItem {
         this.statusDetail = statusDetail;
     }
 
-    public OrderHistoryListItem finishAs(Integer finishAs) {
+    public OrderHistoryListItem finishAs(FinishAsEnum finishAs) {
         
         this.finishAs = finishAs;
         return this;
     }
 
      /**
-     * Order completion reason
+     * Order completion reason. - 0: Unknown. - 1: No quote found. - 2: No match found. - 3: Trigger price exceeded. - 4: Order value exceeds the limit. - 5: Unknown rejection. - 6: Unknown cancellation. - 7: Canceled by user. - 8: Canceled after the order time in force expired. - 9: Trading is not supported in the current session. - 13: Canceled due to corporate action.
      * @return finishAs
     **/
     @javax.annotation.Nullable
-    public Integer getFinishAs() {
+    public FinishAsEnum getFinishAs() {
         return finishAs;
     }
 
 
-    public void setFinishAs(Integer finishAs) {
+    public void setFinishAs(FinishAsEnum finishAs) {
         this.finishAs = finishAs;
     }
 

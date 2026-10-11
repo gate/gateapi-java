@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **category** | [**CategoryEnum**](#CategoryEnum) | Symbol category. - CS: Common stock. - ETF: Exchange-traded funds. - ADRC, ADR: Depositary receipts for foreign companies listed in the U.S. - ETV: Exchange-traded products. - PFD: Preferred stock. - ETS: Exchange-traded securities. - ETN: Exchange-traded notes. - FUND: Funds. |  [optional]
 **assetType** | [**AssetTypeEnum**](#AssetTypeEnum) | Asset type. - STOCK: Stock. - ETF: Exchange-traded fund. |  [optional]
 **tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. |  [optional]
-**tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. |  [optional]
+**tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt). |  [optional]
 **orderFillTiming** | [**OrderFillTimingEnum**](#OrderFillTimingEnum) | Order fill timing (1&#x3D;immediate, 2&#x3D;after pre-market opens, 3&#x3D;after regular session opens) |  [optional]
 **iconLink** | **String** | Icon URL |  [optional]
 **quoteCurrencySymbol** | **String** | Quote currency symbol |  [optional]
@@ -75,6 +75,10 @@ NUMBER_0 | 0
 NUMBER_1 | 1
 NUMBER_2 | 2
 NUMBER_4 | 4
+NUMBER_5 | 5
+NUMBER_6 | 6
+NUMBER_7 | 7
+NUMBER_8 | 8
 
 ## Enum: OrderFillTimingEnum
 

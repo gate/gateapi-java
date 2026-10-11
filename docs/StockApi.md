@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 
 Query transaction records
 
-Rate limit: 5 qps.
+Rate limit: 5 qps. Query stock account transaction records, including fund transfers, trades, fees, dividends, rewards, and stock transfers.
 
 ### Example
 
@@ -955,7 +955,7 @@ public class Example {
         Long beginTime = 1769378400L; // Long | Start time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be >= begin_time, query range must not exceed 3 months.
         Long endTime = 1769464800L; // Long | End time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be >= begin_time, query range must not exceed 3 months.
         String refId = "transfer-202607070001"; // String | Business idempotent ID. When ref_id is provided, the server queries by ref_id, ignoring other parameters such as begin_time, end_time, type, page, page_size
-        String type = "deposit"; // String | Transaction type
+        String type = "deposit"; // String | 流水类型。 - deposit: 资金转入，从现货账户转入到股票账户。 - withdraw: 资金转出，从股票账户转出到现货账户。 - fee: 交易手续费。 - dividend: 分红派息。 - sell: 卖出股票入账。 - buy: 买入股票出账。 - award: 空投奖励。 - stock_transfer_in: 股票转入。 - stock_transfer_out: 股票转出。
         Integer page = 1; // Integer | Page number, defaults to 1
         Integer pageSize = 100; // Integer | Page size, defaults to 10, max 500; server caps at 500
         try {
@@ -988,7 +988,7 @@ Name | Type | Description  | Notes
  **beginTime** | **Long**| Start time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be &gt;&#x3D; begin_time, query range must not exceed 3 months. | [optional]
  **endTime** | **Long**| End time (Unix timestamp, seconds). When both begin_time and end_time are provided, end_time must be &gt;&#x3D; begin_time, query range must not exceed 3 months. | [optional]
  **refId** | **String**| Business idempotent ID. When ref_id is provided, the server queries by ref_id, ignoring other parameters such as begin_time, end_time, type, page, page_size | [optional]
- **type** | **String**| Transaction type | [optional] [enum: deposit, withdraw, fee, dividend, sell, buy, award, stock_transfer_in, stock_transfer_out]
+ **type** | **String**| 流水类型。 - deposit: 资金转入，从现货账户转入到股票账户。 - withdraw: 资金转出，从股票账户转出到现货账户。 - fee: 交易手续费。 - dividend: 分红派息。 - sell: 卖出股票入账。 - buy: 买入股票出账。 - award: 空投奖励。 - stock_transfer_in: 股票转入。 - stock_transfer_out: 股票转出。 | [optional] [enum: deposit, withdraw, fee, dividend, sell, buy, award, stock_transfer_in, stock_transfer_out]
  **page** | **Integer**| Page number, defaults to 1 | [optional]
  **pageSize** | **Integer**| Page size, defaults to 10, max 500; server caps at 500 | [optional]
 
@@ -1017,7 +1017,7 @@ Name | Type | Description  | Notes
 
 Fund transfer
 
-Rate limit: 5 qps.
+Rate limit: 5 qps. Fund transfer moves USDT between the spot account and the stock account. - deposit: transfer from the spot account to the stock account. - withdraw: transfer from the stock account to the spot account.
 
 ### Example
 
@@ -1087,6 +1087,8 @@ Name | Type | Description  | Notes
 > Exchanges queryStockExchanges()
 
 Query supported exchanges
+
+Query stock spot supported exchanges and whether stock transfers are supported. Rate limit: 5 qps.
 
 ### Example
 

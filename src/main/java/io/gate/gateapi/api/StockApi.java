@@ -1994,7 +1994,7 @@ public class StockApi {
 
         /**
          * Set type
-         * @param type Transaction type (optional)
+         * @param type 流水类型。 - deposit: 资金转入，从现货账户转入到股票账户。 - withdraw: 资金转出，从股票账户转出到现货账户。 - fee: 交易手续费。 - dividend: 分红派息。 - sell: 卖出股票入账。 - buy: 买入股票出账。 - award: 空投奖励。 - stock_transfer_in: 股票转入。 - stock_transfer_out: 股票转出。 (optional)
          * @return APIqueryStockTransactionsRequest
          */
         public APIqueryStockTransactionsRequest type(String type) {
@@ -2088,7 +2088,7 @@ public class StockApi {
 
     /**
      * Query transaction records
-     * Rate limit: 5 qps.
+     * Rate limit: 5 qps. Query stock account transaction records, including fund transfers, trades, fees, dividends, rewards, and stock transfers.
      * @return APIqueryStockTransactionsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2156,7 +2156,7 @@ public class StockApi {
 
     /**
      * Fund transfer
-     * Rate limit: 5 qps.
+     * Rate limit: 5 qps. Fund transfer moves USDT between the spot account and the stock account. - deposit: transfer from the spot account to the stock account. - withdraw: transfer from the stock account to the spot account.
      * @param tradFiSpotTransactionRequest  (required)
      * @return CreateTransaction2
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2174,7 +2174,7 @@ public class StockApi {
 
     /**
      * Fund transfer
-     * Rate limit: 5 qps.
+     * Rate limit: 5 qps. Fund transfer moves USDT between the spot account and the stock account. - deposit: transfer from the spot account to the stock account. - withdraw: transfer from the stock account to the spot account.
      * @param tradFiSpotTransactionRequest  (required)
      * @return ApiResponse&lt;CreateTransaction2&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2193,7 +2193,7 @@ public class StockApi {
 
     /**
      * Fund transfer (asynchronously)
-     * Rate limit: 5 qps.
+     * Rate limit: 5 qps. Fund transfer moves USDT between the spot account and the stock account. - deposit: transfer from the spot account to the stock account. - withdraw: transfer from the stock account to the spot account.
      * @param tradFiSpotTransactionRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2261,7 +2261,7 @@ public class StockApi {
 
     /**
      * Query supported exchanges
-     * 
+     * Query stock spot supported exchanges and whether stock transfers are supported. Rate limit: 5 qps.
      * @return Exchanges
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2278,7 +2278,7 @@ public class StockApi {
 
     /**
      * Query supported exchanges
-     * 
+     * Query stock spot supported exchanges and whether stock transfers are supported. Rate limit: 5 qps.
      * @return ApiResponse&lt;Exchanges&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2296,7 +2296,7 @@ public class StockApi {
 
     /**
      * Query supported exchanges (asynchronously)
-     * 
+     * Query stock spot supported exchanges and whether stock transfers are supported. Rate limit: 5 qps.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

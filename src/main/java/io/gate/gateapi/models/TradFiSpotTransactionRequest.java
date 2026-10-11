@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Transfer request parameters
+ * Fund transfer request parameters. Transfer in means moving funds from the spot account to the stock account; transfer out means moving funds from the stock account to the spot account.
  */
 public class TradFiSpotTransactionRequest {
     /**
@@ -77,7 +77,7 @@ public class TradFiSpotTransactionRequest {
     private String change;
 
     /**
-     * Transaction type (deposit&#x3D;deposit, withdraw&#x3D;withdrawal)
+     * Transaction type. deposit transfers funds from the spot account to the stock account; withdraw transfers funds from the stock account to the spot account.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -158,7 +158,7 @@ public class TradFiSpotTransactionRequest {
     }
 
      /**
-     * Change amount
+     * Change amount, must be greater than 0
      * @return change
     **/
     public String getChange() {
@@ -177,7 +177,7 @@ public class TradFiSpotTransactionRequest {
     }
 
      /**
-     * Transaction type (deposit&#x3D;deposit, withdraw&#x3D;withdrawal)
+     * Transaction type. deposit transfers funds from the spot account to the stock account; withdraw transfers funds from the stock account to the spot account.
      * @return type
     **/
     public TypeEnum getType() {

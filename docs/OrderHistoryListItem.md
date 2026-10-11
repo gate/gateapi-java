@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **fxRate** | **String** | Quote currency to USD exchange rate |  [optional]
 **symbolDesc** | **String** | Symbol description |  [optional]
 **priceType** | [**PriceTypeEnum**](#PriceTypeEnum) | Price type (market &#x3D; market order, limit &#x3D; limit order) |  [optional]
-**status** | **Integer** | Order status |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected. |  [optional]
 **statusDesc** | **String** | Order status description |  [optional]
 **statusDetail** | [**OrderHistoryListItemStatusDetail**](OrderHistoryListItemStatusDetail.md) |  |  [optional]
-**finishAs** | **Integer** | Order completion reason |  [optional]
+**finishAs** | [**FinishAsEnum**](#FinishAsEnum) | Order completion reason. - 0: Unknown. - 1: No quote found. - 2: No match found. - 3: Trigger price exceeded. - 4: Order value exceeds the limit. - 5: Unknown rejection. - 6: Unknown cancellation. - 7: Canceled by user. - 8: Canceled after the order time in force expired. - 9: Trading is not supported in the current session. - 13: Canceled due to corporate action. |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Side (1&#x3D;sell, 2&#x3D;buy) |  [optional]
 **timeInForce** | [**TimeInForceEnum**](#TimeInForceEnum) | Time in force. - day: Day order. |  [optional]
 **volume** | **String** | Order quantity |  [optional]
@@ -41,6 +41,36 @@ Name | Value
 ---- | -----
 MARKET | &quot;market&quot;
 LIMIT | &quot;limit&quot;
+
+## Enum: StatusEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
+NUMBER_3 | 3
+NUMBER_4 | 4
+NUMBER_5 | 5
+NUMBER_6 | 6
+NUMBER_7 | 7
+NUMBER_8 | 8
+
+## Enum: FinishAsEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
+NUMBER_3 | 3
+NUMBER_4 | 4
+NUMBER_5 | 5
+NUMBER_6 | 6
+NUMBER_7 | 7
+NUMBER_8 | 8
+NUMBER_9 | 9
+NUMBER_13 | 13
 
 ## Enum: SideEnum
 

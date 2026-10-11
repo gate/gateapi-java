@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **fxRate** | **String** | Quote currency to USD exchange rate |  [optional]
 **symbolDesc** | **String** | Symbol description |  [optional]
 **tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. |  [optional]
-**tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. |  [optional]
+**tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt). |  [optional]
 **priceType** | [**PriceTypeEnum**](#PriceTypeEnum) | Price type (market &#x3D; market order, limit &#x3D; limit order) |  [optional]
 **side** | [**SideEnum**](#SideEnum) | Side (1&#x3D;sell, 2&#x3D;buy) |  [optional]
-**status** | **Integer** | Order status |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected. |  [optional]
 **volume** | **String** | Order quantity |  [optional]
 **fillVolume** | **String** | Trading size |  [optional]
 **price** | **String** | Order price |  [optional]
@@ -58,6 +58,10 @@ NUMBER_0 | 0
 NUMBER_1 | 1
 NUMBER_2 | 2
 NUMBER_4 | 4
+NUMBER_5 | 5
+NUMBER_6 | 6
+NUMBER_7 | 7
+NUMBER_8 | 8
 
 ## Enum: PriceTypeEnum
 
@@ -72,4 +76,18 @@ Name | Value
 ---- | -----
 NUMBER_1 | 1
 NUMBER_2 | 2
+
+## Enum: StatusEnum
+
+Name | Value
+---- | -----
+NUMBER_0 | 0
+NUMBER_1 | 1
+NUMBER_2 | 2
+NUMBER_3 | 3
+NUMBER_4 | 4
+NUMBER_5 | 5
+NUMBER_6 | 6
+NUMBER_7 | 7
+NUMBER_8 | 8
 

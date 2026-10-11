@@ -156,7 +156,7 @@ public class OrderListItem {
     private TradeStatusEnum tradeStatus;
 
     /**
-     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported.
+     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).
      */
     @JsonAdapter(TradeModeEnum.Adapter.class)
     public enum TradeModeEnum {
@@ -166,7 +166,15 @@ public class OrderListItem {
         
         NUMBER_2(2),
         
-        NUMBER_4(4);
+        NUMBER_4(4),
+        
+        NUMBER_5(5),
+        
+        NUMBER_6(6),
+        
+        NUMBER_7(7),
+        
+        NUMBER_8(8);
 
         private Integer value;
 
@@ -312,9 +320,70 @@ public class OrderListItem {
     @SerializedName(SERIALIZED_NAME_SIDE)
     private SideEnum side;
 
+    /**
+     * Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.
+     */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        NUMBER_0(0),
+        
+        NUMBER_1(1),
+        
+        NUMBER_2(2),
+        
+        NUMBER_3(3),
+        
+        NUMBER_4(4),
+        
+        NUMBER_5(5),
+        
+        NUMBER_6(6),
+        
+        NUMBER_7(7),
+        
+        NUMBER_8(8);
+
+        private Integer value;
+
+        StatusEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(Integer value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_STATUS = "status";
     @SerializedName(SERIALIZED_NAME_STATUS)
-    private Integer status;
+    private StatusEnum status;
 
     public static final String SERIALIZED_NAME_VOLUME = "volume";
     @SerializedName(SERIALIZED_NAME_VOLUME)
@@ -520,7 +589,7 @@ public class OrderListItem {
     }
 
      /**
-     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported.
+     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).
      * @return tradeMode
     **/
     @javax.annotation.Nullable
@@ -573,23 +642,23 @@ public class OrderListItem {
         this.side = side;
     }
 
-    public OrderListItem status(Integer status) {
+    public OrderListItem status(StatusEnum status) {
         
         this.status = status;
         return this;
     }
 
      /**
-     * Order status
+     * Order status. - 0: Unknown. - 1: New order; the order has been validated and is waiting to be processed. - 2: Partially filled. - 3: Filled. - 4: Canceled. - 5: Order rejected. - 6: Cancellation rejected. - 7: Order update succeeded. - 8: Order update rejected.
      * @return status
     **/
     @javax.annotation.Nullable
-    public Integer getStatus() {
+    public StatusEnum getStatus() {
         return status;
     }
 
 
-    public void setStatus(Integer status) {
+    public void setStatus(StatusEnum status) {
         this.status = status;
     }
 
