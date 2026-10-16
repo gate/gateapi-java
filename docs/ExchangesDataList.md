@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Trading market, supports us, hk, kr, and jp |  [optional]
+**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Trading market. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. |  [optional]
 **exchangeDesc** | **String** | Market display name |  [optional]
 **iconLink** | **String** | Market icon |  [optional]
 **supportTransfer** | **Boolean** | Whether stock transfer is supported |  [optional]

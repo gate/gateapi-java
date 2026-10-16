@@ -87,6 +87,10 @@ public class Symbol {
     @SerializedName(SERIALIZED_NAME_SUPPORT_CROSS)
     private String supportCross;
 
+    public static final String SERIALIZED_NAME_TAG = "tag";
+    @SerializedName(SERIALIZED_NAME_TAG)
+    private String tag;
+
 
     public Symbol symbol(String symbol) {
         
@@ -95,7 +99,7 @@ public class Symbol {
     }
 
      /**
-     * Unique trading pair identifier in the form ExchangeType_BusinessType_Base_Counter.
+     * Unique trading pair identifier in the format ExchangeType_BusinessType_Base_Counter. Stocks and ETFs use the market as ExchangeType (US/HK/KR/JP) and STOCK or ETF as the business type, for example US_STOCK_AAPL_USDT, HK_STOCK_00700_USDT, or US_ETF_SPY_USDT.
      * @return symbol
     **/
     public String getSymbol() {
@@ -114,7 +118,7 @@ public class Symbol {
     }
 
      /**
-     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60; / &#x60;LIGHTER&#x60;).
+     * Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP)
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -133,7 +137,7 @@ public class Symbol {
     }
 
      /**
-     * Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin).
+     * Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / STOCK: stocks / ETF: exchange-traded funds)
      * @return businessType
     **/
     public String getBusinessType() {
@@ -393,6 +397,25 @@ public class Symbol {
     public void setSupportCross(String supportCross) {
         this.supportCross = supportCross;
     }
+
+    public Symbol tag(String tag) {
+        
+        this.tag = tag;
+        return this;
+    }
+
+     /**
+     * Tag information. Hyperliquid returns DEX information, stocks and ETFs return the security description, and other businesses return an empty string
+     * @return tag
+    **/
+    public String getTag() {
+        return tag;
+    }
+
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -417,12 +440,13 @@ public class Symbol {
                 Objects.equals(this.liquidationFee, symbol.liquidationFee) &&
                 Objects.equals(this.delistTime, symbol.delistTime) &&
                 Objects.equals(this.supportRpi, symbol.supportRpi) &&
-                Objects.equals(this.supportCross, symbol.supportCross);
+                Objects.equals(this.supportCross, symbol.supportCross) &&
+                Objects.equals(this.tag, symbol.tag);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchangeType, businessType, state, minSize, minNotional, lotSize, tickSize, maxNumOrders, maxMarketSize, maxLimitSize, contractSize, liquidationFee, delistTime, supportRpi, supportCross);
+        return Objects.hash(symbol, exchangeType, businessType, state, minSize, minNotional, lotSize, tickSize, maxNumOrders, maxMarketSize, maxLimitSize, contractSize, liquidationFee, delistTime, supportRpi, supportCross, tag);
     }
 
 
@@ -446,6 +470,7 @@ public class Symbol {
         sb.append("      delistTime: ").append(toIndentedString(delistTime)).append("\n");
         sb.append("      supportRpi: ").append(toIndentedString(supportRpi)).append("\n");
         sb.append("      supportCross: ").append(toIndentedString(supportCross)).append("\n");
+        sb.append("      tag: ").append(toIndentedString(tag)).append("\n");
         sb.append("}");
         return sb.toString();
     }

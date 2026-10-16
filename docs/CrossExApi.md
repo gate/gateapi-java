@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**getCrossexInterestRate**](CrossExApi.md#getCrossexInterestRate) | **GET** /crossex/interest_rate | Query margin asset interest rates
 [**getCrossexFee**](CrossExApi.md#getCrossexFee) | **GET** /crossex/fee | Query User Fee Rates
 [**listCrossexPositions**](CrossExApi.md#listCrossexPositions) | **GET** /crossex/positions | Query Contract Positions
+[**listCrossexSecurityPositions**](CrossExApi.md#listCrossexSecurityPositions) | **GET** /crossex/security_positions | List security positions
 [**listCrossexMarginPositions**](CrossExApi.md#listCrossexMarginPositions) | **GET** /crossex/margin_positions | Query Leveraged Positions
 [**listCrossexAdlRank**](CrossExApi.md#listCrossexAdlRank) | **GET** /crossex/adl_rank | Query ADL Position Reduction Ranking
 [**listCrossexOpenOrders**](CrossExApi.md#listCrossexOpenOrders) | **GET** /crossex/open_orders | Query All Current Open Orders
@@ -49,7 +50,7 @@ Method | HTTP request | Description
 
 Query symbol information
 
-Query Trading Pair Information
+List trading pair information. Stock and ETF symbols use &#x60;{market}_{business_type}_{security_code}_USDT&#x60;, for example &#x60;US_STOCK_AAPL_USDT&#x60;, &#x60;HK_STOCK_00700_USDT&#x60;, or &#x60;US_ETF_SPY_USDT&#x60;.
 
 ### Example
 
@@ -68,7 +69,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         CrossExApi apiInstance = new CrossExApi(defaultClient);
-        String symbols = "symbols_example"; // String | List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT
+        String symbols = "symbols_example"; // String | Comma-separated list of trading pairs Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT,US_STOCK_AAPL_USDT
         try {
             List<Symbol> result = apiInstance.listCrossexRuleSymbols()
                         .symbols(symbols)
@@ -91,7 +92,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **String**| List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT | [optional]
+ **symbols** | **String**| Comma-separated list of trading pairs Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT,US_STOCK_AAPL_USDT | [optional]
 
 ### Return type
 
@@ -408,7 +409,7 @@ Name | Type | Description  | Notes
 
 Create order
 
-Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
+Rate limit: 100 requests per 10 seconds; each user may have up to 1,000 open orders. Stocks and ETFs have an additional per-user limit of one request per second and support only cross-exchange account mode and GTC. Stock and ETF orders must use qty; quote_qty is not supported. Stock and ETF order prices use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
 
 ### Example
 
@@ -1801,6 +1802,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;CrossexPosition&gt;**](CrossexPosition.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  |  -  |
+
+<a name="listCrossexSecurityPositions"></a>
+# **listCrossexSecurityPositions**
+> List&lt;CrossexSecurityPosition&gt; listCrossexSecurityPositions().symbol(symbol).exchangeType(exchangeType).execute();
+
+List security positions
+
+List stock and ETF positions. Rate limit: 200 requests per 10 seconds. Prices, position values, and unrealized profit and loss use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.CrossExApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        CrossExApi apiInstance = new CrossExApi(defaultClient);
+        String symbol = "US_STOCK_AAPL_USDT"; // String | Stock or ETF trading pair
+        String exchangeType = "US"; // String | Stock market (US/HK/KR/JP)
+        try {
+            List<CrossexSecurityPosition> result = apiInstance.listCrossexSecurityPositions()
+                        .symbol(symbol)
+                        .exchangeType(exchangeType)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CrossExApi#listCrossexSecurityPositions");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | **String**| Stock or ETF trading pair | [optional]
+ **exchangeType** | **String**| Stock market (US/HK/KR/JP) | [optional]
+
+### Return type
+
+[**List&lt;CrossexSecurityPosition&gt;**](CrossexSecurityPosition.md)
 
 ### Authorization
 

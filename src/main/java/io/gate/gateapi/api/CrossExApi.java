@@ -50,6 +50,7 @@ import io.gate.gateapi.models.CrossexOrderRequest;
 import io.gate.gateapi.models.CrossexOrderUpdateRequest;
 import io.gate.gateapi.models.CrossexPosition;
 import io.gate.gateapi.models.CrossexRiskLimit;
+import io.gate.gateapi.models.CrossexSecurityPosition;
 import io.gate.gateapi.models.CrossexTrade;
 import io.gate.gateapi.models.CrossexTransferCoin;
 import io.gate.gateapi.models.CrossexTransferRecord;
@@ -146,7 +147,7 @@ public class CrossExApi {
 
         /**
          * Set symbols
-         * @param symbols List of trading pairs, comma-separated. Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT (optional)
+         * @param symbols Comma-separated list of trading pairs Example: BINANCE_FUTURE_ADA_USDT,OKX_FUTURE_ADA_USDT,US_STOCK_AAPL_USDT (optional)
          * @return APIlistCrossexRuleSymbolsRequest
          */
         public APIlistCrossexRuleSymbolsRequest symbols(String symbols) {
@@ -216,7 +217,7 @@ public class CrossExApi {
 
     /**
      * Query symbol information
-     * Query Trading Pair Information
+     * List trading pair information. Stock and ETF symbols use &#x60;{market}_{business_type}_{security_code}_USDT&#x60;, for example &#x60;US_STOCK_AAPL_USDT&#x60;, &#x60;HK_STOCK_00700_USDT&#x60;, or &#x60;US_ETF_SPY_USDT&#x60;.
      * @return APIlistCrossexRuleSymbolsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -851,7 +852,7 @@ public class CrossExApi {
 
     /**
      * Create order
-     * Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
+     * Rate limit: 100 requests per 10 seconds; each user may have up to 1,000 open orders. Stocks and ETFs have an additional per-user limit of one request per second and support only cross-exchange account mode and GTC. Stock and ETF orders must use qty; quote_qty is not supported. Stock and ETF order prices use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
      * @param crossexOrderRequest  (optional)
      * @return CrossexOrderActionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -868,7 +869,7 @@ public class CrossExApi {
 
     /**
      * Create order
-     * Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
+     * Rate limit: 100 requests per 10 seconds; each user may have up to 1,000 open orders. Stocks and ETFs have an additional per-user limit of one request per second and support only cross-exchange account mode and GTC. Stock and ETF orders must use qty; quote_qty is not supported. Stock and ETF order prices use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
      * @param crossexOrderRequest  (optional)
      * @return ApiResponse&lt;CrossexOrderActionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -886,7 +887,7 @@ public class CrossExApi {
 
     /**
      * Create order (asynchronously)
-     * Rate Limit: 100 requests per 10 seconds, maximum 1,000 open orders per user
+     * Rate limit: 100 requests per 10 seconds; each user may have up to 1,000 open orders. Stocks and ETFs have an additional per-user limit of one request per second and support only cross-exchange account mode and GTC. Stock and ETF orders must use qty; quote_qty is not supported. Stock and ETF order prices use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
      * @param crossexOrderRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3107,6 +3108,164 @@ public class CrossExApi {
      */
     public APIlistCrossexPositionsRequest listCrossexPositions() {
         return new APIlistCrossexPositionsRequest();
+    }
+
+    private okhttp3.Call listCrossexSecurityPositionsCall(String symbol, String exchangeType, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/crossex/security_positions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (symbol != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("symbol", symbol));
+        }
+
+        if (exchangeType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("exchange_type", exchangeType));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCrossexSecurityPositionsValidateBeforeCall(String symbol, String exchangeType, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexSecurityPositionsCall(symbol, exchangeType, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<List<CrossexSecurityPosition>> listCrossexSecurityPositionsWithHttpInfo(String symbol, String exchangeType) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexSecurityPositionsValidateBeforeCall(symbol, exchangeType, null);
+        Type localVarReturnType = new TypeToken<List<CrossexSecurityPosition>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCrossexSecurityPositionsAsync(String symbol, String exchangeType, final ApiCallback<List<CrossexSecurityPosition>> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listCrossexSecurityPositionsValidateBeforeCall(symbol, exchangeType, _callback);
+        Type localVarReturnType = new TypeToken<List<CrossexSecurityPosition>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCrossexSecurityPositionsRequest {
+        private String symbol;
+        private String exchangeType;
+
+        private APIlistCrossexSecurityPositionsRequest() {
+        }
+
+        /**
+         * Set symbol
+         * @param symbol Stock or ETF trading pair (optional)
+         * @return APIlistCrossexSecurityPositionsRequest
+         */
+        public APIlistCrossexSecurityPositionsRequest symbol(String symbol) {
+            this.symbol = symbol;
+            return this;
+        }
+
+        /**
+         * Set exchangeType
+         * @param exchangeType Stock market (US/HK/KR/JP) (optional)
+         * @return APIlistCrossexSecurityPositionsRequest
+         */
+        public APIlistCrossexSecurityPositionsRequest exchangeType(String exchangeType) {
+            this.exchangeType = exchangeType;
+            return this;
+        }
+
+        /**
+         * Build call for listCrossexSecurityPositions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCrossexSecurityPositionsCall(symbol, exchangeType, _callback);
+        }
+
+        /**
+         * Execute listCrossexSecurityPositions request
+         * @return List&lt;CrossexSecurityPosition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<CrossexSecurityPosition> execute() throws ApiException {
+            ApiResponse<List<CrossexSecurityPosition>> localVarResp = listCrossexSecurityPositionsWithHttpInfo(symbol, exchangeType);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCrossexSecurityPositions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CrossexSecurityPosition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<CrossexSecurityPosition>> executeWithHttpInfo() throws ApiException {
+            return listCrossexSecurityPositionsWithHttpInfo(symbol, exchangeType);
+        }
+
+        /**
+         * Execute listCrossexSecurityPositions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CrossexSecurityPosition>> _callback) throws ApiException {
+            return listCrossexSecurityPositionsAsync(symbol, exchangeType, _callback);
+        }
+    }
+
+    /**
+     * List security positions
+     * List stock and ETF positions. Rate limit: 200 requests per 10 seconds. Prices, position values, and unrealized profit and loss use the listing market currency: USD for US markets, HKD for Hong Kong, KRW for South Korea, and JPY for Japan.
+     * @return APIlistCrossexSecurityPositionsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-11-12 18:14+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0  </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistCrossexSecurityPositionsRequest listCrossexSecurityPositions() {
+        return new APIlistCrossexSecurityPositionsRequest();
     }
 
     private okhttp3.Call listCrossexMarginPositionsCall(String symbol, String exchangeType, final ApiCallback _callback) throws ApiException {

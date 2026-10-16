@@ -13,23 +13,23 @@ Name | Type | Description | Notes
 **side** | **String** | Side (&#x60;BUY&#x60; buy / &#x60;SELL&#x60; sell). | 
 **type** | **String** | Order type (&#x60;LIMIT&#x60; limit / &#x60;MARKET&#x60; market). | 
 **attribute** | **String** | Order attributes (&#x60;COMMON&#x60; normal / &#x60;LIQ&#x60; liquidation takeover / &#x60;REDUCE&#x60; liquidation reduction / &#x60;ADL&#x60; auto-deleverage / &#x60;SETTLEMENT&#x60; delisting settlement). | 
-**exchangeType** | **String** | Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60; / &#x60;LIGHTER&#x60;). | 
-**businessType** | **String** | Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin / &#x60;CONVERT&#x60; Flash Swap). | 
+**exchangeType** | **String** | Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP) | 
+**businessType** | **String** | Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / CONVERT: flash swap / STOCK: stocks / ETF: exchange-traded funds) | 
 **qty** | **String** | Order quantity in the base currency. | 
 **quoteQty** | **String** | Order quantity in the quote currency. | 
-**price** | **String** | Order price. | 
+**price** | **String** | Order price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY) | 
 **timeInForce** | **String** | Time-in-force policy (default: GTC; allowed values: GTC, IOC, FOK, POC, and RPI) | 
 **executedQty** | **String** | Filled base amount. | 
-**executedAmount** | **String** | Filled quote amount. | 
-**executedAvgPrice** | **String** | Average Filled Price | 
+**executedAmount** | **String** | Filled amount in the quote currency. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY) | 
+**executedAvgPrice** | **String** | Average fill price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY) | 
 **feeCoin** | **String** | Fee currency | 
 **fee** | **String** | Fee amount. | 
 **reduceOnly** | **String** | Reduce-only order (&#x60;\&quot;true\&quot;&#x60; or &#x60;\&quot;false\&quot;&#x60;). | 
 **leverage** | **String** | Order leverage multiplier. | 
 **reason** | **String** | Failure reason description. | 
 **lastExecutedQty** | **String** | Base quantity of the latest fill. | 
-**lastExecutedPrice** | **String** | Price of the latest fill. | 
-**lastExecutedAmount** | **String** | Quote amount of the latest fill. | 
+**lastExecutedPrice** | **String** | Price of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY) | 
+**lastExecutedAmount** | **String** | Amount of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY) | 
 **positionSide** | **String** | Position side (&#x60;NONE&#x60; one-way position / &#x60;LONG&#x60; long / &#x60;SHORT&#x60; short) | 
 **createTime** | **String** | Created time | 
 **updateTime** | **String** | Update time | 

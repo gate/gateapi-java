@@ -826,6 +826,191 @@ public class SpotApi {
         return new APIlistOrderBookRequest(currencyPair);
     }
 
+    private okhttp3.Call listSpotRpiOrderBookCall(String currencyPair, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spot/rpi_order_book";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (currencyPair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("currency_pair", currencyPair));
+        }
+
+        if (interval != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("interval", interval));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (withId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("with_id", withId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpotRpiOrderBookValidateBeforeCall(String currencyPair, String interval, Integer limit, Boolean withId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'currencyPair' is set
+        if (currencyPair == null) {
+            throw new ApiException("Missing the required parameter 'currencyPair' when calling listSpotRpiOrderBook(Async)");
+        }
+
+        okhttp3.Call localVarCall = listSpotRpiOrderBookCall(currencyPair, interval, limit, withId, _callback);
+        return localVarCall;
+    }
+
+
+    private ApiResponse<OrderBook> listSpotRpiOrderBookWithHttpInfo(String currencyPair, String interval, Integer limit, Boolean withId) throws ApiException {
+        okhttp3.Call localVarCall = listSpotRpiOrderBookValidateBeforeCall(currencyPair, interval, limit, withId, null);
+        Type localVarReturnType = new TypeToken<OrderBook>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listSpotRpiOrderBookAsync(String currencyPair, String interval, Integer limit, Boolean withId, final ApiCallback<OrderBook> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listSpotRpiOrderBookValidateBeforeCall(currencyPair, interval, limit, withId, _callback);
+        Type localVarReturnType = new TypeToken<OrderBook>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSpotRpiOrderBookRequest {
+        private final String currencyPair;
+        private String interval;
+        private Integer limit;
+        private Boolean withId;
+
+        private APIlistSpotRpiOrderBookRequest(String currencyPair) {
+            this.currencyPair = currencyPair;
+        }
+
+        /**
+         * Set interval
+         * @param interval Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 (optional, default to &quot;0&quot;)
+         * @return APIlistSpotRpiOrderBookRequest
+         */
+        public APIlistSpotRpiOrderBookRequest interval(String interval) {
+            this.interval = interval;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Number of depth levels (optional, default to 10)
+         * @return APIlistSpotRpiOrderBookRequest
+         */
+        public APIlistSpotRpiOrderBookRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set withId
+         * @param withId Return order book update ID (optional, default to false)
+         * @return APIlistSpotRpiOrderBookRequest
+         */
+        public APIlistSpotRpiOrderBookRequest withId(Boolean withId) {
+            this.withId = withId;
+            return this;
+        }
+
+        /**
+         * Build call for listSpotRpiOrderBook
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSpotRpiOrderBookCall(currencyPair, interval, limit, withId, _callback);
+        }
+
+        /**
+         * Execute listSpotRpiOrderBook request
+         * @return OrderBook
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public OrderBook execute() throws ApiException {
+            ApiResponse<OrderBook> localVarResp = listSpotRpiOrderBookWithHttpInfo(currencyPair, interval, limit, withId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSpotRpiOrderBook request with HTTP info returned
+         * @return ApiResponse&lt;OrderBook&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<OrderBook> executeWithHttpInfo() throws ApiException {
+            return listSpotRpiOrderBookWithHttpInfo(currencyPair, interval, limit, withId);
+        }
+
+        /**
+         * Execute listSpotRpiOrderBook request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OrderBook> _callback) throws ApiException {
+            return listSpotRpiOrderBookAsync(currencyPair, interval, limit, withId, _callback);
+        }
+    }
+
+    /**
+     * Get the RPI order book
+     * Get the RPI order book, with bids sorted by descending price and asks by ascending price.
+     * @param currencyPair Currency pair (required)
+     * @return APIlistSpotRpiOrderBookRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIlistSpotRpiOrderBookRequest listSpotRpiOrderBook(String currencyPair) {
+        return new APIlistSpotRpiOrderBookRequest(currencyPair);
+    }
+
     private okhttp3.Call listTradesCall(String currencyPair, Integer limit, String lastId, Boolean reverse, Long from, Long to, Integer page, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 

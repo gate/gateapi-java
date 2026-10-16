@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class ExchangesDataList {
     /**
-     * Trading market, supports us, hk, kr, and jp
+     * Trading market. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -98,7 +98,7 @@ public class ExchangesDataList {
     }
 
      /**
-     * Trading market, supports us, hk, kr, and jp
+     * Trading market. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      * @return exchange
     **/
     @javax.annotation.Nullable

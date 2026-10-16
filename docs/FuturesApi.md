@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getFuturesContract**](FuturesApi.md#getFuturesContract) | **GET** /futures/{settle}/contracts/{contract} | Query single contract information
 [**listFuturesADLRiskStates**](FuturesApi.md#listFuturesADLRiskStates) | **GET** /futures/{settle}/adl_risk_states | List market-level ADL risk states
 [**listFuturesOrderBook**](FuturesApi.md#listFuturesOrderBook) | **GET** /futures/{settle}/order_book | Query futures market depth information
+[**listFuturesRPIOrderBook**](FuturesApi.md#listFuturesRPIOrderBook) | **GET** /futures/{settle}/rpi_order_book | Query futures RPI order book
 [**listFuturesTrades**](FuturesApi.md#listFuturesTrades) | **GET** /futures/{settle}/trades | Futures market transaction records
 [**listFuturesCandlesticks**](FuturesApi.md#listFuturesCandlesticks) | **GET** /futures/{settle}/candlesticks | Futures market K-line chart
 [**listFuturesPremiumIndex**](FuturesApi.md#listFuturesPremiumIndex) | **GET** /futures/{settle}/premium_index | Premium Index K-line chart
@@ -74,7 +75,7 @@ Method | HTTP request | Description
 [**cancelPriceTriggeredOrderList**](FuturesApi.md#cancelPriceTriggeredOrderList) | **DELETE** /futures/{settle}/price_orders | Cancel all auto orders
 [**getPriceTriggeredOrder**](FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 [**cancelPriceTriggeredOrder**](FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
-[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend | Modify a Single Auto Order
+[**updatePriceTriggeredOrder**](FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
 
 
 <a name="listFuturesContracts"></a>
@@ -393,6 +394,84 @@ public class Example {
             e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling FuturesApi#listFuturesOrderBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
+ **contract** | **String**| Futures contract |
+ **interval** | **String**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &quot;0&quot;]
+ **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
+ **withId** | **Boolean**| Whether to return depth update ID. This ID increments by 1 each time the depth changes | [optional] [default to false]
+
+### Return type
+
+[**FuturesOrderBook**](FuturesOrderBook.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Depth query successful |  -  |
+
+<a name="listFuturesRPIOrderBook"></a>
+# **listFuturesRPIOrderBook**
+> FuturesOrderBook listFuturesRPIOrderBook(settle, contract).interval(interval).limit(limit).withId(withId).execute();
+
+Query futures RPI order book
+
+Bids will be sorted by price from high to low, while asks sorted reversely
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.FuturesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        FuturesApi apiInstance = new FuturesApi(defaultClient);
+        String settle = "usdt"; // String | Perpetual futures settlement currency
+        String contract = "BTC_USDT"; // String | Futures contract
+        String interval = "\"0\""; // String | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
+        Integer limit = 10; // Integer | Number of depth levels
+        Boolean withId = false; // Boolean | Whether to return depth update ID. This ID increments by 1 each time the depth changes
+        try {
+            FuturesOrderBook result = apiInstance.listFuturesRPIOrderBook(settle, contract)
+                        .interval(interval)
+                        .limit(limit)
+                        .withId(withId)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuturesApi#listFuturesRPIOrderBook");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
@@ -5363,7 +5442,7 @@ Name | Type | Description  | Notes
 
 <a name="updatePriceTriggeredOrder"></a>
 # **updatePriceTriggeredOrder**
-> TriggerOrderResponse updatePriceTriggeredOrder(settle, futuresUpdatePriceTriggeredOrder)
+> TriggerOrderResponse updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder)
 
 Modify a Single Auto Order
 
@@ -5389,9 +5468,10 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Perpetual futures settlement currency
+        String orderId = "2110911746238578688"; // String | ID returned when order is successfully created
         FuturesUpdatePriceTriggeredOrder futuresUpdatePriceTriggeredOrder = new FuturesUpdatePriceTriggeredOrder(); // FuturesUpdatePriceTriggeredOrder | 
         try {
-            TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, futuresUpdatePriceTriggeredOrder);
+            TriggerOrderResponse result = apiInstance.updatePriceTriggeredOrder(settle, orderId, futuresUpdatePriceTriggeredOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -5411,6 +5491,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
+ **orderId** | **String**| ID returned when order is successfully created |
  **futuresUpdatePriceTriggeredOrder** | [**FuturesUpdatePriceTriggeredOrder**](FuturesUpdatePriceTriggeredOrder.md)|  |
 
 ### Return type

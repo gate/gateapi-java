@@ -28,7 +28,7 @@ public class PositionListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, kr, and jp
+     * Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -95,7 +95,7 @@ public class PositionListItem {
     private String fxRate;
 
     /**
-     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.
+     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.
      */
     @JsonAdapter(TradeStatusEnum.Adapter.class)
     public enum TradeStatusEnum {
@@ -103,11 +103,7 @@ public class PositionListItem {
         
         OPEN("open"),
         
-        POST_MARKET("post_market"),
-        
-        CLOSED("closed"),
-        
-        GT_LP("gt_lp");
+        POST_MARKET("post_market");
 
         private String value;
 
@@ -279,7 +275,7 @@ public class PositionListItem {
     }
 
      /**
-     * Exchange, supports us, hk, kr, and jp
+     * Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -359,7 +355,7 @@ public class PositionListItem {
     }
 
      /**
-     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.
+     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.
      * @return tradeStatus
     **/
     @javax.annotation.Nullable

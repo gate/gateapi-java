@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **ps** | **Integer** |  | 
 **totalPn** | **Integer** |  | 
 **count** | **Integer** |  | 
-**list** | [**List&lt;OtcOrderListItem&gt;**](OtcOrderListItem.md) |  | 
+**lists** | [**List&lt;OtcOrderListItem&gt;**](OtcOrderListItem.md) |  | 
 

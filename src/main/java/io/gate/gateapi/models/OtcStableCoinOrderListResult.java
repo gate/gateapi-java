@@ -42,9 +42,9 @@ public class OtcStableCoinOrderListResult {
     @SerializedName(SERIALIZED_NAME_TOTAL_PAGE)
     private Integer totalPage;
 
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<OtcStableCoinOrderListItem> list = new ArrayList<>();
+    public static final String SERIALIZED_NAME_LISTS = "lists";
+    @SerializedName(SERIALIZED_NAME_LISTS)
+    private List<OtcStableCoinOrderListItem> lists = new ArrayList<>();
 
 
     public OtcStableCoinOrderListResult total(Integer total) {
@@ -123,28 +123,28 @@ public class OtcStableCoinOrderListResult {
         this.totalPage = totalPage;
     }
 
-    public OtcStableCoinOrderListResult list(List<OtcStableCoinOrderListItem> list) {
+    public OtcStableCoinOrderListResult lists(List<OtcStableCoinOrderListItem> lists) {
         
-        this.list = list;
+        this.lists = lists;
         return this;
     }
 
-    public OtcStableCoinOrderListResult addListItem(OtcStableCoinOrderListItem listItem) {
-        this.list.add(listItem);
+    public OtcStableCoinOrderListResult addListsItem(OtcStableCoinOrderListItem listsItem) {
+        this.lists.add(listsItem);
         return this;
     }
 
      /**
-     * Get list
-     * @return list
+     * Get lists
+     * @return lists
     **/
-    public List<OtcStableCoinOrderListItem> getList() {
-        return list;
+    public List<OtcStableCoinOrderListItem> getLists() {
+        return lists;
     }
 
 
-    public void setList(List<OtcStableCoinOrderListItem> list) {
-        this.list = list;
+    public void setLists(List<OtcStableCoinOrderListItem> lists) {
+        this.lists = lists;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -159,12 +159,12 @@ public class OtcStableCoinOrderListResult {
                 Objects.equals(this.pageSize, otcStableCoinOrderListResult.pageSize) &&
                 Objects.equals(this.pageNumber, otcStableCoinOrderListResult.pageNumber) &&
                 Objects.equals(this.totalPage, otcStableCoinOrderListResult.totalPage) &&
-                Objects.equals(this.list, otcStableCoinOrderListResult.list);
+                Objects.equals(this.lists, otcStableCoinOrderListResult.lists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(total, pageSize, pageNumber, totalPage, list);
+        return Objects.hash(total, pageSize, pageNumber, totalPage, lists);
     }
 
 
@@ -176,7 +176,7 @@ public class OtcStableCoinOrderListResult {
         sb.append("      pageSize: ").append(toIndentedString(pageSize)).append("\n");
         sb.append("      pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
         sb.append("      totalPage: ").append(toIndentedString(totalPage)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      lists: ").append(toIndentedString(lists)).append("\n");
         sb.append("}");
         return sb.toString();
     }

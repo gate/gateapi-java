@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** | Symbol |  [optional]
-**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange, supports us, hk, kr, and jp |  [optional]
+**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. |  [optional]
 **quoteCurrency** | **String** | Quote currency |  [optional]
 **quoteCurrencyPrecision** | **Integer** | Quote currency precision |  [optional]
 **fxRate** | **String** | Quote currency to USD exchange rate |  [optional]
-**tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. |  [optional]
+**tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. |  [optional]
 **symbolDesc** | **String** | Symbol description |  [optional]
 **positionPnl** | **String** | Position P&amp;L |  [optional]
 **todayPnl** | **String** | Today&#39;s P&amp;L |  [optional]
@@ -53,6 +53,4 @@ Name | Value
 PRE_MARKET | &quot;pre_market&quot;
 OPEN | &quot;open&quot;
 POST_MARKET | &quot;post_market&quot;
-CLOSED | &quot;closed&quot;
-GT_LP | &quot;gt_lp&quot;
 

@@ -32,7 +32,7 @@ public class OrderListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, kr, and jp
+     * Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -99,7 +99,7 @@ public class OrderListItem {
     private String symbolDesc;
 
     /**
-     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.
+     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.
      */
     @JsonAdapter(TradeStatusEnum.Adapter.class)
     public enum TradeStatusEnum {
@@ -107,11 +107,7 @@ public class OrderListItem {
         
         OPEN("open"),
         
-        POST_MARKET("post_market"),
-        
-        CLOSED("closed"),
-        
-        GT_LP("gt_lp");
+        POST_MARKET("post_market");
 
         private String value;
 
@@ -156,7 +152,7 @@ public class OrderListItem {
     private TradeStatusEnum tradeStatus;
 
     /**
-     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).
+     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended.
      */
     @JsonAdapter(TradeModeEnum.Adapter.class)
     public enum TradeModeEnum {
@@ -489,7 +485,7 @@ public class OrderListItem {
     }
 
      /**
-     * Exchange, supports us, hk, kr, and jp
+     * Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      * @return exchange
     **/
     @javax.annotation.Nullable
@@ -569,7 +565,7 @@ public class OrderListItem {
     }
 
      /**
-     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session.
+     * Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market.
      * @return tradeStatus
     **/
     @javax.annotation.Nullable
@@ -589,7 +585,7 @@ public class OrderListItem {
     }
 
      /**
-     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt).
+     * Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended.
      * @return tradeMode
     **/
     @javax.annotation.Nullable

@@ -283,7 +283,7 @@ public class CrossexTrade {
     }
 
      /**
-     * Fill Price
+     * Fill price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)
      * @return price
     **/
     @javax.annotation.Nullable

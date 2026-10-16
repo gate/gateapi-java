@@ -12,6 +12,14 @@ Method | HTTP request | Description
 [**placeDualOrderRefund**](EarnApi.md#placeDualOrderRefund) | **POST** /earn/dual/order-refund | Dual-currency order early redemption
 [**modifyDualOrderReinvest**](EarnApi.md#modifyDualOrderReinvest) | **POST** /earn/dual/modify-order-reinvest | Modify dual-currency order reinvest
 [**getDualProjectRecommend**](EarnApi.md#getDualProjectRecommend) | **GET** /earn/dual/project-recommend | Dual-currency recommended projects
+[**listDualStockInvestmentPlans**](EarnApi.md#listDualStockInvestmentPlans) | **GET** /earn/dual/stock/investment_plan | List stock dual investment products
+[**getDualStockProjectRecommend**](EarnApi.md#getDualStockProjectRecommend) | **GET** /earn/dual/stock/project-recommend | Get recommendations for stock dual investment products
+[**listDualStockOrders**](EarnApi.md#listDualStockOrders) | **GET** /earn/dual/stock/orders | List stock dual investment orders
+[**placeDualStockOrder**](EarnApi.md#placeDualStockOrder) | **POST** /earn/dual/stock/orders | Place a stock dual investment order
+[**listDualStockBalance**](EarnApi.md#listDualStockBalance) | **GET** /earn/dual/stock/balance | Get stock dual investment asset statistics
+[**getDualStockOrderRefundPreview**](EarnApi.md#getDualStockOrderRefundPreview) | **GET** /earn/dual/stock/order-refund-preview | Preview stock dual investment redemption
+[**placeDualStockOrderRefund**](EarnApi.md#placeDualStockOrderRefund) | **POST** /earn/dual/stock/order-refund | Redeem a stock dual investment order
+[**modifyDualStockOrderReinvest**](EarnApi.md#modifyDualStockOrderReinvest) | **POST** /earn/dual/stock/modify-order-reinvest | Reinvest a stock dual investment order
 [**findCoin**](EarnApi.md#findCoin) | **GET** /earn/staking/coins | Staking coins
 [**swapStakingCoin**](EarnApi.md#swapStakingCoin) | **POST** /earn/staking/swap | On-chain token swap for earned coins
 [**orderList**](EarnApi.md#orderList) | **GET** /earn/staking/order_list | List of on-chain coin-earning orders
@@ -620,6 +628,592 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved |  -  |
+
+<a name="listDualStockInvestmentPlans"></a>
+# **listDualStockInvestmentPlans**
+> List&lt;DualGetPlans&gt; listDualStockInvestmentPlans().planId(planId).coin(coin).type(type).quoteCurrency(quoteCurrency).sort(sort).page(page).pageSize(pageSize).execute();
+
+List stock dual investment products
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        String planId = "272"; // String | Product/plan ID. If provided, only the matching product is returned
+        String coin = "BTC"; // String | Underlying currency
+        String type = "call"; // String | Type enum: `put` — buy low; `call` — sell high
+        String quoteCurrency = "\"USDT\""; // String | Settlement currency. Default: USDT
+        String sort = "sort_example"; // String | Sort field enum: `apy` — highest APY first `short-period` — shortest tenor first `multiple` — highest premium first
+        Integer page = 1; // Integer | page number
+        Integer pageSize = 100; // Integer | Items per page，Maximum 100
+        try {
+            List<DualGetPlans> result = apiInstance.listDualStockInvestmentPlans()
+                        .planId(planId)
+                        .coin(coin)
+                        .type(type)
+                        .quoteCurrency(quoteCurrency)
+                        .sort(sort)
+                        .page(page)
+                        .pageSize(pageSize)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listDualStockInvestmentPlans");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **planId** | **String**| Product/plan ID. If provided, only the matching product is returned | [optional]
+ **coin** | **String**| Underlying currency | [optional]
+ **type** | **String**| Type enum: &#x60;put&#x60; — buy low; &#x60;call&#x60; — sell high | [optional] [enum: call, put]
+ **quoteCurrency** | **String**| Settlement currency. Default: USDT | [optional] [default to &quot;USDT&quot;]
+ **sort** | **String**| Sort field enum: &#x60;apy&#x60; — highest APY first &#x60;short-period&#x60; — shortest tenor first &#x60;multiple&#x60; — highest premium first | [optional]
+ **page** | **Integer**| page number | [optional]
+ **pageSize** | **Integer**| Items per page，Maximum 100 | [optional]
+
+### Return type
+
+[**List&lt;DualGetPlans&gt;**](DualGetPlans.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="getDualStockProjectRecommend"></a>
+# **getDualStockProjectRecommend**
+> List&lt;DualProjectRecommend&gt; getDualStockProjectRecommend().coin(coin).type(type).mode(mode).historyPids(historyPids).execute();
+
+Get recommendations for stock dual investment products
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        String coin = "BTC"; // String | Underlying currency
+        String type = "call"; // String | `call`: sell high; `put`: buy low
+        String mode = "normal"; // String | Recommendation mode. Default: normal normal: Regular users senior: Experienced users
+        String historyPids = "1001,1002"; // String | Previously recommended project IDs, separated by commas
+        try {
+            List<DualProjectRecommend> result = apiInstance.getDualStockProjectRecommend()
+                        .coin(coin)
+                        .type(type)
+                        .mode(mode)
+                        .historyPids(historyPids)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#getDualStockProjectRecommend");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coin** | **String**| Underlying currency | [optional]
+ **type** | **String**| &#x60;call&#x60;: sell high; &#x60;put&#x60;: buy low | [optional] [enum: call, put]
+ **mode** | **String**| Recommendation mode. Default: normal normal: Regular users senior: Experienced users | [optional] [default to normal] [enum: normal, senior]
+ **historyPids** | **String**| Previously recommended project IDs, separated by commas | [optional]
+
+### Return type
+
+[**List&lt;DualProjectRecommend&gt;**](DualProjectRecommend.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="listDualStockOrders"></a>
+# **listDualStockOrders**
+> List&lt;DualGetOrders&gt; listDualStockOrders().coin(coin).status(status).type(type).from(from).to(to).page(page).pageSize(pageSize).limit(limit).execute();
+
+List stock dual investment orders
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        String coin = "BTC"; // String | Investment Token
+        String status = "\"ALL\""; // String | Filter by order status. Default: ALL HOLD: Current holdings REPAY: Historical holdings PROCESSING: Holding in progress SETTLEMENT_PROCESSING: Settlement in progress ALL: All orders
+        String type = "put"; // String | Type enum: `put` — buy low; `call` — sell high
+        Long from = 1740727000L; // Long | Start of the time range, in Unix seconds
+        Long to = 1740729000L; // Long | End of the time range, in Unix seconds
+        Integer page = 1; // Integer | Page number
+        Integer pageSize = 100; // Integer | Number of records per page, up to 100. Defaults to 100 when omitted
+        Integer limit = 100; // Integer | Maximum number of records returned in a single list
+        try {
+            List<DualGetOrders> result = apiInstance.listDualStockOrders()
+                        .coin(coin)
+                        .status(status)
+                        .type(type)
+                        .from(from)
+                        .to(to)
+                        .page(page)
+                        .pageSize(pageSize)
+                        .limit(limit)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listDualStockOrders");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coin** | **String**| Investment Token | [optional]
+ **status** | **String**| Filter by order status. Default: ALL HOLD: Current holdings REPAY: Historical holdings PROCESSING: Holding in progress SETTLEMENT_PROCESSING: Settlement in progress ALL: All orders | [optional] [default to &quot;ALL&quot;]
+ **type** | **String**| Type enum: &#x60;put&#x60; — buy low; &#x60;call&#x60; — sell high | [optional] [enum: call, put]
+ **from** | **Long**| Start of the time range, in Unix seconds | [optional]
+ **to** | **Long**| End of the time range, in Unix seconds | [optional]
+ **page** | **Integer**| Page number | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of records per page, up to 100. Defaults to 100 when omitted | [optional]
+ **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
+
+### Return type
+
+[**List&lt;DualGetOrders&gt;**](DualGetOrders.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="placeDualStockOrder"></a>
+# **placeDualStockOrder**
+> PlaceDualInvestmentOrder placeDualStockOrder(placeDualStockInvestmentOrderParams)
+
+Place a stock dual investment order
+
+For buy-low (put) products, optionally pass &#x60;hit_spot&#x60;, &#x60;hit_stock&#x60;, and &#x60;hit_simple&#x60; (&#x60;1&#x60; selects the corresponding funding account) to collect funds from the spot, stock, or Simple Earn accounts before subscribing.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        PlaceDualStockInvestmentOrderParams placeDualStockInvestmentOrderParams = new PlaceDualStockInvestmentOrderParams(); // PlaceDualStockInvestmentOrderParams | 
+        try {
+            PlaceDualInvestmentOrder result = apiInstance.placeDualStockOrder(placeDualStockInvestmentOrderParams);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#placeDualStockOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **placeDualStockInvestmentOrderParams** | [**PlaceDualStockInvestmentOrderParams**](PlaceDualStockInvestmentOrderParams.md)|  |
+
+### Return type
+
+[**PlaceDualInvestmentOrder**](PlaceDualInvestmentOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Order placed successfully |  -  |
+
+<a name="listDualStockBalance"></a>
+# **listDualStockBalance**
+> DualGetBalance listDualStockBalance()
+
+Get stock dual investment asset statistics
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        try {
+            DualGetBalance result = apiInstance.listDualStockBalance();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#listDualStockBalance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DualGetBalance**](DualGetBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="getDualStockOrderRefundPreview"></a>
+# **getDualStockOrderRefundPreview**
+> DualOrderRefundPreview getDualStockOrderRefundPreview(orderId)
+
+Preview stock dual investment redemption
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        String orderId = "9497"; // String | Order ID
+        try {
+            DualOrderRefundPreview result = apiInstance.getDualStockOrderRefundPreview(orderId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#getDualStockOrderRefundPreview");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| Order ID |
+
+### Return type
+
+[**DualOrderRefundPreview**](DualOrderRefundPreview.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved |  -  |
+
+<a name="placeDualStockOrderRefund"></a>
+# **placeDualStockOrderRefund**
+> placeDualStockOrderRefund(dualOrderRefundParams)
+
+Redeem a stock dual investment order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        DualOrderRefundParams dualOrderRefundParams = new DualOrderRefundParams(); // DualOrderRefundParams | 
+        try {
+            apiInstance.placeDualStockOrderRefund(dualOrderRefundParams);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#placeDualStockOrderRefund");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dualOrderRefundParams** | [**DualOrderRefundParams**](DualOrderRefundParams.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Redemption successful |  -  |
+
+<a name="modifyDualStockOrderReinvest"></a>
+# **modifyDualStockOrderReinvest**
+> modifyDualStockOrderReinvest(dualModifyOrderReinvestParams)
+
+Reinvest a stock dual investment order
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.EarnApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        EarnApi apiInstance = new EarnApi(defaultClient);
+        DualModifyOrderReinvestParams dualModifyOrderReinvestParams = new DualModifyOrderReinvestParams(); // DualModifyOrderReinvestParams | 
+        try {
+            apiInstance.modifyDualStockOrderReinvest(dualModifyOrderReinvestParams);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling EarnApi#modifyDualStockOrderReinvest");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dualModifyOrderReinvestParams** | [**DualModifyOrderReinvestParams**](DualModifyOrderReinvestParams.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated successfully |  -  |
 
 <a name="findCoin"></a>
 # **findCoin**

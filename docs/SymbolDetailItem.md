@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **String** | Symbol |  [optional]
-**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange, supports us, hk, kr, and jp |  [optional]
+**exchange** | [**ExchangeEnum**](#ExchangeEnum) | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. |  [optional]
 **exchangeDesc** | **String** | Exchange description |  [optional]
 **quoteCurrency** | **String** | Quote currency |  [optional]
 **quoteCurrencyPrecision** | **Integer** | Quote currency precision |  [optional]
@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **buyPriceProtection** | **String** | Buy price protection rate |  [optional]
 **slippageRate** | **String** | Slippage |  [optional]
 **commissionRate** | **String** | Fee Rate |  [optional]
-**tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. - closed: Market closed. - gt_lp: GT LP session. |  [optional]
-**tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: LP trading suspended (manual suspension). - 6: LP trading suspended (strategy exception). - 7: LP trading suspended (stock halt). - 8: LP trading suspended (stock circuit breaker halt). |  [optional]
+**tradeStatus** | [**TradeStatusEnum**](#TradeStatusEnum) | Trading status. - pre_market: Pre-market. - open: Regular trading session. - post_market: Post-market. |  [optional]
+**tradeMode** | [**TradeModeEnum**](#TradeModeEnum) | Current session trading mode. - 0: Trading disabled. - 1: Buy only. - 2: Sell only. - 4: Buy and sell supported. - 5: Trading suspended. - 6: Trading suspended. - 7: Trading suspended. - 8: Trading suspended. |  [optional]
 **orderFillTiming** | [**OrderFillTimingEnum**](#OrderFillTimingEnum) | Order fill timing (1&#x3D;immediate, 2&#x3D;after pre-market opens, 3&#x3D;after regular session opens) |  [optional]
 **symbolDescs** | [**List&lt;SymbolDetailItemSymbolDescs&gt;**](SymbolDetailItemSymbolDescs.md) | Multilingual symbol description |  [optional]
 **iconLink** | **String** | Icon URL |  [optional]
@@ -70,8 +70,6 @@ Name | Value
 PRE_MARKET | &quot;pre_market&quot;
 OPEN | &quot;open&quot;
 POST_MARKET | &quot;post_market&quot;
-CLOSED | &quot;closed&quot;
-GT_LP | &quot;gt_lp&quot;
 
 ## Enum: TradeModeEnum
 

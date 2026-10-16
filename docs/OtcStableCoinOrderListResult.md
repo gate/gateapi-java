@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **pageSize** | **Integer** |  | 
 **pageNumber** | **Integer** |  | 
 **totalPage** | **Integer** |  | 
-**list** | [**List&lt;OtcStableCoinOrderListItem&gt;**](OtcStableCoinOrderListItem.md) |  | 
+**lists** | [**List&lt;OtcStableCoinOrderListItem&gt;**](OtcStableCoinOrderListItem.md) |  | 
 

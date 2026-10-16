@@ -33,7 +33,7 @@ public class OrderHistoryListItem {
     private String symbol;
 
     /**
-     * Exchange, supports us, hk, kr, and jp
+     * Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      */
     @JsonAdapter(ExchangeEnum.Adapter.class)
     public enum ExchangeEnum {
@@ -468,7 +468,7 @@ public class OrderHistoryListItem {
     }
 
      /**
-     * Exchange, supports us, hk, kr, and jp
+     * Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
      * @return exchange
     **/
     @javax.annotation.Nullable

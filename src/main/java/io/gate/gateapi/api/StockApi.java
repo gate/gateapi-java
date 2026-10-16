@@ -320,7 +320,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange, supports us, hk, kr, and jp (optional)
+         * @param exchange Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
          * @return APIqueryStockSymbolsRequest
          */
         public APIqueryStockSymbolsRequest exchange(String exchange) {
@@ -523,7 +523,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange, supports us, hk, kr, and jp (optional)
+         * @param exchange Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
          * @return APIqueryStockSymbolDetailRequest
          */
         public APIqueryStockSymbolDetailRequest exchange(String exchange) {
@@ -1680,7 +1680,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange, supports us, hk, kr, and jp (optional)
+         * @param exchange Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
          * @return APIqueryStockPositionsRequest
          */
         public APIqueryStockPositionsRequest exchange(String exchange) {

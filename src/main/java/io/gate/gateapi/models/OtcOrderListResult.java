@@ -42,9 +42,9 @@ public class OtcOrderListResult {
     @SerializedName(SERIALIZED_NAME_COUNT)
     private Integer count;
 
-    public static final String SERIALIZED_NAME_LIST = "list";
-    @SerializedName(SERIALIZED_NAME_LIST)
-    private List<OtcOrderListItem> list = new ArrayList<>();
+    public static final String SERIALIZED_NAME_LISTS = "lists";
+    @SerializedName(SERIALIZED_NAME_LISTS)
+    private List<OtcOrderListItem> lists = new ArrayList<>();
 
 
     public OtcOrderListResult pn(Integer pn) {
@@ -123,28 +123,28 @@ public class OtcOrderListResult {
         this.count = count;
     }
 
-    public OtcOrderListResult list(List<OtcOrderListItem> list) {
+    public OtcOrderListResult lists(List<OtcOrderListItem> lists) {
         
-        this.list = list;
+        this.lists = lists;
         return this;
     }
 
-    public OtcOrderListResult addListItem(OtcOrderListItem listItem) {
-        this.list.add(listItem);
+    public OtcOrderListResult addListsItem(OtcOrderListItem listsItem) {
+        this.lists.add(listsItem);
         return this;
     }
 
      /**
-     * Get list
-     * @return list
+     * Get lists
+     * @return lists
     **/
-    public List<OtcOrderListItem> getList() {
-        return list;
+    public List<OtcOrderListItem> getLists() {
+        return lists;
     }
 
 
-    public void setList(List<OtcOrderListItem> list) {
-        this.list = list;
+    public void setLists(List<OtcOrderListItem> lists) {
+        this.lists = lists;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -159,12 +159,12 @@ public class OtcOrderListResult {
                 Objects.equals(this.ps, otcOrderListResult.ps) &&
                 Objects.equals(this.totalPn, otcOrderListResult.totalPn) &&
                 Objects.equals(this.count, otcOrderListResult.count) &&
-                Objects.equals(this.list, otcOrderListResult.list);
+                Objects.equals(this.lists, otcOrderListResult.lists);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pn, ps, totalPn, count, list);
+        return Objects.hash(pn, ps, totalPn, count, lists);
     }
 
 
@@ -176,7 +176,7 @@ public class OtcOrderListResult {
         sb.append("      ps: ").append(toIndentedString(ps)).append("\n");
         sb.append("      totalPn: ").append(toIndentedString(totalPn)).append("\n");
         sb.append("      count: ").append(toIndentedString(count)).append("\n");
-        sb.append("      list: ").append(toIndentedString(list)).append("\n");
+        sb.append("      lists: ").append(toIndentedString(lists)).append("\n");
         sb.append("}");
         return sb.toString();
     }

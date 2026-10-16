@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getCurrencyPair**](SpotApi.md#getCurrencyPair) | **GET** /spot/currency_pairs/{currency_pair} | Query single currency pair details
 [**listTickers**](SpotApi.md#listTickers) | **GET** /spot/tickers | Get currency pair ticker information
 [**listOrderBook**](SpotApi.md#listOrderBook) | **GET** /spot/order_book | Get market depth information
+[**listSpotRpiOrderBook**](SpotApi.md#listSpotRpiOrderBook) | **GET** /spot/rpi_order_book | Get the RPI order book
 [**listTrades**](SpotApi.md#listTrades) | **GET** /spot/trades | Query market transaction records
 [**listCandlesticks**](SpotApi.md#listCandlesticks) | **GET** /spot/candlesticks | Market K-line chart
 [**getFee**](SpotApi.md#getFee) | **GET** /spot/fee | Query account fee rates
@@ -405,6 +406,82 @@ public class Example {
             e.printStackTrace();
         } catch (ApiException e) {
             System.err.println("Exception when calling SpotApi#listOrderBook");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **String**| Currency pair |
+ **interval** | **String**| Price precision for merged depth. 0 means no merging. If not specified, defaults to 0 | [optional] [default to &quot;0&quot;]
+ **limit** | **Integer**| Number of depth levels | [optional] [default to 10]
+ **withId** | **Boolean**| Return order book update ID | [optional] [default to false]
+
+### Return type
+
+[**OrderBook**](OrderBook.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Query successful |  -  |
+
+<a name="listSpotRpiOrderBook"></a>
+# **listSpotRpiOrderBook**
+> OrderBook listSpotRpiOrderBook(currencyPair).interval(interval).limit(limit).withId(withId).execute();
+
+Get the RPI order book
+
+Get the RPI order book, with bids sorted by descending price and asks by ascending price.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.SpotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+
+        SpotApi apiInstance = new SpotApi(defaultClient);
+        String currencyPair = "BTC_USDT"; // String | Currency pair
+        String interval = "\"0\""; // String | Price precision for merged depth. 0 means no merging. If not specified, defaults to 0
+        Integer limit = 10; // Integer | Number of depth levels
+        Boolean withId = false; // Boolean | Return order book update ID
+        try {
+            OrderBook result = apiInstance.listSpotRpiOrderBook(currencyPair)
+                        .interval(interval)
+                        .limit(limit)
+                        .withId(withId)
+                        .execute();
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SpotApi#listSpotRpiOrderBook");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();

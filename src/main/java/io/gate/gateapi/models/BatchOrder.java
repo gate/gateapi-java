@@ -17,8 +17,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.SpotOrderStopLoss;
-import io.gate.gateapi.models.SpotOrderStopProfit;
+import io.gate.gateapi.models.PatchSpotOrderStopLoss;
+import io.gate.gateapi.models.PatchSpotOrderStopProfit;
 import java.io.IOException;
 
 /**
@@ -544,11 +544,11 @@ public class BatchOrder {
 
     public static final String SERIALIZED_NAME_STOP_PROFIT = "stop_profit";
     @SerializedName(SERIALIZED_NAME_STOP_PROFIT)
-    private SpotOrderStopProfit stopProfit;
+    private PatchSpotOrderStopProfit stopProfit;
 
     public static final String SERIALIZED_NAME_STOP_LOSS = "stop_loss";
     @SerializedName(SERIALIZED_NAME_STOP_LOSS)
-    private SpotOrderStopLoss stopLoss;
+    private PatchSpotOrderStopLoss stopLoss;
 
 
     public BatchOrder orderId(String orderId) {
@@ -1111,7 +1111,7 @@ public class BatchOrder {
         this.slippage = slippage;
     }
 
-    public BatchOrder stopProfit(SpotOrderStopProfit stopProfit) {
+    public BatchOrder stopProfit(PatchSpotOrderStopProfit stopProfit) {
         
         this.stopProfit = stopProfit;
         return this;
@@ -1122,16 +1122,16 @@ public class BatchOrder {
      * @return stopProfit
     **/
     @javax.annotation.Nullable
-    public SpotOrderStopProfit getStopProfit() {
+    public PatchSpotOrderStopProfit getStopProfit() {
         return stopProfit;
     }
 
 
-    public void setStopProfit(SpotOrderStopProfit stopProfit) {
+    public void setStopProfit(PatchSpotOrderStopProfit stopProfit) {
         this.stopProfit = stopProfit;
     }
 
-    public BatchOrder stopLoss(SpotOrderStopLoss stopLoss) {
+    public BatchOrder stopLoss(PatchSpotOrderStopLoss stopLoss) {
         
         this.stopLoss = stopLoss;
         return this;
@@ -1142,12 +1142,12 @@ public class BatchOrder {
      * @return stopLoss
     **/
     @javax.annotation.Nullable
-    public SpotOrderStopLoss getStopLoss() {
+    public PatchSpotOrderStopLoss getStopLoss() {
         return stopLoss;
     }
 
 
-    public void setStopLoss(SpotOrderStopLoss stopLoss) {
+    public void setStopLoss(PatchSpotOrderStopLoss stopLoss) {
         this.stopLoss = stopLoss;
     }
     @Override

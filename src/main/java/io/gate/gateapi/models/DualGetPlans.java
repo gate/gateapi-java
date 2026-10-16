@@ -31,6 +31,10 @@ public class DualGetPlans {
     @SerializedName(SERIALIZED_NAME_INSTRUMENT_NAME)
     private String instrumentName;
 
+    public static final String SERIALIZED_NAME_TYPE = "type";
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
+
     public static final String SERIALIZED_NAME_INVEST_CURRENCY = "invest_currency";
     @SerializedName(SERIALIZED_NAME_INVEST_CURRENCY)
     private String investCurrency;
@@ -106,6 +110,26 @@ public class DualGetPlans {
 
     public void setInstrumentName(String instrumentName) {
         this.instrumentName = instrumentName;
+    }
+
+    public DualGetPlans type(String type) {
+        
+        this.type = type;
+        return this;
+    }
+
+     /**
+     * &#x60;call&#x60;: sell high; &#x60;put&#x60;: buy low
+     * @return type
+    **/
+    @javax.annotation.Nullable
+    public String getType() {
+        return type;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public DualGetPlans investCurrency(String investCurrency) {
@@ -298,6 +322,7 @@ public class DualGetPlans {
         DualGetPlans dualGetPlans = (DualGetPlans) o;
         return Objects.equals(this.id, dualGetPlans.id) &&
                 Objects.equals(this.instrumentName, dualGetPlans.instrumentName) &&
+                Objects.equals(this.type, dualGetPlans.type) &&
                 Objects.equals(this.investCurrency, dualGetPlans.investCurrency) &&
                 Objects.equals(this.exerciseCurrency, dualGetPlans.exerciseCurrency) &&
                 Objects.equals(this.exercisePrice, dualGetPlans.exercisePrice) &&
@@ -311,7 +336,7 @@ public class DualGetPlans {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, instrumentName, investCurrency, exerciseCurrency, exercisePrice, deliveryTime, apyDisplay, minAmount, startTime, endTime, status);
+        return Objects.hash(id, instrumentName, type, investCurrency, exerciseCurrency, exercisePrice, deliveryTime, apyDisplay, minAmount, startTime, endTime, status);
     }
 
 
@@ -321,6 +346,7 @@ public class DualGetPlans {
         sb.append("class DualGetPlans {\n");
         sb.append("      id: ").append(toIndentedString(id)).append("\n");
         sb.append("      instrumentName: ").append(toIndentedString(instrumentName)).append("\n");
+        sb.append("      type: ").append(toIndentedString(type)).append("\n");
         sb.append("      investCurrency: ").append(toIndentedString(investCurrency)).append("\n");
         sb.append("      exerciseCurrency: ").append(toIndentedString(exerciseCurrency)).append("\n");
         sb.append("      exercisePrice: ").append(toIndentedString(exercisePrice)).append("\n");

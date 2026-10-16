@@ -295,7 +295,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Venue bucket (&#x60;BINANCE&#x60; / &#x60;OKX&#x60; / &#x60;GATE&#x60; / &#x60;BYBIT&#x60; / &#x60;KRAKEN&#x60; / &#x60;HYPERLIQUID&#x60; / &#x60;DERIBIT&#x60; / &#x60;LIGHTER&#x60;).
+     * Exchange type (BINANCE / OKX / GATE / BYBIT / KRAKEN / HYPERLIQUID / DERIBIT / LIGHTER). Stocks and ETFs return the listing market (US / HK / KR / JP)
      * @return exchangeType
     **/
     public String getExchangeType() {
@@ -314,7 +314,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Business type (&#x60;SPOT&#x60; Spot / &#x60;FUTURE&#x60; Futures / &#x60;MARGIN&#x60; Margin / &#x60;CONVERT&#x60; Flash Swap).
+     * Business type (SPOT: spot / FUTURE: futures / MARGIN: margin / CONVERT: flash swap / STOCK: stocks / ETF: exchange-traded funds)
      * @return businessType
     **/
     public String getBusinessType() {
@@ -371,7 +371,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Order price.
+     * Order price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)
      * @return price
     **/
     public String getPrice() {
@@ -428,7 +428,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Filled quote amount.
+     * Filled amount in the quote currency. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)
      * @return executedAmount
     **/
     public String getExecutedAmount() {
@@ -447,7 +447,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Average Filled Price
+     * Average fill price. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)
      * @return executedAvgPrice
     **/
     public String getExecutedAvgPrice() {
@@ -580,7 +580,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Price of the latest fill.
+     * Price of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)
      * @return lastExecutedPrice
     **/
     public String getLastExecutedPrice() {
@@ -599,7 +599,7 @@ public class CrossexOrder {
     }
 
      /**
-     * Quote amount of the latest fill.
+     * Amount of the latest fill. Stocks and ETFs use the listing market currency (USD/HKD/KRW/JPY)
      * @return lastExecutedAmount
     **/
     public String getLastExecutedAmount() {

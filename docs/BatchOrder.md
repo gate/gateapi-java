@@ -45,8 +45,8 @@ Name | Type | Description | Notes
 **stpAct** | [**StpActEnum**](#StpActEnum) | Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled |  [optional]
 **finishAs** | [**FinishAsEnum**](#FinishAsEnum) | How the order finished:  - open: Pending processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled by liquidation - small: Order size too small - depth_not_enough: Cancelled due to insufficient order book depth - trader_not_enough: Cancelled due to insufficient counterparty liquidity - ioc: Not filled immediately because time-in-force is IOC - poc: Post-only requirement not met because time-in-force is set to poc (maker-only); rejected after being detected as taker - fok: Not fully filled immediately because time-in-force is FOK - stp: Cancelled due to self-trade prevention - price_protect_cancelled: Cancelled due to price protection - unknown: Unknown |  [optional] [readonly]
 **slippage** | **String** | Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%) |  [optional]
-**stopProfit** | [**SpotOrderStopProfit**](SpotOrderStopProfit.md) |  |  [optional]
-**stopLoss** | [**SpotOrderStopLoss**](SpotOrderStopLoss.md) |  |  [optional]
+**stopProfit** | [**PatchSpotOrderStopProfit**](PatchSpotOrderStopProfit.md) |  |  [optional]
+**stopLoss** | [**PatchSpotOrderStopLoss**](PatchSpotOrderStopLoss.md) |  |  [optional]
 
 ## Enum: StatusEnum
 
