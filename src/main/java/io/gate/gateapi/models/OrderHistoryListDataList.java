@@ -25,7 +25,7 @@ import java.io.IOException;
 public class OrderHistoryListDataList {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private Integer orderId;
+    private Long orderId;
 
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
@@ -241,7 +241,7 @@ public class OrderHistoryListDataList {
     private Long timeDone;
 
 
-    public OrderHistoryListDataList orderId(Integer orderId) {
+    public OrderHistoryListDataList orderId(Long orderId) {
         
         this.orderId = orderId;
         return this;
@@ -252,12 +252,12 @@ public class OrderHistoryListDataList {
      * @return orderId
     **/
     @javax.annotation.Nullable
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

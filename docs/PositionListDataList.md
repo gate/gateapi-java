@@ -7,7 +7,7 @@ Position information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**positionId** | **Integer** | Position ID |  [optional]
+**positionId** | **Long** | Position ID |  [optional]
 **symbol** | **String** | Trading market code |  [optional]
 **symbolDesc** | **String** | Market description |  [optional]
 **margin** | **String** | Used margin |  [optional]

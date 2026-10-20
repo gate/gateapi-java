@@ -944,7 +944,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CfdApi apiInstance = new CfdApi(defaultClient);
-        Integer orderId = 1223; // Integer | Order ID
+        Long orderId = 1223L; // Long | Order ID
         TradFiOrderUpdateRequest tradFiOrderUpdateRequest = new TradFiOrderUpdateRequest(); // TradFiOrderUpdateRequest | 
         try {
             UpdateOrder result = apiInstance.updateOrder(orderId, tradFiOrderUpdateRequest);
@@ -966,7 +966,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Integer**| Order ID |
+ **orderId** | **Long**| Order ID |
  **tradFiOrderUpdateRequest** | [**TradFiOrderUpdateRequest**](TradFiOrderUpdateRequest.md)|  |
 
 ### Return type
@@ -1015,7 +1015,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CfdApi apiInstance = new CfdApi(defaultClient);
-        Integer orderId = 1223; // Integer | Order ID
+        Long orderId = 1223L; // Long | Order ID
         try {
             Object result = apiInstance.deleteOrder(orderId);
             System.out.println(result);
@@ -1036,7 +1036,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **Integer**| Order ID |
+ **orderId** | **Long**| Order ID |
 
 ### Return type
 
@@ -1164,7 +1164,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CfdApi apiInstance = new CfdApi(defaultClient);
-        Integer logId = 1223; // Integer | log_id returned from the order placement API
+        Long logId = 1223L; // Long | log_id returned from the order placement API
         try {
             OrderLog result = apiInstance.queryOrderLog(logId);
             System.out.println(result);
@@ -1185,7 +1185,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logId** | **Integer**| log_id returned from the order placement API |
+ **logId** | **Long**| log_id returned from the order placement API |
 
 ### Return type
 
@@ -1298,7 +1298,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CfdApi apiInstance = new CfdApi(defaultClient);
-        Integer positionId = 1223; // Integer | Position ID
+        Long positionId = 1223L; // Long | Position ID
         TradFiPositionUpdateRequest tradFiPositionUpdateRequest = new TradFiPositionUpdateRequest(); // TradFiPositionUpdateRequest | 
         try {
             UpdatePosition result = apiInstance.updatePosition(positionId, tradFiPositionUpdateRequest);
@@ -1320,7 +1320,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **positionId** | **Integer**| Position ID |
+ **positionId** | **Long**| Position ID |
  **tradFiPositionUpdateRequest** | [**TradFiPositionUpdateRequest**](TradFiPositionUpdateRequest.md)|  |
 
 ### Return type
@@ -1369,7 +1369,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CfdApi apiInstance = new CfdApi(defaultClient);
-        Integer positionId = 1223; // Integer | Position ID
+        Long positionId = 1223L; // Long | Position ID
         TradFiClosePositionRequest tradFiClosePositionRequest = new TradFiClosePositionRequest(); // TradFiClosePositionRequest | 
         try {
             DeletePosition result = apiInstance.closePosition(positionId, tradFiClosePositionRequest);
@@ -1391,7 +1391,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **positionId** | **Integer**| Position ID |
+ **positionId** | **Long**| Position ID |
  **tradFiClosePositionRequest** | [**TradFiClosePositionRequest**](TradFiClosePositionRequest.md)|  |
 
 ### Return type

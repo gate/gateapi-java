@@ -1717,7 +1717,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOrderCall(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateOrderCall(Long orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = tradFiOrderUpdateRequest;
 
         // create path and map variables
@@ -1748,7 +1748,7 @@ public class CfdApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOrderValidateBeforeCall(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateOrderValidateBeforeCall(Long orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling updateOrder(Async)");
@@ -1777,7 +1777,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public UpdateOrder updateOrder(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest) throws ApiException {
+    public UpdateOrder updateOrder(Long orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest) throws ApiException {
         ApiResponse<UpdateOrder> localVarResp = updateOrderWithHttpInfo(orderId, tradFiOrderUpdateRequest);
         return localVarResp.getData();
     }
@@ -1796,7 +1796,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdateOrder> updateOrderWithHttpInfo(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest) throws ApiException {
+    public ApiResponse<UpdateOrder> updateOrderWithHttpInfo(Long orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, tradFiOrderUpdateRequest, null);
         Type localVarReturnType = new TypeToken<UpdateOrder>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1817,7 +1817,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOrderAsync(Integer orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback<UpdateOrder> _callback) throws ApiException {
+    public okhttp3.Call updateOrderAsync(Long orderId, TradFiOrderUpdateRequest tradFiOrderUpdateRequest, final ApiCallback<UpdateOrder> _callback) throws ApiException {
         okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, tradFiOrderUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdateOrder>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1837,7 +1837,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOrderCall(Integer orderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOrderCall(Long orderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1868,7 +1868,7 @@ public class CfdApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOrderValidateBeforeCall(Integer orderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteOrderValidateBeforeCall(Long orderId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling deleteOrder(Async)");
@@ -1891,7 +1891,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public Object deleteOrder(Integer orderId) throws ApiException {
+    public Object deleteOrder(Long orderId) throws ApiException {
         ApiResponse<Object> localVarResp = deleteOrderWithHttpInfo(orderId);
         return localVarResp.getData();
     }
@@ -1909,7 +1909,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteOrderWithHttpInfo(Integer orderId) throws ApiException {
+    public ApiResponse<Object> deleteOrderWithHttpInfo(Long orderId) throws ApiException {
         okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1929,7 +1929,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOrderAsync(Integer orderId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteOrderAsync(Long orderId, final ApiCallback<Object> _callback) throws ApiException {
         okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2142,7 +2142,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queryOrderLogCall(Integer logId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queryOrderLogCall(Long logId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2173,7 +2173,7 @@ public class CfdApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queryOrderLogValidateBeforeCall(Integer logId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call queryOrderLogValidateBeforeCall(Long logId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'logId' is set
         if (logId == null) {
             throw new ApiException("Missing the required parameter 'logId' when calling queryOrderLog(Async)");
@@ -2196,7 +2196,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public OrderLog queryOrderLog(Integer logId) throws ApiException {
+    public OrderLog queryOrderLog(Long logId) throws ApiException {
         ApiResponse<OrderLog> localVarResp = queryOrderLogWithHttpInfo(logId);
         return localVarResp.getData();
     }
@@ -2214,7 +2214,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderLog> queryOrderLogWithHttpInfo(Integer logId) throws ApiException {
+    public ApiResponse<OrderLog> queryOrderLogWithHttpInfo(Long logId) throws ApiException {
         okhttp3.Call localVarCall = queryOrderLogValidateBeforeCall(logId, null);
         Type localVarReturnType = new TypeToken<OrderLog>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2234,7 +2234,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queryOrderLogAsync(Integer logId, final ApiCallback<OrderLog> _callback) throws ApiException {
+    public okhttp3.Call queryOrderLogAsync(Long logId, final ApiCallback<OrderLog> _callback) throws ApiException {
         okhttp3.Call localVarCall = queryOrderLogValidateBeforeCall(logId, _callback);
         Type localVarReturnType = new TypeToken<OrderLog>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2357,7 +2357,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePositionCall(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePositionCall(Long positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = tradFiPositionUpdateRequest;
 
         // create path and map variables
@@ -2388,7 +2388,7 @@ public class CfdApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePositionValidateBeforeCall(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updatePositionValidateBeforeCall(Long positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'positionId' is set
         if (positionId == null) {
             throw new ApiException("Missing the required parameter 'positionId' when calling updatePosition(Async)");
@@ -2417,7 +2417,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public UpdatePosition updatePosition(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest) throws ApiException {
+    public UpdatePosition updatePosition(Long positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest) throws ApiException {
         ApiResponse<UpdatePosition> localVarResp = updatePositionWithHttpInfo(positionId, tradFiPositionUpdateRequest);
         return localVarResp.getData();
     }
@@ -2436,7 +2436,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UpdatePosition> updatePositionWithHttpInfo(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest) throws ApiException {
+    public ApiResponse<UpdatePosition> updatePositionWithHttpInfo(Long positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = updatePositionValidateBeforeCall(positionId, tradFiPositionUpdateRequest, null);
         Type localVarReturnType = new TypeToken<UpdatePosition>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2457,7 +2457,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePositionAsync(Integer positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback<UpdatePosition> _callback) throws ApiException {
+    public okhttp3.Call updatePositionAsync(Long positionId, TradFiPositionUpdateRequest tradFiPositionUpdateRequest, final ApiCallback<UpdatePosition> _callback) throws ApiException {
         okhttp3.Call localVarCall = updatePositionValidateBeforeCall(positionId, tradFiPositionUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<UpdatePosition>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -2478,7 +2478,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call closePositionCall(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call closePositionCall(Long positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = tradFiClosePositionRequest;
 
         // create path and map variables
@@ -2509,7 +2509,7 @@ public class CfdApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call closePositionValidateBeforeCall(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call closePositionValidateBeforeCall(Long positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'positionId' is set
         if (positionId == null) {
             throw new ApiException("Missing the required parameter 'positionId' when calling closePosition(Async)");
@@ -2538,7 +2538,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public DeletePosition closePosition(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest) throws ApiException {
+    public DeletePosition closePosition(Long positionId, TradFiClosePositionRequest tradFiClosePositionRequest) throws ApiException {
         ApiResponse<DeletePosition> localVarResp = closePositionWithHttpInfo(positionId, tradFiClosePositionRequest);
         return localVarResp.getData();
     }
@@ -2557,7 +2557,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DeletePosition> closePositionWithHttpInfo(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest) throws ApiException {
+    public ApiResponse<DeletePosition> closePositionWithHttpInfo(Long positionId, TradFiClosePositionRequest tradFiClosePositionRequest) throws ApiException {
         okhttp3.Call localVarCall = closePositionValidateBeforeCall(positionId, tradFiClosePositionRequest, null);
         Type localVarReturnType = new TypeToken<DeletePosition>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2578,7 +2578,7 @@ public class CfdApi {
         <tr><td> 400 </td><td> Request failed </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call closePositionAsync(Integer positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback<DeletePosition> _callback) throws ApiException {
+    public okhttp3.Call closePositionAsync(Long positionId, TradFiClosePositionRequest tradFiClosePositionRequest, final ApiCallback<DeletePosition> _callback) throws ApiException {
         okhttp3.Call localVarCall = closePositionValidateBeforeCall(positionId, tradFiClosePositionRequest, _callback);
         Type localVarReturnType = new TypeToken<DeletePosition>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

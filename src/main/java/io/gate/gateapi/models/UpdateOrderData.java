@@ -25,7 +25,7 @@ import java.io.IOException;
 public class UpdateOrderData {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private Integer orderId;
+    private Long orderId;
 
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
@@ -52,7 +52,7 @@ public class UpdateOrderData {
     private String priceSl;
 
 
-    public UpdateOrderData orderId(Integer orderId) {
+    public UpdateOrderData orderId(Long orderId) {
         
         this.orderId = orderId;
         return this;
@@ -63,12 +63,12 @@ public class UpdateOrderData {
      * @return orderId
     **/
     @javax.annotation.Nullable
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

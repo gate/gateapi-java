@@ -25,11 +25,11 @@ import java.io.IOException;
 public class OrderLogData {
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private Integer orderId;
+    private Long orderId;
 
     public static final String SERIALIZED_NAME_LOG_ID = "log_id";
     @SerializedName(SERIALIZED_NAME_LOG_ID)
-    private Integer logId;
+    private Long logId;
 
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
@@ -150,7 +150,7 @@ public class OrderLogData {
     private String price;
 
 
-    public OrderLogData orderId(Integer orderId) {
+    public OrderLogData orderId(Long orderId) {
         
         this.orderId = orderId;
         return this;
@@ -161,16 +161,16 @@ public class OrderLogData {
      * @return orderId
     **/
     @javax.annotation.Nullable
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    public OrderLogData logId(Integer logId) {
+    public OrderLogData logId(Long logId) {
         
         this.logId = logId;
         return this;
@@ -181,12 +181,12 @@ public class OrderLogData {
      * @return logId
     **/
     @javax.annotation.Nullable
-    public Integer getLogId() {
+    public Long getLogId() {
         return logId;
     }
 
 
-    public void setLogId(Integer logId) {
+    public void setLogId(Long logId) {
         this.logId = logId;
     }
 

@@ -25,7 +25,7 @@ import java.io.IOException;
 public class PositionListDataList {
     public static final String SERIALIZED_NAME_POSITION_ID = "position_id";
     @SerializedName(SERIALIZED_NAME_POSITION_ID)
-    private Integer positionId;
+    private Long positionId;
 
     public static final String SERIALIZED_NAME_SYMBOL = "symbol";
     @SerializedName(SERIALIZED_NAME_SYMBOL)
@@ -60,7 +60,7 @@ public class PositionListDataList {
     private String positionDir;
 
 
-    public PositionListDataList positionId(Integer positionId) {
+    public PositionListDataList positionId(Long positionId) {
         
         this.positionId = positionId;
         return this;
@@ -71,12 +71,12 @@ public class PositionListDataList {
      * @return positionId
     **/
     @javax.annotation.Nullable
-    public Integer getPositionId() {
+    public Long getPositionId() {
         return positionId;
     }
 
 
-    public void setPositionId(Integer positionId) {
+    public void setPositionId(Long positionId) {
         this.positionId = positionId;
     }
 
