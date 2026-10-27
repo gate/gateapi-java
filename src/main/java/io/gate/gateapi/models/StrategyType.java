@@ -36,7 +36,11 @@ public enum StrategyType {
     
     SPOT_MARTINGALE("spot_martingale"),
     
-    CONTRACT_MARTINGALE("contract_martingale");
+    CONTRACT_MARTINGALE("contract_martingale"),
+    
+    SMART_POSITION("smart_position"),
+    
+    FUTURES_COMBO("futures_combo");
 
     private String value;
 

@@ -56,6 +56,59 @@ public class ContractMartingaleCreateParams {
     @SerializedName(SERIALIZED_NAME_PROFIT_SHARING_RATIO)
     private String profitSharingRatio;
 
+    /**
+     * Gets or Sets stopLossPriceType
+     */
+    @JsonAdapter(StopLossPriceTypeEnum.Adapter.class)
+    public enum StopLossPriceTypeEnum {
+        LAST("last"),
+        
+        INDEX("index"),
+        
+        MARK("mark");
+
+        private String value;
+
+        StopLossPriceTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StopLossPriceTypeEnum fromValue(String value) {
+            for (StopLossPriceTypeEnum b : StopLossPriceTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StopLossPriceTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StopLossPriceTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StopLossPriceTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return StopLossPriceTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STOP_LOSS_PRICE_TYPE = "stop_loss_price_type";
+    @SerializedName(SERIALIZED_NAME_STOP_LOSS_PRICE_TYPE)
+    private StopLossPriceTypeEnum stopLossPriceType;
+
 
     public ContractMartingaleCreateParams investAmount(String investAmount) {
         
@@ -64,7 +117,7 @@ public class ContractMartingaleCreateParams {
     }
 
      /**
-     * Margin allocated; the server converts it to initial contract size using live contract price, contract multiplier, and minimum lot size.
+     * Total strategy budget, not first-order margin. The server uses the complete existing ladder formula, owner fee and live contract facts, quantizes quantity down and rechecks before allocation. Minimum infeasible budget is rejected.
      * @return investAmount
     **/
     public String getInvestAmount() {
@@ -102,7 +155,7 @@ public class ContractMartingaleCreateParams {
     }
 
      /**
-     * Get maxOrders
+     * Maximum additional entries, excluding the first; preserve this legacy meaning.
      * minimum: 1
      * @return maxOrders
     **/
@@ -179,7 +232,7 @@ public class ContractMartingaleCreateParams {
     }
 
      /**
-     * Legacy field name. The AIHub &#x60;contract_martingale&#x60; creation path does not map this field today; follow contract martingale rules from the underlying API. MCP tooling must match bot-service behavior.
+     * Positive fixed stop price; requires explicit stop_loss_price_type. Missing both leaves the old no-fixed-stop request unchanged.
      * @return stopLossPrice
     **/
     @javax.annotation.Nullable
@@ -211,6 +264,26 @@ public class ContractMartingaleCreateParams {
     public void setProfitSharingRatio(String profitSharingRatio) {
         this.profitSharingRatio = profitSharingRatio;
     }
+
+    public ContractMartingaleCreateParams stopLossPriceType(StopLossPriceTypeEnum stopLossPriceType) {
+        
+        this.stopLossPriceType = stopLossPriceType;
+        return this;
+    }
+
+     /**
+     * Get stopLossPriceType
+     * @return stopLossPriceType
+    **/
+    @javax.annotation.Nullable
+    public StopLossPriceTypeEnum getStopLossPriceType() {
+        return stopLossPriceType;
+    }
+
+
+    public void setStopLossPriceType(StopLossPriceTypeEnum stopLossPriceType) {
+        this.stopLossPriceType = stopLossPriceType;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -227,12 +300,13 @@ public class ContractMartingaleCreateParams {
                 Objects.equals(this.direction, contractMartingaleCreateParams.direction) &&
                 Objects.equals(this.leverage, contractMartingaleCreateParams.leverage) &&
                 Objects.equals(this.stopLossPrice, contractMartingaleCreateParams.stopLossPrice) &&
-                Objects.equals(this.profitSharingRatio, contractMartingaleCreateParams.profitSharingRatio);
+                Objects.equals(this.profitSharingRatio, contractMartingaleCreateParams.profitSharingRatio) &&
+                Objects.equals(this.stopLossPriceType, contractMartingaleCreateParams.stopLossPriceType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(investAmount, priceDeviation, maxOrders, takeProfitRatio, direction, leverage, stopLossPrice, profitSharingRatio);
+        return Objects.hash(investAmount, priceDeviation, maxOrders, takeProfitRatio, direction, leverage, stopLossPrice, profitSharingRatio, stopLossPriceType);
     }
 
 
@@ -248,6 +322,7 @@ public class ContractMartingaleCreateParams {
         sb.append("      leverage: ").append(toIndentedString(leverage)).append("\n");
         sb.append("      stopLossPrice: ").append(toIndentedString(stopLossPrice)).append("\n");
         sb.append("      profitSharingRatio: ").append(toIndentedString(profitSharingRatio)).append("\n");
+        sb.append("      stopLossPriceType: ").append(toIndentedString(stopLossPriceType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

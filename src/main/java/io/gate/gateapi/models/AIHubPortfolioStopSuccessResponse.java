@@ -40,6 +40,10 @@ public class AIHubPortfolioStopSuccessResponse {
     @SerializedName(SERIALIZED_NAME_TRACE_ID)
     private String traceId;
 
+    public static final String SERIALIZED_NAME_LABEL = "label";
+    @SerializedName(SERIALIZED_NAME_LABEL)
+    private String label;
+
 
     public AIHubPortfolioStopSuccessResponse code(Integer code) {
         
@@ -89,6 +93,7 @@ public class AIHubPortfolioStopSuccessResponse {
      * Get data
      * @return data
     **/
+    @javax.annotation.Nullable
     public AIHubPortfolioStopData getData() {
         return data;
     }
@@ -108,6 +113,7 @@ public class AIHubPortfolioStopSuccessResponse {
      * Get traceId
      * @return traceId
     **/
+    @javax.annotation.Nullable
     public String getTraceId() {
         return traceId;
     }
@@ -115,6 +121,26 @@ public class AIHubPortfolioStopSuccessResponse {
 
     public void setTraceId(String traceId) {
         this.traceId = traceId;
+    }
+
+    public AIHubPortfolioStopSuccessResponse label(String label) {
+        
+        this.label = label;
+        return this;
+    }
+
+     /**
+     * Stable business error label when present. HTTP 200 can contain a non-200 business code; data may retain a real identity on failure.
+     * @return label
+    **/
+    @javax.annotation.Nullable
+    public String getLabel() {
+        return label;
+    }
+
+
+    public void setLabel(String label) {
+        this.label = label;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -128,12 +154,13 @@ public class AIHubPortfolioStopSuccessResponse {
         return Objects.equals(this.code, aiHubPortfolioStopSuccessResponse.code) &&
                 Objects.equals(this.message, aiHubPortfolioStopSuccessResponse.message) &&
                 Objects.equals(this.data, aiHubPortfolioStopSuccessResponse.data) &&
-                Objects.equals(this.traceId, aiHubPortfolioStopSuccessResponse.traceId);
+                Objects.equals(this.traceId, aiHubPortfolioStopSuccessResponse.traceId) &&
+                Objects.equals(this.label, aiHubPortfolioStopSuccessResponse.label);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data, traceId);
+        return Objects.hash(code, message, data, traceId, label);
     }
 
 
@@ -145,6 +172,7 @@ public class AIHubPortfolioStopSuccessResponse {
         sb.append("      message: ").append(toIndentedString(message)).append("\n");
         sb.append("      data: ").append(toIndentedString(data)).append("\n");
         sb.append("      traceId: ").append(toIndentedString(traceId)).append("\n");
+        sb.append("      label: ").append(toIndentedString(label)).append("\n");
         sb.append("}");
         return sb.toString();
     }

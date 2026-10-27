@@ -22,10 +22,12 @@ import com.google.gson.reflect.TypeToken;
 
 import io.gate.gateapi.models.AIHubCreateSuccessResponse;
 import io.gate.gateapi.models.AIHubDiscoverSuccessResponse;
+import io.gate.gateapi.models.AIHubFuturesComboCreateRequest;
 import io.gate.gateapi.models.AIHubPortfolioDetailSuccessResponse;
 import io.gate.gateapi.models.AIHubPortfolioRunningSuccessResponse;
 import io.gate.gateapi.models.AIHubPortfolioStopRequest;
 import io.gate.gateapi.models.AIHubPortfolioStopSuccessResponse;
+import io.gate.gateapi.models.AIHubRebalanceCreateRequest;
 import io.gate.gateapi.models.ContractMartingaleCreateRequest;
 import io.gate.gateapi.models.FuturesGridCreateRequest;
 import io.gate.gateapi.models.InfiniteGridCreateRequest;
@@ -58,7 +60,7 @@ public class BotApi {
         this.localVarApiClient = apiClient;
     }
 
-    private okhttp3.Call getAIHubStrategyRecommendCall(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAIHubStrategyRecommendCall(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, String excludeRecommendationId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -102,6 +104,10 @@ public class BotApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("backtest_apr_gte", backtestAprGte));
         }
 
+        if (excludeRecommendationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("exclude_recommendation_id", excludeRecommendationId));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (xGateServiceId != null) {
             localVarHeaderParams.put("X-Gate-Service-Id", localVarApiClient.parameterToString(xGateServiceId));
@@ -140,20 +146,20 @@ public class BotApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAIHubStrategyRecommendValidateBeforeCall(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
-        okhttp3.Call localVarCall = getAIHubStrategyRecommendCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+    private okhttp3.Call getAIHubStrategyRecommendValidateBeforeCall(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, String excludeRecommendationId, final ApiCallback _callback) throws ApiException {
+        okhttp3.Call localVarCall = getAIHubStrategyRecommendCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<AIHubDiscoverSuccessResponse> getAIHubStrategyRecommendWithHttpInfo(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
-        okhttp3.Call localVarCall = getAIHubStrategyRecommendValidateBeforeCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, null);
+    private ApiResponse<AIHubDiscoverSuccessResponse> getAIHubStrategyRecommendWithHttpInfo(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, String excludeRecommendationId) throws ApiException {
+        okhttp3.Call localVarCall = getAIHubStrategyRecommendValidateBeforeCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId, null);
         Type localVarReturnType = new TypeToken<AIHubDiscoverSuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getAIHubStrategyRecommendAsync(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubDiscoverSuccessResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = getAIHubStrategyRecommendValidateBeforeCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+    private okhttp3.Call getAIHubStrategyRecommendAsync(String market, String strategyType, String direction, String investAmount, String scene, String refreshRecommendationId, Integer limit, String maxDrawdownLte, String backtestAprGte, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, String excludeRecommendationId, final ApiCallback<AIHubDiscoverSuccessResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = getAIHubStrategyRecommendValidateBeforeCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId, _callback);
         Type localVarReturnType = new TypeToken<AIHubDiscoverSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -173,6 +179,7 @@ public class BotApi {
         private String xGateAppLang;
         private String xRequestId;
         private String xTraceId;
+        private String excludeRecommendationId;
 
         private APIgetAIHubStrategyRecommendRequest() {
         }
@@ -209,7 +216,7 @@ public class BotApi {
 
         /**
          * Set investAmount
-         * @param investAmount Investment amount, string transparent transmission (optional)
+         * @param investAmount Context only. No budget eligibility filter; reported unsupported when not consumed. (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest investAmount(String investAmount) {
@@ -239,7 +246,7 @@ public class BotApi {
 
         /**
          * Set limit
-         * @param limit Return quantity; when &#x60;scene&#x3D;filter&#x60; is used, the actual results are up to 10 (optional)
+         * @param limit Actual maximum result count, 1–10; defaults to 10. (optional)
          * @return APIgetAIHubStrategyRecommendRequest
          */
         public APIgetAIHubStrategyRecommendRequest limit(Integer limit) {
@@ -308,6 +315,16 @@ public class BotApi {
         }
 
         /**
+         * Set excludeRecommendationId
+         * @param excludeRecommendationId Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan. (optional)
+         * @return APIgetAIHubStrategyRecommendRequest
+         */
+        public APIgetAIHubStrategyRecommendRequest excludeRecommendationId(String excludeRecommendationId) {
+            this.excludeRecommendationId = excludeRecommendationId;
+            return this;
+        }
+
+        /**
          * Build call for getAIHubStrategyRecommend
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -319,7 +336,7 @@ public class BotApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getAIHubStrategyRecommendCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+            return getAIHubStrategyRecommendCall(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId, _callback);
         }
 
         /**
@@ -333,7 +350,7 @@ public class BotApi {
          </table>
          */
         public AIHubDiscoverSuccessResponse execute() throws ApiException {
-            ApiResponse<AIHubDiscoverSuccessResponse> localVarResp = getAIHubStrategyRecommendWithHttpInfo(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId);
+            ApiResponse<AIHubDiscoverSuccessResponse> localVarResp = getAIHubStrategyRecommendWithHttpInfo(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId);
             return localVarResp.getData();
         }
 
@@ -348,7 +365,7 @@ public class BotApi {
          </table>
          */
         public ApiResponse<AIHubDiscoverSuccessResponse> executeWithHttpInfo() throws ApiException {
-            return getAIHubStrategyRecommendWithHttpInfo(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId);
+            return getAIHubStrategyRecommendWithHttpInfo(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId);
         }
 
         /**
@@ -363,13 +380,13 @@ public class BotApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<AIHubDiscoverSuccessResponse> _callback) throws ApiException {
-            return getAIHubStrategyRecommendAsync(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+            return getAIHubStrategyRecommendAsync(market, strategyType, direction, investAmount, scene, refreshRecommendationId, limit, maxDrawdownLte, backtestAprGte, xGateServiceId, xGateAppLang, xRequestId, xTraceId, excludeRecommendationId, _callback);
         }
     }
 
     /**
      * Get AIHub strategy recommendations
-     * The only formal interface for the discover domain. Support scenarios: - &#x60;top1&#x60; - &#x60;bundle&#x60; - &#x60;filter&#x60; - &#x60;refresh&#x60; Constraints: - The active recommendation pool only contains &#x60;spot_grid&#x60;, &#x60;futures_grid&#x60;, &#x60;spot_martingale&#x60; - Can return but do not actively recommend &#x60;infinite_grid&#x60;, &#x60;margin_grid&#x60; - &#x60;contract_martingale&#x60;, &#x60;smart-position&#x60;, &#x60;spot-future-arbitrage&#x60; must not be returned - When &#x60;scene&#x3D;filter&#x60; is used, only filtering by &#x60;market&#x60;, &#x60;backtest_apr_gte&#x60;, &#x60;max_drawdown_lte&#x60; is allowed - &#x60;scene&#x3D;refresh&#x60; inherits the refresh context through &#x60;refresh_recommendation_id&#x60;; the official minimum format only requires &#x60;strategy_type|market&#x60; - If the upstream directly transmits the previous recommendation &#x60;recommendation_id&#x60;, the third paragraph &#x60;backtest_id&#x60; will currently be ignored.
+     * Six real official source types. Exact rebalance asset membership is filtered before ranking. contract_martingale and futures_combo are manual-only. Legacy APR/drawdown and ordinary two-segment refresh remain compatible. Exclusion binds one prior logical candidate before ranking; no alternative returns an empty list without relaxing constraints.
      * @return APIgetAIHubStrategyRecommendRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1810,6 +1827,284 @@ public class BotApi {
     public okhttp3.Call postAIHubPortfolioStopAsync(AIHubPortfolioStopRequest aiHubPortfolioStopRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubPortfolioStopSuccessResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = postAIHubPortfolioStopValidateBeforeCall(aiHubPortfolioStopRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
         Type localVarReturnType = new TypeToken<AIHubPortfolioStopSuccessResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for postAIHubSmartPositionCreate
+     * @param aiHubRebalanceCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call postAIHubSmartPositionCreateCall(AIHubRebalanceCreateRequest aiHubRebalanceCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = aiHubRebalanceCreateRequest;
+
+        // create path and map variables
+        String localVarPath = "/bot/smart-position/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xGateServiceId != null) {
+            localVarHeaderParams.put("X-Gate-Service-Id", localVarApiClient.parameterToString(xGateServiceId));
+        }
+
+        if (xGateAppLang != null) {
+            localVarHeaderParams.put("X-Gate-AppLang", localVarApiClient.parameterToString(xGateAppLang));
+        }
+
+        if (xRequestId != null) {
+            localVarHeaderParams.put("X-Request-Id", localVarApiClient.parameterToString(xRequestId));
+        }
+
+        if (xTraceId != null) {
+            localVarHeaderParams.put("X-Trace-Id", localVarApiClient.parameterToString(xTraceId));
+        }
+
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call postAIHubSmartPositionCreateValidateBeforeCall(AIHubRebalanceCreateRequest aiHubRebalanceCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'aiHubRebalanceCreateRequest' is set
+        if (aiHubRebalanceCreateRequest == null) {
+            throw new ApiException("Missing the required parameter 'aiHubRebalanceCreateRequest' when calling postAIHubSmartPositionCreate(Async)");
+        }
+
+        okhttp3.Call localVarCall = postAIHubSmartPositionCreateCall(aiHubRebalanceCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create rebalance bot
+     * Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+     * @param aiHubRebalanceCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @return AIHubCreateSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public AIHubCreateSuccessResponse postAIHubSmartPositionCreate(AIHubRebalanceCreateRequest aiHubRebalanceCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
+        ApiResponse<AIHubCreateSuccessResponse> localVarResp = postAIHubSmartPositionCreateWithHttpInfo(aiHubRebalanceCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create rebalance bot
+     * Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+     * @param aiHubRebalanceCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AIHubCreateSuccessResponse> postAIHubSmartPositionCreateWithHttpInfo(AIHubRebalanceCreateRequest aiHubRebalanceCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
+        okhttp3.Call localVarCall = postAIHubSmartPositionCreateValidateBeforeCall(aiHubRebalanceCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, null);
+        Type localVarReturnType = new TypeToken<AIHubCreateSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create rebalance bot (asynchronously)
+     * Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+     * @param aiHubRebalanceCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call postAIHubSmartPositionCreateAsync(AIHubRebalanceCreateRequest aiHubRebalanceCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = postAIHubSmartPositionCreateValidateBeforeCall(aiHubRebalanceCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+        Type localVarReturnType = new TypeToken<AIHubCreateSuccessResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for postAIHubFuturesComboCreate
+     * @param aiHubFuturesComboCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call postAIHubFuturesComboCreateCall(AIHubFuturesComboCreateRequest aiHubFuturesComboCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = aiHubFuturesComboCreateRequest;
+
+        // create path and map variables
+        String localVarPath = "/bot/futures-combo/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xGateServiceId != null) {
+            localVarHeaderParams.put("X-Gate-Service-Id", localVarApiClient.parameterToString(xGateServiceId));
+        }
+
+        if (xGateAppLang != null) {
+            localVarHeaderParams.put("X-Gate-AppLang", localVarApiClient.parameterToString(xGateAppLang));
+        }
+
+        if (xRequestId != null) {
+            localVarHeaderParams.put("X-Request-Id", localVarApiClient.parameterToString(xRequestId));
+        }
+
+        if (xTraceId != null) {
+            localVarHeaderParams.put("X-Trace-Id", localVarApiClient.parameterToString(xTraceId));
+        }
+
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "apiv4" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call postAIHubFuturesComboCreateValidateBeforeCall(AIHubFuturesComboCreateRequest aiHubFuturesComboCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'aiHubFuturesComboCreateRequest' is set
+        if (aiHubFuturesComboCreateRequest == null) {
+            throw new ApiException("Missing the required parameter 'aiHubFuturesComboCreateRequest' when calling postAIHubFuturesComboCreate(Async)");
+        }
+
+        okhttp3.Call localVarCall = postAIHubFuturesComboCreateCall(aiHubFuturesComboCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create futures-combo bot
+     * Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+     * @param aiHubFuturesComboCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @return AIHubCreateSuccessResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public AIHubCreateSuccessResponse postAIHubFuturesComboCreate(AIHubFuturesComboCreateRequest aiHubFuturesComboCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
+        ApiResponse<AIHubCreateSuccessResponse> localVarResp = postAIHubFuturesComboCreateWithHttpInfo(aiHubFuturesComboCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create futures-combo bot
+     * Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+     * @param aiHubFuturesComboCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @return ApiResponse&lt;AIHubCreateSuccessResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AIHubCreateSuccessResponse> postAIHubFuturesComboCreateWithHttpInfo(AIHubFuturesComboCreateRequest aiHubFuturesComboCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId) throws ApiException {
+        okhttp3.Call localVarCall = postAIHubFuturesComboCreateValidateBeforeCall(aiHubFuturesComboCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, null);
+        Type localVarReturnType = new TypeToken<AIHubCreateSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create futures-combo bot (asynchronously)
+     * Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+     * @param aiHubFuturesComboCreateRequest  (required)
+     * @param xGateServiceId Call source identifier; injected by APIv4 if necessary (optional)
+     * @param xGateAppLang Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; (optional)
+     * @param xRequestId Request link ID; caller can transmit transparently (optional)
+     * @param xTraceId trace header; can be generated uniformly by APIv4 (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Unified business response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call postAIHubFuturesComboCreateAsync(AIHubFuturesComboCreateRequest aiHubFuturesComboCreateRequest, String xGateServiceId, String xGateAppLang, String xRequestId, String xTraceId, final ApiCallback<AIHubCreateSuccessResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = postAIHubFuturesComboCreateValidateBeforeCall(aiHubFuturesComboCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId, _callback);
+        Type localVarReturnType = new TypeToken<AIHubCreateSuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

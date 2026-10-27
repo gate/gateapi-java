@@ -14,15 +14,17 @@ Method | HTTP request | Description
 [**getAIHubPortfolioRunning**](BotApi.md#getAIHubPortfolioRunning) | **GET** /bot/portfolio/running | Query the list of running policies
 [**getAIHubPortfolioDetail**](BotApi.md#getAIHubPortfolioDetail) | **GET** /bot/portfolio/detail | Query order policy details
 [**postAIHubPortfolioStop**](BotApi.md#postAIHubPortfolioStop) | **POST** /bot/portfolio/stop | Terminate a single running policy
+[**postAIHubSmartPositionCreate**](BotApi.md#postAIHubSmartPositionCreate) | **POST** /bot/smart-position/create | Create rebalance bot
+[**postAIHubFuturesComboCreate**](BotApi.md#postAIHubFuturesComboCreate) | **POST** /bot/futures-combo/create | Create futures-combo bot
 
 
 <a name="getAIHubStrategyRecommend"></a>
 # **getAIHubStrategyRecommend**
-> AIHubDiscoverSuccessResponse getAIHubStrategyRecommend().market(market).strategyType(strategyType).direction(direction).investAmount(investAmount).scene(scene).refreshRecommendationId(refreshRecommendationId).limit(limit).maxDrawdownLte(maxDrawdownLte).backtestAprGte(backtestAprGte).xGateServiceId(xGateServiceId).xGateAppLang(xGateAppLang).xRequestId(xRequestId).xTraceId(xTraceId).execute();
+> AIHubDiscoverSuccessResponse getAIHubStrategyRecommend().market(market).strategyType(strategyType).direction(direction).investAmount(investAmount).scene(scene).refreshRecommendationId(refreshRecommendationId).limit(limit).maxDrawdownLte(maxDrawdownLte).backtestAprGte(backtestAprGte).xGateServiceId(xGateServiceId).xGateAppLang(xGateAppLang).xRequestId(xRequestId).xTraceId(xTraceId).excludeRecommendationId(excludeRecommendationId).execute();
 
 Get AIHub strategy recommendations
 
-The only formal interface for the discover domain. Support scenarios: - &#x60;top1&#x60; - &#x60;bundle&#x60; - &#x60;filter&#x60; - &#x60;refresh&#x60; Constraints: - The active recommendation pool only contains &#x60;spot_grid&#x60;, &#x60;futures_grid&#x60;, &#x60;spot_martingale&#x60; - Can return but do not actively recommend &#x60;infinite_grid&#x60;, &#x60;margin_grid&#x60; - &#x60;contract_martingale&#x60;, &#x60;smart-position&#x60;, &#x60;spot-future-arbitrage&#x60; must not be returned - When &#x60;scene&#x3D;filter&#x60; is used, only filtering by &#x60;market&#x60;, &#x60;backtest_apr_gte&#x60;, &#x60;max_drawdown_lte&#x60; is allowed - &#x60;scene&#x3D;refresh&#x60; inherits the refresh context through &#x60;refresh_recommendation_id&#x60;; the official minimum format only requires &#x60;strategy_type|market&#x60; - If the upstream directly transmits the previous recommendation &#x60;recommendation_id&#x60;, the third paragraph &#x60;backtest_id&#x60; will currently be ignored.
+Six real official source types. Exact rebalance asset membership is filtered before ranking. contract_martingale and futures_combo are manual-only. Legacy APR/drawdown and ordinary two-segment refresh remain compatible. Exclusion binds one prior logical candidate before ranking; no alternative returns an empty list without relaxing constraints.
 
 ### Example
 
@@ -48,16 +50,17 @@ public class Example {
         String market = "market_example"; // String | Trading pair, such as `BTC_USDT`
         String strategyType = "strategyType_example"; // String | Recommended target policy type; `contract_martingale` not allowed
         String direction = "direction_example"; // String | Market direction
-        String investAmount = "investAmount_example"; // String | Investment amount, string transparent transmission
+        String investAmount = "investAmount_example"; // String | Context only. No budget eligibility filter; reported unsupported when not consumed.
         String scene = "scene_example"; // String | Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic.
         String refreshRecommendationId = "refreshRecommendationId_example"; // String | It is recommended to refresh the context. Used when `scene=refresh` is used; when `scene` is empty but the field exists, bot-service will also automatically determine as `refresh`. The official minimum format is `strategy_type|market`; if the `recommendation_id` of the previous recommendation is directly passed through, the third paragraph `backtest_id` will be ignored.
-        Integer limit = 56; // Integer | Return quantity; when `scene=filter` is used, the actual results are up to 10
+        Integer limit = 56; // Integer | Actual maximum result count, 1–10; defaults to 10.
         String maxDrawdownLte = "maxDrawdownLte_example"; // String | Maximum drawdown limit
         String backtestAprGte = "backtestAprGte_example"; // String | Backtest annualized lower limit
         String xGateServiceId = "xGateServiceId_example"; // String | Call source identifier; injected by APIv4 if necessary
         String xGateAppLang = "xGateAppLang_example"; // String | Language context, such as `zh-CN` / `en-US`
         String xRequestId = "xRequestId_example"; // String | Request link ID; caller can transmit transparently
         String xTraceId = "xTraceId_example"; // String | trace header; can be generated uniformly by APIv4
+        String excludeRecommendationId = "excludeRecommendationId_example"; // String | Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan.
         try {
             AIHubDiscoverSuccessResponse result = apiInstance.getAIHubStrategyRecommend()
                         .market(market)
@@ -73,6 +76,7 @@ public class Example {
                         .xGateAppLang(xGateAppLang)
                         .xRequestId(xRequestId)
                         .xTraceId(xTraceId)
+                        .excludeRecommendationId(excludeRecommendationId)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -93,18 +97,19 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **market** | **String**| Trading pair, such as &#x60;BTC_USDT&#x60; | [optional]
- **strategyType** | **String**| Recommended target policy type; &#x60;contract_martingale&#x60; not allowed | [optional] [enum: spot_grid, margin_grid, infinite_grid, futures_grid, spot_martingale]
+ **strategyType** | **String**| Recommended target policy type; &#x60;contract_martingale&#x60; not allowed | [optional] [enum: spot_grid, margin_grid, infinite_grid, futures_grid, spot_martingale, smart_position]
  **direction** | **String**| Market direction | [optional] [enum: buy, sell, neutral]
- **investAmount** | **String**| Investment amount, string transparent transmission | [optional]
+ **investAmount** | **String**| Context only. No budget eligibility filter; reported unsupported when not consumed. | [optional]
  **scene** | **String**| Recommended scenario; when empty, bot-service can automatically infer according to the implementation logic. | [optional] [enum: top1, bundle, filter, refresh]
  **refreshRecommendationId** | **String**| It is recommended to refresh the context. Used when &#x60;scene&#x3D;refresh&#x60; is used; when &#x60;scene&#x60; is empty but the field exists, bot-service will also automatically determine as &#x60;refresh&#x60;. The official minimum format is &#x60;strategy_type|market&#x60;; if the &#x60;recommendation_id&#x60; of the previous recommendation is directly passed through, the third paragraph &#x60;backtest_id&#x60; will be ignored. | [optional]
- **limit** | **Integer**| Return quantity; when &#x60;scene&#x3D;filter&#x60; is used, the actual results are up to 10 | [optional]
+ **limit** | **Integer**| Actual maximum result count, 1–10; defaults to 10. | [optional]
  **maxDrawdownLte** | **String**| Maximum drawdown limit | [optional]
  **backtestAprGte** | **String**| Backtest annualized lower limit | [optional]
  **xGateServiceId** | **String**| Call source identifier; injected by APIv4 if necessary | [optional]
  **xGateAppLang** | **String**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional]
  **xRequestId** | **String**| Request link ID; caller can transmit transparently | [optional]
  **xTraceId** | **String**| trace header; can be generated uniformly by APIv4 | [optional]
+ **excludeRecommendationId** | **String**| Refresh-only previous returned identity: type|market|backtest_id, with an optional stable parameter discriminator for colliding source IDs. Ambiguous old identities are rejected; metric-only changes do not produce a new plan. | [optional]
 
 ### Return type
 
@@ -658,7 +663,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **strategyType** | **String**| Filter by policy type | [optional] [enum: spot_grid, margin_grid, infinite_grid, futures_grid, spot_martingale, contract_martingale]
+ **strategyType** | **String**| Filter by policy type | [optional] [enum: spot_grid, margin_grid, infinite_grid, futures_grid, spot_martingale, contract_martingale, smart_position, futures_combo]
  **market** | **String**| Filter by trading pair | [optional]
  **page** | **Integer**| Page number, default 1 | [optional] [default to 1]
  **pageSize** | **Integer**| Paging size, default 20, maximum 50 | [optional] [default to 20]
@@ -746,7 +751,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **strategyId** | **String**| Policy ID |
- **strategyType** | **String**| Policy type; used for underlying detail distribution | [enum: spot_grid, margin_grid, infinite_grid, futures_grid, spot_martingale, contract_martingale]
+ **strategyType** | **String**| Policy type; used for underlying detail distribution | [enum: spot_grid, margin_grid, infinite_grid, futures_grid, spot_martingale, contract_martingale, smart_position, futures_combo]
  **xGateServiceId** | **String**| Call source identifier; injected by APIv4 if necessary | [optional]
  **xGateAppLang** | **String**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional]
  **xRequestId** | **String**| Request link ID; caller can transmit transparently | [optional]
@@ -833,6 +838,162 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AIHubPortfolioStopSuccessResponse**](AIHubPortfolioStopSuccessResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Unified business response |  -  |
+
+<a name="postAIHubSmartPositionCreate"></a>
+# **postAIHubSmartPositionCreate**
+> AIHubCreateSuccessResponse postAIHubSmartPositionCreate(aiHubRebalanceCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId)
+
+Create rebalance bot
+
+Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.BotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        BotApi apiInstance = new BotApi(defaultClient);
+        AIHubRebalanceCreateRequest aiHubRebalanceCreateRequest = new AIHubRebalanceCreateRequest(); // AIHubRebalanceCreateRequest | 
+        String xGateServiceId = "xGateServiceId_example"; // String | Call source identifier; injected by APIv4 if necessary
+        String xGateAppLang = "xGateAppLang_example"; // String | Language context, such as `zh-CN` / `en-US`
+        String xRequestId = "xRequestId_example"; // String | Request link ID; caller can transmit transparently
+        String xTraceId = "xTraceId_example"; // String | trace header; can be generated uniformly by APIv4
+        try {
+            AIHubCreateSuccessResponse result = apiInstance.postAIHubSmartPositionCreate(aiHubRebalanceCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling BotApi#postAIHubSmartPositionCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **aiHubRebalanceCreateRequest** | [**AIHubRebalanceCreateRequest**](AIHubRebalanceCreateRequest.md)|  |
+ **xGateServiceId** | **String**| Call source identifier; injected by APIv4 if necessary | [optional]
+ **xGateAppLang** | **String**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional]
+ **xRequestId** | **String**| Request link ID; caller can transmit transparently | [optional]
+ **xTraceId** | **String**| trace header; can be generated uniformly by APIv4 | [optional]
+
+### Return type
+
+[**AIHubCreateSuccessResponse**](AIHubCreateSuccessResponse.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Unified business response |  -  |
+
+<a name="postAIHubFuturesComboCreate"></a>
+# **postAIHubFuturesComboCreate**
+> AIHubCreateSuccessResponse postAIHubFuturesComboCreate(aiHubFuturesComboCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId)
+
+Create futures-combo bot
+
+Typed AIHub adapter; authenticated owner comes only from trusted gateway context.
+
+### Example
+
+```java
+// Import classes:
+import io.gate.gateapi.ApiClient;
+import io.gate.gateapi.ApiException;
+import io.gate.gateapi.Configuration;
+import io.gate.gateapi.GateApiException;
+import io.gate.gateapi.auth.*;
+import io.gate.gateapi.models.*;
+import io.gate.gateapi.api.BotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api.gateio.ws/api/v4");
+        
+        // Configure APIv4 authorization: apiv4
+        defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
+
+        BotApi apiInstance = new BotApi(defaultClient);
+        AIHubFuturesComboCreateRequest aiHubFuturesComboCreateRequest = new AIHubFuturesComboCreateRequest(); // AIHubFuturesComboCreateRequest | 
+        String xGateServiceId = "xGateServiceId_example"; // String | Call source identifier; injected by APIv4 if necessary
+        String xGateAppLang = "xGateAppLang_example"; // String | Language context, such as `zh-CN` / `en-US`
+        String xRequestId = "xRequestId_example"; // String | Request link ID; caller can transmit transparently
+        String xTraceId = "xTraceId_example"; // String | trace header; can be generated uniformly by APIv4
+        try {
+            AIHubCreateSuccessResponse result = apiInstance.postAIHubFuturesComboCreate(aiHubFuturesComboCreateRequest, xGateServiceId, xGateAppLang, xRequestId, xTraceId);
+            System.out.println(result);
+        } catch (GateApiException e) {
+            System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
+            e.printStackTrace();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling BotApi#postAIHubFuturesComboCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **aiHubFuturesComboCreateRequest** | [**AIHubFuturesComboCreateRequest**](AIHubFuturesComboCreateRequest.md)|  |
+ **xGateServiceId** | **String**| Call source identifier; injected by APIv4 if necessary | [optional]
+ **xGateAppLang** | **String**| Language context, such as &#x60;zh-CN&#x60; / &#x60;en-US&#x60; | [optional]
+ **xRequestId** | **String**| Request link ID; caller can transmit transparently | [optional]
+ **xTraceId** | **String**| trace header; can be generated uniformly by APIv4 | [optional]
+
+### Return type
+
+[**AIHubCreateSuccessResponse**](AIHubCreateSuccessResponse.md)
 
 ### Authorization
 

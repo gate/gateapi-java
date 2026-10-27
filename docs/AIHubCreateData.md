@@ -7,9 +7,11 @@ Policy information returned after the policy is successfully created.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**strategyId** | **String** |  | 
-**strategyType** | [**StrategyType**](StrategyType.md) |  | 
-**market** | **String** |  | 
-**status** | **String** | The initial state after successful creation, usually &#x60;running&#x60; | 
+**strategyId** | **String** |  |  [optional]
+**strategyType** | [**StrategyType**](StrategyType.md) |  |  [optional]
+**market** | **String** |  |  [optional]
+**status** | **String** | Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled. |  [optional]
 **jumpUrl** | **String** |  |  [optional]
+**operationStatus** | **String** | pending when the write result requires verification; rejected for a proven pre-effect refusal. |  [optional]
+**recoveryRequired** | **Boolean** |  |  [optional]
 

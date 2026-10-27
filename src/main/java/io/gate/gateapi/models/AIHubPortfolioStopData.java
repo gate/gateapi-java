@@ -40,6 +40,14 @@ public class AIHubPortfolioStopData {
     @SerializedName(SERIALIZED_NAME_RESULT_MESSAGE)
     private String resultMessage;
 
+    public static final String SERIALIZED_NAME_OPERATION_STATUS = "operation_status";
+    @SerializedName(SERIALIZED_NAME_OPERATION_STATUS)
+    private String operationStatus;
+
+    public static final String SERIALIZED_NAME_RECOVERY_REQUIRED = "recovery_required";
+    @SerializedName(SERIALIZED_NAME_RECOVERY_REQUIRED)
+    private Boolean recoveryRequired;
+
 
     public AIHubPortfolioStopData strategyId(String strategyId) {
         
@@ -51,6 +59,7 @@ public class AIHubPortfolioStopData {
      * Get strategyId
      * @return strategyId
     **/
+    @javax.annotation.Nullable
     public String getStrategyId() {
         return strategyId;
     }
@@ -70,6 +79,7 @@ public class AIHubPortfolioStopData {
      * Get strategyType
      * @return strategyType
     **/
+    @javax.annotation.Nullable
     public StrategyType getStrategyType() {
         return strategyType;
     }
@@ -86,9 +96,10 @@ public class AIHubPortfolioStopData {
     }
 
      /**
-     * The current implementation returns &#x60;stopping&#x60;
+     * Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled.
      * @return status
     **/
+    @javax.annotation.Nullable
     public String getStatus() {
         return status;
     }
@@ -108,6 +119,7 @@ public class AIHubPortfolioStopData {
      * Get resultMessage
      * @return resultMessage
     **/
+    @javax.annotation.Nullable
     public String getResultMessage() {
         return resultMessage;
     }
@@ -115,6 +127,46 @@ public class AIHubPortfolioStopData {
 
     public void setResultMessage(String resultMessage) {
         this.resultMessage = resultMessage;
+    }
+
+    public AIHubPortfolioStopData operationStatus(String operationStatus) {
+        
+        this.operationStatus = operationStatus;
+        return this;
+    }
+
+     /**
+     * pending when the write result requires verification; rejected for a proven pre-effect refusal.
+     * @return operationStatus
+    **/
+    @javax.annotation.Nullable
+    public String getOperationStatus() {
+        return operationStatus;
+    }
+
+
+    public void setOperationStatus(String operationStatus) {
+        this.operationStatus = operationStatus;
+    }
+
+    public AIHubPortfolioStopData recoveryRequired(Boolean recoveryRequired) {
+        
+        this.recoveryRequired = recoveryRequired;
+        return this;
+    }
+
+     /**
+     * Get recoveryRequired
+     * @return recoveryRequired
+    **/
+    @javax.annotation.Nullable
+    public Boolean getRecoveryRequired() {
+        return recoveryRequired;
+    }
+
+
+    public void setRecoveryRequired(Boolean recoveryRequired) {
+        this.recoveryRequired = recoveryRequired;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -128,12 +180,14 @@ public class AIHubPortfolioStopData {
         return Objects.equals(this.strategyId, aiHubPortfolioStopData.strategyId) &&
                 Objects.equals(this.strategyType, aiHubPortfolioStopData.strategyType) &&
                 Objects.equals(this.status, aiHubPortfolioStopData.status) &&
-                Objects.equals(this.resultMessage, aiHubPortfolioStopData.resultMessage);
+                Objects.equals(this.resultMessage, aiHubPortfolioStopData.resultMessage) &&
+                Objects.equals(this.operationStatus, aiHubPortfolioStopData.operationStatus) &&
+                Objects.equals(this.recoveryRequired, aiHubPortfolioStopData.recoveryRequired);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategyId, strategyType, status, resultMessage);
+        return Objects.hash(strategyId, strategyType, status, resultMessage, operationStatus, recoveryRequired);
     }
 
 
@@ -145,6 +199,8 @@ public class AIHubPortfolioStopData {
         sb.append("      strategyType: ").append(toIndentedString(strategyType)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      resultMessage: ").append(toIndentedString(resultMessage)).append("\n");
+        sb.append("      operationStatus: ").append(toIndentedString(operationStatus)).append("\n");
+        sb.append("      recoveryRequired: ").append(toIndentedString(recoveryRequired)).append("\n");
         sb.append("}");
         return sb.toString();
     }

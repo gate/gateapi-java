@@ -17,11 +17,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.AIHubPortfolioAssetPosition;
 import io.gate.gateapi.models.AIHubPortfolioBaseInfo;
 import io.gate.gateapi.models.AIHubPortfolioMetrics;
 import io.gate.gateapi.models.AIHubPortfolioPosition;
+import io.gate.gateapi.models.AIHubStopProgress;
 import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Policy details data.
@@ -58,6 +62,81 @@ public class AIHubPortfolioDetailData {
     public static final String SERIALIZED_NAME_STOP_SUPPORTED = "stop_supported";
     @SerializedName(SERIALIZED_NAME_STOP_SUPPORTED)
     private Boolean stopSupported;
+
+    public static final String SERIALIZED_NAME_ASSETS = "assets";
+    @SerializedName(SERIALIZED_NAME_ASSETS)
+    private List<String> assets = null;
+
+    public static final String SERIALIZED_NAME_MARKETS = "markets";
+    @SerializedName(SERIALIZED_NAME_MARKETS)
+    private List<String> markets = null;
+
+    public static final String SERIALIZED_NAME_POSITIONS = "positions";
+    @SerializedName(SERIALIZED_NAME_POSITIONS)
+    private List<AIHubPortfolioAssetPosition> positions = null;
+
+    /**
+     * Gets or Sets positionsStatus
+     */
+    @JsonAdapter(PositionsStatusEnum.Adapter.class)
+    public enum PositionsStatusEnum {
+        VERIFIED("verified"),
+        
+        PARTIAL("partial"),
+        
+        UNVERIFIED("unverified"),
+        
+        HISTORICAL("historical");
+
+        private String value;
+
+        PositionsStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PositionsStatusEnum fromValue(String value) {
+            for (PositionsStatusEnum b : PositionsStatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<PositionsStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PositionsStatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PositionsStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return PositionsStatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_POSITIONS_STATUS = "positions_status";
+    @SerializedName(SERIALIZED_NAME_POSITIONS_STATUS)
+    private PositionsStatusEnum positionsStatus;
+
+    public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
+    @SerializedName(SERIALIZED_NAME_CONFIGURATION)
+    private Object _configuration;
+
+    public static final String SERIALIZED_NAME_STOP_PROGRESS = "stop_progress";
+    @SerializedName(SERIALIZED_NAME_STOP_PROGRESS)
+    private AIHubStopProgress stopProgress;
 
 
     public AIHubPortfolioDetailData strategyId(String strategyId) {
@@ -105,7 +184,7 @@ public class AIHubPortfolioDetailData {
     }
 
      /**
-     * Get market
+     * Single market, or empty string for a portfolio; use assets/markets for the latter.
      * @return market
     **/
     public String getMarket() {
@@ -212,6 +291,150 @@ public class AIHubPortfolioDetailData {
     public void setStopSupported(Boolean stopSupported) {
         this.stopSupported = stopSupported;
     }
+
+    public AIHubPortfolioDetailData assets(List<String> assets) {
+        
+        this.assets = assets;
+        return this;
+    }
+
+    public AIHubPortfolioDetailData addAssetsItem(String assetsItem) {
+        if (this.assets == null) {
+            this.assets = new ArrayList<>();
+        }
+        this.assets.add(assetsItem);
+        return this;
+    }
+
+     /**
+     * Get assets
+     * @return assets
+    **/
+    @javax.annotation.Nullable
+    public List<String> getAssets() {
+        return assets;
+    }
+
+
+    public void setAssets(List<String> assets) {
+        this.assets = assets;
+    }
+
+    public AIHubPortfolioDetailData markets(List<String> markets) {
+        
+        this.markets = markets;
+        return this;
+    }
+
+    public AIHubPortfolioDetailData addMarketsItem(String marketsItem) {
+        if (this.markets == null) {
+            this.markets = new ArrayList<>();
+        }
+        this.markets.add(marketsItem);
+        return this;
+    }
+
+     /**
+     * Get markets
+     * @return markets
+    **/
+    @javax.annotation.Nullable
+    public List<String> getMarkets() {
+        return markets;
+    }
+
+
+    public void setMarkets(List<String> markets) {
+        this.markets = markets;
+    }
+
+    public AIHubPortfolioDetailData positions(List<AIHubPortfolioAssetPosition> positions) {
+        
+        this.positions = positions;
+        return this;
+    }
+
+    public AIHubPortfolioDetailData addPositionsItem(AIHubPortfolioAssetPosition positionsItem) {
+        if (this.positions == null) {
+            this.positions = new ArrayList<>();
+        }
+        this.positions.add(positionsItem);
+        return this;
+    }
+
+     /**
+     * Get positions
+     * @return positions
+    **/
+    @javax.annotation.Nullable
+    public List<AIHubPortfolioAssetPosition> getPositions() {
+        return positions;
+    }
+
+
+    public void setPositions(List<AIHubPortfolioAssetPosition> positions) {
+        this.positions = positions;
+    }
+
+    public AIHubPortfolioDetailData positionsStatus(PositionsStatusEnum positionsStatus) {
+        
+        this.positionsStatus = positionsStatus;
+        return this;
+    }
+
+     /**
+     * Get positionsStatus
+     * @return positionsStatus
+    **/
+    @javax.annotation.Nullable
+    public PositionsStatusEnum getPositionsStatus() {
+        return positionsStatus;
+    }
+
+
+    public void setPositionsStatus(PositionsStatusEnum positionsStatus) {
+        this.positionsStatus = positionsStatus;
+    }
+
+    public AIHubPortfolioDetailData _configuration(Object _configuration) {
+        
+        this._configuration = _configuration;
+        return this;
+    }
+
+     /**
+     * Product-specific saved configuration. spot_martingale exposes AIHubSpotMartingaleConfiguration; absence is unverified. Runtime recovery internals are excluded.
+     * @return _configuration
+    **/
+    @javax.annotation.Nullable
+    public Object getConfiguration() {
+        return _configuration;
+    }
+
+
+    public void setConfiguration(Object _configuration) {
+        this._configuration = _configuration;
+    }
+
+    public AIHubPortfolioDetailData stopProgress(AIHubStopProgress stopProgress) {
+        
+        this.stopProgress = stopProgress;
+        return this;
+    }
+
+     /**
+     * Get stopProgress
+     * @return stopProgress
+    **/
+    @javax.annotation.Nullable
+    public AIHubStopProgress getStopProgress() {
+        return stopProgress;
+    }
+
+
+    public void setStopProgress(AIHubStopProgress stopProgress) {
+        this.stopProgress = stopProgress;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -228,12 +451,18 @@ public class AIHubPortfolioDetailData {
                 Objects.equals(this.baseInfo, aiHubPortfolioDetailData.baseInfo) &&
                 Objects.equals(this.metrics, aiHubPortfolioDetailData.metrics) &&
                 Objects.equals(this.position, aiHubPortfolioDetailData.position) &&
-                Objects.equals(this.stopSupported, aiHubPortfolioDetailData.stopSupported);
+                Objects.equals(this.stopSupported, aiHubPortfolioDetailData.stopSupported) &&
+                Objects.equals(this.assets, aiHubPortfolioDetailData.assets) &&
+                Objects.equals(this.markets, aiHubPortfolioDetailData.markets) &&
+                Objects.equals(this.positions, aiHubPortfolioDetailData.positions) &&
+                Objects.equals(this.positionsStatus, aiHubPortfolioDetailData.positionsStatus) &&
+                Objects.equals(this._configuration, aiHubPortfolioDetailData._configuration) &&
+                Objects.equals(this.stopProgress, aiHubPortfolioDetailData.stopProgress);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategyId, strategyType, market, status, baseInfo, metrics, position, stopSupported);
+        return Objects.hash(strategyId, strategyType, market, status, baseInfo, metrics, position, stopSupported, assets, markets, positions, positionsStatus, _configuration, stopProgress);
     }
 
 
@@ -249,6 +478,12 @@ public class AIHubPortfolioDetailData {
         sb.append("      metrics: ").append(toIndentedString(metrics)).append("\n");
         sb.append("      position: ").append(toIndentedString(position)).append("\n");
         sb.append("      stopSupported: ").append(toIndentedString(stopSupported)).append("\n");
+        sb.append("      assets: ").append(toIndentedString(assets)).append("\n");
+        sb.append("      markets: ").append(toIndentedString(markets)).append("\n");
+        sb.append("      positions: ").append(toIndentedString(positions)).append("\n");
+        sb.append("      positionsStatus: ").append(toIndentedString(positionsStatus)).append("\n");
+        sb.append("      _configuration: ").append(toIndentedString(_configuration)).append("\n");
+        sb.append("      stopProgress: ").append(toIndentedString(stopProgress)).append("\n");
         sb.append("}");
         return sb.toString();
     }

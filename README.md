@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.164
-- SDK version: 7.2.164
+- API version: v4.106.167
+- SDK version: 7.2.167
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.164</version>
+    <version>7.2.167</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.164"
+compile "io.gate:gate-api:7.2.167"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.164.jar`
+* `target/gate-api-7.2.167.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -180,6 +180,8 @@ Class | Method | HTTP request | Description
 *BotApi* | [**getAIHubPortfolioRunning**](docs/BotApi.md#getAIHubPortfolioRunning) | **GET** /bot/portfolio/running | Query the list of running policies
 *BotApi* | [**getAIHubPortfolioDetail**](docs/BotApi.md#getAIHubPortfolioDetail) | **GET** /bot/portfolio/detail | Query order policy details
 *BotApi* | [**postAIHubPortfolioStop**](docs/BotApi.md#postAIHubPortfolioStop) | **POST** /bot/portfolio/stop | Terminate a single running policy
+*BotApi* | [**postAIHubSmartPositionCreate**](docs/BotApi.md#postAIHubSmartPositionCreate) | **POST** /bot/smart-position/create | Create rebalance bot
+*BotApi* | [**postAIHubFuturesComboCreate**](docs/BotApi.md#postAIHubFuturesComboCreate) | **POST** /bot/futures-combo/create | Create futures-combo bot
 *CfdApi* | [**queryMt5AccountInfo**](docs/CfdApi.md#queryMt5AccountInfo) | **GET** /tradfi/users/mt5-account | Query MT5 account information
 *CfdApi* | [**queryCategories**](docs/CfdApi.md#queryCategories) | **GET** /tradfi/symbols/categories | Query trading symbol categories
 *CfdApi* | [**querySymbolCommissions**](docs/CfdApi.md#querySymbolCommissions) | **GET** /tradfi/symbols/commissions | Query symbol commission rates
@@ -652,10 +654,16 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AIHubContractMartingaleConfiguration](docs/AIHubContractMartingaleConfiguration.md)
  - [AIHubCreateData](docs/AIHubCreateData.md)
  - [AIHubCreateSuccessResponse](docs/AIHubCreateSuccessResponse.md)
  - [AIHubDiscoverData](docs/AIHubDiscoverData.md)
  - [AIHubDiscoverSuccessResponse](docs/AIHubDiscoverSuccessResponse.md)
+ - [AIHubFuturesComboAsset](docs/AIHubFuturesComboAsset.md)
+ - [AIHubFuturesComboCreateParams](docs/AIHubFuturesComboCreateParams.md)
+ - [AIHubFuturesComboCreateRequest](docs/AIHubFuturesComboCreateRequest.md)
+ - [AIHubMartingalePriceRule](docs/AIHubMartingalePriceRule.md)
+ - [AIHubPortfolioAssetPosition](docs/AIHubPortfolioAssetPosition.md)
  - [AIHubPortfolioBaseInfo](docs/AIHubPortfolioBaseInfo.md)
  - [AIHubPortfolioDetailData](docs/AIHubPortfolioDetailData.md)
  - [AIHubPortfolioDetailSuccessResponse](docs/AIHubPortfolioDetailSuccessResponse.md)
@@ -667,7 +675,13 @@ Class | Method | HTTP request | Description
  - [AIHubPortfolioStopData](docs/AIHubPortfolioStopData.md)
  - [AIHubPortfolioStopRequest](docs/AIHubPortfolioStopRequest.md)
  - [AIHubPortfolioStopSuccessResponse](docs/AIHubPortfolioStopSuccessResponse.md)
+ - [AIHubRebalanceAsset](docs/AIHubRebalanceAsset.md)
+ - [AIHubRebalanceCreateParams](docs/AIHubRebalanceCreateParams.md)
+ - [AIHubRebalanceCreateRequest](docs/AIHubRebalanceCreateRequest.md)
+ - [AIHubRebalanceStopOptions](docs/AIHubRebalanceStopOptions.md)
  - [AIHubRecommendation](docs/AIHubRecommendation.md)
+ - [AIHubSpotMartingaleConfiguration](docs/AIHubSpotMartingaleConfiguration.md)
+ - [AIHubStopProgress](docs/AIHubStopProgress.md)
  - [AccountBalance](docs/AccountBalance.md)
  - [AccountBookResponse](docs/AccountBookResponse.md)
  - [AccountDetail](docs/AccountDetail.md)

@@ -44,6 +44,14 @@ public class AIHubCreateData {
     @SerializedName(SERIALIZED_NAME_JUMP_URL)
     private String jumpUrl;
 
+    public static final String SERIALIZED_NAME_OPERATION_STATUS = "operation_status";
+    @SerializedName(SERIALIZED_NAME_OPERATION_STATUS)
+    private String operationStatus;
+
+    public static final String SERIALIZED_NAME_RECOVERY_REQUIRED = "recovery_required";
+    @SerializedName(SERIALIZED_NAME_RECOVERY_REQUIRED)
+    private Boolean recoveryRequired;
+
 
     public AIHubCreateData strategyId(String strategyId) {
         
@@ -55,6 +63,7 @@ public class AIHubCreateData {
      * Get strategyId
      * @return strategyId
     **/
+    @javax.annotation.Nullable
     public String getStrategyId() {
         return strategyId;
     }
@@ -74,6 +83,7 @@ public class AIHubCreateData {
      * Get strategyType
      * @return strategyType
     **/
+    @javax.annotation.Nullable
     public StrategyType getStrategyType() {
         return strategyType;
     }
@@ -93,6 +103,7 @@ public class AIHubCreateData {
      * Get market
      * @return market
     **/
+    @javax.annotation.Nullable
     public String getMarket() {
         return market;
     }
@@ -109,9 +120,10 @@ public class AIHubCreateData {
     }
 
      /**
-     * The initial state after successful creation, usually &#x60;running&#x60;
+     * Observed product lifecycle state, or unknown. Creation acceptance/starting is not running; stopping/finished alone does not prove funds settled.
      * @return status
     **/
+    @javax.annotation.Nullable
     public String getStatus() {
         return status;
     }
@@ -140,6 +152,46 @@ public class AIHubCreateData {
     public void setJumpUrl(String jumpUrl) {
         this.jumpUrl = jumpUrl;
     }
+
+    public AIHubCreateData operationStatus(String operationStatus) {
+        
+        this.operationStatus = operationStatus;
+        return this;
+    }
+
+     /**
+     * pending when the write result requires verification; rejected for a proven pre-effect refusal.
+     * @return operationStatus
+    **/
+    @javax.annotation.Nullable
+    public String getOperationStatus() {
+        return operationStatus;
+    }
+
+
+    public void setOperationStatus(String operationStatus) {
+        this.operationStatus = operationStatus;
+    }
+
+    public AIHubCreateData recoveryRequired(Boolean recoveryRequired) {
+        
+        this.recoveryRequired = recoveryRequired;
+        return this;
+    }
+
+     /**
+     * Get recoveryRequired
+     * @return recoveryRequired
+    **/
+    @javax.annotation.Nullable
+    public Boolean getRecoveryRequired() {
+        return recoveryRequired;
+    }
+
+
+    public void setRecoveryRequired(Boolean recoveryRequired) {
+        this.recoveryRequired = recoveryRequired;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -153,12 +205,14 @@ public class AIHubCreateData {
                 Objects.equals(this.strategyType, aiHubCreateData.strategyType) &&
                 Objects.equals(this.market, aiHubCreateData.market) &&
                 Objects.equals(this.status, aiHubCreateData.status) &&
-                Objects.equals(this.jumpUrl, aiHubCreateData.jumpUrl);
+                Objects.equals(this.jumpUrl, aiHubCreateData.jumpUrl) &&
+                Objects.equals(this.operationStatus, aiHubCreateData.operationStatus) &&
+                Objects.equals(this.recoveryRequired, aiHubCreateData.recoveryRequired);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategyId, strategyType, market, status, jumpUrl);
+        return Objects.hash(strategyId, strategyType, market, status, jumpUrl, operationStatus, recoveryRequired);
     }
 
 
@@ -171,6 +225,8 @@ public class AIHubCreateData {
         sb.append("      market: ").append(toIndentedString(market)).append("\n");
         sb.append("      status: ").append(toIndentedString(status)).append("\n");
         sb.append("      jumpUrl: ").append(toIndentedString(jumpUrl)).append("\n");
+        sb.append("      operationStatus: ").append(toIndentedString(operationStatus)).append("\n");
+        sb.append("      recoveryRequired: ").append(toIndentedString(recoveryRequired)).append("\n");
         sb.append("}");
         return sb.toString();
     }

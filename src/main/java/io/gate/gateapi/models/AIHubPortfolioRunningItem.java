@@ -19,6 +19,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A single record in the list of running policies.
@@ -59,6 +61,14 @@ public class AIHubPortfolioRunningItem {
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
     private String createdAt;
+
+    public static final String SERIALIZED_NAME_ASSETS = "assets";
+    @SerializedName(SERIALIZED_NAME_ASSETS)
+    private List<String> assets = null;
+
+    public static final String SERIALIZED_NAME_MARKETS = "markets";
+    @SerializedName(SERIALIZED_NAME_MARKETS)
+    private List<String> markets = null;
 
 
     public AIHubPortfolioRunningItem strategyId(String strategyId) {
@@ -125,7 +135,7 @@ public class AIHubPortfolioRunningItem {
     }
 
      /**
-     * Get market
+     * Single market, or empty string for a portfolio; use assets/markets for the latter.
      * @return market
     **/
     public String getMarket() {
@@ -235,6 +245,62 @@ public class AIHubPortfolioRunningItem {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+
+    public AIHubPortfolioRunningItem assets(List<String> assets) {
+        
+        this.assets = assets;
+        return this;
+    }
+
+    public AIHubPortfolioRunningItem addAssetsItem(String assetsItem) {
+        if (this.assets == null) {
+            this.assets = new ArrayList<>();
+        }
+        this.assets.add(assetsItem);
+        return this;
+    }
+
+     /**
+     * Get assets
+     * @return assets
+    **/
+    @javax.annotation.Nullable
+    public List<String> getAssets() {
+        return assets;
+    }
+
+
+    public void setAssets(List<String> assets) {
+        this.assets = assets;
+    }
+
+    public AIHubPortfolioRunningItem markets(List<String> markets) {
+        
+        this.markets = markets;
+        return this;
+    }
+
+    public AIHubPortfolioRunningItem addMarketsItem(String marketsItem) {
+        if (this.markets == null) {
+            this.markets = new ArrayList<>();
+        }
+        this.markets.add(marketsItem);
+        return this;
+    }
+
+     /**
+     * Get markets
+     * @return markets
+    **/
+    @javax.annotation.Nullable
+    public List<String> getMarkets() {
+        return markets;
+    }
+
+
+    public void setMarkets(List<String> markets) {
+        this.markets = markets;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -252,12 +318,14 @@ public class AIHubPortfolioRunningItem {
                 Objects.equals(this.pnl, aiHubPortfolioRunningItem.pnl) &&
                 Objects.equals(this.pnlRate, aiHubPortfolioRunningItem.pnlRate) &&
                 Objects.equals(this.investAmount, aiHubPortfolioRunningItem.investAmount) &&
-                Objects.equals(this.createdAt, aiHubPortfolioRunningItem.createdAt);
+                Objects.equals(this.createdAt, aiHubPortfolioRunningItem.createdAt) &&
+                Objects.equals(this.assets, aiHubPortfolioRunningItem.assets) &&
+                Objects.equals(this.markets, aiHubPortfolioRunningItem.markets);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategyId, strategyType, strategyName, market, status, pnl, pnlRate, investAmount, createdAt);
+        return Objects.hash(strategyId, strategyType, strategyName, market, status, pnl, pnlRate, investAmount, createdAt, assets, markets);
     }
 
 
@@ -274,6 +342,8 @@ public class AIHubPortfolioRunningItem {
         sb.append("      pnlRate: ").append(toIndentedString(pnlRate)).append("\n");
         sb.append("      investAmount: ").append(toIndentedString(investAmount)).append("\n");
         sb.append("      createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("      assets: ").append(toIndentedString(assets)).append("\n");
+        sb.append("      markets: ").append(toIndentedString(markets)).append("\n");
         sb.append("}");
         return sb.toString();
     }

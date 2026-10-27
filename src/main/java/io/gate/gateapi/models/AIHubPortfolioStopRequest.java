@@ -17,11 +17,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.AIHubRebalanceStopOptions;
 import io.gate.gateapi.models.StrategyType;
 import java.io.IOException;
 
 /**
- * The request body to terminate a running policy.
+ * Single owner-scoped stop. Existing six-type ID/type requests retain default exits. smart_position requires explicit mode, limit requires options; futures_combo uses fixed whole-portfolio close/settlement.
  */
 public class AIHubPortfolioStopRequest {
     public static final String SERIALIZED_NAME_STRATEGY_ID = "strategy_id";
@@ -31,6 +32,63 @@ public class AIHubPortfolioStopRequest {
     public static final String SERIALIZED_NAME_STRATEGY_TYPE = "strategy_type";
     @SerializedName(SERIALIZED_NAME_STRATEGY_TYPE)
     private StrategyType strategyType;
+
+    /**
+     * Required only for smart_position. Other types reject custom exit options.
+     */
+    @JsonAdapter(StopModeEnum.Adapter.class)
+    public enum StopModeEnum {
+        MARKET("market"),
+        
+        LIMIT("limit"),
+        
+        NO_CLOSE("no_close");
+
+        private String value;
+
+        StopModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StopModeEnum fromValue(String value) {
+            for (StopModeEnum b : StopModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StopModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StopModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StopModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return StopModeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STOP_MODE = "stop_mode";
+    @SerializedName(SERIALIZED_NAME_STOP_MODE)
+    private StopModeEnum stopMode;
+
+    public static final String SERIALIZED_NAME_STOP_OPTIONS = "stop_options";
+    @SerializedName(SERIALIZED_NAME_STOP_OPTIONS)
+    private AIHubRebalanceStopOptions stopOptions;
 
 
     public AIHubPortfolioStopRequest strategyId(String strategyId) {
@@ -70,6 +128,46 @@ public class AIHubPortfolioStopRequest {
     public void setStrategyType(StrategyType strategyType) {
         this.strategyType = strategyType;
     }
+
+    public AIHubPortfolioStopRequest stopMode(StopModeEnum stopMode) {
+        
+        this.stopMode = stopMode;
+        return this;
+    }
+
+     /**
+     * Required only for smart_position. Other types reject custom exit options.
+     * @return stopMode
+    **/
+    @javax.annotation.Nullable
+    public StopModeEnum getStopMode() {
+        return stopMode;
+    }
+
+
+    public void setStopMode(StopModeEnum stopMode) {
+        this.stopMode = stopMode;
+    }
+
+    public AIHubPortfolioStopRequest stopOptions(AIHubRebalanceStopOptions stopOptions) {
+        
+        this.stopOptions = stopOptions;
+        return this;
+    }
+
+     /**
+     * Get stopOptions
+     * @return stopOptions
+    **/
+    @javax.annotation.Nullable
+    public AIHubRebalanceStopOptions getStopOptions() {
+        return stopOptions;
+    }
+
+
+    public void setStopOptions(AIHubRebalanceStopOptions stopOptions) {
+        this.stopOptions = stopOptions;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -80,12 +178,14 @@ public class AIHubPortfolioStopRequest {
         }
         AIHubPortfolioStopRequest aiHubPortfolioStopRequest = (AIHubPortfolioStopRequest) o;
         return Objects.equals(this.strategyId, aiHubPortfolioStopRequest.strategyId) &&
-                Objects.equals(this.strategyType, aiHubPortfolioStopRequest.strategyType);
+                Objects.equals(this.strategyType, aiHubPortfolioStopRequest.strategyType) &&
+                Objects.equals(this.stopMode, aiHubPortfolioStopRequest.stopMode) &&
+                Objects.equals(this.stopOptions, aiHubPortfolioStopRequest.stopOptions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategyId, strategyType);
+        return Objects.hash(strategyId, strategyType, stopMode, stopOptions);
     }
 
 
@@ -95,6 +195,8 @@ public class AIHubPortfolioStopRequest {
         sb.append("class AIHubPortfolioStopRequest {\n");
         sb.append("      strategyId: ").append(toIndentedString(strategyId)).append("\n");
         sb.append("      strategyType: ").append(toIndentedString(strategyType)).append("\n");
+        sb.append("      stopMode: ").append(toIndentedString(stopMode)).append("\n");
+        sb.append("      stopOptions: ").append(toIndentedString(stopOptions)).append("\n");
         sb.append("}");
         return sb.toString();
     }
