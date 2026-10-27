@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.AssetListResp;
 import java.io.IOException;
 
 /**
@@ -37,7 +38,7 @@ public class ApiResponseAssetSwapListAssets {
 
     public static final String SERIALIZED_NAME_DATA = "data";
     @SerializedName(SERIALIZED_NAME_DATA)
-    private Object data = null;
+    private AssetListResp data;
 
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
@@ -102,7 +103,7 @@ public class ApiResponseAssetSwapListAssets {
         this.message = message;
     }
 
-    public ApiResponseAssetSwapListAssets data(Object data) {
+    public ApiResponseAssetSwapListAssets data(AssetListResp data) {
         
         this.data = data;
         return this;
@@ -113,12 +114,12 @@ public class ApiResponseAssetSwapListAssets {
      * @return data
     **/
     @javax.annotation.Nullable
-    public Object getData() {
+    public AssetListResp getData() {
         return data;
     }
 
 
-    public void setData(Object data) {
+    public void setData(AssetListResp data) {
         this.data = data;
     }
 

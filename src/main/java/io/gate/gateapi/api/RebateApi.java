@@ -119,15 +119,15 @@ public class RebateApi {
     }
 
 
-    private ApiResponse<List<AgencyTransactionHistory>> agencyTransactionHistoryWithHttpInfo(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+    private ApiResponse<AgencyTransactionHistory> agencyTransactionHistoryWithHttpInfo(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
         okhttp3.Call localVarCall = agencyTransactionHistoryValidateBeforeCall(currencyPair, userId, from, to, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<AgencyTransactionHistory>>(){}.getType();
+        Type localVarReturnType = new TypeToken<AgencyTransactionHistory>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call agencyTransactionHistoryAsync(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyTransactionHistory>> _callback) throws ApiException {
+    private okhttp3.Call agencyTransactionHistoryAsync(String currencyPair, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<AgencyTransactionHistory> _callback) throws ApiException {
         okhttp3.Call localVarCall = agencyTransactionHistoryValidateBeforeCall(currencyPair, userId, from, to, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<AgencyTransactionHistory>>(){}.getType();
+        Type localVarReturnType = new TypeToken<AgencyTransactionHistory>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -220,7 +220,7 @@ public class RebateApi {
 
         /**
          * Execute agencyTransactionHistory request
-         * @return List&lt;AgencyTransactionHistory&gt;
+         * @return AgencyTransactionHistory
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -228,14 +228,14 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public List<AgencyTransactionHistory> execute() throws ApiException {
-            ApiResponse<List<AgencyTransactionHistory>> localVarResp = agencyTransactionHistoryWithHttpInfo(currencyPair, userId, from, to, limit, offset);
+        public AgencyTransactionHistory execute() throws ApiException {
+            ApiResponse<AgencyTransactionHistory> localVarResp = agencyTransactionHistoryWithHttpInfo(currencyPair, userId, from, to, limit, offset);
             return localVarResp.getData();
         }
 
         /**
          * Execute agencyTransactionHistory request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;AgencyTransactionHistory&gt;&gt;
+         * @return ApiResponse&lt;AgencyTransactionHistory&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -243,7 +243,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<AgencyTransactionHistory>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<AgencyTransactionHistory> executeWithHttpInfo() throws ApiException {
             return agencyTransactionHistoryWithHttpInfo(currencyPair, userId, from, to, limit, offset);
         }
 
@@ -258,7 +258,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<AgencyTransactionHistory>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<AgencyTransactionHistory> _callback) throws ApiException {
             return agencyTransactionHistoryAsync(currencyPair, userId, from, to, limit, offset, _callback);
         }
     }
@@ -341,15 +341,15 @@ public class RebateApi {
     }
 
 
-    private ApiResponse<List<AgencyCommissionHistory>> agencyCommissionsHistoryWithHttpInfo(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
+    private ApiResponse<AgencyCommissionHistory> agencyCommissionsHistoryWithHttpInfo(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset) throws ApiException {
         okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, commissionType, userId, from, to, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<AgencyCommissionHistory>>(){}.getType();
+        Type localVarReturnType = new TypeToken<AgencyCommissionHistory>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call agencyCommissionsHistoryAsync(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
+    private okhttp3.Call agencyCommissionsHistoryAsync(String currency, Integer commissionType, Long userId, Long from, Long to, Integer limit, Integer offset, final ApiCallback<AgencyCommissionHistory> _callback) throws ApiException {
         okhttp3.Call localVarCall = agencyCommissionsHistoryValidateBeforeCall(currency, commissionType, userId, from, to, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<AgencyCommissionHistory>>(){}.getType();
+        Type localVarReturnType = new TypeToken<AgencyCommissionHistory>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -453,7 +453,7 @@ public class RebateApi {
 
         /**
          * Execute agencyCommissionsHistory request
-         * @return List&lt;AgencyCommissionHistory&gt;
+         * @return AgencyCommissionHistory
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -461,14 +461,14 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public List<AgencyCommissionHistory> execute() throws ApiException {
-            ApiResponse<List<AgencyCommissionHistory>> localVarResp = agencyCommissionsHistoryWithHttpInfo(currency, commissionType, userId, from, to, limit, offset);
+        public AgencyCommissionHistory execute() throws ApiException {
+            ApiResponse<AgencyCommissionHistory> localVarResp = agencyCommissionsHistoryWithHttpInfo(currency, commissionType, userId, from, to, limit, offset);
             return localVarResp.getData();
         }
 
         /**
          * Execute agencyCommissionsHistory request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;AgencyCommissionHistory&gt;&gt;
+         * @return ApiResponse&lt;AgencyCommissionHistory&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -476,7 +476,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<AgencyCommissionHistory>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<AgencyCommissionHistory> executeWithHttpInfo() throws ApiException {
             return agencyCommissionsHistoryWithHttpInfo(currency, commissionType, userId, from, to, limit, offset);
         }
 
@@ -491,7 +491,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<AgencyCommissionHistory>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<AgencyCommissionHistory> _callback) throws ApiException {
             return agencyCommissionsHistoryAsync(currency, commissionType, userId, from, to, limit, offset, _callback);
         }
     }
@@ -1175,15 +1175,15 @@ public class RebateApi {
     }
 
 
-    private ApiResponse<List<BrokerCommission>> rebateBrokerCommissionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
+    private ApiResponse<BrokerCommission> rebateBrokerCommissionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
         okhttp3.Call localVarCall = rebateBrokerCommissionHistoryValidateBeforeCall(limit, offset, userId, from, to, null);
-        Type localVarReturnType = new TypeToken<List<BrokerCommission>>(){}.getType();
+        Type localVarReturnType = new TypeToken<BrokerCommission>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call rebateBrokerCommissionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<List<BrokerCommission>> _callback) throws ApiException {
+    private okhttp3.Call rebateBrokerCommissionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<BrokerCommission> _callback) throws ApiException {
         okhttp3.Call localVarCall = rebateBrokerCommissionHistoryValidateBeforeCall(limit, offset, userId, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<BrokerCommission>>(){}.getType();
+        Type localVarReturnType = new TypeToken<BrokerCommission>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1265,7 +1265,7 @@ public class RebateApi {
 
         /**
          * Execute rebateBrokerCommissionHistory request
-         * @return List&lt;BrokerCommission&gt;
+         * @return BrokerCommission
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1273,14 +1273,14 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public List<BrokerCommission> execute() throws ApiException {
-            ApiResponse<List<BrokerCommission>> localVarResp = rebateBrokerCommissionHistoryWithHttpInfo(limit, offset, userId, from, to);
+        public BrokerCommission execute() throws ApiException {
+            ApiResponse<BrokerCommission> localVarResp = rebateBrokerCommissionHistoryWithHttpInfo(limit, offset, userId, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute rebateBrokerCommissionHistory request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;BrokerCommission&gt;&gt;
+         * @return ApiResponse&lt;BrokerCommission&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1288,7 +1288,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<BrokerCommission>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<BrokerCommission> executeWithHttpInfo() throws ApiException {
             return rebateBrokerCommissionHistoryWithHttpInfo(limit, offset, userId, from, to);
         }
 
@@ -1303,7 +1303,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<BrokerCommission>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<BrokerCommission> _callback) throws ApiException {
             return rebateBrokerCommissionHistoryAsync(limit, offset, userId, from, to, _callback);
         }
     }
@@ -1378,15 +1378,15 @@ public class RebateApi {
     }
 
 
-    private ApiResponse<List<BrokerTransactionHistory>> rebateBrokerTransactionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
+    private ApiResponse<BrokerTransactionHistory> rebateBrokerTransactionHistoryWithHttpInfo(Integer limit, Integer offset, Long userId, Long from, Long to) throws ApiException {
         okhttp3.Call localVarCall = rebateBrokerTransactionHistoryValidateBeforeCall(limit, offset, userId, from, to, null);
-        Type localVarReturnType = new TypeToken<List<BrokerTransactionHistory>>(){}.getType();
+        Type localVarReturnType = new TypeToken<BrokerTransactionHistory>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call rebateBrokerTransactionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<List<BrokerTransactionHistory>> _callback) throws ApiException {
+    private okhttp3.Call rebateBrokerTransactionHistoryAsync(Integer limit, Integer offset, Long userId, Long from, Long to, final ApiCallback<BrokerTransactionHistory> _callback) throws ApiException {
         okhttp3.Call localVarCall = rebateBrokerTransactionHistoryValidateBeforeCall(limit, offset, userId, from, to, _callback);
-        Type localVarReturnType = new TypeToken<List<BrokerTransactionHistory>>(){}.getType();
+        Type localVarReturnType = new TypeToken<BrokerTransactionHistory>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1468,7 +1468,7 @@ public class RebateApi {
 
         /**
          * Execute rebateBrokerTransactionHistory request
-         * @return List&lt;BrokerTransactionHistory&gt;
+         * @return BrokerTransactionHistory
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1476,14 +1476,14 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public List<BrokerTransactionHistory> execute() throws ApiException {
-            ApiResponse<List<BrokerTransactionHistory>> localVarResp = rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
+        public BrokerTransactionHistory execute() throws ApiException {
+            ApiResponse<BrokerTransactionHistory> localVarResp = rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
             return localVarResp.getData();
         }
 
         /**
          * Execute rebateBrokerTransactionHistory request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;BrokerTransactionHistory&gt;&gt;
+         * @return ApiResponse&lt;BrokerTransactionHistory&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1491,7 +1491,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<BrokerTransactionHistory>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<BrokerTransactionHistory> executeWithHttpInfo() throws ApiException {
             return rebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId, from, to);
         }
 
@@ -1506,7 +1506,7 @@ public class RebateApi {
             <tr><td> 200 </td><td> List retrieved successfully </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<BrokerTransactionHistory>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<BrokerTransactionHistory> _callback) throws ApiException {
             return rebateBrokerTransactionHistoryAsync(limit, offset, userId, from, to, _callback);
         }
     }
@@ -1574,7 +1574,7 @@ public class RebateApi {
     /**
      * User obtains rebate information
      * 
-     * @return List&lt;RebateUserInfo&gt;
+     * @return RebateUserInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1582,15 +1582,15 @@ public class RebateApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public List<RebateUserInfo> rebateUserInfo() throws ApiException {
-        ApiResponse<List<RebateUserInfo>> localVarResp = rebateUserInfoWithHttpInfo();
+    public RebateUserInfo rebateUserInfo() throws ApiException {
+        ApiResponse<RebateUserInfo> localVarResp = rebateUserInfoWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * User obtains rebate information
      * 
-     * @return ApiResponse&lt;List&lt;RebateUserInfo&gt;&gt;
+     * @return ApiResponse&lt;RebateUserInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1598,9 +1598,9 @@ public class RebateApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RebateUserInfo>> rebateUserInfoWithHttpInfo() throws ApiException {
+    public ApiResponse<RebateUserInfo> rebateUserInfoWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = rebateUserInfoValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<RebateUserInfo>>(){}.getType();
+        Type localVarReturnType = new TypeToken<RebateUserInfo>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1616,9 +1616,9 @@ public class RebateApi {
         <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rebateUserInfoAsync(final ApiCallback<List<RebateUserInfo>> _callback) throws ApiException {
+    public okhttp3.Call rebateUserInfoAsync(final ApiCallback<RebateUserInfo> _callback) throws ApiException {
         okhttp3.Call localVarCall = rebateUserInfoValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<RebateUserInfo>>(){}.getType();
+        Type localVarReturnType = new TypeToken<RebateUserInfo>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

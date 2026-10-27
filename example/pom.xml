@@ -21,7 +21,8 @@
         <dependency>
             <groupId>io.gate</groupId>
             <artifactId>gate-api</artifactId>
-            <version>6.23.2</version>
+            <!-- Filled from the same generator config as the adjacent SDK. -->
+            <version>7.2.164</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
@@ -31,6 +32,7 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>${project.basedir}</sourceDirectory>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>

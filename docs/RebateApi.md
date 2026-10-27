@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 <a name="agencyTransactionHistory"></a>
 # **agencyTransactionHistory**
-> List&lt;AgencyTransactionHistory&gt; agencyTransactionHistory().currencyPair(currencyPair).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
+> AgencyTransactionHistory agencyTransactionHistory().currencyPair(currencyPair).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
 Broker obtains transaction history of recommended users
 
@@ -54,7 +54,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
-            List<AgencyTransactionHistory> result = apiInstance.agencyTransactionHistory()
+            AgencyTransactionHistory result = apiInstance.agencyTransactionHistory()
                         .currencyPair(currencyPair)
                         .userId(userId)
                         .from(from)
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AgencyTransactionHistory&gt;**](AgencyTransactionHistory.md)
+[**AgencyTransactionHistory**](AgencyTransactionHistory.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="agencyCommissionsHistory"></a>
 # **agencyCommissionsHistory**
-> List&lt;AgencyCommissionHistory&gt; agencyCommissionsHistory().currency(currency).commissionType(commissionType).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
+> AgencyCommissionHistory agencyCommissionsHistory().currency(currency).commissionType(commissionType).userId(userId).from(from).to(to).limit(limit).offset(offset).execute();
 
 Broker obtains rebate history of recommended users
 
@@ -142,7 +142,7 @@ public class Example {
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer offset = 0; // Integer | List offset, starting from 0
         try {
-            List<AgencyCommissionHistory> result = apiInstance.agencyCommissionsHistory()
+            AgencyCommissionHistory result = apiInstance.agencyCommissionsHistory()
                         .currency(currency)
                         .commissionType(commissionType)
                         .userId(userId)
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AgencyCommissionHistory&gt;**](AgencyCommissionHistory.md)
+[**AgencyCommissionHistory**](AgencyCommissionHistory.md)
 
 ### Authorization
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 <a name="rebateBrokerCommissionHistory"></a>
 # **rebateBrokerCommissionHistory**
-> List&lt;BrokerCommission&gt; rebateBrokerCommissionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
+> BrokerCommission rebateBrokerCommissionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
 
 Broker obtains user&#39;s rebate records
 
@@ -482,7 +482,7 @@ public class Example {
         Long from = 1711929600L; // Long | Start time of the query record. If not specified, defaults to 30 days before the current time
         Long to = 1714521600L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
-            List<BrokerCommission> result = apiInstance.rebateBrokerCommissionHistory()
+            BrokerCommission result = apiInstance.rebateBrokerCommissionHistory()
                         .limit(limit)
                         .offset(offset)
                         .userId(userId)
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;BrokerCommission&gt;**](BrokerCommission.md)
+[**BrokerCommission**](BrokerCommission.md)
 
 ### Authorization
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 <a name="rebateBrokerTransactionHistory"></a>
 # **rebateBrokerTransactionHistory**
-> List&lt;BrokerTransactionHistory&gt; rebateBrokerTransactionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
+> BrokerTransactionHistory rebateBrokerTransactionHistory().limit(limit).offset(offset).userId(userId).from(from).to(to).execute();
 
 Broker obtains user&#39;s trading history
 
@@ -566,7 +566,7 @@ public class Example {
         Long from = 1711929600L; // Long | Start time of the query record. If not specified, defaults to 30 days before the current time
         Long to = 1714521600L; // Long | End timestamp for the query, defaults to current time if not specified
         try {
-            List<BrokerTransactionHistory> result = apiInstance.rebateBrokerTransactionHistory()
+            BrokerTransactionHistory result = apiInstance.rebateBrokerTransactionHistory()
                         .limit(limit)
                         .offset(offset)
                         .userId(userId)
@@ -599,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;BrokerTransactionHistory&gt;**](BrokerTransactionHistory.md)
+[**BrokerTransactionHistory**](BrokerTransactionHistory.md)
 
 ### Authorization
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 <a name="rebateUserInfo"></a>
 # **rebateUserInfo**
-> List&lt;RebateUserInfo&gt; rebateUserInfo()
+> RebateUserInfo rebateUserInfo()
 
 User obtains rebate information
 
@@ -643,7 +643,7 @@ public class Example {
 
         RebateApi apiInstance = new RebateApi(defaultClient);
         try {
-            List<RebateUserInfo> result = apiInstance.rebateUserInfo();
+            RebateUserInfo result = apiInstance.rebateUserInfo();
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -663,7 +663,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;RebateUserInfo&gt;**](RebateUserInfo.md)
+[**RebateUserInfo**](RebateUserInfo.md)
 
 ### Authorization
 

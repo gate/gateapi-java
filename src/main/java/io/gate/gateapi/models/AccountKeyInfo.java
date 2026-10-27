@@ -37,7 +37,7 @@ public class AccountKeyInfo {
 
     public static final String SERIALIZED_NAME_NAME = "name";
     @SerializedName(SERIALIZED_NAME_NAME)
-    private List<String> name = null;
+    private String name;
 
     public static final String SERIALIZED_NAME_CURRENCY_PAIRS = "currency_pairs";
     @SerializedName(SERIALIZED_NAME_CURRENCY_PAIRS)
@@ -112,17 +112,9 @@ public class AccountKeyInfo {
         this.mode = mode;
     }
 
-    public AccountKeyInfo name(List<String> name) {
+    public AccountKeyInfo name(String name) {
         
         this.name = name;
-        return this;
-    }
-
-    public AccountKeyInfo addNameItem(String nameItem) {
-        if (this.name == null) {
-            this.name = new ArrayList<>();
-        }
-        this.name.add(nameItem);
         return this;
     }
 
@@ -131,12 +123,12 @@ public class AccountKeyInfo {
      * @return name
     **/
     @javax.annotation.Nullable
-    public List<String> getName() {
+    public String getName() {
         return name;
     }
 
 
-    public void setName(List<String> name) {
+    public void setName(String name) {
         this.name = name;
     }
 

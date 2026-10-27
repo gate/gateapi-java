@@ -6,12 +6,13 @@ plugins {
 
 repositories {
     mavenLocal()
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    implementation 'io.gate:gate-api:5.15.3'
-    implementation 'commons-cli:commons-cli:1.4'
+    // The generator fills the adjacent SDK version; install that candidate locally first.
+    implementation 'io.gate:gate-api:7.2.164'
+    implementation 'commons-cli:commons-cli:1.5.0'
 }
 
 group = 'io.gate.apidemo'
@@ -26,3 +27,6 @@ tasks.withType(JavaCompile) {
 application {
     mainClassName = 'io.gate.apidemo.Application'
 }
+
+// Example sources live beside this build file, not under src/main/java.
+sourceSets.main.java { srcDirs = ['.']; exclude 'build/**' }

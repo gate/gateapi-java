@@ -20,11 +20,7 @@ class SpotTest {
         String currencyPair = "GT_USDT";
         String currency = currencyPair.split("_")[1];
 
-        // Initialize API client
-        ApiClient client = new ApiClient();
-        client.setApiKeySecret(this.config.getApiKey(), this.config.getApiSecret());
-        // Setting basePath is optional. It defaults to https://api.gateio.ws/api/v4
-        client.setBasePath(this.config.getHostUsed());
+        ApiClient client = ExampleAuth.create(config);
 
         SpotApi spotApi = new SpotApi(client);
         CurrencyPair pair = spotApi.getCurrencyPair(currencyPair);
@@ -43,14 +39,19 @@ class SpotTest {
         assert accounts.size() == 1;
         BigDecimal available = new BigDecimal(accounts.get(0).getAvailable());
         System.out.printf("Account available: %s %s\n", available.toPlainString(), currency);
-        if (available.compareTo(orderAmount) < 0) {
+        // Compare quote balance to quote cost; orderAmount is denominated in base currency.
+        BigDecimal price = new BigDecimal(lastPrice);
+        if (orderAmount.signum() <= 0 || price.signum() <= 0 || available.signum() < 0) {
+            throw new IllegalStateException("Invalid market amount, price or available balance");
+        }
+        if (available.compareTo(orderAmount.multiply(price)) < 0) {
             System.err.println("Account balance not enough");
             return;
         }
 
         // create spot order
         Order order = new Order();
-        order.setAccount(Order.AccountEnum.SPOT);
+        order.setAccount("spot");
         order.setAutoBorrow(false);
         order.setTimeInForce(Order.TimeInForceEnum.GTC);
         order.setType(Order.TypeEnum.LIMIT);
@@ -60,19 +61,19 @@ class SpotTest {
         order.setCurrencyPair(currencyPair);
         System.out.printf("place a spot %s order in %s with amount %s and price %s\n", order.getSide(), order.getCurrencyPair(),
                           order.getAmount(), order.getPrice());
-        Order created = spotApi.createOrder(order);
+        Order created = spotApi.createOrder(order, null);
         System.out.printf("order created with id %s, status %s\n", created.getId(), created.getStatus());
         if (Order.StatusEnum.OPEN.equals(created.getStatus())) {
             Order orderResult = spotApi.getOrder(created.getId(), currencyPair, null);
             System.out.printf("order %s filled: %s, left: %s\n", orderResult.getId(), orderResult.getFilledTotal(), orderResult.getLeft());
 
-            Order result = spotApi.cancelOrder(orderResult.getId(), currencyPair, null);
+            Order result = ExampleAuth.cancelSpot(spotApi, orderResult.getId(), currencyPair);
             if (Order.StatusEnum.CANCELLED.equals(result.getStatus())) {
                 System.out.println("order " + orderResult.getId() + " canceled\n");
             }
         } else {
             // Thread.sleep(5000);
-            List<Trade> trades = spotApi.listMyTrades(currencyPair).orderId(created.getId()).execute();
+            List<Trade> trades = spotApi.listMyTrades().currencyPair(currencyPair).orderId(created.getId()).execute();
             assert trades.size() > 0;
             for (Trade t : trades) {
                 System.out.printf("order %s filled %s with price %s\n", t.getOrderId(), t.getAmount(), t.getPrice());

@@ -17,6 +17,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.gate.gateapi.models.CouponDetailExtraItem;
 import io.gate.gateapi.models.ListUserCouponsResponseDataHelpUrl;
 import io.gate.gateapi.models.ListUserCouponsResponseDataJumpUrl;
 import io.gate.gateapi.models.ListUserCouponsResponseDataProgressConfig;
@@ -256,7 +257,7 @@ public class GetUserCouponDetailResponseData {
 
     public static final String SERIALIZED_NAME_EXTRA = "extra";
     @SerializedName(SERIALIZED_NAME_EXTRA)
-    private List<List<Object>> extra = null;
+    private List<List<CouponDetailExtraItem>> extra = null;
 
 
     public GetUserCouponDetailResponseData id(Integer id) {
@@ -779,13 +780,13 @@ public class GetUserCouponDetailResponseData {
         this.taskCompletedAt = taskCompletedAt;
     }
 
-    public GetUserCouponDetailResponseData extra(List<List<Object>> extra) {
+    public GetUserCouponDetailResponseData extra(List<List<CouponDetailExtraItem>> extra) {
         
         this.extra = extra;
         return this;
     }
 
-    public GetUserCouponDetailResponseData addExtraItem(List<Object> extraItem) {
+    public GetUserCouponDetailResponseData addExtraItem(List<CouponDetailExtraItem> extraItem) {
         if (this.extra == null) {
             this.extra = new ArrayList<>();
         }
@@ -798,12 +799,12 @@ public class GetUserCouponDetailResponseData {
      * @return extra
     **/
     @javax.annotation.Nullable
-    public List<List<Object>> getExtra() {
+    public List<List<CouponDetailExtraItem>> getExtra() {
         return extra;
     }
 
 
-    public void setExtra(List<List<Object>> extra) {
+    public void setExtra(List<List<CouponDetailExtraItem>> extra) {
         this.extra = extra;
     }
     @Override

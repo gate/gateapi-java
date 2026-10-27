@@ -32,13 +32,13 @@ sh example/gradle-build.sh
 **READ THIS BEFORE YOU RUN ANYTHING**
 
 **This application is shown for demo only. It will try to use your input API key and secret to
-trade, lend and borrow, etc. Make sure you know exactly what it does before running it.**
+place/cancel orders and transfer collateral in the spot/futures commands. Make sure you know exactly what it does before running it.**
 
 ### Maven users
 
 ```bash
 # run futures demo against TestNet
-LOCATION="gateapi-demo-maven/gateapi-demo/target/gateapi-demo-1.0-SNAPSHOT.jar"
+LOCATION="example/target/gateapi-demo-1.0-SNAPSHOT.jar"
 java -jar $LOCATION futures -k <YOUR_TESTNET_API_KEY> -s <YOUR_TESTNET_API_SECRET> -u fx-api-testnet.gateio.ws
 
 # run futures demo against real trading
@@ -54,7 +54,7 @@ java -jar $LOCATION margin -k <YOUR_API_KEY> -s <YOUR_API_SECRET>
 ### Gradle users
 
 ```bash
-cd gateapi-demo-gradle
+cd example
 # run futures demo against TestNet
 gradle run --args="futures -k <YOUR_TESTNET_API_KEY> -s <YOUR_TESTNET_API_SECRET> -u fx-api-testnet.gateio.ws"
 
@@ -67,3 +67,15 @@ gradle run --args="spot -k <YOUR_API_KEY> -s <YOUR_API_SECRET>"
 # run margin demo
 gradle run --args="margin -k <YOUR_API_KEY> -s <YOUR_API_SECRET>"
 ```
+The generator binds Maven/Gradle dependencies to the version of the adjacent SDK;
+its package must first be installed locally (the supplied build scripts do this).
+Maven and Gradle compile the Java sources actually present in this example folder.
+Public examples share one Key/Secret initializer. Internal SDK examples refuse
+this public CLI credential flow; use existing trusted user-ID auth inside your
+trusted service instead, never a public API key as a user ID.
+
+The margin command is read-only and demonstrates current MarginUni market,
+capacity, loan and account queries. Legacy P2P Loan/lending endpoints were removed;
+no substitute financial write is executed automatically. Position lookup errors
+stop futures writes, cancellation retains its contract filter, and all financial
+write errors propagate without automatic retries. Inspect history before retrying.

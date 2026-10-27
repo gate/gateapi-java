@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.161
-- SDK version: 7.2.161
+- API version: v4.106.164
+- SDK version: 7.2.164
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.161</version>
+    <version>7.2.164</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.161"
+compile "io.gate:gate-api:7.2.164"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.161.jar`
+* `target/gate-api-7.2.164.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -402,6 +402,21 @@ Class | Method | HTTP request | Description
 *FuturesApi* | [**getPriceTriggeredOrder**](docs/FuturesApi.md#getPriceTriggeredOrder) | **GET** /futures/{settle}/price_orders/{order_id} | Query single auto order details
 *FuturesApi* | [**cancelPriceTriggeredOrder**](docs/FuturesApi.md#cancelPriceTriggeredOrder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel single auto order
 *FuturesApi* | [**updatePriceTriggeredOrder**](docs/FuturesApi.md#updatePriceTriggeredOrder) | **PUT** /futures/{settle}/price_orders/amend/{order_id} | Modify a Single Auto Order
+*LaunchApi* | [**listLaunchPoolProjects**](docs/LaunchApi.md#listLaunchPoolProjects) | **GET** /launch/project-list | Query LaunchPool project list
+*LaunchApi* | [**createLaunchPoolOrder**](docs/LaunchApi.md#createLaunchPoolOrder) | **POST** /launch/create-order | Create LaunchPool staking order
+*LaunchApi* | [**redeemLaunchPool**](docs/LaunchApi.md#redeemLaunchPool) | **POST** /launch/redeem | Redeem LaunchPool staked assets
+*LaunchApi* | [**listLaunchPoolPledgeRecords**](docs/LaunchApi.md#listLaunchPoolPledgeRecords) | **GET** /launch/user-pledge-records | Query user pledge records
+*LaunchApi* | [**listLaunchPoolRewardRecords**](docs/LaunchApi.md#listLaunchPoolRewardRecords) | **GET** /launch/get-user-reward-records | Query user reward records
+*LaunchApi* | [**getHodlerAirdropProjectList**](docs/LaunchApi.md#getHodlerAirdropProjectList) | **GET** /launch/hodler-airdrop/project-list | Check the list of HODLer Airdrop activities
+*LaunchApi* | [**hodlerAirdropOrder**](docs/LaunchApi.md#hodlerAirdropOrder) | **POST** /launch/hodler-airdrop/order | Participate in the HODLer Airdrop event
+*LaunchApi* | [**getHodlerAirdropUserOrderRecords**](docs/LaunchApi.md#getHodlerAirdropUserOrderRecords) | **GET** /launch/hodler-airdrop/user-order-records | Check HODLer Airdrop participation records
+*LaunchApi* | [**getHodlerAirdropUserAirdropRecords**](docs/LaunchApi.md#getHodlerAirdropUserAirdropRecords) | **GET** /launch/hodler-airdrop/user-airdrop-records | Query HODLer Airdrop records
+*LaunchApi* | [**getCandyDropActivityListV4**](docs/LaunchApi.md#getCandyDropActivityListV4) | **GET** /launch/candydrop/activity-list | Query activity list
+*LaunchApi* | [**registerCandyDropV4**](docs/LaunchApi.md#registerCandyDropV4) | **POST** /launch/candydrop/register | Sign up for events
+*LaunchApi* | [**getCandyDropActivityRulesV4**](docs/LaunchApi.md#getCandyDropActivityRulesV4) | **GET** /launch/candydrop/activity-rules | Query activity rules
+*LaunchApi* | [**getCandyDropTaskProgressV4**](docs/LaunchApi.md#getCandyDropTaskProgressV4) | **GET** /launch/candydrop/task-progress | Query task completion progress
+*LaunchApi* | [**getCandyDropParticipationRecordsV4**](docs/LaunchApi.md#getCandyDropParticipationRecordsV4) | **GET** /launch/candydrop/participation-records | Query participation records
+*LaunchApi* | [**getCandyDropAirdropRecordsV4**](docs/LaunchApi.md#getCandyDropAirdropRecordsV4) | **GET** /launch/candydrop/airdrop-records | Query airdrop records
 *MarginApi* | [**listMarginAccounts**](docs/MarginApi.md#listMarginAccounts) | **GET** /margin/accounts | Margin account list
 *MarginApi* | [**listMarginAccountBook**](docs/MarginApi.md#listMarginAccountBook) | **GET** /margin/account_book | Query margin account balance change history
 *MarginApi* | [**listFundingAccounts**](docs/MarginApi.md#listFundingAccounts) | **GET** /margin/funding_accounts | Funding account list
@@ -729,6 +744,17 @@ Class | Method | HTTP request | Description
  - [CancelBatchOrder](docs/CancelBatchOrder.md)
  - [CancelOrder](docs/CancelOrder.md)
  - [CancelOrderResult](docs/CancelOrderResult.md)
+ - [CandyDropV4ActivityCd01](docs/CandyDropV4ActivityCd01.md)
+ - [CandyDropV4ActivityRulesCd03](docs/CandyDropV4ActivityRulesCd03.md)
+ - [CandyDropV4AirdropRecordCd06](docs/CandyDropV4AirdropRecordCd06.md)
+ - [CandyDropV4ErrorCd01](docs/CandyDropV4ErrorCd01.md)
+ - [CandyDropV4ParticipationRecordCd05](docs/CandyDropV4ParticipationRecordCd05.md)
+ - [CandyDropV4PrizePoolCd03](docs/CandyDropV4PrizePoolCd03.md)
+ - [CandyDropV4RegisterReqCd02](docs/CandyDropV4RegisterReqCd02.md)
+ - [CandyDropV4RegisterRespCd02](docs/CandyDropV4RegisterRespCd02.md)
+ - [CandyDropV4TaskCd03](docs/CandyDropV4TaskCd03.md)
+ - [CandyDropV4TaskProgressCd04](docs/CandyDropV4TaskProgressCd04.md)
+ - [CandyDropV4TaskProgressItemCd04](docs/CandyDropV4TaskProgressItemCd04.md)
  - [Categories](docs/Categories.md)
  - [CategoriesData](docs/CategoriesData.md)
  - [CategoriesDataList](docs/CategoriesDataList.md)
@@ -760,6 +786,7 @@ Class | Method | HTTP request | Description
  - [CountdownCancelAllFuturesTask](docs/CountdownCancelAllFuturesTask.md)
  - [CountdownCancelAllOptionsTask](docs/CountdownCancelAllOptionsTask.md)
  - [CountdownCancelAllSpotTask](docs/CountdownCancelAllSpotTask.md)
+ - [CouponDetailExtraItem](docs/CouponDetailExtraItem.md)
  - [CreateChaseOrderReq](docs/CreateChaseOrderReq.md)
  - [CreateChaseOrderResp](docs/CreateChaseOrderResp.md)
  - [CreateEarnFixedTermLendResponse](docs/CreateEarnFixedTermLendResponse.md)
@@ -770,6 +797,7 @@ Class | Method | HTTP request | Description
  - [CreateOrder2](docs/CreateOrder2.md)
  - [CreateOrder2Data](docs/CreateOrder2Data.md)
  - [CreateOrderDetail](docs/CreateOrderDetail.md)
+ - [CreateOrderV4](docs/CreateOrderV4.md)
  - [CreateParam](docs/CreateParam.md)
  - [CreateTrailOrder](docs/CreateTrailOrder.md)
  - [CreateTrailOrderResponse](docs/CreateTrailOrderResponse.md)
@@ -957,6 +985,12 @@ Class | Method | HTTP request | Description
  - [GetUserCouponDetailResponse](docs/GetUserCouponDetailResponse.md)
  - [GetUserCouponDetailResponseData](docs/GetUserCouponDetailResponseData.md)
  - [GetUserIdentityError](docs/GetUserIdentityError.md)
+ - [HodlerAirdropV4ErrorResponse](docs/HodlerAirdropV4ErrorResponse.md)
+ - [HodlerAirdropV4OrderRequest](docs/HodlerAirdropV4OrderRequest.md)
+ - [HodlerAirdropV4OrderResponse](docs/HodlerAirdropV4OrderResponse.md)
+ - [HodlerAirdropV4ProjectItem](docs/HodlerAirdropV4ProjectItem.md)
+ - [HodlerAirdropV4UserAirdropRecord](docs/HodlerAirdropV4UserAirdropRecord.md)
+ - [HodlerAirdropV4UserOrderRecord](docs/HodlerAirdropV4UserOrderRecord.md)
  - [I18nTxt](docs/I18nTxt.md)
  - [IndexConstituent](docs/IndexConstituent.md)
  - [InfiniteGridCreateParams](docs/InfiniteGridCreateParams.md)
@@ -969,6 +1003,12 @@ Class | Method | HTTP request | Description
  - [KlinesData](docs/KlinesData.md)
  - [KlinesDataList](docs/KlinesDataList.md)
  - [LadderApr](docs/LadderApr.md)
+ - [LaunchPoolV4CreateOrderResponse](docs/LaunchPoolV4CreateOrderResponse.md)
+ - [LaunchPoolV4ErrorResponse](docs/LaunchPoolV4ErrorResponse.md)
+ - [LaunchPoolV4PledgeRecord](docs/LaunchPoolV4PledgeRecord.md)
+ - [LaunchPoolV4Project](docs/LaunchPoolV4Project.md)
+ - [LaunchPoolV4RewardPool](docs/LaunchPoolV4RewardPool.md)
+ - [LaunchPoolV4RewardRecord](docs/LaunchPoolV4RewardRecord.md)
  - [LedgerRecord](docs/LedgerRecord.md)
  - [LeverageFailedCurrencies](docs/LeverageFailedCurrencies.md)
  - [LiquidateOrder](docs/LiquidateOrder.md)
@@ -1211,6 +1251,8 @@ Class | Method | HTTP request | Description
  - [Recommend](docs/Recommend.md)
  - [RecommendV2Scheme](docs/RecommendV2Scheme.md)
  - [RecommendV2Strategy](docs/RecommendV2Strategy.md)
+ - [RedeemLaunchPoolResponse](docs/RedeemLaunchPoolResponse.md)
+ - [RedeemV4](docs/RedeemV4.md)
  - [RepayCurrencyRes](docs/RepayCurrencyRes.md)
  - [RepayMultiLoan](docs/RepayMultiLoan.md)
  - [RepayRecordCurrency](docs/RepayRecordCurrency.md)
@@ -1301,6 +1343,7 @@ Class | Method | HTTP request | Description
  - [TrailOrderDetailResponse](docs/TrailOrderDetailResponse.md)
  - [TrailOrderListResponse](docs/TrailOrderListResponse.md)
  - [TrailOrderResponse](docs/TrailOrderResponse.md)
+ - [TransactionConfig](docs/TransactionConfig.md)
  - [TransactionID](docs/TransactionID.md)
  - [TransactionItem](docs/TransactionItem.md)
  - [TransactionList](docs/TransactionList.md)
