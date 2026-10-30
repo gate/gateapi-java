@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **point** | **String** | Point card amount |  [optional]
 **currency** | **String** | Settlement currency |  [optional]
 **ordersLimit** | **Integer** | Maximum number of outstanding orders |  [optional]
-**positionNotionalLimit** | **Long** | Notional value upper limit, including the nominal value of positions and outstanding orders |  [optional]
+**positionNotionalLimit** | **String** | Notional value upper limit, including the nominal value of positions and outstanding orders |  [optional]
 
 ## Enum: MarginModeEnum
 

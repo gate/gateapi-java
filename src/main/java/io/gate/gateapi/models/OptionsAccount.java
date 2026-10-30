@@ -148,7 +148,7 @@ public class OptionsAccount {
 
     public static final String SERIALIZED_NAME_POSITION_NOTIONAL_LIMIT = "position_notional_limit";
     @SerializedName(SERIALIZED_NAME_POSITION_NOTIONAL_LIMIT)
-    private Long positionNotionalLimit;
+    private String positionNotionalLimit;
 
 
     public OptionsAccount user(Long user) {
@@ -511,7 +511,7 @@ public class OptionsAccount {
         this.ordersLimit = ordersLimit;
     }
 
-    public OptionsAccount positionNotionalLimit(Long positionNotionalLimit) {
+    public OptionsAccount positionNotionalLimit(String positionNotionalLimit) {
         
         this.positionNotionalLimit = positionNotionalLimit;
         return this;
@@ -522,12 +522,12 @@ public class OptionsAccount {
      * @return positionNotionalLimit
     **/
     @javax.annotation.Nullable
-    public Long getPositionNotionalLimit() {
+    public String getPositionNotionalLimit() {
         return positionNotionalLimit;
     }
 
 
-    public void setPositionNotionalLimit(Long positionNotionalLimit) {
+    public void setPositionNotionalLimit(String positionNotionalLimit) {
         this.positionNotionalLimit = positionNotionalLimit;
     }
     @Override

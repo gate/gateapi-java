@@ -37,7 +37,7 @@ public class OptionsMyTrade {
 
     public static final String SERIALIZED_NAME_ORDER_ID = "order_id";
     @SerializedName(SERIALIZED_NAME_ORDER_ID)
-    private Integer orderId;
+    private Long orderId;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
     @SerializedName(SERIALIZED_NAME_SIZE)
@@ -163,7 +163,7 @@ public class OptionsMyTrade {
         this.contract = contract;
     }
 
-    public OptionsMyTrade orderId(Integer orderId) {
+    public OptionsMyTrade orderId(Long orderId) {
         
         this.orderId = orderId;
         return this;
@@ -174,12 +174,12 @@ public class OptionsMyTrade {
      * @return orderId
     **/
     @javax.annotation.Nullable
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
