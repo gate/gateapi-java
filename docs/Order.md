@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **slippage** | **String** | Maximum supported slippage ratio for Spot Market Order Placement, calculated based on the latest market price at the time of order placement as the benchmark (Example: 0.03 means 3%) |  [optional]
 **stopProfit** | [**SpotOrderStopProfit**](SpotOrderStopProfit.md) |  |  [optional]
 **stopLoss** | [**SpotOrderStopLoss**](SpotOrderStopLoss.md) |  |  [optional]
+**useEarn** | **Boolean** | Redeem Simple Earn funds when placing an order |  [optional]
 
 ## Enum: StatusEnum
 

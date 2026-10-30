@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     // The generator fills the adjacent SDK version; install that candidate locally first.
-    implementation 'io.gate:gate-api:7.2.167'
+    implementation 'io.gate:gate-api:7.2.170'
     implementation 'commons-cli:commons-cli:1.5.0'
 }
 

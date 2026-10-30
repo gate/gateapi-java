@@ -2339,7 +2339,7 @@ Name | Type | Description  | Notes
 
 <a name="listEarnFixedTermProducts"></a>
 # **listEarnFixedTermProducts**
-> ListEarnFixedTermProductsResponse listEarnFixedTermProducts(page, limit).asset(asset).type(type).execute();
+> ListEarnFixedTermProductsResponse listEarnFixedTermProducts(page, limit).asset(asset).type(type).status(status).showStatus(showStatus).execute();
 
 Get product list
 
@@ -2366,10 +2366,14 @@ public class Example {
         Integer limit = 100; // Integer | Page size
         String asset = "USDT"; // String | Currency
         Integer type = 1; // Integer | Product type: 1 for regular, 2 for VIP
+        Integer status = 2; // Integer | Product status filter. Pass 2 for products available for subscription.
+        String showStatus = "2"; // String | Visibility status filter. Pass \"2\" for visible products.
         try {
             ListEarnFixedTermProductsResponse result = apiInstance.listEarnFixedTermProducts(page, limit)
                         .asset(asset)
                         .type(type)
+                        .status(status)
+                        .showStatus(showStatus)
                         .execute();
             System.out.println(result);
         } catch (GateApiException e) {
@@ -2393,6 +2397,8 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Page size |
  **asset** | **String**| Currency | [optional]
  **type** | **Integer**| Product type: 1 for regular, 2 for VIP | [optional]
+ **status** | **Integer**| Product status filter. Pass 2 for products available for subscription. | [optional]
+ **showStatus** | **String**| Visibility status filter. Pass \&quot;2\&quot; for visible products. | [optional]
 
 ### Return type
 

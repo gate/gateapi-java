@@ -30,6 +30,57 @@ public class AutoInvestMinInvestAmount {
     @SerializedName(SERIALIZED_NAME_MONEY)
     private String money;
 
+    /**
+     * Asset type: 1 for cryptocurrency, 2 for TradFi stocks; must be provided explicitly
+     */
+    @JsonAdapter(AssetTypeEnum.Adapter.class)
+    public enum AssetTypeEnum {
+        NUMBER_1(1),
+        
+        NUMBER_2(2);
+
+        private Integer value;
+
+        AssetTypeEnum(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AssetTypeEnum fromValue(Integer value) {
+            for (AssetTypeEnum b : AssetTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AssetTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AssetTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AssetTypeEnum read(final JsonReader jsonReader) throws IOException {
+                Integer value =  jsonReader.nextInt();
+                return AssetTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_ASSET_TYPE = "asset_type";
+    @SerializedName(SERIALIZED_NAME_ASSET_TYPE)
+    private AssetTypeEnum assetType;
+
     public static final String SERIALIZED_NAME_ITEMS = "items";
     @SerializedName(SERIALIZED_NAME_ITEMS)
     private List<AutoInvestMinInvestAmountItems> items = new ArrayList<>();
@@ -52,6 +103,25 @@ public class AutoInvestMinInvestAmount {
 
     public void setMoney(String money) {
         this.money = money;
+    }
+
+    public AutoInvestMinInvestAmount assetType(AssetTypeEnum assetType) {
+        
+        this.assetType = assetType;
+        return this;
+    }
+
+     /**
+     * Asset type: 1 for cryptocurrency, 2 for TradFi stocks; must be provided explicitly
+     * @return assetType
+    **/
+    public AssetTypeEnum getAssetType() {
+        return assetType;
+    }
+
+
+    public void setAssetType(AssetTypeEnum assetType) {
+        this.assetType = assetType;
     }
 
     public AutoInvestMinInvestAmount items(List<AutoInvestMinInvestAmountItems> items) {
@@ -87,12 +157,13 @@ public class AutoInvestMinInvestAmount {
         }
         AutoInvestMinInvestAmount autoInvestMinInvestAmount = (AutoInvestMinInvestAmount) o;
         return Objects.equals(this.money, autoInvestMinInvestAmount.money) &&
+                Objects.equals(this.assetType, autoInvestMinInvestAmount.assetType) &&
                 Objects.equals(this.items, autoInvestMinInvestAmount.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(money, items);
+        return Objects.hash(money, assetType, items);
     }
 
 
@@ -101,6 +172,7 @@ public class AutoInvestMinInvestAmount {
         StringBuilder sb = new StringBuilder();
         sb.append("class AutoInvestMinInvestAmount {\n");
         sb.append("      money: ").append(toIndentedString(money)).append("\n");
+        sb.append("      assetType: ").append(toIndentedString(assetType)).append("\n");
         sb.append("      items: ").append(toIndentedString(items)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -4541,7 +4541,7 @@ public class EarnApi {
         return new APIlistAutoInvestPlansRequest(status);
     }
 
-    private okhttp3.Call listEarnFixedTermProductsCall(Integer page, Integer limit, String asset, Integer type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listEarnFixedTermProductsCall(Integer page, Integer limit, String asset, Integer type, Integer status, String showStatus, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4555,6 +4555,14 @@ public class EarnApi {
 
         if (type != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (showStatus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("show_status", showStatus));
         }
 
         if (page != null) {
@@ -4587,7 +4595,7 @@ public class EarnApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listEarnFixedTermProductsValidateBeforeCall(Integer page, Integer limit, String asset, Integer type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listEarnFixedTermProductsValidateBeforeCall(Integer page, Integer limit, String asset, Integer type, Integer status, String showStatus, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new ApiException("Missing the required parameter 'page' when calling listEarnFixedTermProducts(Async)");
@@ -4598,19 +4606,19 @@ public class EarnApi {
             throw new ApiException("Missing the required parameter 'limit' when calling listEarnFixedTermProducts(Async)");
         }
 
-        okhttp3.Call localVarCall = listEarnFixedTermProductsCall(page, limit, asset, type, _callback);
+        okhttp3.Call localVarCall = listEarnFixedTermProductsCall(page, limit, asset, type, status, showStatus, _callback);
         return localVarCall;
     }
 
 
-    private ApiResponse<ListEarnFixedTermProductsResponse> listEarnFixedTermProductsWithHttpInfo(Integer page, Integer limit, String asset, Integer type) throws ApiException {
-        okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, null);
+    private ApiResponse<ListEarnFixedTermProductsResponse> listEarnFixedTermProductsWithHttpInfo(Integer page, Integer limit, String asset, Integer type, Integer status, String showStatus) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, status, showStatus, null);
         Type localVarReturnType = new TypeToken<ListEarnFixedTermProductsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listEarnFixedTermProductsAsync(Integer page, Integer limit, String asset, Integer type, final ApiCallback<ListEarnFixedTermProductsResponse> _callback) throws ApiException {
-        okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, _callback);
+    private okhttp3.Call listEarnFixedTermProductsAsync(Integer page, Integer limit, String asset, Integer type, Integer status, String showStatus, final ApiCallback<ListEarnFixedTermProductsResponse> _callback) throws ApiException {
+        okhttp3.Call localVarCall = listEarnFixedTermProductsValidateBeforeCall(page, limit, asset, type, status, showStatus, _callback);
         Type localVarReturnType = new TypeToken<ListEarnFixedTermProductsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4621,6 +4629,8 @@ public class EarnApi {
         private final Integer limit;
         private String asset;
         private Integer type;
+        private Integer status;
+        private String showStatus;
 
         private APIlistEarnFixedTermProductsRequest(Integer page, Integer limit) {
             this.page = page;
@@ -4648,6 +4658,26 @@ public class EarnApi {
         }
 
         /**
+         * Set status
+         * @param status Product status filter. Pass 2 for products available for subscription. (optional)
+         * @return APIlistEarnFixedTermProductsRequest
+         */
+        public APIlistEarnFixedTermProductsRequest status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set showStatus
+         * @param showStatus Visibility status filter. Pass \&quot;2\&quot; for visible products. (optional)
+         * @return APIlistEarnFixedTermProductsRequest
+         */
+        public APIlistEarnFixedTermProductsRequest showStatus(String showStatus) {
+            this.showStatus = showStatus;
+            return this;
+        }
+
+        /**
          * Build call for listEarnFixedTermProducts
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -4659,7 +4689,7 @@ public class EarnApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listEarnFixedTermProductsCall(page, limit, asset, type, _callback);
+            return listEarnFixedTermProductsCall(page, limit, asset, type, status, showStatus, _callback);
         }
 
         /**
@@ -4673,7 +4703,7 @@ public class EarnApi {
          </table>
          */
         public ListEarnFixedTermProductsResponse execute() throws ApiException {
-            ApiResponse<ListEarnFixedTermProductsResponse> localVarResp = listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
+            ApiResponse<ListEarnFixedTermProductsResponse> localVarResp = listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type, status, showStatus);
             return localVarResp.getData();
         }
 
@@ -4688,7 +4718,7 @@ public class EarnApi {
          </table>
          */
         public ApiResponse<ListEarnFixedTermProductsResponse> executeWithHttpInfo() throws ApiException {
-            return listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type);
+            return listEarnFixedTermProductsWithHttpInfo(page, limit, asset, type, status, showStatus);
         }
 
         /**
@@ -4703,7 +4733,7 @@ public class EarnApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ListEarnFixedTermProductsResponse> _callback) throws ApiException {
-            return listEarnFixedTermProductsAsync(page, limit, asset, type, _callback);
+            return listEarnFixedTermProductsAsync(page, limit, asset, type, status, showStatus, _callback);
         }
     }
 

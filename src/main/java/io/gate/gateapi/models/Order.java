@@ -499,6 +499,10 @@ public class Order {
     @SerializedName(SERIALIZED_NAME_STOP_LOSS)
     private SpotOrderStopLoss stopLoss;
 
+    public static final String SERIALIZED_NAME_USE_EARN = "use_earn";
+    @SerializedName(SERIALIZED_NAME_USE_EARN)
+    private Boolean useEarn;
+
 
      /**
      * Order ID
@@ -1066,6 +1070,26 @@ public class Order {
     public void setStopLoss(SpotOrderStopLoss stopLoss) {
         this.stopLoss = stopLoss;
     }
+
+    public Order useEarn(Boolean useEarn) {
+        
+        this.useEarn = useEarn;
+        return this;
+    }
+
+     /**
+     * Redeem Simple Earn funds when placing an order
+     * @return useEarn
+    **/
+    @javax.annotation.Nullable
+    public Boolean getUseEarn() {
+        return useEarn;
+    }
+
+
+    public void setUseEarn(Boolean useEarn) {
+        this.useEarn = useEarn;
+    }
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -1114,12 +1138,13 @@ public class Order {
                 Objects.equals(this.actionMode, order.actionMode) &&
                 Objects.equals(this.slippage, order.slippage) &&
                 Objects.equals(this.stopProfit, order.stopProfit) &&
-                Objects.equals(this.stopLoss, order.stopLoss);
+                Objects.equals(this.stopLoss, order.stopLoss) &&
+                Objects.equals(this.useEarn, order.useEarn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, tradeQuote, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, actionMode, slippage, stopProfit, stopLoss);
+        return Objects.hash(id, text, amendText, createTime, updateTime, createTimeMs, updateTimeMs, status, currencyPair, tradeQuote, type, account, side, amount, price, timeInForce, iceberg, autoBorrow, autoRepay, left, filledAmount, fillPrice, filledTotal, avgDealPrice, fee, feeCurrency, pointFee, gtFee, gtMakerFee, gtTakerFee, gtDiscount, rebatedFee, rebatedFeeCurrency, stpId, stpAct, finishAs, actionMode, slippage, stopProfit, stopLoss, useEarn);
     }
 
 
@@ -1167,6 +1192,7 @@ public class Order {
         sb.append("      slippage: ").append(toIndentedString(slippage)).append("\n");
         sb.append("      stopProfit: ").append(toIndentedString(stopProfit)).append("\n");
         sb.append("      stopLoss: ").append(toIndentedString(stopLoss)).append("\n");
+        sb.append("      useEarn: ").append(toIndentedString(useEarn)).append("\n");
         sb.append("}");
         return sb.toString();
     }
