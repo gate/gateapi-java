@@ -59,7 +59,7 @@ public class Tokens {
     }
 
      /**
-     * Currency symbol
+     * Alpha currency ID, for example USDS02b5a8dd2f59a098; use it as the currency parameter in Alpha APIs, not the display symbol USDS.
      * @return currency
     **/
     @javax.annotation.Nullable
@@ -79,7 +79,7 @@ public class Tokens {
     }
 
      /**
-     * Currency name
+     * Display name or symbol, for example USDS; it cannot replace the currency field as the Alpha currency ID.
      * @return name
     **/
     @javax.annotation.Nullable

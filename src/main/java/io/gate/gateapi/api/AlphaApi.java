@@ -537,7 +537,7 @@ public class AlphaApi {
 
         /**
          * Set currency
-         * @param currency Trading symbol (optional)
+         * @param currency Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. (optional)
          * @return APIlistAlphaOrderRequest
          */
         public APIlistAlphaOrderRequest currency(String currency) {
@@ -968,7 +968,7 @@ public class AlphaApi {
 
         /**
          * Set currency
-         * @param currency Query currency information by currency symbol (optional)
+         * @param currency Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. (optional)
          * @return APIlistAlphaCurrenciesRequest
          */
         public APIlistAlphaCurrenciesRequest currency(String currency) {
@@ -1141,7 +1141,7 @@ public class AlphaApi {
 
         /**
          * Set currency
-         * @param currency Query by specified currency name (optional)
+         * @param currency Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. (optional)
          * @return APIlistAlphaTickersRequest
          */
         public APIlistAlphaTickersRequest currency(String currency) {

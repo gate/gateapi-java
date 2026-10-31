@@ -258,7 +258,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         AlphaApi apiInstance = new AlphaApi(defaultClient);
-        String currency = "memeboxsst"; // String | Trading symbol
+        String currency = "memeboxsst"; // String | Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         String side = "buy"; // String | Buy or sell orders - buy - sell
         Integer status = 2; // Integer | Order Status - `0` : All - `1` : Processing - `2` : Successful - `3` : Failed - `4` : Cancelled - `5` : Buy order placed but transfer not completed - `6` : Order cancelled but transfer not completed
         Long from = 1627706330L; // Long | Start time for order query
@@ -293,7 +293,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Trading symbol | [optional]
+ **currency** | **String**| Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. | [optional]
  **side** | **String**| Buy or sell orders - buy - sell | [optional]
  **status** | **Integer**| Order Status - &#x60;0&#x60; : All - &#x60;1&#x60; : Processing - &#x60;2&#x60; : Successful - &#x60;3&#x60; : Failed - &#x60;4&#x60; : Cancelled - &#x60;5&#x60; : Buy order placed but transfer not completed - &#x60;6&#x60; : Order cancelled but transfer not completed | [optional]
  **from** | **Long**| Start time for order query | [optional]
@@ -482,7 +482,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         AlphaApi apiInstance = new AlphaApi(defaultClient);
-        String currency = "memeboxtrump"; // String | Query currency information by currency symbol
+        String currency = "memeboxtrump"; // String | Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer page = 1; // Integer | Page number
         try {
@@ -509,7 +509,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Query currency information by currency symbol | [optional]
+ **currency** | **String**| Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
 
@@ -556,7 +556,7 @@ public class Example {
         defaultClient.setBasePath("https://api.gateio.ws/api/v4");
 
         AlphaApi apiInstance = new AlphaApi(defaultClient);
-        String currency = "memeboxtrump"; // String | Query by specified currency name
+        String currency = "memeboxtrump"; // String | Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit.
         Integer limit = 100; // Integer | Maximum number of records returned in a single list
         Integer page = 1; // Integer | Page number
         try {
@@ -583,7 +583,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **String**| Query by specified currency name | [optional]
+ **currency** | **String**| Alpha currency ID, for example USDS02b5a8dd2f59a098, not the display symbol USDS. First call GET /alpha/currencies without currency, match the token by name, chain and address, and use the returned currency field. Paginate with page and limit. | [optional]
  **limit** | **Integer**| Maximum number of records returned in a single list | [optional] [default to 100]
  **page** | **Integer**| Page number | [optional] [default to 1]
 
