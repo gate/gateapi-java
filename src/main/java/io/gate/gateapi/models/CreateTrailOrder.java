@@ -40,7 +40,7 @@ public class CreateTrailOrder {
     private Boolean isGte;
 
     /**
-     * Activation price type: 1-latest price, 2-index price, 3-mark price
+     * Activation price type, required: 1-latest price, 2-index price, 3-mark price. The caller must specify it explicitly.
      */
     @JsonAdapter(PriceTypeEnum.Adapter.class)
     public enum PriceTypeEnum {
@@ -202,10 +202,9 @@ public class CreateTrailOrder {
     }
 
      /**
-     * Activation price type: 1-latest price, 2-index price, 3-mark price
+     * Activation price type, required: 1-latest price, 2-index price, 3-mark price. The caller must specify it explicitly.
      * @return priceType
     **/
-    @javax.annotation.Nullable
     public PriceTypeEnum getPriceType() {
         return priceType;
     }

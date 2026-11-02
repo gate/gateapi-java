@@ -25,15 +25,15 @@ import java.io.IOException;
 public class TrailOrder {
     public static final String SERIALIZED_NAME_ID = "id";
     @SerializedName(SERIALIZED_NAME_ID)
-    private Long id;
+    private String id;
 
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
     @SerializedName(SERIALIZED_NAME_USER_ID)
-    private Long userId;
+    private String userId;
 
     public static final String SERIALIZED_NAME_USER = "user";
     @SerializedName(SERIALIZED_NAME_USER)
-    private Long user;
+    private String user;
 
     public static final String SERIALIZED_NAME_CONTRACT = "contract";
     @SerializedName(SERIALIZED_NAME_CONTRACT)
@@ -128,27 +128,27 @@ public class TrailOrder {
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    private Long createdAt;
+    private String createdAt;
 
     public static final String SERIALIZED_NAME_ACTIVATED_AT = "activated_at";
     @SerializedName(SERIALIZED_NAME_ACTIVATED_AT)
-    private Long activatedAt;
+    private String activatedAt;
 
     public static final String SERIALIZED_NAME_FINISHED_AT = "finished_at";
     @SerializedName(SERIALIZED_NAME_FINISHED_AT)
-    private Long finishedAt;
+    private String finishedAt;
 
     public static final String SERIALIZED_NAME_CREATE_TIME = "create_time";
     @SerializedName(SERIALIZED_NAME_CREATE_TIME)
-    private Long createTime;
+    private String createTime;
 
     public static final String SERIALIZED_NAME_ACTIVE_TIME = "active_time";
     @SerializedName(SERIALIZED_NAME_ACTIVE_TIME)
-    private Long activeTime;
+    private String activeTime;
 
     public static final String SERIALIZED_NAME_FINISH_TIME = "finish_time";
     @SerializedName(SERIALIZED_NAME_FINISH_TIME)
-    private Long finishTime;
+    private String finishTime;
 
     public static final String SERIALIZED_NAME_REASON = "reason";
     @SerializedName(SERIALIZED_NAME_REASON)
@@ -168,7 +168,7 @@ public class TrailOrder {
 
     public static final String SERIALIZED_NAME_SUBORDER_ID = "suborder_id";
     @SerializedName(SERIALIZED_NAME_SUBORDER_ID)
-    private Long suborderId;
+    private String suborderId;
 
     public static final String SERIALIZED_NAME_SIDE_LABEL = "side_label";
     @SerializedName(SERIALIZED_NAME_SIDE_LABEL)
@@ -235,7 +235,7 @@ public class TrailOrder {
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    private Long updatedAt;
+    private String updatedAt;
 
     public static final String SERIALIZED_NAME_EXTREMUM_PRICE = "extremum_price";
     @SerializedName(SERIALIZED_NAME_EXTREMUM_PRICE)
@@ -283,7 +283,7 @@ public class TrailOrder {
      * @return id
     **/
     @javax.annotation.Nullable
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -293,7 +293,7 @@ public class TrailOrder {
      * @return userId
     **/
     @javax.annotation.Nullable
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -303,7 +303,7 @@ public class TrailOrder {
      * @return user
     **/
     @javax.annotation.Nullable
-    public Long getUser() {
+    public String getUser() {
         return user;
     }
 
@@ -513,7 +513,7 @@ public class TrailOrder {
      * @return createdAt
     **/
     @javax.annotation.Nullable
-    public Long getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
@@ -523,7 +523,7 @@ public class TrailOrder {
      * @return activatedAt
     **/
     @javax.annotation.Nullable
-    public Long getActivatedAt() {
+    public String getActivatedAt() {
         return activatedAt;
     }
 
@@ -533,7 +533,7 @@ public class TrailOrder {
      * @return finishedAt
     **/
     @javax.annotation.Nullable
-    public Long getFinishedAt() {
+    public String getFinishedAt() {
         return finishedAt;
     }
 
@@ -543,7 +543,7 @@ public class TrailOrder {
      * @return createTime
     **/
     @javax.annotation.Nullable
-    public Long getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
@@ -553,7 +553,7 @@ public class TrailOrder {
      * @return activeTime
     **/
     @javax.annotation.Nullable
-    public Long getActiveTime() {
+    public String getActiveTime() {
         return activeTime;
     }
 
@@ -563,7 +563,7 @@ public class TrailOrder {
      * @return finishTime
     **/
     @javax.annotation.Nullable
-    public Long getFinishTime() {
+    public String getFinishTime() {
         return finishTime;
     }
 
@@ -613,7 +613,7 @@ public class TrailOrder {
      * @return suborderId
     **/
     @javax.annotation.Nullable
-    public Long getSuborderId() {
+    public String getSuborderId() {
         return suborderId;
     }
 
@@ -663,7 +663,7 @@ public class TrailOrder {
      * @return updatedAt
     **/
     @javax.annotation.Nullable
-    public Long getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
