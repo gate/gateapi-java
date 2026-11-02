@@ -113,7 +113,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/7.2.174/java");
+        setUserAgent("OpenAPI-Generator/7.2.176/java");
 
         // Set default X-Gate-Size-Decimal header for futures API
         addDefaultHeader("X-Gate-Size-Decimal", "1");
@@ -960,18 +960,35 @@ public class ApiClient {
         });
     }
 
+    /** Immutable, local-only error policy carried by a generated request. */
+    private static final class DeclaredErrorStatuses {
+        private final int[] statuses;
+
+        private DeclaredErrorStatuses(int[] statuses) {
+            this.statuses = statuses.clone();
+        }
+
+        private boolean contains(int status) {
+            for (int value : statuses) {
+                if (value == status) return true;
+            }
+            return false;
+        }
+    }
+
     /**
-     * Handle the given response, return the deserialized object when the response is successful.
-     *
+     * Handle the given response, return the deserialized object when successful.
      * @param <T> Type
      * @param response Response
      * @param returnType Return type
      * @return Type
-     * @throws ApiException If the response has an unsuccessful status code or
-     *                      fail to deserialize the response body
+     * @throws ApiException for HTTP or operation-declared errors
      */
     public <T> T handleResponse(Response response, Type returnType) throws ApiException {
-        if (response.isSuccessful()) {
+        // Request-local immutable metadata prevents one endpoint's policy from
+        // changing another endpoint or a concurrent request. Nothing is sent on wire.
+        DeclaredErrorStatuses declared = response.request().tag(DeclaredErrorStatuses.class);
+        if (response.isSuccessful() && (declared == null || !declared.contains(response.code()))) {
             if (returnType == null || response.code() == 204) {
                 // returning null if the returnType is not defined,
                 // or the status code is 204 (No Content)
@@ -996,7 +1013,9 @@ public class ApiClient {
                 }
                 try {
                     GateApiException exp = json.deserialize(respBody, GateApiException.class);
-                    if (exp.getErrorLabel() != null && !"".equals(exp.getErrorLabel())) {
+                    if (exp == null && declared != null && declared.contains(response.code())) {
+                        // A declared error with JSON null still reaches the generic fallback.
+                    } else if (exp.getErrorLabel() != null && !"".equals(exp.getErrorLabel())) {
                         throw new GateApiException(exp, response.message(), response.code(), response.headers().toMultimap(), respBody);
                     }
                 } catch (JsonParseException e) {
@@ -1025,8 +1044,15 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      */
     public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
-        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
+        return buildCall(path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback, (int[]) null);
+    }
 
+    /** Builds a call with additional error statuses declared by that operation. */
+    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback, int... errorStatuses) throws ApiException {
+        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
+        if (errorStatuses != null && errorStatuses.length > 0) {
+            request = request.newBuilder().tag(DeclaredErrorStatuses.class, new DeclaredErrorStatuses(errorStatuses)).build();
+        }
         return httpClient.newCall(request);
     }
 
