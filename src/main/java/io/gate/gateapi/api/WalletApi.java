@@ -237,7 +237,7 @@ public class WalletApi {
     }
 
     /**
-     * Generate currency deposit address
+     * Get a currency deposit address
      * 
      * @param currency Currency name (required)
      * @return DepositAddress
@@ -254,7 +254,7 @@ public class WalletApi {
     }
 
     /**
-     * Generate currency deposit address
+     * Get a currency deposit address
      * 
      * @param currency Currency name (required)
      * @return ApiResponse&lt;DepositAddress&gt;
@@ -272,7 +272,7 @@ public class WalletApi {
     }
 
     /**
-     * Generate currency deposit address (asynchronously)
+     * Get a currency deposit address (asynchronously)
      * 
      * @param currency Currency name (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1665,7 +1665,7 @@ public class WalletApi {
     }
 
     /**
-     * Query withdrawal status
+     * Get currency withdrawal fees and limits, optionally filtered by currency.
      * API operations are not supported for tokens with low liquidity or extremely low value. Please use the Web or App interface to query and process.
      * @return APIlistWithdrawStatusRequest
      * @http.response.details
@@ -3071,7 +3071,7 @@ public class WalletApi {
 
         /**
          * Set currency
-         * @param currency Currency to convert (optional)
+         * @param currency Filter by conversion currency. (optional)
          * @return APIlistSmallBalanceHistoryRequest
          */
         public APIlistSmallBalanceHistoryRequest currency(String currency) {
@@ -3160,7 +3160,7 @@ public class WalletApi {
     }
 
     /**
-     * Get convertible small balance currency history
+     * Get small-balance conversion history
      * 
      * @return APIlistSmallBalanceHistoryRequest
      * @http.response.details

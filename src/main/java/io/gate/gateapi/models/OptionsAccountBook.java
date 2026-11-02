@@ -111,7 +111,7 @@ public class OptionsAccountBook {
     }
 
      /**
-     * Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+     * Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - set: settlement - refr: Referrer rebate - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
      * @return type
     **/
     @javax.annotation.Nullable

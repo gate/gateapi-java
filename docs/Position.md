@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **openTime** | **Long** | First Open Time |  [optional]
 **riskLimitTable** | **String** | Risk limit table ID |  [optional] [readonly]
 **averageMaintenanceRate** | **String** | Average maintenance margin rate |  [optional] [readonly]
-**pid** | **Long** | Sub-account position ID |  [optional] [readonly]
+**pid** | **Long** | Split-position ID. |  [optional] [readonly]
 **posMarginMode** | **String** | Position Margin Mode isolated - Isolated Margin, cross - Cross Margin |  [optional]
 **lever** | **String** | Indicates the current leverage of the position, applicable to both isolated and cross margin, gradually replacing the current leverage and cross_leverage_limit |  [optional]
 

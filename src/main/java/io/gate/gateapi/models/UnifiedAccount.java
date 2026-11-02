@@ -183,7 +183,7 @@ public class UnifiedAccount {
     }
 
      /**
-     * Whether the account is locked, valid in cross-currency margin/combined margin mode, false in other modes such as single-currency margin mode
+     * Whether the account is locked. Applicable in multi-currency margin and portfolio margin modes; false in other modes, such as single-currency margin mode.
      * @return locked
     **/
     @javax.annotation.Nullable

@@ -512,7 +512,7 @@ public class CurrencyPair {
     }
 
      /**
-     * Expected time to remove the shelves, Unix timestamp in seconds
+     * Expected delisting time as a Unix timestamp in seconds.
      * @return delistingTime
     **/
     @javax.annotation.Nullable

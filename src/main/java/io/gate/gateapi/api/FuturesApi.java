@@ -52,6 +52,7 @@ import io.gate.gateapi.models.FuturesOrderTimerange;
 import io.gate.gateapi.models.FuturesPositionCrossMode;
 import io.gate.gateapi.models.FuturesPremiumIndex;
 import io.gate.gateapi.models.FuturesPriceTriggeredOrder;
+import io.gate.gateapi.models.FuturesPriceTriggeredOrderError;
 import io.gate.gateapi.models.FuturesRiskLimitTier;
 import io.gate.gateapi.models.FuturesTicker;
 import io.gate.gateapi.models.FuturesTrade;
@@ -73,6 +74,7 @@ import io.gate.gateapi.models.StopTrailOrder;
 import io.gate.gateapi.models.TrailOrderChangeLogResponse;
 import io.gate.gateapi.models.TrailOrderDetailResponse;
 import io.gate.gateapi.models.TrailOrderListResponse;
+import io.gate.gateapi.models.TrailOrderListResponseEnvelope;
 import io.gate.gateapi.models.TrailOrderResponse;
 import io.gate.gateapi.models.TriggerOrderResponse;
 import io.gate.gateapi.models.TriggerTime;
@@ -5823,7 +5825,7 @@ public class FuturesApi {
 
     /**
      * Query futures order list
-     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
+     * - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
      * @param settle Perpetual futures settlement currency (required)
      * @param status Query order list based on status (required)
      * @return APIlistFuturesOrdersRequest
@@ -5903,7 +5905,7 @@ public class FuturesApi {
 
     /**
      * Place futures order
-     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In hedge mode:   - Reduce a position: with &#x60;reduce_only&#x3D;true&#x60;, a positive &#x60;size&#x60; reduces the short position and a negative &#x60;size&#x60; reduces the long position.   - Increase a position: with &#x60;reduce_only&#x3D;false&#x60;, a positive &#x60;size&#x60; increases the long position and a negative &#x60;size&#x60; increases the short position.   - Close a position: set &#x60;size&#x3D;0&#x60;, select the closing side with &#x60;auto_size&#x60;, and set &#x60;reduce_only&#x3D;true&#x60;.   - &#x60;reduce_only&#x60; ensures position reduction only and prevents increasing the position. - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
      * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -5922,7 +5924,7 @@ public class FuturesApi {
 
     /**
      * Place futures order
-     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In hedge mode:   - Reduce a position: with &#x60;reduce_only&#x3D;true&#x60;, a positive &#x60;size&#x60; reduces the short position and a negative &#x60;size&#x60; reduces the long position.   - Increase a position: with &#x60;reduce_only&#x3D;false&#x60;, a positive &#x60;size&#x60; increases the long position and a negative &#x60;size&#x60; increases the short position.   - Close a position: set &#x60;size&#x3D;0&#x60;, select the closing side with &#x60;auto_size&#x60;, and set &#x60;reduce_only&#x3D;true&#x60;.   - &#x60;reduce_only&#x60; ensures position reduction only and prevents increasing the position. - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
      * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -5942,7 +5944,7 @@ public class FuturesApi {
 
     /**
      * Place futures order (asynchronously)
-     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+     * - When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In hedge mode:   - Reduce a position: with &#x60;reduce_only&#x3D;true&#x60;, a positive &#x60;size&#x60; reduces the short position and a negative &#x60;size&#x60; reduces the long position.   - Increase a position: with &#x60;reduce_only&#x3D;false&#x60;, a positive &#x60;size&#x60; increases the long position and a negative &#x60;size&#x60; increases the short position.   - Close a position: set &#x60;size&#x3D;0&#x60;, select the closing side with &#x60;auto_size&#x60;, and set &#x60;reduce_only&#x3D;true&#x60;.   - &#x60;reduce_only&#x60; ensures position reduction only and prevents increasing the position. - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
      * @param settle Perpetual futures settlement currency (required)
      * @param futuresOrder  (required)
      * @param xGateExptime Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
@@ -6517,7 +6519,7 @@ public class FuturesApi {
 
     /**
      * Query single order details
-     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
+     * - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported. 
      * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @return FuturesOrder
@@ -6535,7 +6537,7 @@ public class FuturesApi {
 
     /**
      * Query single order details
-     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
+     * - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported. 
      * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @return ApiResponse&lt;FuturesOrder&gt;
@@ -6554,7 +6556,7 @@ public class FuturesApi {
 
     /**
      * Query single order details (asynchronously)
-     * - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
+     * - Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported. 
      * @param settle Perpetual futures settlement currency (required)
      * @param orderId The order ID returned when the order is created successfully, or the custom ID specified by the user when creating the order (i.e. the &#x60;text&#x60; field). When using the custom &#x60;text&#x60; field: 1. If the order was not filled and has been cancelled, after 60 seconds you cannot query the order by &#x60;text&#x60;; continuing to use &#x60;text&#x60; returns error ORDER_NOT_FOUND. 2. If the order was fully or partially filled, you can query the order by &#x60;text&#x60; indefinitely. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -7430,7 +7432,7 @@ public class FuturesApi {
 
         /**
          * Set side
-         * @param side Query side. long or shot (optional)
+         * @param side Direction filter: long or short. (optional)
          * @return APIlistPositionCloseRequest
          */
         public APIlistPositionCloseRequest side(String side) {
@@ -9183,15 +9185,15 @@ public class FuturesApi {
     }
 
 
-    private ApiResponse<TrailOrderListResponse> getTrailOrdersWithHttpInfo(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side) throws ApiException {
+    private ApiResponse<TrailOrderListResponseEnvelope> getTrailOrdersWithHttpInfo(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrdersValidateBeforeCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, null);
-        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponseEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTrailOrdersAsync(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback<TrailOrderListResponse> _callback) throws ApiException {
+    private okhttp3.Call getTrailOrdersAsync(String settle, String contract, Boolean isFinished, Long startAt, Long endAt, Integer pageNum, Integer pageSize, Integer sortBy, Boolean hideCancel, Integer relatedPosition, Boolean sortByTrigger, Integer reduceOnly, Integer side, final ApiCallback<TrailOrderListResponseEnvelope> _callback) throws ApiException {
         okhttp3.Call localVarCall = getTrailOrdersValidateBeforeCall(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
-        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponseEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9352,7 +9354,7 @@ public class FuturesApi {
 
         /**
          * Execute getTrailOrders request
-         * @return TrailOrderListResponse
+         * @return TrailOrderListResponseEnvelope
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -9360,14 +9362,14 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public TrailOrderListResponse execute() throws ApiException {
-            ApiResponse<TrailOrderListResponse> localVarResp = getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
+        public TrailOrderListResponseEnvelope execute() throws ApiException {
+            ApiResponse<TrailOrderListResponseEnvelope> localVarResp = getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTrailOrders request with HTTP info returned
-         * @return ApiResponse&lt;TrailOrderListResponse&gt;
+         * @return ApiResponse&lt;TrailOrderListResponseEnvelope&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -9375,7 +9377,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<TrailOrderListResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<TrailOrderListResponseEnvelope> executeWithHttpInfo() throws ApiException {
             return getTrailOrdersWithHttpInfo(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side);
         }
 
@@ -9390,7 +9392,7 @@ public class FuturesApi {
             <tr><td> 200 </td><td> Query successful </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<TrailOrderListResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<TrailOrderListResponseEnvelope> _callback) throws ApiException {
             return getTrailOrdersAsync(settle, contract, isFinished, startAt, endAt, pageNum, pageSize, sortBy, hideCancel, relatedPosition, sortByTrigger, reduceOnly, side, _callback);
         }
     }
@@ -10450,7 +10452,7 @@ public class FuturesApi {
      * List chase orders
      * 
      * @param settle Perpetual futures settlement currency (required)
-     * @param sortBy Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 (required)
+     * @param sortBy Sort field: 1 for creation time; 2 for finish time. 0 is not accepted. (required)
      * @return APIgetChaseOrdersRequest
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11021,6 +11023,7 @@ public class FuturesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+        <tr><td> 205 </td><td> Business error response when the price-triggered order does not exist (HTTP 205). </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPriceTriggeredOrderCall(String settle, Long orderId, final ApiCallback _callback) throws ApiException {
@@ -11081,6 +11084,7 @@ public class FuturesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+        <tr><td> 205 </td><td> Business error response when the price-triggered order does not exist (HTTP 205). </td><td>  -  </td></tr>
      </table>
      */
     public FuturesPriceTriggeredOrder getPriceTriggeredOrder(String settle, Long orderId) throws ApiException {
@@ -11099,6 +11103,7 @@ public class FuturesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+        <tr><td> 205 </td><td> Business error response when the price-triggered order does not exist (HTTP 205). </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<FuturesPriceTriggeredOrder> getPriceTriggeredOrderWithHttpInfo(String settle, Long orderId) throws ApiException {
@@ -11119,6 +11124,7 @@ public class FuturesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Auto order details </td><td>  -  </td></tr>
+        <tr><td> 205 </td><td> Business error response when the price-triggered order does not exist (HTTP 205). </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPriceTriggeredOrderAsync(String settle, Long orderId, final ApiCallback<FuturesPriceTriggeredOrder> _callback) throws ApiException {

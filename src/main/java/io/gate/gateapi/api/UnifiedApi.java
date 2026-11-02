@@ -511,8 +511,8 @@ public class UnifiedApi {
     }
 
     /**
-     * Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change
-     * 
+     * Get maximum transferable amounts for multiple unified-account currencies
+     * Each currency’s value is its maximum transferable amount. After a user withdrawal, the transferable amounts for all currencies will change.
      * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time (required)
      * @return List&lt;TransferablesResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -528,8 +528,8 @@ public class UnifiedApi {
     }
 
     /**
-     * Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change
-     * 
+     * Get maximum transferable amounts for multiple unified-account currencies
+     * Each currency’s value is its maximum transferable amount. After a user withdrawal, the transferable amounts for all currencies will change.
      * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time (required)
      * @return ApiResponse&lt;List&lt;TransferablesResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -546,8 +546,8 @@ public class UnifiedApi {
     }
 
     /**
-     * Batch query maximum transferable amount for unified accounts. Each currency shows the maximum value. After user withdrawal, the transferable amount for all currencies will change (asynchronously)
-     * 
+     * Get maximum transferable amounts for multiple unified-account currencies (asynchronously)
+     * Each currency’s value is its maximum transferable amount. After a user withdrawal, the transferable amounts for all currencies will change.
      * @param currencies Specify the currency name to query in batches, and support up to 100 pass parameters at a time (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1627,7 +1627,7 @@ public class UnifiedApi {
 
     /**
      * Set unified account mode
-     * Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+     * Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
      * @param unifiedModeSet  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1642,7 +1642,7 @@ public class UnifiedApi {
 
     /**
      * Set unified account mode
-     * Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+     * Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
      * @param unifiedModeSet  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1659,7 +1659,7 @@ public class UnifiedApi {
 
     /**
      * Set unified account mode (asynchronously)
-     * Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
+     * Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
      * @param unifiedModeSet  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1834,7 +1834,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Query unified account tiered
+     * Get currency margin discount tiers for unified accounts
      * 
      * @return List&lt;UnifiedDiscount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1850,7 +1850,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Query unified account tiered
+     * Get currency margin discount tiers for unified accounts
      * 
      * @return ApiResponse&lt;List&lt;UnifiedDiscount&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1867,7 +1867,7 @@ public class UnifiedApi {
     }
 
     /**
-     * Query unified account tiered (asynchronously)
+     * Get currency margin discount tiers for unified accounts (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -246,7 +246,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Order ID
+     * Order ID (txid).
      * @return txid
     **/
     @javax.annotation.Nullable
@@ -266,7 +266,7 @@ public class P2pTransactionDetail {
     }
 
      /**
-     * Order ID
+     * ID of the posted order (orderid).
      * @return orderid
     **/
     @javax.annotation.Nullable

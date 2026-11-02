@@ -320,7 +320,7 @@ public class StockApi {
 
         /**
          * Set exchange
-         * @param exchange Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. (optional)
+         * @param exchange Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks. (optional)
          * @return APIqueryStockSymbolsRequest
          */
         public APIqueryStockSymbolsRequest exchange(String exchange) {

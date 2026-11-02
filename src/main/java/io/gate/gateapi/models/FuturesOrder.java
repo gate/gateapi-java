@@ -109,7 +109,7 @@ public class FuturesOrder {
     private FinishAsEnum finishAs;
 
     /**
-     * Order status  - &#x60;open&#x60;: Pending - &#x60;finished&#x60;: Completed
+     * Order status:  - &#x60;open&#x60;: pending - &#x60;finished&#x60;: the order has ended
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -482,7 +482,7 @@ public class FuturesOrder {
 
 
      /**
-     * Order status  - &#x60;open&#x60;: Pending - &#x60;finished&#x60;: Completed
+     * Order status:  - &#x60;open&#x60;: pending - &#x60;finished&#x60;: the order has ended
      * @return status
     **/
     @javax.annotation.Nullable
@@ -517,7 +517,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Required. Trading quantity. Positive for buy, negative for sell. Set to 0 for close position orders.
+     * Required. Order size in contracts: positive to buy and negative to sell. Set to 0 for a closing order.
      * @return size
     **/
     public String getSize() {
@@ -699,7 +699,7 @@ public class FuturesOrder {
     }
 
      /**
-     * Taker fee
+     * Taker fee rate.
      * @return tkfr
     **/
     @javax.annotation.Nullable
@@ -709,7 +709,7 @@ public class FuturesOrder {
 
 
      /**
-     * Maker fee
+     * Maker fee rate.
      * @return mkfr
     **/
     @javax.annotation.Nullable

@@ -59,7 +59,7 @@ public class PatchUniLend {
     }
 
      /**
-     * Minimum interest rate
+     * Minimum hourly interest rate.
      * @return minRate
     **/
     @javax.annotation.Nullable

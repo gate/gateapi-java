@@ -54,7 +54,7 @@ public class Order {
     private Long updateTimeMs;
 
     /**
-     * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled
+     * Order status:  - &#x60;open&#x60;: pending - &#x60;closed&#x60;: ended - &#x60;cancelled&#x60;: cancelled
      */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -229,7 +229,7 @@ public class Order {
     private String price;
 
     /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;
+     * Time in force:  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, immediate execution or cancellation, taker-only - poc: PendingOrCancelled, post-only, maker-only - fok: FillOrKill, fill in full or cancel in full  For &#x60;type&#x3D;market&#x60;, only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported.
      */
     @JsonAdapter(TimeInForceEnum.Adapter.class)
     public enum TimeInForceEnum {
@@ -585,7 +585,7 @@ public class Order {
 
 
      /**
-     * Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: closed order - &#x60;cancelled&#x60;: cancelled
+     * Order status:  - &#x60;open&#x60;: pending - &#x60;closed&#x60;: ended - &#x60;cancelled&#x60;: cancelled
      * @return status
     **/
     @javax.annotation.Nullable
@@ -699,7 +699,7 @@ public class Order {
     }
 
      /**
-     * Trade amount When &#x60;type&#x60; is &#x60;limit&#x60;, this is the base currency to trade (the currency being bought or sold), e.g. &#x60;BTC&#x60; in &#x60;BTC_USDT&#x60;. When &#x60;type&#x60; is &#x60;market&#x60;, the meaning depends on the side: - &#x60;side&#x60;: &#x60;buy&#x60; refers to the quote currency, e.g. &#x60;USDT&#x60; in &#x60;BTC_USDT&#x60; - &#x60;side&#x60;: &#x60;sell&#x60; refers to the base currency, e.g. &#x60;BTC&#x60; in &#x60;BTC_USDT&#x60;
+     * Order amount.  - &#x60;type&#x3D;limit&#x60;: measured in the base currency. - &#x60;type&#x3D;market&#x60;: &#x60;side&#x3D;buy&#x60; uses the quote currency; &#x60;side&#x3D;sell&#x60; uses the base currency.  For &#x60;BTC_USDT&#x60;, the base currency is &#x60;BTC&#x60; and the quote currency is &#x60;USDT&#x60;.
      * @return amount
     **/
     public String getAmount() {
@@ -738,7 +738,7 @@ public class Order {
     }
 
      /**
-     * Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;
+     * Time in force:  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, immediate execution or cancellation, taker-only - poc: PendingOrCancelled, post-only, maker-only - fok: FillOrKill, fill in full or cancel in full  For &#x60;type&#x3D;market&#x60;, only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported.
      * @return timeInForce
     **/
     @javax.annotation.Nullable
@@ -758,7 +758,7 @@ public class Order {
     }
 
      /**
-     * Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported
+     * Displayed amount of an iceberg order. Omit this field or pass \&quot;0\&quot; for a regular order. Fully hidden orders are not supported.
      * @return iceberg
     **/
     @javax.annotation.Nullable

@@ -337,7 +337,7 @@ public class Trade {
     }
 
      /**
-     * Order price
+     * Trade price.
      * @return price
     **/
     @javax.annotation.Nullable

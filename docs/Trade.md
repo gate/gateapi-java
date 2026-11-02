@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **side** | [**SideEnum**](#SideEnum) | Buy or sell order |  [optional]
 **role** | [**RoleEnum**](#RoleEnum) | Trade role, not returned in public endpoints |  [optional]
 **amount** | **String** | Trade amount |  [optional]
-**price** | **String** | Order price |  [optional]
+**price** | **String** | Trade price. |  [optional]
 **orderId** | **String** | Related order ID, not returned in public endpoints |  [optional]
 **fee** | **String** | Fee deducted, not returned in public endpoints |  [optional]
 **feeCurrency** | **String** | Fee currency unit, not returned in public endpoints |  [optional]

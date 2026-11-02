@@ -274,7 +274,7 @@ public class Currency {
     }
 
      /**
-     * All links corresponding to coins
+     * All blockchains associated with this currency.
      * @return chains
     **/
     @javax.annotation.Nullable

@@ -4233,7 +4233,7 @@ public class OptionsApi {
     }
 
     /**
-     * MMP Reset
+     * Reset MMP for the specified underlying.
      * 
      * @param optionsMMPReset  (required)
      * @return OptionsMMP
@@ -4250,7 +4250,7 @@ public class OptionsApi {
     }
 
     /**
-     * MMP Reset
+     * Reset MMP for the specified underlying.
      * 
      * @param optionsMMPReset  (required)
      * @return ApiResponse&lt;OptionsMMP&gt;
@@ -4268,7 +4268,7 @@ public class OptionsApi {
     }
 
     /**
-     * MMP Reset (asynchronously)
+     * Reset MMP for the specified underlying. (asynchronously)
      * 
      * @param optionsMMPReset  (required)
      * @param _callback The callback to be executed when the API call finishes

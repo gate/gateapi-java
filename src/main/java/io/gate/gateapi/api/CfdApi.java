@@ -342,7 +342,7 @@ public class CfdApi {
 
         /**
          * Set symbols
-         * @param symbols List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required (optional)
+         * @param symbols Comma-separated instrument symbols. Provide at least one of symbols and category_code. (optional)
          * @return APIquerySymbolCommissionsRequest
          */
         public APIquerySymbolCommissionsRequest symbols(String symbols) {
@@ -2691,7 +2691,7 @@ public class CfdApi {
 
         /**
          * Set beginTime
-         * @param beginTime Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago (optional)
+         * @param beginTime Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago. (optional)
          * @return APIqueryPositionHistoryListRequest
          */
         public APIqueryPositionHistoryListRequest beginTime(Long beginTime) {

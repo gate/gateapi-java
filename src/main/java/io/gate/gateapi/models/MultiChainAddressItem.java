@@ -95,7 +95,7 @@ public class MultiChainAddressItem {
     }
 
      /**
-     * Notes that some currencies required(e.g., Tag, Memo) when depositing
+     * A memo required when depositing certain currencies, such as a Tag or Memo.
      * @return paymentId
     **/
     @javax.annotation.Nullable
@@ -135,7 +135,7 @@ public class MultiChainAddressItem {
     }
 
      /**
-     * The obtain failed status- 0: address successfully obtained- 1: failed to obtain address
+     * Whether address retrieval failed: 0 means success; 1 means failure and retrieval may need to be retried.
      * @return obtainFailed
     **/
     @javax.annotation.Nullable

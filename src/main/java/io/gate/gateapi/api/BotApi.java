@@ -1467,7 +1467,7 @@ public class BotApi {
     }
 
     /**
-     * Query the list of running policies
+     * List running strategies.
      * Query the list of AIHub strategies currently running by the user, and support filtering by strategy type, trading pair and paging conditions.
      * @return APIgetAIHubPortfolioRunningRequest
      * @http.response.details

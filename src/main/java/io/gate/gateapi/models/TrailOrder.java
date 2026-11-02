@@ -579,7 +579,7 @@ public class TrailOrder {
 
 
      /**
-     * Sub-order text field
+     * The child order&#39;s text field.
      * @return suborderText
     **/
     @javax.annotation.Nullable
@@ -609,7 +609,7 @@ public class TrailOrder {
 
 
      /**
-     * Sub-order ID
+     * Child order ID.
      * @return suborderId
     **/
     @javax.annotation.Nullable

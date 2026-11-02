@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Update auto invest plan request
+ * Request to update an auto-invest plan. The current model contains plan_id, fund_source, and fund_flow.
  */
 public class AutoInvestPlanUpdate {
     public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";

@@ -131,7 +131,7 @@ public class PlaceOrderRequest {
     }
 
      /**
-     * Slippage tolerance (10 means 10% tolerance)
+     * Slippage percentage: \&quot;10\&quot; means 10%.
      * @return slippage
     **/
     @javax.annotation.Nullable

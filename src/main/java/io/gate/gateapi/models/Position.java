@@ -708,7 +708,7 @@ public class Position {
 
 
      /**
-     * Sub-account position ID
+     * Split-position ID.
      * @return pid
     **/
     @javax.annotation.Nullable

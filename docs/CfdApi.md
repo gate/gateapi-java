@@ -180,7 +180,7 @@ public class Example {
         defaultClient.setApiKeySecret("YOUR_API_KEY", "YOUR_API_SECRET");
 
         CfdApi apiInstance = new CfdApi(defaultClient);
-        String symbols = "AUDUSD,XAUUSD"; // String | List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required
+        String symbols = "AUDUSD,XAUUSD"; // String | Comma-separated instrument symbols. Provide at least one of symbols and category_code.
         String categoryCode = "forex-外汇,metal-金属,index-指数,commodity-大宗商品,stock-股票"; // String | List of category codes (multiple codes separated by commas). When provided together with symbols, filters symbols by category. At least one of symbol and category_code is required
         try {
             SymbolCommissions result = apiInstance.querySymbolCommissions()
@@ -205,7 +205,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **symbols** | **String**| List of symbol codes (multiple codes separated by commas). At least one of symbol and category_code is required | [optional]
+ **symbols** | **String**| Comma-separated instrument symbols. Provide at least one of symbols and category_code. | [optional]
  **categoryCode** | **String**| List of category codes (multiple codes separated by commas). When provided together with symbols, filters symbols by category. At least one of symbol and category_code is required | [optional]
 
 ### Return type
@@ -1442,7 +1442,7 @@ public class Example {
         CfdApi apiInstance = new CfdApi(defaultClient);
         Long page = 1L; // Long | Page number; defaults to 1 if omitted.
         Long pageSize = 10L; // Long | Page size; defaults to 10 if omitted. Maximum 100.
-        Long beginTime = 56L; // Long | Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago
+        Long beginTime = 56L; // Long | Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago.
         Long endTime = 56L; // Long | End time (timestamp in seconds)
         String symbol = "symbol_example"; // String | Trading symbol (e.g., EURUSD)
         String positionDir = "positionDir_example"; // String | Position direction (Long=long position, Short=short position)
@@ -1475,7 +1475,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Long**| Page number; defaults to 1 if omitted. | [optional]
  **pageSize** | **Long**| Page size; defaults to 10 if omitted. Maximum 100. | [optional]
- **beginTime** | **Long**| Start Time (Unix Timestamp, seconds). The earliest queryable time is one month ago | [optional]
+ **beginTime** | **Long**| Start time as a Unix timestamp in seconds. The earliest supported start time is one month ago. | [optional]
  **endTime** | **Long**| End time (timestamp in seconds) | [optional]
  **symbol** | **String**| Trading symbol (e.g., EURUSD) | [optional]
  **positionDir** | **String**| Position direction (Long&#x3D;long position, Short&#x3D;short position) | [optional] [enum: Long, Short]

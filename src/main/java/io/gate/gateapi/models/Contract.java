@@ -1017,7 +1017,7 @@ public class Contract {
     }
 
      /**
-     * Whether portfolio margin account is enabled
+     * Whether this contract supports unified accounts.
      * @return enableCredit
     **/
     @javax.annotation.Nullable
@@ -1097,7 +1097,7 @@ public class Contract {
     }
 
      /**
-     * Contract expiry timestamp
+     * Contract trading start time.
      * @return launchTime
     **/
     @javax.annotation.Nullable

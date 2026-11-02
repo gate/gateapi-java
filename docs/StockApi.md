@@ -124,7 +124,7 @@ public class Example {
 
         StockApi apiInstance = new StockApi(defaultClient);
         String symbols = "AAPL,TSLA"; // String | Symbol list, multiple separated by commas
-        String exchange = "us"; // String | Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks.
+        String exchange = "us"; // String | Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks.
         Boolean withDescI18n = true; // Boolean | Whether to return multilingual symbol description
         Integer page = 1; // Integer | Page number, defaults to 1
         Integer pageSize = 100; // Integer | Page size, defaults to 10, max 500; server caps at 500
@@ -155,7 +155,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbols** | **String**| Symbol list, multiple separated by commas | [optional]
- **exchange** | **String**| Exchange. - us: US stocks. - hk: Hong Kong stocks. - kr: Korean stocks. - jp: Japanese stocks. | [optional] [enum: us, hk, kr, jp]
+ **exchange** | **String**| Trading market code. - us: US stocks. - hk: Hong Kong stocks. - kr: South Korean stocks. - jp: Japanese stocks. | [optional] [enum: us, hk, kr, jp]
  **withDescI18n** | **Boolean**| Whether to return multilingual symbol description | [optional]
  **page** | **Integer**| Page number, defaults to 1 | [optional]
  **pageSize** | **Integer**| Page size, defaults to 10, max 500; server caps at 500 | [optional]

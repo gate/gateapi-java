@@ -2686,7 +2686,7 @@ Name | Type | Description  | Notes
 
 Query futures order list
 
-- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
+- Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
 
 ### Example
 
@@ -2771,7 +2771,7 @@ Name | Type | Description  | Notes
 
 Place futures order
 
-- When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual warehouse mode,   - Reduce position: reduce_only&#x3D;true, size is a positive number that indicates short position, negative number that indicates long position  - Add number that indicates adding long positions, and negative numbers indicate adding short positions  - Close position: size&#x3D;0, set the direction of closing position according to auto_size, and set &#x60;reduce_only&#x60; to true  at the same time - reduce_only: Make sure to only perform position reduction operations to prevent increased positions - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
+- When placing an order, the number of contracts is specified &#x60;size&#x60;, not the number of coins. The number of coins corresponding to each contract is returned in the contract details interface &#x60;quanto_multiplier&#x60; - 0 The order that was completed cannot be obtained after 10 minutes of withdrawal, and the order will be mentioned that the order does not exist - Setting &#x60;reduce_only&#x60; to &#x60;true&#x60; can prevent the position from being penetrated when reducing the position - In single-position mode, if you need to close the position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In hedge mode:   - Reduce a position: with &#x60;reduce_only&#x3D;true&#x60;, a positive &#x60;size&#x60; reduces the short position and a negative &#x60;size&#x60; reduces the long position.   - Increase a position: with &#x60;reduce_only&#x3D;false&#x60;, a positive &#x60;size&#x60; increases the long position and a negative &#x60;size&#x60; increases the short position.   - Close a position: set &#x60;size&#x3D;0&#x60;, select the closing side with &#x60;auto_size&#x60;, and set &#x60;reduce_only&#x3D;true&#x60;.   - &#x60;reduce_only&#x60; ensures position reduction only and prevents increasing the position. - Set &#x60;stp_act&#x60; to determine the use of a strategy that restricts user transactions. For detailed usage, refer to the body parameter &#x60;stp_act&#x60;
 
 ### Example
 
@@ -3085,7 +3085,7 @@ Name | Type | Description  | Notes
 
 Query single order details
 
-- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
+- Cancelled orders with no fills are no longer retrievable through this endpoint 10 minutes after cancellation. - Historical orders, by default, only data within the past 6 months is supported. 
 
 ### Example
 
@@ -3505,7 +3505,7 @@ public class Example {
         Integer offset = 0; // Integer | List offset, starting from 0
         Long from = 1547706332L; // Long | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit)
         Long to = 1547706332L; // Long | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp
-        String side = "short"; // String | Query side. long or shot
+        String side = "short"; // String | Direction filter: long or short.
         String pnl = "profit"; // String | Query profit or loss
         try {
             List<PositionClose> result = apiInstance.listPositionClose(settle)
@@ -3541,7 +3541,7 @@ Name | Type | Description  | Notes
  **offset** | **Integer**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **Long**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional]
  **to** | **Long**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional]
- **side** | **String**| Query side. long or shot | [optional]
+ **side** | **String**| Direction filter: long or short. | [optional]
  **pnl** | **String**| Query profit or loss | [optional]
 
 ### Return type
@@ -4382,7 +4382,7 @@ Name | Type | Description  | Notes
 
 <a name="getTrailOrders"></a>
 # **getTrailOrders**
-> TrailOrderListResponse getTrailOrders(settle).contract(contract).isFinished(isFinished).startAt(startAt).endAt(endAt).pageNum(pageNum).pageSize(pageSize).sortBy(sortBy).hideCancel(hideCancel).relatedPosition(relatedPosition).sortByTrigger(sortByTrigger).reduceOnly(reduceOnly).side(side).execute();
+> TrailOrderListResponseEnvelope getTrailOrders(settle).contract(contract).isFinished(isFinished).startAt(startAt).endAt(endAt).pageNum(pageNum).pageSize(pageSize).sortBy(sortBy).hideCancel(hideCancel).relatedPosition(relatedPosition).sortByTrigger(sortByTrigger).reduceOnly(reduceOnly).side(side).execute();
 
 Get trail order list
 
@@ -4421,7 +4421,7 @@ public class Example {
         Integer reduceOnly = 56; // Integer | Whether reduce only, 1-yes, 2-no
         Integer side = 56; // Integer | Direction, 1-long position, 2-short position
         try {
-            TrailOrderListResponse result = apiInstance.getTrailOrders(settle)
+            TrailOrderListResponseEnvelope result = apiInstance.getTrailOrders(settle)
                         .contract(contract)
                         .isFinished(isFinished)
                         .startAt(startAt)
@@ -4469,7 +4469,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderListResponse**](TrailOrderListResponse.md)
+[**TrailOrderListResponseEnvelope**](TrailOrderListResponseEnvelope.md)
 
 ### Authorization
 
@@ -4940,7 +4940,7 @@ public class Example {
 
         FuturesApi apiInstance = new FuturesApi(defaultClient);
         String settle = "usdt"; // String | Perpetual futures settlement currency
-        Integer sortBy = 56; // Integer | Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0
+        Integer sortBy = 56; // Integer | Sort field: 1 for creation time; 2 for finish time. 0 is not accepted.
         String contract = "contract_example"; // String | Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase
         Boolean isFinished = true; // Boolean | true to query finished orders, false to query in-progress orders
         Long startAt = 56L; // Long | Lower time bound for the history list, paired with end_at. Required when is_finished is true
@@ -4981,7 +4981,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **String**| Perpetual futures settlement currency | [enum: btc, usdt, usd1]
- **sortBy** | **Integer**| Sort field: 1 ORDER_SORT_CREATED_AT, 2 ORDER_SORT_FINISHED_AT; cannot be 0 | [enum: 1, 2]
+ **sortBy** | **Integer**| Sort field: 1 for creation time; 2 for finish time. 0 is not accepted. | [enum: 1, 2]
  **contract** | **String**| Optional. When non-empty, must be a valid contract (validated against the market cache for the path settle); server-side converted to uppercase | [optional]
  **isFinished** | **Boolean**| true to query finished orders, false to query in-progress orders | [optional]
  **startAt** | **Long**| Lower time bound for the history list, paired with end_at. Required when is_finished is true | [optional]
@@ -5369,6 +5369,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Auto order details |  -  |
+**205** | Business error response when the price-triggered order does not exist (HTTP 205). |  -  |
 
 <a name="cancelPriceTriggeredOrder"></a>
 # **cancelPriceTriggeredOrder**

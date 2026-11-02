@@ -71,7 +71,7 @@ public class QuickRepaymentResponse {
     }
 
      /**
-     * Repaid currency details
+     * Repayment currency details: currency is the currency name, repaid is the amount repaid, and left is the remaining liability amount.
      * @return repaidInfos
     **/
     public List<UnifiedQuickRepayRepaidInfo> getRepaidInfos() {
@@ -95,7 +95,7 @@ public class QuickRepaymentResponse {
     }
 
      /**
-     * Currencies used for repayment
+     * Details of currencies used for repayment: currency is the currency name, and used is the amount exchanged.
      * @return usedInfos
     **/
     public List<UnifiedQuickRepayUsedInfo> getUsedInfos() {
