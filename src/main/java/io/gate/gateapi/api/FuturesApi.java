@@ -75,7 +75,6 @@ import io.gate.gateapi.models.TrailOrderChangeLogResponse;
 import io.gate.gateapi.models.TrailOrderDetailResponse;
 import io.gate.gateapi.models.TrailOrderListResponse;
 import io.gate.gateapi.models.TrailOrderListResponseEnvelope;
-import io.gate.gateapi.models.TrailOrderResponse;
 import io.gate.gateapi.models.TriggerOrderResponse;
 import io.gate.gateapi.models.TriggerTime;
 import io.gate.gateapi.models.UpdateDualCompPositionCrossModeRequest;
@@ -8925,7 +8924,7 @@ public class FuturesApi {
      * 
      * @param settle Perpetual futures settlement currency (required)
      * @param stopTrailOrder  (required)
-     * @return TrailOrderResponse
+     * @return TrailOrderDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8933,8 +8932,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public TrailOrderResponse stopTrailOrder(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
-        ApiResponse<TrailOrderResponse> localVarResp = stopTrailOrderWithHttpInfo(settle, stopTrailOrder);
+    public TrailOrderDetailResponse stopTrailOrder(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
+        ApiResponse<TrailOrderDetailResponse> localVarResp = stopTrailOrderWithHttpInfo(settle, stopTrailOrder);
         return localVarResp.getData();
     }
 
@@ -8943,7 +8942,7 @@ public class FuturesApi {
      * 
      * @param settle Perpetual futures settlement currency (required)
      * @param stopTrailOrder  (required)
-     * @return ApiResponse&lt;TrailOrderResponse&gt;
+     * @return ApiResponse&lt;TrailOrderDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -8951,9 +8950,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrailOrderResponse> stopTrailOrderWithHttpInfo(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
+    public ApiResponse<TrailOrderDetailResponse> stopTrailOrderWithHttpInfo(String settle, StopTrailOrder stopTrailOrder) throws ApiException {
         okhttp3.Call localVarCall = stopTrailOrderValidateBeforeCall(settle, stopTrailOrder, null);
-        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -8971,9 +8970,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopTrailOrderAsync(String settle, StopTrailOrder stopTrailOrder, final ApiCallback<TrailOrderResponse> _callback) throws ApiException {
+    public okhttp3.Call stopTrailOrderAsync(String settle, StopTrailOrder stopTrailOrder, final ApiCallback<TrailOrderDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = stopTrailOrderValidateBeforeCall(settle, stopTrailOrder, _callback);
-        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9597,7 +9596,7 @@ public class FuturesApi {
      * 
      * @param settle Perpetual futures settlement currency (required)
      * @param updateTrailOrder  (required)
-     * @return TrailOrderResponse
+     * @return TrailOrderDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9605,8 +9604,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public TrailOrderResponse updateTrailOrder(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
-        ApiResponse<TrailOrderResponse> localVarResp = updateTrailOrderWithHttpInfo(settle, updateTrailOrder);
+    public TrailOrderDetailResponse updateTrailOrder(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
+        ApiResponse<TrailOrderDetailResponse> localVarResp = updateTrailOrderWithHttpInfo(settle, updateTrailOrder);
         return localVarResp.getData();
     }
 
@@ -9615,7 +9614,7 @@ public class FuturesApi {
      * 
      * @param settle Perpetual futures settlement currency (required)
      * @param updateTrailOrder  (required)
-     * @return ApiResponse&lt;TrailOrderResponse&gt;
+     * @return ApiResponse&lt;TrailOrderDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9623,9 +9622,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrailOrderResponse> updateTrailOrderWithHttpInfo(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
+    public ApiResponse<TrailOrderDetailResponse> updateTrailOrderWithHttpInfo(String settle, UpdateTrailOrder updateTrailOrder) throws ApiException {
         okhttp3.Call localVarCall = updateTrailOrderValidateBeforeCall(settle, updateTrailOrder, null);
-        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -9643,9 +9642,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Updated successfully </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTrailOrderAsync(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback<TrailOrderResponse> _callback) throws ApiException {
+    public okhttp3.Call updateTrailOrderAsync(String settle, UpdateTrailOrder updateTrailOrder, final ApiCallback<TrailOrderDetailResponse> _callback) throws ApiException {
         okhttp3.Call localVarCall = updateTrailOrderValidateBeforeCall(settle, updateTrailOrder, _callback);
-        Type localVarReturnType = new TypeToken<TrailOrderResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

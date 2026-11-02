@@ -7,7 +7,7 @@ Trail order modification records
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**updatedAt** | **Long** | Update time |  [optional] [readonly]
+**updatedAt** | **String** | Update time |  [optional] [readonly]
 **amount** | **String** | Trading quantity in contracts, positive for buy, negative for sell |  [optional] [readonly]
 **isGte** | **Boolean** | true: activate when market price &gt;&#x3D; activation price, false: &lt;&#x3D; activation price |  [optional] [readonly]
 **activationPrice** | **String** | Activation price, 0 means trigger immediately |  [optional] [readonly]

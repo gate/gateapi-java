@@ -2,8 +2,8 @@
 
 Gate API
 
-- API version: v4.106.177
-- SDK version: 7.2.177
+- API version: v4.106.178
+- SDK version: 7.2.178
 
 Welcome to Gate API
 APIv4 provides operations related to spot, margin, and contract trading, including public interfaces for querying market data and authenticated private interfaces for implementing API-based automated trading.
@@ -52,7 +52,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>io.gate</groupId>
     <artifactId>gate-api</artifactId>
-    <version>7.2.177</version>
+    <version>7.2.178</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -62,7 +62,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.gate:gate-api:7.2.177"
+compile "io.gate:gate-api:7.2.178"
 ```
 
 ### Others
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/gate-api-7.2.177.jar`
+* `target/gate-api-7.2.178.jar`
 * `target/lib/*.jar`
 
 To install the API client library to your local Maven repository, simply execute:
@@ -1354,6 +1354,7 @@ Class | Method | HTTP request | Description
  - [TradeFee](docs/TradeFee.md)
  - [TrailChangeLog](docs/TrailChangeLog.md)
  - [TrailOrder](docs/TrailOrder.md)
+ - [TrailOrderChangeLogData](docs/TrailOrderChangeLogData.md)
  - [TrailOrderChangeLogResponse](docs/TrailOrderChangeLogResponse.md)
  - [TrailOrderDetailResponse](docs/TrailOrderDetailResponse.md)
  - [TrailOrderListResponse](docs/TrailOrderListResponse.md)

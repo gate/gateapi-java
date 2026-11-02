@@ -5,5 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**changeLog** | [**List&lt;TrailChangeLog&gt;**](TrailChangeLog.md) |  |  [optional]
+**code** | **Integer** | Status code, 0 means success |  [optional]
+**message** | **String** | Response message |  [optional]
+**data** | [**TrailOrderChangeLogData**](TrailOrderChangeLogData.md) |  |  [optional]
+**timestamp** | **Long** | Response timestamp (milliseconds) |  [optional]
 

@@ -4242,7 +4242,7 @@ Name | Type | Description  | Notes
 
 <a name="stopTrailOrder"></a>
 # **stopTrailOrder**
-> TrailOrderResponse stopTrailOrder(settle, stopTrailOrder)
+> TrailOrderDetailResponse stopTrailOrder(settle, stopTrailOrder)
 
 Terminate trail order
 
@@ -4270,7 +4270,7 @@ public class Example {
         String settle = "usdt"; // String | Perpetual futures settlement currency
         StopTrailOrder stopTrailOrder = new StopTrailOrder(); // StopTrailOrder | 
         try {
-            TrailOrderResponse result = apiInstance.stopTrailOrder(settle, stopTrailOrder);
+            TrailOrderDetailResponse result = apiInstance.stopTrailOrder(settle, stopTrailOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4294,7 +4294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderResponse**](TrailOrderResponse.md)
+[**TrailOrderDetailResponse**](TrailOrderDetailResponse.md)
 
 ### Authorization
 
@@ -4557,7 +4557,7 @@ Name | Type | Description  | Notes
 
 <a name="updateTrailOrder"></a>
 # **updateTrailOrder**
-> TrailOrderResponse updateTrailOrder(settle, updateTrailOrder)
+> TrailOrderDetailResponse updateTrailOrder(settle, updateTrailOrder)
 
 Update trail order
 
@@ -4585,7 +4585,7 @@ public class Example {
         String settle = "usdt"; // String | Perpetual futures settlement currency
         UpdateTrailOrder updateTrailOrder = new UpdateTrailOrder(); // UpdateTrailOrder | 
         try {
-            TrailOrderResponse result = apiInstance.updateTrailOrder(settle, updateTrailOrder);
+            TrailOrderDetailResponse result = apiInstance.updateTrailOrder(settle, updateTrailOrder);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4609,7 +4609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderResponse**](TrailOrderResponse.md)
+[**TrailOrderDetailResponse**](TrailOrderDetailResponse.md)
 
 ### Authorization
 

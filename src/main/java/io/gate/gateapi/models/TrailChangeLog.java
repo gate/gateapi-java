@@ -25,7 +25,7 @@ import java.io.IOException;
 public class TrailChangeLog {
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    private Long updatedAt;
+    private String updatedAt;
 
     public static final String SERIALIZED_NAME_AMOUNT = "amount";
     @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -108,7 +108,7 @@ public class TrailChangeLog {
      * @return updatedAt
     **/
     @javax.annotation.Nullable
-    public Long getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 

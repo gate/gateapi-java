@@ -17,46 +17,108 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.gate.gateapi.models.TrailChangeLog;
+import io.gate.gateapi.models.TrailOrderChangeLogData;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * TrailOrderChangeLogResponse
  */
 public class TrailOrderChangeLogResponse {
-    public static final String SERIALIZED_NAME_CHANGE_LOG = "change_log";
-    @SerializedName(SERIALIZED_NAME_CHANGE_LOG)
-    private List<TrailChangeLog> changeLog = null;
+    public static final String SERIALIZED_NAME_CODE = "code";
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private Integer code;
+
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
+
+    public static final String SERIALIZED_NAME_DATA = "data";
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private TrailOrderChangeLogData data;
+
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    private Long timestamp;
 
 
-    public TrailOrderChangeLogResponse changeLog(List<TrailChangeLog> changeLog) {
+    public TrailOrderChangeLogResponse code(Integer code) {
         
-        this.changeLog = changeLog;
-        return this;
-    }
-
-    public TrailOrderChangeLogResponse addChangeLogItem(TrailChangeLog changeLogItem) {
-        if (this.changeLog == null) {
-            this.changeLog = new ArrayList<>();
-        }
-        this.changeLog.add(changeLogItem);
+        this.code = code;
         return this;
     }
 
      /**
-     * Get changeLog
-     * @return changeLog
+     * Status code, 0 means success
+     * @return code
     **/
     @javax.annotation.Nullable
-    public List<TrailChangeLog> getChangeLog() {
-        return changeLog;
+    public Integer getCode() {
+        return code;
     }
 
 
-    public void setChangeLog(List<TrailChangeLog> changeLog) {
-        this.changeLog = changeLog;
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public TrailOrderChangeLogResponse message(String message) {
+        
+        this.message = message;
+        return this;
+    }
+
+     /**
+     * Response message
+     * @return message
+    **/
+    @javax.annotation.Nullable
+    public String getMessage() {
+        return message;
+    }
+
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public TrailOrderChangeLogResponse data(TrailOrderChangeLogData data) {
+        
+        this.data = data;
+        return this;
+    }
+
+     /**
+     * Get data
+     * @return data
+    **/
+    @javax.annotation.Nullable
+    public TrailOrderChangeLogData getData() {
+        return data;
+    }
+
+
+    public void setData(TrailOrderChangeLogData data) {
+        this.data = data;
+    }
+
+    public TrailOrderChangeLogResponse timestamp(Long timestamp) {
+        
+        this.timestamp = timestamp;
+        return this;
+    }
+
+     /**
+     * Response timestamp (milliseconds)
+     * @return timestamp
+    **/
+    @javax.annotation.Nullable
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,12 +129,15 @@ public class TrailOrderChangeLogResponse {
             return false;
         }
         TrailOrderChangeLogResponse trailOrderChangeLogResponse = (TrailOrderChangeLogResponse) o;
-        return Objects.equals(this.changeLog, trailOrderChangeLogResponse.changeLog);
+        return Objects.equals(this.code, trailOrderChangeLogResponse.code) &&
+                Objects.equals(this.message, trailOrderChangeLogResponse.message) &&
+                Objects.equals(this.data, trailOrderChangeLogResponse.data) &&
+                Objects.equals(this.timestamp, trailOrderChangeLogResponse.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(changeLog);
+        return Objects.hash(code, message, data, timestamp);
     }
 
 
@@ -80,7 +145,10 @@ public class TrailOrderChangeLogResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class TrailOrderChangeLogResponse {\n");
-        sb.append("      changeLog: ").append(toIndentedString(changeLog)).append("\n");
+        sb.append("      code: ").append(toIndentedString(code)).append("\n");
+        sb.append("      message: ").append(toIndentedString(message)).append("\n");
+        sb.append("      data: ").append(toIndentedString(data)).append("\n");
+        sb.append("      timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }
