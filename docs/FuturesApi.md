@@ -4312,7 +4312,7 @@ Name | Type | Description  | Notes
 
 <a name="stopAllTrailOrders"></a>
 # **stopAllTrailOrders**
-> TrailOrderListResponse stopAllTrailOrders(settle, stopAllTrailOrders)
+> TrailOrderListResponseEnvelope stopAllTrailOrders(settle, stopAllTrailOrders)
 
 Batch terminate trail orders
 
@@ -4340,7 +4340,7 @@ public class Example {
         String settle = "usdt"; // String | Perpetual futures settlement currency
         StopAllTrailOrders stopAllTrailOrders = new StopAllTrailOrders(); // StopAllTrailOrders | 
         try {
-            TrailOrderListResponse result = apiInstance.stopAllTrailOrders(settle, stopAllTrailOrders);
+            TrailOrderListResponseEnvelope result = apiInstance.stopAllTrailOrders(settle, stopAllTrailOrders);
             System.out.println(result);
         } catch (GateApiException e) {
             System.err.println(String.format("Gate api exception, label: %s, message: %s", e.getErrorLabel(), e.getMessage()));
@@ -4364,7 +4364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TrailOrderListResponse**](TrailOrderListResponse.md)
+[**TrailOrderListResponseEnvelope**](TrailOrderListResponseEnvelope.md)
 
 ### Authorization
 

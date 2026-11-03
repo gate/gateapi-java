@@ -62,7 +62,6 @@ public class UpdateOrderData {
      * Order ID
      * @return orderId
     **/
-    @javax.annotation.Nullable
     public Long getOrderId() {
         return orderId;
     }
@@ -82,7 +81,6 @@ public class UpdateOrderData {
      * Currency pair
      * @return symbol
     **/
-    @javax.annotation.Nullable
     public String getSymbol() {
         return symbol;
     }
@@ -102,7 +100,6 @@ public class UpdateOrderData {
      * Order status code
      * @return state
     **/
-    @javax.annotation.Nullable
     public String getState() {
         return state;
     }
@@ -122,7 +119,6 @@ public class UpdateOrderData {
      * Order quantity
      * @return volume
     **/
-    @javax.annotation.Nullable
     public String getVolume() {
         return volume;
     }
@@ -142,7 +138,6 @@ public class UpdateOrderData {
      * Current price
      * @return price
     **/
-    @javax.annotation.Nullable
     public String getPrice() {
         return price;
     }
@@ -162,7 +157,6 @@ public class UpdateOrderData {
      * Current take profit price
      * @return priceTp
     **/
-    @javax.annotation.Nullable
     public String getPriceTp() {
         return priceTp;
     }
@@ -182,7 +176,6 @@ public class UpdateOrderData {
      * Current stop loss price
      * @return priceSl
     **/
-    @javax.annotation.Nullable
     public String getPriceSl() {
         return priceSl;
     }

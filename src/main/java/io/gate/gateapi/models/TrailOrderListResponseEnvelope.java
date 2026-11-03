@@ -108,7 +108,7 @@ public class TrailOrderListResponseEnvelope {
     }
 
      /**
-     * Response timestamp in microseconds.
+     * Response timestamp (milliseconds)
      * @return timestamp
     **/
     @javax.annotation.Nullable

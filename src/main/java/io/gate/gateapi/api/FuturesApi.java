@@ -73,7 +73,6 @@ import io.gate.gateapi.models.StopChaseOrderResp;
 import io.gate.gateapi.models.StopTrailOrder;
 import io.gate.gateapi.models.TrailOrderChangeLogResponse;
 import io.gate.gateapi.models.TrailOrderDetailResponse;
-import io.gate.gateapi.models.TrailOrderListResponse;
 import io.gate.gateapi.models.TrailOrderListResponseEnvelope;
 import io.gate.gateapi.models.TriggerOrderResponse;
 import io.gate.gateapi.models.TriggerTime;
@@ -9041,7 +9040,7 @@ public class FuturesApi {
      * 
      * @param settle Perpetual futures settlement currency (required)
      * @param stopAllTrailOrders  (required)
-     * @return TrailOrderListResponse
+     * @return TrailOrderListResponseEnvelope
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9049,8 +9048,8 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public TrailOrderListResponse stopAllTrailOrders(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
-        ApiResponse<TrailOrderListResponse> localVarResp = stopAllTrailOrdersWithHttpInfo(settle, stopAllTrailOrders);
+    public TrailOrderListResponseEnvelope stopAllTrailOrders(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
+        ApiResponse<TrailOrderListResponseEnvelope> localVarResp = stopAllTrailOrdersWithHttpInfo(settle, stopAllTrailOrders);
         return localVarResp.getData();
     }
 
@@ -9059,7 +9058,7 @@ public class FuturesApi {
      * 
      * @param settle Perpetual futures settlement currency (required)
      * @param stopAllTrailOrders  (required)
-     * @return ApiResponse&lt;TrailOrderListResponse&gt;
+     * @return ApiResponse&lt;TrailOrderListResponseEnvelope&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -9067,9 +9066,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TrailOrderListResponse> stopAllTrailOrdersWithHttpInfo(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
+    public ApiResponse<TrailOrderListResponseEnvelope> stopAllTrailOrdersWithHttpInfo(String settle, StopAllTrailOrders stopAllTrailOrders) throws ApiException {
         okhttp3.Call localVarCall = stopAllTrailOrdersValidateBeforeCall(settle, stopAllTrailOrders, null);
-        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponseEnvelope>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -9087,9 +9086,9 @@ public class FuturesApi {
         <tr><td> 200 </td><td> Termination successful </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopAllTrailOrdersAsync(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback<TrailOrderListResponse> _callback) throws ApiException {
+    public okhttp3.Call stopAllTrailOrdersAsync(String settle, StopAllTrailOrders stopAllTrailOrders, final ApiCallback<TrailOrderListResponseEnvelope> _callback) throws ApiException {
         okhttp3.Call localVarCall = stopAllTrailOrdersValidateBeforeCall(settle, stopAllTrailOrders, _callback);
-        Type localVarReturnType = new TypeToken<TrailOrderListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<TrailOrderListResponseEnvelope>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
